@@ -1,0 +1,7 @@
+additionalProperties:
+  packageName: "is.belong.edgeserversdk"
+  library: "jvm-retrofit2"
+  serializationLibrary: "moshi"
+  dateLibrary: "java8"
+  enumPropertyNaming: "original"
+  modelPropertyNaming: "original"

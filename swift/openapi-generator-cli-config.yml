@@ -1,0 +1,5 @@
+additionalProperties:
+  projectName: "BelongSDK"
+  responseAs: "AsyncAwait"
+  useSPMFileStructure: true
+  swiftUseApiNamespace: false
