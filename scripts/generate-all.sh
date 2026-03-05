@@ -11,6 +11,13 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TMP_DIR="/tmp/edge-sdk-gen"
 GEN_CLI="npx --yes @openapitools/openapi-generator-cli@2.23.3"
 
+if [[ -f "$ROOT_DIR/.env.local" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$ROOT_DIR/.env.local"
+  set +a
+fi
+
 cd "$ROOT_DIR"
 
 ./scripts/fetch-openapi.sh "$VERSION"

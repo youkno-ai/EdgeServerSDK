@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ -f "$ROOT_DIR/.env.local" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$ROOT_DIR/.env.local"
+  set +a
+fi
+cd "$ROOT_DIR"
+
 VERSION="${1:-latest}"
 VERSIONS_INDEX_URL="${VERSIONS_INDEX_URL:-https://belong-openapi.web.app/api/versions.json}"
 OPENAPI_SPEC_URL_TEMPLATE="${OPENAPI_SPEC_URL_TEMPLATE:-https://belong-openapi.web.app/api/<VERSION>/openapi.json}"

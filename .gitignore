@@ -9,6 +9,10 @@ spec/versions.json
 spec/version-metadata.json
 swift/openapi.json
 
+# Local secrets
+.env.local
+.secrets/
+
 # Node
 node_modules/
 ts/node_modules/

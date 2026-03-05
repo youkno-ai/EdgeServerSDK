@@ -32,14 +32,22 @@ You can override URLs via `VERSIONS_INDEX_URL` and `OPENAPI_SPEC_URL_TEMPLATE`.
 
 ## Local workflow
 
-1. Generate all SDKs for a version:
+1. Configure local secrets (optional for generate/build, required for publish):
+
+```bash
+cp .env.local.example .env.local
+```
+
+`scripts/*` and `make` auto-load `.env.local`.
+
+2. Generate all SDKs for a version:
 
 ```bash
 ./scripts/generate-all.sh 1.20.2271
 ./scripts/generate-all.sh latest
 ```
 
-2. Build packages:
+3. Build packages:
 
 ```bash
 (cd ts && npm ci && npm run build)
@@ -47,7 +55,7 @@ You can override URLs via `VERSIONS_INDEX_URL` and `OPENAPI_SPEC_URL_TEMPLATE`.
 (cd swift && swift build)
 ```
 
-3. Release (commit + tag):
+4. Release (commit + tag):
 
 ```bash
 ./scripts/release.sh 1.20.2271
@@ -62,6 +70,29 @@ This creates two tags:
 - npm: `@belong/sdk` published by pipeline using `NPM_TOKEN`
 - Maven Central: `is.belong:edge-server-sdk` published by Gradle (`SONATYPE_*`, `SIGNING_*`)
 - SwiftPM: distributed by semver tag `<VERSION>`
+
+### CI secrets and local file alternatives
+
+| CI secret | Local file alternative (`.env.local`) | Notes |
+|---|---|---|
+| `NPM_TOKEN` | `NPM_TOKEN=...` | Used by `make publish-ts`. |
+| `SONATYPE_USERNAME` | `SONATYPE_USERNAME=...` | Used by `make publish-kotlin`. |
+| `SONATYPE_PASSWORD` | `SONATYPE_PASSWORD=...` | Used by `make publish-kotlin`. |
+| `SIGNING_PASSWORD` | `SIGNING_PASSWORD=...` | Passphrase for GPG key. |
+| `SIGNING_KEY` | `SIGNING_KEY=...` or `SIGNING_KEY_FILE=.secrets/maven-signing-key.asc` | `SIGNING_KEY_FILE` is recommended for local use. |
+
+### Make targets
+
+```bash
+make help
+make fetch VERSION=latest
+make generate VERSION=1.20.2271
+make build
+make publish-ts
+make publish-kotlin
+make deploy
+make release VERSION=1.20.2271
+```
 
 ## Required tools
 
