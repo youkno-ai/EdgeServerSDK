@@ -12,9 +12,10 @@ VERSION ?= latest
 
 help:
 	@echo "Usage: make <target> [VERSION=1.20.2271]"
+	@echo "If VERSION is omitted, latest is resolved from /api/versions.json."
 	@echo ""
 	@echo "Targets:"
-	@echo "  fetch          Download openapi.json for VERSION (or latest)"
+	@echo "  fetch          Download openapi.json for VERSION (defaults to latest)"
 	@echo "  generate       Generate TS, Kotlin, Swift SDK sources"
 	@echo "  build          Build all SDKs locally"
 	@echo "  build-ts       Build TypeScript SDK"

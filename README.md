@@ -43,6 +43,7 @@ cp .env.local.example .env.local
 2. Generate all SDKs for a version:
 
 ```bash
+./scripts/generate-all.sh
 ./scripts/generate-all.sh 1.20.2271
 ./scripts/generate-all.sh latest
 ```
@@ -58,6 +59,7 @@ cp .env.local.example .env.local
 4. Release (commit + tag):
 
 ```bash
+./scripts/release.sh
 ./scripts/release.sh 1.20.2271
 ```
 

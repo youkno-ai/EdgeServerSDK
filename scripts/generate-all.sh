@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="${1:-}"
-if [[ -z "$VERSION" ]]; then
-  echo "Usage: $0 <VERSION>" >&2
-  exit 1
-fi
+VERSION="${1:-latest}"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TMP_DIR="/tmp/edge-sdk-gen"
