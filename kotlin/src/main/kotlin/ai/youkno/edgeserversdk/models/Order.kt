@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
- * @param imageUrl 
- * @param merchantId 
+ * @param receiptStatusAsEnum 
+ * @param paymentStatusAsEnum 
+ * @param vouchersToRedeem 
  * @param merchant 
  * @param statusAsEnum 
  * @param overallSection 
  * @param customerEmail 
- * @param paymentStatusAsEnum 
- * @param vouchersToRedeem 
- * @param receiptStatusAsEnum 
+ * @param merchantId 
+ * @param imageUrl 
  */
 
 
@@ -124,11 +124,14 @@ data class Order (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
-    @Json(name = "imageUrl")
-    val imageUrl: kotlin.String? = null,
+    @Json(name = "receiptStatusAsEnum")
+    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null,
 
-    @Json(name = "merchantId")
-    val merchantId: kotlin.String? = null,
+    @Json(name = "paymentStatusAsEnum")
+    val paymentStatusAsEnum: Order.PaymentStatusAsEnum? = null,
+
+    @Json(name = "vouchersToRedeem")
+    val vouchersToRedeem: Reward? = null,
 
     @Json(name = "merchant")
     val merchant: User? = null,
@@ -142,36 +145,23 @@ data class Order (
     @Json(name = "customerEmail")
     val customerEmail: kotlin.String? = null,
 
-    @Json(name = "paymentStatusAsEnum")
-    val paymentStatusAsEnum: Order.PaymentStatusAsEnum? = null,
+    @Json(name = "merchantId")
+    val merchantId: kotlin.String? = null,
 
-    @Json(name = "vouchersToRedeem")
-    val vouchersToRedeem: Reward? = null,
-
-    @Json(name = "receiptStatusAsEnum")
-    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null
+    @Json(name = "imageUrl")
+    val imageUrl: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: NONE,NEW,PROCESSING,READY_FOR_PICKUP,SHIPPED,SETTLED,CHARGEBACK,DISPUTED,COMPLETED,DECLINED,CANCELLED,UNKNOWN
+     * Values: CREATED,SCANNED
      */
     @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "NEW") NEW("NEW"),
-        @Json(name = "PROCESSING") PROCESSING("PROCESSING"),
-        @Json(name = "READY_FOR_PICKUP") READY_FOR_PICKUP("READY_FOR_PICKUP"),
-        @Json(name = "SHIPPED") SHIPPED("SHIPPED"),
-        @Json(name = "SETTLED") SETTLED("SETTLED"),
-        @Json(name = "CHARGEBACK") CHARGEBACK("CHARGEBACK"),
-        @Json(name = "DISPUTED") DISPUTED("DISPUTED"),
-        @Json(name = "COMPLETED") COMPLETED("COMPLETED"),
-        @Json(name = "DECLINED") DECLINED("DECLINED"),
-        @Json(name = "CANCELLED") CANCELLED("CANCELLED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "CREATED") CREATED("CREATED"),
+        @Json(name = "SCANNED") SCANNED("SCANNED");
     }
     /**
      * 
@@ -191,12 +181,22 @@ data class Order (
     /**
      * 
      *
-     * Values: CREATED,SCANNED
+     * Values: NONE,NEW,PROCESSING,READY_FOR_PICKUP,SHIPPED,SETTLED,CHARGEBACK,DISPUTED,COMPLETED,DECLINED,CANCELLED,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "CREATED") CREATED("CREATED"),
-        @Json(name = "SCANNED") SCANNED("SCANNED");
+    enum class StatusAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "NEW") NEW("NEW"),
+        @Json(name = "PROCESSING") PROCESSING("PROCESSING"),
+        @Json(name = "READY_FOR_PICKUP") READY_FOR_PICKUP("READY_FOR_PICKUP"),
+        @Json(name = "SHIPPED") SHIPPED("SHIPPED"),
+        @Json(name = "SETTLED") SETTLED("SETTLED"),
+        @Json(name = "CHARGEBACK") CHARGEBACK("CHARGEBACK"),
+        @Json(name = "DISPUTED") DISPUTED("DISPUTED"),
+        @Json(name = "COMPLETED") COMPLETED("COMPLETED"),
+        @Json(name = "DECLINED") DECLINED("DECLINED"),
+        @Json(name = "CANCELLED") CANCELLED("CANCELLED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

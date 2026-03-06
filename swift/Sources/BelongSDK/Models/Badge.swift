@@ -27,13 +27,13 @@ public struct Badge: Codable, JSONEncodable, Hashable {
     public var type: ModelType?
     public var label: String?
     public var valid: Bool?
-    public var code: String?
-    public var description: String?
     public var negativeValue: Bool?
     public var image: String?
+    public var description: String?
+    public var code: String?
     public var icon: String?
 
-    public init(id: String? = nil, info: BadgeInfo? = nil, awardedAt: Int64? = nil, negative: Bool? = nil, reward: Reward? = nil, virtual: Bool? = nil, type: ModelType? = nil, label: String? = nil, valid: Bool? = nil, code: String? = nil, description: String? = nil, negativeValue: Bool? = nil, image: String? = nil, icon: String? = nil) {
+    public init(id: String? = nil, info: BadgeInfo? = nil, awardedAt: Int64? = nil, negative: Bool? = nil, reward: Reward? = nil, virtual: Bool? = nil, type: ModelType? = nil, label: String? = nil, valid: Bool? = nil, negativeValue: Bool? = nil, image: String? = nil, description: String? = nil, code: String? = nil, icon: String? = nil) {
         self.id = id
         self.info = info
         self.awardedAt = awardedAt
@@ -43,10 +43,10 @@ public struct Badge: Codable, JSONEncodable, Hashable {
         self.type = type
         self.label = label
         self.valid = valid
-        self.code = code
-        self.description = description
         self.negativeValue = negativeValue
         self.image = image
+        self.description = description
+        self.code = code
         self.icon = icon
     }
 
@@ -60,10 +60,10 @@ public struct Badge: Codable, JSONEncodable, Hashable {
         case type
         case label
         case valid
-        case code
-        case description
         case negativeValue
         case image
+        case description
+        case code
         case icon
     }
 
@@ -80,10 +80,10 @@ public struct Badge: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(type, forKey: .type)
         try container.encodeIfPresent(label, forKey: .label)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(code, forKey: .code)
-        try container.encodeIfPresent(description, forKey: .description)
         try container.encodeIfPresent(negativeValue, forKey: .negativeValue)
         try container.encodeIfPresent(image, forKey: .image)
+        try container.encodeIfPresent(description, forKey: .description)
+        try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(icon, forKey: .icon)
     }
 }

@@ -134,6 +134,12 @@ export interface LocationInfo {
      * @type {boolean}
      * @memberof LocationInfo
      */
+    onlinePresenceJustified?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof LocationInfo
+     */
     shopOnline?: boolean;
     /**
      * 
@@ -141,12 +147,6 @@ export interface LocationInfo {
      * @memberof LocationInfo
      */
     deliveryMethods?: Set<LocationInfoDeliveryMethodsEnum>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof LocationInfo
-     */
-    onlinePresenceJustified?: boolean;
 }
 
 
@@ -198,9 +198,9 @@ export function LocationInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'medicalUse': json['medicalUse'] == null ? undefined : json['medicalUse'],
         'isMetrc': json['isMetrc'] == null ? undefined : json['isMetrc'],
         'onlineShop': json['onlineShop'] == null ? undefined : json['onlineShop'],
+        'onlinePresenceJustified': json['onlinePresenceJustified'] == null ? undefined : json['onlinePresenceJustified'],
         'shopOnline': json['shopOnline'] == null ? undefined : json['shopOnline'],
         'deliveryMethods': json['deliveryMethods'] == null ? undefined : new Set(json['deliveryMethods']),
-        'onlinePresenceJustified': json['onlinePresenceJustified'] == null ? undefined : json['onlinePresenceJustified'],
     };
 }
 
@@ -232,9 +232,9 @@ export function LocationInfoToJSONTyped(value?: LocationInfo | null, ignoreDiscr
         'medicalUse': value['medicalUse'],
         'isMetrc': value['isMetrc'],
         'onlineShop': value['onlineShop'],
+        'onlinePresenceJustified': value['onlinePresenceJustified'],
         'shopOnline': value['shopOnline'],
         'deliveryMethods': value['deliveryMethods'] == null ? undefined : Array.from(value['deliveryMethods'] as Set<any>),
-        'onlinePresenceJustified': value['onlinePresenceJustified'],
     };
 }
 

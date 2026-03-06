@@ -15,23 +15,23 @@ public struct Snippets: Codable, JSONEncodable, Hashable {
     public var paymentsRecv: [String: PaymentRecvSnippet]?
     public var review: ReviewSnippet?
     public var reject: RejectSnippet?
-    public var paymentReceived: Bool?
     public var firstPaymentRecv: PaymentRecvSnippet?
+    public var paymentReceived: Bool?
 
-    public init(paymentsRecv: [String: PaymentRecvSnippet]? = nil, review: ReviewSnippet? = nil, reject: RejectSnippet? = nil, paymentReceived: Bool? = nil, firstPaymentRecv: PaymentRecvSnippet? = nil) {
+    public init(paymentsRecv: [String: PaymentRecvSnippet]? = nil, review: ReviewSnippet? = nil, reject: RejectSnippet? = nil, firstPaymentRecv: PaymentRecvSnippet? = nil, paymentReceived: Bool? = nil) {
         self.paymentsRecv = paymentsRecv
         self.review = review
         self.reject = reject
-        self.paymentReceived = paymentReceived
         self.firstPaymentRecv = firstPaymentRecv
+        self.paymentReceived = paymentReceived
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case paymentsRecv
         case review
         case reject
-        case paymentReceived
         case firstPaymentRecv
+        case paymentReceived
     }
 
     // Encodable protocol methods
@@ -41,8 +41,8 @@ public struct Snippets: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(paymentsRecv, forKey: .paymentsRecv)
         try container.encodeIfPresent(review, forKey: .review)
         try container.encodeIfPresent(reject, forKey: .reject)
-        try container.encodeIfPresent(paymentReceived, forKey: .paymentReceived)
         try container.encodeIfPresent(firstPaymentRecv, forKey: .firstPaymentRecv)
+        try container.encodeIfPresent(paymentReceived, forKey: .paymentReceived)
     }
 }
 

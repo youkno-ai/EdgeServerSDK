@@ -223,13 +223,19 @@ export interface Order {
      * @type {string}
      * @memberof Order
      */
-    imageUrl?: string;
+    receiptStatusAsEnum?: OrderReceiptStatusAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof Order
      */
-    merchantId?: string;
+    paymentStatusAsEnum?: OrderPaymentStatusAsEnumEnum;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof Order
+     */
+    vouchersToRedeem?: Reward;
     /**
      * 
      * @type {User}
@@ -259,21 +265,38 @@ export interface Order {
      * @type {string}
      * @memberof Order
      */
-    paymentStatusAsEnum?: OrderPaymentStatusAsEnumEnum;
-    /**
-     * 
-     * @type {Reward}
-     * @memberof Order
-     */
-    vouchersToRedeem?: Reward;
+    merchantId?: string;
     /**
      * 
      * @type {string}
      * @memberof Order
      */
-    receiptStatusAsEnum?: OrderReceiptStatusAsEnumEnum;
+    imageUrl?: string;
 }
 
+
+/**
+ * @export
+ */
+export const OrderReceiptStatusAsEnumEnum = {
+    CREATED: 'CREATED',
+    SCANNED: 'SCANNED'
+} as const;
+export type OrderReceiptStatusAsEnumEnum = typeof OrderReceiptStatusAsEnumEnum[keyof typeof OrderReceiptStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const OrderPaymentStatusAsEnumEnum = {
+    NONE: 'NONE',
+    PENDING_PAYMENT: 'PENDING_PAYMENT',
+    PROCESSING_PAYMENT: 'PROCESSING_PAYMENT',
+    PENDING_CONFIRM: 'PENDING_CONFIRM',
+    PAID: 'PAID',
+    PAYMENT_FAILED: 'PAYMENT_FAILED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type OrderPaymentStatusAsEnumEnum = typeof OrderPaymentStatusAsEnumEnum[keyof typeof OrderPaymentStatusAsEnumEnum];
 
 /**
  * @export
@@ -293,29 +316,6 @@ export const OrderStatusAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type OrderStatusAsEnumEnum = typeof OrderStatusAsEnumEnum[keyof typeof OrderStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const OrderPaymentStatusAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING_PAYMENT: 'PENDING_PAYMENT',
-    PROCESSING_PAYMENT: 'PROCESSING_PAYMENT',
-    PENDING_CONFIRM: 'PENDING_CONFIRM',
-    PAID: 'PAID',
-    PAYMENT_FAILED: 'PAYMENT_FAILED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type OrderPaymentStatusAsEnumEnum = typeof OrderPaymentStatusAsEnumEnum[keyof typeof OrderPaymentStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const OrderReceiptStatusAsEnumEnum = {
-    CREATED: 'CREATED',
-    SCANNED: 'SCANNED'
-} as const;
-export type OrderReceiptStatusAsEnumEnum = typeof OrderReceiptStatusAsEnumEnum[keyof typeof OrderReceiptStatusAsEnumEnum];
 
 
 /**
@@ -354,15 +354,15 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'receiptUrl': json['receiptUrl'] == null ? undefined : json['receiptUrl'],
         'posUrl': json['posUrl'] == null ? undefined : json['posUrl'],
         'merchantOrderUrl': json['merchantOrderUrl'] == null ? undefined : json['merchantOrderUrl'],
-        'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
+        'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
         'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
         'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
         'customerEmail': json['customerEmail'] == null ? undefined : json['customerEmail'],
-        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
-        'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
-        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
     };
 }
 
@@ -396,15 +396,15 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'receiptUrl': value['receiptUrl'],
         'posUrl': value['posUrl'],
         'merchantOrderUrl': value['merchantOrderUrl'],
-        'imageUrl': value['imageUrl'],
-        'merchantId': value['merchantId'],
+        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
+        'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
         'merchant': UserToJSON(value['merchant']),
         'statusAsEnum': value['statusAsEnum'],
         'overallSection': OrderSectionToJSON(value['overallSection']),
         'customerEmail': value['customerEmail'],
-        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
-        'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
-        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'merchantId': value['merchantId'],
+        'imageUrl': value['imageUrl'],
     };
 }
 

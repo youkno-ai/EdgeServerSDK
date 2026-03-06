@@ -26,10 +26,10 @@ import com.squareup.moshi.JsonClass
  *
  * @param answers 
  * @param fundingResult 
- * @param totalCount 
+ * @param leadingSurveyAnswer 
  * @param totalWeight 
  * @param averageScore 
- * @param leadingSurveyAnswer 
+ * @param totalCount 
  */
 
 
@@ -41,8 +41,8 @@ data class SurveyResult (
     @Json(name = "fundingResult")
     val fundingResult: FundingResult? = null,
 
-    @Json(name = "totalCount")
-    val totalCount: kotlin.Int? = null,
+    @Json(name = "leadingSurveyAnswer")
+    val leadingSurveyAnswer: SurveyAnswer? = null,
 
     @Json(name = "totalWeight")
     val totalWeight: kotlin.Int? = null,
@@ -50,8 +50,8 @@ data class SurveyResult (
     @Json(name = "averageScore")
     val averageScore: kotlin.Double? = null,
 
-    @Json(name = "leadingSurveyAnswer")
-    val leadingSurveyAnswer: SurveyAnswer? = null
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null
 
 ) {
 

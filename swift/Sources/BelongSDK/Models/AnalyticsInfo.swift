@@ -13,22 +13,22 @@ import AnyCodable
 public struct AnalyticsInfo: Codable, JSONEncodable, Hashable {
 
     public var properties: [PropertyInfo]?
+    public var nextValidPropertyInfo: PropertyInfo?
     public var propertyInfo: PropertyInfo?
     public var dataStreamInfo: DataStreamInfo?
-    public var nextValidPropertyInfo: PropertyInfo?
 
-    public init(properties: [PropertyInfo]? = nil, propertyInfo: PropertyInfo? = nil, dataStreamInfo: DataStreamInfo? = nil, nextValidPropertyInfo: PropertyInfo? = nil) {
+    public init(properties: [PropertyInfo]? = nil, nextValidPropertyInfo: PropertyInfo? = nil, propertyInfo: PropertyInfo? = nil, dataStreamInfo: DataStreamInfo? = nil) {
         self.properties = properties
+        self.nextValidPropertyInfo = nextValidPropertyInfo
         self.propertyInfo = propertyInfo
         self.dataStreamInfo = dataStreamInfo
-        self.nextValidPropertyInfo = nextValidPropertyInfo
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case properties
+        case nextValidPropertyInfo
         case propertyInfo
         case dataStreamInfo
-        case nextValidPropertyInfo
     }
 
     // Encodable protocol methods
@@ -36,9 +36,9 @@ public struct AnalyticsInfo: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(properties, forKey: .properties)
+        try container.encodeIfPresent(nextValidPropertyInfo, forKey: .nextValidPropertyInfo)
         try container.encodeIfPresent(propertyInfo, forKey: .propertyInfo)
         try container.encodeIfPresent(dataStreamInfo, forKey: .dataStreamInfo)
-        try container.encodeIfPresent(nextValidPropertyInfo, forKey: .nextValidPropertyInfo)
     }
 }
 

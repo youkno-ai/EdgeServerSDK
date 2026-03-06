@@ -38,8 +38,8 @@ import com.squareup.moshi.JsonClass
  * @param bountyId 
  * @param responseId 
  * @param responseType 
- * @param author 
  * @param objectTypeAsEnum 
+ * @param author 
  */
 
 
@@ -90,11 +90,11 @@ data class Response (
     @Json(name = "responseType")
     val responseType: kotlin.String? = null,
 
-    @Json(name = "author")
-    val author: User? = null,
-
     @Json(name = "objectTypeAsEnum")
-    val objectTypeAsEnum: Response.ObjectTypeAsEnum? = null
+    val objectTypeAsEnum: Response.ObjectTypeAsEnum? = null,
+
+    @Json(name = "author")
+    val author: User? = null
 
 ) {
 

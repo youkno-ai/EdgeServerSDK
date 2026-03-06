@@ -61,16 +61,16 @@ export interface ProductsInfo {
     empty?: boolean;
     /**
      * 
-     * @type {Set<string>}
+     * @type {User}
      * @memberof ProductsInfo
      */
-    merchantIds?: Set<string>;
+    merchant?: User;
     /**
      * 
-     * @type {string}
+     * @type {Rewards}
      * @memberof ProductsInfo
      */
-    merchantId?: string;
+    totalPrice?: Rewards;
     /**
      * 
      * @type {boolean}
@@ -91,16 +91,16 @@ export interface ProductsInfo {
     freeShipping?: boolean;
     /**
      * 
-     * @type {User}
+     * @type {string}
      * @memberof ProductsInfo
      */
-    merchant?: User;
+    merchantId?: string;
     /**
      * 
-     * @type {Rewards}
+     * @type {Set<string>}
      * @memberof ProductsInfo
      */
-    totalPrice?: Rewards;
+    merchantIds?: Set<string>;
 }
 
 /**
@@ -123,13 +123,13 @@ export function ProductsInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'products': json['products'] == null ? undefined : (mapValues(json['products'], ProductInfoFromJSON)),
         'useType': json['useType'] == null ? undefined : json['useType'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
-        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
+        'totalPrice': json['totalPrice'] == null ? undefined : RewardsFromJSON(json['totalPrice']),
         'onlineProducts': json['onlineProducts'] == null ? undefined : json['onlineProducts'],
         'noDelivery': json['noDelivery'] == null ? undefined : json['noDelivery'],
         'freeShipping': json['freeShipping'] == null ? undefined : json['freeShipping'],
-        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
-        'totalPrice': json['totalPrice'] == null ? undefined : RewardsFromJSON(json['totalPrice']),
+        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
     };
 }
 
@@ -147,13 +147,13 @@ export function ProductsInfoToJSONTyped(value?: ProductsInfo | null, ignoreDiscr
         'products': value['products'] == null ? undefined : (mapValues(value['products'], ProductInfoToJSON)),
         'useType': value['useType'],
         'empty': value['empty'],
-        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
-        'merchantId': value['merchantId'],
+        'merchant': UserToJSON(value['merchant']),
+        'totalPrice': RewardsToJSON(value['totalPrice']),
         'onlineProducts': value['onlineProducts'],
         'noDelivery': value['noDelivery'],
         'freeShipping': value['freeShipping'],
-        'merchant': UserToJSON(value['merchant']),
-        'totalPrice': RewardsToJSON(value['totalPrice']),
+        'merchantId': value['merchantId'],
+        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
     };
 }
 

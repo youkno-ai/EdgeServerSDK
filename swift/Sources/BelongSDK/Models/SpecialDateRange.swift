@@ -18,22 +18,22 @@ public struct SpecialDateRange: Codable, JSONEncodable, Hashable {
     public var hoursOfOperation: DailyHoursOfOperation?
     public var empty: Bool?
     public var valid: Bool?
-    public var emptyDateRange: Bool?
-    public var singleDate: Bool?
     public var fromDateAsLocalDate: Date?
     public var toDateAsLocalDate: Date?
+    public var emptyDateRange: Bool?
+    public var singleDate: Bool?
 
-    public init(label: String? = nil, fromDate: String? = nil, toDate: String? = nil, hoursOfOperation: DailyHoursOfOperation? = nil, empty: Bool? = nil, valid: Bool? = nil, emptyDateRange: Bool? = nil, singleDate: Bool? = nil, fromDateAsLocalDate: Date? = nil, toDateAsLocalDate: Date? = nil) {
+    public init(label: String? = nil, fromDate: String? = nil, toDate: String? = nil, hoursOfOperation: DailyHoursOfOperation? = nil, empty: Bool? = nil, valid: Bool? = nil, fromDateAsLocalDate: Date? = nil, toDateAsLocalDate: Date? = nil, emptyDateRange: Bool? = nil, singleDate: Bool? = nil) {
         self.label = label
         self.fromDate = fromDate
         self.toDate = toDate
         self.hoursOfOperation = hoursOfOperation
         self.empty = empty
         self.valid = valid
-        self.emptyDateRange = emptyDateRange
-        self.singleDate = singleDate
         self.fromDateAsLocalDate = fromDateAsLocalDate
         self.toDateAsLocalDate = toDateAsLocalDate
+        self.emptyDateRange = emptyDateRange
+        self.singleDate = singleDate
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -43,10 +43,10 @@ public struct SpecialDateRange: Codable, JSONEncodable, Hashable {
         case hoursOfOperation
         case empty
         case valid
-        case emptyDateRange
-        case singleDate
         case fromDateAsLocalDate
         case toDateAsLocalDate
+        case emptyDateRange
+        case singleDate
     }
 
     // Encodable protocol methods
@@ -59,10 +59,10 @@ public struct SpecialDateRange: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(hoursOfOperation, forKey: .hoursOfOperation)
         try container.encodeIfPresent(empty, forKey: .empty)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(emptyDateRange, forKey: .emptyDateRange)
-        try container.encodeIfPresent(singleDate, forKey: .singleDate)
         try container.encodeIfPresent(fromDateAsLocalDate, forKey: .fromDateAsLocalDate)
         try container.encodeIfPresent(toDateAsLocalDate, forKey: .toDateAsLocalDate)
+        try container.encodeIfPresent(emptyDateRange, forKey: .emptyDateRange)
+        try container.encodeIfPresent(singleDate, forKey: .singleDate)
     }
 }
 

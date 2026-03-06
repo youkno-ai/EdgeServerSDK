@@ -30,9 +30,9 @@ public struct Credentials: Codable, JSONEncodable, Hashable {
     public var shopName: String?
     public var accessToken: String?
     public var empty: Bool?
-    public var maskedCreds: Credentials?
+    public var maskedCreds: AnyCodable?
 
-    public init(username: String? = nil, password: String? = nil, apiKey: String? = nil, userId: Int? = nil, organizationId: Int? = nil, facilityId: Int? = nil, dbHost: String? = nil, dbPort: Int? = nil, dbName: String? = nil, dbUsername: String? = nil, dbPassword: String? = nil, dbSslRootCert: String? = nil, dbSslCert: String? = nil, dbSslKey: String? = nil, dbSslPassword: String? = nil, shopName: String? = nil, accessToken: String? = nil, empty: Bool? = nil, maskedCreds: Credentials? = nil) {
+    public init(username: String? = nil, password: String? = nil, apiKey: String? = nil, userId: Int? = nil, organizationId: Int? = nil, facilityId: Int? = nil, dbHost: String? = nil, dbPort: Int? = nil, dbName: String? = nil, dbUsername: String? = nil, dbPassword: String? = nil, dbSslRootCert: String? = nil, dbSslCert: String? = nil, dbSslKey: String? = nil, dbSslPassword: String? = nil, shopName: String? = nil, accessToken: String? = nil, empty: Bool? = nil, maskedCreds: AnyCodable? = nil) {
         self.username = username
         self.password = password
         self.apiKey = apiKey

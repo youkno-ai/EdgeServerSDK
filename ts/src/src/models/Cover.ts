@@ -66,13 +66,13 @@ export interface Cover {
      * @type {string}
      * @memberof Cover
      */
-    effectiveUrl?: string;
+    storageTypeAsEnum?: CoverStorageTypeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof Cover
      */
-    storageTypeAsEnum?: CoverStorageTypeAsEnumEnum;
+    effectiveUrl?: string;
 }
 
 
@@ -113,8 +113,8 @@ export function CoverFromJSONTyped(json: any, ignoreDiscriminator: boolean): Cov
         'size': json['size'] == null ? undefined : json['size'],
         'imageSize': json['imageSize'] == null ? undefined : json['imageSize'],
         'cdnUrl': json['cdnUrl'] == null ? undefined : json['cdnUrl'],
-        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
         'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
+        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
     };
 }
 
@@ -136,8 +136,8 @@ export function CoverToJSONTyped(value?: Cover | null, ignoreDiscriminator: bool
         'size': value['size'],
         'imageSize': value['imageSize'],
         'cdnUrl': value['cdnUrl'],
-        'effectiveUrl': value['effectiveUrl'],
         'storageTypeAsEnum': value['storageTypeAsEnum'],
+        'effectiveUrl': value['effectiveUrl'],
     };
 }
 

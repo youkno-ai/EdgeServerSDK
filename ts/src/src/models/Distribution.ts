@@ -44,18 +44,6 @@ export interface Distribution {
      * @type {boolean}
      * @memberof Distribution
      */
-    global?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Distribution
-     */
-    includesEmpty?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Distribution
-     */
     excludesEmpty?: boolean;
     /**
      * 
@@ -69,6 +57,18 @@ export interface Distribution {
      * @memberof Distribution
      */
     excludeArea?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Distribution
+     */
+    includesEmpty?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Distribution
+     */
+    global?: boolean;
 }
 
 /**
@@ -90,11 +90,11 @@ export function DistributionFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'areasList': json['areasList'] == null ? undefined : ((json['areasList'] as Array<any>).map(AreasFromJSON)),
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'global': json['global'] == null ? undefined : json['global'],
-        'includesEmpty': json['includesEmpty'] == null ? undefined : json['includesEmpty'],
         'excludesEmpty': json['excludesEmpty'] == null ? undefined : json['excludesEmpty'],
         'targetArea': json['targetArea'] == null ? undefined : json['targetArea'],
         'excludeArea': json['excludeArea'] == null ? undefined : json['excludeArea'],
+        'includesEmpty': json['includesEmpty'] == null ? undefined : json['includesEmpty'],
+        'global': json['global'] == null ? undefined : json['global'],
     };
 }
 
@@ -111,11 +111,11 @@ export function DistributionToJSONTyped(value?: Distribution | null, ignoreDiscr
         
         'areasList': value['areasList'] == null ? undefined : ((value['areasList'] as Array<any>).map(AreasToJSON)),
         'empty': value['empty'],
-        'global': value['global'],
-        'includesEmpty': value['includesEmpty'],
         'excludesEmpty': value['excludesEmpty'],
         'targetArea': value['targetArea'],
         'excludeArea': value['excludeArea'],
+        'includesEmpty': value['includesEmpty'],
+        'global': value['global'],
     };
 }
 

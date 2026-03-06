@@ -24,7 +24,7 @@ export interface BusinessTypesResp {
      * @type {{ [key: string]: Array<string>; }}
      * @memberof BusinessTypesResp
      */
-    types?: { [key: string]: Array<InnerEnum>; };
+    types?: { [key: string]: Array<BusinessTypesRespTypesEnum>; };
 }
 
 

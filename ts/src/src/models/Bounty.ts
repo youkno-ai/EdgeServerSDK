@@ -119,16 +119,16 @@ export interface Bounty {
     bountyType?: string;
     /**
      * 
-     * @type {User}
-     * @memberof Bounty
-     */
-    author?: User;
-    /**
-     * 
      * @type {string}
      * @memberof Bounty
      */
     objectTypeAsEnum?: BountyObjectTypeAsEnumEnum;
+    /**
+     * 
+     * @type {User}
+     * @memberof Bounty
+     */
+    author?: User;
 }
 
 
@@ -176,8 +176,8 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
         'bountyType': json['bountyType'] == null ? undefined : json['bountyType'],
-        'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
         'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
+        'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
     };
 }
 
@@ -207,8 +207,8 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
         'bountyType': value['bountyType'],
-        'author': UserToJSON(value['author']),
         'objectTypeAsEnum': value['objectTypeAsEnum'],
+        'author': UserToJSON(value['author']),
     };
 }
 

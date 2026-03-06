@@ -207,16 +207,10 @@ export interface Product {
     valid?: boolean;
     /**
      * 
-     * @type {ProductSpecificInfo}
+     * @type {string}
      * @memberof Product
      */
-    topLevelVariant?: ProductSpecificInfo;
-    /**
-     * 
-     * @type {number}
-     * @memberof Product
-     */
-    totalQuantity?: number;
+    deliveryTypeAsEnum?: ProductDeliveryTypeAsEnumEnum;
     /**
      * 
      * @type {boolean}
@@ -234,15 +228,32 @@ export interface Product {
      * @type {number}
      * @memberof Product
      */
+    totalQuantity?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Product
+     */
     optionCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {ProductSpecificInfo}
      * @memberof Product
      */
-    deliveryTypeAsEnum?: ProductDeliveryTypeAsEnumEnum;
+    topLevelVariant?: ProductSpecificInfo;
 }
 
+
+/**
+ * @export
+ */
+export const ProductDeliveryTypeAsEnumEnum = {
+    STANDARD: 'STANDARD',
+    DRIVER: 'DRIVER',
+    NO_DELIVERY: 'NO_DELIVERY',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ProductDeliveryTypeAsEnumEnum = typeof ProductDeliveryTypeAsEnumEnum[keyof typeof ProductDeliveryTypeAsEnumEnum];
 
 /**
  * @export
@@ -257,17 +268,6 @@ export const ProductKindAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ProductKindAsEnumEnum = typeof ProductKindAsEnumEnum[keyof typeof ProductKindAsEnumEnum];
-
-/**
- * @export
- */
-export const ProductDeliveryTypeAsEnumEnum = {
-    STANDARD: 'STANDARD',
-    DRIVER: 'DRIVER',
-    NO_DELIVERY: 'NO_DELIVERY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ProductDeliveryTypeAsEnumEnum = typeof ProductDeliveryTypeAsEnumEnum[keyof typeof ProductDeliveryTypeAsEnumEnum];
 
 
 /**
@@ -312,12 +312,12 @@ export function ProductFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'categoryOrder': json['categoryOrder'] == null ? undefined : json['categoryOrder'],
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ChemicalInfoFromJSON)),
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'topLevelVariant': json['topLevelVariant'] == null ? undefined : ProductSpecificInfoFromJSON(json['topLevelVariant']),
-        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
+        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
         'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
+        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
         'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
-        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
+        'topLevelVariant': json['topLevelVariant'] == null ? undefined : ProductSpecificInfoFromJSON(json['topLevelVariant']),
     };
 }
 
@@ -357,12 +357,12 @@ export function ProductToJSONTyped(value?: Product | null, ignoreDiscriminator: 
         'categoryOrder': value['categoryOrder'],
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ChemicalInfoToJSON)),
         'valid': value['valid'],
-        'topLevelVariant': ProductSpecificInfoToJSON(value['topLevelVariant']),
-        'totalQuantity': value['totalQuantity'],
+        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
         'fastDelivery': value['fastDelivery'],
         'kindAsEnum': value['kindAsEnum'],
+        'totalQuantity': value['totalQuantity'],
         'optionCount': value['optionCount'],
-        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
+        'topLevelVariant': ProductSpecificInfoToJSON(value['topLevelVariant']),
     };
 }
 

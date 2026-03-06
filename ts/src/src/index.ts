@@ -1,5 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './runtime';
-export * from './apis/index';
-export * from './models/index';
+export * as apis from './apis/index';
+export * as models from './models/index';

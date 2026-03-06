@@ -25,11 +25,11 @@ import com.squareup.moshi.JsonClass
  *
  * @param areasList 
  * @param empty 
- * @param global 
- * @param includesEmpty 
  * @param excludesEmpty 
  * @param targetArea 
  * @param excludeArea 
+ * @param includesEmpty 
+ * @param global 
  */
 
 
@@ -41,12 +41,6 @@ data class Distribution (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "global")
-    val global: kotlin.Boolean? = null,
-
-    @Json(name = "includesEmpty")
-    val includesEmpty: kotlin.Boolean? = null,
-
     @Json(name = "excludesEmpty")
     val excludesEmpty: kotlin.Boolean? = null,
 
@@ -54,7 +48,13 @@ data class Distribution (
     val targetArea: kotlin.String? = null,
 
     @Json(name = "excludeArea")
-    val excludeArea: kotlin.String? = null
+    val excludeArea: kotlin.String? = null,
+
+    @Json(name = "includesEmpty")
+    val includesEmpty: kotlin.Boolean? = null,
+
+    @Json(name = "global")
+    val global: kotlin.Boolean? = null
 
 ) {
 

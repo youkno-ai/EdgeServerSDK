@@ -323,7 +323,7 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
         }
 
         if (requestParameters['paramMap'] != null) {
-            formParams.append('paramMap', new Blob([JSON.stringify(stringToJSON(requestParameters['paramMap']))], { type: "application/json", }));
+            formParams.append('paramMap', new Blob([JSON.stringify(requestParameters['paramMap'])], { type: "application/json", }));
                     }
 
 

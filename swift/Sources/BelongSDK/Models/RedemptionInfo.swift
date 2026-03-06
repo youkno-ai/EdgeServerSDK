@@ -14,24 +14,24 @@ public struct RedemptionInfo: Codable, JSONEncodable, Hashable {
 
     public var redemptionDataByMerchantId: [String: RedemptionData]?
     public var empty: Bool?
-    public var exchangedReward: Reward?
     public var redemptionCurrencies: [String]?
     public var redemptionReward: Reward?
+    public var exchangedReward: Reward?
 
-    public init(redemptionDataByMerchantId: [String: RedemptionData]? = nil, empty: Bool? = nil, exchangedReward: Reward? = nil, redemptionCurrencies: [String]? = nil, redemptionReward: Reward? = nil) {
+    public init(redemptionDataByMerchantId: [String: RedemptionData]? = nil, empty: Bool? = nil, redemptionCurrencies: [String]? = nil, redemptionReward: Reward? = nil, exchangedReward: Reward? = nil) {
         self.redemptionDataByMerchantId = redemptionDataByMerchantId
         self.empty = empty
-        self.exchangedReward = exchangedReward
         self.redemptionCurrencies = redemptionCurrencies
         self.redemptionReward = redemptionReward
+        self.exchangedReward = exchangedReward
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case redemptionDataByMerchantId
         case empty
-        case exchangedReward
         case redemptionCurrencies
         case redemptionReward
+        case exchangedReward
     }
 
     // Encodable protocol methods
@@ -40,9 +40,9 @@ public struct RedemptionInfo: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(redemptionDataByMerchantId, forKey: .redemptionDataByMerchantId)
         try container.encodeIfPresent(empty, forKey: .empty)
-        try container.encodeIfPresent(exchangedReward, forKey: .exchangedReward)
         try container.encodeIfPresent(redemptionCurrencies, forKey: .redemptionCurrencies)
         try container.encodeIfPresent(redemptionReward, forKey: .redemptionReward)
+        try container.encodeIfPresent(exchangedReward, forKey: .exchangedReward)
     }
 }
 

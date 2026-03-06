@@ -57,15 +57,15 @@ import com.squareup.moshi.JsonClass
  * @param cdnDisplayUrl 
  * @param attUrl 
  * @param valid 
- * @param typeAsEnum 
- * @param fileNameFromUrl 
- * @param youTubeVideoId 
- * @param meaningAsEnum 
  * @param displayStyleAsEnum 
  * @param youTubeCoverImage 
  * @param storageTypeAsEnum 
  * @param visibilityAsEnum 
  * @param effectiveActionUrl 
+ * @param fileNameFromUrl 
+ * @param youTubeVideoId 
+ * @param meaningAsEnum 
+ * @param typeAsEnum 
  */
 
 
@@ -158,18 +158,6 @@ data class Attachment (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: Attachment.TypeAsEnum? = null,
-
-    @Json(name = "fileNameFromUrl")
-    val fileNameFromUrl: kotlin.String? = null,
-
-    @Json(name = "youTubeVideoId")
-    val youTubeVideoId: kotlin.String? = null,
-
-    @Json(name = "meaningAsEnum")
-    val meaningAsEnum: Attachment.MeaningAsEnum? = null,
-
     @Json(name = "displayStyleAsEnum")
     val displayStyleAsEnum: Attachment.DisplayStyleAsEnum? = null,
 
@@ -183,58 +171,22 @@ data class Attachment (
     val visibilityAsEnum: Attachment.VisibilityAsEnum? = null,
 
     @Json(name = "effectiveActionUrl")
-    val effectiveActionUrl: kotlin.String? = null
+    val effectiveActionUrl: kotlin.String? = null,
+
+    @Json(name = "fileNameFromUrl")
+    val fileNameFromUrl: kotlin.String? = null,
+
+    @Json(name = "youTubeVideoId")
+    val youTubeVideoId: kotlin.String? = null,
+
+    @Json(name = "meaningAsEnum")
+    val meaningAsEnum: Attachment.MeaningAsEnum? = null,
+
+    @Json(name = "typeAsEnum")
+    val typeAsEnum: Attachment.TypeAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: IMAGE,GIF,TIFF,VIDEO,AUDIO,LOTTIE,PDF,DOC,YOUTUBE,WEBSITE,FILE,OTHER,TXT,CSV,EML,ICS,MSG,NOT_FILE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "IMAGE") IMAGE("IMAGE"),
-        @Json(name = "GIF") GIF("GIF"),
-        @Json(name = "TIFF") TIFF("TIFF"),
-        @Json(name = "VIDEO") VIDEO("VIDEO"),
-        @Json(name = "AUDIO") AUDIO("AUDIO"),
-        @Json(name = "LOTTIE") LOTTIE("LOTTIE"),
-        @Json(name = "PDF") PDF("PDF"),
-        @Json(name = "DOC") DOC("DOC"),
-        @Json(name = "YOUTUBE") YOUTUBE("YOUTUBE"),
-        @Json(name = "WEBSITE") WEBSITE("WEBSITE"),
-        @Json(name = "FILE") FILE("FILE"),
-        @Json(name = "OTHER") OTHER("OTHER"),
-        @Json(name = "TXT") TXT("TXT"),
-        @Json(name = "CSV") CSV("CSV"),
-        @Json(name = "EML") EML("EML"),
-        @Json(name = "ICS") ICS("ICS"),
-        @Json(name = "MSG") MSG("MSG"),
-        @Json(name = "NOT_FILE") NOT_FILE("NOT_FILE");
-    }
-    /**
-     * 
-     *
-     * Values: TEAM_LOGO,RESUME,PRODUCT,PROMOTION,OTHER_DOC,WELCOME_TEMPLATE,ORDER_CONFIRMATION_PICKUP_TEMPLATE,ORDER_CONFIRMATION_DELIVERY_TEMPLATE,ORDER_CONFIRMATION_KIOSK_TEMPLATE,ORDER_PROCESSED_CONFIRMATION_TEMPLATE,SHOP_LOGO,SHOP_BACKGROUND,USER_AVATAR,OTHER
-     */
-    @JsonClass(generateAdapter = false)
-    enum class MeaningAsEnum(val value: kotlin.String) {
-        @Json(name = "TEAM_LOGO") TEAM_LOGO("TEAM_LOGO"),
-        @Json(name = "RESUME") RESUME("RESUME"),
-        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
-        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
-        @Json(name = "OTHER_DOC") OTHER_DOC("OTHER_DOC"),
-        @Json(name = "WELCOME_TEMPLATE") WELCOME_TEMPLATE("WELCOME_TEMPLATE"),
-        @Json(name = "ORDER_CONFIRMATION_PICKUP_TEMPLATE") ORDER_CONFIRMATION_PICKUP_TEMPLATE("ORDER_CONFIRMATION_PICKUP_TEMPLATE"),
-        @Json(name = "ORDER_CONFIRMATION_DELIVERY_TEMPLATE") ORDER_CONFIRMATION_DELIVERY_TEMPLATE("ORDER_CONFIRMATION_DELIVERY_TEMPLATE"),
-        @Json(name = "ORDER_CONFIRMATION_KIOSK_TEMPLATE") ORDER_CONFIRMATION_KIOSK_TEMPLATE("ORDER_CONFIRMATION_KIOSK_TEMPLATE"),
-        @Json(name = "ORDER_PROCESSED_CONFIRMATION_TEMPLATE") ORDER_PROCESSED_CONFIRMATION_TEMPLATE("ORDER_PROCESSED_CONFIRMATION_TEMPLATE"),
-        @Json(name = "SHOP_LOGO") SHOP_LOGO("SHOP_LOGO"),
-        @Json(name = "SHOP_BACKGROUND") SHOP_BACKGROUND("SHOP_BACKGROUND"),
-        @Json(name = "USER_AVATAR") USER_AVATAR("USER_AVATAR"),
-        @Json(name = "OTHER") OTHER("OTHER");
-    }
     /**
      * 
      *
@@ -269,6 +221,54 @@ data class Attachment (
         @Json(name = "CREATOR") CREATOR("CREATOR"),
         @Json(name = "PARTICIPANTS") PARTICIPANTS("PARTICIPANTS"),
         @Json(name = "ALL") ALL("ALL");
+    }
+    /**
+     * 
+     *
+     * Values: TEAM_LOGO,RESUME,PRODUCT,PROMOTION,OTHER_DOC,WELCOME_TEMPLATE,ORDER_CONFIRMATION_PICKUP_TEMPLATE,ORDER_CONFIRMATION_DELIVERY_TEMPLATE,ORDER_CONFIRMATION_KIOSK_TEMPLATE,ORDER_PROCESSED_CONFIRMATION_TEMPLATE,SHOP_LOGO,SHOP_BACKGROUND,USER_AVATAR,OTHER
+     */
+    @JsonClass(generateAdapter = false)
+    enum class MeaningAsEnum(val value: kotlin.String) {
+        @Json(name = "TEAM_LOGO") TEAM_LOGO("TEAM_LOGO"),
+        @Json(name = "RESUME") RESUME("RESUME"),
+        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
+        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
+        @Json(name = "OTHER_DOC") OTHER_DOC("OTHER_DOC"),
+        @Json(name = "WELCOME_TEMPLATE") WELCOME_TEMPLATE("WELCOME_TEMPLATE"),
+        @Json(name = "ORDER_CONFIRMATION_PICKUP_TEMPLATE") ORDER_CONFIRMATION_PICKUP_TEMPLATE("ORDER_CONFIRMATION_PICKUP_TEMPLATE"),
+        @Json(name = "ORDER_CONFIRMATION_DELIVERY_TEMPLATE") ORDER_CONFIRMATION_DELIVERY_TEMPLATE("ORDER_CONFIRMATION_DELIVERY_TEMPLATE"),
+        @Json(name = "ORDER_CONFIRMATION_KIOSK_TEMPLATE") ORDER_CONFIRMATION_KIOSK_TEMPLATE("ORDER_CONFIRMATION_KIOSK_TEMPLATE"),
+        @Json(name = "ORDER_PROCESSED_CONFIRMATION_TEMPLATE") ORDER_PROCESSED_CONFIRMATION_TEMPLATE("ORDER_PROCESSED_CONFIRMATION_TEMPLATE"),
+        @Json(name = "SHOP_LOGO") SHOP_LOGO("SHOP_LOGO"),
+        @Json(name = "SHOP_BACKGROUND") SHOP_BACKGROUND("SHOP_BACKGROUND"),
+        @Json(name = "USER_AVATAR") USER_AVATAR("USER_AVATAR"),
+        @Json(name = "OTHER") OTHER("OTHER");
+    }
+    /**
+     * 
+     *
+     * Values: IMAGE,GIF,TIFF,VIDEO,AUDIO,LOTTIE,PDF,DOC,YOUTUBE,WEBSITE,FILE,OTHER,TXT,CSV,EML,ICS,MSG,NOT_FILE
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TypeAsEnum(val value: kotlin.String) {
+        @Json(name = "IMAGE") IMAGE("IMAGE"),
+        @Json(name = "GIF") GIF("GIF"),
+        @Json(name = "TIFF") TIFF("TIFF"),
+        @Json(name = "VIDEO") VIDEO("VIDEO"),
+        @Json(name = "AUDIO") AUDIO("AUDIO"),
+        @Json(name = "LOTTIE") LOTTIE("LOTTIE"),
+        @Json(name = "PDF") PDF("PDF"),
+        @Json(name = "DOC") DOC("DOC"),
+        @Json(name = "YOUTUBE") YOUTUBE("YOUTUBE"),
+        @Json(name = "WEBSITE") WEBSITE("WEBSITE"),
+        @Json(name = "FILE") FILE("FILE"),
+        @Json(name = "OTHER") OTHER("OTHER"),
+        @Json(name = "TXT") TXT("TXT"),
+        @Json(name = "CSV") CSV("CSV"),
+        @Json(name = "EML") EML("EML"),
+        @Json(name = "ICS") ICS("ICS"),
+        @Json(name = "MSG") MSG("MSG"),
+        @Json(name = "NOT_FILE") NOT_FILE("NOT_FILE");
     }
 
 }

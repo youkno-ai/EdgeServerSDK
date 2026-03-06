@@ -16,16 +16,16 @@ public struct UpdateUserRequest: Codable, JSONEncodable, Hashable {
     public var email: String?
     public var phone: String?
     public var role: UpdateRolesRequest?
-    public var phoneNumber: PhoneNumber?
     public var emailInternetAddress: UpdateUserRequestEmailInternetAddress?
+    public var phoneNumber: PhoneNumber?
 
-    public init(name: String? = nil, email: String? = nil, phone: String? = nil, role: UpdateRolesRequest? = nil, phoneNumber: PhoneNumber? = nil, emailInternetAddress: UpdateUserRequestEmailInternetAddress? = nil) {
+    public init(name: String? = nil, email: String? = nil, phone: String? = nil, role: UpdateRolesRequest? = nil, emailInternetAddress: UpdateUserRequestEmailInternetAddress? = nil, phoneNumber: PhoneNumber? = nil) {
         self.name = name
         self.email = email
         self.phone = phone
         self.role = role
-        self.phoneNumber = phoneNumber
         self.emailInternetAddress = emailInternetAddress
+        self.phoneNumber = phoneNumber
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,8 +33,8 @@ public struct UpdateUserRequest: Codable, JSONEncodable, Hashable {
         case email
         case phone
         case role
-        case phoneNumber
         case emailInternetAddress
+        case phoneNumber
     }
 
     // Encodable protocol methods
@@ -45,8 +45,8 @@ public struct UpdateUserRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(phone, forKey: .phone)
         try container.encodeIfPresent(role, forKey: .role)
-        try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
         try container.encodeIfPresent(emailInternetAddress, forKey: .emailInternetAddress)
+        try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
     }
 }
 

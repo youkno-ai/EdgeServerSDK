@@ -12,13 +12,6 @@ import AnyCodable
 
 public struct Area: Codable, JSONEncodable, Hashable {
 
-    public enum AreaTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case circle = "CIRCLE"
-        case square = "SQUARE"
-        case polygon = "POLYGON"
-        case unknown = "UNKNOWN"
-    }
     public enum RadiusUnitAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case meter = "METER"
@@ -32,6 +25,13 @@ public struct Area: Codable, JSONEncodable, Hashable {
         case bounty = "BOUNTY"
         case unknown = "UNKNOWN"
     }
+    public enum AreaTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case circle = "CIRCLE"
+        case square = "SQUARE"
+        case polygon = "POLYGON"
+        case unknown = "UNKNOWN"
+    }
     public var id: String?
     public var name: String?
     public var areaType: String?
@@ -41,12 +41,12 @@ public struct Area: Codable, JSONEncodable, Hashable {
     public var displayRadiusUnit: String?
     public var referenceType: String?
     public var reference: String?
-    public var areaTypeAsEnum: AreaTypeAsEnum?
-    public var referenceArea: Bool?
     public var radiusUnitAsEnum: RadiusUnitAsEnum?
     public var referenceTypeAsEnum: ReferenceTypeAsEnum?
+    public var areaTypeAsEnum: AreaTypeAsEnum?
+    public var referenceArea: Bool?
 
-    public init(id: String? = nil, name: String? = nil, areaType: String? = nil, center: GeoPoint? = nil, polygon: String? = nil, radiusInMeters: Double? = nil, displayRadiusUnit: String? = nil, referenceType: String? = nil, reference: String? = nil, areaTypeAsEnum: AreaTypeAsEnum? = nil, referenceArea: Bool? = nil, radiusUnitAsEnum: RadiusUnitAsEnum? = nil, referenceTypeAsEnum: ReferenceTypeAsEnum? = nil) {
+    public init(id: String? = nil, name: String? = nil, areaType: String? = nil, center: GeoPoint? = nil, polygon: String? = nil, radiusInMeters: Double? = nil, displayRadiusUnit: String? = nil, referenceType: String? = nil, reference: String? = nil, radiusUnitAsEnum: RadiusUnitAsEnum? = nil, referenceTypeAsEnum: ReferenceTypeAsEnum? = nil, areaTypeAsEnum: AreaTypeAsEnum? = nil, referenceArea: Bool? = nil) {
         self.id = id
         self.name = name
         self.areaType = areaType
@@ -56,10 +56,10 @@ public struct Area: Codable, JSONEncodable, Hashable {
         self.displayRadiusUnit = displayRadiusUnit
         self.referenceType = referenceType
         self.reference = reference
-        self.areaTypeAsEnum = areaTypeAsEnum
-        self.referenceArea = referenceArea
         self.radiusUnitAsEnum = radiusUnitAsEnum
         self.referenceTypeAsEnum = referenceTypeAsEnum
+        self.areaTypeAsEnum = areaTypeAsEnum
+        self.referenceArea = referenceArea
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -72,10 +72,10 @@ public struct Area: Codable, JSONEncodable, Hashable {
         case displayRadiusUnit
         case referenceType
         case reference
-        case areaTypeAsEnum
-        case referenceArea
         case radiusUnitAsEnum
         case referenceTypeAsEnum
+        case areaTypeAsEnum
+        case referenceArea
     }
 
     // Encodable protocol methods
@@ -91,10 +91,10 @@ public struct Area: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(displayRadiusUnit, forKey: .displayRadiusUnit)
         try container.encodeIfPresent(referenceType, forKey: .referenceType)
         try container.encodeIfPresent(reference, forKey: .reference)
-        try container.encodeIfPresent(areaTypeAsEnum, forKey: .areaTypeAsEnum)
-        try container.encodeIfPresent(referenceArea, forKey: .referenceArea)
         try container.encodeIfPresent(radiusUnitAsEnum, forKey: .radiusUnitAsEnum)
         try container.encodeIfPresent(referenceTypeAsEnum, forKey: .referenceTypeAsEnum)
+        try container.encodeIfPresent(areaTypeAsEnum, forKey: .areaTypeAsEnum)
+        try container.encodeIfPresent(referenceArea, forKey: .referenceArea)
     }
 }
 

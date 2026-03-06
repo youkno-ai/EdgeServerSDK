@@ -12,21 +12,43 @@ import AnyCodable
 
 public struct MetaInfo: Codable, JSONEncodable, Hashable {
 
-    public var badges: [String: BadgeInfo]?
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var budgetAmount: Double?
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var budgetCurrency: String?
+    public var startAt: Int64?
+    public var label: String?
+    public var leaderboardStrategy: String?
+    public var notifyOnStart: Bool?
 
-    public init(badges: [String: BadgeInfo]? = nil) {
-        self.badges = badges
+    public init(budgetAmount: Double? = nil, budgetCurrency: String? = nil, startAt: Int64? = nil, label: String? = nil, leaderboardStrategy: String? = nil, notifyOnStart: Bool? = nil) {
+        self.budgetAmount = budgetAmount
+        self.budgetCurrency = budgetCurrency
+        self.startAt = startAt
+        self.label = label
+        self.leaderboardStrategy = leaderboardStrategy
+        self.notifyOnStart = notifyOnStart
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case badges
+        case budgetAmount
+        case budgetCurrency
+        case startAt
+        case label
+        case leaderboardStrategy
+        case notifyOnStart
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(badges, forKey: .badges)
+        try container.encodeIfPresent(budgetAmount, forKey: .budgetAmount)
+        try container.encodeIfPresent(budgetCurrency, forKey: .budgetCurrency)
+        try container.encodeIfPresent(startAt, forKey: .startAt)
+        try container.encodeIfPresent(label, forKey: .label)
+        try container.encodeIfPresent(leaderboardStrategy, forKey: .leaderboardStrategy)
+        try container.encodeIfPresent(notifyOnStart, forKey: .notifyOnStart)
     }
 }
 

@@ -50,12 +50,12 @@ public struct DejavooTransactionData: Codable, JSONEncodable, Hashable {
     public var tipLine: String?
     public var totalAmount: String?
     public var transId: String?
-    public var ltaxAmount: String?
-    public var staxAmount: String?
-    public var extDataAsObj: ExtData?
     public var paymentStatusAsEnum: PaymentStatusAsEnum?
     public var completedByWalletBmb: Bool?
     public var reimburseApplicable: Bool?
+    public var ltaxAmount: String?
+    public var staxAmount: String?
+    public var extDataAsObj: ExtData?
     public var lTaxAmount: String?
     public var sTaxAmount: String?
     public var amountPaid: String?
@@ -68,7 +68,7 @@ public struct DejavooTransactionData: Codable, JSONEncodable, Hashable {
     public var transactionTitle: String?
     public var transactionType: Int?
 
-    public init(authCode: String? = nil, batchNo: String? = nil, bmbMsg: String? = nil, bmbQrMsg: String? = nil, bmbQrUrl: String? = nil, bmbRefId: String? = nil, bmbStatus: String? = nil, cardHolderName: String? = nil, customer: String? = nil, date: String? = nil, disclaimer: String? = nil, emvAID: String? = nil, emvAppName: String? = nil, emvTC: String? = nil, emvTSI: String? = nil, emvTVR: String? = nil, expDate: String? = nil, extData: String? = nil, fee: String? = nil, merchant: String? = nil, pinMode: String? = nil, refId: String? = nil, reimburseMode: Int? = nil, reimburseModeName: String? = nil, respCode: String? = nil, rrn: String? = nil, sign: String? = nil, status: String? = nil, time: String? = nil, tipAmount: String? = nil, tipLine: String? = nil, totalAmount: String? = nil, transId: String? = nil, ltaxAmount: String? = nil, staxAmount: String? = nil, extDataAsObj: ExtData? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, completedByWalletBmb: Bool? = nil, reimburseApplicable: Bool? = nil, lTaxAmount: String? = nil, sTaxAmount: String? = nil, amountPaid: String? = nil, cardType: String? = nil, invoiceNo: String? = nil, last4Digits: String? = nil, maskPan: String? = nil, transactionId: String? = nil, transactionMode: String? = nil, transactionTitle: String? = nil, transactionType: Int? = nil) {
+    public init(authCode: String? = nil, batchNo: String? = nil, bmbMsg: String? = nil, bmbQrMsg: String? = nil, bmbQrUrl: String? = nil, bmbRefId: String? = nil, bmbStatus: String? = nil, cardHolderName: String? = nil, customer: String? = nil, date: String? = nil, disclaimer: String? = nil, emvAID: String? = nil, emvAppName: String? = nil, emvTC: String? = nil, emvTSI: String? = nil, emvTVR: String? = nil, expDate: String? = nil, extData: String? = nil, fee: String? = nil, merchant: String? = nil, pinMode: String? = nil, refId: String? = nil, reimburseMode: Int? = nil, reimburseModeName: String? = nil, respCode: String? = nil, rrn: String? = nil, sign: String? = nil, status: String? = nil, time: String? = nil, tipAmount: String? = nil, tipLine: String? = nil, totalAmount: String? = nil, transId: String? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, completedByWalletBmb: Bool? = nil, reimburseApplicable: Bool? = nil, ltaxAmount: String? = nil, staxAmount: String? = nil, extDataAsObj: ExtData? = nil, lTaxAmount: String? = nil, sTaxAmount: String? = nil, amountPaid: String? = nil, cardType: String? = nil, invoiceNo: String? = nil, last4Digits: String? = nil, maskPan: String? = nil, transactionId: String? = nil, transactionMode: String? = nil, transactionTitle: String? = nil, transactionType: Int? = nil) {
         self.authCode = authCode
         self.batchNo = batchNo
         self.bmbMsg = bmbMsg
@@ -102,12 +102,12 @@ public struct DejavooTransactionData: Codable, JSONEncodable, Hashable {
         self.tipLine = tipLine
         self.totalAmount = totalAmount
         self.transId = transId
-        self.ltaxAmount = ltaxAmount
-        self.staxAmount = staxAmount
-        self.extDataAsObj = extDataAsObj
         self.paymentStatusAsEnum = paymentStatusAsEnum
         self.completedByWalletBmb = completedByWalletBmb
         self.reimburseApplicable = reimburseApplicable
+        self.ltaxAmount = ltaxAmount
+        self.staxAmount = staxAmount
+        self.extDataAsObj = extDataAsObj
         self.lTaxAmount = lTaxAmount
         self.sTaxAmount = sTaxAmount
         self.amountPaid = amountPaid
@@ -155,12 +155,12 @@ public struct DejavooTransactionData: Codable, JSONEncodable, Hashable {
         case tipLine
         case totalAmount
         case transId
-        case ltaxAmount
-        case staxAmount
-        case extDataAsObj
         case paymentStatusAsEnum
         case completedByWalletBmb
         case reimburseApplicable
+        case ltaxAmount
+        case staxAmount
+        case extDataAsObj
         case lTaxAmount = "LTaxAmount"
         case sTaxAmount = "STaxAmount"
         case amountPaid = "amount_paid"
@@ -211,12 +211,12 @@ public struct DejavooTransactionData: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(tipLine, forKey: .tipLine)
         try container.encodeIfPresent(totalAmount, forKey: .totalAmount)
         try container.encodeIfPresent(transId, forKey: .transId)
-        try container.encodeIfPresent(ltaxAmount, forKey: .ltaxAmount)
-        try container.encodeIfPresent(staxAmount, forKey: .staxAmount)
-        try container.encodeIfPresent(extDataAsObj, forKey: .extDataAsObj)
         try container.encodeIfPresent(paymentStatusAsEnum, forKey: .paymentStatusAsEnum)
         try container.encodeIfPresent(completedByWalletBmb, forKey: .completedByWalletBmb)
         try container.encodeIfPresent(reimburseApplicable, forKey: .reimburseApplicable)
+        try container.encodeIfPresent(ltaxAmount, forKey: .ltaxAmount)
+        try container.encodeIfPresent(staxAmount, forKey: .staxAmount)
+        try container.encodeIfPresent(extDataAsObj, forKey: .extDataAsObj)
         try container.encodeIfPresent(lTaxAmount, forKey: .lTaxAmount)
         try container.encodeIfPresent(sTaxAmount, forKey: .sTaxAmount)
         try container.encodeIfPresent(amountPaid, forKey: .amountPaid)

@@ -113,16 +113,16 @@ export interface Comment {
     responseId?: string;
     /**
      * 
-     * @type {User}
-     * @memberof Comment
-     */
-    author?: User;
-    /**
-     * 
      * @type {string}
      * @memberof Comment
      */
     objectTypeAsEnum?: CommentObjectTypeAsEnumEnum;
+    /**
+     * 
+     * @type {User}
+     * @memberof Comment
+     */
+    author?: User;
 }
 
 
@@ -169,8 +169,8 @@ export function CommentFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
         'userId': json['userId'] == null ? undefined : json['userId'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
-        'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
         'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
+        'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
     };
 }
 
@@ -199,8 +199,8 @@ export function CommentToJSONTyped(value?: Comment | null, ignoreDiscriminator: 
         'userId': value['userId'],
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
-        'author': UserToJSON(value['author']),
         'objectTypeAsEnum': value['objectTypeAsEnum'],
+        'author': UserToJSON(value['author']),
     };
 }
 

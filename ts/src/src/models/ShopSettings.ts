@@ -498,24 +498,6 @@ export interface ShopSettings {
     empty?: boolean;
     /**
      * 
-     * @type {Array<string>}
-     * @memberof ShopSettings
-     */
-    loginsAsEnum?: Array<ShopSettingsLoginsAsEnumEnum>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShopSettings
-     */
-    anonUsersAsEnum?: ShopSettingsAnonUsersAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShopSettings
-     */
-    shopTypeAsEnum?: ShopSettingsShopTypeAsEnumEnum;
-    /**
-     * 
      * @type {string}
      * @memberof ShopSettings
      */
@@ -610,6 +592,24 @@ export interface ShopSettings {
      * @memberof ShopSettings
      */
     shopStatusAsEnum?: ShopSettingsShopStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ShopSettings
+     */
+    anonUsersAsEnum?: ShopSettingsAnonUsersAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ShopSettings
+     */
+    shopTypeAsEnum?: ShopSettingsShopTypeAsEnumEnum;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ShopSettings
+     */
+    loginsAsEnum?: Array<ShopSettingsLoginsAsEnumEnum>;
 }
 
 
@@ -632,43 +632,6 @@ export const ShopSettingsPosTypeEnum = {
     BIOTRACK: 'BIOTRACK'
 } as const;
 export type ShopSettingsPosTypeEnum = typeof ShopSettingsPosTypeEnum[keyof typeof ShopSettingsPosTypeEnum];
-
-/**
- * @export
- */
-export const ShopSettingsLoginsAsEnumEnum = {
-    NONE: 'NONE',
-    SSO: 'SSO',
-    GOOGLE: 'GOOGLE',
-    APPLE: 'APPLE',
-    MICROSOFT: 'MICROSOFT',
-    EMAIL: 'EMAIL',
-    PHONE: 'PHONE',
-    INTERNET: 'INTERNET',
-    ANON: 'ANON',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShopSettingsLoginsAsEnumEnum = typeof ShopSettingsLoginsAsEnumEnum[keyof typeof ShopSettingsLoginsAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsAnonUsersAsEnumEnum = {
-    AUTH_AT_START: 'AUTH_AT_START',
-    AUTH_AT_ORDER: 'AUTH_AT_ORDER',
-    ALLOW_PURCHASE: 'ALLOW_PURCHASE'
-} as const;
-export type ShopSettingsAnonUsersAsEnumEnum = typeof ShopSettingsAnonUsersAsEnumEnum[keyof typeof ShopSettingsAnonUsersAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsShopTypeAsEnumEnum = {
-    POS: 'POS',
-    SHOP: 'SHOP',
-    MARKET: 'MARKET'
-} as const;
-export type ShopSettingsShopTypeAsEnumEnum = typeof ShopSettingsShopTypeAsEnumEnum[keyof typeof ShopSettingsShopTypeAsEnumEnum];
 
 /**
  * @export
@@ -800,6 +763,43 @@ export const ShopSettingsShopStatusAsEnumEnum = {
 } as const;
 export type ShopSettingsShopStatusAsEnumEnum = typeof ShopSettingsShopStatusAsEnumEnum[keyof typeof ShopSettingsShopStatusAsEnumEnum];
 
+/**
+ * @export
+ */
+export const ShopSettingsAnonUsersAsEnumEnum = {
+    AUTH_AT_START: 'AUTH_AT_START',
+    AUTH_AT_ORDER: 'AUTH_AT_ORDER',
+    ALLOW_PURCHASE: 'ALLOW_PURCHASE'
+} as const;
+export type ShopSettingsAnonUsersAsEnumEnum = typeof ShopSettingsAnonUsersAsEnumEnum[keyof typeof ShopSettingsAnonUsersAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsShopTypeAsEnumEnum = {
+    POS: 'POS',
+    SHOP: 'SHOP',
+    MARKET: 'MARKET'
+} as const;
+export type ShopSettingsShopTypeAsEnumEnum = typeof ShopSettingsShopTypeAsEnumEnum[keyof typeof ShopSettingsShopTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsLoginsAsEnumEnum = {
+    NONE: 'NONE',
+    SSO: 'SSO',
+    GOOGLE: 'GOOGLE',
+    APPLE: 'APPLE',
+    MICROSOFT: 'MICROSOFT',
+    EMAIL: 'EMAIL',
+    PHONE: 'PHONE',
+    INTERNET: 'INTERNET',
+    ANON: 'ANON',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ShopSettingsLoginsAsEnumEnum = typeof ShopSettingsLoginsAsEnumEnum[keyof typeof ShopSettingsLoginsAsEnumEnum];
+
 
 /**
  * Check if a given object implements the ShopSettings interface.
@@ -874,9 +874,6 @@ export function ShopSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'billMyBankInfo': json['billMyBankInfo'] == null ? undefined : BillMyBankInfoFromJSON(json['billMyBankInfo']),
         'chargeeInfo': json['chargeeInfo'] == null ? undefined : ChargeeInfoFromJSON(json['chargeeInfo']),
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
-        'anonUsersAsEnum': json['anonUsersAsEnum'] == null ? undefined : json['anonUsersAsEnum'],
-        'shopTypeAsEnum': json['shopTypeAsEnum'] == null ? undefined : json['shopTypeAsEnum'],
         'landingPageAsEnum': json['landingPageAsEnum'] == null ? undefined : json['landingPageAsEnum'],
         'medicalIdPromptAsEnum': json['medicalIdPromptAsEnum'] == null ? undefined : json['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': json['productBalanceAsEnum'] == null ? undefined : json['productBalanceAsEnum'],
@@ -893,6 +890,9 @@ export function ShopSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'settingsStrategyAsEnum': json['settingsStrategyAsEnum'] == null ? undefined : json['settingsStrategyAsEnum'],
         'settingsWriteModeAsEnum': json['settingsWriteModeAsEnum'] == null ? undefined : json['settingsWriteModeAsEnum'],
         'shopStatusAsEnum': json['shopStatusAsEnum'] == null ? undefined : json['shopStatusAsEnum'],
+        'anonUsersAsEnum': json['anonUsersAsEnum'] == null ? undefined : json['anonUsersAsEnum'],
+        'shopTypeAsEnum': json['shopTypeAsEnum'] == null ? undefined : json['shopTypeAsEnum'],
+        'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
     };
 }
 
@@ -963,9 +963,6 @@ export function ShopSettingsToJSONTyped(value?: ShopSettings | null, ignoreDiscr
         'billMyBankInfo': BillMyBankInfoToJSON(value['billMyBankInfo']),
         'chargeeInfo': ChargeeInfoToJSON(value['chargeeInfo']),
         'empty': value['empty'],
-        'loginsAsEnum': value['loginsAsEnum'],
-        'anonUsersAsEnum': value['anonUsersAsEnum'],
-        'shopTypeAsEnum': value['shopTypeAsEnum'],
         'landingPageAsEnum': value['landingPageAsEnum'],
         'medicalIdPromptAsEnum': value['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': value['productBalanceAsEnum'],
@@ -982,6 +979,9 @@ export function ShopSettingsToJSONTyped(value?: ShopSettings | null, ignoreDiscr
         'settingsStrategyAsEnum': value['settingsStrategyAsEnum'],
         'settingsWriteModeAsEnum': value['settingsWriteModeAsEnum'],
         'shopStatusAsEnum': value['shopStatusAsEnum'],
+        'anonUsersAsEnum': value['anonUsersAsEnum'],
+        'shopTypeAsEnum': value['shopTypeAsEnum'],
+        'loginsAsEnum': value['loginsAsEnum'],
     };
 }
 

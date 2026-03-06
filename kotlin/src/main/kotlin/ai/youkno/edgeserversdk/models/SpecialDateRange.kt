@@ -29,10 +29,10 @@ import com.squareup.moshi.JsonClass
  * @param hoursOfOperation 
  * @param empty 
  * @param valid 
- * @param emptyDateRange 
- * @param singleDate 
  * @param fromDateAsLocalDate 
  * @param toDateAsLocalDate 
+ * @param emptyDateRange 
+ * @param singleDate 
  */
 
 
@@ -56,17 +56,17 @@ data class SpecialDateRange (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
-    @Json(name = "emptyDateRange")
-    val emptyDateRange: kotlin.Boolean? = null,
-
-    @Json(name = "singleDate")
-    val singleDate: kotlin.Boolean? = null,
-
     @Json(name = "fromDateAsLocalDate")
     val fromDateAsLocalDate: java.time.LocalDate? = null,
 
     @Json(name = "toDateAsLocalDate")
-    val toDateAsLocalDate: java.time.LocalDate? = null
+    val toDateAsLocalDate: java.time.LocalDate? = null,
+
+    @Json(name = "emptyDateRange")
+    val emptyDateRange: kotlin.Boolean? = null,
+
+    @Json(name = "singleDate")
+    val singleDate: kotlin.Boolean? = null
 
 ) {
 

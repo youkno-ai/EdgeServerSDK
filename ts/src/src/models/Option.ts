@@ -66,24 +66,15 @@ export interface Option {
      * @type {string}
      * @memberof Option
      */
-    typeAsEnum?: OptionTypeAsEnumEnum;
+    stateAsEnum?: OptionStateAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof Option
      */
-    stateAsEnum?: OptionStateAsEnumEnum;
+    typeAsEnum?: OptionTypeAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const OptionTypeAsEnumEnum = {
-    CHOICE: 'CHOICE',
-    TEXT: 'TEXT'
-} as const;
-export type OptionTypeAsEnumEnum = typeof OptionTypeAsEnumEnum[keyof typeof OptionTypeAsEnumEnum];
 
 /**
  * @export
@@ -93,6 +84,15 @@ export const OptionStateAsEnumEnum = {
     INACTIVE: 'INACTIVE'
 } as const;
 export type OptionStateAsEnumEnum = typeof OptionStateAsEnumEnum[keyof typeof OptionStateAsEnumEnum];
+
+/**
+ * @export
+ */
+export const OptionTypeAsEnumEnum = {
+    CHOICE: 'CHOICE',
+    TEXT: 'TEXT'
+} as const;
+export type OptionTypeAsEnumEnum = typeof OptionTypeAsEnumEnum[keyof typeof OptionTypeAsEnumEnum];
 
 
 /**
@@ -119,8 +119,8 @@ export function OptionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Op
         'reward': json['reward'] == null ? undefined : json['reward'],
         'weight': json['weight'] == null ? undefined : json['weight'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
         'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -142,8 +142,8 @@ export function OptionToJSONTyped(value?: Option | null, ignoreDiscriminator: bo
         'reward': value['reward'],
         'weight': value['weight'],
         'valid': value['valid'],
-        'typeAsEnum': value['typeAsEnum'],
         'stateAsEnum': value['stateAsEnum'],
+        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

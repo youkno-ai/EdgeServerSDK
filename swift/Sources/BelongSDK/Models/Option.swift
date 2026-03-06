@@ -12,13 +12,13 @@ import AnyCodable
 
 public struct Option: Codable, JSONEncodable, Hashable {
 
-    public enum TypeAsEnum: String, Codable, CaseIterable {
-        case choice = "CHOICE"
-        case text = "TEXT"
-    }
     public enum StateAsEnum: String, Codable, CaseIterable {
         case active = "ACTIVE"
         case inactive = "INACTIVE"
+    }
+    public enum TypeAsEnum: String, Codable, CaseIterable {
+        case choice = "CHOICE"
+        case text = "TEXT"
     }
     public var state: String?
     public var type: String?
@@ -27,10 +27,10 @@ public struct Option: Codable, JSONEncodable, Hashable {
     public var reward: AnyCodable?
     public var weight: Int?
     public var valid: Bool?
-    public var typeAsEnum: TypeAsEnum?
     public var stateAsEnum: StateAsEnum?
+    public var typeAsEnum: TypeAsEnum?
 
-    public init(state: String? = nil, type: String? = nil, code: String? = nil, text: String? = nil, reward: AnyCodable? = nil, weight: Int? = nil, valid: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, stateAsEnum: StateAsEnum? = nil) {
+    public init(state: String? = nil, type: String? = nil, code: String? = nil, text: String? = nil, reward: AnyCodable? = nil, weight: Int? = nil, valid: Bool? = nil, stateAsEnum: StateAsEnum? = nil, typeAsEnum: TypeAsEnum? = nil) {
         self.state = state
         self.type = type
         self.code = code
@@ -38,8 +38,8 @@ public struct Option: Codable, JSONEncodable, Hashable {
         self.reward = reward
         self.weight = weight
         self.valid = valid
-        self.typeAsEnum = typeAsEnum
         self.stateAsEnum = stateAsEnum
+        self.typeAsEnum = typeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -50,8 +50,8 @@ public struct Option: Codable, JSONEncodable, Hashable {
         case reward
         case weight
         case valid
-        case typeAsEnum
         case stateAsEnum
+        case typeAsEnum
     }
 
     // Encodable protocol methods
@@ -65,8 +65,8 @@ public struct Option: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(reward, forKey: .reward)
         try container.encodeIfPresent(weight, forKey: .weight)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
         try container.encodeIfPresent(stateAsEnum, forKey: .stateAsEnum)
+        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
     }
 }
 

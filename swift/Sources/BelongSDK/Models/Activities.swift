@@ -15,23 +15,23 @@ public struct Activities: Codable, JSONEncodable, Hashable {
     public var nextActivity: Activity?
     public var previousActivity: Activity?
     public var highlightedActivities: [String: Activity]?
-    public var nextBountyId: String?
     public var previousBountyId: String?
+    public var nextBountyId: String?
 
-    public init(nextActivity: Activity? = nil, previousActivity: Activity? = nil, highlightedActivities: [String: Activity]? = nil, nextBountyId: String? = nil, previousBountyId: String? = nil) {
+    public init(nextActivity: Activity? = nil, previousActivity: Activity? = nil, highlightedActivities: [String: Activity]? = nil, previousBountyId: String? = nil, nextBountyId: String? = nil) {
         self.nextActivity = nextActivity
         self.previousActivity = previousActivity
         self.highlightedActivities = highlightedActivities
-        self.nextBountyId = nextBountyId
         self.previousBountyId = previousBountyId
+        self.nextBountyId = nextBountyId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case nextActivity
         case previousActivity
         case highlightedActivities
-        case nextBountyId
         case previousBountyId
+        case nextBountyId
     }
 
     // Encodable protocol methods
@@ -41,8 +41,8 @@ public struct Activities: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(nextActivity, forKey: .nextActivity)
         try container.encodeIfPresent(previousActivity, forKey: .previousActivity)
         try container.encodeIfPresent(highlightedActivities, forKey: .highlightedActivities)
-        try container.encodeIfPresent(nextBountyId, forKey: .nextBountyId)
         try container.encodeIfPresent(previousBountyId, forKey: .previousBountyId)
+        try container.encodeIfPresent(nextBountyId, forKey: .nextBountyId)
     }
 }
 

@@ -12,6 +12,11 @@ import AnyCodable
 
 public struct FilterDef: Codable, JSONEncodable, Hashable {
 
+    public enum FilterTypeAsEnum: String, Codable, CaseIterable {
+        case select = "SELECT"
+        case multiSelect = "MULTI_SELECT"
+        case range = "RANGE"
+    }
     public enum CriteriaTypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case category = "CATEGORY"
@@ -24,29 +29,24 @@ public struct FilterDef: Codable, JSONEncodable, Hashable {
         case other = "OTHER"
         case unknown = "UNKNOWN"
     }
-    public enum FilterTypeAsEnum: String, Codable, CaseIterable {
-        case select = "SELECT"
-        case multiSelect = "MULTI_SELECT"
-        case range = "RANGE"
-    }
     public var id: String?
     public var parentId: String?
     public var name: String?
     public var type: String?
     public var criteriaType: String?
     public var options: [FilterOption]?
-    public var criteriaTypeAsEnum: CriteriaTypeAsEnum?
     public var filterTypeAsEnum: FilterTypeAsEnum?
+    public var criteriaTypeAsEnum: CriteriaTypeAsEnum?
 
-    public init(id: String? = nil, parentId: String? = nil, name: String? = nil, type: String? = nil, criteriaType: String? = nil, options: [FilterOption]? = nil, criteriaTypeAsEnum: CriteriaTypeAsEnum? = nil, filterTypeAsEnum: FilterTypeAsEnum? = nil) {
+    public init(id: String? = nil, parentId: String? = nil, name: String? = nil, type: String? = nil, criteriaType: String? = nil, options: [FilterOption]? = nil, filterTypeAsEnum: FilterTypeAsEnum? = nil, criteriaTypeAsEnum: CriteriaTypeAsEnum? = nil) {
         self.id = id
         self.parentId = parentId
         self.name = name
         self.type = type
         self.criteriaType = criteriaType
         self.options = options
-        self.criteriaTypeAsEnum = criteriaTypeAsEnum
         self.filterTypeAsEnum = filterTypeAsEnum
+        self.criteriaTypeAsEnum = criteriaTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -56,8 +56,8 @@ public struct FilterDef: Codable, JSONEncodable, Hashable {
         case type
         case criteriaType
         case options
-        case criteriaTypeAsEnum
         case filterTypeAsEnum
+        case criteriaTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -70,8 +70,8 @@ public struct FilterDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(type, forKey: .type)
         try container.encodeIfPresent(criteriaType, forKey: .criteriaType)
         try container.encodeIfPresent(options, forKey: .options)
-        try container.encodeIfPresent(criteriaTypeAsEnum, forKey: .criteriaTypeAsEnum)
         try container.encodeIfPresent(filterTypeAsEnum, forKey: .filterTypeAsEnum)
+        try container.encodeIfPresent(criteriaTypeAsEnum, forKey: .criteriaTypeAsEnum)
     }
 }
 

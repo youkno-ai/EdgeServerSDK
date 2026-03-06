@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param type 
  * @param criteriaType 
  * @param options 
- * @param criteriaTypeAsEnum 
  * @param filterTypeAsEnum 
+ * @param criteriaTypeAsEnum 
  */
 
 
@@ -54,14 +54,25 @@ data class FilterDef (
     @Json(name = "options")
     val options: kotlin.collections.List<FilterOption>? = null,
 
-    @Json(name = "criteriaTypeAsEnum")
-    val criteriaTypeAsEnum: FilterDef.CriteriaTypeAsEnum? = null,
-
     @Json(name = "filterTypeAsEnum")
-    val filterTypeAsEnum: FilterDef.FilterTypeAsEnum? = null
+    val filterTypeAsEnum: FilterDef.FilterTypeAsEnum? = null,
+
+    @Json(name = "criteriaTypeAsEnum")
+    val criteriaTypeAsEnum: FilterDef.CriteriaTypeAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: SELECT,MULTI_SELECT,RANGE
+     */
+    @JsonClass(generateAdapter = false)
+    enum class FilterTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "SELECT") SELECT("SELECT"),
+        @Json(name = "MULTI_SELECT") MULTI_SELECT("MULTI_SELECT"),
+        @Json(name = "RANGE") RANGE("RANGE");
+    }
     /**
      * 
      *
@@ -79,17 +90,6 @@ data class FilterDef (
         @Json(name = "CANNABINOIDS") CANNABINOIDS("CANNABINOIDS"),
         @Json(name = "OTHER") OTHER("OTHER"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: SELECT,MULTI_SELECT,RANGE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class FilterTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "SELECT") SELECT("SELECT"),
-        @Json(name = "MULTI_SELECT") MULTI_SELECT("MULTI_SELECT"),
-        @Json(name = "RANGE") RANGE("RANGE");
     }
 
 }

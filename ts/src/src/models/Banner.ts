@@ -94,12 +94,6 @@ export interface Banner {
      * @type {string}
      * @memberof Banner
      */
-    targetAppAsEnum?: BannerTargetAppAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Banner
-     */
     bannerTypeAsEnum?: BannerBannerTypeAsEnumEnum;
     /**
      * 
@@ -107,24 +101,14 @@ export interface Banner {
      * @memberof Banner
      */
     userAuthStatusAsEnum?: BannerUserAuthStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Banner
+     */
+    targetAppAsEnum?: BannerTargetAppAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const BannerTargetAppAsEnumEnum = {
-    NONE: 'NONE',
-    ANDROID: 'ANDROID',
-    IOS: 'IOS',
-    WEB: 'WEB',
-    JOIN_WEB: 'JOIN_WEB',
-    SERVER: 'SERVER',
-    SHOP: 'SHOP',
-    KIOSK: 'KIOSK',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BannerTargetAppAsEnumEnum = typeof BannerTargetAppAsEnumEnum[keyof typeof BannerTargetAppAsEnumEnum];
 
 /**
  * @export
@@ -148,6 +132,22 @@ export const BannerUserAuthStatusAsEnumEnum = {
     ANON: 'ANON'
 } as const;
 export type BannerUserAuthStatusAsEnumEnum = typeof BannerUserAuthStatusAsEnumEnum[keyof typeof BannerUserAuthStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BannerTargetAppAsEnumEnum = {
+    NONE: 'NONE',
+    ANDROID: 'ANDROID',
+    IOS: 'IOS',
+    WEB: 'WEB',
+    JOIN_WEB: 'JOIN_WEB',
+    SERVER: 'SERVER',
+    SHOP: 'SHOP',
+    KIOSK: 'KIOSK',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BannerTargetAppAsEnumEnum = typeof BannerTargetAppAsEnumEnum[keyof typeof BannerTargetAppAsEnumEnum];
 
 
 /**
@@ -175,9 +175,9 @@ export function BannerFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ba
         'userAuthStatus': json['userAuthStatus'] == null ? undefined : json['userAuthStatus'],
         'priority': json['priority'] == null ? undefined : json['priority'],
         'weight': json['weight'] == null ? undefined : json['weight'],
-        'targetAppAsEnum': json['targetAppAsEnum'] == null ? undefined : json['targetAppAsEnum'],
         'bannerTypeAsEnum': json['bannerTypeAsEnum'] == null ? undefined : json['bannerTypeAsEnum'],
         'userAuthStatusAsEnum': json['userAuthStatusAsEnum'] == null ? undefined : json['userAuthStatusAsEnum'],
+        'targetAppAsEnum': json['targetAppAsEnum'] == null ? undefined : json['targetAppAsEnum'],
     };
 }
 
@@ -200,9 +200,9 @@ export function BannerToJSONTyped(value?: Banner | null, ignoreDiscriminator: bo
         'userAuthStatus': value['userAuthStatus'],
         'priority': value['priority'],
         'weight': value['weight'],
-        'targetAppAsEnum': value['targetAppAsEnum'],
         'bannerTypeAsEnum': value['bannerTypeAsEnum'],
         'userAuthStatusAsEnum': value['userAuthStatusAsEnum'],
+        'targetAppAsEnum': value['targetAppAsEnum'],
     };
 }
 

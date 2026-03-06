@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param email 
  * @param phone 
  * @param role 
- * @param phoneNumber 
  * @param emailInternetAddress 
+ * @param phoneNumber 
  */
 
 
@@ -48,11 +48,11 @@ data class UpdateUserRequest (
     @Json(name = "role")
     val role: UpdateRolesRequest? = null,
 
-    @Json(name = "phoneNumber")
-    val phoneNumber: PhoneNumber? = null,
-
     @Json(name = "emailInternetAddress")
-    val emailInternetAddress: UpdateUserRequestEmailInternetAddress? = null
+    val emailInternetAddress: UpdateUserRequestEmailInternetAddress? = null,
+
+    @Json(name = "phoneNumber")
+    val phoneNumber: PhoneNumber? = null
 
 ) {
 

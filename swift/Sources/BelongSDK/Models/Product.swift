@@ -12,6 +12,12 @@ import AnyCodable
 
 public struct Product: Codable, JSONEncodable, Hashable {
 
+    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
+        case standard = "STANDARD"
+        case driver = "DRIVER"
+        case noDelivery = "NO_DELIVERY"
+        case unknown = "UNKNOWN"
+    }
     public enum KindAsEnum: String, Codable, CaseIterable {
         case product = "PRODUCT"
         case giftcard = "GIFTCARD"
@@ -19,12 +25,6 @@ public struct Product: Codable, JSONEncodable, Hashable {
         case ticket = "TICKET"
         case token = "TOKEN"
         case vouchers = "VOUCHERS"
-        case unknown = "UNKNOWN"
-    }
-    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
-        case standard = "STANDARD"
-        case driver = "DRIVER"
-        case noDelivery = "NO_DELIVERY"
         case unknown = "UNKNOWN"
     }
     public var merchant: User?
@@ -52,14 +52,14 @@ public struct Product: Codable, JSONEncodable, Hashable {
     public var categoryOrder: Int?
     public var chemicalCompositions: [String: ChemicalInfo]?
     public var valid: Bool?
-    public var topLevelVariant: ProductSpecificInfo?
-    public var totalQuantity: Double?
+    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
     public var fastDelivery: Bool?
     public var kindAsEnum: KindAsEnum?
+    public var totalQuantity: Double?
     public var optionCount: Int?
-    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
+    public var topLevelVariant: ProductSpecificInfo?
 
-    public init(merchant: User? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, valid: Bool? = nil, topLevelVariant: ProductSpecificInfo? = nil, totalQuantity: Double? = nil, fastDelivery: Bool? = nil, kindAsEnum: KindAsEnum? = nil, optionCount: Int? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil) {
+    public init(merchant: User? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, valid: Bool? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, fastDelivery: Bool? = nil, kindAsEnum: KindAsEnum? = nil, totalQuantity: Double? = nil, optionCount: Int? = nil, topLevelVariant: ProductSpecificInfo? = nil) {
         self.merchant = merchant
         self.merchantId = merchantId
         self.merchantSku = merchantSku
@@ -85,12 +85,12 @@ public struct Product: Codable, JSONEncodable, Hashable {
         self.categoryOrder = categoryOrder
         self.chemicalCompositions = chemicalCompositions
         self.valid = valid
-        self.topLevelVariant = topLevelVariant
-        self.totalQuantity = totalQuantity
+        self.deliveryTypeAsEnum = deliveryTypeAsEnum
         self.fastDelivery = fastDelivery
         self.kindAsEnum = kindAsEnum
+        self.totalQuantity = totalQuantity
         self.optionCount = optionCount
-        self.deliveryTypeAsEnum = deliveryTypeAsEnum
+        self.topLevelVariant = topLevelVariant
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -119,12 +119,12 @@ public struct Product: Codable, JSONEncodable, Hashable {
         case categoryOrder
         case chemicalCompositions
         case valid
-        case topLevelVariant
-        case totalQuantity
+        case deliveryTypeAsEnum
         case fastDelivery
         case kindAsEnum
+        case totalQuantity
         case optionCount
-        case deliveryTypeAsEnum
+        case topLevelVariant
     }
 
     // Encodable protocol methods
@@ -156,12 +156,12 @@ public struct Product: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(categoryOrder, forKey: .categoryOrder)
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
-        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
+        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
         try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
         try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
+        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
         try container.encodeIfPresent(optionCount, forKey: .optionCount)
-        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
+        try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
     }
 }
 

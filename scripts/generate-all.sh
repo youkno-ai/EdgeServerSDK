@@ -41,6 +41,8 @@ rsync -a --delete \
   --exclude='*' \
   "$TMP_DIR/ts/" ts/src/
 
+./scripts/postprocess-ts.sh
+
 # Kotlin generation
 rm -rf kotlin/src/main/kotlin
 mkdir -p kotlin/src/main/kotlin
@@ -55,6 +57,8 @@ $GEN_CLI generate \
 if [[ -d "$TMP_DIR/kotlin/src/main/kotlin" ]]; then
   cp -R "$TMP_DIR/kotlin/src/main/kotlin/." kotlin/src/main/kotlin/
 fi
+
+./scripts/postprocess-kotlin.sh
 
 # Swift generation (OpenAPI Generator swift5)
 cp spec/openapi.json swift/openapi.json
@@ -74,6 +78,8 @@ else
   # Fallback for templates that emit top-level Swift files.
   find "$TMP_DIR/swift" -maxdepth 1 -type f -name '*.swift' -exec cp {} swift/Sources/BelongSDK/ \;
 fi
+
+./scripts/postprocess-swift.sh
 
 # Align package versions
 node -e "const fs=require('fs');const p='ts/package.json';const d=JSON.parse(fs.readFileSync(p));d.version=process.argv[1];fs.writeFileSync(p,JSON.stringify(d,null,2)+'\\n');" "$EFFECTIVE_VERSION"

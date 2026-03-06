@@ -33,9 +33,9 @@ import com.squareup.moshi.JsonClass
  * @param userAuthStatus 
  * @param priority 
  * @param weight 
- * @param targetAppAsEnum 
  * @param bannerTypeAsEnum 
  * @param userAuthStatusAsEnum 
+ * @param targetAppAsEnum 
  */
 
 
@@ -65,34 +65,17 @@ data class Banner (
     @Json(name = "weight")
     val weight: kotlin.Int? = null,
 
-    @Json(name = "targetAppAsEnum")
-    val targetAppAsEnum: Banner.TargetAppAsEnum? = null,
-
     @Json(name = "bannerTypeAsEnum")
     val bannerTypeAsEnum: Banner.BannerTypeAsEnum? = null,
 
     @Json(name = "userAuthStatusAsEnum")
-    val userAuthStatusAsEnum: Banner.UserAuthStatusAsEnum? = null
+    val userAuthStatusAsEnum: Banner.UserAuthStatusAsEnum? = null,
+
+    @Json(name = "targetAppAsEnum")
+    val targetAppAsEnum: Banner.TargetAppAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,ANDROID,IOS,WEB,JOIN_WEB,SERVER,SHOP,KIOSK,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TargetAppAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ANDROID") ANDROID("ANDROID"),
-        @Json(name = "IOS") IOS("IOS"),
-        @Json(name = "WEB") WEB("WEB"),
-        @Json(name = "JOIN_WEB") JOIN_WEB("JOIN_WEB"),
-        @Json(name = "SERVER") SERVER("SERVER"),
-        @Json(name = "SHOP") SHOP("SHOP"),
-        @Json(name = "KIOSK") KIOSK("KIOSK"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -117,6 +100,23 @@ data class Banner (
         @Json(name = "ANY") ANY("ANY"),
         @Json(name = "AUTHED") AUTHED("AUTHED"),
         @Json(name = "ANON") ANON("ANON");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,ANDROID,IOS,WEB,JOIN_WEB,SERVER,SHOP,KIOSK,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TargetAppAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "ANDROID") ANDROID("ANDROID"),
+        @Json(name = "IOS") IOS("IOS"),
+        @Json(name = "WEB") WEB("WEB"),
+        @Json(name = "JOIN_WEB") JOIN_WEB("JOIN_WEB"),
+        @Json(name = "SERVER") SERVER("SERVER"),
+        @Json(name = "SHOP") SHOP("SHOP"),
+        @Json(name = "KIOSK") KIOSK("KIOSK"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

@@ -90,18 +90,6 @@ export interface Badge {
     valid?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof Badge
-     */
-    code?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Badge
-     */
-    description?: string;
-    /**
-     * 
      * @type {boolean}
      * @memberof Badge
      */
@@ -112,6 +100,18 @@ export interface Badge {
      * @memberof Badge
      */
     image?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Badge
+     */
+    description?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Badge
+     */
+    code?: string;
     /**
      * 
      * @type {string}
@@ -159,10 +159,10 @@ export function BadgeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bad
         'type': json['type'] == null ? undefined : json['type'],
         'label': json['label'] == null ? undefined : json['label'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'code': json['code'] == null ? undefined : json['code'],
-        'description': json['description'] == null ? undefined : json['description'],
         'negativeValue': json['negativeValue'] == null ? undefined : json['negativeValue'],
         'image': json['image'] == null ? undefined : json['image'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'code': json['code'] == null ? undefined : json['code'],
         'icon': json['icon'] == null ? undefined : json['icon'],
     };
 }
@@ -187,10 +187,10 @@ export function BadgeToJSONTyped(value?: Badge | null, ignoreDiscriminator: bool
         'type': value['type'],
         'label': value['label'],
         'valid': value['valid'],
-        'code': value['code'],
-        'description': value['description'],
         'negativeValue': value['negativeValue'],
         'image': value['image'],
+        'description': value['description'],
+        'code': value['code'],
         'icon': value['icon'],
     };
 }

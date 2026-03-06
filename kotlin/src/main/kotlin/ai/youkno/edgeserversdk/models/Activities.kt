@@ -26,8 +26,8 @@ import com.squareup.moshi.JsonClass
  * @param nextActivity 
  * @param previousActivity 
  * @param highlightedActivities 
- * @param nextBountyId 
  * @param previousBountyId 
+ * @param nextBountyId 
  */
 
 
@@ -42,11 +42,11 @@ data class Activities (
     @Json(name = "highlightedActivities")
     val highlightedActivities: kotlin.collections.Map<kotlin.String, Activity>? = null,
 
-    @Json(name = "nextBountyId")
-    val nextBountyId: kotlin.String? = null,
-
     @Json(name = "previousBountyId")
-    val previousBountyId: kotlin.String? = null
+    val previousBountyId: kotlin.String? = null,
+
+    @Json(name = "nextBountyId")
+    val nextBountyId: kotlin.String? = null
 
 ) {
 

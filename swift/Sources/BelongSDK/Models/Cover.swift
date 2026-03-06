@@ -26,10 +26,10 @@ public struct Cover: Codable, JSONEncodable, Hashable {
     public var size: Int?
     public var imageSize: String?
     public var cdnUrl: String?
-    public var effectiveUrl: String?
     public var storageTypeAsEnum: StorageTypeAsEnum?
+    public var effectiveUrl: String?
 
-    public init(url: String? = nil, storageType: String? = nil, w: Int? = nil, h: Int? = nil, size: Int? = nil, imageSize: String? = nil, cdnUrl: String? = nil, effectiveUrl: String? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil) {
+    public init(url: String? = nil, storageType: String? = nil, w: Int? = nil, h: Int? = nil, size: Int? = nil, imageSize: String? = nil, cdnUrl: String? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil, effectiveUrl: String? = nil) {
         self.url = url
         self.storageType = storageType
         self.w = w
@@ -37,8 +37,8 @@ public struct Cover: Codable, JSONEncodable, Hashable {
         self.size = size
         self.imageSize = imageSize
         self.cdnUrl = cdnUrl
-        self.effectiveUrl = effectiveUrl
         self.storageTypeAsEnum = storageTypeAsEnum
+        self.effectiveUrl = effectiveUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,8 +49,8 @@ public struct Cover: Codable, JSONEncodable, Hashable {
         case size
         case imageSize
         case cdnUrl
-        case effectiveUrl
         case storageTypeAsEnum
+        case effectiveUrl
     }
 
     // Encodable protocol methods
@@ -64,8 +64,8 @@ public struct Cover: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(size, forKey: .size)
         try container.encodeIfPresent(imageSize, forKey: .imageSize)
         try container.encodeIfPresent(cdnUrl, forKey: .cdnUrl)
-        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
         try container.encodeIfPresent(storageTypeAsEnum, forKey: .storageTypeAsEnum)
+        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
     }
 }
 

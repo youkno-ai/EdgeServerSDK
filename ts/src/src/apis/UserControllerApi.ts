@@ -519,7 +519,7 @@ export interface UpdateSegmentRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateUserRequest {
+export interface UpdateUserOperationRequest {
     userId: string;
     updateUserEvent: UpdateUserEvent;
     xEdgeAgent?: string;
@@ -1419,11 +1419,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateUserRaw(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>>;
+    updateUserRaw(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>>;
 
     /**
      */
-    updateUser(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult>;
+    updateUser(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult>;
 
     /**
      * 
@@ -4289,7 +4289,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async updateUserRaw(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>> {
+    async updateUserRaw(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4343,7 +4343,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async updateUser(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult> {
+    async updateUser(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult> {
         const response = await this.updateUserRaw(requestParameters, initOverrides);
         return await response.value();
     }

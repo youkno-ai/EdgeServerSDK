@@ -56,12 +56,12 @@ import com.squareup.moshi.JsonClass
  * @param tipLine 
  * @param totalAmount 
  * @param transId 
- * @param ltaxAmount 
- * @param staxAmount 
- * @param extDataAsObj 
  * @param paymentStatusAsEnum 
  * @param completedByWalletBmb 
  * @param reimburseApplicable 
+ * @param ltaxAmount 
+ * @param staxAmount 
+ * @param extDataAsObj 
  * @param ltaxAmount 
  * @param staxAmount 
  * @param amountPaid 
@@ -177,15 +177,6 @@ data class DejavooTransactionData (
     @Json(name = "transId")
     val transId: kotlin.String? = null,
 
-    @Json(name = "ltaxAmount")
-    val ltaxAmount: kotlin.String? = null,
-
-    @Json(name = "staxAmount")
-    val staxAmount: kotlin.String? = null,
-
-    @Json(name = "extDataAsObj")
-    val extDataAsObj: ExtData? = null,
-
     @Json(name = "paymentStatusAsEnum")
     val paymentStatusAsEnum: DejavooTransactionData.PaymentStatusAsEnum? = null,
 
@@ -195,11 +186,20 @@ data class DejavooTransactionData (
     @Json(name = "reimburseApplicable")
     val reimburseApplicable: kotlin.Boolean? = null,
 
-    @Json(name = "LTaxAmount")
+    @Json(name = "ltaxAmount")
     val ltaxAmount: kotlin.String? = null,
 
-    @Json(name = "STaxAmount")
+    @Json(name = "staxAmount")
     val staxAmount: kotlin.String? = null,
+
+    @Json(name = "extDataAsObj")
+    val extDataAsObj: ExtData? = null,
+
+    @Json(name = "LTaxAmount")
+    val ltaxAmountUpper: kotlin.String? = null,
+
+    @Json(name = "STaxAmount")
+    val staxAmountUpper: kotlin.String? = null,
 
     @Json(name = "amount_paid")
     val amountPaid: kotlin.String? = null,

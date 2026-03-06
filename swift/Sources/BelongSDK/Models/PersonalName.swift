@@ -14,26 +14,26 @@ public struct PersonalName: Codable, JSONEncodable, Hashable {
 
     public var fullName: String?
     public var empty: Bool?
+    public var middleName: String?
     public var firstName: String?
     public var lastName: String?
-    public var middleName: String?
     public var initials: String?
 
-    public init(fullName: String? = nil, empty: Bool? = nil, firstName: String? = nil, lastName: String? = nil, middleName: String? = nil, initials: String? = nil) {
+    public init(fullName: String? = nil, empty: Bool? = nil, middleName: String? = nil, firstName: String? = nil, lastName: String? = nil, initials: String? = nil) {
         self.fullName = fullName
         self.empty = empty
+        self.middleName = middleName
         self.firstName = firstName
         self.lastName = lastName
-        self.middleName = middleName
         self.initials = initials
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fullName
         case empty
+        case middleName
         case firstName
         case lastName
-        case middleName
         case initials
     }
 
@@ -43,9 +43,9 @@ public struct PersonalName: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(fullName, forKey: .fullName)
         try container.encodeIfPresent(empty, forKey: .empty)
+        try container.encodeIfPresent(middleName, forKey: .middleName)
         try container.encodeIfPresent(firstName, forKey: .firstName)
         try container.encodeIfPresent(lastName, forKey: .lastName)
-        try container.encodeIfPresent(middleName, forKey: .middleName)
         try container.encodeIfPresent(initials, forKey: .initials)
     }
 }

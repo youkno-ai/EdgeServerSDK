@@ -313,6 +313,12 @@ export interface UpdateUserEvent {
      * @type {string}
      * @memberof UpdateUserEvent
      */
+    phoneStatusAsEnum?: UpdateUserEventPhoneStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateUserEvent
+     */
     localeAsEnum?: string;
     /**
      * 
@@ -332,12 +338,6 @@ export interface UpdateUserEvent {
      * @memberof UpdateUserEvent
      */
     device?: Device;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateUserEvent
-     */
-    phoneStatusAsEnum?: UpdateUserEventPhoneStatusAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -464,11 +464,11 @@ export function UpdateUserEventFromJSONTyped(json: any, ignoreDiscriminator: boo
         'validateUserMerge': json['validateUserMerge'] == null ? undefined : json['validateUserMerge'],
         'frontEnd': json['frontEnd'] == null ? undefined : json['frontEnd'],
         'empty': json['empty'] == null ? undefined : json['empty'],
+        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
         'localeAsEnum': json['localeAsEnum'] == null ? undefined : json['localeAsEnum'],
         'explicitUpdate': json['explicitUpdate'] == null ? undefined : json['explicitUpdate'],
         'dobAsLocalDate': json['dobAsLocalDate'] == null ? undefined : (new Date(json['dobAsLocalDate'])),
         'device': json['device'] == null ? undefined : DeviceFromJSON(json['device']),
-        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
         'requesterId': json['requesterId'] == null ? undefined : json['requesterId'],
     };
 }
@@ -525,11 +525,11 @@ export function UpdateUserEventToJSONTyped(value?: UpdateUserEvent | null, ignor
         'validateUserMerge': value['validateUserMerge'],
         'frontEnd': value['frontEnd'],
         'empty': value['empty'],
+        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
         'localeAsEnum': value['localeAsEnum'],
         'explicitUpdate': value['explicitUpdate'],
         'dobAsLocalDate': value['dobAsLocalDate'] == null ? undefined : ((value['dobAsLocalDate']).toISOString().substring(0,10)),
         'device': DeviceToJSON(value['device']),
-        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
         'requesterId': value['requesterId'],
     };
 }

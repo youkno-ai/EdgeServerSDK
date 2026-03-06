@@ -50,13 +50,13 @@ export interface Activities {
      * @type {string}
      * @memberof Activities
      */
-    nextBountyId?: string;
+    previousBountyId?: string;
     /**
      * 
      * @type {string}
      * @memberof Activities
      */
-    previousBountyId?: string;
+    nextBountyId?: string;
 }
 
 /**
@@ -79,8 +79,8 @@ export function ActivitiesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'nextActivity': json['nextActivity'] == null ? undefined : ActivityFromJSON(json['nextActivity']),
         'previousActivity': json['previousActivity'] == null ? undefined : ActivityFromJSON(json['previousActivity']),
         'highlightedActivities': json['highlightedActivities'] == null ? undefined : (mapValues(json['highlightedActivities'], ActivityFromJSON)),
-        'nextBountyId': json['nextBountyId'] == null ? undefined : json['nextBountyId'],
         'previousBountyId': json['previousBountyId'] == null ? undefined : json['previousBountyId'],
+        'nextBountyId': json['nextBountyId'] == null ? undefined : json['nextBountyId'],
     };
 }
 
@@ -98,8 +98,8 @@ export function ActivitiesToJSONTyped(value?: Activities | null, ignoreDiscrimin
         'nextActivity': ActivityToJSON(value['nextActivity']),
         'previousActivity': ActivityToJSON(value['previousActivity']),
         'highlightedActivities': value['highlightedActivities'] == null ? undefined : (mapValues(value['highlightedActivities'], ActivityToJSON)),
-        'nextBountyId': value['nextBountyId'],
         'previousBountyId': value['previousBountyId'],
+        'nextBountyId': value['nextBountyId'],
     };
 }
 

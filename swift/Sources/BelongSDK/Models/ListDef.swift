@@ -12,20 +12,197 @@ import AnyCodable
 
 public struct ListDef: Codable, JSONEncodable, Hashable {
 
-    public enum TypeAsEnum: String, Codable, CaseIterable {
+    public enum VisibilityTypeAsEnum: String, Codable, CaseIterable {
+        case _default = "DEFAULT"
+        case user = "USER"
+        case visible = "VISIBLE"
+        case unknown = "UNKNOWN"
+    }
+    public enum NotificationModeAsEnum: String, Codable, CaseIterable {
+        case mute = "MUTE"
+        case _default = "DEFAULT"
+    }
+    public enum PermissionTypeAsEnum: String, Codable, CaseIterable {
+        case hide = "HIDE"
+        case readOnly = "READ_ONLY"
+        case writeOnly = "WRITE_ONLY"
+        case readWrite = "READ_WRITE"
+        case unknown = "UNKNOWN"
+    }
+    public enum BountyTypesAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
-        case stream = "STREAM"
-        case edgeCoachings = "EDGE_COACHINGS"
-        case edgeInFocus = "EDGE_IN_FOCUS"
-        case edgeChallenges = "EDGE_CHALLENGES"
-        case buySell = "BUY_SELL"
-        case market = "MARKET"
-        case supplyMarket = "SUPPLY_MARKET"
-        case autosuggestions = "AUTOSUGGESTIONS"
+        case question = "QUESTION"
+        case thread = "THREAD"
+        case talentSearch = "TALENT_SEARCH"
+        case talentRecommendation = "TALENT_RECOMMENDATION"
+        case tmobChallenge = "TMOB_CHALLENGE"
+        case tmobCoaching = "TMOB_COACHING"
+        case order = "ORDER"
+        case realestateCustomer = "REALESTATE_CUSTOMER"
+        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
+        case survey = "SURVEY"
+        case classified = "CLASSIFIED"
+        case product = "PRODUCT"
+        case bundle = "BUNDLE"
+        case story = "STORY"
+        case score = "SCORE"
+        case series = "SERIES"
+        case checklist = "CHECKLIST"
+        case support = "SUPPORT"
+        case aiBot = "AI_BOT"
+        case deal = "DEAL"
+        case promotion = "PROMOTION"
+        case autosuggestion = "AUTOSUGGESTION"
+        case approval = "APPROVAL"
+        case mcq = "MCQ"
+        case funding = "FUNDING"
+        case auction = "AUCTION"
+        case roleplay = "ROLEPLAY"
+        case privateListing = "PRIVATE_LISTING"
+        case quest = "QUEST"
+        case liveStream = "LIVE_STREAM"
+        case album = "ALBUM"
         case news = "NEWS"
-        case webview = "WEBVIEW"
-        case custom = "CUSTOM"
-        case favorites = "FAVORITES"
+        case banner = "BANNER"
+        case match = "MATCH"
+        case contest = "CONTEST"
+        case trivia = "TRIVIA"
+        case lottery = "LOTTERY"
+        case badgeCollection = "BADGE_COLLECTION"
+        case raffle = "RAFFLE"
+        case calendarEvent = "CALENDAR_EVENT"
+        case currency = "CURRENCY"
+        case reservation = "RESERVATION"
+        case quickClaim = "QUICK_CLAIM"
+        case campaign = "CAMPAIGN"
+        case expressCampaign = "EXPRESS_CAMPAIGN"
+        case geoLocation = "GEO_LOCATION"
+        case feedback = "FEEDBACK"
+        case unknown = "UNKNOWN"
+    }
+    public enum SortingModeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case _default = "DEFAULT"
+        case posts = "POSTS"
+        case market = "MARKET"
+        case unknown = "UNKNOWN"
+    }
+    public enum EffectiveFilterModeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case _default = "DEFAULT"
+        case marketDefault = "MARKET_DEFAULT"
+        case marketSupply = "MARKET_SUPPLY"
+        case marketCompany = "MARKET_COMPANY"
+        case unknown = "UNKNOWN"
+    }
+    public enum EffectiveMainBountyType: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case question = "QUESTION"
+        case thread = "THREAD"
+        case talentSearch = "TALENT_SEARCH"
+        case talentRecommendation = "TALENT_RECOMMENDATION"
+        case tmobChallenge = "TMOB_CHALLENGE"
+        case tmobCoaching = "TMOB_COACHING"
+        case order = "ORDER"
+        case realestateCustomer = "REALESTATE_CUSTOMER"
+        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
+        case survey = "SURVEY"
+        case classified = "CLASSIFIED"
+        case product = "PRODUCT"
+        case bundle = "BUNDLE"
+        case story = "STORY"
+        case score = "SCORE"
+        case series = "SERIES"
+        case checklist = "CHECKLIST"
+        case support = "SUPPORT"
+        case aiBot = "AI_BOT"
+        case deal = "DEAL"
+        case promotion = "PROMOTION"
+        case autosuggestion = "AUTOSUGGESTION"
+        case approval = "APPROVAL"
+        case mcq = "MCQ"
+        case funding = "FUNDING"
+        case auction = "AUCTION"
+        case roleplay = "ROLEPLAY"
+        case privateListing = "PRIVATE_LISTING"
+        case quest = "QUEST"
+        case liveStream = "LIVE_STREAM"
+        case album = "ALBUM"
+        case news = "NEWS"
+        case banner = "BANNER"
+        case match = "MATCH"
+        case contest = "CONTEST"
+        case trivia = "TRIVIA"
+        case lottery = "LOTTERY"
+        case badgeCollection = "BADGE_COLLECTION"
+        case raffle = "RAFFLE"
+        case calendarEvent = "CALENDAR_EVENT"
+        case currency = "CURRENCY"
+        case reservation = "RESERVATION"
+        case quickClaim = "QUICK_CLAIM"
+        case campaign = "CAMPAIGN"
+        case expressCampaign = "EXPRESS_CAMPAIGN"
+        case geoLocation = "GEO_LOCATION"
+        case feedback = "FEEDBACK"
+        case unknown = "UNKNOWN"
+    }
+    public enum FilterBountyTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case question = "QUESTION"
+        case thread = "THREAD"
+        case talentSearch = "TALENT_SEARCH"
+        case talentRecommendation = "TALENT_RECOMMENDATION"
+        case tmobChallenge = "TMOB_CHALLENGE"
+        case tmobCoaching = "TMOB_COACHING"
+        case order = "ORDER"
+        case realestateCustomer = "REALESTATE_CUSTOMER"
+        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
+        case survey = "SURVEY"
+        case classified = "CLASSIFIED"
+        case product = "PRODUCT"
+        case bundle = "BUNDLE"
+        case story = "STORY"
+        case score = "SCORE"
+        case series = "SERIES"
+        case checklist = "CHECKLIST"
+        case support = "SUPPORT"
+        case aiBot = "AI_BOT"
+        case deal = "DEAL"
+        case promotion = "PROMOTION"
+        case autosuggestion = "AUTOSUGGESTION"
+        case approval = "APPROVAL"
+        case mcq = "MCQ"
+        case funding = "FUNDING"
+        case auction = "AUCTION"
+        case roleplay = "ROLEPLAY"
+        case privateListing = "PRIVATE_LISTING"
+        case quest = "QUEST"
+        case liveStream = "LIVE_STREAM"
+        case album = "ALBUM"
+        case news = "NEWS"
+        case banner = "BANNER"
+        case match = "MATCH"
+        case contest = "CONTEST"
+        case trivia = "TRIVIA"
+        case lottery = "LOTTERY"
+        case badgeCollection = "BADGE_COLLECTION"
+        case raffle = "RAFFLE"
+        case calendarEvent = "CALENDAR_EVENT"
+        case currency = "CURRENCY"
+        case reservation = "RESERVATION"
+        case quickClaim = "QUICK_CLAIM"
+        case campaign = "CAMPAIGN"
+        case expressCampaign = "EXPRESS_CAMPAIGN"
+        case geoLocation = "GEO_LOCATION"
+        case feedback = "FEEDBACK"
+        case unknown = "UNKNOWN"
+    }
+    public enum EffectiveDisplayModeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case iconPreview = "ICON_PREVIEW"
+        case list = "LIST"
+        case details = "DETAILS"
+        case header = "HEADER"
     }
     public enum ShownInAsEnum: String, Codable, CaseIterable {
         case home = "HOME"
@@ -266,197 +443,20 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case bountyCreateGeoLocation = "BOUNTY_CREATE_GEO_LOCATION"
         case bountyCreateFeedback = "BOUNTY_CREATE_FEEDBACK"
     }
-    public enum VisibilityTypeAsEnum: String, Codable, CaseIterable {
-        case _default = "DEFAULT"
-        case user = "USER"
-        case visible = "VISIBLE"
-        case unknown = "UNKNOWN"
-    }
-    public enum NotificationModeAsEnum: String, Codable, CaseIterable {
-        case mute = "MUTE"
-        case _default = "DEFAULT"
-    }
-    public enum BountyTypesAsEnum: String, Codable, CaseIterable {
+    public enum TypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
-        case question = "QUESTION"
-        case thread = "THREAD"
-        case talentSearch = "TALENT_SEARCH"
-        case talentRecommendation = "TALENT_RECOMMENDATION"
-        case tmobChallenge = "TMOB_CHALLENGE"
-        case tmobCoaching = "TMOB_COACHING"
-        case order = "ORDER"
-        case realestateCustomer = "REALESTATE_CUSTOMER"
-        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
-        case survey = "SURVEY"
-        case classified = "CLASSIFIED"
-        case product = "PRODUCT"
-        case bundle = "BUNDLE"
-        case story = "STORY"
-        case score = "SCORE"
-        case series = "SERIES"
-        case checklist = "CHECKLIST"
-        case support = "SUPPORT"
-        case aiBot = "AI_BOT"
-        case deal = "DEAL"
-        case promotion = "PROMOTION"
-        case autosuggestion = "AUTOSUGGESTION"
-        case approval = "APPROVAL"
-        case mcq = "MCQ"
-        case funding = "FUNDING"
-        case auction = "AUCTION"
-        case roleplay = "ROLEPLAY"
-        case privateListing = "PRIVATE_LISTING"
-        case quest = "QUEST"
-        case liveStream = "LIVE_STREAM"
-        case album = "ALBUM"
-        case news = "NEWS"
-        case banner = "BANNER"
-        case match = "MATCH"
-        case contest = "CONTEST"
-        case trivia = "TRIVIA"
-        case lottery = "LOTTERY"
-        case badgeCollection = "BADGE_COLLECTION"
-        case raffle = "RAFFLE"
-        case calendarEvent = "CALENDAR_EVENT"
-        case currency = "CURRENCY"
-        case reservation = "RESERVATION"
-        case quickClaim = "QUICK_CLAIM"
-        case campaign = "CAMPAIGN"
-        case expressCampaign = "EXPRESS_CAMPAIGN"
-        case geoLocation = "GEO_LOCATION"
-        case feedback = "FEEDBACK"
-        case unknown = "UNKNOWN"
-    }
-    public enum SortingModeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case _default = "DEFAULT"
-        case posts = "POSTS"
+        case stream = "STREAM"
+        case edgeCoachings = "EDGE_COACHINGS"
+        case edgeInFocus = "EDGE_IN_FOCUS"
+        case edgeChallenges = "EDGE_CHALLENGES"
+        case buySell = "BUY_SELL"
         case market = "MARKET"
-        case unknown = "UNKNOWN"
-    }
-    public enum EffectiveFilterModeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case _default = "DEFAULT"
-        case marketDefault = "MARKET_DEFAULT"
-        case marketSupply = "MARKET_SUPPLY"
-        case marketCompany = "MARKET_COMPANY"
-        case unknown = "UNKNOWN"
-    }
-    public enum EffectiveMainBountyType: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case question = "QUESTION"
-        case thread = "THREAD"
-        case talentSearch = "TALENT_SEARCH"
-        case talentRecommendation = "TALENT_RECOMMENDATION"
-        case tmobChallenge = "TMOB_CHALLENGE"
-        case tmobCoaching = "TMOB_COACHING"
-        case order = "ORDER"
-        case realestateCustomer = "REALESTATE_CUSTOMER"
-        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
-        case survey = "SURVEY"
-        case classified = "CLASSIFIED"
-        case product = "PRODUCT"
-        case bundle = "BUNDLE"
-        case story = "STORY"
-        case score = "SCORE"
-        case series = "SERIES"
-        case checklist = "CHECKLIST"
-        case support = "SUPPORT"
-        case aiBot = "AI_BOT"
-        case deal = "DEAL"
-        case promotion = "PROMOTION"
-        case autosuggestion = "AUTOSUGGESTION"
-        case approval = "APPROVAL"
-        case mcq = "MCQ"
-        case funding = "FUNDING"
-        case auction = "AUCTION"
-        case roleplay = "ROLEPLAY"
-        case privateListing = "PRIVATE_LISTING"
-        case quest = "QUEST"
-        case liveStream = "LIVE_STREAM"
-        case album = "ALBUM"
+        case supplyMarket = "SUPPLY_MARKET"
+        case autosuggestions = "AUTOSUGGESTIONS"
         case news = "NEWS"
-        case banner = "BANNER"
-        case match = "MATCH"
-        case contest = "CONTEST"
-        case trivia = "TRIVIA"
-        case lottery = "LOTTERY"
-        case badgeCollection = "BADGE_COLLECTION"
-        case raffle = "RAFFLE"
-        case calendarEvent = "CALENDAR_EVENT"
-        case currency = "CURRENCY"
-        case reservation = "RESERVATION"
-        case quickClaim = "QUICK_CLAIM"
-        case campaign = "CAMPAIGN"
-        case expressCampaign = "EXPRESS_CAMPAIGN"
-        case geoLocation = "GEO_LOCATION"
-        case feedback = "FEEDBACK"
-        case unknown = "UNKNOWN"
-    }
-    public enum FilterBountyTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case question = "QUESTION"
-        case thread = "THREAD"
-        case talentSearch = "TALENT_SEARCH"
-        case talentRecommendation = "TALENT_RECOMMENDATION"
-        case tmobChallenge = "TMOB_CHALLENGE"
-        case tmobCoaching = "TMOB_COACHING"
-        case order = "ORDER"
-        case realestateCustomer = "REALESTATE_CUSTOMER"
-        case realestateRecommendation = "REALESTATE_RECOMMENDATION"
-        case survey = "SURVEY"
-        case classified = "CLASSIFIED"
-        case product = "PRODUCT"
-        case bundle = "BUNDLE"
-        case story = "STORY"
-        case score = "SCORE"
-        case series = "SERIES"
-        case checklist = "CHECKLIST"
-        case support = "SUPPORT"
-        case aiBot = "AI_BOT"
-        case deal = "DEAL"
-        case promotion = "PROMOTION"
-        case autosuggestion = "AUTOSUGGESTION"
-        case approval = "APPROVAL"
-        case mcq = "MCQ"
-        case funding = "FUNDING"
-        case auction = "AUCTION"
-        case roleplay = "ROLEPLAY"
-        case privateListing = "PRIVATE_LISTING"
-        case quest = "QUEST"
-        case liveStream = "LIVE_STREAM"
-        case album = "ALBUM"
-        case news = "NEWS"
-        case banner = "BANNER"
-        case match = "MATCH"
-        case contest = "CONTEST"
-        case trivia = "TRIVIA"
-        case lottery = "LOTTERY"
-        case badgeCollection = "BADGE_COLLECTION"
-        case raffle = "RAFFLE"
-        case calendarEvent = "CALENDAR_EVENT"
-        case currency = "CURRENCY"
-        case reservation = "RESERVATION"
-        case quickClaim = "QUICK_CLAIM"
-        case campaign = "CAMPAIGN"
-        case expressCampaign = "EXPRESS_CAMPAIGN"
-        case geoLocation = "GEO_LOCATION"
-        case feedback = "FEEDBACK"
-        case unknown = "UNKNOWN"
-    }
-    public enum EffectiveDisplayModeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case iconPreview = "ICON_PREVIEW"
-        case list = "LIST"
-        case details = "DETAILS"
-        case header = "HEADER"
-    }
-    public enum PermissionTypeAsEnum: String, Codable, CaseIterable {
-        case hide = "HIDE"
-        case readOnly = "READ_ONLY"
-        case writeOnly = "WRITE_ONLY"
-        case readWrite = "READ_WRITE"
-        case unknown = "UNKNOWN"
+        case webview = "WEBVIEW"
+        case custom = "CUSTOM"
+        case favorites = "FAVORITES"
     }
     public var id: String?
     public var code: String?
@@ -479,23 +479,9 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
     public var displayMode: String?
     public var notificationMode: String?
     public var tags: String?
-    public var typeAsEnum: TypeAsEnum?
-    public var special: Bool?
-    public var multi: Bool?
-    public var shownInAsEnum: ShownInAsEnum?
-    public var effectiveCode: String?
-    public var visibilityRoles: [String]?
-    public var effectiveUrl: String?
-    public var viewable: Bool?
-    public var kindAsEnum: KindAsEnum?
-    public var postable: Bool?
-    public var favorites: Bool?
-    public var stream: Bool?
-    public var webview: Bool?
-    public var effectiveOp: EffectiveOp?
-    public var filterable: Bool?
     public var visibilityTypeAsEnum: VisibilityTypeAsEnum?
     public var notificationModeAsEnum: NotificationModeAsEnum?
+    public var permissionTypeAsEnum: PermissionTypeAsEnum?
     public var effectiveUserSpecial: String?
     public var effectiveCompanySpecial: String?
     public var bountyTypesAsEnum: [BountyTypesAsEnum]?
@@ -505,9 +491,23 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
     public var effectiveMainBountyType: EffectiveMainBountyType?
     public var filterBountyTypeAsEnum: FilterBountyTypeAsEnum?
     public var effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum?
-    public var permissionTypeAsEnum: PermissionTypeAsEnum?
+    public var shownInAsEnum: ShownInAsEnum?
+    public var multi: Bool?
+    public var effectiveUrl: String?
+    public var viewable: Bool?
+    public var kindAsEnum: KindAsEnum?
+    public var visibilityRoles: [String]?
+    public var effectiveCode: String?
+    public var postable: Bool?
+    public var favorites: Bool?
+    public var stream: Bool?
+    public var webview: Bool?
+    public var effectiveOp: EffectiveOp?
+    public var filterable: Bool?
+    public var typeAsEnum: TypeAsEnum?
+    public var special: Bool?
 
-    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, typeAsEnum: TypeAsEnum? = nil, special: Bool? = nil, multi: Bool? = nil, shownInAsEnum: ShownInAsEnum? = nil, effectiveCode: String? = nil, visibilityRoles: [String]? = nil, effectiveUrl: String? = nil, viewable: Bool? = nil, kindAsEnum: KindAsEnum? = nil, postable: Bool? = nil, favorites: Bool? = nil, stream: Bool? = nil, webview: Bool? = nil, effectiveOp: EffectiveOp? = nil, filterable: Bool? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil) {
+    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, shownInAsEnum: ShownInAsEnum? = nil, multi: Bool? = nil, effectiveUrl: String? = nil, viewable: Bool? = nil, kindAsEnum: KindAsEnum? = nil, visibilityRoles: [String]? = nil, effectiveCode: String? = nil, postable: Bool? = nil, favorites: Bool? = nil, stream: Bool? = nil, webview: Bool? = nil, effectiveOp: EffectiveOp? = nil, filterable: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, special: Bool? = nil) {
         self.id = id
         self.code = code
         self.kind = kind
@@ -529,23 +529,9 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         self.displayMode = displayMode
         self.notificationMode = notificationMode
         self.tags = tags
-        self.typeAsEnum = typeAsEnum
-        self.special = special
-        self.multi = multi
-        self.shownInAsEnum = shownInAsEnum
-        self.effectiveCode = effectiveCode
-        self.visibilityRoles = visibilityRoles
-        self.effectiveUrl = effectiveUrl
-        self.viewable = viewable
-        self.kindAsEnum = kindAsEnum
-        self.postable = postable
-        self.favorites = favorites
-        self.stream = stream
-        self.webview = webview
-        self.effectiveOp = effectiveOp
-        self.filterable = filterable
         self.visibilityTypeAsEnum = visibilityTypeAsEnum
         self.notificationModeAsEnum = notificationModeAsEnum
+        self.permissionTypeAsEnum = permissionTypeAsEnum
         self.effectiveUserSpecial = effectiveUserSpecial
         self.effectiveCompanySpecial = effectiveCompanySpecial
         self.bountyTypesAsEnum = bountyTypesAsEnum
@@ -555,7 +541,21 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         self.effectiveMainBountyType = effectiveMainBountyType
         self.filterBountyTypeAsEnum = filterBountyTypeAsEnum
         self.effectiveDisplayModeAsEnum = effectiveDisplayModeAsEnum
-        self.permissionTypeAsEnum = permissionTypeAsEnum
+        self.shownInAsEnum = shownInAsEnum
+        self.multi = multi
+        self.effectiveUrl = effectiveUrl
+        self.viewable = viewable
+        self.kindAsEnum = kindAsEnum
+        self.visibilityRoles = visibilityRoles
+        self.effectiveCode = effectiveCode
+        self.postable = postable
+        self.favorites = favorites
+        self.stream = stream
+        self.webview = webview
+        self.effectiveOp = effectiveOp
+        self.filterable = filterable
+        self.typeAsEnum = typeAsEnum
+        self.special = special
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -580,23 +580,9 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case displayMode
         case notificationMode
         case tags
-        case typeAsEnum
-        case special
-        case multi
-        case shownInAsEnum
-        case effectiveCode
-        case visibilityRoles
-        case effectiveUrl
-        case viewable
-        case kindAsEnum
-        case postable
-        case favorites
-        case stream
-        case webview
-        case effectiveOp
-        case filterable
         case visibilityTypeAsEnum
         case notificationModeAsEnum
+        case permissionTypeAsEnum
         case effectiveUserSpecial
         case effectiveCompanySpecial
         case bountyTypesAsEnum
@@ -606,7 +592,21 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case effectiveMainBountyType
         case filterBountyTypeAsEnum
         case effectiveDisplayModeAsEnum
-        case permissionTypeAsEnum
+        case shownInAsEnum
+        case multi
+        case effectiveUrl
+        case viewable
+        case kindAsEnum
+        case visibilityRoles
+        case effectiveCode
+        case postable
+        case favorites
+        case stream
+        case webview
+        case effectiveOp
+        case filterable
+        case typeAsEnum
+        case special
     }
 
     // Encodable protocol methods
@@ -634,23 +634,9 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(displayMode, forKey: .displayMode)
         try container.encodeIfPresent(notificationMode, forKey: .notificationMode)
         try container.encodeIfPresent(tags, forKey: .tags)
-        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
-        try container.encodeIfPresent(special, forKey: .special)
-        try container.encodeIfPresent(multi, forKey: .multi)
-        try container.encodeIfPresent(shownInAsEnum, forKey: .shownInAsEnum)
-        try container.encodeIfPresent(effectiveCode, forKey: .effectiveCode)
-        try container.encodeIfPresent(visibilityRoles, forKey: .visibilityRoles)
-        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
-        try container.encodeIfPresent(viewable, forKey: .viewable)
-        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
-        try container.encodeIfPresent(postable, forKey: .postable)
-        try container.encodeIfPresent(favorites, forKey: .favorites)
-        try container.encodeIfPresent(stream, forKey: .stream)
-        try container.encodeIfPresent(webview, forKey: .webview)
-        try container.encodeIfPresent(effectiveOp, forKey: .effectiveOp)
-        try container.encodeIfPresent(filterable, forKey: .filterable)
         try container.encodeIfPresent(visibilityTypeAsEnum, forKey: .visibilityTypeAsEnum)
         try container.encodeIfPresent(notificationModeAsEnum, forKey: .notificationModeAsEnum)
+        try container.encodeIfPresent(permissionTypeAsEnum, forKey: .permissionTypeAsEnum)
         try container.encodeIfPresent(effectiveUserSpecial, forKey: .effectiveUserSpecial)
         try container.encodeIfPresent(effectiveCompanySpecial, forKey: .effectiveCompanySpecial)
         try container.encodeIfPresent(bountyTypesAsEnum, forKey: .bountyTypesAsEnum)
@@ -660,7 +646,21 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(effectiveMainBountyType, forKey: .effectiveMainBountyType)
         try container.encodeIfPresent(filterBountyTypeAsEnum, forKey: .filterBountyTypeAsEnum)
         try container.encodeIfPresent(effectiveDisplayModeAsEnum, forKey: .effectiveDisplayModeAsEnum)
-        try container.encodeIfPresent(permissionTypeAsEnum, forKey: .permissionTypeAsEnum)
+        try container.encodeIfPresent(shownInAsEnum, forKey: .shownInAsEnum)
+        try container.encodeIfPresent(multi, forKey: .multi)
+        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
+        try container.encodeIfPresent(viewable, forKey: .viewable)
+        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
+        try container.encodeIfPresent(visibilityRoles, forKey: .visibilityRoles)
+        try container.encodeIfPresent(effectiveCode, forKey: .effectiveCode)
+        try container.encodeIfPresent(postable, forKey: .postable)
+        try container.encodeIfPresent(favorites, forKey: .favorites)
+        try container.encodeIfPresent(stream, forKey: .stream)
+        try container.encodeIfPresent(webview, forKey: .webview)
+        try container.encodeIfPresent(effectiveOp, forKey: .effectiveOp)
+        try container.encodeIfPresent(filterable, forKey: .filterable)
+        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
+        try container.encodeIfPresent(special, forKey: .special)
     }
 }
 

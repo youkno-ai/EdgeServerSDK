@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BadgeInfo } from './BadgeInfo';
-import {
-    BadgeInfoFromJSON,
-    BadgeInfoFromJSONTyped,
-    BadgeInfoToJSON,
-    BadgeInfoToJSONTyped,
-} from './BadgeInfo';
-
 /**
  * 
  * @export
@@ -29,10 +21,42 @@ import {
 export interface MetaInfo {
     /**
      * 
-     * @type {{ [key: string]: BadgeInfo; }}
+     * @type {number}
+     * @memberof MetaInfo
+     * @deprecated
+     */
+    budgetAmount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof MetaInfo
+     * @deprecated
+     */
+    budgetCurrency?: string;
+    /**
+     * 
+     * @type {number}
      * @memberof MetaInfo
      */
-    badges?: { [key: string]: BadgeInfo; };
+    startAt?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof MetaInfo
+     */
+    label?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MetaInfo
+     */
+    leaderboardStrategy?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MetaInfo
+     */
+    notifyOnStart?: boolean;
 }
 
 /**
@@ -52,7 +76,12 @@ export function MetaInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'badges': json['badges'] == null ? undefined : (mapValues(json['badges'], BadgeInfoFromJSON)),
+        'budgetAmount': json['budgetAmount'] == null ? undefined : json['budgetAmount'],
+        'budgetCurrency': json['budgetCurrency'] == null ? undefined : json['budgetCurrency'],
+        'startAt': json['startAt'] == null ? undefined : json['startAt'],
+        'label': json['label'] == null ? undefined : json['label'],
+        'leaderboardStrategy': json['leaderboardStrategy'] == null ? undefined : json['leaderboardStrategy'],
+        'notifyOnStart': json['notifyOnStart'] == null ? undefined : json['notifyOnStart'],
     };
 }
 
@@ -67,7 +96,12 @@ export function MetaInfoToJSONTyped(value?: MetaInfo | null, ignoreDiscriminator
 
     return {
         
-        'badges': value['badges'] == null ? undefined : (mapValues(value['badges'], BadgeInfoToJSON)),
+        'budgetAmount': value['budgetAmount'],
+        'budgetCurrency': value['budgetCurrency'],
+        'startAt': value['startAt'],
+        'label': value['label'],
+        'leaderboardStrategy': value['leaderboardStrategy'],
+        'notifyOnStart': value['notifyOnStart'],
     };
 }
 

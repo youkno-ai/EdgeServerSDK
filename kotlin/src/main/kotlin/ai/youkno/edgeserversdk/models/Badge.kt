@@ -33,10 +33,10 @@ import com.squareup.moshi.JsonClass
  * @param type 
  * @param label 
  * @param valid 
- * @param code 
- * @param description 
  * @param negativeValue 
  * @param image 
+ * @param description 
+ * @param code 
  * @param icon 
  */
 
@@ -70,17 +70,17 @@ data class Badge (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
-    @Json(name = "code")
-    val code: kotlin.String? = null,
-
-    @Json(name = "description")
-    val description: kotlin.String? = null,
-
     @Json(name = "negativeValue")
     val negativeValue: kotlin.Boolean? = null,
 
     @Json(name = "image")
     val image: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "code")
+    val code: kotlin.String? = null,
 
     @Json(name = "icon")
     val icon: kotlin.String? = null

@@ -72,12 +72,6 @@ export interface KioskSettings {
      * @type {string}
      * @memberof KioskSettings
      */
-    statusAsEnum?: KioskSettingsStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof KioskSettings
-     */
     printReceiptAsEnum?: KioskSettingsPrintReceiptAsEnumEnum;
     /**
      * 
@@ -85,19 +79,14 @@ export interface KioskSettings {
      * @memberof KioskSettings
      */
     terminalPositionAsEnum?: KioskSettingsTerminalPositionAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof KioskSettings
+     */
+    statusAsEnum?: KioskSettingsStatusAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const KioskSettingsStatusAsEnumEnum = {
-    AUTO: 'AUTO',
-    ENABLED: 'ENABLED',
-    DISABLED: 'DISABLED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type KioskSettingsStatusAsEnumEnum = typeof KioskSettingsStatusAsEnumEnum[keyof typeof KioskSettingsStatusAsEnumEnum];
 
 /**
  * @export
@@ -129,6 +118,17 @@ export const KioskSettingsTerminalPositionAsEnumEnum = {
 } as const;
 export type KioskSettingsTerminalPositionAsEnumEnum = typeof KioskSettingsTerminalPositionAsEnumEnum[keyof typeof KioskSettingsTerminalPositionAsEnumEnum];
 
+/**
+ * @export
+ */
+export const KioskSettingsStatusAsEnumEnum = {
+    AUTO: 'AUTO',
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type KioskSettingsStatusAsEnumEnum = typeof KioskSettingsStatusAsEnumEnum[keyof typeof KioskSettingsStatusAsEnumEnum];
+
 
 /**
  * Check if a given object implements the KioskSettings interface.
@@ -155,9 +155,9 @@ export function KioskSettingsFromJSONTyped(json: any, ignoreDiscriminator: boole
         'printReceipt': json['printReceipt'] == null ? undefined : json['printReceipt'],
         'status': json['status'] == null ? undefined : json['status'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'printReceiptAsEnum': json['printReceiptAsEnum'] == null ? undefined : json['printReceiptAsEnum'],
         'terminalPositionAsEnum': json['terminalPositionAsEnum'] == null ? undefined : json['terminalPositionAsEnum'],
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
     };
 }
 
@@ -180,9 +180,9 @@ export function KioskSettingsToJSONTyped(value?: KioskSettings | null, ignoreDis
         'printReceipt': value['printReceipt'],
         'status': value['status'],
         'valid': value['valid'],
-        'statusAsEnum': value['statusAsEnum'],
         'printReceiptAsEnum': value['printReceiptAsEnum'],
         'terminalPositionAsEnum': value['terminalPositionAsEnum'],
+        'statusAsEnum': value['statusAsEnum'],
     };
 }
 

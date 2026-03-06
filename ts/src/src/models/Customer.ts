@@ -72,10 +72,10 @@ export interface Customer {
     address?: MailingAddress;
     /**
      * 
-     * @type {PersonalName}
+     * @type {string}
      * @memberof Customer
      */
-    personalName?: PersonalName;
+    phoneRawNumber?: string;
     /**
      * 
      * @type {string}
@@ -90,10 +90,10 @@ export interface Customer {
     phoneStatus?: string;
     /**
      * 
-     * @type {string}
+     * @type {PersonalName}
      * @memberof Customer
      */
-    phoneRawNumber?: string;
+    personalName?: PersonalName;
 }
 
 /**
@@ -119,10 +119,10 @@ export function CustomerFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'email': json['email'] == null ? undefined : json['email'],
         'dob': json['dob'] == null ? undefined : json['dob'],
         'address': json['address'] == null ? undefined : MailingAddressFromJSON(json['address']),
-        'personalName': json['personalName'] == null ? undefined : PersonalNameFromJSON(json['personalName']),
+        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
         'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
         'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
-        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
+        'personalName': json['personalName'] == null ? undefined : PersonalNameFromJSON(json['personalName']),
     };
 }
 
@@ -143,10 +143,10 @@ export function CustomerToJSONTyped(value?: Customer | null, ignoreDiscriminator
         'email': value['email'],
         'dob': value['dob'],
         'address': MailingAddressToJSON(value['address']),
-        'personalName': PersonalNameToJSON(value['personalName']),
+        'phoneRawNumber': value['phoneRawNumber'],
         'effectiveState': value['effectiveState'],
         'phoneStatus': value['phoneStatus'],
-        'phoneRawNumber': value['phoneRawNumber'],
+        'personalName': PersonalNameToJSON(value['personalName']),
     };
 }
 

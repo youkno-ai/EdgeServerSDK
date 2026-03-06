@@ -37,9 +37,9 @@ import com.squareup.moshi.JsonClass
  * @param goalReward 
  * @param autoClose 
  * @param promises 
- * @param receiverAsEnum 
- * @param admissionStrategyAsEnum 
  * @param distributionReward 
+ * @param admissionStrategyAsEnum 
+ * @param receiverAsEnum 
  */
 
 
@@ -75,27 +75,17 @@ data class Terms (
     @Json(name = "promises")
     val promises: kotlin.collections.Map<kotlin.String, Promise>? = null,
 
-    @Json(name = "receiverAsEnum")
-    val receiverAsEnum: Terms.ReceiverAsEnum? = null,
+    @Json(name = "distributionReward")
+    val distributionReward: Reward? = null,
 
     @Json(name = "admissionStrategyAsEnum")
     val admissionStrategyAsEnum: Terms.AdmissionStrategyAsEnum? = null,
 
-    @Json(name = "distributionReward")
-    val distributionReward: Reward? = null
+    @Json(name = "receiverAsEnum")
+    val receiverAsEnum: Terms.ReceiverAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: PARTICIPANT,WINNER
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ReceiverAsEnum(val value: kotlin.String) {
-        @Json(name = "PARTICIPANT") PARTICIPANT("PARTICIPANT"),
-        @Json(name = "WINNER") WINNER("WINNER");
-    }
     /**
      * 
      *
@@ -107,6 +97,16 @@ data class Terms (
         @Json(name = "FCFS") FCFS("FCFS"),
         @Json(name = "SCREEN") SCREEN("SCREEN"),
         @Json(name = "RANDOM") RANDOM("RANDOM");
+    }
+    /**
+     * 
+     *
+     * Values: PARTICIPANT,WINNER
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ReceiverAsEnum(val value: kotlin.String) {
+        @Json(name = "PARTICIPANT") PARTICIPANT("PARTICIPANT"),
+        @Json(name = "WINNER") WINNER("WINNER");
     }
 
 }
