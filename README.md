@@ -78,8 +78,8 @@ This creates two tags:
 | CI secret | Local file alternative (`.env.local`) | Notes |
 |---|---|---|
 | `NPM_TOKEN` | `NPM_TOKEN=...` | Used by `make publish-ts`. |
-| `SONATYPE_USERNAME` | `SONATYPE_USERNAME=...` | Used by `make publish-kotlin`. |
-| `SONATYPE_PASSWORD` | `SONATYPE_PASSWORD=...` | Used by `make publish-kotlin`. |
+| `SONATYPE_USERNAME` | `SONATYPE_USERNAME=...` | Central Portal token username, used by `make publish-kotlin`. |
+| `SONATYPE_PASSWORD` | `SONATYPE_PASSWORD=...` | Central Portal token password, used by `make publish-kotlin`. |
 | `SIGNING_PASSWORD` | `SIGNING_PASSWORD=...` | Passphrase for GPG key. |
 | `SIGNING_KEY` | `SIGNING_KEY=...` or `SIGNING_KEY_FILE=.secrets/maven-signing-key.asc` | `SIGNING_KEY_FILE` is recommended for local use. |
 
@@ -100,6 +100,6 @@ make release VERSION=1.20.2271
 
 - Bash, `curl`, `jq`
 - Node.js 20+
-- Java 21+ (managed via `jenv`; Makefile uses `jenv prefix 21`)
+- Java 21+ (`.java-version` in repo; Gradle uses JVM toolchain 21)
 - Gradle 8+
 - Swift 5.9+ (for local Swift validation)

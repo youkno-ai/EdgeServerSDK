@@ -7,7 +7,6 @@ export
 endif
 
 VERSION ?= latest
-KOTLIN_JAVA_HOME ?= $(shell jenv prefix 21 2>/dev/null || jenv prefix 21.0 2>/dev/null || true)
 
 .PHONY: help fetch generate build build-ts build-kotlin build-swift publish-ts publish-kotlin deploy release
 
@@ -39,13 +38,11 @@ build-ts:
 	cd ts && npm ci && npm run build
 
 build-kotlin:
-	@if [[ -z "$(KOTLIN_JAVA_HOME)" ]]; then \
-		echo "jenv Java 21 not found (tried 'jenv prefix 21')."; \
-		echo "Install/set Java 21 in jenv, e.g. 'jenv global 21.0.2'"; \
-		exit 1; \
+	cd kotlin && if command -v jenv >/dev/null 2>&1; then \
+		jenv exec ./gradlew --no-daemon -Dkotlin.compiler.execution.strategy=in-process build; \
+	else \
+		./gradlew --no-daemon -Dkotlin.compiler.execution.strategy=in-process build; \
 	fi
-	cd kotlin && JAVA_HOME="$(KOTLIN_JAVA_HOME)" PATH="$(KOTLIN_JAVA_HOME)/bin:$$PATH" \
-		./gradlew --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process build
 
 build-swift:
 	cd swift && swift build
@@ -56,7 +53,6 @@ publish-ts:
 
 publish-kotlin:
 	@set -euo pipefail; \
-	test -n "$(KOTLIN_JAVA_HOME)" || (echo "jenv Java 21 not found (tried 'jenv prefix 21')." >&2; exit 1); \
 	KEY="$${SIGNING_KEY:-}"; \
 	if [[ -z "$$KEY" && -n "$${SIGNING_KEY_FILE:-}" ]]; then KEY="$$(cat "$${SIGNING_KEY_FILE}")"; fi; \
 	test -n "$${SONATYPE_USERNAME:-}" || (echo "SONATYPE_USERNAME is required (set in .env.local)" >&2; exit 1); \
@@ -64,12 +60,15 @@ publish-kotlin:
 	test -n "$$KEY" || (echo "SIGNING_KEY or SIGNING_KEY_FILE is required (set in .env.local)" >&2; exit 1); \
 	test -n "$${SIGNING_PASSWORD:-}" || (echo "SIGNING_PASSWORD is required (set in .env.local)" >&2; exit 1); \
 	cd kotlin && \
-	JAVA_HOME="$(KOTLIN_JAVA_HOME)" PATH="$(KOTLIN_JAVA_HOME)/bin:$$PATH" \
-	ORG_GRADLE_PROJECT_mavenCentralUsername="$${SONATYPE_USERNAME}" \
-	ORG_GRADLE_PROJECT_mavenCentralPassword="$${SONATYPE_PASSWORD}" \
-	ORG_GRADLE_PROJECT_signingInMemoryKey="$$KEY" \
-	ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$${SIGNING_PASSWORD}" \
-	./gradlew --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process publishAllPublicationsToMavenCentralRepository
+	export ORG_GRADLE_PROJECT_mavenCentralUsername="$${SONATYPE_USERNAME}"; \
+	export ORG_GRADLE_PROJECT_mavenCentralPassword="$${SONATYPE_PASSWORD}"; \
+	export ORG_GRADLE_PROJECT_signingInMemoryKey="$$KEY"; \
+	export ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$${SIGNING_PASSWORD}"; \
+	if command -v jenv >/dev/null 2>&1; then \
+		jenv exec ./gradlew --no-daemon -Dkotlin.compiler.execution.strategy=in-process publishAllPublicationsToMavenCentralRepository; \
+	else \
+		./gradlew --no-daemon -Dkotlin.compiler.execution.strategy=in-process publishAllPublicationsToMavenCentralRepository; \
+	fi
 
 deploy: publish-ts publish-kotlin
 

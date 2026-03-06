@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
   kotlin("jvm") version "2.0.21"
   `maven-publish`
@@ -28,7 +30,7 @@ kotlin {
 }
 
 mavenPublishing {
-  publishToMavenCentral()
+  publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
   signAllPublications()
 
   coordinates(group.toString(), "edge-server-sdk", version.toString())
