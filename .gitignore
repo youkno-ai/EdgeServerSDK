@@ -20,6 +20,7 @@ ts/dist/
 
 # Kotlin / Gradle
 kotlin/.gradle/
+kotlin/.kotlin/
 kotlin/build/
 **/build/
 *.class

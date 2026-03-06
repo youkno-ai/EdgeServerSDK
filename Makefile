@@ -45,7 +45,7 @@ build-kotlin:
 		exit 1; \
 	fi
 	cd kotlin && JAVA_HOME="$(KOTLIN_JAVA_HOME)" PATH="$(KOTLIN_JAVA_HOME)/bin:$$PATH" \
-		gradle --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process build
+		./gradlew --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process build
 
 build-swift:
 	cd swift && swift build
@@ -69,7 +69,7 @@ publish-kotlin:
 	ORG_GRADLE_PROJECT_mavenCentralPassword="$${SONATYPE_PASSWORD}" \
 	ORG_GRADLE_PROJECT_signingInMemoryKey="$$KEY" \
 	ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$${SIGNING_PASSWORD}" \
-	gradle --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process publishAllPublicationsToMavenCentralRepository
+	./gradlew --no-daemon -Dorg.gradle.java.home="$(KOTLIN_JAVA_HOME)" -Dkotlin.compiler.execution.strategy=in-process publishAllPublicationsToMavenCentralRepository
 
 deploy: publish-ts publish-kotlin
 

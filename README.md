@@ -52,7 +52,7 @@ cp .env.local.example .env.local
 
 ```bash
 (cd ts && npm ci && npm run build)
-(cd kotlin && gradle build)
+(cd kotlin && ./gradlew build)
 (cd swift && swift build)
 ```
 

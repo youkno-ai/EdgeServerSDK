@@ -1,5 +1,5 @@
 plugins {
-  kotlin("jvm") version "2.1.0"
+  kotlin("jvm") version "2.0.21"
   `maven-publish`
   signing
   id("com.vanniktech.maven.publish") version "0.30.0"
@@ -15,8 +15,12 @@ repositories {
 dependencies {
   implementation(kotlin("stdlib"))
   implementation("com.squareup.retrofit2:retrofit:2.11.0")
+  implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
+  implementation("com.squareup.retrofit2:converter-scalars:2.11.0")
   implementation("com.squareup.okhttp3:okhttp:4.12.0")
+  implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
   implementation("com.squareup.moshi:moshi:1.15.1")
+  implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
 }
 
 kotlin {
