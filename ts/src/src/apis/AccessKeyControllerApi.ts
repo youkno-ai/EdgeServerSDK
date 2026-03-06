@@ -34,37 +34,22 @@ import {
     PageAccessKeyDefToJSON,
 } from '../models/index';
 
-export interface DeleteAccessKeyDefRequest {
-    accessKeyDefId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccessKeyChainRequest {
+export interface DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest {
     userId: string;
+    accessKeyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface DeleteApiV1AccesskeysDefsByAccesskeydefidRequest {
     accessKeyDefId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAccessKeyDefRequest {
-    accessKeyDefId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccessKeyDefsRequest {
-    start?: number;
-    length?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccessKeysRequest {
+export interface GetApiV1AccesskeysByUseridRequest {
     userId: string;
     start?: number;
     length?: number;
@@ -73,7 +58,30 @@ export interface GetAccessKeysRequest {
     xEdgeClientId?: string;
 }
 
-export interface GrantAccessKeyRequest {
+export interface GetApiV1AccesskeysByUseridByAccesskeydefidRequest {
+    userId: string;
+    accessKeyDefId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccesskeysDefsRequest {
+    start?: number;
+    length?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccesskeysDefsByAccesskeydefidRequest {
+    accessKeyDefId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest {
     userId: string;
     accessKeyDefId: string;
     metaData: MetaData;
@@ -82,15 +90,7 @@ export interface GrantAccessKeyRequest {
     xEdgeClientId?: string;
 }
 
-export interface RevokeAccessKeyRequest {
-    userId: string;
-    accessKeyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SaveAccessKeyDefRequest {
+export interface PostApiV1AccesskeysDefsRequest {
     accessKeyDef: AccessKeyDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -106,24 +106,8 @@ export interface SaveAccessKeyDefRequest {
 export interface AccessKeyControllerApiInterface {
     /**
      * 
-     * @param {string} accessKeyDefId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccessKeyControllerApiInterface
-     */
-    deleteAccessKeyDefRaw(requestParameters: DeleteAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteAccessKeyDef(requestParameters: DeleteAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
      * @param {string} userId 
-     * @param {string} accessKeyDefId 
+     * @param {string} accessKeyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -131,11 +115,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getAccessKeyChainRaw(requestParameters: GetAccessKeyChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
+    deleteApiV1AccesskeysByUseridRevokeByAccesskeyidRaw(requestParameters: DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getAccessKeyChain(requestParameters: GetAccessKeyChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+    deleteApiV1AccesskeysByUseridRevokeByAccesskeyid(requestParameters: DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -147,28 +131,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getAccessKeyDefRaw(requestParameters: GetAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
+    deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getAccessKeyDef(requestParameters: GetAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
-
-    /**
-     * 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccessKeyControllerApiInterface
-     */
-    getAccessKeyDefsRaw(requestParameters: GetAccessKeyDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>>;
-
-    /**
-     */
-    getAccessKeyDefs(requestParameters: GetAccessKeyDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef>;
+    deleteApiV1AccesskeysDefsByAccesskeydefid(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -182,11 +149,61 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getAccessKeysRaw(requestParameters: GetAccessKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
+    getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
 
     /**
      */
-    getAccessKeys(requestParameters: GetAccessKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+    getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} accessKeyDefId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
+
+    /**
+     */
+    getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+
+    /**
+     * 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysDefsRaw(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>>;
+
+    /**
+     */
+    getApiV1AccesskeysDefs(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef>;
+
+    /**
+     * 
+     * @param {string} accessKeyDefId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
+
+    /**
+     */
+    getApiV1AccesskeysDefsByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
 
     /**
      * 
@@ -200,28 +217,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    grantAccessKeyRaw(requestParameters: GrantAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>>;
+    postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>>;
 
     /**
      */
-    grantAccessKey(requestParameters: GrantAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} accessKeyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccessKeyControllerApiInterface
-     */
-    revokeAccessKeyRaw(requestParameters: RevokeAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    revokeAccessKey(requestParameters: RevokeAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey>;
 
     /**
      * 
@@ -233,11 +233,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    saveAccessKeyDefRaw(requestParameters: SaveAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
+    postApiV1AccesskeysDefsRaw(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
 
     /**
      */
-    saveAccessKeyDef(requestParameters: SaveAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
+    postApiV1AccesskeysDefs(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
 
 }
 
@@ -248,11 +248,70 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async deleteAccessKeyDefRaw(requestParameters: DeleteAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1AccesskeysByUseridRevokeByAccesskeyidRaw(requestParameters: DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling deleteApiV1AccesskeysByUseridRevokeByAccesskeyid().'
+            );
+        }
+
+        if (requestParameters['accessKeyId'] == null) {
+            throw new runtime.RequiredError(
+                'accessKeyId',
+                'Required parameter "accessKeyId" was null or undefined when calling deleteApiV1AccesskeysByUseridRevokeByAccesskeyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/{userId}/revoke/{accessKeyId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"accessKeyId"}}`, encodeURIComponent(String(requestParameters['accessKeyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1AccesskeysByUseridRevokeByAccesskeyid(requestParameters: DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AccesskeysByUseridRevokeByAccesskeyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['accessKeyDefId'] == null) {
             throw new runtime.RequiredError(
                 'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling deleteAccessKeyDef().'
+                'Required parameter "accessKeyDefId" was null or undefined when calling deleteApiV1AccesskeysDefsByAccesskeydefid().'
             );
         }
 
@@ -292,179 +351,18 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async deleteAccessKeyDef(requestParameters: DeleteAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteAccessKeyDefRaw(requestParameters, initOverrides);
+    async deleteApiV1AccesskeysDefsByAccesskeydefid(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAccessKeyChainRaw(requestParameters: GetAccessKeyChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
+    async getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getAccessKeyChain().'
-            );
-        }
-
-        if (requestParameters['accessKeyDefId'] == null) {
-            throw new runtime.RequiredError(
-                'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling getAccessKeyChain().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/accessKeys/{userId}/{accessKeyDefId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-        urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccessKeyChain(requestParameters: GetAccessKeyChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
-        const response = await this.getAccessKeyChainRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccessKeyDefRaw(requestParameters: GetAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
-        if (requestParameters['accessKeyDefId'] == null) {
-            throw new runtime.RequiredError(
-                'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling getAccessKeyDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}`;
-        urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccessKeyDef(requestParameters: GetAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
-        const response = await this.getAccessKeyDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccessKeyDefsRaw(requestParameters: GetAccessKeyDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/accessKeys/defs`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccessKeyDefs(requestParameters: GetAccessKeyDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef> {
-        const response = await this.getAccessKeyDefsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccessKeysRaw(requestParameters: GetAccessKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getAccessKeys().'
+                'Required parameter "userId" was null or undefined when calling getApiV1AccesskeysByUserid().'
             );
         }
 
@@ -512,32 +410,193 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async getAccessKeys(requestParameters: GetAccessKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
-        const response = await this.getAccessKeysRaw(requestParameters, initOverrides);
+    async getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
+        const response = await this.getApiV1AccesskeysByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async grantAccessKeyRaw(requestParameters: GrantAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>> {
+    async getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling grantAccessKey().'
+                'Required parameter "userId" was null or undefined when calling getApiV1AccesskeysByUseridByAccesskeydefid().'
             );
         }
 
         if (requestParameters['accessKeyDefId'] == null) {
             throw new runtime.RequiredError(
                 'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling grantAccessKey().'
+                'Required parameter "accessKeyDefId" was null or undefined when calling getApiV1AccesskeysByUseridByAccesskeydefid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/{userId}/{accessKeyDefId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
+        const response = await this.getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysDefsRaw(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/defs`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysDefs(requestParameters: GetApiV1AccesskeysDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef> {
+        const response = await this.getApiV1AccesskeysDefsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
+        if (requestParameters['accessKeyDefId'] == null) {
+            throw new runtime.RequiredError(
+                'accessKeyDefId',
+                'Required parameter "accessKeyDefId" was null or undefined when calling getApiV1AccesskeysDefsByAccesskeydefid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}`;
+        urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysDefsByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
+        const response = await this.getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1AccesskeysByUseridGrantByAccesskeydefid().'
+            );
+        }
+
+        if (requestParameters['accessKeyDefId'] == null) {
+            throw new runtime.RequiredError(
+                'accessKeyDefId',
+                'Required parameter "accessKeyDefId" was null or undefined when calling postApiV1AccesskeysByUseridGrantByAccesskeydefid().'
             );
         }
 
         if (requestParameters['metaData'] == null) {
             throw new runtime.RequiredError(
                 'metaData',
-                'Required parameter "metaData" was null or undefined when calling grantAccessKey().'
+                'Required parameter "metaData" was null or undefined when calling postApiV1AccesskeysByUseridGrantByAccesskeydefid().'
             );
         }
 
@@ -581,77 +640,18 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async grantAccessKey(requestParameters: GrantAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey> {
-        const response = await this.grantAccessKeyRaw(requestParameters, initOverrides);
+    async postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey> {
+        const response = await this.postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async revokeAccessKeyRaw(requestParameters: RevokeAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling revokeAccessKey().'
-            );
-        }
-
-        if (requestParameters['accessKeyId'] == null) {
-            throw new runtime.RequiredError(
-                'accessKeyId',
-                'Required parameter "accessKeyId" was null or undefined when calling revokeAccessKey().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/accessKeys/{userId}/revoke/{accessKeyId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-        urlPath = urlPath.replace(`{${"accessKeyId"}}`, encodeURIComponent(String(requestParameters['accessKeyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async revokeAccessKey(requestParameters: RevokeAccessKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.revokeAccessKeyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveAccessKeyDefRaw(requestParameters: SaveAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
+    async postApiV1AccesskeysDefsRaw(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
         if (requestParameters['accessKeyDef'] == null) {
             throw new runtime.RequiredError(
                 'accessKeyDef',
-                'Required parameter "accessKeyDef" was null or undefined when calling saveAccessKeyDef().'
+                'Required parameter "accessKeyDef" was null or undefined when calling postApiV1AccesskeysDefs().'
             );
         }
 
@@ -693,8 +693,8 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async saveAccessKeyDef(requestParameters: SaveAccessKeyDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
-        const response = await this.saveAccessKeyDefRaw(requestParameters, initOverrides);
+    async postApiV1AccesskeysDefs(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
+        const response = await this.postApiV1AccesskeysDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

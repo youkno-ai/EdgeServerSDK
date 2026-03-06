@@ -15,53 +15,6 @@ open class FacebookControllerAPI {
     /**
 
      - parameter state: (path)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: AnyCodable]
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deauthorizeCallback(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: AnyCodable] {
-        return try await deauthorizeCallbackWithRequestBuilder(state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - POST /api/v1/facebook/callbacks/deauthorize/{state}
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter state: (path)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: AnyCodable]> 
-     */
-    open class func deauthorizeCallbackWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: AnyCodable]> {
-        var localVariablePath = "/api/v1/facebook/callbacks/deauthorize/{state}"
-        let statePreEscape = "\(APIHelper.mapValueToPathItem(state))"
-        let statePostEscape = statePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{state}", with: statePostEscape, options: .literal, range: nil)
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter state: (path)  
      - parameter userId: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
@@ -69,8 +22,8 @@ open class FacebookControllerAPI {
      - returns: String
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getStatus(state: String, userId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> String {
-        return try await getStatusWithRequestBuilder(state: state, userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1FacebookStatusByState(state: String, userId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> String {
+        return try await getApiV1FacebookStatusByStateWithRequestBuilder(state: state, userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -85,7 +38,7 @@ open class FacebookControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<String> 
      */
-    open class func getStatusWithRequestBuilder(state: String, userId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<String> {
+    open class func getApiV1FacebookStatusByStateWithRequestBuilder(state: String, userId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<String> {
         var localVariablePath = "/api/v1/facebook/status/{state}"
         let statePreEscape = "\(APIHelper.mapValueToPathItem(state))"
         let statePostEscape = statePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -117,11 +70,58 @@ open class FacebookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
+     - returns: [String: String]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1FacebookCallbacksDeauthorizeByState(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1FacebookCallbacksDeauthorizeByStateWithRequestBuilder(state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/facebook/callbacks/deauthorize/{state}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter state: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<[String: String]> 
+     */
+    open class func postApiV1FacebookCallbacksDeauthorizeByStateWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+        var localVariablePath = "/api/v1/facebook/callbacks/deauthorize/{state}"
+        let statePreEscape = "\(APIHelper.mapValueToPathItem(state))"
+        let statePostEscape = statePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{state}", with: statePostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter state: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
      - returns: DeleteUserCallbackResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func userDataDeletionCallback(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> DeleteUserCallbackResp {
-        return try await userDataDeletionCallbackWithRequestBuilder(state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1FacebookCallbacksUserDataDeletionByState(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> DeleteUserCallbackResp {
+        return try await postApiV1FacebookCallbacksUserDataDeletionByStateWithRequestBuilder(state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -135,7 +135,7 @@ open class FacebookControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<DeleteUserCallbackResp> 
      */
-    open class func userDataDeletionCallbackWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<DeleteUserCallbackResp> {
+    open class func postApiV1FacebookCallbacksUserDataDeletionByStateWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<DeleteUserCallbackResp> {
         var localVariablePath = "/api/v1/facebook/callbacks/user-data-deletion/{state}"
         let statePreEscape = "\(APIHelper.mapValueToPathItem(state))"
         let statePostEscape = statePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

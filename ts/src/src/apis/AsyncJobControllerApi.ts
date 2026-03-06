@@ -40,64 +40,7 @@ import {
     RenewLeaseRequestToJSON,
 } from '../models/index';
 
-export interface CancelRequest {
-    jobId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetJobRequest {
-    jobId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetJobProgressRequest {
-    entityType: string;
-    entityId: string;
-    jobType: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetJobProgress1Request {
-    jobId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetQueuesRequest {
-    jobId?: string;
-    entityType?: string;
-    entityId?: string;
-    taskType?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTaskRequest {
-    jobId: string;
-    taskId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ListJobEventsRequest {
-    jobId: string;
-    limit?: number;
-    afterCreatedAt?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ListJobsRequest {
+export interface GetApiV1AsyncJobsJobsRequest {
     status?: string;
     jobType?: string;
     entityType?: string;
@@ -109,7 +52,30 @@ export interface ListJobsRequest {
     xEdgeClientId?: string;
 }
 
-export interface ListTasksRequest {
+export interface GetApiV1AsyncJobsJobsByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AsyncJobsJobsByJobidEventsRequest {
+    jobId: string;
+    limit?: number;
+    afterCreatedAt?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AsyncJobsJobsByJobidProgressRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AsyncJobsJobsByJobidTasksRequest {
     jobId: string;
     status?: string;
     taskType?: string;
@@ -120,14 +86,55 @@ export interface ListTasksRequest {
     xEdgeClientId?: string;
 }
 
-export interface PauseRequest {
+export interface GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest {
+    jobId: string;
+    taskId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AsyncJobsProgressRequest {
+    entityType: string;
+    entityId: string;
+    jobType: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AsyncJobsQueuesRequest {
+    jobId?: string;
+    entityType?: string;
+    entityId?: string;
+    taskType?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AsyncJobsJobsByJobidCancelRequest {
     jobId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ReleaseOperationRequest {
+export interface PostApiV1AsyncJobsJobsByJobidPauseRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AsyncJobsJobsByJobidStartRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest {
     jobId: string;
     taskId: string;
     releaseRequest: ReleaseRequest;
@@ -136,17 +143,10 @@ export interface ReleaseOperationRequest {
     xEdgeClientId?: string;
 }
 
-export interface RenewLeaseOperationRequest {
+export interface PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest {
     jobId: string;
     taskId: string;
     renewLeaseRequest: RenewLeaseRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface StartRequest {
-    jobId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -159,126 +159,6 @@ export interface StartRequest {
  * @interface AsyncJobControllerApiInterface
  */
 export interface AsyncJobControllerApiInterface {
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    cancelRaw(requestParameters: CancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
-
-    /**
-     */
-    cancel(requestParameters: CancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    getJobRaw(requestParameters: GetJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncJobJSONBJSONBJSONBJSONB>>;
-
-    /**
-     */
-    getJob(requestParameters: GetJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncJobJSONBJSONBJSONBJSONB>;
-
-    /**
-     * 
-     * @param {string} entityType 
-     * @param {string} entityId 
-     * @param {string} jobType 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    getJobProgressRaw(requestParameters: GetJobProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
-
-    /**
-     */
-    getJobProgress(requestParameters: GetJobProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    getJobProgress1Raw(requestParameters: GetJobProgress1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
-
-    /**
-     */
-    getJobProgress1(requestParameters: GetJobProgress1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
-
-    /**
-     * 
-     * @param {string} [jobId] 
-     * @param {string} [entityType] 
-     * @param {string} [entityId] 
-     * @param {string} [taskType] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    getQueuesRaw(requestParameters: GetQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>>;
-
-    /**
-     */
-    getQueues(requestParameters: GetQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} taskId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    getTaskRaw(requestParameters: GetTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncTaskJSONBJSONBJSONB>>;
-
-    /**
-     */
-    getTask(requestParameters: GetTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncTaskJSONBJSONBJSONB>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {number} [limit] 
-     * @param {number} [afterCreatedAt] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    listJobEventsRaw(requestParameters: ListJobEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncEventJSONB>>>;
-
-    /**
-     */
-    listJobEvents(requestParameters: ListJobEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncEventJSONB>>;
-
     /**
      * 
      * @param {string} [status] 
@@ -294,11 +174,61 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    listJobsRaw(requestParameters: ListJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncJobJSONBJSONBJSONBJSONB>>>;
+    getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncJobJSONBJSONBJSONBJSONB>>>;
 
     /**
      */
-    listJobs(requestParameters: ListJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncJobJSONBJSONBJSONBJSONB>>;
+    getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncJobJSONBJSONBJSONBJSONB>>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncJobJSONBJSONBJSONBJSONB>>;
+
+    /**
+     */
+    getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncJobJSONBJSONBJSONBJSONB>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {number} [limit] 
+     * @param {number} [afterCreatedAt] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncEventJSONB>>>;
+
+    /**
+     */
+    getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncEventJSONB>>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
+
+    /**
+     */
+    getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
 
     /**
      * 
@@ -314,11 +244,65 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    listTasksRaw(requestParameters: ListTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncTaskJSONBJSONBJSONB>>>;
+    getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncTaskJSONBJSONBJSONB>>>;
 
     /**
      */
-    listTasks(requestParameters: ListTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncTaskJSONBJSONBJSONB>>;
+    getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncTaskJSONBJSONBJSONB>>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} taskId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncTaskJSONBJSONBJSONB>>;
+
+    /**
+     */
+    getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncTaskJSONBJSONBJSONB>;
+
+    /**
+     * 
+     * @param {string} entityType 
+     * @param {string} entityId 
+     * @param {string} jobType 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
+
+    /**
+     */
+    getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
+
+    /**
+     * 
+     * @param {string} [jobId] 
+     * @param {string} [entityType] 
+     * @param {string} [entityId] 
+     * @param {string} [taskType] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>>;
+
+    /**
+     */
+    getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>>;
 
     /**
      * 
@@ -330,11 +314,43 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    pauseRaw(requestParameters: PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
+    postApiV1AsyncJobsJobsByJobidCancelRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
 
     /**
      */
-    pause(requestParameters: PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
+    postApiV1AsyncJobsJobsByJobidCancel(requestParameters: PostApiV1AsyncJobsJobsByJobidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    postApiV1AsyncJobsJobsByJobidPauseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidPauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
+
+    /**
+     */
+    postApiV1AsyncJobsJobsByJobidPause(requestParameters: PostApiV1AsyncJobsJobsByJobidPauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AsyncJobControllerApiInterface
+     */
+    postApiV1AsyncJobsJobsByJobidStartRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
+
+    /**
+     */
+    postApiV1AsyncJobsJobsByJobidStart(requestParameters: PostApiV1AsyncJobsJobsByJobidStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
 
     /**
      * 
@@ -348,11 +364,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    releaseRaw(requestParameters: ReleaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
+    postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
 
     /**
      */
-    release(requestParameters: ReleaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
+    postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
 
     /**
      * 
@@ -366,27 +382,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    renewLeaseRaw(requestParameters: RenewLeaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
+    postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
 
     /**
      */
-    renewLease(requestParameters: RenewLeaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AsyncJobControllerApiInterface
-     */
-    startRaw(requestParameters: StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>>;
-
-    /**
-     */
-    start(requestParameters: StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
+    postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean>;
 
 }
 
@@ -397,417 +397,7 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async cancelRaw(requestParameters: CancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling cancel().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}:cancel`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<boolean>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async cancel(requestParameters: CancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
-        const response = await this.cancelRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getJobRaw(requestParameters: GetJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncJobJSONBJSONBJSONBJSONB>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling getJob().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncJobJSONBJSONBJSONBJSONBFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getJob(requestParameters: GetJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncJobJSONBJSONBJSONBJSONB> {
-        const response = await this.getJobRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getJobProgressRaw(requestParameters: GetJobProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
-        if (requestParameters['entityType'] == null) {
-            throw new runtime.RequiredError(
-                'entityType',
-                'Required parameter "entityType" was null or undefined when calling getJobProgress().'
-            );
-        }
-
-        if (requestParameters['entityId'] == null) {
-            throw new runtime.RequiredError(
-                'entityId',
-                'Required parameter "entityId" was null or undefined when calling getJobProgress().'
-            );
-        }
-
-        if (requestParameters['jobType'] == null) {
-            throw new runtime.RequiredError(
-                'jobType',
-                'Required parameter "jobType" was null or undefined when calling getJobProgress().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['entityType'] != null) {
-            queryParameters['entityType'] = requestParameters['entityType'];
-        }
-
-        if (requestParameters['entityId'] != null) {
-            queryParameters['entityId'] = requestParameters['entityId'];
-        }
-
-        if (requestParameters['jobType'] != null) {
-            queryParameters['jobType'] = requestParameters['jobType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/progress`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getJobProgress(requestParameters: GetJobProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
-        const response = await this.getJobProgressRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getJobProgress1Raw(requestParameters: GetJobProgress1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling getJobProgress1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/progress`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getJobProgress1(requestParameters: GetJobProgress1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
-        const response = await this.getJobProgress1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getQueuesRaw(requestParameters: GetQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['jobId'] != null) {
-            queryParameters['jobId'] = requestParameters['jobId'];
-        }
-
-        if (requestParameters['entityType'] != null) {
-            queryParameters['entityType'] = requestParameters['entityType'];
-        }
-
-        if (requestParameters['entityId'] != null) {
-            queryParameters['entityId'] = requestParameters['entityId'];
-        }
-
-        if (requestParameters['taskType'] != null) {
-            queryParameters['taskType'] = requestParameters['taskType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/queues`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(QueueStatsFromJSON));
-    }
-
-    /**
-     */
-    async getQueues(requestParameters: GetQueuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>> {
-        const response = await this.getQueuesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTaskRaw(requestParameters: GetTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncTaskJSONBJSONBJSONB>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling getTask().'
-            );
-        }
-
-        if (requestParameters['taskId'] == null) {
-            throw new runtime.RequiredError(
-                'taskId',
-                'Required parameter "taskId" was null or undefined when calling getTask().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-        urlPath = urlPath.replace(`{${"taskId"}}`, encodeURIComponent(String(requestParameters['taskId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncTaskJSONBJSONBJSONBFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getTask(requestParameters: GetTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncTaskJSONBJSONBJSONB> {
-        const response = await this.getTaskRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async listJobEventsRaw(requestParameters: ListJobEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncEventJSONB>>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling listJobEvents().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['afterCreatedAt'] != null) {
-            queryParameters['afterCreatedAt'] = requestParameters['afterCreatedAt'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/events`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncEventJSONBFromJSON));
-    }
-
-    /**
-     */
-    async listJobEvents(requestParameters: ListJobEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncEventJSONB>> {
-        const response = await this.listJobEventsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async listJobsRaw(requestParameters: ListJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncJobJSONBJSONBJSONBJSONB>>> {
+    async getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncJobJSONBJSONBJSONBJSONB>>> {
         const queryParameters: any = {};
 
         if (requestParameters['status'] != null) {
@@ -867,18 +457,179 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async listJobs(requestParameters: ListJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncJobJSONBJSONBJSONBJSONB>> {
-        const response = await this.listJobsRaw(requestParameters, initOverrides);
+    async getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncJobJSONBJSONBJSONBJSONB>> {
+        const response = await this.getApiV1AsyncJobsJobsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async listTasksRaw(requestParameters: ListTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncTaskJSONBJSONBJSONB>>> {
+    async getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncJobJSONBJSONBJSONBJSONB>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
-                'Required parameter "jobId" was null or undefined when calling listTasks().'
+                'Required parameter "jobId" was null or undefined when calling getApiV1AsyncJobsJobsByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncJobJSONBJSONBJSONBJSONBFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncJobJSONBJSONBJSONBJSONB> {
+        const response = await this.getApiV1AsyncJobsJobsByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncEventJSONB>>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AsyncJobsJobsByJobidEvents().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['afterCreatedAt'] != null) {
+            queryParameters['afterCreatedAt'] = requestParameters['afterCreatedAt'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/events`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncEventJSONBFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncEventJSONB>> {
+        const response = await this.getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AsyncJobsJobsByJobidProgress().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/progress`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
+        const response = await this.getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncTaskJSONBJSONBJSONB>>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AsyncJobsJobsByJobidTasks().'
             );
         }
 
@@ -934,18 +685,267 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async listTasks(requestParameters: ListTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncTaskJSONBJSONBJSONB>> {
-        const response = await this.listTasksRaw(requestParameters, initOverrides);
+    async getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncTaskJSONBJSONBJSONB>> {
+        const response = await this.getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async pauseRaw(requestParameters: PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+    async getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncTaskJSONBJSONBJSONB>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
-                'Required parameter "jobId" was null or undefined when calling pause().'
+                'Required parameter "jobId" was null or undefined when calling getApiV1AsyncJobsJobsByJobidTasksByTaskid().'
+            );
+        }
+
+        if (requestParameters['taskId'] == null) {
+            throw new runtime.RequiredError(
+                'taskId',
+                'Required parameter "taskId" was null or undefined when calling getApiV1AsyncJobsJobsByJobidTasksByTaskid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+        urlPath = urlPath.replace(`{${"taskId"}}`, encodeURIComponent(String(requestParameters['taskId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncTaskJSONBJSONBJSONBFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncTaskJSONBJSONBJSONB> {
+        const response = await this.getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
+        if (requestParameters['entityType'] == null) {
+            throw new runtime.RequiredError(
+                'entityType',
+                'Required parameter "entityType" was null or undefined when calling getApiV1AsyncJobsProgress().'
+            );
+        }
+
+        if (requestParameters['entityId'] == null) {
+            throw new runtime.RequiredError(
+                'entityId',
+                'Required parameter "entityId" was null or undefined when calling getApiV1AsyncJobsProgress().'
+            );
+        }
+
+        if (requestParameters['jobType'] == null) {
+            throw new runtime.RequiredError(
+                'jobType',
+                'Required parameter "jobType" was null or undefined when calling getApiV1AsyncJobsProgress().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['entityType'] != null) {
+            queryParameters['entityType'] = requestParameters['entityType'];
+        }
+
+        if (requestParameters['entityId'] != null) {
+            queryParameters['entityId'] = requestParameters['entityId'];
+        }
+
+        if (requestParameters['jobType'] != null) {
+            queryParameters['jobType'] = requestParameters['jobType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/progress`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
+        const response = await this.getApiV1AsyncJobsProgressRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['jobId'] != null) {
+            queryParameters['jobId'] = requestParameters['jobId'];
+        }
+
+        if (requestParameters['entityType'] != null) {
+            queryParameters['entityType'] = requestParameters['entityType'];
+        }
+
+        if (requestParameters['entityId'] != null) {
+            queryParameters['entityId'] = requestParameters['entityId'];
+        }
+
+        if (requestParameters['taskType'] != null) {
+            queryParameters['taskType'] = requestParameters['taskType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/queues`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(QueueStatsFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>> {
+        const response = await this.getApiV1AsyncJobsQueuesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AsyncJobsJobsByJobidCancelRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidCancel().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}:cancel`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<boolean>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1AsyncJobsJobsByJobidCancel(requestParameters: PostApiV1AsyncJobsJobsByJobidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
+        const response = await this.postApiV1AsyncJobsJobsByJobidCancelRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AsyncJobsJobsByJobidPauseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidPauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidPause().'
             );
         }
 
@@ -989,32 +989,87 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async pause(requestParameters: PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
-        const response = await this.pauseRaw(requestParameters, initOverrides);
+    async postApiV1AsyncJobsJobsByJobidPause(requestParameters: PostApiV1AsyncJobsJobsByJobidPauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
+        const response = await this.postApiV1AsyncJobsJobsByJobidPauseRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async releaseRaw(requestParameters: ReleaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+    async postApiV1AsyncJobsJobsByJobidStartRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
-                'Required parameter "jobId" was null or undefined when calling release().'
+                'Required parameter "jobId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidStart().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/async-jobs/jobs/{jobId}:start`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<boolean>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1AsyncJobsJobsByJobidStart(requestParameters: PostApiV1AsyncJobsJobsByJobidStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
+        const response = await this.postApiV1AsyncJobsJobsByJobidStartRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease().'
             );
         }
 
         if (requestParameters['taskId'] == null) {
             throw new runtime.RequiredError(
                 'taskId',
-                'Required parameter "taskId" was null or undefined when calling release().'
+                'Required parameter "taskId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease().'
             );
         }
 
         if (requestParameters['releaseRequest'] == null) {
             throw new runtime.RequiredError(
                 'releaseRequest',
-                'Required parameter "releaseRequest" was null or undefined when calling release().'
+                'Required parameter "releaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease().'
             );
         }
 
@@ -1062,32 +1117,32 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async release(requestParameters: ReleaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
-        const response = await this.releaseRaw(requestParameters, initOverrides);
+    async postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
+        const response = await this.postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async renewLeaseRaw(requestParameters: RenewLeaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
+    async postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRaw(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
-                'Required parameter "jobId" was null or undefined when calling renewLease().'
+                'Required parameter "jobId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease().'
             );
         }
 
         if (requestParameters['taskId'] == null) {
             throw new runtime.RequiredError(
                 'taskId',
-                'Required parameter "taskId" was null or undefined when calling renewLease().'
+                'Required parameter "taskId" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease().'
             );
         }
 
         if (requestParameters['renewLeaseRequest'] == null) {
             throw new runtime.RequiredError(
                 'renewLeaseRequest',
-                'Required parameter "renewLeaseRequest" was null or undefined when calling renewLease().'
+                'Required parameter "renewLeaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease().'
             );
         }
 
@@ -1135,63 +1190,8 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async renewLease(requestParameters: RenewLeaseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
-        const response = await this.renewLeaseRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async startRaw(requestParameters: StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<boolean>> {
-        if (requestParameters['jobId'] == null) {
-            throw new runtime.RequiredError(
-                'jobId',
-                'Required parameter "jobId" was null or undefined when calling start().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/async-jobs/jobs/{jobId}:start`;
-        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<boolean>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async start(requestParameters: StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
-        const response = await this.startRaw(requestParameters, initOverrides);
+    async postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(requestParameters: PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<boolean> {
+        const response = await this.postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

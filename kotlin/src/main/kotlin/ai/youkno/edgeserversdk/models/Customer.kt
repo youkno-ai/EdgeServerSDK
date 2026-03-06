@@ -31,9 +31,9 @@ import com.squareup.moshi.JsonClass
  * @param dob 
  * @param address 
  * @param phoneRawNumber 
- * @param effectiveState 
  * @param phoneStatus 
  * @param personalName 
+ * @param effectiveState 
  */
 
 
@@ -60,14 +60,14 @@ data class Customer (
     @Json(name = "phoneRawNumber")
     val phoneRawNumber: kotlin.String? = null,
 
-    @Json(name = "effectiveState")
-    val effectiveState: kotlin.String? = null,
-
     @Json(name = "phoneStatus")
     val phoneStatus: kotlin.String? = null,
 
     @Json(name = "personalName")
-    val personalName: PersonalName? = null
+    val personalName: PersonalName? = null,
+
+    @Json(name = "effectiveState")
+    val effectiveState: kotlin.String? = null
 
 ) {
 

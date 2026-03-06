@@ -10,23 +10,6 @@ import ai.youkno.edgeserversdk.models.Category
 
 interface CategoryControllerApi {
     /**
-     * POST api/v1/categories
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param category 
-     * @param clientId  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[Category]>
-     */
-    @POST("api/v1/categories")
-    fun createCategory(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
-
-    /**
      * DELETE api/v1/categories/{categoryId}
      * 
      * 
@@ -38,16 +21,16 @@ interface CategoryControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/categories/{categoryId}")
-    fun deleteCategory(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun deleteApiV1CategoriesByCategoryid(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 
     /**
     * enum for parameter categoryType
     */
-    enum class CategoryTypeGetCategoriesByType(val value: kotlin.String) {
+    enum class CategoryTypeGetApiV1Categories(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "QUESTION") QUESTION("QUESTION"),
         @Json(name = "THREAD") THREAD("THREAD"),
@@ -114,7 +97,7 @@ interface CategoryControllerApi {
      * @return [Call]<[Category]>
      */
     @GET("api/v1/categories")
-    fun getCategoriesByType(@Query("categoryType") categoryType: CategoryTypeGetCategoriesByType, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun getApiV1Categories(@Query("categoryType") categoryType: CategoryTypeGetApiV1Categories, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
 
     /**
      * GET api/v1/categories/{categoryId}
@@ -131,7 +114,24 @@ interface CategoryControllerApi {
      * @return [Call]<[Category]>
      */
     @GET("api/v1/categories/{categoryId}")
-    fun getCategory(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun getApiV1CategoriesByCategoryid(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+
+    /**
+     * POST api/v1/categories
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param category 
+     * @param clientId  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[Category]>
+     */
+    @POST("api/v1/categories")
+    fun postApiV1Categories(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
 
     /**
      * PUT api/v1/categories
@@ -148,6 +148,6 @@ interface CategoryControllerApi {
      * @return [Call]<[Category]>
      */
     @PUT("api/v1/categories")
-    fun updateCategory(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun putApiV1Categories(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
 
 }

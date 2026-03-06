@@ -12,10 +12,6 @@ import AnyCodable
 
 public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
 
-    public enum InventoryPolicyAsEnum: String, Codable, CaseIterable {
-        case deny = "DENY"
-        case _continue = "CONTINUE"
-    }
     public enum WeightUnitAsEnum: String, Codable, CaseIterable {
         case ea = "EA"
         case mg = "MG"
@@ -26,6 +22,10 @@ public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
         case flwr = "FLWR"
         case flwr2 = "FLWR_2"
         case flwr4 = "FLWR_4"
+    }
+    public enum InventoryPolicyAsEnum: String, Codable, CaseIterable {
+        case deny = "DENY"
+        case _continue = "CONTINUE"
     }
     public var sku: String?
     public var shopifyStoreName: String?
@@ -62,13 +62,13 @@ public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
     public var certificateOfAuthenticityUrl: String?
     public var chemicalCompositions: [String: ChemicalInfo]?
     public var primaryAttachmentId: String?
-    public var inventoryPolicyAsEnum: InventoryPolicyAsEnum?
     public var extraDeliveryFeeReward: Reward?
     public var effectiveOriginalPrice: Price?
     public var weightUnitAsEnum: WeightUnitAsEnum?
+    public var inventoryPolicyAsEnum: InventoryPolicyAsEnum?
     public var effectivePrice: Price?
 
-    public init(sku: String? = nil, shopifyStoreName: String? = nil, shopifyVariantId: String? = nil, name: String? = nil, optionKey1: String? = nil, optionKey2: String? = nil, optionKey3: String? = nil, manufacturer: String? = nil, model: String? = nil, weight: Double? = nil, weightUnit: String? = nil, quantity: Double? = nil, maxAllowedQty: Double? = nil, inventoryPolicy: String? = nil, price: Price? = nil, originalPrice: Price? = nil, resellerPrice: Price? = nil, priceType: String? = nil, msrp: Price? = nil, costPerItem: Price? = nil, otdPrice: Price? = nil, altPrices: Prices? = nil, extraDeliveryFee: ShippingFee? = nil, barcode: String? = nil, attachmentIds: String? = nil, requiresShipping: Bool? = nil, taxable: Bool? = nil, taxCode: String? = nil, onlineProductInfo: OnlineProductInfo? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, strain: Strain? = nil, certificateOfAuthenticityUrl: String? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, primaryAttachmentId: String? = nil, inventoryPolicyAsEnum: InventoryPolicyAsEnum? = nil, extraDeliveryFeeReward: Reward? = nil, effectiveOriginalPrice: Price? = nil, weightUnitAsEnum: WeightUnitAsEnum? = nil, effectivePrice: Price? = nil) {
+    public init(sku: String? = nil, shopifyStoreName: String? = nil, shopifyVariantId: String? = nil, name: String? = nil, optionKey1: String? = nil, optionKey2: String? = nil, optionKey3: String? = nil, manufacturer: String? = nil, model: String? = nil, weight: Double? = nil, weightUnit: String? = nil, quantity: Double? = nil, maxAllowedQty: Double? = nil, inventoryPolicy: String? = nil, price: Price? = nil, originalPrice: Price? = nil, resellerPrice: Price? = nil, priceType: String? = nil, msrp: Price? = nil, costPerItem: Price? = nil, otdPrice: Price? = nil, altPrices: Prices? = nil, extraDeliveryFee: ShippingFee? = nil, barcode: String? = nil, attachmentIds: String? = nil, requiresShipping: Bool? = nil, taxable: Bool? = nil, taxCode: String? = nil, onlineProductInfo: OnlineProductInfo? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, strain: Strain? = nil, certificateOfAuthenticityUrl: String? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, primaryAttachmentId: String? = nil, extraDeliveryFeeReward: Reward? = nil, effectiveOriginalPrice: Price? = nil, weightUnitAsEnum: WeightUnitAsEnum? = nil, inventoryPolicyAsEnum: InventoryPolicyAsEnum? = nil, effectivePrice: Price? = nil) {
         self.sku = sku
         self.shopifyStoreName = shopifyStoreName
         self.shopifyVariantId = shopifyVariantId
@@ -104,10 +104,10 @@ public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
         self.certificateOfAuthenticityUrl = certificateOfAuthenticityUrl
         self.chemicalCompositions = chemicalCompositions
         self.primaryAttachmentId = primaryAttachmentId
-        self.inventoryPolicyAsEnum = inventoryPolicyAsEnum
         self.extraDeliveryFeeReward = extraDeliveryFeeReward
         self.effectiveOriginalPrice = effectiveOriginalPrice
         self.weightUnitAsEnum = weightUnitAsEnum
+        self.inventoryPolicyAsEnum = inventoryPolicyAsEnum
         self.effectivePrice = effectivePrice
     }
 
@@ -147,10 +147,10 @@ public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
         case certificateOfAuthenticityUrl
         case chemicalCompositions
         case primaryAttachmentId
-        case inventoryPolicyAsEnum
         case extraDeliveryFeeReward
         case effectiveOriginalPrice
         case weightUnitAsEnum
+        case inventoryPolicyAsEnum
         case effectivePrice
     }
 
@@ -193,10 +193,10 @@ public struct ProductSpecificInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(certificateOfAuthenticityUrl, forKey: .certificateOfAuthenticityUrl)
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
         try container.encodeIfPresent(primaryAttachmentId, forKey: .primaryAttachmentId)
-        try container.encodeIfPresent(inventoryPolicyAsEnum, forKey: .inventoryPolicyAsEnum)
         try container.encodeIfPresent(extraDeliveryFeeReward, forKey: .extraDeliveryFeeReward)
         try container.encodeIfPresent(effectiveOriginalPrice, forKey: .effectiveOriginalPrice)
         try container.encodeIfPresent(weightUnitAsEnum, forKey: .weightUnitAsEnum)
+        try container.encodeIfPresent(inventoryPolicyAsEnum, forKey: .inventoryPolicyAsEnum)
         try container.encodeIfPresent(effectivePrice, forKey: .effectivePrice)
     }
 }

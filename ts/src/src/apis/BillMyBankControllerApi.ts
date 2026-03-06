@@ -22,7 +22,7 @@ import {
     SignedPayloadToJSON,
 } from '../models/index';
 
-export interface ProcessBmbPaymentWebhookRequest {
+export interface PostApiV1BmbPaymentsWebhookRequest {
     signedPayload: SignedPayload;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -46,11 +46,11 @@ export interface BillMyBankControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BillMyBankControllerApiInterface
      */
-    processBmbPaymentWebhookRaw(requestParameters: ProcessBmbPaymentWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1BmbPaymentsWebhookRaw(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    processBmbPaymentWebhook(requestParameters: ProcessBmbPaymentWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1BmbPaymentsWebhook(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -61,11 +61,11 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
 
     /**
      */
-    async processBmbPaymentWebhookRaw(requestParameters: ProcessBmbPaymentWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1BmbPaymentsWebhookRaw(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['signedPayload'] == null) {
             throw new runtime.RequiredError(
                 'signedPayload',
-                'Required parameter "signedPayload" was null or undefined when calling processBmbPaymentWebhook().'
+                'Required parameter "signedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
             );
         }
 
@@ -107,8 +107,8 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
 
     /**
      */
-    async processBmbPaymentWebhook(requestParameters: ProcessBmbPaymentWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.processBmbPaymentWebhookRaw(requestParameters, initOverrides);
+    async postApiV1BmbPaymentsWebhook(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1BmbPaymentsWebhookRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

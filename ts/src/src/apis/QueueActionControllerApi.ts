@@ -15,14 +15,21 @@
 
 import * as runtime from '../runtime';
 
-export interface GetEventRequest {
+export interface GetApiV1EventsByActionRequest {
     action: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetEvent1Request {
+export interface GetApiV1RequestsByActionRequest {
+    action: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1EventsByActionRequest {
     action: string;
     requestBody: { [key: string]: any; };
     xEdgeAgent?: string;
@@ -30,14 +37,7 @@ export interface GetEvent1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetRequestRequest {
-    action: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ProcessRequestRequest {
+export interface PostApiV1RequestsByActionRequest {
     action: string;
     requestBody: { [key: string]: any; };
     xEdgeAgent?: string;
@@ -62,11 +62,27 @@ export interface QueueActionControllerApiInterface {
      * @throws {RequiredError}
      * @memberof QueueActionControllerApiInterface
      */
-    getEventRaw(requestParameters: GetEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1EventsByActionRaw(requestParameters: GetApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getEvent(requestParameters: GetEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1EventsByAction(requestParameters: GetApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} action 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof QueueActionControllerApiInterface
+     */
+    getApiV1RequestsByActionRaw(requestParameters: GetApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    getApiV1RequestsByAction(requestParameters: GetApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -79,27 +95,11 @@ export interface QueueActionControllerApiInterface {
      * @throws {RequiredError}
      * @memberof QueueActionControllerApiInterface
      */
-    getEvent1Raw(requestParameters: GetEvent1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1EventsByActionRaw(requestParameters: PostApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getEvent1(requestParameters: GetEvent1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} action 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof QueueActionControllerApiInterface
-     */
-    getRequestRaw(requestParameters: GetRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    getRequest(requestParameters: GetRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1EventsByAction(requestParameters: PostApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -112,11 +112,11 @@ export interface QueueActionControllerApiInterface {
      * @throws {RequiredError}
      * @memberof QueueActionControllerApiInterface
      */
-    processRequestRaw(requestParameters: ProcessRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1RequestsByActionRaw(requestParameters: PostApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    processRequest(requestParameters: ProcessRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1RequestsByAction(requestParameters: PostApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -127,11 +127,11 @@ export class QueueActionControllerApi extends runtime.BaseAPI implements QueueAc
 
     /**
      */
-    async getEventRaw(requestParameters: GetEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1EventsByActionRaw(requestParameters: GetApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['action'] == null) {
             throw new runtime.RequiredError(
                 'action',
-                'Required parameter "action" was null or undefined when calling getEvent().'
+                'Required parameter "action" was null or undefined when calling getApiV1EventsByAction().'
             );
         }
 
@@ -171,25 +171,76 @@ export class QueueActionControllerApi extends runtime.BaseAPI implements QueueAc
 
     /**
      */
-    async getEvent(requestParameters: GetEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getEventRaw(requestParameters, initOverrides);
+    async getApiV1EventsByAction(requestParameters: GetApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1EventsByActionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getEvent1Raw(requestParameters: GetEvent1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1RequestsByActionRaw(requestParameters: GetApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['action'] == null) {
             throw new runtime.RequiredError(
                 'action',
-                'Required parameter "action" was null or undefined when calling getEvent1().'
+                'Required parameter "action" was null or undefined when calling getApiV1RequestsByAction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/requests/{action}`;
+        urlPath = urlPath.replace(`{${"action"}}`, encodeURIComponent(String(requestParameters['action'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1RequestsByAction(requestParameters: GetApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1RequestsByActionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1EventsByActionRaw(requestParameters: PostApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['action'] == null) {
+            throw new runtime.RequiredError(
+                'action',
+                'Required parameter "action" was null or undefined when calling postApiV1EventsByAction().'
             );
         }
 
         if (requestParameters['requestBody'] == null) {
             throw new runtime.RequiredError(
                 'requestBody',
-                'Required parameter "requestBody" was null or undefined when calling getEvent1().'
+                'Required parameter "requestBody" was null or undefined when calling postApiV1EventsByAction().'
             );
         }
 
@@ -232,76 +283,25 @@ export class QueueActionControllerApi extends runtime.BaseAPI implements QueueAc
 
     /**
      */
-    async getEvent1(requestParameters: GetEvent1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getEvent1Raw(requestParameters, initOverrides);
+    async postApiV1EventsByAction(requestParameters: PostApiV1EventsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1EventsByActionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getRequestRaw(requestParameters: GetRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1RequestsByActionRaw(requestParameters: PostApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['action'] == null) {
             throw new runtime.RequiredError(
                 'action',
-                'Required parameter "action" was null or undefined when calling getRequest().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/requests/{action}`;
-        urlPath = urlPath.replace(`{${"action"}}`, encodeURIComponent(String(requestParameters['action'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async getRequest(requestParameters: GetRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getRequestRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async processRequestRaw(requestParameters: ProcessRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['action'] == null) {
-            throw new runtime.RequiredError(
-                'action',
-                'Required parameter "action" was null or undefined when calling processRequest().'
+                'Required parameter "action" was null or undefined when calling postApiV1RequestsByAction().'
             );
         }
 
         if (requestParameters['requestBody'] == null) {
             throw new runtime.RequiredError(
                 'requestBody',
-                'Required parameter "requestBody" was null or undefined when calling processRequest().'
+                'Required parameter "requestBody" was null or undefined when calling postApiV1RequestsByAction().'
             );
         }
 
@@ -344,8 +344,8 @@ export class QueueActionControllerApi extends runtime.BaseAPI implements QueueAc
 
     /**
      */
-    async processRequest(requestParameters: ProcessRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.processRequestRaw(requestParameters, initOverrides);
+    async postApiV1RequestsByAction(requestParameters: PostApiV1RequestsByActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1RequestsByActionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

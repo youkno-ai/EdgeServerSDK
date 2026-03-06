@@ -25,7 +25,7 @@ import {
     UserNotificationConfigToJSON,
 } from '../models/index';
 
-export interface DeleteNotificationRequest {
+export interface DeleteApiV1UserByUseridNotificationRequest {
     userId: string;
     entityType: string;
     entityId: string;
@@ -34,7 +34,7 @@ export interface DeleteNotificationRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetNotificationRequest {
+export interface GetApiV1UserByUseridNotificationRequest {
     userId: string;
     entityType: string;
     entityId: string;
@@ -43,7 +43,7 @@ export interface GetNotificationRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetNotification1Request {
+export interface GetApiV1UserByUseridNotificationsRequest {
     userId: string;
     start?: number;
     limit?: number;
@@ -52,7 +52,7 @@ export interface GetNotification1Request {
     xEdgeClientId?: string;
 }
 
-export interface UpdateNotificationRequest {
+export interface PutApiV1UserByUseridNotificationRequest {
     userId: string;
     userNotificationConfig: UserNotificationConfig;
     xEdgeAgent?: string;
@@ -79,11 +79,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    deleteNotificationRaw(requestParameters: DeleteNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1UserByUseridNotificationRaw(requestParameters: DeleteApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteNotification(requestParameters: DeleteNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1UserByUseridNotification(requestParameters: DeleteApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -97,11 +97,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    getNotificationRaw(requestParameters: GetNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>>;
+    getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>>;
 
     /**
      */
-    getNotification(requestParameters: GetNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig>;
+    getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig>;
 
     /**
      * 
@@ -115,11 +115,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    getNotification1Raw(requestParameters: GetNotification1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>>;
+    getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>>;
 
     /**
      */
-    getNotification1(requestParameters: GetNotification1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig>;
+    getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig>;
 
     /**
      * 
@@ -132,11 +132,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    updateNotificationRaw(requestParameters: UpdateNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    putApiV1UserByUseridNotificationRaw(requestParameters: PutApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    updateNotification(requestParameters: UpdateNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1UserByUseridNotification(requestParameters: PutApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -147,25 +147,25 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async deleteNotificationRaw(requestParameters: DeleteNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1UserByUseridNotificationRaw(requestParameters: DeleteApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling deleteNotification().'
+                'Required parameter "userId" was null or undefined when calling deleteApiV1UserByUseridNotification().'
             );
         }
 
         if (requestParameters['entityType'] == null) {
             throw new runtime.RequiredError(
                 'entityType',
-                'Required parameter "entityType" was null or undefined when calling deleteNotification().'
+                'Required parameter "entityType" was null or undefined when calling deleteApiV1UserByUseridNotification().'
             );
         }
 
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
-                'Required parameter "entityId" was null or undefined when calling deleteNotification().'
+                'Required parameter "entityId" was null or undefined when calling deleteApiV1UserByUseridNotification().'
             );
         }
 
@@ -213,32 +213,32 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async deleteNotification(requestParameters: DeleteNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteNotificationRaw(requestParameters, initOverrides);
+    async deleteApiV1UserByUseridNotification(requestParameters: DeleteApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1UserByUseridNotificationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getNotificationRaw(requestParameters: GetNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>> {
+    async getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getNotification().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UserByUseridNotification().'
             );
         }
 
         if (requestParameters['entityType'] == null) {
             throw new runtime.RequiredError(
                 'entityType',
-                'Required parameter "entityType" was null or undefined when calling getNotification().'
+                'Required parameter "entityType" was null or undefined when calling getApiV1UserByUseridNotification().'
             );
         }
 
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
-                'Required parameter "entityId" was null or undefined when calling getNotification().'
+                'Required parameter "entityId" was null or undefined when calling getApiV1UserByUseridNotification().'
             );
         }
 
@@ -286,18 +286,18 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async getNotification(requestParameters: GetNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig> {
-        const response = await this.getNotificationRaw(requestParameters, initOverrides);
+    async getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig> {
+        const response = await this.getApiV1UserByUseridNotificationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getNotification1Raw(requestParameters: GetNotification1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>> {
+    async getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getNotification1().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UserByUseridNotifications().'
             );
         }
 
@@ -345,25 +345,25 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async getNotification1(requestParameters: GetNotification1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig> {
-        const response = await this.getNotification1Raw(requestParameters, initOverrides);
+    async getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig> {
+        const response = await this.getApiV1UserByUseridNotificationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateNotificationRaw(requestParameters: UpdateNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async putApiV1UserByUseridNotificationRaw(requestParameters: PutApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateNotification().'
+                'Required parameter "userId" was null or undefined when calling putApiV1UserByUseridNotification().'
             );
         }
 
         if (requestParameters['userNotificationConfig'] == null) {
             throw new runtime.RequiredError(
                 'userNotificationConfig',
-                'Required parameter "userNotificationConfig" was null or undefined when calling updateNotification().'
+                'Required parameter "userNotificationConfig" was null or undefined when calling putApiV1UserByUseridNotification().'
             );
         }
 
@@ -406,8 +406,8 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async updateNotification(requestParameters: UpdateNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateNotificationRaw(requestParameters, initOverrides);
+    async putApiV1UserByUseridNotification(requestParameters: PutApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1UserByUseridNotificationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -42,17 +42,17 @@ import {
 } from './SearchUserResults';
 
 /**
- * @type Search200Response
+ * @type GetApiV1SearchByType200Response
  * 
  * @export
  */
-export type Search200Response = SearchBountyResults | SearchCommentResults | SearchResponseResults | SearchUserResults;
+export type GetApiV1SearchByType200Response = SearchBountyResults | SearchCommentResults | SearchResponseResults | SearchUserResults;
 
-export function Search200ResponseFromJSON(json: any): Search200Response {
-    return Search200ResponseFromJSONTyped(json, false);
+export function GetApiV1SearchByType200ResponseFromJSON(json: any): GetApiV1SearchByType200Response {
+    return GetApiV1SearchByType200ResponseFromJSONTyped(json, false);
 }
 
-export function Search200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Search200Response {
+export function GetApiV1SearchByType200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetApiV1SearchByType200Response {
     if (json == null) {
         return json;
     }
@@ -75,11 +75,11 @@ export function Search200ResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     return {} as any;
 }
 
-export function Search200ResponseToJSON(json: any): any {
-    return Search200ResponseToJSONTyped(json, false);
+export function GetApiV1SearchByType200ResponseToJSON(json: any): any {
+    return GetApiV1SearchByType200ResponseToJSONTyped(json, false);
 }
 
-export function Search200ResponseToJSONTyped(value?: Search200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetApiV1SearchByType200ResponseToJSONTyped(value?: GetApiV1SearchByType200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

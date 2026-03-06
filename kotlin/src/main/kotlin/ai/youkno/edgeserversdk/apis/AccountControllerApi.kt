@@ -16,38 +16,69 @@ import ai.youkno.edgeserversdk.models.*
 
 interface AccountControllerApi {
     /**
-     * GET api/v1/account/currencies/{code}/exchange
+     * GET api/v1/account/amount
      * 
      * 
      * Responses:
      *  - 200: OK
      *
-     * @param code 
-     * @param amount 
+     * @param currency  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[AccountAmountResp]>
      */
-    @GET("api/v1/account/currencies/{code}/exchange")
-    fun exchangeCustomCurrency(@Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    @GET("api/v1/account/amount")
+    fun getApiV1AccountAmount(@Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
 
     /**
-     * GET api/v1/account/currency/{code}/exchange
+     * GET api/v1/account/amount_tmp
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param currency  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[AccountAmountResp]>
+     */
+    @GET("api/v1/account/amount_tmp")
+    fun getApiV1AccountAmountTmp(@Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
+
+    /**
+     * GET api/v1/account/{code}/currency
      * 
      * 
      * Responses:
      *  - 200: OK
      *
      * @param code 
-     * @param amount 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[PointCurrency]>
      */
-    @GET("api/v1/account/currency/{code}/exchange")
-    fun exchangeCustomCurrency1(@Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    @GET("api/v1/account/{code}/currency")
+    fun getApiV1AccountByCodeCurrency(@Path("code") code: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PointCurrency>
+
+    /**
+     * GET api/v1/account/companies/{companyId}/amount
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param companyId 
+     * @param currency  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[AccountAmountResp]>
+     */
+    @GET("api/v1/account/companies/{companyId}/amount")
+    fun getApiV1AccountCompaniesByCompanyidAmount(@Path("companyId") companyId: kotlin.String, @Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
 
     /**
      * GET api/v1/account/companies/{companyId}/currency/{code}/exchange
@@ -65,56 +96,7 @@ interface AccountControllerApi {
      * @return [Call]<[ExchangeCurrencyResp]>
      */
     @GET("api/v1/account/companies/{companyId}/currency/{code}/exchange")
-    fun exchangeCustomCurrency_0(@Path("companyId") companyId: kotlin.String, @Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ExchangeCurrencyResp>
-
-    /**
-     * GET api/v1/account/companies/{companyId}/amount
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param companyId 
-     * @param currency  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccountAmountResp]>
-     */
-    @GET("api/v1/account/companies/{companyId}/amount")
-    fun getAccountAmount(@Path("companyId") companyId: kotlin.String, @Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
-
-    /**
-     * GET api/v1/account/amount
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param currency  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccountAmountResp]>
-     */
-    @GET("api/v1/account/amount")
-    fun getAccountAmount1(@Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
-
-    /**
-     * GET api/v1/account/amount_tmp
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param currency  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccountAmountResp]>
-     */
-    @GET("api/v1/account/amount_tmp")
-    fun getAccountAmount2(@Query("currency") currency: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccountAmountResp>
+    fun getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(@Path("companyId") companyId: kotlin.String, @Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ExchangeCurrencyResp>
 
     /**
      * GET api/v1/account/currencies
@@ -140,22 +122,40 @@ interface AccountControllerApi {
      * @return [Call]<[PagePointCurrency]>
      */
     @GET("api/v1/account/currencies")
-    fun getCustomCurrencies(@Query("code") code: kotlin.String? = null, @Query("codes") codes: kotlin.collections.List<kotlin.String>? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("scope") scope: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("name") name: kotlin.String? = null, @Query("equivalentValue") equivalentValue: kotlin.Double? = null, @Query("equivalentCurrency") equivalentCurrency: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PagePointCurrency>
+    fun getApiV1AccountCurrencies(@Query("code") code: kotlin.String? = null, @Query("codes") codes: kotlin.collections.List<kotlin.String>? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("scope") scope: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("name") name: kotlin.String? = null, @Query("equivalentValue") equivalentValue: kotlin.Double? = null, @Query("equivalentCurrency") equivalentCurrency: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PagePointCurrency>
 
     /**
-     * GET api/v1/account/{code}/currency
+     * GET api/v1/account/currencies/{code}/exchange
      * 
      * 
      * Responses:
      *  - 200: OK
      *
      * @param code 
+     * @param amount 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PointCurrency]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
-    @GET("api/v1/account/{code}/currency")
-    fun getCustomCurrency1(@Path("code") code: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PointCurrency>
+    @GET("api/v1/account/currencies/{code}/exchange")
+    fun getApiV1AccountCurrenciesByCodeExchange(@Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+    /**
+     * GET api/v1/account/currency/{code}/exchange
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param code 
+     * @param amount 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @GET("api/v1/account/currency/{code}/exchange")
+    fun getApiV1AccountCurrencyByCodeExchange(@Path("code") code: kotlin.String, @Query("amount") amount: kotlin.Int, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

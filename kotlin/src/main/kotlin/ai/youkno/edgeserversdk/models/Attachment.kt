@@ -57,11 +57,11 @@ import com.squareup.moshi.JsonClass
  * @param cdnDisplayUrl 
  * @param attUrl 
  * @param valid 
+ * @param effectiveActionUrl 
+ * @param visibilityAsEnum 
  * @param displayStyleAsEnum 
  * @param youTubeCoverImage 
  * @param storageTypeAsEnum 
- * @param visibilityAsEnum 
- * @param effectiveActionUrl 
  * @param fileNameFromUrl 
  * @param youTubeVideoId 
  * @param meaningAsEnum 
@@ -158,6 +158,12 @@ data class Attachment (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
+    @Json(name = "effectiveActionUrl")
+    val effectiveActionUrl: kotlin.String? = null,
+
+    @Json(name = "visibilityAsEnum")
+    val visibilityAsEnum: Attachment.VisibilityAsEnum? = null,
+
     @Json(name = "displayStyleAsEnum")
     val displayStyleAsEnum: Attachment.DisplayStyleAsEnum? = null,
 
@@ -166,12 +172,6 @@ data class Attachment (
 
     @Json(name = "storageTypeAsEnum")
     val storageTypeAsEnum: Attachment.StorageTypeAsEnum? = null,
-
-    @Json(name = "visibilityAsEnum")
-    val visibilityAsEnum: Attachment.VisibilityAsEnum? = null,
-
-    @Json(name = "effectiveActionUrl")
-    val effectiveActionUrl: kotlin.String? = null,
 
     @Json(name = "fileNameFromUrl")
     val fileNameFromUrl: kotlin.String? = null,
@@ -187,6 +187,18 @@ data class Attachment (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,CREATOR,PARTICIPANTS,ALL
+     */
+    @JsonClass(generateAdapter = false)
+    enum class VisibilityAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "CREATOR") CREATOR("CREATOR"),
+        @Json(name = "PARTICIPANTS") PARTICIPANTS("PARTICIPANTS"),
+        @Json(name = "ALL") ALL("ALL");
+    }
     /**
      * 
      *
@@ -209,18 +221,6 @@ data class Attachment (
         @Json(name = "S3") S3("S3"),
         @Json(name = "EXT") EXT("EXT"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,CREATOR,PARTICIPANTS,ALL
-     */
-    @JsonClass(generateAdapter = false)
-    enum class VisibilityAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "CREATOR") CREATOR("CREATOR"),
-        @Json(name = "PARTICIPANTS") PARTICIPANTS("PARTICIPANTS"),
-        @Json(name = "ALL") ALL("ALL");
     }
     /**
      * 

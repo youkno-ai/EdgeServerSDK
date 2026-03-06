@@ -31,7 +31,7 @@ import {
     SendTestEmailRespToJSON,
 } from '../models/index';
 
-export interface DeleteOrderAlertRequest {
+export interface DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest {
     companyId: string;
     bountyId: string;
     xEdgeAgent?: string;
@@ -39,7 +39,14 @@ export interface DeleteOrderAlertRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetActiveEmailTemplateRequest {
+export interface GetApiV1AlertsByCompanyidEmailSettingsRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AlertsByCompanyidEmailTemplateRequest {
     companyId: string;
     templateType: string;
     xEdgeAgent?: string;
@@ -47,21 +54,22 @@ export interface GetActiveEmailTemplateRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetDefaultEmailTemplateRequest {
+export interface GetApiV1AlertsEmailDefaulttemplateRequest {
     templateType: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetEmailSettingsRequest {
+export interface PostApiV1AlertsByCompanyidEmailSettingsRequest {
     companyId: string;
+    emailSettings: EmailSettings;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SaveEmailTemplateRequest {
+export interface PostApiV1AlertsByCompanyidEmailTemplateRequest {
     companyId: string;
     emailTemplate: EmailTemplate;
     xEdgeAgent?: string;
@@ -69,17 +77,9 @@ export interface SaveEmailTemplateRequest {
     xEdgeClientId?: string;
 }
 
-export interface SendTestEmailRequest {
+export interface PostApiV1AlertsByCompanyidEmailTestRequest {
     companyId: string;
     sendTestEmailReq: SendTestEmailReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SetEmailSettingsRequest {
-    companyId: string;
-    emailSettings: EmailSettings;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -103,11 +103,27 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    deleteOrderAlertRaw(requestParameters: DeleteOrderAlertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRaw(requestParameters: DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteOrderAlert(requestParameters: DeleteOrderAlertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1AlertsCompaniesByCompanyidOrderByBountyid(requestParameters: DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AlertsControllerApiInterface
+     */
+    getApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters: GetApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailSettings>>;
+
+    /**
+     */
+    getApiV1AlertsByCompanyidEmailSettings(requestParameters: GetApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailSettings>;
 
     /**
      * 
@@ -120,11 +136,11 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    getActiveEmailTemplateRaw(requestParameters: GetActiveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
+    getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
 
     /**
      */
-    getActiveEmailTemplate(requestParameters: GetActiveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
+    getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
 
     /**
      * 
@@ -136,61 +152,11 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    getDefaultEmailTemplateRaw(requestParameters: GetDefaultEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
+    getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
 
     /**
      */
-    getDefaultEmailTemplate(requestParameters: GetDefaultEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AlertsControllerApiInterface
-     */
-    getEmailSettingsRaw(requestParameters: GetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailSettings>>;
-
-    /**
-     */
-    getEmailSettings(requestParameters: GetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailSettings>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {EmailTemplate} emailTemplate 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AlertsControllerApiInterface
-     */
-    saveEmailTemplateRaw(requestParameters: SaveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    saveEmailTemplate(requestParameters: SaveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {SendTestEmailReq} sendTestEmailReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AlertsControllerApiInterface
-     */
-    sendTestEmailRaw(requestParameters: SendTestEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>>;
-
-    /**
-     */
-    sendTestEmail(requestParameters: SendTestEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp>;
+    getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
 
     /**
      * 
@@ -203,11 +169,45 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    setEmailSettingsRaw(requestParameters: SetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters: PostApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    setEmailSettings(requestParameters: SetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1AlertsByCompanyidEmailSettings(requestParameters: PostApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {EmailTemplate} emailTemplate 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AlertsControllerApiInterface
+     */
+    postApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1AlertsByCompanyidEmailTemplate(requestParameters: PostApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {SendTestEmailReq} sendTestEmailReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AlertsControllerApiInterface
+     */
+    postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>>;
+
+    /**
+     */
+    postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp>;
 
 }
 
@@ -218,18 +218,18 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async deleteOrderAlertRaw(requestParameters: DeleteOrderAlertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRaw(requestParameters: DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling deleteOrderAlert().'
+                'Required parameter "companyId" was null or undefined when calling deleteApiV1AlertsCompaniesByCompanyidOrderByBountyid().'
             );
         }
 
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling deleteOrderAlert().'
+                'Required parameter "bountyId" was null or undefined when calling deleteApiV1AlertsCompaniesByCompanyidOrderByBountyid().'
             );
         }
 
@@ -270,25 +270,76 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async deleteOrderAlert(requestParameters: DeleteOrderAlertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteOrderAlertRaw(requestParameters, initOverrides);
+    async deleteApiV1AlertsCompaniesByCompanyidOrderByBountyid(requestParameters: DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getActiveEmailTemplateRaw(requestParameters: GetActiveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
+    async getApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters: GetApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailSettings>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getActiveEmailTemplate().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1AlertsByCompanyidEmailSettings().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/alerts/{companyId}/email/settings`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EmailSettingsFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AlertsByCompanyidEmailSettings(requestParameters: GetApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailSettings> {
+        const response = await this.getApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AlertsByCompanyidEmailTemplate().'
             );
         }
 
         if (requestParameters['templateType'] == null) {
             throw new runtime.RequiredError(
                 'templateType',
-                'Required parameter "templateType" was null or undefined when calling getActiveEmailTemplate().'
+                'Required parameter "templateType" was null or undefined when calling getApiV1AlertsByCompanyidEmailTemplate().'
             );
         }
 
@@ -332,18 +383,18 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async getActiveEmailTemplate(requestParameters: GetActiveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
-        const response = await this.getActiveEmailTemplateRaw(requestParameters, initOverrides);
+    async getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
+        const response = await this.getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getDefaultEmailTemplateRaw(requestParameters: GetDefaultEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
+    async getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
         if (requestParameters['templateType'] == null) {
             throw new runtime.RequiredError(
                 'templateType',
-                'Required parameter "templateType" was null or undefined when calling getDefaultEmailTemplate().'
+                'Required parameter "templateType" was null or undefined when calling getApiV1AlertsEmailDefaulttemplate().'
             );
         }
 
@@ -386,198 +437,25 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async getDefaultEmailTemplate(requestParameters: GetDefaultEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
-        const response = await this.getDefaultEmailTemplateRaw(requestParameters, initOverrides);
+    async getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
+        const response = await this.getApiV1AlertsEmailDefaulttemplateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getEmailSettingsRaw(requestParameters: GetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailSettings>> {
+    async postApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters: PostApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getEmailSettings().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/alerts/{companyId}/email/settings`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => EmailSettingsFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getEmailSettings(requestParameters: GetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailSettings> {
-        const response = await this.getEmailSettingsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveEmailTemplateRaw(requestParameters: SaveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling saveEmailTemplate().'
-            );
-        }
-
-        if (requestParameters['emailTemplate'] == null) {
-            throw new runtime.RequiredError(
-                'emailTemplate',
-                'Required parameter "emailTemplate" was null or undefined when calling saveEmailTemplate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/alerts/{companyId}/email/template`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: EmailTemplateToJSON(requestParameters['emailTemplate']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async saveEmailTemplate(requestParameters: SaveEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.saveEmailTemplateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async sendTestEmailRaw(requestParameters: SendTestEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling sendTestEmail().'
-            );
-        }
-
-        if (requestParameters['sendTestEmailReq'] == null) {
-            throw new runtime.RequiredError(
-                'sendTestEmailReq',
-                'Required parameter "sendTestEmailReq" was null or undefined when calling sendTestEmail().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/alerts/{companyId}/email/test`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SendTestEmailReqToJSON(requestParameters['sendTestEmailReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SendTestEmailRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async sendTestEmail(requestParameters: SendTestEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp> {
-        const response = await this.sendTestEmailRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async setEmailSettingsRaw(requestParameters: SetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling setEmailSettings().'
+                'Required parameter "companyId" was null or undefined when calling postApiV1AlertsByCompanyidEmailSettings().'
             );
         }
 
         if (requestParameters['emailSettings'] == null) {
             throw new runtime.RequiredError(
                 'emailSettings',
-                'Required parameter "emailSettings" was null or undefined when calling setEmailSettings().'
+                'Required parameter "emailSettings" was null or undefined when calling postApiV1AlertsByCompanyidEmailSettings().'
             );
         }
 
@@ -620,8 +498,130 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async setEmailSettings(requestParameters: SetEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.setEmailSettingsRaw(requestParameters, initOverrides);
+    async postApiV1AlertsByCompanyidEmailSettings(requestParameters: PostApiV1AlertsByCompanyidEmailSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1AlertsByCompanyidEmailSettingsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling postApiV1AlertsByCompanyidEmailTemplate().'
+            );
+        }
+
+        if (requestParameters['emailTemplate'] == null) {
+            throw new runtime.RequiredError(
+                'emailTemplate',
+                'Required parameter "emailTemplate" was null or undefined when calling postApiV1AlertsByCompanyidEmailTemplate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/alerts/{companyId}/email/template`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: EmailTemplateToJSON(requestParameters['emailTemplate']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1AlertsByCompanyidEmailTemplate(requestParameters: PostApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling postApiV1AlertsByCompanyidEmailTest().'
+            );
+        }
+
+        if (requestParameters['sendTestEmailReq'] == null) {
+            throw new runtime.RequiredError(
+                'sendTestEmailReq',
+                'Required parameter "sendTestEmailReq" was null or undefined when calling postApiV1AlertsByCompanyidEmailTest().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/alerts/{companyId}/email/test`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SendTestEmailReqToJSON(requestParameters['sendTestEmailReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SendTestEmailRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp> {
+        const response = await this.postApiV1AlertsByCompanyidEmailTestRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

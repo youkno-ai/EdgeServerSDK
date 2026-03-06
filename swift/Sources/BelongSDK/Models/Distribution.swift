@@ -14,29 +14,29 @@ public struct Distribution: Codable, JSONEncodable, Hashable {
 
     public var areasList: [Areas]?
     public var empty: Bool?
+    public var includesEmpty: Bool?
     public var excludesEmpty: Bool?
     public var targetArea: String?
     public var excludeArea: String?
-    public var includesEmpty: Bool?
     public var global: Bool?
 
-    public init(areasList: [Areas]? = nil, empty: Bool? = nil, excludesEmpty: Bool? = nil, targetArea: String? = nil, excludeArea: String? = nil, includesEmpty: Bool? = nil, global: Bool? = nil) {
+    public init(areasList: [Areas]? = nil, empty: Bool? = nil, includesEmpty: Bool? = nil, excludesEmpty: Bool? = nil, targetArea: String? = nil, excludeArea: String? = nil, global: Bool? = nil) {
         self.areasList = areasList
         self.empty = empty
+        self.includesEmpty = includesEmpty
         self.excludesEmpty = excludesEmpty
         self.targetArea = targetArea
         self.excludeArea = excludeArea
-        self.includesEmpty = includesEmpty
         self.global = global
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case areasList
         case empty
+        case includesEmpty
         case excludesEmpty
         case targetArea
         case excludeArea
-        case includesEmpty
         case global
     }
 
@@ -46,10 +46,10 @@ public struct Distribution: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(areasList, forKey: .areasList)
         try container.encodeIfPresent(empty, forKey: .empty)
+        try container.encodeIfPresent(includesEmpty, forKey: .includesEmpty)
         try container.encodeIfPresent(excludesEmpty, forKey: .excludesEmpty)
         try container.encodeIfPresent(targetArea, forKey: .targetArea)
         try container.encodeIfPresent(excludeArea, forKey: .excludeArea)
-        try container.encodeIfPresent(includesEmpty, forKey: .includesEmpty)
         try container.encodeIfPresent(global, forKey: .global)
     }
 }

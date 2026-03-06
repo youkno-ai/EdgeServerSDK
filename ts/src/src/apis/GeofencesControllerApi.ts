@@ -28,21 +28,14 @@ import {
     PageGeofencesRespToJSON,
 } from '../models/index';
 
-export interface CreateGeofencesRequest {
-    geofences: Geofences;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteGeofencesRequest {
+export interface DeleteApiV1GeofencesByBountyidRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllGeofencesRequest {
+export interface GetApiV1GeofencesRequest {
     start?: number;
     length?: number;
     ignoreCache?: boolean;
@@ -51,14 +44,21 @@ export interface GetAllGeofencesRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetGeofencesRequest {
+export interface GetApiV1GeofencesByBountyidRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateGeofencesRequest {
+export interface PostApiV1GeofencesRequest {
+    geofences: Geofences;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1GeofencesByBountyidRequest {
     bountyId: string;
     geofences: Geofences;
     xEdgeAgent?: string;
@@ -75,22 +75,6 @@ export interface UpdateGeofencesRequest {
 export interface GeofencesControllerApiInterface {
     /**
      * 
-     * @param {Geofences} geofences 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GeofencesControllerApiInterface
-     */
-    createGeofencesRaw(requestParameters: CreateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
-
-    /**
-     */
-    createGeofences(requestParameters: CreateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
-
-    /**
-     * 
      * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -99,11 +83,11 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    deleteGeofencesRaw(requestParameters: DeleteGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1GeofencesByBountyidRaw(requestParameters: DeleteApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteGeofences(requestParameters: DeleteGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1GeofencesByBountyid(requestParameters: DeleteApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -117,11 +101,11 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    getAllGeofencesRaw(requestParameters: GetAllGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>>;
+    getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>>;
 
     /**
      */
-    getAllGeofences(requestParameters: GetAllGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp>;
+    getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp>;
 
     /**
      * 
@@ -133,11 +117,27 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    getGeofencesRaw(requestParameters: GetGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
+    getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
 
     /**
      */
-    getGeofences(requestParameters: GetGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
+    getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
+
+    /**
+     * 
+     * @param {Geofences} geofences 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GeofencesControllerApiInterface
+     */
+    postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
+
+    /**
+     */
+    postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
 
     /**
      * 
@@ -150,11 +150,11 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    updateGeofencesRaw(requestParameters: UpdateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
+    putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
 
     /**
      */
-    updateGeofences(requestParameters: UpdateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
+    putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
 
 }
 
@@ -165,64 +165,11 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async createGeofencesRaw(requestParameters: CreateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
-        if (requestParameters['geofences'] == null) {
-            throw new runtime.RequiredError(
-                'geofences',
-                'Required parameter "geofences" was null or undefined when calling createGeofences().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/geofences`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: GeofencesToJSON(requestParameters['geofences']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GeofencesRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createGeofences(requestParameters: CreateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
-        const response = await this.createGeofencesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteGeofencesRaw(requestParameters: DeleteGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1GeofencesByBountyidRaw(requestParameters: DeleteApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling deleteGeofences().'
+                'Required parameter "bountyId" was null or undefined when calling deleteApiV1GeofencesByBountyid().'
             );
         }
 
@@ -262,14 +209,14 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async deleteGeofences(requestParameters: DeleteGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteGeofencesRaw(requestParameters, initOverrides);
+    async deleteApiV1GeofencesByBountyid(requestParameters: DeleteApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1GeofencesByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAllGeofencesRaw(requestParameters: GetAllGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>> {
+    async getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -317,18 +264,18 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async getAllGeofences(requestParameters: GetAllGeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp> {
-        const response = await this.getAllGeofencesRaw(requestParameters, initOverrides);
+    async getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp> {
+        const response = await this.getApiV1GeofencesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getGeofencesRaw(requestParameters: GetGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
+    async getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getGeofences().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1GeofencesByBountyid().'
             );
         }
 
@@ -368,25 +315,78 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async getGeofences(requestParameters: GetGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
-        const response = await this.getGeofencesRaw(requestParameters, initOverrides);
+    async getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+        const response = await this.getApiV1GeofencesByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateGeofencesRaw(requestParameters: UpdateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
+    async postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
+        if (requestParameters['geofences'] == null) {
+            throw new runtime.RequiredError(
+                'geofences',
+                'Required parameter "geofences" was null or undefined when calling postApiV1Geofences().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/geofences`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GeofencesToJSON(requestParameters['geofences']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GeofencesRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+        const response = await this.postApiV1GeofencesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateGeofences().'
+                'Required parameter "bountyId" was null or undefined when calling putApiV1GeofencesByBountyid().'
             );
         }
 
         if (requestParameters['geofences'] == null) {
             throw new runtime.RequiredError(
                 'geofences',
-                'Required parameter "geofences" was null or undefined when calling updateGeofences().'
+                'Required parameter "geofences" was null or undefined when calling putApiV1GeofencesByBountyid().'
             );
         }
 
@@ -429,8 +429,8 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async updateGeofences(requestParameters: UpdateGeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
-        const response = await this.updateGeofencesRaw(requestParameters, initOverrides);
+    async putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+        const response = await this.putApiV1GeofencesByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -25,18 +25,18 @@ import {
     CustomerToJSON,
 } from '../models/index';
 
-export interface CreateOrUpdateCustomerRequest {
+export interface GetApiV1PointofsaleCustomerByCustomeridRequest {
     customerId: string;
     merchantId: string;
-    createPosCustomerRequest: CreatePosCustomerRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCustomer2Request {
+export interface PostApiV1PointofsaleCustomerByCustomeridRequest {
     customerId: string;
     merchantId: string;
+    createPosCustomerRequest: CreatePosCustomerRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -53,6 +53,23 @@ export interface PointOfSaleControllerApiInterface {
      * 
      * @param {string} customerId 
      * @param {string} merchantId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PointOfSaleControllerApiInterface
+     */
+    getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+
+    /**
+     */
+    getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+
+    /**
+     * 
+     * @param {string} customerId 
+     * @param {string} merchantId 
      * @param {CreatePosCustomerRequest} createPosCustomerRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -61,28 +78,11 @@ export interface PointOfSaleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PointOfSaleControllerApiInterface
      */
-    createOrUpdateCustomerRaw(requestParameters: CreateOrUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: PostApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    createOrUpdateCustomer(requestParameters: CreateOrUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} customerId 
-     * @param {string} merchantId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PointOfSaleControllerApiInterface
-     */
-    getCustomer2Raw(requestParameters: GetCustomer2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
-
-    /**
-     */
-    getCustomer2(requestParameters: GetCustomer2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+    postApiV1PointofsaleCustomerByCustomerid(requestParameters: PostApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -93,25 +93,87 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
 
     /**
      */
-    async createOrUpdateCustomerRaw(requestParameters: CreateOrUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling createOrUpdateCustomer().'
+                'Required parameter "customerId" was null or undefined when calling getApiV1PointofsaleCustomerByCustomerid().'
             );
         }
 
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
-                'Required parameter "merchantId" was null or undefined when calling createOrUpdateCustomer().'
+                'Required parameter "merchantId" was null or undefined when calling getApiV1PointofsaleCustomerByCustomerid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pointOfSale/customer/{customerId}`;
+        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: PostApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling postApiV1PointofsaleCustomerByCustomerid().'
+            );
+        }
+
+        if (requestParameters['merchantId'] == null) {
+            throw new runtime.RequiredError(
+                'merchantId',
+                'Required parameter "merchantId" was null or undefined when calling postApiV1PointofsaleCustomerByCustomerid().'
             );
         }
 
         if (requestParameters['createPosCustomerRequest'] == null) {
             throw new runtime.RequiredError(
                 'createPosCustomerRequest',
-                'Required parameter "createPosCustomerRequest" was null or undefined when calling createOrUpdateCustomer().'
+                'Required parameter "createPosCustomerRequest" was null or undefined when calling postApiV1PointofsaleCustomerByCustomerid().'
             );
         }
 
@@ -158,70 +220,8 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
 
     /**
      */
-    async createOrUpdateCustomer(requestParameters: CreateOrUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.createOrUpdateCustomerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomer2Raw(requestParameters: GetCustomer2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomer2().'
-            );
-        }
-
-        if (requestParameters['merchantId'] == null) {
-            throw new runtime.RequiredError(
-                'merchantId',
-                'Required parameter "merchantId" was null or undefined when calling getCustomer2().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['merchantId'] != null) {
-            queryParameters['merchantId'] = requestParameters['merchantId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pointOfSale/customer/{customerId}`;
-        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomer2(requestParameters: GetCustomer2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.getCustomer2Raw(requestParameters, initOverrides);
+    async postApiV1PointofsaleCustomerByCustomerid(requestParameters: PostApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1PointofsaleCustomerByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

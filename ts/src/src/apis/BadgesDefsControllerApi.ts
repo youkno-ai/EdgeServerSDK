@@ -31,15 +31,7 @@ import {
     PageBadgeDefToJSON,
 } from '../models/index';
 
-export interface AssignBadgeRequest {
-    badgeCode: string;
-    assignBadgeReq: AssignBadgeReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteBadgeRequest {
+export interface DeleteApiV1BadgesByBadgecodeByHolderidRequest {
     badgeCode: string;
     holderId: string;
     xEdgeAgent?: string;
@@ -47,29 +39,37 @@ export interface DeleteBadgeRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteBadgeDefRequest {
+export interface DeleteApiV1BadgesDefsByBadgecodeRequest {
     badgeCode: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetBadgeDefRequest {
-    badgeCode: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBadgesDefsRequest {
+export interface GetApiV1BadgesDefsRequest {
     badgeDefType?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SaveBadgeDefRequest {
+export interface GetApiV1BadgesDefsByBadgecodeRequest {
+    badgeCode: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BadgesDefsRequest {
     badgeDef: BadgeDef;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BadgesDefsByBadgecodeAssignRequest {
+    badgeCode: string;
+    assignBadgeReq: AssignBadgeReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -85,23 +85,6 @@ export interface BadgesDefsControllerApiInterface {
     /**
      * 
      * @param {string} badgeCode 
-     * @param {AssignBadgeReq} assignBadgeReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BadgesDefsControllerApiInterface
-     */
-    assignBadgeRaw(requestParameters: AssignBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>>;
-
-    /**
-     */
-    assignBadge(requestParameters: AssignBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge>;
-
-    /**
-     * 
-     * @param {string} badgeCode 
      * @param {string} holderId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -110,27 +93,11 @@ export interface BadgesDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgesDefsControllerApiInterface
      */
-    deleteBadgeRaw(requestParameters: DeleteBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1BadgesByBadgecodeByHolderidRaw(requestParameters: DeleteApiV1BadgesByBadgecodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteBadge(requestParameters: DeleteBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} badgeCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BadgesDefsControllerApiInterface
-     */
-    deleteBadgeDefRaw(requestParameters: DeleteBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteBadgeDef(requestParameters: DeleteBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1BadgesByBadgecodeByHolderid(requestParameters: DeleteApiV1BadgesByBadgecodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -142,11 +109,11 @@ export interface BadgesDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgesDefsControllerApiInterface
      */
-    getBadgeDefRaw(requestParameters: GetBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>>;
+    deleteApiV1BadgesDefsByBadgecodeRaw(requestParameters: DeleteApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getBadgeDef(requestParameters: GetBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef>;
+    deleteApiV1BadgesDefsByBadgecode(requestParameters: DeleteApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -158,11 +125,27 @@ export interface BadgesDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgesDefsControllerApiInterface
      */
-    getBadgesDefsRaw(requestParameters: GetBadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeDef>>;
+    getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeDef>>;
 
     /**
      */
-    getBadgesDefs(requestParameters: GetBadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeDef>;
+    getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeDef>;
+
+    /**
+     * 
+     * @param {string} badgeCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BadgesDefsControllerApiInterface
+     */
+    getApiV1BadgesDefsByBadgecodeRaw(requestParameters: GetApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>>;
+
+    /**
+     */
+    getApiV1BadgesDefsByBadgecode(requestParameters: GetApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef>;
 
     /**
      * 
@@ -174,11 +157,28 @@ export interface BadgesDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgesDefsControllerApiInterface
      */
-    saveBadgeDefRaw(requestParameters: SaveBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>>;
+    postApiV1BadgesDefsRaw(requestParameters: PostApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>>;
 
     /**
      */
-    saveBadgeDef(requestParameters: SaveBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef>;
+    postApiV1BadgesDefs(requestParameters: PostApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef>;
+
+    /**
+     * 
+     * @param {string} badgeCode 
+     * @param {AssignBadgeReq} assignBadgeReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BadgesDefsControllerApiInterface
+     */
+    postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>>;
+
+    /**
+     */
+    postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge>;
 
 }
 
@@ -189,18 +189,279 @@ export class BadgesDefsControllerApi extends runtime.BaseAPI implements BadgesDe
 
     /**
      */
-    async assignBadgeRaw(requestParameters: AssignBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>> {
+    async deleteApiV1BadgesByBadgecodeByHolderidRaw(requestParameters: DeleteApiV1BadgesByBadgecodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['badgeCode'] == null) {
             throw new runtime.RequiredError(
                 'badgeCode',
-                'Required parameter "badgeCode" was null or undefined when calling assignBadge().'
+                'Required parameter "badgeCode" was null or undefined when calling deleteApiV1BadgesByBadgecodeByHolderid().'
+            );
+        }
+
+        if (requestParameters['holderId'] == null) {
+            throw new runtime.RequiredError(
+                'holderId',
+                'Required parameter "holderId" was null or undefined when calling deleteApiV1BadgesByBadgecodeByHolderid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/badges/{badgeCode}/{holderId}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+        urlPath = urlPath.replace(`{${"holderId"}}`, encodeURIComponent(String(requestParameters['holderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1BadgesByBadgecodeByHolderid(requestParameters: DeleteApiV1BadgesByBadgecodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1BadgesByBadgecodeByHolderidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1BadgesDefsByBadgecodeRaw(requestParameters: DeleteApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling deleteApiV1BadgesDefsByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/badges/defs/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1BadgesDefsByBadgecode(requestParameters: DeleteApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1BadgesDefsByBadgecodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeDef>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['badgeDefType'] != null) {
+            queryParameters['badgeDefType'] = requestParameters['badgeDefType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/badges/defs`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageBadgeDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeDef> {
+        const response = await this.getApiV1BadgesDefsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BadgesDefsByBadgecodeRaw(requestParameters: GetApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling getApiV1BadgesDefsByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/badges/defs/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BadgesDefsByBadgecode(requestParameters: GetApiV1BadgesDefsByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef> {
+        const response = await this.getApiV1BadgesDefsByBadgecodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BadgesDefsRaw(requestParameters: PostApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>> {
+        if (requestParameters['badgeDef'] == null) {
+            throw new runtime.RequiredError(
+                'badgeDef',
+                'Required parameter "badgeDef" was null or undefined when calling postApiV1BadgesDefs().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/badges/defs`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BadgeDefToJSON(requestParameters['badgeDef']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BadgesDefs(requestParameters: PostApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef> {
+        const response = await this.postApiV1BadgesDefsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling postApiV1BadgesDefsByBadgecodeAssign().'
             );
         }
 
         if (requestParameters['assignBadgeReq'] == null) {
             throw new runtime.RequiredError(
                 'assignBadgeReq',
-                'Required parameter "assignBadgeReq" was null or undefined when calling assignBadge().'
+                'Required parameter "assignBadgeReq" was null or undefined when calling postApiV1BadgesDefsByBadgecodeAssign().'
             );
         }
 
@@ -243,269 +504,8 @@ export class BadgesDefsControllerApi extends runtime.BaseAPI implements BadgesDe
 
     /**
      */
-    async assignBadge(requestParameters: AssignBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge> {
-        const response = await this.assignBadgeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteBadgeRaw(requestParameters: DeleteBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['badgeCode'] == null) {
-            throw new runtime.RequiredError(
-                'badgeCode',
-                'Required parameter "badgeCode" was null or undefined when calling deleteBadge().'
-            );
-        }
-
-        if (requestParameters['holderId'] == null) {
-            throw new runtime.RequiredError(
-                'holderId',
-                'Required parameter "holderId" was null or undefined when calling deleteBadge().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/badges/{badgeCode}/{holderId}`;
-        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
-        urlPath = urlPath.replace(`{${"holderId"}}`, encodeURIComponent(String(requestParameters['holderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteBadge(requestParameters: DeleteBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteBadgeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteBadgeDefRaw(requestParameters: DeleteBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['badgeCode'] == null) {
-            throw new runtime.RequiredError(
-                'badgeCode',
-                'Required parameter "badgeCode" was null or undefined when calling deleteBadgeDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/badges/defs/{badgeCode}`;
-        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteBadgeDef(requestParameters: DeleteBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteBadgeDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBadgeDefRaw(requestParameters: GetBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>> {
-        if (requestParameters['badgeCode'] == null) {
-            throw new runtime.RequiredError(
-                'badgeCode',
-                'Required parameter "badgeCode" was null or undefined when calling getBadgeDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/badges/defs/{badgeCode}`;
-        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBadgeDef(requestParameters: GetBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef> {
-        const response = await this.getBadgeDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBadgesDefsRaw(requestParameters: GetBadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeDef>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['badgeDefType'] != null) {
-            queryParameters['badgeDefType'] = requestParameters['badgeDefType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/badges/defs`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageBadgeDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBadgesDefs(requestParameters: GetBadgesDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeDef> {
-        const response = await this.getBadgesDefsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveBadgeDefRaw(requestParameters: SaveBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeDef>> {
-        if (requestParameters['badgeDef'] == null) {
-            throw new runtime.RequiredError(
-                'badgeDef',
-                'Required parameter "badgeDef" was null or undefined when calling saveBadgeDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/badges/defs`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: BadgeDefToJSON(requestParameters['badgeDef']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async saveBadgeDef(requestParameters: SaveBadgeDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeDef> {
-        const response = await this.saveBadgeDefRaw(requestParameters, initOverrides);
+    async postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge> {
+        const response = await this.postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

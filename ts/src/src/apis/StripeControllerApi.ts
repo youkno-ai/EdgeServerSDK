@@ -37,20 +37,26 @@ import {
     StripeConnectResponseToJSON,
 } from '../models/index';
 
-export interface ConfigRequest {
+export interface GetApiV1StripeAccountRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ConnectRequest {
+export interface GetApiV1StripeConfigRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1StripeConnectRequest {
     redirectUrl?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreatePaymentIntentRequest {
+export interface PostApiV1StripePaymentsByPaymentidPaymentIntentRequest {
     paymentId: string;
     body: any | null;
     xEdgeAgent?: string;
@@ -58,20 +64,14 @@ export interface CreatePaymentIntentRequest {
     xEdgeClientId?: string;
 }
 
-export interface CreateSetupIntentOperationRequest {
+export interface PostApiV1StripeSetupIntentRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
     createSetupIntentRequest?: CreateSetupIntentRequest;
 }
 
-export interface GetConnectedAccountRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface StripeWebhookCallbackRequest {
+export interface PostApiV1StripeWebhookCallbackRequest {
     stripeSignature: string;
     body: string;
     xEdgeAgent?: string;
@@ -95,11 +95,26 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    configRaw(requestParameters: ConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>>;
+    getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>>;
 
     /**
      */
-    config(requestParameters: ConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse>;
+    getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeControllerApiInterface
+     */
+    getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>>;
+
+    /**
+     */
+    getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse>;
 
     /**
      * 
@@ -111,11 +126,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    connectRaw(requestParameters: ConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>>;
+    getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>>;
 
     /**
      */
-    connect(requestParameters: ConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse>;
+    getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse>;
 
     /**
      * 
@@ -128,11 +143,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    createPaymentIntentRaw(requestParameters: CreatePaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>>;
+    postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>>;
 
     /**
      */
-    createPaymentIntent(requestParameters: CreatePaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse>;
+    postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse>;
 
     /**
      * 
@@ -144,26 +159,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    createSetupIntentRaw(requestParameters: CreateSetupIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>>;
+    postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>>;
 
     /**
      */
-    createSetupIntent(requestParameters: CreateSetupIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StripeControllerApiInterface
-     */
-    getConnectedAccountRaw(requestParameters: GetConnectedAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>>;
-
-    /**
-     */
-    getConnectedAccount(requestParameters: GetConnectedAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse>;
+    postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse>;
 
     /**
      * 
@@ -176,11 +176,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    stripeWebhookCallbackRaw(requestParameters: StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1StripeWebhookCallbackRaw(requestParameters: PostApiV1StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    stripeWebhookCallback(requestParameters: StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1StripeWebhookCallback(requestParameters: PostApiV1StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -191,7 +191,50 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async configRaw(requestParameters: ConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>> {
+    async getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/stripe/account`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StripeAccountResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse> {
+        const response = await this.getApiV1StripeAccountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -227,14 +270,14 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async config(requestParameters: ConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse> {
-        const response = await this.configRaw(requestParameters, initOverrides);
+    async getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse> {
+        const response = await this.getApiV1StripeConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async connectRaw(requestParameters: ConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>> {
+    async getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['redirectUrl'] != null) {
@@ -274,25 +317,25 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async connect(requestParameters: ConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse> {
-        const response = await this.connectRaw(requestParameters, initOverrides);
+    async getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse> {
+        const response = await this.getApiV1StripeConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async createPaymentIntentRaw(requestParameters: CreatePaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>> {
+    async postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>> {
         if (requestParameters['paymentId'] == null) {
             throw new runtime.RequiredError(
                 'paymentId',
-                'Required parameter "paymentId" was null or undefined when calling createPaymentIntent().'
+                'Required parameter "paymentId" was null or undefined when calling postApiV1StripePaymentsByPaymentidPaymentIntent().'
             );
         }
 
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
-                'Required parameter "body" was null or undefined when calling createPaymentIntent().'
+                'Required parameter "body" was null or undefined when calling postApiV1StripePaymentsByPaymentidPaymentIntent().'
             );
         }
 
@@ -335,14 +378,14 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async createPaymentIntent(requestParameters: CreatePaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse> {
-        const response = await this.createPaymentIntentRaw(requestParameters, initOverrides);
+    async postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse> {
+        const response = await this.postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async createSetupIntentRaw(requestParameters: CreateSetupIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>> {
+    async postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -381,68 +424,25 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async createSetupIntent(requestParameters: CreateSetupIntentOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse> {
-        const response = await this.createSetupIntentRaw(requestParameters, initOverrides);
+    async postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse> {
+        const response = await this.postApiV1StripeSetupIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getConnectedAccountRaw(requestParameters: GetConnectedAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/stripe/account`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StripeAccountResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getConnectedAccount(requestParameters: GetConnectedAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse> {
-        const response = await this.getConnectedAccountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async stripeWebhookCallbackRaw(requestParameters: StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1StripeWebhookCallbackRaw(requestParameters: PostApiV1StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['stripeSignature'] == null) {
             throw new runtime.RequiredError(
                 'stripeSignature',
-                'Required parameter "stripeSignature" was null or undefined when calling stripeWebhookCallback().'
+                'Required parameter "stripeSignature" was null or undefined when calling postApiV1StripeWebhookCallback().'
             );
         }
 
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
-                'Required parameter "body" was null or undefined when calling stripeWebhookCallback().'
+                'Required parameter "body" was null or undefined when calling postApiV1StripeWebhookCallback().'
             );
         }
 
@@ -488,8 +488,8 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async stripeWebhookCallback(requestParameters: StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.stripeWebhookCallbackRaw(requestParameters, initOverrides);
+    async postApiV1StripeWebhookCallback(requestParameters: PostApiV1StripeWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1StripeWebhookCallbackRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

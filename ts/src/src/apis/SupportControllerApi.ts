@@ -25,14 +25,14 @@ import {
     TranslateTextResultToJSON,
 } from '../models/index';
 
-export interface GetDetectedLanguageRequest {
+export interface GetApiV1DetectRequest {
     text: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetTranslatedTextRequest {
+export interface GetApiV1TranslateRequest {
     source: string;
     target: string;
     text: string;
@@ -58,11 +58,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getDetectedLanguageRaw(requestParameters: GetDetectedLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedLanguageResultListListDetection>>;
+    getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedLanguageResultListListDetection>>;
 
     /**
      */
-    getDetectedLanguage(requestParameters: GetDetectedLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedLanguageResultListListDetection>;
+    getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedLanguageResultListListDetection>;
 
     /**
      * 
@@ -76,11 +76,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getTranslatedTextRaw(requestParameters: GetTranslatedTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>>;
+    getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>>;
 
     /**
      */
-    getTranslatedText(requestParameters: GetTranslatedTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult>;
+    getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult>;
 
 }
 
@@ -91,11 +91,11 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
 
     /**
      */
-    async getDetectedLanguageRaw(requestParameters: GetDetectedLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedLanguageResultListListDetection>> {
+    async getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedLanguageResultListListDetection>> {
         if (requestParameters['text'] == null) {
             throw new runtime.RequiredError(
                 'text',
-                'Required parameter "text" was null or undefined when calling getDetectedLanguage().'
+                'Required parameter "text" was null or undefined when calling getApiV1Detect().'
             );
         }
 
@@ -138,32 +138,32 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
 
     /**
      */
-    async getDetectedLanguage(requestParameters: GetDetectedLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedLanguageResultListListDetection> {
-        const response = await this.getDetectedLanguageRaw(requestParameters, initOverrides);
+    async getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedLanguageResultListListDetection> {
+        const response = await this.getApiV1DetectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getTranslatedTextRaw(requestParameters: GetTranslatedTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>> {
+    async getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>> {
         if (requestParameters['source'] == null) {
             throw new runtime.RequiredError(
                 'source',
-                'Required parameter "source" was null or undefined when calling getTranslatedText().'
+                'Required parameter "source" was null or undefined when calling getApiV1Translate().'
             );
         }
 
         if (requestParameters['target'] == null) {
             throw new runtime.RequiredError(
                 'target',
-                'Required parameter "target" was null or undefined when calling getTranslatedText().'
+                'Required parameter "target" was null or undefined when calling getApiV1Translate().'
             );
         }
 
         if (requestParameters['text'] == null) {
             throw new runtime.RequiredError(
                 'text',
-                'Required parameter "text" was null or undefined when calling getTranslatedText().'
+                'Required parameter "text" was null or undefined when calling getApiV1Translate().'
             );
         }
 
@@ -214,8 +214,8 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
 
     /**
      */
-    async getTranslatedText(requestParameters: GetTranslatedTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult> {
-        const response = await this.getTranslatedTextRaw(requestParameters, initOverrides);
+    async getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult> {
+        const response = await this.getApiV1TranslateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

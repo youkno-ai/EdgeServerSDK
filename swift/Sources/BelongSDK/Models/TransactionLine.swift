@@ -66,9 +66,8 @@ public struct TransactionLine: Codable, JSONEncodable, Hashable {
     public var silent: Bool?
     public var note: String?
     public var transactionTypeAsEnum: TransactionTypeAsEnum?
-    public var reverseTransactionLine: AnyCodable?
 
-    public init(payer: User? = nil, payee: User? = nil, reward: Reward? = nil, transactionType: String? = nil, silent: Bool? = nil, note: String? = nil, transactionTypeAsEnum: TransactionTypeAsEnum? = nil, reverseTransactionLine: AnyCodable? = nil) {
+    public init(payer: User? = nil, payee: User? = nil, reward: Reward? = nil, transactionType: String? = nil, silent: Bool? = nil, note: String? = nil, transactionTypeAsEnum: TransactionTypeAsEnum? = nil) {
         self.payer = payer
         self.payee = payee
         self.reward = reward
@@ -76,7 +75,6 @@ public struct TransactionLine: Codable, JSONEncodable, Hashable {
         self.silent = silent
         self.note = note
         self.transactionTypeAsEnum = transactionTypeAsEnum
-        self.reverseTransactionLine = reverseTransactionLine
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -87,7 +85,6 @@ public struct TransactionLine: Codable, JSONEncodable, Hashable {
         case silent
         case note
         case transactionTypeAsEnum
-        case reverseTransactionLine
     }
 
     // Encodable protocol methods
@@ -101,7 +98,6 @@ public struct TransactionLine: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(silent, forKey: .silent)
         try container.encodeIfPresent(note, forKey: .note)
         try container.encodeIfPresent(transactionTypeAsEnum, forKey: .transactionTypeAsEnum)
-        try container.encodeIfPresent(reverseTransactionLine, forKey: .reverseTransactionLine)
     }
 }
 

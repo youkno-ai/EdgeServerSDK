@@ -22,7 +22,7 @@ import {
     PaymentSummaryRespToJSON,
 } from '../models/index';
 
-export interface PayPointsOnlyPaymentRequest {
+export interface PostApiV1OpenPaymentsByPaymentidPayRequest {
     paymentId: string;
     body: any | null;
     xEdgeAgent?: string;
@@ -48,11 +48,11 @@ export interface OpenPaymentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenPaymentControllerApiInterface
      */
-    payPointsOnlyPaymentRaw(requestParameters: PayPointsOnlyPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>>;
+    postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>>;
 
     /**
      */
-    payPointsOnlyPayment(requestParameters: PayPointsOnlyPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp>;
+    postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp>;
 
 }
 
@@ -63,18 +63,18 @@ export class OpenPaymentControllerApi extends runtime.BaseAPI implements OpenPay
 
     /**
      */
-    async payPointsOnlyPaymentRaw(requestParameters: PayPointsOnlyPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>> {
+    async postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>> {
         if (requestParameters['paymentId'] == null) {
             throw new runtime.RequiredError(
                 'paymentId',
-                'Required parameter "paymentId" was null or undefined when calling payPointsOnlyPayment().'
+                'Required parameter "paymentId" was null or undefined when calling postApiV1OpenPaymentsByPaymentidPay().'
             );
         }
 
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
-                'Required parameter "body" was null or undefined when calling payPointsOnlyPayment().'
+                'Required parameter "body" was null or undefined when calling postApiV1OpenPaymentsByPaymentidPay().'
             );
         }
 
@@ -117,8 +117,8 @@ export class OpenPaymentControllerApi extends runtime.BaseAPI implements OpenPay
 
     /**
      */
-    async payPointsOnlyPayment(requestParameters: PayPointsOnlyPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp> {
-        const response = await this.payPointsOnlyPaymentRaw(requestParameters, initOverrides);
+    async postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp> {
+        const response = await this.postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

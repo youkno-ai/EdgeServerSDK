@@ -15,7 +15,7 @@
 
 import * as runtime from '../runtime';
 
-export interface GetPredictedCitiesRequest {
+export interface GetApiV1SuggestCitiesRequest {
     countryCode: string;
     search: string;
     xEdgeAgent?: string;
@@ -41,11 +41,11 @@ export interface SuggestControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SuggestControllerApiInterface
      */
-    getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1SuggestCitiesRaw(requestParameters: GetApiV1SuggestCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1SuggestCities(requestParameters: GetApiV1SuggestCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -56,18 +56,18 @@ export class SuggestControllerApi extends runtime.BaseAPI implements SuggestCont
 
     /**
      */
-    async getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1SuggestCitiesRaw(requestParameters: GetApiV1SuggestCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['countryCode'] == null) {
             throw new runtime.RequiredError(
                 'countryCode',
-                'Required parameter "countryCode" was null or undefined when calling getPredictedCities().'
+                'Required parameter "countryCode" was null or undefined when calling getApiV1SuggestCities().'
             );
         }
 
         if (requestParameters['search'] == null) {
             throw new runtime.RequiredError(
                 'search',
-                'Required parameter "search" was null or undefined when calling getPredictedCities().'
+                'Required parameter "search" was null or undefined when calling getApiV1SuggestCities().'
             );
         }
 
@@ -114,8 +114,8 @@ export class SuggestControllerApi extends runtime.BaseAPI implements SuggestCont
 
     /**
      */
-    async getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getPredictedCitiesRaw(requestParameters, initOverrides);
+    async getApiV1SuggestCities(requestParameters: GetApiV1SuggestCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1SuggestCitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

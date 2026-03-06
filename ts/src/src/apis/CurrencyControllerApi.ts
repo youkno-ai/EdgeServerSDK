@@ -22,18 +22,18 @@ import {
     PageCurrencyReportRecordToJSON,
 } from '../models/index';
 
-export interface CancelCurrencyRequest {
+export interface GetApiV1CurrenciesByCodeReportRequest {
     code: string;
+    order?: string;
+    start?: number;
+    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCurrencyReportRequest {
+export interface PutApiV1CurrenciesByCodeCancelRequest {
     code: string;
-    order?: string;
-    start?: number;
-    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -49,22 +49,6 @@ export interface CurrencyControllerApiInterface {
     /**
      * 
      * @param {string} code 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CurrencyControllerApiInterface
-     */
-    cancelCurrencyRaw(requestParameters: CancelCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    cancelCurrency(requestParameters: CancelCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} code 
      * @param {string} [order] 
      * @param {number} [start] 
      * @param {number} [limit] 
@@ -75,11 +59,27 @@ export interface CurrencyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CurrencyControllerApiInterface
      */
-    getCurrencyReportRaw(requestParameters: GetCurrencyReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCurrencyReportRecord>>;
+    getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCurrencyReportRecord>>;
 
     /**
      */
-    getCurrencyReport(requestParameters: GetCurrencyReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCurrencyReportRecord>;
+    getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCurrencyReportRecord>;
+
+    /**
+     * 
+     * @param {string} code 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CurrencyControllerApiInterface
+     */
+    putApiV1CurrenciesByCodeCancelRaw(requestParameters: PutApiV1CurrenciesByCodeCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1CurrenciesByCodeCancel(requestParameters: PutApiV1CurrenciesByCodeCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -90,62 +90,11 @@ export class CurrencyControllerApi extends runtime.BaseAPI implements CurrencyCo
 
     /**
      */
-    async cancelCurrencyRaw(requestParameters: CancelCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCurrencyReportRecord>> {
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
-                'Required parameter "code" was null or undefined when calling cancelCurrency().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/currencies/{code}/cancel`;
-        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async cancelCurrency(requestParameters: CancelCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.cancelCurrencyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCurrencyReportRaw(requestParameters: GetCurrencyReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCurrencyReportRecord>> {
-        if (requestParameters['code'] == null) {
-            throw new runtime.RequiredError(
-                'code',
-                'Required parameter "code" was null or undefined when calling getCurrencyReport().'
+                'Required parameter "code" was null or undefined when calling getApiV1CurrenciesByCodeReport().'
             );
         }
 
@@ -197,8 +146,59 @@ export class CurrencyControllerApi extends runtime.BaseAPI implements CurrencyCo
 
     /**
      */
-    async getCurrencyReport(requestParameters: GetCurrencyReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCurrencyReportRecord> {
-        const response = await this.getCurrencyReportRaw(requestParameters, initOverrides);
+    async getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCurrencyReportRecord> {
+        const response = await this.getApiV1CurrenciesByCodeReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1CurrenciesByCodeCancelRaw(requestParameters: PutApiV1CurrenciesByCodeCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['code'] == null) {
+            throw new runtime.RequiredError(
+                'code',
+                'Required parameter "code" was null or undefined when calling putApiV1CurrenciesByCodeCancel().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/currencies/{code}/cancel`;
+        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1CurrenciesByCodeCancel(requestParameters: PutApiV1CurrenciesByCodeCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1CurrenciesByCodeCancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -22,14 +22,7 @@ import {
     DeleteUserCallbackRespToJSON,
 } from '../models/index';
 
-export interface DeauthorizeCallbackRequest {
-    state: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetStatusRequest {
+export interface GetApiV1FacebookStatusByStateRequest {
     state: string;
     userId?: string;
     xEdgeAgent?: string;
@@ -37,7 +30,14 @@ export interface GetStatusRequest {
     xEdgeClientId?: string;
 }
 
-export interface UserDataDeletionCallbackRequest {
+export interface PostApiV1FacebookCallbacksDeauthorizeByStateRequest {
+    state: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1FacebookCallbacksUserDataDeletionByStateRequest {
     state: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -54,22 +54,6 @@ export interface FacebookControllerApiInterface {
     /**
      * 
      * @param {string} state 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FacebookControllerApiInterface
-     */
-    deauthorizeCallbackRaw(requestParameters: DeauthorizeCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deauthorizeCallback(requestParameters: DeauthorizeCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} state 
      * @param {string} [userId] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -78,11 +62,11 @@ export interface FacebookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof FacebookControllerApiInterface
      */
-    getStatusRaw(requestParameters: GetStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    getApiV1FacebookStatusByStateRaw(requestParameters: GetApiV1FacebookStatusByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    getStatus(requestParameters: GetStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    getApiV1FacebookStatusByState(requestParameters: GetApiV1FacebookStatusByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
 
     /**
      * 
@@ -94,11 +78,27 @@ export interface FacebookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof FacebookControllerApiInterface
      */
-    userDataDeletionCallbackRaw(requestParameters: UserDataDeletionCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>>;
+    postApiV1FacebookCallbacksDeauthorizeByStateRaw(requestParameters: PostApiV1FacebookCallbacksDeauthorizeByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    userDataDeletionCallback(requestParameters: UserDataDeletionCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp>;
+    postApiV1FacebookCallbacksDeauthorizeByState(requestParameters: PostApiV1FacebookCallbacksDeauthorizeByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} state 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FacebookControllerApiInterface
+     */
+    postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>>;
+
+    /**
+     */
+    postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp>;
 
 }
 
@@ -109,62 +109,11 @@ export class FacebookControllerApi extends runtime.BaseAPI implements FacebookCo
 
     /**
      */
-    async deauthorizeCallbackRaw(requestParameters: DeauthorizeCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1FacebookStatusByStateRaw(requestParameters: GetApiV1FacebookStatusByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters['state'] == null) {
             throw new runtime.RequiredError(
                 'state',
-                'Required parameter "state" was null or undefined when calling deauthorizeCallback().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/facebook/callbacks/deauthorize/{state}`;
-        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deauthorizeCallback(requestParameters: DeauthorizeCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deauthorizeCallbackRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getStatusRaw(requestParameters: GetStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['state'] == null) {
-            throw new runtime.RequiredError(
-                'state',
-                'Required parameter "state" was null or undefined when calling getStatus().'
+                'Required parameter "state" was null or undefined when calling getApiV1FacebookStatusByState().'
             );
         }
 
@@ -212,18 +161,69 @@ export class FacebookControllerApi extends runtime.BaseAPI implements FacebookCo
 
     /**
      */
-    async getStatus(requestParameters: GetStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.getStatusRaw(requestParameters, initOverrides);
+    async getApiV1FacebookStatusByState(requestParameters: GetApiV1FacebookStatusByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.getApiV1FacebookStatusByStateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async userDataDeletionCallbackRaw(requestParameters: UserDataDeletionCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>> {
+    async postApiV1FacebookCallbacksDeauthorizeByStateRaw(requestParameters: PostApiV1FacebookCallbacksDeauthorizeByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['state'] == null) {
             throw new runtime.RequiredError(
                 'state',
-                'Required parameter "state" was null or undefined when calling userDataDeletionCallback().'
+                'Required parameter "state" was null or undefined when calling postApiV1FacebookCallbacksDeauthorizeByState().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/facebook/callbacks/deauthorize/{state}`;
+        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1FacebookCallbacksDeauthorizeByState(requestParameters: PostApiV1FacebookCallbacksDeauthorizeByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1FacebookCallbacksDeauthorizeByStateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>> {
+        if (requestParameters['state'] == null) {
+            throw new runtime.RequiredError(
+                'state',
+                'Required parameter "state" was null or undefined when calling postApiV1FacebookCallbacksUserDataDeletionByState().'
             );
         }
 
@@ -263,8 +263,8 @@ export class FacebookControllerApi extends runtime.BaseAPI implements FacebookCo
 
     /**
      */
-    async userDataDeletionCallback(requestParameters: UserDataDeletionCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp> {
-        const response = await this.userDataDeletionCallbackRaw(requestParameters, initOverrides);
+    async postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp> {
+        const response = await this.postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

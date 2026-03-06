@@ -191,12 +191,6 @@ export interface ListDef {
      * @type {string}
      * @memberof ListDef
      */
-    permissionTypeAsEnum?: ListDefPermissionTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
     effectiveUserSpecial?: string;
     /**
      * 
@@ -251,6 +245,12 @@ export interface ListDef {
      * @type {string}
      * @memberof ListDef
      */
+    permissionTypeAsEnum?: ListDefPermissionTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
     shownInAsEnum?: ListDefShownInAsEnumEnum;
     /**
      * 
@@ -258,12 +258,6 @@ export interface ListDef {
      * @memberof ListDef
      */
     multi?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    effectiveUrl?: string;
     /**
      * 
      * @type {boolean}
@@ -288,6 +282,12 @@ export interface ListDef {
      * @memberof ListDef
      */
     effectiveCode?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    effectiveUrl?: string;
     /**
      * 
      * @type {boolean}
@@ -358,18 +358,6 @@ export const ListDefNotificationModeAsEnumEnum = {
     DEFAULT: 'DEFAULT'
 } as const;
 export type ListDefNotificationModeAsEnumEnum = typeof ListDefNotificationModeAsEnumEnum[keyof typeof ListDefNotificationModeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefPermissionTypeAsEnumEnum = {
-    HIDE: 'HIDE',
-    READ_ONLY: 'READ_ONLY',
-    WRITE_ONLY: 'WRITE_ONLY',
-    READ_WRITE: 'READ_WRITE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefPermissionTypeAsEnumEnum = typeof ListDefPermissionTypeAsEnumEnum[keyof typeof ListDefPermissionTypeAsEnumEnum];
 
 /**
  * @export
@@ -575,6 +563,18 @@ export const ListDefEffectiveDisplayModeAsEnumEnum = {
     HEADER: 'HEADER'
 } as const;
 export type ListDefEffectiveDisplayModeAsEnumEnum = typeof ListDefEffectiveDisplayModeAsEnumEnum[keyof typeof ListDefEffectiveDisplayModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefPermissionTypeAsEnumEnum = {
+    HIDE: 'HIDE',
+    READ_ONLY: 'READ_ONLY',
+    WRITE_ONLY: 'WRITE_ONLY',
+    READ_WRITE: 'READ_WRITE',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefPermissionTypeAsEnumEnum = typeof ListDefPermissionTypeAsEnumEnum[keyof typeof ListDefPermissionTypeAsEnumEnum];
 
 /**
  * @export
@@ -891,7 +891,6 @@ export function ListDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
         'tags': json['tags'] == null ? undefined : json['tags'],
         'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
         'notificationModeAsEnum': json['notificationModeAsEnum'] == null ? undefined : json['notificationModeAsEnum'],
-        'permissionTypeAsEnum': json['permissionTypeAsEnum'] == null ? undefined : json['permissionTypeAsEnum'],
         'effectiveUserSpecial': json['effectiveUserSpecial'] == null ? undefined : json['effectiveUserSpecial'],
         'effectiveCompanySpecial': json['effectiveCompanySpecial'] == null ? undefined : json['effectiveCompanySpecial'],
         'bountyTypesAsEnum': json['bountyTypesAsEnum'] == null ? undefined : json['bountyTypesAsEnum'],
@@ -901,13 +900,14 @@ export function ListDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
         'effectiveMainBountyType': json['effectiveMainBountyType'] == null ? undefined : json['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': json['filterBountyTypeAsEnum'] == null ? undefined : json['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': json['effectiveDisplayModeAsEnum'] == null ? undefined : json['effectiveDisplayModeAsEnum'],
+        'permissionTypeAsEnum': json['permissionTypeAsEnum'] == null ? undefined : json['permissionTypeAsEnum'],
         'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
         'multi': json['multi'] == null ? undefined : json['multi'],
-        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
         'viewable': json['viewable'] == null ? undefined : json['viewable'],
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
         'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
         'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
+        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
         'postable': json['postable'] == null ? undefined : json['postable'],
         'favorites': json['favorites'] == null ? undefined : json['favorites'],
         'stream': json['stream'] == null ? undefined : json['stream'],
@@ -953,7 +953,6 @@ export function ListDefToJSONTyped(value?: ListDef | null, ignoreDiscriminator: 
         'tags': value['tags'],
         'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
         'notificationModeAsEnum': value['notificationModeAsEnum'],
-        'permissionTypeAsEnum': value['permissionTypeAsEnum'],
         'effectiveUserSpecial': value['effectiveUserSpecial'],
         'effectiveCompanySpecial': value['effectiveCompanySpecial'],
         'bountyTypesAsEnum': value['bountyTypesAsEnum'],
@@ -963,13 +962,14 @@ export function ListDefToJSONTyped(value?: ListDef | null, ignoreDiscriminator: 
         'effectiveMainBountyType': value['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': value['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': value['effectiveDisplayModeAsEnum'],
+        'permissionTypeAsEnum': value['permissionTypeAsEnum'],
         'shownInAsEnum': value['shownInAsEnum'],
         'multi': value['multi'],
-        'effectiveUrl': value['effectiveUrl'],
         'viewable': value['viewable'],
         'kindAsEnum': value['kindAsEnum'],
         'visibilityRoles': value['visibilityRoles'],
         'effectiveCode': value['effectiveCode'],
+        'effectiveUrl': value['effectiveUrl'],
         'postable': value['postable'],
         'favorites': value['favorites'],
         'stream': value['stream'],

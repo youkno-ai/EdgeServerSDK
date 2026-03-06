@@ -24,6 +24,6 @@ interface OpenPaymentControllerApi {
      * @return [Call]<[PaymentSummaryResp]>
      */
     @POST("api/v1/open/payments/{paymentId}/pay")
-    fun payPointsOnlyPayment(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentSummaryResp>
+    fun postApiV1OpenPaymentsByPaymentidPay(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentSummaryResp>
 
 }

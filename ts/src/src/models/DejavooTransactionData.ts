@@ -32,6 +32,18 @@ export interface DejavooTransactionData {
      * @type {string}
      * @memberof DejavooTransactionData
      */
+    ltaxAmount?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DejavooTransactionData
+     */
+    staxAmount?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DejavooTransactionData
+     */
     authCode?: string;
     /**
      * 
@@ -245,34 +257,10 @@ export interface DejavooTransactionData {
     reimburseApplicable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    ltaxAmount?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    staxAmount?: string;
-    /**
-     * 
      * @type {ExtData}
      * @memberof DejavooTransactionData
      */
     extDataAsObj?: ExtData;
-    /**
-     * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    LTaxAmount?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    STaxAmount?: string;
     /**
      * 
      * @type {string}
@@ -358,6 +346,8 @@ export function DejavooTransactionDataFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
+        'ltaxAmount': json['ltaxAmount'] == null ? undefined : json['ltaxAmount'],
+        'staxAmount': json['staxAmount'] == null ? undefined : json['staxAmount'],
         'authCode': json['authCode'] == null ? undefined : json['authCode'],
         'batchNo': json['batchNo'] == null ? undefined : json['batchNo'],
         'bmbMsg': json['bmbMsg'] == null ? undefined : json['bmbMsg'],
@@ -394,11 +384,7 @@ export function DejavooTransactionDataFromJSONTyped(json: any, ignoreDiscriminat
         'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'completedByWalletBmb': json['completedByWalletBmb'] == null ? undefined : json['completedByWalletBmb'],
         'reimburseApplicable': json['reimburseApplicable'] == null ? undefined : json['reimburseApplicable'],
-        'ltaxAmount': json['ltaxAmount'] == null ? undefined : json['ltaxAmount'],
-        'staxAmount': json['staxAmount'] == null ? undefined : json['staxAmount'],
         'extDataAsObj': json['extDataAsObj'] == null ? undefined : ExtDataFromJSON(json['extDataAsObj']),
-        'LTaxAmount': json['LTaxAmount'] == null ? undefined : json['LTaxAmount'],
-        'STaxAmount': json['STaxAmount'] == null ? undefined : json['STaxAmount'],
         'amount_paid': json['amount_paid'] == null ? undefined : json['amount_paid'],
         'card_type': json['card_type'] == null ? undefined : json['card_type'],
         'invoice_no': json['invoice_no'] == null ? undefined : json['invoice_no'],
@@ -422,6 +408,8 @@ export function DejavooTransactionDataToJSONTyped(value?: DejavooTransactionData
 
     return {
         
+        'ltaxAmount': value['ltaxAmount'],
+        'staxAmount': value['staxAmount'],
         'authCode': value['authCode'],
         'batchNo': value['batchNo'],
         'bmbMsg': value['bmbMsg'],
@@ -458,11 +446,7 @@ export function DejavooTransactionDataToJSONTyped(value?: DejavooTransactionData
         'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'completedByWalletBmb': value['completedByWalletBmb'],
         'reimburseApplicable': value['reimburseApplicable'],
-        'ltaxAmount': value['ltaxAmount'],
-        'staxAmount': value['staxAmount'],
         'extDataAsObj': ExtDataToJSON(value['extDataAsObj']),
-        'LTaxAmount': value['LTaxAmount'],
-        'STaxAmount': value['STaxAmount'],
         'amount_paid': value['amount_paid'],
         'card_type': value['card_type'],
         'invoice_no': value['invoice_no'],

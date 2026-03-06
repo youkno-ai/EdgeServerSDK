@@ -25,19 +25,13 @@ import {
     ShopifyShopInfoToJSON,
 } from '../models/index';
 
-export interface GetAppPageRequest {
+export interface GetApiV1ShopifyAppInfoRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetInfoRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetLink1Request {
+export interface GetApiV1ShopifyConnectRequest {
     shop: string;
     redirectUrl: string;
     xEdgeAgent?: string;
@@ -45,7 +39,7 @@ export interface GetLink1Request {
     xEdgeClientId?: string;
 }
 
-export interface ShopifyRequest {
+export interface GetApiV1ShopifyConnectCompleteRequest {
     shop?: string;
     code?: string;
     hmac?: string;
@@ -55,7 +49,13 @@ export interface ShopifyRequest {
     xEdgeClientId?: string;
 }
 
-export interface ShopifyGdprWebhookRequest {
+export interface GetApiV1ShopifyInfoRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ShopifyGdprWebhookRequest {
     xShopifyHmacSha256?: string;
     xShopifyTopic?: string;
     xEdgeAgent?: string;
@@ -63,7 +63,7 @@ export interface ShopifyGdprWebhookRequest {
     xEdgeClientId?: string;
 }
 
-export interface ShopifyWebhookRequest {
+export interface PostApiV1ShopifyWebhookRequest {
     xShopifyShopDomain?: string;
     xShopifyHmacSha256?: string;
     state?: string;
@@ -89,26 +89,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getAppPageRaw(requestParameters: GetAppPageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1ShopifyAppInfoRaw(requestParameters: GetApiV1ShopifyAppInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getAppPage(requestParameters: GetAppPageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ShopifyControllerApiInterface
-     */
-    getInfoRaw(requestParameters: GetInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>>;
-
-    /**
-     */
-    getInfo(requestParameters: GetInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>>;
+    getApiV1ShopifyAppInfo(requestParameters: GetApiV1ShopifyAppInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -121,11 +106,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getLink1Raw(requestParameters: GetLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>>;
+    getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>>;
 
     /**
      */
-    getLink1(requestParameters: GetLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse>;
+    getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse>;
 
     /**
      * 
@@ -140,11 +125,26 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    shopifyRaw(requestParameters: ShopifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1ShopifyConnectCompleteRaw(requestParameters: GetApiV1ShopifyConnectCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    shopify(requestParameters: ShopifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1ShopifyConnectComplete(requestParameters: GetApiV1ShopifyConnectCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ShopifyControllerApiInterface
+     */
+    getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>>;
+
+    /**
+     */
+    getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>>;
 
     /**
      * 
@@ -157,11 +157,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    shopifyGdprWebhookRaw(requestParameters: ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ShopifyGdprWebhookRaw(requestParameters: PostApiV1ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    shopifyGdprWebhook(requestParameters: ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ShopifyGdprWebhook(requestParameters: PostApiV1ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -176,11 +176,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    shopifyWebhookRaw(requestParameters: ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ShopifyWebhookRaw(requestParameters: PostApiV1ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    shopifyWebhook(requestParameters: ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ShopifyWebhook(requestParameters: PostApiV1ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -191,7 +191,7 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getAppPageRaw(requestParameters: GetAppPageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1ShopifyAppInfoRaw(requestParameters: GetApiV1ShopifyAppInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -227,68 +227,25 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getAppPage(requestParameters: GetAppPageRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getAppPageRaw(requestParameters, initOverrides);
+    async getApiV1ShopifyAppInfo(requestParameters: GetApiV1ShopifyAppInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1ShopifyAppInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInfoRaw(requestParameters: GetInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/shopify/info`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ShopifyShopInfoFromJSON));
-    }
-
-    /**
-     */
-    async getInfo(requestParameters: GetInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>> {
-        const response = await this.getInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getLink1Raw(requestParameters: GetLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>> {
+    async getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>> {
         if (requestParameters['shop'] == null) {
             throw new runtime.RequiredError(
                 'shop',
-                'Required parameter "shop" was null or undefined when calling getLink1().'
+                'Required parameter "shop" was null or undefined when calling getApiV1ShopifyConnect().'
             );
         }
 
         if (requestParameters['redirectUrl'] == null) {
             throw new runtime.RequiredError(
                 'redirectUrl',
-                'Required parameter "redirectUrl" was null or undefined when calling getLink1().'
+                'Required parameter "redirectUrl" was null or undefined when calling getApiV1ShopifyConnect().'
             );
         }
 
@@ -335,14 +292,14 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getLink1(requestParameters: GetLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse> {
-        const response = await this.getLink1Raw(requestParameters, initOverrides);
+    async getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse> {
+        const response = await this.getApiV1ShopifyConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async shopifyRaw(requestParameters: ShopifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1ShopifyConnectCompleteRaw(requestParameters: GetApiV1ShopifyConnectCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         if (requestParameters['shop'] != null) {
@@ -394,14 +351,57 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async shopify(requestParameters: ShopifyRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.shopifyRaw(requestParameters, initOverrides);
+    async getApiV1ShopifyConnectComplete(requestParameters: GetApiV1ShopifyConnectCompleteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1ShopifyConnectCompleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async shopifyGdprWebhookRaw(requestParameters: ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/shopify/info`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ShopifyShopInfoFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>> {
+        const response = await this.getApiV1ShopifyInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ShopifyGdprWebhookRaw(requestParameters: PostApiV1ShopifyGdprWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -445,14 +445,14 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async shopifyGdprWebhook(requestParameters: ShopifyGdprWebhookRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.shopifyGdprWebhookRaw(requestParameters, initOverrides);
+    async postApiV1ShopifyGdprWebhook(requestParameters: PostApiV1ShopifyGdprWebhookRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ShopifyGdprWebhookRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async shopifyWebhookRaw(requestParameters: ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1ShopifyWebhookRaw(requestParameters: PostApiV1ShopifyWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -504,8 +504,8 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async shopifyWebhook(requestParameters: ShopifyWebhookRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.shopifyWebhookRaw(requestParameters, initOverrides);
+    async postApiV1ShopifyWebhook(requestParameters: PostApiV1ShopifyWebhookRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ShopifyWebhookRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

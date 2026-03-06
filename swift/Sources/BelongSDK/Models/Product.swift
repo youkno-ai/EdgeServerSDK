@@ -53,13 +53,13 @@ public struct Product: Codable, JSONEncodable, Hashable {
     public var chemicalCompositions: [String: ChemicalInfo]?
     public var valid: Bool?
     public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
+    public var totalQuantity: Double?
     public var fastDelivery: Bool?
     public var kindAsEnum: KindAsEnum?
-    public var totalQuantity: Double?
     public var optionCount: Int?
     public var topLevelVariant: ProductSpecificInfo?
 
-    public init(merchant: User? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, valid: Bool? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, fastDelivery: Bool? = nil, kindAsEnum: KindAsEnum? = nil, totalQuantity: Double? = nil, optionCount: Int? = nil, topLevelVariant: ProductSpecificInfo? = nil) {
+    public init(merchant: User? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ChemicalInfo]? = nil, valid: Bool? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, totalQuantity: Double? = nil, fastDelivery: Bool? = nil, kindAsEnum: KindAsEnum? = nil, optionCount: Int? = nil, topLevelVariant: ProductSpecificInfo? = nil) {
         self.merchant = merchant
         self.merchantId = merchantId
         self.merchantSku = merchantSku
@@ -86,9 +86,9 @@ public struct Product: Codable, JSONEncodable, Hashable {
         self.chemicalCompositions = chemicalCompositions
         self.valid = valid
         self.deliveryTypeAsEnum = deliveryTypeAsEnum
+        self.totalQuantity = totalQuantity
         self.fastDelivery = fastDelivery
         self.kindAsEnum = kindAsEnum
-        self.totalQuantity = totalQuantity
         self.optionCount = optionCount
         self.topLevelVariant = topLevelVariant
     }
@@ -120,9 +120,9 @@ public struct Product: Codable, JSONEncodable, Hashable {
         case chemicalCompositions
         case valid
         case deliveryTypeAsEnum
+        case totalQuantity
         case fastDelivery
         case kindAsEnum
-        case totalQuantity
         case optionCount
         case topLevelVariant
     }
@@ -157,9 +157,9 @@ public struct Product: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
         try container.encodeIfPresent(valid, forKey: .valid)
         try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
+        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
         try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
         try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
-        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
         try container.encodeIfPresent(optionCount, forKey: .optionCount)
         try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
     }

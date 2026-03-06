@@ -28,7 +28,21 @@ import {
     ShippingFeeToJSON,
 } from '../models/index';
 
-export interface CompleteSelfOnboardingRequest {
+export interface GetApiV1MerchantByUseridSelfonboardingRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1MerchantByUseridShippingfeeRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PatchApiV1MerchantByUseridSelfonboardingRequest {
     userId: string;
     selfOnboardingInfo: SelfOnboardingInfo;
     xEdgeAgent?: string;
@@ -36,21 +50,7 @@ export interface CompleteSelfOnboardingRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetSelfOnboardingRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetShippingFeeRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SaveSelfOnboardingRequest {
+export interface PostApiV1MerchantByUseridSelfonboardingRequest {
     userId: string;
     selfOnboardingInfo: SelfOnboardingInfo;
     xEdgeAgent?: string;
@@ -58,17 +58,17 @@ export interface SaveSelfOnboardingRequest {
     xEdgeClientId?: string;
 }
 
-export interface SaveShippingFeeRequest {
+export interface PostApiV1MerchantByUseridSelfonboardingCompleteRequest {
+    userId: string;
+    selfOnboardingInfo: SelfOnboardingInfo;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1MerchantByUseridShippingfeeRequest {
     userId: string;
     shippingFee: ShippingFee;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateSelfOnboardingRequest {
-    userId: string;
-    selfOnboardingInfo: SelfOnboardingInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -84,7 +84,6 @@ export interface MerchantControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {SelfOnboardingInfo} selfOnboardingInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -92,11 +91,11 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    completeSelfOnboardingRaw(requestParameters: CompleteSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>>;
+    getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
 
     /**
      */
-    completeSelfOnboarding(requestParameters: CompleteSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse>;
+    getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
 
     /**
      * 
@@ -108,27 +107,11 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    getSelfOnboardingRaw(requestParameters: GetSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+    getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>>;
 
     /**
      */
-    getSelfOnboarding(requestParameters: GetSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MerchantControllerApiInterface
-     */
-    getShippingFeeRaw(requestParameters: GetShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>>;
-
-    /**
-     */
-    getShippingFee(requestParameters: GetShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee>;
+    getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee>;
 
     /**
      * 
@@ -141,11 +124,45 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    saveSelfOnboardingRaw(requestParameters: SaveSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+    patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
 
     /**
      */
-    saveSelfOnboarding(requestParameters: SaveSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+    patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {SelfOnboardingInfo} selfOnboardingInfo 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantControllerApiInterface
+     */
+    postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+
+    /**
+     */
+    postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {SelfOnboardingInfo} selfOnboardingInfo 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantControllerApiInterface
+     */
+    postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>>;
+
+    /**
+     */
+    postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse>;
 
     /**
      * 
@@ -158,28 +175,11 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    saveShippingFeeRaw(requestParameters: SaveShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1MerchantByUseridShippingfeeRaw(requestParameters: PostApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    saveShippingFee(requestParameters: SaveShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {SelfOnboardingInfo} selfOnboardingInfo 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MerchantControllerApiInterface
-     */
-    updateSelfOnboardingRaw(requestParameters: UpdateSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
-
-    /**
-     */
-    updateSelfOnboarding(requestParameters: UpdateSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+    postApiV1MerchantByUseridShippingfee(requestParameters: PostApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -190,72 +190,11 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
 
     /**
      */
-    async completeSelfOnboardingRaw(requestParameters: CompleteSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>> {
+    async getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling completeSelfOnboarding().'
-            );
-        }
-
-        if (requestParameters['selfOnboardingInfo'] == null) {
-            throw new runtime.RequiredError(
-                'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling completeSelfOnboarding().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/merchant/{userId}/selfOnboarding/complete`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CompleteSelfOnboardingResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async completeSelfOnboarding(requestParameters: CompleteSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse> {
-        const response = await this.completeSelfOnboardingRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getSelfOnboardingRaw(requestParameters: GetSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getSelfOnboarding().'
+                'Required parameter "userId" was null or undefined when calling getApiV1MerchantByUseridSelfonboarding().'
             );
         }
 
@@ -295,18 +234,18 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
 
     /**
      */
-    async getSelfOnboarding(requestParameters: GetSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
-        const response = await this.getSelfOnboardingRaw(requestParameters, initOverrides);
+    async getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+        const response = await this.getApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getShippingFeeRaw(requestParameters: GetShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>> {
+    async getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getShippingFee().'
+                'Required parameter "userId" was null or undefined when calling getApiV1MerchantByUseridShippingfee().'
             );
         }
 
@@ -346,147 +285,25 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
 
     /**
      */
-    async getShippingFee(requestParameters: GetShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee> {
-        const response = await this.getShippingFeeRaw(requestParameters, initOverrides);
+    async getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee> {
+        const response = await this.getApiV1MerchantByUseridShippingfeeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async saveSelfOnboardingRaw(requestParameters: SaveSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
+    async patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling saveSelfOnboarding().'
+                'Required parameter "userId" was null or undefined when calling patchApiV1MerchantByUseridSelfonboarding().'
             );
         }
 
         if (requestParameters['selfOnboardingInfo'] == null) {
             throw new runtime.RequiredError(
                 'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling saveSelfOnboarding().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/merchant/{userId}/selfOnboarding`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SelfOnboardingInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async saveSelfOnboarding(requestParameters: SaveSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
-        const response = await this.saveSelfOnboardingRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveShippingFeeRaw(requestParameters: SaveShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling saveShippingFee().'
-            );
-        }
-
-        if (requestParameters['shippingFee'] == null) {
-            throw new runtime.RequiredError(
-                'shippingFee',
-                'Required parameter "shippingFee" was null or undefined when calling saveShippingFee().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/merchant/{userId}/shippingFee`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ShippingFeeToJSON(requestParameters['shippingFee']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async saveShippingFee(requestParameters: SaveShippingFeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.saveShippingFeeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateSelfOnboardingRaw(requestParameters: UpdateSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling updateSelfOnboarding().'
-            );
-        }
-
-        if (requestParameters['selfOnboardingInfo'] == null) {
-            throw new runtime.RequiredError(
-                'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling updateSelfOnboarding().'
+                'Required parameter "selfOnboardingInfo" was null or undefined when calling patchApiV1MerchantByUseridSelfonboarding().'
             );
         }
 
@@ -529,8 +346,191 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
 
     /**
      */
-    async updateSelfOnboarding(requestParameters: UpdateSelfOnboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
-        const response = await this.updateSelfOnboardingRaw(requestParameters, initOverrides);
+    async patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+        const response = await this.patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1MerchantByUseridSelfonboarding().'
+            );
+        }
+
+        if (requestParameters['selfOnboardingInfo'] == null) {
+            throw new runtime.RequiredError(
+                'selfOnboardingInfo',
+                'Required parameter "selfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboarding().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/merchant/{userId}/selfOnboarding`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SelfOnboardingInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+        const response = await this.postApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1MerchantByUseridSelfonboardingComplete().'
+            );
+        }
+
+        if (requestParameters['selfOnboardingInfo'] == null) {
+            throw new runtime.RequiredError(
+                'selfOnboardingInfo',
+                'Required parameter "selfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboardingComplete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/merchant/{userId}/selfOnboarding/complete`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompleteSelfOnboardingResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse> {
+        const response = await this.postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridShippingfeeRaw(requestParameters: PostApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1MerchantByUseridShippingfee().'
+            );
+        }
+
+        if (requestParameters['shippingFee'] == null) {
+            throw new runtime.RequiredError(
+                'shippingFee',
+                'Required parameter "shippingFee" was null or undefined when calling postApiV1MerchantByUseridShippingfee().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/merchant/{userId}/shippingFee`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ShippingFeeToJSON(requestParameters['shippingFee']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1MerchantByUseridShippingfee(requestParameters: PostApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1MerchantByUseridShippingfeeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

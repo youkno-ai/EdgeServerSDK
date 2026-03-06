@@ -17,11 +17,53 @@ open class StripeControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
+     - returns: StripeAccountResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1StripeAccount(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeAccountResponse {
+        return try await getApiV1StripeAccountWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/stripe/account
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<StripeAccountResponse> 
+     */
+    open class func getApiV1StripeAccountWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeAccountResponse> {
+        let localVariablePath = "/api/v1/stripe/account"
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<StripeAccountResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
      - returns: StripeConfigResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func config(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeConfigResponse {
-        return try await configWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1StripeConfig(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeConfigResponse {
+        return try await getApiV1StripeConfigWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -34,7 +76,7 @@ open class StripeControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<StripeConfigResponse> 
      */
-    open class func configWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeConfigResponse> {
+    open class func getApiV1StripeConfigWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeConfigResponse> {
         let localVariablePath = "/api/v1/stripe/config"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -63,8 +105,8 @@ open class StripeControllerAPI {
      - returns: StripeConnectResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func connect(redirectUrl: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeConnectResponse {
-        return try await connectWithRequestBuilder(redirectUrl: redirectUrl, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1StripeConnect(redirectUrl: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeConnectResponse {
+        return try await getApiV1StripeConnectWithRequestBuilder(redirectUrl: redirectUrl, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -78,7 +120,7 @@ open class StripeControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<StripeConnectResponse> 
      */
-    open class func connectWithRequestBuilder(redirectUrl: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeConnectResponse> {
+    open class func getApiV1StripeConnectWithRequestBuilder(redirectUrl: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeConnectResponse> {
         let localVariablePath = "/api/v1/stripe/connect"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -111,8 +153,8 @@ open class StripeControllerAPI {
      - returns: CreatePaymentIntentResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func createPaymentIntent(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CreatePaymentIntentResponse {
-        return try await createPaymentIntentWithRequestBuilder(paymentId: paymentId, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1StripePaymentsByPaymentidPaymentIntent(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CreatePaymentIntentResponse {
+        return try await postApiV1StripePaymentsByPaymentidPaymentIntentWithRequestBuilder(paymentId: paymentId, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -127,7 +169,7 @@ open class StripeControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<CreatePaymentIntentResponse> 
      */
-    open class func createPaymentIntentWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CreatePaymentIntentResponse> {
+    open class func postApiV1StripePaymentsByPaymentidPaymentIntentWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CreatePaymentIntentResponse> {
         var localVariablePath = "/api/v1/stripe/payments/{paymentId}/payment-intent"
         let paymentIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentId))"
         let paymentIdPostEscape = paymentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -160,8 +202,8 @@ open class StripeControllerAPI {
      - returns: CreateSetupIntentResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func createSetupIntent(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, createSetupIntentRequest: CreateSetupIntentRequest? = nil) async throws -> CreateSetupIntentResponse {
-        return try await createSetupIntentWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, createSetupIntentRequest: createSetupIntentRequest).execute().body
+    open class func postApiV1StripeSetupIntent(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, createSetupIntentRequest: CreateSetupIntentRequest? = nil) async throws -> CreateSetupIntentResponse {
+        return try await postApiV1StripeSetupIntentWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, createSetupIntentRequest: createSetupIntentRequest).execute().body
     }
 
     /**
@@ -175,7 +217,7 @@ open class StripeControllerAPI {
      - parameter createSetupIntentRequest: (body)  (optional)
      - returns: RequestBuilder<CreateSetupIntentResponse> 
      */
-    open class func createSetupIntentWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, createSetupIntentRequest: CreateSetupIntentRequest? = nil) -> RequestBuilder<CreateSetupIntentResponse> {
+    open class func postApiV1StripeSetupIntentWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, createSetupIntentRequest: CreateSetupIntentRequest? = nil) -> RequestBuilder<CreateSetupIntentResponse> {
         let localVariablePath = "/api/v1/stripe/setup-intent"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createSetupIntentRequest)
@@ -198,58 +240,16 @@ open class StripeControllerAPI {
 
     /**
 
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: StripeAccountResponse
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getConnectedAccount(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StripeAccountResponse {
-        return try await getConnectedAccountWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - GET /api/v1/stripe/account
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<StripeAccountResponse> 
-     */
-    open class func getConnectedAccountWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StripeAccountResponse> {
-        let localVariablePath = "/api/v1/stripe/account"
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<StripeAccountResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
      - parameter stripeSignature: (header)  
      - parameter body: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: AnyCodable]
+     - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func stripeWebhookCallback(stripeSignature: String, body: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: AnyCodable] {
-        return try await stripeWebhookCallbackWithRequestBuilder(stripeSignature: stripeSignature, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1StripeWebhookCallback(stripeSignature: String, body: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1StripeWebhookCallbackWithRequestBuilder(stripeSignature: stripeSignature, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -262,9 +262,9 @@ open class StripeControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: AnyCodable]> 
+     - returns: RequestBuilder<[String: String]> 
      */
-    open class func stripeWebhookCallbackWithRequestBuilder(stripeSignature: String, body: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: AnyCodable]> {
+    open class func postApiV1StripeWebhookCallbackWithRequestBuilder(stripeSignature: String, body: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         let localVariablePath = "/api/v1/stripe/webhook_callback"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
@@ -281,7 +281,7 @@ open class StripeControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

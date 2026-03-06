@@ -127,12 +127,6 @@ export interface Credentials {
      * @memberof Credentials
      */
     empty?: boolean;
-    /**
-     * 
-     * @type {Credentials}
-     * @memberof Credentials
-     */
-    maskedCreds?: Credentials;
 }
 
 /**
@@ -170,7 +164,6 @@ export function CredentialsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'shopName': json['shopName'] == null ? undefined : json['shopName'],
         'accessToken': json['accessToken'] == null ? undefined : json['accessToken'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'maskedCreds': json['maskedCreds'] == null ? undefined : CredentialsFromJSON(json['maskedCreds']),
     };
 }
 
@@ -203,7 +196,6 @@ export function CredentialsToJSONTyped(value?: Credentials | null, ignoreDiscrim
         'shopName': value['shopName'],
         'accessToken': value['accessToken'],
         'empty': value['empty'],
-        'maskedCreds': CredentialsToJSON(value['maskedCreds']),
     };
 }
 

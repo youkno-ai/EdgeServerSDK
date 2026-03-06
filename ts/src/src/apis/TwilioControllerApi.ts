@@ -25,42 +25,42 @@ import {
     UserAuthToJSON,
 } from '../models/index';
 
-export interface GetAccessTokenRequest {
+export interface GetApiV1TwilioAccessTokenRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SendTokenToPhoneRequest {
+export interface PostApiV1TwilioPhoneSendTokenRequest {
     body: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SendVoiceResponseRequest {
-    state: string;
-    paramMap: { [key: string]: string; };
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SendVoiceResponse1Request {
-    state: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface TwilioWebhookCallbackRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface VerifyTokenWithPhoneRequest {
+export interface PostApiV1TwilioPhoneVerifyTokenRequest {
     smsVerification: SmsVerification;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1TwilioSmsReplyByStateRequest {
+    state: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1TwilioVoiceByStateRequest {
+    state: string;
+    phone: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1TwilioWebhookCallbackRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -82,11 +82,11 @@ export interface TwilioControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TwilioControllerApiInterface
      */
-    getAccessTokenRaw(requestParameters: GetAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>>;
+    getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>>;
 
     /**
      */
-    getAccessToken(requestParameters: GetAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth>;
+    getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth>;
 
     /**
      * 
@@ -98,59 +98,11 @@ export interface TwilioControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TwilioControllerApiInterface
      */
-    sendTokenToPhoneRaw(requestParameters: SendTokenToPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1TwilioPhoneSendTokenRaw(requestParameters: PostApiV1TwilioPhoneSendTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    sendTokenToPhone(requestParameters: SendTokenToPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} state 
-     * @param {{ [key: string]: string; }} paramMap 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TwilioControllerApiInterface
-     */
-    sendVoiceResponseRaw(requestParameters: SendVoiceResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    sendVoiceResponse(requestParameters: SendVoiceResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} state 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TwilioControllerApiInterface
-     */
-    sendVoiceResponse1Raw(requestParameters: SendVoiceResponse1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    sendVoiceResponse1(requestParameters: SendVoiceResponse1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TwilioControllerApiInterface
-     */
-    twilioWebhookCallbackRaw(requestParameters: TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    twilioWebhookCallback(requestParameters: TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1TwilioPhoneSendToken(requestParameters: PostApiV1TwilioPhoneSendTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -162,11 +114,59 @@ export interface TwilioControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TwilioControllerApiInterface
      */
-    verifyTokenWithPhoneRaw(requestParameters: VerifyTokenWithPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    postApiV1TwilioPhoneVerifyTokenRaw(requestParameters: PostApiV1TwilioPhoneVerifyTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    verifyTokenWithPhone(requestParameters: VerifyTokenWithPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    postApiV1TwilioPhoneVerifyToken(requestParameters: PostApiV1TwilioPhoneVerifyTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} state 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TwilioControllerApiInterface
+     */
+    postApiV1TwilioSmsReplyByStateRaw(requestParameters: PostApiV1TwilioSmsReplyByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+
+    /**
+     */
+    postApiV1TwilioSmsReplyByState(requestParameters: PostApiV1TwilioSmsReplyByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} state 
+     * @param {string} phone 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TwilioControllerApiInterface
+     */
+    postApiV1TwilioVoiceByStateRaw(requestParameters: PostApiV1TwilioVoiceByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+
+    /**
+     */
+    postApiV1TwilioVoiceByState(requestParameters: PostApiV1TwilioVoiceByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TwilioControllerApiInterface
+     */
+    postApiV1TwilioWebhookCallbackRaw(requestParameters: PostApiV1TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1TwilioWebhookCallback(requestParameters: PostApiV1TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -177,7 +177,7 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
 
     /**
      */
-    async getAccessTokenRaw(requestParameters: GetAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>> {
+    async getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -213,18 +213,18 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
 
     /**
      */
-    async getAccessToken(requestParameters: GetAccessTokenRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth> {
-        const response = await this.getAccessTokenRaw(requestParameters, initOverrides);
+    async getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth> {
+        const response = await this.getApiV1TwilioAccessTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async sendTokenToPhoneRaw(requestParameters: SendTokenToPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1TwilioPhoneSendTokenRaw(requestParameters: PostApiV1TwilioPhoneSendTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
-                'Required parameter "body" was null or undefined when calling sendTokenToPhone().'
+                'Required parameter "body" was null or undefined when calling postApiV1TwilioPhoneSendToken().'
             );
         }
 
@@ -266,197 +266,18 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
 
     /**
      */
-    async sendTokenToPhone(requestParameters: SendTokenToPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.sendTokenToPhoneRaw(requestParameters, initOverrides);
+    async postApiV1TwilioPhoneSendToken(requestParameters: PostApiV1TwilioPhoneSendTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1TwilioPhoneSendTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async sendVoiceResponseRaw(requestParameters: SendVoiceResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['state'] == null) {
-            throw new runtime.RequiredError(
-                'state',
-                'Required parameter "state" was null or undefined when calling sendVoiceResponse().'
-            );
-        }
-
-        if (requestParameters['paramMap'] == null) {
-            throw new runtime.RequiredError(
-                'paramMap',
-                'Required parameter "paramMap" was null or undefined when calling sendVoiceResponse().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-        const consumes: runtime.Consume[] = [
-            { contentType: 'application/x-www-form-urlencoded' },
-        ];
-        // @ts-ignore: canConsumeForm may be unused
-        const canConsumeForm = runtime.canConsumeForm(consumes);
-
-        let formParams: { append(param: string, value: any): any };
-        let useForm = false;
-        if (useForm) {
-            formParams = new FormData();
-        } else {
-            formParams = new URLSearchParams();
-        }
-
-        if (requestParameters['paramMap'] != null) {
-            formParams.append('paramMap', new Blob([JSON.stringify(requestParameters['paramMap'])], { type: "application/json", }));
-                    }
-
-
-        let urlPath = `/api/v1/twilio/voice/{state}`;
-        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: formParams,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async sendVoiceResponse(requestParameters: SendVoiceResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.sendVoiceResponseRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async sendVoiceResponse1Raw(requestParameters: SendVoiceResponse1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['state'] == null) {
-            throw new runtime.RequiredError(
-                'state',
-                'Required parameter "state" was null or undefined when calling sendVoiceResponse1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/twilio/sms/reply/{state}`;
-        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async sendVoiceResponse1(requestParameters: SendVoiceResponse1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.sendVoiceResponse1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async twilioWebhookCallbackRaw(requestParameters: TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/twilio/webhook_callback`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async twilioWebhookCallback(requestParameters: TwilioWebhookCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.twilioWebhookCallbackRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async verifyTokenWithPhoneRaw(requestParameters: VerifyTokenWithPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+    async postApiV1TwilioPhoneVerifyTokenRaw(requestParameters: PostApiV1TwilioPhoneVerifyTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters['smsVerification'] == null) {
             throw new runtime.RequiredError(
                 'smsVerification',
-                'Required parameter "smsVerification" was null or undefined when calling verifyTokenWithPhone().'
+                'Required parameter "smsVerification" was null or undefined when calling postApiV1TwilioPhoneVerifyToken().'
             );
         }
 
@@ -502,8 +323,187 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
 
     /**
      */
-    async verifyTokenWithPhone(requestParameters: VerifyTokenWithPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.verifyTokenWithPhoneRaw(requestParameters, initOverrides);
+    async postApiV1TwilioPhoneVerifyToken(requestParameters: PostApiV1TwilioPhoneVerifyTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1TwilioPhoneVerifyTokenRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1TwilioSmsReplyByStateRaw(requestParameters: PostApiV1TwilioSmsReplyByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters['state'] == null) {
+            throw new runtime.RequiredError(
+                'state',
+                'Required parameter "state" was null or undefined when calling postApiV1TwilioSmsReplyByState().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/twilio/sms/reply/{state}`;
+        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1TwilioSmsReplyByState(requestParameters: PostApiV1TwilioSmsReplyByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1TwilioSmsReplyByStateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1TwilioVoiceByStateRaw(requestParameters: PostApiV1TwilioVoiceByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters['state'] == null) {
+            throw new runtime.RequiredError(
+                'state',
+                'Required parameter "state" was null or undefined when calling postApiV1TwilioVoiceByState().'
+            );
+        }
+
+        if (requestParameters['phone'] == null) {
+            throw new runtime.RequiredError(
+                'phone',
+                'Required parameter "phone" was null or undefined when calling postApiV1TwilioVoiceByState().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'application/x-www-form-urlencoded' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['phone'] != null) {
+            formParams.append('phone', requestParameters['phone'] as any);
+        }
+
+
+        let urlPath = `/api/v1/twilio/voice/{state}`;
+        urlPath = urlPath.replace(`{${"state"}}`, encodeURIComponent(String(requestParameters['state'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1TwilioVoiceByState(requestParameters: PostApiV1TwilioVoiceByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1TwilioVoiceByStateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1TwilioWebhookCallbackRaw(requestParameters: PostApiV1TwilioWebhookCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/twilio/webhook_callback`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1TwilioWebhookCallback(requestParameters: PostApiV1TwilioWebhookCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1TwilioWebhookCallbackRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

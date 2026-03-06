@@ -28,21 +28,28 @@ import {
     TicketScanToJSON,
 } from '../models/index';
 
-export interface Create1Request {
-    ticket: Ticket;
+export interface GetApiV1TicketsByTicketidRequest {
+    ticketId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllByAppUserIdRequest {
-    userId: string;
+export interface GetApiV1TicketsByTicketidScansRequest {
+    ticketId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllByStatusRequest {
+export interface GetApiV1TicketsByeventidByEventidAvailableRequest {
+    eventId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1TicketsByeventidByEventidBystatusByStatusRequest {
     eventId: string;
     status: string;
     xEdgeAgent?: string;
@@ -50,28 +57,21 @@ export interface GetAllByStatusRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetAvailableTicketsRequest {
-    eventId: string;
+export interface GetApiV1TicketsByuseridByUseridRequest {
+    userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetById2Request {
-    ticketId: string;
+export interface PostApiV1TicketsRequest {
+    ticket: Ticket;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetTicketScansByTicketIdRequest {
-    ticketId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ScanTicketRequest {
+export interface PostApiV1TicketsByTicketidScanRequest {
     ticketId: string;
     ticketScan: TicketScan;
     xEdgeAgent?: string;
@@ -88,7 +88,7 @@ export interface ScanTicketRequest {
 export interface TicketControllerApiInterface {
     /**
      * 
-     * @param {Ticket} ticket 
+     * @param {string} ticketId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -96,15 +96,15 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    create1Raw(requestParameters: Create1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
 
     /**
      */
-    create1(requestParameters: Create1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
 
     /**
      * 
-     * @param {string} userId 
+     * @param {string} ticketId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -112,11 +112,27 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getAllByAppUserIdRaw(requestParameters: GetAllByAppUserIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
+    getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>>;
 
     /**
      */
-    getAllByAppUserId(requestParameters: GetAllByAppUserIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
+    getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>>;
+
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TicketControllerApiInterface
+     */
+    getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
+
+    /**
+     */
+    getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
@@ -129,15 +145,15 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getAllByStatusRaw(requestParameters: GetAllByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
+    getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
 
     /**
      */
-    getAllByStatus(requestParameters: GetAllByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
+    getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
-     * @param {string} eventId 
+     * @param {string} userId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -145,15 +161,15 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getAvailableTicketsRaw(requestParameters: GetAvailableTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
+    getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
 
     /**
      */
-    getAvailableTickets(requestParameters: GetAvailableTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
+    getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
-     * @param {string} ticketId 
+     * @param {Ticket} ticket 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -161,27 +177,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getById2Raw(requestParameters: GetById2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
+    postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    getById2(requestParameters: GetById2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
-
-    /**
-     * 
-     * @param {string} ticketId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TicketControllerApiInterface
-     */
-    getTicketScansByTicketIdRaw(requestParameters: GetTicketScansByTicketIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>>;
-
-    /**
-     */
-    getTicketScansByTicketId(requestParameters: GetTicketScansByTicketIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>>;
+    postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -194,11 +194,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    scanTicketRaw(requestParameters: ScanTicketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1TicketsByTicketidScanRaw(requestParameters: PostApiV1TicketsByTicketidScanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    scanTicket(requestParameters: ScanTicketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1TicketsByTicketidScan(requestParameters: PostApiV1TicketsByTicketidScanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -209,11 +209,274 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
 
     /**
      */
-    async create1Raw(requestParameters: Create1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+    async getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
+        if (requestParameters['ticketId'] == null) {
+            throw new runtime.RequiredError(
+                'ticketId',
+                'Required parameter "ticketId" was null or undefined when calling getApiV1TicketsByTicketid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tickets/{ticketId}`;
+        urlPath = urlPath.replace(`{${"ticketId"}}`, encodeURIComponent(String(requestParameters['ticketId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TicketFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
+        const response = await this.getApiV1TicketsByTicketidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>> {
+        if (requestParameters['ticketId'] == null) {
+            throw new runtime.RequiredError(
+                'ticketId',
+                'Required parameter "ticketId" was null or undefined when calling getApiV1TicketsByTicketidScans().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tickets/{ticketId}/scans`;
+        urlPath = urlPath.replace(`{${"ticketId"}}`, encodeURIComponent(String(requestParameters['ticketId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketScanFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>> {
+        const response = await this.getApiV1TicketsByTicketidScansRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
+        if (requestParameters['eventId'] == null) {
+            throw new runtime.RequiredError(
+                'eventId',
+                'Required parameter "eventId" was null or undefined when calling getApiV1TicketsByeventidByEventidAvailable().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tickets/byEventId/{eventId}/available`;
+        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
+        const response = await this.getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
+        if (requestParameters['eventId'] == null) {
+            throw new runtime.RequiredError(
+                'eventId',
+                'Required parameter "eventId" was null or undefined when calling getApiV1TicketsByeventidByEventidBystatusByStatus().'
+            );
+        }
+
+        if (requestParameters['status'] == null) {
+            throw new runtime.RequiredError(
+                'status',
+                'Required parameter "status" was null or undefined when calling getApiV1TicketsByeventidByEventidBystatusByStatus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tickets/byEventId/{eventId}/byStatus/{status}`;
+        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
+        urlPath = urlPath.replace(`{${"status"}}`, encodeURIComponent(String(requestParameters['status'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
+        const response = await this.getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1TicketsByuseridByUserid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tickets/byUserId/{userId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
+        const response = await this.getApiV1TicketsByuseridByUseridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['ticket'] == null) {
             throw new runtime.RequiredError(
                 'ticket',
-                'Required parameter "ticket" was null or undefined when calling create1().'
+                'Required parameter "ticket" was null or undefined when calling postApiV1Tickets().'
             );
         }
 
@@ -255,288 +518,25 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
 
     /**
      */
-    async create1(requestParameters: Create1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.create1Raw(requestParameters, initOverrides);
+    async postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1TicketsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAllByAppUserIdRaw(requestParameters: GetAllByAppUserIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getAllByAppUserId().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tickets/byUserId/{userId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
-    }
-
-    /**
-     */
-    async getAllByAppUserId(requestParameters: GetAllByAppUserIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
-        const response = await this.getAllByAppUserIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAllByStatusRaw(requestParameters: GetAllByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
-        if (requestParameters['eventId'] == null) {
-            throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getAllByStatus().'
-            );
-        }
-
-        if (requestParameters['status'] == null) {
-            throw new runtime.RequiredError(
-                'status',
-                'Required parameter "status" was null or undefined when calling getAllByStatus().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tickets/byEventId/{eventId}/byStatus/{status}`;
-        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
-        urlPath = urlPath.replace(`{${"status"}}`, encodeURIComponent(String(requestParameters['status'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
-    }
-
-    /**
-     */
-    async getAllByStatus(requestParameters: GetAllByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
-        const response = await this.getAllByStatusRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAvailableTicketsRaw(requestParameters: GetAvailableTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
-        if (requestParameters['eventId'] == null) {
-            throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getAvailableTickets().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tickets/byEventId/{eventId}/available`;
-        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
-    }
-
-    /**
-     */
-    async getAvailableTickets(requestParameters: GetAvailableTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
-        const response = await this.getAvailableTicketsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getById2Raw(requestParameters: GetById2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
+    async postApiV1TicketsByTicketidScanRaw(requestParameters: PostApiV1TicketsByTicketidScanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['ticketId'] == null) {
             throw new runtime.RequiredError(
                 'ticketId',
-                'Required parameter "ticketId" was null or undefined when calling getById2().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tickets/{ticketId}`;
-        urlPath = urlPath.replace(`{${"ticketId"}}`, encodeURIComponent(String(requestParameters['ticketId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TicketFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getById2(requestParameters: GetById2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
-        const response = await this.getById2Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTicketScansByTicketIdRaw(requestParameters: GetTicketScansByTicketIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>> {
-        if (requestParameters['ticketId'] == null) {
-            throw new runtime.RequiredError(
-                'ticketId',
-                'Required parameter "ticketId" was null or undefined when calling getTicketScansByTicketId().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tickets/{ticketId}/scans`;
-        urlPath = urlPath.replace(`{${"ticketId"}}`, encodeURIComponent(String(requestParameters['ticketId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketScanFromJSON));
-    }
-
-    /**
-     */
-    async getTicketScansByTicketId(requestParameters: GetTicketScansByTicketIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>> {
-        const response = await this.getTicketScansByTicketIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async scanTicketRaw(requestParameters: ScanTicketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['ticketId'] == null) {
-            throw new runtime.RequiredError(
-                'ticketId',
-                'Required parameter "ticketId" was null or undefined when calling scanTicket().'
+                'Required parameter "ticketId" was null or undefined when calling postApiV1TicketsByTicketidScan().'
             );
         }
 
         if (requestParameters['ticketScan'] == null) {
             throw new runtime.RequiredError(
                 'ticketScan',
-                'Required parameter "ticketScan" was null or undefined when calling scanTicket().'
+                'Required parameter "ticketScan" was null or undefined when calling postApiV1TicketsByTicketidScan().'
             );
         }
 
@@ -579,8 +579,8 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
 
     /**
      */
-    async scanTicket(requestParameters: ScanTicketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.scanTicketRaw(requestParameters, initOverrides);
+    async postApiV1TicketsByTicketidScan(requestParameters: PostApiV1TicketsByTicketidScanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1TicketsByTicketidScanRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

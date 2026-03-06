@@ -79,107 +79,42 @@ import {
     UserInviteToJSON,
 } from '../models/index';
 
-export interface AcceptSponsorshipRequest {
-    bountyId: string;
-    avatarId: string;
-    sponsorshipRequest: SponsorshipRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CallAnswerRequest {
-    bountyId: string;
-    roomId?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CallPlaceRequest {
+export interface DeleteApiV1BountiesByBountyidDeleteRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ChangeAuctionWinnerRequest {
+export interface GetApiV1BountiesByBountyIdStatisticsRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CloseAuctionRequest {
+export interface GetApiV1BountiesByBountyIdStatisticsNewRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface DeleteBountyRequest {
+export interface GetApiV1BountiesByBountyIdStatisticsOldRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAuctionNextWinnerRequest {
+export interface GetApiV1BountiesByBountyidContentAccessRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetBountyContentAccessRuleRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBountyRecipientInfoRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignStatsRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignStatsOldRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignStatsOld1Request {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetDefaultBountySectionsRequest {
-    type?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetDefaultColorSchemesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetFeedbackReportRequest {
+export interface GetApiV1BountiesByBountyidFeedbackReportRequest {
     bountyId: string;
     answeredFrom?: number;
     answeredTo?: number;
@@ -188,7 +123,42 @@ export interface GetFeedbackReportRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetInviteLink3Request {
+export interface GetApiV1BountiesByBountyidNextwinnerRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesByBountyidPaymentSummaryRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesByBountyidRecipientRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesByBountyidShareRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesByBountyidSharesRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesByDealidInvitelinksByInviteidRequest {
     dealId: string;
     inviteId: string;
     xEdgeAgent?: string;
@@ -196,34 +166,7 @@ export interface GetInviteLink3Request {
     xEdgeClientId?: string;
 }
 
-export interface GetPaymentSummaryRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetPostableListsRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetShareLinkRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetShareLink1Request {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetSubBountiesRequest {
+export interface GetApiV1BountiesByParentIdSubbountiesRequest {
     parentId: string;
     inbound?: boolean;
     outbound?: boolean;
@@ -232,14 +175,62 @@ export interface GetSubBountiesRequest {
     xEdgeClientId?: string;
 }
 
-export interface NotifyOnStartRequest {
+export interface GetApiV1BountiesColorschemesRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesPublishListsRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BountiesSectionsRequest {
+    type?: Array<string>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidCallsAnswerRequest {
+    bountyId: string;
+    roomId?: Array<string>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidCallsPlaceRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ParticipateBountyRequest {
+export interface PostApiV1BountiesByBountyidCloseauctionRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidNextwinnerRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidNotifyonstartRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidParticipateRequest {
     bountyId: string;
     awaitDistribution?: boolean;
     xEdgeAgent?: string;
@@ -247,14 +238,7 @@ export interface ParticipateBountyRequest {
     xEdgeClientId?: string;
 }
 
-export interface PublishBountyRequest {
-    bounty: Bounty;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface RejectSponsorshipRequest {
+export interface PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest {
     bountyId: string;
     avatarId: string;
     sponsorshipRequest: SponsorshipRequest;
@@ -263,14 +247,30 @@ export interface RejectSponsorshipRequest {
     xEdgeClientId?: string;
 }
 
-export interface UnparticipateBountyRequest {
+export interface PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest {
+    bountyId: string;
+    avatarId: string;
+    sponsorshipRequest: SponsorshipRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1BountiesByBountyidUnparticipateRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateAccessBountyContentRequest {
+export interface PostApiV1BountiesPublishRequest {
+    bounty: Bounty;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1BountiesByBountyidContentAccessRequest {
     bountyId: string;
     contentAccessRule: ContentAccessRule;
     refreshPin?: boolean;
@@ -279,7 +279,15 @@ export interface UpdateAccessBountyContentRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateBountyRequest {
+export interface PutApiV1BountiesByBountyidFlagsRequest {
+    bountyId: string;
+    featured?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1BountiesByBountyidUpdateRequest {
     bountyId: string;
     bountyChanges: BountyChanges;
     xEdgeAgent?: string;
@@ -287,17 +295,9 @@ export interface UpdateBountyRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateBountyStateRequest {
+export interface PutApiV1BountiesByBountyidUpdateStateRequest {
     bountyId: string;
     updateBountyStateReq: UpdateBountyStateReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateFeaturedRequest {
-    bountyId: string;
-    featured?: boolean;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -313,8 +313,6 @@ export interface BountyControllerApiInterface {
     /**
      * 
      * @param {string} bountyId 
-     * @param {string} avatarId 
-     * @param {SponsorshipRequest} sponsorshipRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -322,156 +320,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    acceptSponsorshipRaw(requestParameters: AcceptSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1BountiesByBountyidDeleteRaw(requestParameters: DeleteApiV1BountiesByBountyidDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    acceptSponsorship(requestParameters: AcceptSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {Array<string>} [roomId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    callAnswerRaw(requestParameters: CallAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnswerCallResult>>;
-
-    /**
-     */
-    callAnswer(requestParameters: CallAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnswerCallResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    callPlaceRaw(requestParameters: CallPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlaceCallResult>>;
-
-    /**
-     */
-    callPlace(requestParameters: CallPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlaceCallResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    changeAuctionWinnerRaw(requestParameters: ChangeAuctionWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
-
-    /**
-     */
-    changeAuctionWinner(requestParameters: ChangeAuctionWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    closeAuctionRaw(requestParameters: CloseAuctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    closeAuction(requestParameters: CloseAuctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    deleteBountyRaw(requestParameters: DeleteBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteBounty(requestParameters: DeleteBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getAuctionNextWinnerRaw(requestParameters: GetAuctionNextWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
-
-    /**
-     */
-    getAuctionNextWinner(requestParameters: GetAuctionNextWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getBountyContentAccessRuleRaw(requestParameters: GetBountyContentAccessRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>>;
-
-    /**
-     */
-    getBountyContentAccessRule(requestParameters: GetBountyContentAccessRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getBountyRecipientInfoRaw(requestParameters: GetBountyRecipientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyRecipientResp>>;
-
-    /**
-     */
-    getBountyRecipientInfo(requestParameters: GetBountyRecipientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyRecipientResp>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getCampaignStatsRaw(requestParameters: GetCampaignStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResult>>;
-
-    /**
-     */
-    getCampaignStats(requestParameters: GetCampaignStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResult>;
+    deleteApiV1BountiesByBountyidDelete(requestParameters: DeleteApiV1BountiesByBountyidDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -484,12 +337,28 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getCampaignStatsOldRaw(requestParameters: GetCampaignStatsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>>;
+    getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>>;
 
     /**
      * @deprecated
      */
-    getCampaignStatsOld(requestParameters: GetCampaignStatsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld>;
+    getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResult>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResult>;
 
     /**
      * 
@@ -502,16 +371,16 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getCampaignStatsOld1Raw(requestParameters: GetCampaignStatsOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>>;
+    getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>>;
 
     /**
      * @deprecated
      */
-    getCampaignStatsOld1(requestParameters: GetCampaignStatsOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld>;
+    getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld>;
 
     /**
      * 
-     * @param {Array<string>} [type] 
+     * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -519,26 +388,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getDefaultBountySectionsRaw(requestParameters: GetDefaultBountySectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountySectionResult>>;
+    getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>>;
 
     /**
      */
-    getDefaultBountySections(requestParameters: GetDefaultBountySectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountySectionResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getDefaultColorSchemesRaw(requestParameters: GetDefaultColorSchemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ColorSchemeResult>>;
-
-    /**
-     */
-    getDefaultColorSchemes(requestParameters: GetDefaultColorSchemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ColorSchemeResult>;
+    getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule>;
 
     /**
      * 
@@ -552,11 +406,91 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getFeedbackReportRaw(requestParameters: GetFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FeedbackReportResp>>;
+    getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FeedbackReportResp>>;
 
     /**
      */
-    getFeedbackReport(requestParameters: GetFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackReportResp>;
+    getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackReportResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummary>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummary>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyRecipientResp>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyRecipientResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult>;
 
     /**
      * 
@@ -570,75 +504,12 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getInviteLink3Raw(requestParameters: GetInviteLink3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+    getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      * @deprecated
      */
-    getInviteLink3(requestParameters: GetInviteLink3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getPaymentSummaryRaw(requestParameters: GetPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummary>>;
-
-    /**
-     */
-    getPaymentSummary(requestParameters: GetPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummary>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getPostableListsRaw(requestParameters: GetPostableListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageListDef>>;
-
-    /**
-     */
-    getPostableLists(requestParameters: GetPostableListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageListDef>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getShareLinkRaw(requestParameters: GetShareLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>>;
-
-    /**
-     */
-    getShareLink(requestParameters: GetShareLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getShareLink1Raw(requestParameters: GetShareLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>>;
-
-    /**
-     */
-    getShareLink1(requestParameters: GetShareLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult>;
+    getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -652,11 +523,74 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getSubBountiesRaw(requestParameters: GetSubBountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubBountiesResp>>;
+    getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubBountiesResp>>;
 
     /**
      */
-    getSubBounties(requestParameters: GetSubBountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubBountiesResp>;
+    getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubBountiesResp>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ColorSchemeResult>>;
+
+    /**
+     */
+    getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ColorSchemeResult>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageListDef>>;
+
+    /**
+     */
+    getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageListDef>;
+
+    /**
+     * 
+     * @param {Array<string>} [type] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountySectionResult>>;
+
+    /**
+     */
+    getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountySectionResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {Array<string>} [roomId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnswerCallResult>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnswerCallResult>;
 
     /**
      * 
@@ -668,11 +602,59 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    notifyOnStartRaw(requestParameters: NotifyOnStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlaceCallResult>>;
 
     /**
      */
-    notifyOnStart(requestParameters: NotifyOnStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlaceCallResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidNotifyonstartRaw(requestParameters: PostApiV1BountiesByBountyidNotifyonstartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidNotifyonstart(requestParameters: PostApiV1BountiesByBountyidNotifyonstartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -685,27 +667,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    participateBountyRaw(requestParameters: ParticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1BountiesByBountyidParticipateRaw(requestParameters: PostApiV1BountiesByBountyidParticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    participateBounty(requestParameters: ParticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {Bounty} bounty 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    publishBountyRaw(requestParameters: PublishBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    publishBounty(requestParameters: PublishBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+    postApiV1BountiesByBountyidParticipate(requestParameters: PostApiV1BountiesByBountyidParticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -719,11 +685,29 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    rejectSponsorshipRaw(requestParameters: RejectSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderSummary>>;
+    postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    rejectSponsorship(requestParameters: RejectSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderSummary>;
+    postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} avatarId 
+     * @param {SponsorshipRequest} sponsorshipRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderSummary>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderSummary>;
 
     /**
      * 
@@ -735,11 +719,27 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    unparticipateBountyRaw(requestParameters: UnparticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1BountiesByBountyidUnparticipateRaw(requestParameters: PostApiV1BountiesByBountyidUnparticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    unparticipateBounty(requestParameters: UnparticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1BountiesByBountyidUnparticipate(requestParameters: PostApiV1BountiesByBountyidUnparticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {Bounty} bounty 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -753,45 +753,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    updateAccessBountyContentRaw(requestParameters: UpdateAccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>>;
+    putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>>;
 
     /**
      */
-    updateAccessBountyContent(requestParameters: UpdateAccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {BountyChanges} bountyChanges 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    updateBountyRaw(requestParameters: UpdateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    updateBounty(requestParameters: UpdateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {UpdateBountyStateReq} updateBountyStateReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    updateBountyStateRaw(requestParameters: UpdateBountyStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    updateBountyState(requestParameters: UpdateBountyStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule>;
 
     /**
      * 
@@ -804,11 +770,45 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    updateFeaturedRaw(requestParameters: UpdateFeaturedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    putApiV1BountiesByBountyidFlagsRaw(requestParameters: PutApiV1BountiesByBountyidFlagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    updateFeatured(requestParameters: UpdateFeaturedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1BountiesByBountyidFlags(requestParameters: PutApiV1BountiesByBountyidFlagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {BountyChanges} bountyChanges 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {UpdateBountyStateReq} updateBountyStateReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    putApiV1BountiesByBountyidUpdateStateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1BountiesByBountyidUpdateState(requestParameters: PutApiV1BountiesByBountyidUpdateStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -819,288 +819,11 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async acceptSponsorshipRaw(requestParameters: AcceptSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1BountiesByBountyidDeleteRaw(requestParameters: DeleteApiV1BountiesByBountyidDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling acceptSponsorship().'
-            );
-        }
-
-        if (requestParameters['avatarId'] == null) {
-            throw new runtime.RequiredError(
-                'avatarId',
-                'Required parameter "avatarId" was null or undefined when calling acceptSponsorship().'
-            );
-        }
-
-        if (requestParameters['sponsorshipRequest'] == null) {
-            throw new runtime.RequiredError(
-                'sponsorshipRequest',
-                'Required parameter "sponsorshipRequest" was null or undefined when calling acceptSponsorship().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/sponsorships/{avatarId}/accept`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-        urlPath = urlPath.replace(`{${"avatarId"}}`, encodeURIComponent(String(requestParameters['avatarId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SponsorshipRequestToJSON(requestParameters['sponsorshipRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async acceptSponsorship(requestParameters: AcceptSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.acceptSponsorshipRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async callAnswerRaw(requestParameters: CallAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnswerCallResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling callAnswer().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['roomId'] != null) {
-            queryParameters['roomId'] = requestParameters['roomId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/calls/answer`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AnswerCallResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async callAnswer(requestParameters: CallAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnswerCallResult> {
-        const response = await this.callAnswerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async callPlaceRaw(requestParameters: CallPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlaceCallResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling callPlace().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/calls/place`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PlaceCallResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async callPlace(requestParameters: CallPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlaceCallResult> {
-        const response = await this.callPlaceRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async changeAuctionWinnerRaw(requestParameters: ChangeAuctionWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling changeAuctionWinner().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/nextWinner`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async changeAuctionWinner(requestParameters: ChangeAuctionWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
-        const response = await this.changeAuctionWinnerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async closeAuctionRaw(requestParameters: CloseAuctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling closeAuction().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/closeAuction`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async closeAuction(requestParameters: CloseAuctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.closeAuctionRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteBountyRaw(requestParameters: DeleteBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling deleteBounty().'
+                'Required parameter "bountyId" was null or undefined when calling deleteApiV1BountiesByBountyidDelete().'
             );
         }
 
@@ -1140,223 +863,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async deleteBounty(requestParameters: DeleteBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteBountyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAuctionNextWinnerRaw(requestParameters: GetAuctionNextWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getAuctionNextWinner().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/nextWinner`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAuctionNextWinner(requestParameters: GetAuctionNextWinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
-        const response = await this.getAuctionNextWinnerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBountyContentAccessRuleRaw(requestParameters: GetBountyContentAccessRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyContentAccessRule().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/content/access`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentAccessRuleFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBountyContentAccessRule(requestParameters: GetBountyContentAccessRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule> {
-        const response = await this.getBountyContentAccessRuleRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBountyRecipientInfoRaw(requestParameters: GetBountyRecipientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyRecipientResp>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyRecipientInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/recipient`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyRecipientRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBountyRecipientInfo(requestParameters: GetBountyRecipientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyRecipientResp> {
-        const response = await this.getBountyRecipientInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCampaignStatsRaw(requestParameters: GetCampaignStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getCampaignStats().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bounty_id}/statistics_new`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyStatisticsResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCampaignStats(requestParameters: GetCampaignStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResult> {
-        const response = await this.getCampaignStatsRaw(requestParameters, initOverrides);
+    async deleteApiV1BountiesByBountyidDelete(requestParameters: DeleteApiV1BountiesByBountyidDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1BountiesByBountyidDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * @deprecated
      */
-    async getCampaignStatsOldRaw(requestParameters: GetCampaignStatsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>> {
+    async getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getCampaignStatsOld().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyIdStatistics().'
             );
         }
 
@@ -1397,19 +916,70 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getCampaignStatsOld(requestParameters: GetCampaignStatsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld> {
-        const response = await this.getCampaignStatsOldRaw(requestParameters, initOverrides);
+    async getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld> {
+        const response = await this.getApiV1BountiesByBountyIdStatisticsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyIdStatisticsNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bounty_id}/statistics_new`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyStatisticsResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResult> {
+        const response = await this.getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * @deprecated
      */
-    async getCampaignStatsOld1Raw(requestParameters: GetCampaignStatsOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>> {
+    async getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyStatisticsResultOld>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getCampaignStatsOld1().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyIdStatisticsOld().'
             );
         }
 
@@ -1450,108 +1020,69 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getCampaignStatsOld1(requestParameters: GetCampaignStatsOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld> {
-        const response = await this.getCampaignStatsOld1Raw(requestParameters, initOverrides);
+    async getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyStatisticsResultOld> {
+        const response = await this.getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getDefaultBountySectionsRaw(requestParameters: GetDefaultBountySectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountySectionResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/sections`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountySectionResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getDefaultBountySections(requestParameters: GetDefaultBountySectionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountySectionResult> {
-        const response = await this.getDefaultBountySectionsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getDefaultColorSchemesRaw(requestParameters: GetDefaultColorSchemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ColorSchemeResult>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/colorSchemes`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ColorSchemeResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getDefaultColorSchemes(requestParameters: GetDefaultColorSchemesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ColorSchemeResult> {
-        const response = await this.getDefaultColorSchemesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getFeedbackReportRaw(requestParameters: GetFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FeedbackReportResp>> {
+    async getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getFeedbackReport().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidContentAccess().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/content/access`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContentAccessRuleFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule> {
+        const response = await this.getApiV1BountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FeedbackReportResp>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidFeedbackReport().'
             );
         }
 
@@ -1599,26 +1130,281 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async getFeedbackReport(requestParameters: GetFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackReportResp> {
-        const response = await this.getFeedbackReportRaw(requestParameters, initOverrides);
+    async getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackReportResp> {
+        const response = await this.getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidNextwinner().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/nextWinner`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
+        const response = await this.getApiV1BountiesByBountyidNextwinnerRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummary>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidPaymentSummary().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/payment-summary`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentSummaryFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummary> {
+        const response = await this.getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyRecipientResp>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidRecipient().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/recipient`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyRecipientRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyRecipientResp> {
+        const response = await this.getApiV1BountiesByBountyidRecipientRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidShare().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/share`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShareLinkResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult> {
+        const response = await this.getApiV1BountiesByBountyidShareRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1BountiesByBountyidShares().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/shares`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShareLinkResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult> {
+        const response = await this.getApiV1BountiesByBountyidSharesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * @deprecated
      */
-    async getInviteLink3Raw(requestParameters: GetInviteLink3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+    async getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['dealId'] == null) {
             throw new runtime.RequiredError(
                 'dealId',
-                'Required parameter "dealId" was null or undefined when calling getInviteLink3().'
+                'Required parameter "dealId" was null or undefined when calling getApiV1BountiesByDealidInvitelinksByInviteid().'
             );
         }
 
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling getInviteLink3().'
+                'Required parameter "inviteId" was null or undefined when calling getApiV1BountiesByDealidInvitelinksByInviteid().'
             );
         }
 
@@ -1660,214 +1446,18 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getInviteLink3(requestParameters: GetInviteLink3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.getInviteLink3Raw(requestParameters, initOverrides);
+    async getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getPaymentSummaryRaw(requestParameters: GetPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummary>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getPaymentSummary().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/payment-summary`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentSummaryFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getPaymentSummary(requestParameters: GetPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummary> {
-        const response = await this.getPaymentSummaryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getPostableListsRaw(requestParameters: GetPostableListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageListDef>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/publish/lists`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageListDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getPostableLists(requestParameters: GetPostableListsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageListDef> {
-        const response = await this.getPostableListsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getShareLinkRaw(requestParameters: GetShareLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getShareLink().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/shares`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShareLinkResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getShareLink(requestParameters: GetShareLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult> {
-        const response = await this.getShareLinkRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getShareLink1Raw(requestParameters: GetShareLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareLinkResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getShareLink1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/share`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShareLinkResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getShareLink1(requestParameters: GetShareLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareLinkResult> {
-        const response = await this.getShareLink1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getSubBountiesRaw(requestParameters: GetSubBountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubBountiesResp>> {
+    async getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubBountiesResp>> {
         if (requestParameters['parentId'] == null) {
             throw new runtime.RequiredError(
                 'parentId',
-                'Required parameter "parentId" was null or undefined when calling getSubBounties().'
+                'Required parameter "parentId" was null or undefined when calling getApiV1BountiesByParentIdSubbounties().'
             );
         }
 
@@ -1915,18 +1505,359 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async getSubBounties(requestParameters: GetSubBountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubBountiesResp> {
-        const response = await this.getSubBountiesRaw(requestParameters, initOverrides);
+    async getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubBountiesResp> {
+        const response = await this.getApiV1BountiesByParentIdSubbountiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async notifyOnStartRaw(requestParameters: NotifyOnStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ColorSchemeResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/colorSchemes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ColorSchemeResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ColorSchemeResult> {
+        const response = await this.getApiV1BountiesColorschemesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageListDef>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/publish/lists`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageListDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageListDef> {
+        const response = await this.getApiV1BountiesPublishListsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountySectionResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/sections`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountySectionResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountySectionResult> {
+        const response = await this.getApiV1BountiesSectionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnswerCallResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling notifyOnStart().'
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidCallsAnswer().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['roomId'] != null) {
+            queryParameters['roomId'] = requestParameters['roomId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/calls/answer`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AnswerCallResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnswerCallResult> {
+        const response = await this.postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlaceCallResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidCallsPlace().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/calls/place`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PlaceCallResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlaceCallResult> {
+        const response = await this.postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidCloseauction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/closeAuction`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.postApiV1BountiesByBountyidCloseauctionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidNextwinner().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/nextWinner`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
+        const response = await this.postApiV1BountiesByBountyidNextwinnerRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1BountiesByBountyidNotifyonstartRaw(requestParameters: PostApiV1BountiesByBountyidNotifyonstartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidNotifyonstart().'
             );
         }
 
@@ -1966,18 +1897,18 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async notifyOnStart(requestParameters: NotifyOnStartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.notifyOnStartRaw(requestParameters, initOverrides);
+    async postApiV1BountiesByBountyidNotifyonstart(requestParameters: PostApiV1BountiesByBountyidNotifyonstartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1BountiesByBountyidNotifyonstartRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async participateBountyRaw(requestParameters: ParticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1BountiesByBountyidParticipateRaw(requestParameters: PostApiV1BountiesByBountyidParticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling participateBounty().'
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidParticipate().'
             );
         }
 
@@ -2021,18 +1952,32 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async participateBounty(requestParameters: ParticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.participateBountyRaw(requestParameters, initOverrides);
+    async postApiV1BountiesByBountyidParticipate(requestParameters: PostApiV1BountiesByBountyidParticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1BountiesByBountyidParticipateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async publishBountyRaw(requestParameters: PublishBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['bounty'] == null) {
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
-                'bounty',
-                'Required parameter "bounty" was null or undefined when calling publishBounty().'
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridAccept().'
+            );
+        }
+
+        if (requestParameters['avatarId'] == null) {
+            throw new runtime.RequiredError(
+                'avatarId',
+                'Required parameter "avatarId" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridAccept().'
+            );
+        }
+
+        if (requestParameters['sponsorshipRequest'] == null) {
+            throw new runtime.RequiredError(
+                'sponsorshipRequest',
+                'Required parameter "sponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridAccept().'
             );
         }
 
@@ -2059,47 +2004,49 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
         }
 
 
-        let urlPath = `/api/v1/bounties/publish`;
+        let urlPath = `/api/v1/bounties/{bountyId}/sponsorships/{avatarId}/accept`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+        urlPath = urlPath.replace(`{${"avatarId"}}`, encodeURIComponent(String(requestParameters['avatarId'])));
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: BountyToJSON(requestParameters['bounty']),
+            body: SponsorshipRequestToJSON(requestParameters['sponsorshipRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      */
-    async publishBounty(requestParameters: PublishBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.publishBountyRaw(requestParameters, initOverrides);
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async rejectSponsorshipRaw(requestParameters: RejectSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderSummary>> {
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderSummary>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling rejectSponsorship().'
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridReject().'
             );
         }
 
         if (requestParameters['avatarId'] == null) {
             throw new runtime.RequiredError(
                 'avatarId',
-                'Required parameter "avatarId" was null or undefined when calling rejectSponsorship().'
+                'Required parameter "avatarId" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridReject().'
             );
         }
 
         if (requestParameters['sponsorshipRequest'] == null) {
             throw new runtime.RequiredError(
                 'sponsorshipRequest',
-                'Required parameter "sponsorshipRequest" was null or undefined when calling rejectSponsorship().'
+                'Required parameter "sponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridReject().'
             );
         }
 
@@ -2143,18 +2090,18 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async rejectSponsorship(requestParameters: RejectSponsorshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderSummary> {
-        const response = await this.rejectSponsorshipRaw(requestParameters, initOverrides);
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderSummary> {
+        const response = await this.postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async unparticipateBountyRaw(requestParameters: UnparticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1BountiesByBountyidUnparticipateRaw(requestParameters: PostApiV1BountiesByBountyidUnparticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling unparticipateBounty().'
+                'Required parameter "bountyId" was null or undefined when calling postApiV1BountiesByBountyidUnparticipate().'
             );
         }
 
@@ -2194,25 +2141,78 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async unparticipateBounty(requestParameters: UnparticipateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.unparticipateBountyRaw(requestParameters, initOverrides);
+    async postApiV1BountiesByBountyidUnparticipate(requestParameters: PostApiV1BountiesByBountyidUnparticipateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1BountiesByBountyidUnparticipateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateAccessBountyContentRaw(requestParameters: UpdateAccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>> {
+    async postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bounty'] == null) {
+            throw new runtime.RequiredError(
+                'bounty',
+                'Required parameter "bounty" was null or undefined when calling postApiV1BountiesPublish().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/publish`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BountyToJSON(requestParameters['bounty']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.postApiV1BountiesPublishRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentAccessRule>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateAccessBountyContent().'
+                'Required parameter "bountyId" was null or undefined when calling putApiV1BountiesByBountyidContentAccess().'
             );
         }
 
         if (requestParameters['contentAccessRule'] == null) {
             throw new runtime.RequiredError(
                 'contentAccessRule',
-                'Required parameter "contentAccessRule" was null or undefined when calling updateAccessBountyContent().'
+                'Required parameter "contentAccessRule" was null or undefined when calling putApiV1BountiesByBountyidContentAccess().'
             );
         }
 
@@ -2259,140 +2259,18 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async updateAccessBountyContent(requestParameters: UpdateAccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule> {
-        const response = await this.updateAccessBountyContentRaw(requestParameters, initOverrides);
+    async putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentAccessRule> {
+        const response = await this.putApiV1BountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateBountyRaw(requestParameters: UpdateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+    async putApiV1BountiesByBountyidFlagsRaw(requestParameters: PutApiV1BountiesByBountyidFlagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateBounty().'
-            );
-        }
-
-        if (requestParameters['bountyChanges'] == null) {
-            throw new runtime.RequiredError(
-                'bountyChanges',
-                'Required parameter "bountyChanges" was null or undefined when calling updateBounty().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/update`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: BountyChangesToJSON(requestParameters['bountyChanges']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async updateBounty(requestParameters: UpdateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.updateBountyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateBountyStateRaw(requestParameters: UpdateBountyStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateBountyState().'
-            );
-        }
-
-        if (requestParameters['updateBountyStateReq'] == null) {
-            throw new runtime.RequiredError(
-                'updateBountyStateReq',
-                'Required parameter "updateBountyStateReq" was null or undefined when calling updateBountyState().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bounties/{bountyId}/update/state`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateBountyStateReqToJSON(requestParameters['updateBountyStateReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async updateBountyState(requestParameters: UpdateBountyStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateBountyStateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateFeaturedRaw(requestParameters: UpdateFeaturedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateFeatured().'
+                'Required parameter "bountyId" was null or undefined when calling putApiV1BountiesByBountyidFlags().'
             );
         }
 
@@ -2436,8 +2314,130 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async updateFeatured(requestParameters: UpdateFeaturedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateFeaturedRaw(requestParameters, initOverrides);
+    async putApiV1BountiesByBountyidFlags(requestParameters: PutApiV1BountiesByBountyidFlagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1BountiesByBountyidFlagsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling putApiV1BountiesByBountyidUpdate().'
+            );
+        }
+
+        if (requestParameters['bountyChanges'] == null) {
+            throw new runtime.RequiredError(
+                'bountyChanges',
+                'Required parameter "bountyChanges" was null or undefined when calling putApiV1BountiesByBountyidUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/update`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BountyChangesToJSON(requestParameters['bountyChanges']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.putApiV1BountiesByBountyidUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1BountiesByBountyidUpdateStateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling putApiV1BountiesByBountyidUpdateState().'
+            );
+        }
+
+        if (requestParameters['updateBountyStateReq'] == null) {
+            throw new runtime.RequiredError(
+                'updateBountyStateReq',
+                'Required parameter "updateBountyStateReq" was null or undefined when calling putApiV1BountiesByBountyidUpdateState().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/bounties/{bountyId}/update/state`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateBountyStateReqToJSON(requestParameters['updateBountyStateReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1BountiesByBountyidUpdateState(requestParameters: PutApiV1BountiesByBountyidUpdateStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1BountiesByBountyidUpdateStateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

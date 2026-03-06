@@ -16,38 +16,38 @@ public struct ProductsInfo: Codable, JSONEncodable, Hashable {
     public var products: [String: ProductInfo]?
     public var useType: String?
     public var empty: Bool?
-    public var merchant: User?
-    public var totalPrice: Rewards?
+    public var freeShipping: Bool?
     public var onlineProducts: Bool?
     public var noDelivery: Bool?
-    public var freeShipping: Bool?
-    public var merchantId: String?
+    public var merchant: User?
+    public var totalPrice: Rewards?
     public var merchantIds: Set<String>?
+    public var merchantId: String?
 
-    public init(products: [String: ProductInfo]? = nil, useType: String? = nil, empty: Bool? = nil, merchant: User? = nil, totalPrice: Rewards? = nil, onlineProducts: Bool? = nil, noDelivery: Bool? = nil, freeShipping: Bool? = nil, merchantId: String? = nil, merchantIds: Set<String>? = nil) {
+    public init(products: [String: ProductInfo]? = nil, useType: String? = nil, empty: Bool? = nil, freeShipping: Bool? = nil, onlineProducts: Bool? = nil, noDelivery: Bool? = nil, merchant: User? = nil, totalPrice: Rewards? = nil, merchantIds: Set<String>? = nil, merchantId: String? = nil) {
         self.products = products
         self.useType = useType
         self.empty = empty
-        self.merchant = merchant
-        self.totalPrice = totalPrice
+        self.freeShipping = freeShipping
         self.onlineProducts = onlineProducts
         self.noDelivery = noDelivery
-        self.freeShipping = freeShipping
-        self.merchantId = merchantId
+        self.merchant = merchant
+        self.totalPrice = totalPrice
         self.merchantIds = merchantIds
+        self.merchantId = merchantId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case products
         case useType
         case empty
-        case merchant
-        case totalPrice
+        case freeShipping
         case onlineProducts
         case noDelivery
-        case freeShipping
-        case merchantId
+        case merchant
+        case totalPrice
         case merchantIds
+        case merchantId
     }
 
     // Encodable protocol methods
@@ -57,13 +57,13 @@ public struct ProductsInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(products, forKey: .products)
         try container.encodeIfPresent(useType, forKey: .useType)
         try container.encodeIfPresent(empty, forKey: .empty)
-        try container.encodeIfPresent(merchant, forKey: .merchant)
-        try container.encodeIfPresent(totalPrice, forKey: .totalPrice)
+        try container.encodeIfPresent(freeShipping, forKey: .freeShipping)
         try container.encodeIfPresent(onlineProducts, forKey: .onlineProducts)
         try container.encodeIfPresent(noDelivery, forKey: .noDelivery)
-        try container.encodeIfPresent(freeShipping, forKey: .freeShipping)
-        try container.encodeIfPresent(merchantId, forKey: .merchantId)
+        try container.encodeIfPresent(merchant, forKey: .merchant)
+        try container.encodeIfPresent(totalPrice, forKey: .totalPrice)
         try container.encodeIfPresent(merchantIds, forKey: .merchantIds)
+        try container.encodeIfPresent(merchantId, forKey: .merchantId)
     }
 }
 

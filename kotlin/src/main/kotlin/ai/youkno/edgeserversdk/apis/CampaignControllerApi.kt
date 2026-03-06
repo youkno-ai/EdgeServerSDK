@@ -11,23 +11,6 @@ import ai.youkno.edgeserversdk.models.JoinCampaignRequest
 
 interface CampaignControllerApi {
     /**
-     * POST api/v1/campaigns/{client}/join
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param client 
-     * @param joinCampaignRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[JoinCampaign]>
-     */
-    @POST("api/v1/campaigns/{client}/join")
-    fun createJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
-
-    /**
      * DELETE api/v1/campaigns/{client}/join
      * 
      * 
@@ -39,10 +22,26 @@ interface CampaignControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/campaigns/{client}/join")
-    fun deleteJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun deleteApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+    /**
+     * GET api/v1/campaigns/{client}/join
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.List<JoinCampaign>]>
+     */
+    @GET("api/v1/campaigns/{client}/join")
+    fun getApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JoinCampaign>>
 
     /**
      * GET api/v1/campaigns/{client}/join/{campaignId}
@@ -59,23 +58,24 @@ interface CampaignControllerApi {
      * @return [Call]<[JoinCampaign]>
      */
     @GET("api/v1/campaigns/{client}/join/{campaignId}")
-    fun getJoinCampaign(@Path("client") client: kotlin.String, @Path("campaignId") campaignId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
+    fun getApiV1CampaignsByClientJoinByCampaignid(@Path("client") client: kotlin.String, @Path("campaignId") campaignId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
 
     /**
-     * GET api/v1/campaigns/{client}/join
+     * POST api/v1/campaigns/{client}/join
      * 
      * 
      * Responses:
      *  - 200: OK
      *
      * @param client 
+     * @param joinCampaignRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<JoinCampaign>]>
+     * @return [Call]<[JoinCampaign]>
      */
-    @GET("api/v1/campaigns/{client}/join")
-    fun getJoinCampaigns(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JoinCampaign>>
+    @POST("api/v1/campaigns/{client}/join")
+    fun postApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
 
     /**
      * PUT api/v1/campaigns/{client}/join
@@ -92,6 +92,6 @@ interface CampaignControllerApi {
      * @return [Call]<[JoinCampaign]>
      */
     @PUT("api/v1/campaigns/{client}/join")
-    fun updateJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
+    fun putApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
 
 }

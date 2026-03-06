@@ -34,23 +34,36 @@ import {
     SearchCurrenciesFilterToJSON,
 } from '../models/index';
 
-export interface ExchangeCustomCurrencyRequest {
-    code: string;
-    amount: number;
+export interface GetApiV1AccountAmountRequest {
+    currency?: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ExchangeCustomCurrency1Request {
-    code: string;
-    amount: number;
+export interface GetApiV1AccountAmountTmpRequest {
+    currency?: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ExchangeCustomCurrency0Request {
+export interface GetApiV1AccountByCodeCurrencyRequest {
+    code: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccountCompaniesByCompanyidAmountRequest {
+    companyId: string;
+    currency?: Array<string>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest {
     companyId: string;
     code: string;
     amount: number;
@@ -59,29 +72,7 @@ export interface ExchangeCustomCurrency0Request {
     xEdgeClientId?: string;
 }
 
-export interface GetAccountAmountRequest {
-    companyId: string;
-    currency?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccountAmount1Request {
-    currency?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccountAmount2Request {
-    currency?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomCurrenciesRequest {
+export interface GetApiV1AccountCurrenciesRequest {
     filter: SearchCurrenciesFilter;
     start?: number;
     length?: number;
@@ -90,8 +81,17 @@ export interface GetCustomCurrenciesRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetCustomCurrency1Request {
+export interface GetApiV1AccountCurrenciesByCodeExchangeRequest {
     code: string;
+    amount: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccountCurrencyByCodeExchangeRequest {
+    code: string;
+    amount: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -106,8 +106,7 @@ export interface GetCustomCurrency1Request {
 export interface AccountControllerApiInterface {
     /**
      * 
-     * @param {string} code 
-     * @param {number} amount 
+     * @param {Array<string>} [currency] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -115,16 +114,31 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    exchangeCustomCurrencyRaw(requestParameters: ExchangeCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
 
     /**
      */
-    exchangeCustomCurrency(requestParameters: ExchangeCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
+
+    /**
+     * 
+     * @param {Array<string>} [currency] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountControllerApiInterface
+     */
+    getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
+
+    /**
+     */
+    getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
 
     /**
      * 
      * @param {string} code 
-     * @param {number} amount 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -132,11 +146,28 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    exchangeCustomCurrency1Raw(requestParameters: ExchangeCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
 
     /**
      */
-    exchangeCustomCurrency1(requestParameters: ExchangeCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {Array<string>} [currency] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountControllerApiInterface
+     */
+    getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
+
+    /**
+     */
+    getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
 
     /**
      * 
@@ -150,60 +181,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    exchangeCustomCurrency_1Raw(requestParameters: ExchangeCustomCurrency0Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeCurrencyResp>>;
+    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeCurrencyResp>>;
 
     /**
      */
-    exchangeCustomCurrency_1(requestParameters: ExchangeCustomCurrency0Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeCurrencyResp>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {Array<string>} [currency] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccountControllerApiInterface
-     */
-    getAccountAmountRaw(requestParameters: GetAccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
-
-    /**
-     */
-    getAccountAmount(requestParameters: GetAccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
-
-    /**
-     * 
-     * @param {Array<string>} [currency] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccountControllerApiInterface
-     */
-    getAccountAmount1Raw(requestParameters: GetAccountAmount1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
-
-    /**
-     */
-    getAccountAmount1(requestParameters: GetAccountAmount1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
-
-    /**
-     * 
-     * @param {Array<string>} [currency] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccountControllerApiInterface
-     */
-    getAccountAmount2Raw(requestParameters: GetAccountAmount2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>>;
-
-    /**
-     */
-    getAccountAmount2(requestParameters: GetAccountAmount2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp>;
+    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeCurrencyResp>;
 
     /**
      * 
@@ -217,15 +199,16 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getCustomCurrenciesRaw(requestParameters: GetCustomCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePointCurrency>>;
+    getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePointCurrency>>;
 
     /**
      */
-    getCustomCurrencies(requestParameters: GetCustomCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePointCurrency>;
+    getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePointCurrency>;
 
     /**
      * 
      * @param {string} code 
+     * @param {number} amount 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -233,11 +216,28 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getCustomCurrency1Raw(requestParameters: GetCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
+    getApiV1AccountCurrenciesByCodeExchangeRaw(requestParameters: GetApiV1AccountCurrenciesByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getCustomCurrency1(requestParameters: GetCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
+    getApiV1AccountCurrenciesByCodeExchange(requestParameters: GetApiV1AccountCurrenciesByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} code 
+     * @param {number} amount 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountControllerApiInterface
+     */
+    getApiV1AccountCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    getApiV1AccountCurrencyByCodeExchange(requestParameters: GetApiV1AccountCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -248,25 +248,11 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
 
     /**
      */
-    async exchangeCustomCurrencyRaw(requestParameters: ExchangeCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['code'] == null) {
-            throw new runtime.RequiredError(
-                'code',
-                'Required parameter "code" was null or undefined when calling exchangeCustomCurrency().'
-            );
-        }
-
-        if (requestParameters['amount'] == null) {
-            throw new runtime.RequiredError(
-                'amount',
-                'Required parameter "amount" was null or undefined when calling exchangeCustomCurrency().'
-            );
-        }
-
+    async getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
         const queryParameters: any = {};
 
-        if (requestParameters['amount'] != null) {
-            queryParameters['amount'] = requestParameters['amount'];
+        if (requestParameters['currency'] != null) {
+            queryParameters['currency'] = requestParameters['currency'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -288,8 +274,7 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
         }
 
 
-        let urlPath = `/api/v1/account/currencies/{code}/exchange`;
-        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
+        let urlPath = `/api/v1/account/amount`;
 
         const response = await this.request({
             path: urlPath,
@@ -298,37 +283,23 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async exchangeCustomCurrency(requestParameters: ExchangeCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.exchangeCustomCurrencyRaw(requestParameters, initOverrides);
+    async getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
+        const response = await this.getApiV1AccountAmountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async exchangeCustomCurrency1Raw(requestParameters: ExchangeCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['code'] == null) {
-            throw new runtime.RequiredError(
-                'code',
-                'Required parameter "code" was null or undefined when calling exchangeCustomCurrency1().'
-            );
-        }
-
-        if (requestParameters['amount'] == null) {
-            throw new runtime.RequiredError(
-                'amount',
-                'Required parameter "amount" was null or undefined when calling exchangeCustomCurrency1().'
-            );
-        }
-
+    async getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
         const queryParameters: any = {};
 
-        if (requestParameters['amount'] != null) {
-            queryParameters['amount'] = requestParameters['amount'];
+        if (requestParameters['currency'] != null) {
+            queryParameters['currency'] = requestParameters['currency'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -350,7 +321,57 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
         }
 
 
-        let urlPath = `/api/v1/account/currency/{code}/exchange`;
+        let urlPath = `/api/v1/account/amount_tmp`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
+        const response = await this.getApiV1AccountAmountTmpRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
+        if (requestParameters['code'] == null) {
+            throw new runtime.RequiredError(
+                'code',
+                'Required parameter "code" was null or undefined when calling getApiV1AccountByCodeCurrency().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/account/{code}/currency`;
         urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
 
         const response = await this.request({
@@ -360,37 +381,92 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
     }
 
     /**
      */
-    async exchangeCustomCurrency1(requestParameters: ExchangeCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.exchangeCustomCurrency1Raw(requestParameters, initOverrides);
+    async getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
+        const response = await this.getApiV1AccountByCodeCurrencyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async exchangeCustomCurrency_1Raw(requestParameters: ExchangeCustomCurrency0Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeCurrencyResp>> {
+    async getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling exchangeCustomCurrency_1().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1AccountCompaniesByCompanyidAmount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['currency'] != null) {
+            queryParameters['currency'] = requestParameters['currency'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/account/companies/{companyId}/amount`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
+        const response = await this.getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeCurrencyResp>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange().'
             );
         }
 
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
-                'Required parameter "code" was null or undefined when calling exchangeCustomCurrency_1().'
+                'Required parameter "code" was null or undefined when calling getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange().'
             );
         }
 
         if (requestParameters['amount'] == null) {
             throw new runtime.RequiredError(
                 'amount',
-                'Required parameter "amount" was null or undefined when calling exchangeCustomCurrency_1().'
+                'Required parameter "amount" was null or undefined when calling getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange().'
             );
         }
 
@@ -435,167 +511,18 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
 
     /**
      */
-    async exchangeCustomCurrency_1(requestParameters: ExchangeCustomCurrency0Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeCurrencyResp> {
-        const response = await this.exchangeCustomCurrency_1Raw(requestParameters, initOverrides);
+    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeCurrencyResp> {
+        const response = await this.getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAccountAmountRaw(requestParameters: GetAccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getAccountAmount().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['currency'] != null) {
-            queryParameters['currency'] = requestParameters['currency'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/account/companies/{companyId}/amount`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccountAmount(requestParameters: GetAccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
-        const response = await this.getAccountAmountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccountAmount1Raw(requestParameters: GetAccountAmount1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['currency'] != null) {
-            queryParameters['currency'] = requestParameters['currency'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/account/amount`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccountAmount1(requestParameters: GetAccountAmount1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
-        const response = await this.getAccountAmount1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccountAmount2Raw(requestParameters: GetAccountAmount2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountAmountResp>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['currency'] != null) {
-            queryParameters['currency'] = requestParameters['currency'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/account/amount_tmp`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountAmountRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccountAmount2(requestParameters: GetAccountAmount2Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountAmountResp> {
-        const response = await this.getAccountAmount2Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomCurrenciesRaw(requestParameters: GetCustomCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePointCurrency>> {
+    async getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePointCurrency>> {
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
-                'Required parameter "filter" was null or undefined when calling getCustomCurrencies().'
+                'Required parameter "filter" was null or undefined when calling getApiV1AccountCurrencies().'
             );
         }
 
@@ -646,22 +573,33 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
 
     /**
      */
-    async getCustomCurrencies(requestParameters: GetCustomCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePointCurrency> {
-        const response = await this.getCustomCurrenciesRaw(requestParameters, initOverrides);
+    async getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePointCurrency> {
+        const response = await this.getApiV1AccountCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCustomCurrency1Raw(requestParameters: GetCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
+    async getApiV1AccountCurrenciesByCodeExchangeRaw(requestParameters: GetApiV1AccountCurrenciesByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
-                'Required parameter "code" was null or undefined when calling getCustomCurrency1().'
+                'Required parameter "code" was null or undefined when calling getApiV1AccountCurrenciesByCodeExchange().'
+            );
+        }
+
+        if (requestParameters['amount'] == null) {
+            throw new runtime.RequiredError(
+                'amount',
+                'Required parameter "amount" was null or undefined when calling getApiV1AccountCurrenciesByCodeExchange().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['amount'] != null) {
+            queryParameters['amount'] = requestParameters['amount'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -682,7 +620,7 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
         }
 
 
-        let urlPath = `/api/v1/account/{code}/currency`;
+        let urlPath = `/api/v1/account/currencies/{code}/exchange`;
         urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
 
         const response = await this.request({
@@ -692,13 +630,75 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      */
-    async getCustomCurrency1(requestParameters: GetCustomCurrency1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
-        const response = await this.getCustomCurrency1Raw(requestParameters, initOverrides);
+    async getApiV1AccountCurrenciesByCodeExchange(requestParameters: GetApiV1AccountCurrenciesByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1AccountCurrenciesByCodeExchangeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccountCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['code'] == null) {
+            throw new runtime.RequiredError(
+                'code',
+                'Required parameter "code" was null or undefined when calling getApiV1AccountCurrencyByCodeExchange().'
+            );
+        }
+
+        if (requestParameters['amount'] == null) {
+            throw new runtime.RequiredError(
+                'amount',
+                'Required parameter "amount" was null or undefined when calling getApiV1AccountCurrencyByCodeExchange().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['amount'] != null) {
+            queryParameters['amount'] = requestParameters['amount'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/account/currency/{code}/exchange`;
+        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1AccountCurrencyByCodeExchange(requestParameters: GetApiV1AccountCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1AccountCurrencyByCodeExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

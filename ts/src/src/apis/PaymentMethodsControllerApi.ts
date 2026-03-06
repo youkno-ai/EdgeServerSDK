@@ -25,7 +25,7 @@ import {
     PaymentMethodInfoToJSON,
 } from '../models/index';
 
-export interface DeletePaymentMethodRequest {
+export interface DeleteApiV1PaymentsMethodsByPaymentmethodidRequest {
     paymentMethodId: string;
     companyId?: string;
     liveMode?: boolean;
@@ -34,7 +34,23 @@ export interface DeletePaymentMethodRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetDefaultPaymentMethodRequest {
+export interface GetApiV1PaymentsMethodsRequest {
+    companyId?: string;
+    liveMode?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PaymentsMethodsByPaymentmethodidRequest {
+    paymentMethodId: string;
+    companyId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PaymentsMethodsDefaultRequest {
     companyId?: string;
     offSession?: boolean;
     liveMode?: boolean;
@@ -43,23 +59,7 @@ export interface GetDefaultPaymentMethodRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetPaymentMethodRequest {
-    paymentMethodId: string;
-    companyId?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetPaymentMethodsRequest {
-    companyId?: string;
-    liveMode?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SetDefaultPaymentMethodRequest {
+export interface PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest {
     paymentMethodId: string;
     companyId?: string;
     xEdgeAgent?: string;
@@ -86,11 +86,45 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    deletePaymentMethodRaw(requestParameters: DeletePaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: DeleteApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    deletePaymentMethod(requestParameters: DeletePaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteApiV1PaymentsMethodsByPaymentmethodid(requestParameters: DeleteApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} [companyId] 
+     * @param {boolean} [liveMode] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PaymentMethodsControllerApiInterface
+     */
+    getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>>;
+
+    /**
+     */
+    getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo>;
+
+    /**
+     * 
+     * @param {string} paymentMethodId 
+     * @param {string} [companyId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PaymentMethodsControllerApiInterface
+     */
+    getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+
+    /**
+     */
+    getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
 
     /**
      * 
@@ -104,45 +138,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    getDefaultPaymentMethodRaw(requestParameters: GetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+    getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
 
     /**
      */
-    getDefaultPaymentMethod(requestParameters: GetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
-
-    /**
-     * 
-     * @param {string} paymentMethodId 
-     * @param {string} [companyId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PaymentMethodsControllerApiInterface
-     */
-    getPaymentMethodRaw(requestParameters: GetPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
-
-    /**
-     */
-    getPaymentMethod(requestParameters: GetPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
-
-    /**
-     * 
-     * @param {string} [companyId] 
-     * @param {boolean} [liveMode] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PaymentMethodsControllerApiInterface
-     */
-    getPaymentMethodsRaw(requestParameters: GetPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>>;
-
-    /**
-     */
-    getPaymentMethods(requestParameters: GetPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo>;
+    getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
 
     /**
      * 
@@ -155,11 +155,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    setDefaultPaymentMethodRaw(requestParameters: SetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+    postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
 
     /**
      */
-    setDefaultPaymentMethod(requestParameters: SetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
+    postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
 
 }
 
@@ -170,11 +170,11 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async deletePaymentMethodRaw(requestParameters: DeletePaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: DeleteApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['paymentMethodId'] == null) {
             throw new runtime.RequiredError(
                 'paymentMethodId',
-                'Required parameter "paymentMethodId" was null or undefined when calling deletePaymentMethod().'
+                'Required parameter "paymentMethodId" was null or undefined when calling deleteApiV1PaymentsMethodsByPaymentmethodid().'
             );
         }
 
@@ -222,13 +222,119 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async deletePaymentMethod(requestParameters: DeletePaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deletePaymentMethodRaw(requestParameters, initOverrides);
+    async deleteApiV1PaymentsMethodsByPaymentmethodid(requestParameters: DeleteApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async getDefaultPaymentMethodRaw(requestParameters: GetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+    async getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['companyId'] != null) {
+            queryParameters['companyId'] = requestParameters['companyId'];
+        }
+
+        if (requestParameters['liveMode'] != null) {
+            queryParameters['liveMode'] = requestParameters['liveMode'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/payments/methods`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PagePaymentMethodInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo> {
+        const response = await this.getApiV1PaymentsMethodsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+        if (requestParameters['paymentMethodId'] == null) {
+            throw new runtime.RequiredError(
+                'paymentMethodId',
+                'Required parameter "paymentMethodId" was null or undefined when calling getApiV1PaymentsMethodsByPaymentmethodid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['companyId'] != null) {
+            queryParameters['companyId'] = requestParameters['companyId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/payments/methods/{paymentMethodId}`;
+        urlPath = urlPath.replace(`{${"paymentMethodId"}}`, encodeURIComponent(String(requestParameters['paymentMethodId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentMethodInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+        const response = await this.getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -276,124 +382,18 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async getDefaultPaymentMethod(requestParameters: GetDefaultPaymentMethodRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
-        const response = await this.getDefaultPaymentMethodRaw(requestParameters, initOverrides);
+    async getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+        const response = await this.getApiV1PaymentsMethodsDefaultRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getPaymentMethodRaw(requestParameters: GetPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+    async postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
         if (requestParameters['paymentMethodId'] == null) {
             throw new runtime.RequiredError(
                 'paymentMethodId',
-                'Required parameter "paymentMethodId" was null or undefined when calling getPaymentMethod().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['companyId'] != null) {
-            queryParameters['companyId'] = requestParameters['companyId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/payments/methods/{paymentMethodId}`;
-        urlPath = urlPath.replace(`{${"paymentMethodId"}}`, encodeURIComponent(String(requestParameters['paymentMethodId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentMethodInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getPaymentMethod(requestParameters: GetPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
-        const response = await this.getPaymentMethodRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getPaymentMethodsRaw(requestParameters: GetPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['companyId'] != null) {
-            queryParameters['companyId'] = requestParameters['companyId'];
-        }
-
-        if (requestParameters['liveMode'] != null) {
-            queryParameters['liveMode'] = requestParameters['liveMode'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/payments/methods`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PagePaymentMethodInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getPaymentMethods(requestParameters: GetPaymentMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo> {
-        const response = await this.getPaymentMethodsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async setDefaultPaymentMethodRaw(requestParameters: SetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
-        if (requestParameters['paymentMethodId'] == null) {
-            throw new runtime.RequiredError(
-                'paymentMethodId',
-                'Required parameter "paymentMethodId" was null or undefined when calling setDefaultPaymentMethod().'
+                'Required parameter "paymentMethodId" was null or undefined when calling postApiV1PaymentsMethodsByPaymentmethodidDefault().'
             );
         }
 
@@ -437,8 +437,8 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async setDefaultPaymentMethod(requestParameters: SetDefaultPaymentMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
-        const response = await this.setDefaultPaymentMethodRaw(requestParameters, initOverrides);
+    async postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+        const response = await this.postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

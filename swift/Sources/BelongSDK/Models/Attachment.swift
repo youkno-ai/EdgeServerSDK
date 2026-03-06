@@ -12,6 +12,12 @@ import AnyCodable
 
 public struct Attachment: Codable, JSONEncodable, Hashable {
 
+    public enum VisibilityAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case creator = "CREATOR"
+        case participants = "PARTICIPANTS"
+        case all = "ALL"
+    }
     public enum DisplayStyleAsEnum: String, Codable, CaseIterable {
         case inline = "INLINE"
         case attach = "ATTACH"
@@ -22,12 +28,6 @@ public struct Attachment: Codable, JSONEncodable, Hashable {
         case s3 = "S3"
         case ext = "EXT"
         case unknown = "UNKNOWN"
-    }
-    public enum VisibilityAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case creator = "CREATOR"
-        case participants = "PARTICIPANTS"
-        case all = "ALL"
     }
     public enum MeaningAsEnum: String, Codable, CaseIterable {
         case teamLogo = "TEAM_LOGO"
@@ -94,17 +94,17 @@ public struct Attachment: Codable, JSONEncodable, Hashable {
     public var cdnDisplayUrl: String?
     public var attUrl: String?
     public var valid: Bool?
+    public var effectiveActionUrl: String?
+    public var visibilityAsEnum: VisibilityAsEnum?
     public var displayStyleAsEnum: DisplayStyleAsEnum?
     public var youTubeCoverImage: String?
     public var storageTypeAsEnum: StorageTypeAsEnum?
-    public var visibilityAsEnum: VisibilityAsEnum?
-    public var effectiveActionUrl: String?
     public var fileNameFromUrl: String?
     public var youTubeVideoId: String?
     public var meaningAsEnum: MeaningAsEnum?
     public var typeAsEnum: TypeAsEnum?
 
-    public init(id: String? = nil, url: String? = nil, displayUrl: String? = nil, localUri: String? = nil, title: String? = nil, filename: String? = nil, action: Action? = nil, background: Background? = nil, overlay: Overlay? = nil, headline1: TextLine? = nil, headline2: TextLine? = nil, mimeType: String? = nil, coverList: [Cover]? = nil, transcodingInfo: TranscodingInfo? = nil, displayStyle: String? = nil, visibility: String? = nil, type: String? = nil, meaning: String? = nil, note: String? = nil, order: String? = nil, storageType: String? = nil, size: Int? = nil, altText: String? = nil, etag: String? = nil, uploadId: String? = nil, cdnUrl: String? = nil, cdnDisplayUrl: String? = nil, attUrl: String? = nil, valid: Bool? = nil, displayStyleAsEnum: DisplayStyleAsEnum? = nil, youTubeCoverImage: String? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil, visibilityAsEnum: VisibilityAsEnum? = nil, effectiveActionUrl: String? = nil, fileNameFromUrl: String? = nil, youTubeVideoId: String? = nil, meaningAsEnum: MeaningAsEnum? = nil, typeAsEnum: TypeAsEnum? = nil) {
+    public init(id: String? = nil, url: String? = nil, displayUrl: String? = nil, localUri: String? = nil, title: String? = nil, filename: String? = nil, action: Action? = nil, background: Background? = nil, overlay: Overlay? = nil, headline1: TextLine? = nil, headline2: TextLine? = nil, mimeType: String? = nil, coverList: [Cover]? = nil, transcodingInfo: TranscodingInfo? = nil, displayStyle: String? = nil, visibility: String? = nil, type: String? = nil, meaning: String? = nil, note: String? = nil, order: String? = nil, storageType: String? = nil, size: Int? = nil, altText: String? = nil, etag: String? = nil, uploadId: String? = nil, cdnUrl: String? = nil, cdnDisplayUrl: String? = nil, attUrl: String? = nil, valid: Bool? = nil, effectiveActionUrl: String? = nil, visibilityAsEnum: VisibilityAsEnum? = nil, displayStyleAsEnum: DisplayStyleAsEnum? = nil, youTubeCoverImage: String? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil, fileNameFromUrl: String? = nil, youTubeVideoId: String? = nil, meaningAsEnum: MeaningAsEnum? = nil, typeAsEnum: TypeAsEnum? = nil) {
         self.id = id
         self.url = url
         self.displayUrl = displayUrl
@@ -134,11 +134,11 @@ public struct Attachment: Codable, JSONEncodable, Hashable {
         self.cdnDisplayUrl = cdnDisplayUrl
         self.attUrl = attUrl
         self.valid = valid
+        self.effectiveActionUrl = effectiveActionUrl
+        self.visibilityAsEnum = visibilityAsEnum
         self.displayStyleAsEnum = displayStyleAsEnum
         self.youTubeCoverImage = youTubeCoverImage
         self.storageTypeAsEnum = storageTypeAsEnum
-        self.visibilityAsEnum = visibilityAsEnum
-        self.effectiveActionUrl = effectiveActionUrl
         self.fileNameFromUrl = fileNameFromUrl
         self.youTubeVideoId = youTubeVideoId
         self.meaningAsEnum = meaningAsEnum
@@ -175,11 +175,11 @@ public struct Attachment: Codable, JSONEncodable, Hashable {
         case cdnDisplayUrl
         case attUrl
         case valid
+        case effectiveActionUrl
+        case visibilityAsEnum
         case displayStyleAsEnum
         case youTubeCoverImage
         case storageTypeAsEnum
-        case visibilityAsEnum
-        case effectiveActionUrl
         case fileNameFromUrl
         case youTubeVideoId
         case meaningAsEnum
@@ -219,11 +219,11 @@ public struct Attachment: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(cdnDisplayUrl, forKey: .cdnDisplayUrl)
         try container.encodeIfPresent(attUrl, forKey: .attUrl)
         try container.encodeIfPresent(valid, forKey: .valid)
+        try container.encodeIfPresent(effectiveActionUrl, forKey: .effectiveActionUrl)
+        try container.encodeIfPresent(visibilityAsEnum, forKey: .visibilityAsEnum)
         try container.encodeIfPresent(displayStyleAsEnum, forKey: .displayStyleAsEnum)
         try container.encodeIfPresent(youTubeCoverImage, forKey: .youTubeCoverImage)
         try container.encodeIfPresent(storageTypeAsEnum, forKey: .storageTypeAsEnum)
-        try container.encodeIfPresent(visibilityAsEnum, forKey: .visibilityAsEnum)
-        try container.encodeIfPresent(effectiveActionUrl, forKey: .effectiveActionUrl)
         try container.encodeIfPresent(fileNameFromUrl, forKey: .fileNameFromUrl)
         try container.encodeIfPresent(youTubeVideoId, forKey: .youTubeVideoId)
         try container.encodeIfPresent(meaningAsEnum, forKey: .meaningAsEnum)

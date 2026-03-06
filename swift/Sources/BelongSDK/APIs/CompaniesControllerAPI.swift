@@ -18,11 +18,11 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: AnyCodable]
+     - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteCompany(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: AnyCodable] {
-        return try await deleteCompanyWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func deleteApiV1CompaniesByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await deleteApiV1CompaniesByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -34,9 +34,9 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: AnyCodable]> 
+     - returns: RequestBuilder<[String: String]> 
      */
-    open class func deleteCompanyWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: AnyCodable]> {
+    open class func deleteApiV1CompaniesByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/companies/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -54,7 +54,7 @@ open class CompaniesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -62,7 +62,7 @@ open class CompaniesControllerAPI {
     /**
      * enum for parameter userStatus
      */
-    public enum UserStatus_getCompanyEmployees: String, CaseIterable {
+    public enum UserStatus_getApiV1CompaniesByCompanyIdEmployees: String, CaseIterable {
         case active = "ACTIVE"
         case inactive = "INACTIVE"
         case suspended = "SUSPENDED"
@@ -75,7 +75,7 @@ open class CompaniesControllerAPI {
     /**
      * enum for parameter searchMode
      */
-    public enum SearchMode_getCompanyEmployees: String, CaseIterable {
+    public enum SearchMode_getApiV1CompaniesByCompanyIdEmployees: String, CaseIterable {
         case _default = "DEFAULT"
         case regular = "REGULAR"
         case test = "TEST"
@@ -98,8 +98,8 @@ open class CompaniesControllerAPI {
      - returns: CompanyEmployeesResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getCompanyEmployees(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getCompanyEmployees]? = nil, searchMode: SearchMode_getCompanyEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompanyEmployeesResult {
-        return try await getCompanyEmployeesWithRequestBuilder(companyId: companyId, searchCriteria: searchCriteria, country: country, gender: gender, start: start, length: length, userStatus: userStatus, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1CompaniesByCompanyIdEmployees(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompanyEmployeesResult {
+        return try await getApiV1CompaniesByCompanyIdEmployeesWithRequestBuilder(companyId: companyId, searchCriteria: searchCriteria, country: country, gender: gender, start: start, length: length, userStatus: userStatus, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -120,7 +120,7 @@ open class CompaniesControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<CompanyEmployeesResult> 
      */
-    open class func getCompanyEmployeesWithRequestBuilder(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getCompanyEmployees]? = nil, searchMode: SearchMode_getCompanyEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompanyEmployeesResult> {
+    open class func getApiV1CompaniesByCompanyIdEmployeesWithRequestBuilder(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompanyEmployeesResult> {
         var localVariablePath = "/api/v1/companies/{company_id}/employees"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -155,75 +155,7 @@ open class CompaniesControllerAPI {
     /**
      * enum for parameter searchMode
      */
-    public enum SearchMode_getInviters: String, CaseIterable {
-        case _default = "DEFAULT"
-        case regular = "REGULAR"
-        case test = "TEST"
-        case all = "ALL"
-    }
-
-    /**
-
-     - parameter companyId: (path)  
-     - parameter start: (query)  (optional, default to 0)
-     - parameter limit: (query)  (optional, default to 50)
-     - parameter searchMode: (query)  (optional)
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageUser
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getInviters(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageUser {
-        return try await getInvitersWithRequestBuilder(companyId: companyId, start: start, limit: limit, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - GET /api/v1/companies/{company_id}/inviters
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter companyId: (path)  
-     - parameter start: (query)  (optional, default to 0)
-     - parameter limit: (query)  (optional, default to 50)
-     - parameter searchMode: (query)  (optional)
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageUser> 
-     */
-    open class func getInvitersWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageUser> {
-        var localVariablePath = "/api/v1/companies/{company_id}/inviters"
-        let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
-        let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{company_id}", with: companyIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "start": (wrappedValue: start?.encodeToJSON(), isExplode: true),
-            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
-            "searchMode": (wrappedValue: searchMode?.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<PageUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     * enum for parameter searchMode
-     */
-    public enum SearchMode_getUsersRegisteredByInviteCode: String, CaseIterable {
+    public enum SearchMode_getApiV1CompaniesByCompanyIdInvitees: String, CaseIterable {
         case _default = "DEFAULT"
         case regular = "REGULAR"
         case test = "TEST"
@@ -233,7 +165,7 @@ open class CompaniesControllerAPI {
     /**
      * enum for parameter searchFields
      */
-    public enum SearchFields_getUsersRegisteredByInviteCode: String, CaseIterable {
+    public enum SearchFields_getApiV1CompaniesByCompanyIdInvitees: String, CaseIterable {
         case _none = "NONE"
         case userName = "USER_NAME"
         case userFirstName = "USER_FIRST_NAME"
@@ -270,11 +202,11 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: AnyCodable]
+     - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getUsersRegisteredByInviteCode(companyId: String, gender: [String]? = nil, inviter: [String]? = nil, inviteCode: [String]? = nil, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getUsersRegisteredByInviteCode? = nil, blacklisted: Bool? = nil, query: String? = nil, searchFields: [SearchFields_getUsersRegisteredByInviteCode]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: AnyCodable] {
-        return try await getUsersRegisteredByInviteCodeWithRequestBuilder(companyId: companyId, gender: gender, inviter: inviter, inviteCode: inviteCode, start: start, limit: limit, searchMode: searchMode, blacklisted: blacklisted, query: query, searchFields: searchFields, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1CompaniesByCompanyIdInvitees(companyId: String, gender: [String]? = nil, inviter: [String]? = nil, inviteCode: [String]? = nil, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInvitees? = nil, blacklisted: Bool? = nil, query: String? = nil, searchFields: [SearchFields_getApiV1CompaniesByCompanyIdInvitees]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await getApiV1CompaniesByCompanyIdInviteesWithRequestBuilder(companyId: companyId, gender: gender, inviter: inviter, inviteCode: inviteCode, start: start, limit: limit, searchMode: searchMode, blacklisted: blacklisted, query: query, searchFields: searchFields, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -295,9 +227,9 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: AnyCodable]> 
+     - returns: RequestBuilder<[String: String]> 
      */
-    open class func getUsersRegisteredByInviteCodeWithRequestBuilder(companyId: String, gender: [String]? = nil, inviter: [String]? = nil, inviteCode: [String]? = nil, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getUsersRegisteredByInviteCode? = nil, blacklisted: Bool? = nil, query: String? = nil, searchFields: [SearchFields_getUsersRegisteredByInviteCode]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: AnyCodable]> {
+    open class func getApiV1CompaniesByCompanyIdInviteesWithRequestBuilder(companyId: String, gender: [String]? = nil, inviter: [String]? = nil, inviteCode: [String]? = nil, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInvitees? = nil, blacklisted: Bool? = nil, query: String? = nil, searchFields: [SearchFields_getApiV1CompaniesByCompanyIdInvitees]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/companies/{company_id}/invitees"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -326,7 +258,75 @@ open class CompaniesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     * enum for parameter searchMode
+     */
+    public enum SearchMode_getApiV1CompaniesByCompanyIdInviters: String, CaseIterable {
+        case _default = "DEFAULT"
+        case regular = "REGULAR"
+        case test = "TEST"
+        case all = "ALL"
+    }
+
+    /**
+
+     - parameter companyId: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter searchMode: (query)  (optional)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: PageUser
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1CompaniesByCompanyIdInviters(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageUser {
+        return try await getApiV1CompaniesByCompanyIdInvitersWithRequestBuilder(companyId: companyId, start: start, limit: limit, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/companies/{company_id}/inviters
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter companyId: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter searchMode: (query)  (optional)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<PageUser> 
+     */
+    open class func getApiV1CompaniesByCompanyIdInvitersWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageUser> {
+        var localVariablePath = "/api/v1/companies/{company_id}/inviters"
+        let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
+        let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{company_id}", with: companyIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(), isExplode: true),
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+            "searchMode": (wrappedValue: searchMode?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PageUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

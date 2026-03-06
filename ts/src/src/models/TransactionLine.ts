@@ -76,12 +76,6 @@ export interface TransactionLine {
      * @memberof TransactionLine
      */
     transactionTypeAsEnum?: TransactionLineTransactionTypeAsEnumEnum;
-    /**
-     * 
-     * @type {TransactionLine}
-     * @memberof TransactionLine
-     */
-    reverseTransactionLine?: TransactionLine;
 }
 
 
@@ -162,7 +156,6 @@ export function TransactionLineFromJSONTyped(json: any, ignoreDiscriminator: boo
         'silent': json['silent'] == null ? undefined : json['silent'],
         'note': json['note'] == null ? undefined : json['note'],
         'transactionTypeAsEnum': json['transactionTypeAsEnum'] == null ? undefined : json['transactionTypeAsEnum'],
-        'reverseTransactionLine': json['reverseTransactionLine'] == null ? undefined : TransactionLineFromJSON(json['reverseTransactionLine']),
     };
 }
 
@@ -184,7 +177,6 @@ export function TransactionLineToJSONTyped(value?: TransactionLine | null, ignor
         'silent': value['silent'],
         'note': value['note'],
         'transactionTypeAsEnum': value['transactionTypeAsEnum'],
-        'reverseTransactionLine': TransactionLineToJSON(value['reverseTransactionLine']),
     };
 }
 

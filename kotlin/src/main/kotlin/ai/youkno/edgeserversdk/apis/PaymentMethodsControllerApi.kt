@@ -26,7 +26,41 @@ interface PaymentMethodsControllerApi {
      * @return [Call]<[Unit]>
      */
     @DELETE("api/v1/payments/methods/{paymentMethodId}")
-    fun deletePaymentMethod(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+    fun deleteApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+
+    /**
+     * GET api/v1/payments/methods
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param companyId  (optional)
+     * @param liveMode  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[PagePaymentMethodInfo]>
+     */
+    @GET("api/v1/payments/methods")
+    fun getApiV1PaymentsMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PagePaymentMethodInfo>
+
+    /**
+     * GET api/v1/payments/methods/{paymentMethodId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param paymentMethodId 
+     * @param companyId  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[PaymentMethodInfo]>
+     */
+    @GET("api/v1/payments/methods/{paymentMethodId}")
+    fun getApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
 
     /**
      * GET api/v1/payments/methods/default
@@ -44,41 +78,7 @@ interface PaymentMethodsControllerApi {
      * @return [Call]<[PaymentMethodInfo]>
      */
     @GET("api/v1/payments/methods/default")
-    fun getDefaultPaymentMethod(@Query("companyId") companyId: kotlin.String? = null, @Query("offSession") offSession: kotlin.Boolean? = false, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
-
-    /**
-     * GET api/v1/payments/methods/{paymentMethodId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param paymentMethodId 
-     * @param companyId  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[PaymentMethodInfo]>
-     */
-    @GET("api/v1/payments/methods/{paymentMethodId}")
-    fun getPaymentMethod(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
-
-    /**
-     * GET api/v1/payments/methods
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param companyId  (optional)
-     * @param liveMode  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[PagePaymentMethodInfo]>
-     */
-    @GET("api/v1/payments/methods")
-    fun getPaymentMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PagePaymentMethodInfo>
+    fun getApiV1PaymentsMethodsDefault(@Query("companyId") companyId: kotlin.String? = null, @Query("offSession") offSession: kotlin.Boolean? = false, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
 
     /**
      * POST api/v1/payments/methods/{paymentMethodId}/default
@@ -95,6 +95,6 @@ interface PaymentMethodsControllerApi {
      * @return [Call]<[PaymentMethodInfo]>
      */
     @POST("api/v1/payments/methods/{paymentMethodId}/default")
-    fun setDefaultPaymentMethod(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
+    fun postApiV1PaymentsMethodsByPaymentmethodidDefault(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
 
 }

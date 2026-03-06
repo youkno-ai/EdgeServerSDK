@@ -53,9 +53,9 @@ import com.squareup.moshi.JsonClass
  * @param chemicalCompositions 
  * @param valid 
  * @param deliveryTypeAsEnum 
+ * @param totalQuantity 
  * @param fastDelivery 
  * @param kindAsEnum 
- * @param totalQuantity 
  * @param optionCount 
  * @param topLevelVariant 
  */
@@ -141,14 +141,14 @@ data class Product (
     @Json(name = "deliveryTypeAsEnum")
     val deliveryTypeAsEnum: Product.DeliveryTypeAsEnum? = null,
 
+    @Json(name = "totalQuantity")
+    val totalQuantity: kotlin.Double? = null,
+
     @Json(name = "fastDelivery")
     val fastDelivery: kotlin.Boolean? = null,
 
     @Json(name = "kindAsEnum")
     val kindAsEnum: Product.KindAsEnum? = null,
-
-    @Json(name = "totalQuantity")
-    val totalQuantity: kotlin.Double? = null,
 
     @Json(name = "optionCount")
     val optionCount: kotlin.Int? = null,

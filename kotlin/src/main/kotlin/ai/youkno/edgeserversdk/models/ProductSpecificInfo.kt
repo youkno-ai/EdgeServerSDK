@@ -64,10 +64,10 @@ import com.squareup.moshi.JsonClass
  * @param certificateOfAuthenticityUrl 
  * @param chemicalCompositions 
  * @param primaryAttachmentId 
- * @param inventoryPolicyAsEnum 
  * @param extraDeliveryFeeReward 
  * @param effectiveOriginalPrice 
  * @param weightUnitAsEnum 
+ * @param inventoryPolicyAsEnum 
  * @param effectivePrice 
  */
 
@@ -179,9 +179,6 @@ data class ProductSpecificInfo (
     @Json(name = "primaryAttachmentId")
     val primaryAttachmentId: kotlin.String? = null,
 
-    @Json(name = "inventoryPolicyAsEnum")
-    val inventoryPolicyAsEnum: ProductSpecificInfo.InventoryPolicyAsEnum? = null,
-
     @Json(name = "extraDeliveryFeeReward")
     val extraDeliveryFeeReward: Reward? = null,
 
@@ -191,21 +188,14 @@ data class ProductSpecificInfo (
     @Json(name = "weightUnitAsEnum")
     val weightUnitAsEnum: ProductSpecificInfo.WeightUnitAsEnum? = null,
 
+    @Json(name = "inventoryPolicyAsEnum")
+    val inventoryPolicyAsEnum: ProductSpecificInfo.InventoryPolicyAsEnum? = null,
+
     @Json(name = "effectivePrice")
     val effectivePrice: Price? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: DENY,CONTINUE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class InventoryPolicyAsEnum(val value: kotlin.String) {
-        @Json(name = "DENY") DENY("DENY"),
-        @Json(name = "CONTINUE") CONTINUE("CONTINUE");
-    }
     /**
      * 
      *
@@ -222,6 +212,16 @@ data class ProductSpecificInfo (
         @Json(name = "FLWR") FLWR("FLWR"),
         @Json(name = "FLWR_2") FLWR_2("FLWR_2"),
         @Json(name = "FLWR_4") FLWR_4("FLWR_4");
+    }
+    /**
+     * 
+     *
+     * Values: DENY,CONTINUE
+     */
+    @JsonClass(generateAdapter = false)
+    enum class InventoryPolicyAsEnum(val value: kotlin.String) {
+        @Json(name = "DENY") DENY("DENY"),
+        @Json(name = "CONTINUE") CONTINUE("CONTINUE");
     }
 
 }

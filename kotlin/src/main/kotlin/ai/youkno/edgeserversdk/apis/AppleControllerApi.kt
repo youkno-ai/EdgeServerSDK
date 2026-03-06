@@ -9,6 +9,22 @@ import com.squareup.moshi.Json
 
 interface AppleControllerApi {
     /**
+     * GET api/v1/apple/transaction/{transactionId}/process
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param transactionId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @GET("api/v1/apple/transaction/{transactionId}/process")
+    fun getApiV1AppleTransactionByTransactionidProcess(@Path("transactionId") transactionId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+    /**
      * POST api/v1/apple/auth/callback
      * 
      * 
@@ -22,25 +38,9 @@ interface AppleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/apple/auth/callback")
-    fun authCallback(@Query("code") code: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("id_token") idToken: kotlin.String? = null, @Query("user") user: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
-     * GET api/v1/apple/transaction/{transactionId}/process
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param transactionId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @GET("api/v1/apple/transaction/{transactionId}/process")
-    fun processTransaction(@Path("transactionId") transactionId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun postApiV1AppleAuthCallback(@Query("code") code: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("id_token") idToken: kotlin.String? = null, @Query("user") user: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

@@ -24,32 +24,8 @@ export interface BusinessTypesResp {
      * @type {{ [key: string]: Array<string>; }}
      * @memberof BusinessTypesResp
      */
-    types?: { [key: string]: Array<BusinessTypesRespTypesEnum>; };
+    types?: { [key: string]: Array<string>; };
 }
-
-
-/**
- * @export
- */
-export const BusinessTypesRespTypesEnum = {
-    NONE: 'NONE',
-    COFFEE_SHOP: 'COFFEE_SHOP',
-    RESTAURANT: 'RESTAURANT',
-    BAKERY: 'BAKERY',
-    BAR_PUB: 'BAR_PUB',
-    RETAIL_STORE: 'RETAIL_STORE',
-    ONLINE_STORE: 'ONLINE_STORE',
-    FREELANCER: 'FREELANCER',
-    BEAUTY_SALON: 'BEAUTY_SALON',
-    FITNESS_STUDIO_GYM: 'FITNESS_STUDIO_GYM',
-    WELLNESS_CENTER: 'WELLNESS_CENTER',
-    SERVICE_PROVIDER: 'SERVICE_PROVIDER',
-    EVENT_ORGANIZER: 'EVENT_ORGANIZER',
-    OTHER: 'OTHER',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BusinessTypesRespTypesEnum = typeof BusinessTypesRespTypesEnum[keyof typeof BusinessTypesRespTypesEnum];
-
 
 /**
  * Check if a given object implements the BusinessTypesResp interface.

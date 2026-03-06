@@ -12,10 +12,6 @@ import AnyCodable
 
 public struct Order: Codable, JSONEncodable, Hashable {
 
-    public enum ReceiptStatusAsEnum: String, Codable, CaseIterable {
-        case created = "CREATED"
-        case scanned = "SCANNED"
-    }
     public enum PaymentStatusAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case pendingPayment = "PENDING_PAYMENT"
@@ -24,6 +20,10 @@ public struct Order: Codable, JSONEncodable, Hashable {
         case paid = "PAID"
         case paymentFailed = "PAYMENT_FAILED"
         case unknown = "UNKNOWN"
+    }
+    public enum ReceiptStatusAsEnum: String, Codable, CaseIterable {
+        case created = "CREATED"
+        case scanned = "SCANNED"
     }
     public enum StatusAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
@@ -58,17 +58,17 @@ public struct Order: Codable, JSONEncodable, Hashable {
     public var receiptUrl: String?
     public var posUrl: String?
     public var merchantOrderUrl: String?
-    public var receiptStatusAsEnum: ReceiptStatusAsEnum?
     public var paymentStatusAsEnum: PaymentStatusAsEnum?
     public var vouchersToRedeem: Reward?
+    public var receiptStatusAsEnum: ReceiptStatusAsEnum?
     public var merchant: User?
-    public var statusAsEnum: StatusAsEnum?
     public var overallSection: OrderSection?
+    public var statusAsEnum: StatusAsEnum?
     public var customerEmail: String?
-    public var merchantId: String?
     public var imageUrl: String?
+    public var merchantId: String?
 
-    public init(orderId: String? = nil, posOrderId: String? = nil, orderUid: String? = nil, status: String? = nil, billingAddress: MailingAddress? = nil, shippingAddress: MailingAddress? = nil, shippingInfo: ShippingInfo? = nil, paymentMethodInfo: PaymentMethodInfo? = nil, invoiceInfo: InvoiceInfo? = nil, productsInfo: ProductsInfo? = nil, redemptionInfo: RedemptionInfo? = nil, orderTotal: Reward? = nil, customerInfo: CustomerInfo? = nil, paymentInfo: PaymentInfo? = nil, chargebackInfo: ChargebackInfo? = nil, orderedAt: Int64? = nil, receiptUrl: String? = nil, posUrl: String? = nil, merchantOrderUrl: String? = nil, receiptStatusAsEnum: ReceiptStatusAsEnum? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, vouchersToRedeem: Reward? = nil, merchant: User? = nil, statusAsEnum: StatusAsEnum? = nil, overallSection: OrderSection? = nil, customerEmail: String? = nil, merchantId: String? = nil, imageUrl: String? = nil) {
+    public init(orderId: String? = nil, posOrderId: String? = nil, orderUid: String? = nil, status: String? = nil, billingAddress: MailingAddress? = nil, shippingAddress: MailingAddress? = nil, shippingInfo: ShippingInfo? = nil, paymentMethodInfo: PaymentMethodInfo? = nil, invoiceInfo: InvoiceInfo? = nil, productsInfo: ProductsInfo? = nil, redemptionInfo: RedemptionInfo? = nil, orderTotal: Reward? = nil, customerInfo: CustomerInfo? = nil, paymentInfo: PaymentInfo? = nil, chargebackInfo: ChargebackInfo? = nil, orderedAt: Int64? = nil, receiptUrl: String? = nil, posUrl: String? = nil, merchantOrderUrl: String? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, vouchersToRedeem: Reward? = nil, receiptStatusAsEnum: ReceiptStatusAsEnum? = nil, merchant: User? = nil, overallSection: OrderSection? = nil, statusAsEnum: StatusAsEnum? = nil, customerEmail: String? = nil, imageUrl: String? = nil, merchantId: String? = nil) {
         self.orderId = orderId
         self.posOrderId = posOrderId
         self.orderUid = orderUid
@@ -88,15 +88,15 @@ public struct Order: Codable, JSONEncodable, Hashable {
         self.receiptUrl = receiptUrl
         self.posUrl = posUrl
         self.merchantOrderUrl = merchantOrderUrl
-        self.receiptStatusAsEnum = receiptStatusAsEnum
         self.paymentStatusAsEnum = paymentStatusAsEnum
         self.vouchersToRedeem = vouchersToRedeem
+        self.receiptStatusAsEnum = receiptStatusAsEnum
         self.merchant = merchant
-        self.statusAsEnum = statusAsEnum
         self.overallSection = overallSection
+        self.statusAsEnum = statusAsEnum
         self.customerEmail = customerEmail
-        self.merchantId = merchantId
         self.imageUrl = imageUrl
+        self.merchantId = merchantId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -119,15 +119,15 @@ public struct Order: Codable, JSONEncodable, Hashable {
         case receiptUrl
         case posUrl
         case merchantOrderUrl
-        case receiptStatusAsEnum
         case paymentStatusAsEnum
         case vouchersToRedeem
+        case receiptStatusAsEnum
         case merchant
-        case statusAsEnum
         case overallSection
+        case statusAsEnum
         case customerEmail
-        case merchantId
         case imageUrl
+        case merchantId
     }
 
     // Encodable protocol methods
@@ -153,15 +153,15 @@ public struct Order: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(receiptUrl, forKey: .receiptUrl)
         try container.encodeIfPresent(posUrl, forKey: .posUrl)
         try container.encodeIfPresent(merchantOrderUrl, forKey: .merchantOrderUrl)
-        try container.encodeIfPresent(receiptStatusAsEnum, forKey: .receiptStatusAsEnum)
         try container.encodeIfPresent(paymentStatusAsEnum, forKey: .paymentStatusAsEnum)
         try container.encodeIfPresent(vouchersToRedeem, forKey: .vouchersToRedeem)
+        try container.encodeIfPresent(receiptStatusAsEnum, forKey: .receiptStatusAsEnum)
         try container.encodeIfPresent(merchant, forKey: .merchant)
-        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
         try container.encodeIfPresent(overallSection, forKey: .overallSection)
+        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
         try container.encodeIfPresent(customerEmail, forKey: .customerEmail)
-        try container.encodeIfPresent(merchantId, forKey: .merchantId)
         try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
+        try container.encodeIfPresent(merchantId, forKey: .merchantId)
     }
 }
 

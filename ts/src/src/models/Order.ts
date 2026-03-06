@@ -223,12 +223,6 @@ export interface Order {
      * @type {string}
      * @memberof Order
      */
-    receiptStatusAsEnum?: OrderReceiptStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Order
-     */
     paymentStatusAsEnum?: OrderPaymentStatusAsEnumEnum;
     /**
      * 
@@ -238,16 +232,16 @@ export interface Order {
     vouchersToRedeem?: Reward;
     /**
      * 
+     * @type {string}
+     * @memberof Order
+     */
+    receiptStatusAsEnum?: OrderReceiptStatusAsEnumEnum;
+    /**
+     * 
      * @type {User}
      * @memberof Order
      */
     merchant?: User;
-    /**
-     * 
-     * @type {string}
-     * @memberof Order
-     */
-    statusAsEnum?: OrderStatusAsEnumEnum;
     /**
      * 
      * @type {OrderSection}
@@ -259,30 +253,27 @@ export interface Order {
      * @type {string}
      * @memberof Order
      */
+    statusAsEnum?: OrderStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Order
+     */
     customerEmail?: string;
     /**
      * 
      * @type {string}
      * @memberof Order
      */
-    merchantId?: string;
+    imageUrl?: string;
     /**
      * 
      * @type {string}
      * @memberof Order
      */
-    imageUrl?: string;
+    merchantId?: string;
 }
 
-
-/**
- * @export
- */
-export const OrderReceiptStatusAsEnumEnum = {
-    CREATED: 'CREATED',
-    SCANNED: 'SCANNED'
-} as const;
-export type OrderReceiptStatusAsEnumEnum = typeof OrderReceiptStatusAsEnumEnum[keyof typeof OrderReceiptStatusAsEnumEnum];
 
 /**
  * @export
@@ -297,6 +288,15 @@ export const OrderPaymentStatusAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type OrderPaymentStatusAsEnumEnum = typeof OrderPaymentStatusAsEnumEnum[keyof typeof OrderPaymentStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const OrderReceiptStatusAsEnumEnum = {
+    CREATED: 'CREATED',
+    SCANNED: 'SCANNED'
+} as const;
+export type OrderReceiptStatusAsEnumEnum = typeof OrderReceiptStatusAsEnumEnum[keyof typeof OrderReceiptStatusAsEnumEnum];
 
 /**
  * @export
@@ -354,15 +354,15 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'receiptUrl': json['receiptUrl'] == null ? undefined : json['receiptUrl'],
         'posUrl': json['posUrl'] == null ? undefined : json['posUrl'],
         'merchantOrderUrl': json['merchantOrderUrl'] == null ? undefined : json['merchantOrderUrl'],
-        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
         'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
+        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
         'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'customerEmail': json['customerEmail'] == null ? undefined : json['customerEmail'],
-        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
+        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
     };
 }
 
@@ -396,15 +396,15 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'receiptUrl': value['receiptUrl'],
         'posUrl': value['posUrl'],
         'merchantOrderUrl': value['merchantOrderUrl'],
-        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
         'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
+        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
         'merchant': UserToJSON(value['merchant']),
-        'statusAsEnum': value['statusAsEnum'],
         'overallSection': OrderSectionToJSON(value['overallSection']),
+        'statusAsEnum': value['statusAsEnum'],
         'customerEmail': value['customerEmail'],
-        'merchantId': value['merchantId'],
         'imageUrl': value['imageUrl'],
+        'merchantId': value['merchantId'],
     };
 }
 

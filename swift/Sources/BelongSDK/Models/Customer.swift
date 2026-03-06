@@ -19,11 +19,11 @@ public struct Customer: Codable, JSONEncodable, Hashable {
     public var dob: String?
     public var address: MailingAddress?
     public var phoneRawNumber: String?
-    public var effectiveState: String?
     public var phoneStatus: String?
     public var personalName: PersonalName?
+    public var effectiveState: String?
 
-    public init(posCustomerId: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, dob: String? = nil, address: MailingAddress? = nil, phoneRawNumber: String? = nil, effectiveState: String? = nil, phoneStatus: String? = nil, personalName: PersonalName? = nil) {
+    public init(posCustomerId: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, dob: String? = nil, address: MailingAddress? = nil, phoneRawNumber: String? = nil, phoneStatus: String? = nil, personalName: PersonalName? = nil, effectiveState: String? = nil) {
         self.posCustomerId = posCustomerId
         self.firstName = firstName
         self.lastName = lastName
@@ -31,9 +31,9 @@ public struct Customer: Codable, JSONEncodable, Hashable {
         self.dob = dob
         self.address = address
         self.phoneRawNumber = phoneRawNumber
-        self.effectiveState = effectiveState
         self.phoneStatus = phoneStatus
         self.personalName = personalName
+        self.effectiveState = effectiveState
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -44,9 +44,9 @@ public struct Customer: Codable, JSONEncodable, Hashable {
         case dob
         case address
         case phoneRawNumber
-        case effectiveState
         case phoneStatus
         case personalName
+        case effectiveState
     }
 
     // Encodable protocol methods
@@ -60,9 +60,9 @@ public struct Customer: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dob, forKey: .dob)
         try container.encodeIfPresent(address, forKey: .address)
         try container.encodeIfPresent(phoneRawNumber, forKey: .phoneRawNumber)
-        try container.encodeIfPresent(effectiveState, forKey: .effectiveState)
         try container.encodeIfPresent(phoneStatus, forKey: .phoneStatus)
         try container.encodeIfPresent(personalName, forKey: .personalName)
+        try container.encodeIfPresent(effectiveState, forKey: .effectiveState)
     }
 }
 

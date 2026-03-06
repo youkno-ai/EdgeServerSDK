@@ -316,6 +316,12 @@ export interface UpdateUserEvent {
     phoneStatusAsEnum?: UpdateUserEventPhoneStatusAsEnumEnum;
     /**
      * 
+     * @type {Device}
+     * @memberof UpdateUserEvent
+     */
+    device?: Device;
+    /**
+     * 
      * @type {string}
      * @memberof UpdateUserEvent
      */
@@ -332,12 +338,6 @@ export interface UpdateUserEvent {
      * @memberof UpdateUserEvent
      */
     dobAsLocalDate?: Date;
-    /**
-     * 
-     * @type {Device}
-     * @memberof UpdateUserEvent
-     */
-    device?: Device;
     /**
      * 
      * @type {string}
@@ -465,10 +465,10 @@ export function UpdateUserEventFromJSONTyped(json: any, ignoreDiscriminator: boo
         'frontEnd': json['frontEnd'] == null ? undefined : json['frontEnd'],
         'empty': json['empty'] == null ? undefined : json['empty'],
         'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
+        'device': json['device'] == null ? undefined : DeviceFromJSON(json['device']),
         'localeAsEnum': json['localeAsEnum'] == null ? undefined : json['localeAsEnum'],
         'explicitUpdate': json['explicitUpdate'] == null ? undefined : json['explicitUpdate'],
         'dobAsLocalDate': json['dobAsLocalDate'] == null ? undefined : (new Date(json['dobAsLocalDate'])),
-        'device': json['device'] == null ? undefined : DeviceFromJSON(json['device']),
         'requesterId': json['requesterId'] == null ? undefined : json['requesterId'],
     };
 }
@@ -526,10 +526,10 @@ export function UpdateUserEventToJSONTyped(value?: UpdateUserEvent | null, ignor
         'frontEnd': value['frontEnd'],
         'empty': value['empty'],
         'phoneStatusAsEnum': value['phoneStatusAsEnum'],
+        'device': DeviceToJSON(value['device']),
         'localeAsEnum': value['localeAsEnum'],
         'explicitUpdate': value['explicitUpdate'],
         'dobAsLocalDate': value['dobAsLocalDate'] == null ? undefined : ((value['dobAsLocalDate']).toISOString().substring(0,10)),
-        'device': DeviceToJSON(value['device']),
         'requesterId': value['requesterId'],
     };
 }

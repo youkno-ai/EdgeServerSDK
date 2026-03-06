@@ -31,21 +31,21 @@ import {
     StickerGeneratorMetaToJSON,
 } from '../models/index';
 
-export interface GenerateStickersRequest {
-    input: Input;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGenerateStickersStatusRequest {
+export interface GetApiV1AiGenerateStickersByBountyidRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface MetaRequest {
+export interface GetApiV1AiGenerateStickersMetaRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateStickersRequest {
+    input: Input;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -60,22 +60,6 @@ export interface MetaRequest {
 export interface AiControllerApiInterface {
     /**
      * 
-     * @param {Input} input 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    generateStickersRaw(requestParameters: GenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>>;
-
-    /**
-     */
-    generateStickers(requestParameters: GenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse>;
-
-    /**
-     * 
      * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -84,11 +68,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getGenerateStickersStatusRaw(requestParameters: GetGenerateStickersStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>>;
+    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>>;
 
     /**
      */
-    getGenerateStickersStatus(requestParameters: GetGenerateStickersStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus>;
+    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus>;
 
     /**
      * 
@@ -99,11 +83,27 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    metaRaw(requestParameters: MetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>>;
+    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>>;
 
     /**
      */
-    meta(requestParameters: MetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta>;
+    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta>;
+
+    /**
+     * 
+     * @param {Input} input 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse>;
 
 }
 
@@ -114,11 +114,105 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
 
     /**
      */
-    async generateStickersRaw(requestParameters: GenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>> {
+    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1AiGenerateStickersByBountyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/stickers/{bountyId}`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StickerCollectionGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateStickersByBountyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/stickers/meta`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StickerGeneratorMetaFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta> {
+        const response = await this.getApiV1AiGenerateStickersMetaRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>> {
         if (requestParameters['input'] == null) {
             throw new runtime.RequiredError(
                 'input',
-                'Required parameter "input" was null or undefined when calling generateStickers().'
+                'Required parameter "input" was null or undefined when calling postApiV1AiGenerateStickers().'
             );
         }
 
@@ -160,102 +254,8 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
 
     /**
      */
-    async generateStickers(requestParameters: GenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse> {
-        const response = await this.generateStickersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getGenerateStickersStatusRaw(requestParameters: GetGenerateStickersStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getGenerateStickersStatus().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/ai/generate/stickers/{bountyId}`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StickerCollectionGeneratorStatusFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getGenerateStickersStatus(requestParameters: GetGenerateStickersStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus> {
-        const response = await this.getGenerateStickersStatusRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async metaRaw(requestParameters: MetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/ai/generate/stickers/meta`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StickerGeneratorMetaFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async meta(requestParameters: MetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta> {
-        const response = await this.metaRaw(requestParameters, initOverrides);
+    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse> {
+        const response = await this.postApiV1AiGenerateStickersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

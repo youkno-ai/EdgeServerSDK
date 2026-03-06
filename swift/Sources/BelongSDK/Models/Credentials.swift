@@ -30,9 +30,8 @@ public struct Credentials: Codable, JSONEncodable, Hashable {
     public var shopName: String?
     public var accessToken: String?
     public var empty: Bool?
-    public var maskedCreds: AnyCodable?
 
-    public init(username: String? = nil, password: String? = nil, apiKey: String? = nil, userId: Int? = nil, organizationId: Int? = nil, facilityId: Int? = nil, dbHost: String? = nil, dbPort: Int? = nil, dbName: String? = nil, dbUsername: String? = nil, dbPassword: String? = nil, dbSslRootCert: String? = nil, dbSslCert: String? = nil, dbSslKey: String? = nil, dbSslPassword: String? = nil, shopName: String? = nil, accessToken: String? = nil, empty: Bool? = nil, maskedCreds: AnyCodable? = nil) {
+    public init(username: String? = nil, password: String? = nil, apiKey: String? = nil, userId: Int? = nil, organizationId: Int? = nil, facilityId: Int? = nil, dbHost: String? = nil, dbPort: Int? = nil, dbName: String? = nil, dbUsername: String? = nil, dbPassword: String? = nil, dbSslRootCert: String? = nil, dbSslCert: String? = nil, dbSslKey: String? = nil, dbSslPassword: String? = nil, shopName: String? = nil, accessToken: String? = nil, empty: Bool? = nil) {
         self.username = username
         self.password = password
         self.apiKey = apiKey
@@ -51,7 +50,6 @@ public struct Credentials: Codable, JSONEncodable, Hashable {
         self.shopName = shopName
         self.accessToken = accessToken
         self.empty = empty
-        self.maskedCreds = maskedCreds
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -73,7 +71,6 @@ public struct Credentials: Codable, JSONEncodable, Hashable {
         case shopName
         case accessToken
         case empty
-        case maskedCreds
     }
 
     // Encodable protocol methods
@@ -98,7 +95,6 @@ public struct Credentials: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(shopName, forKey: .shopName)
         try container.encodeIfPresent(accessToken, forKey: .accessToken)
         try container.encodeIfPresent(empty, forKey: .empty)
-        try container.encodeIfPresent(maskedCreds, forKey: .maskedCreds)
     }
 }
 

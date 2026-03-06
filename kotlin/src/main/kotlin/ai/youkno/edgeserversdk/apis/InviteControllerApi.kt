@@ -32,130 +32,13 @@ interface InviteControllerApi {
      * @return [Call]<[Unit]>
      */
     @DELETE("api/v1/invites/{inviteId}")
-    fun cancelInvite(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
-
-    /**
-     * POST api/v1/invites/bounty/{bountyId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param bountyId 
-     * @param createBountyInviteRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @POST("api/v1/invites/bounty/{bountyId}")
-    fun createInviteForBounty(@Path("bountyId") bountyId: kotlin.String, @Body createBountyInviteRequest: CreateBountyInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
-
-    /**
-     * POST api/v1/invites/company/{companyId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param companyId 
-     * @param createCompanyInviteRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @POST("api/v1/invites/company/{companyId}")
-    fun createInviteForCompany(@Path("companyId") companyId: kotlin.String, @Body createCompanyInviteRequest: CreateCompanyInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
-
-    /**
-     * POST api/v1/invites/group/{groupId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param groupId 
-     * @param createGroupInviteRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @POST("api/v1/invites/group/{groupId}")
-    fun createInviteForGroup(@Path("groupId") groupId: kotlin.String, @Body createGroupInviteRequest: CreateGroupInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
-
-    /**
-     * POST api/v1/invites/platform
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param createPlatformInviteRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @POST("api/v1/invites/platform")
-    fun createInviteForPlatform(@Body createPlatformInviteRequest: CreatePlatformInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
-
-    /**
-     * PUT api/v1/invites/{inviteId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param inviteId 
-     * @param userInvite 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @PUT("api/v1/invites/{inviteId}")
-    fun editInviteLink1(@Path("inviteId") inviteId: kotlin.String, @Body userInvite: UserInvite, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
-     * GET api/v1/invites/{inviteId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param inviteId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @GET("api/v1/invites/{inviteId}")
-    fun getInviteLink1(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
-
-    /**
-     * GET api/v1/invites/deals/{dealId}/invites/{inviteId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param dealId 
-     * @param inviteId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @GET("api/v1/invites/deals/{dealId}/invites/{inviteId}")
-    fun getInviteLink2(@Path("dealId") dealId: kotlin.String, @Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+    fun deleteApiV1InvitesByInviteid(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
 
     /**
     * enum for parameter statuses
     */
-    enum class StatusesGetInvites(val value: kotlin.String) {
+    enum class StatusesGetApiV1Invites(val value: kotlin.String) {
         @Json(name = "PENDING") PENDING("PENDING"),
         @Json(name = "CANCELED") CANCELED("CANCELED"),
         @Json(name = "DELETED") DELETED("DELETED"),
@@ -182,7 +65,7 @@ interface InviteControllerApi {
      * @return [Call]<[PageUserInvite]>
      */
     @GET("api/v1/invites")
-    fun getInvites(@Query("companyId") companyId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("statuses") statuses: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+    fun getApiV1Invites(@Query("companyId") companyId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("statuses") statuses: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
 
     /**
      * GET api/v1/invites/bounty/{bountyId}
@@ -200,7 +83,23 @@ interface InviteControllerApi {
      * @return [Call]<[PageUserInvite]>
      */
     @GET("api/v1/invites/bounty/{bountyId}")
-    fun getInvitesForBounty(@Path("bountyId") bountyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+    fun getApiV1InvitesBountyByBountyid(@Path("bountyId") bountyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+
+    /**
+     * GET api/v1/invites/{inviteId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param inviteId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @GET("api/v1/invites/{inviteId}")
+    fun getApiV1InvitesByInviteid(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
 
     /**
      * GET api/v1/invites/company/{companyId}
@@ -218,7 +117,24 @@ interface InviteControllerApi {
      * @return [Call]<[PageUserInvite]>
      */
     @GET("api/v1/invites/company/{companyId}")
-    fun getInvitesForCompany(@Path("companyId") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+    fun getApiV1InvitesCompanyByCompanyid(@Path("companyId") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+
+    /**
+     * GET api/v1/invites/deals/{dealId}/invites/{inviteId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param dealId 
+     * @param inviteId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @GET("api/v1/invites/deals/{dealId}/invites/{inviteId}")
+    fun getApiV1InvitesDealsByDealidInvitesByInviteid(@Path("dealId") dealId: kotlin.String, @Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
 
     /**
      * GET api/v1/invites/group/{groupId}
@@ -236,7 +152,7 @@ interface InviteControllerApi {
      * @return [Call]<[PageUserInvite]>
      */
     @GET("api/v1/invites/group/{groupId}")
-    fun getInvitesForGroup(@Path("groupId") groupId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
+    fun getApiV1InvitesGroupByGroupid(@Path("groupId") groupId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
 
     /**
      * GET api/v1/invites/platform
@@ -253,23 +169,7 @@ interface InviteControllerApi {
      * @return [Call]<[PageUserInvite]>
      */
     @GET("api/v1/invites/platform")
-    fun getInvitesForPlatform(@Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
-
-    /**
-     * POST api/v1/invites/link
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param getInviteLinkRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserInvite]>
-     */
-    @POST("api/v1/invites/link")
-    fun getLink(@Body getInviteLinkRequest: GetInviteLinkRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+    fun getApiV1InvitesPlatform(@Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserInvite>
 
     /**
      * GET api/v1/invites/roles
@@ -284,7 +184,7 @@ interface InviteControllerApi {
      * @return [Call]<[InvitesRolesResult]>
      */
     @GET("api/v1/invites/roles")
-    fun inviteRoles(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<InvitesRolesResult>
+    fun getApiV1InvitesRoles(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<InvitesRolesResult>
 
     /**
      * POST api/v1/invites
@@ -301,7 +201,24 @@ interface InviteControllerApi {
      */
     @Deprecated("This api was deprecated")
     @POST("api/v1/invites")
-    fun sendInvite(@Body sendInvitesRequest: SendInvitesRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SendInvitesResponse>
+    fun postApiV1Invites(@Body sendInvitesRequest: SendInvitesRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SendInvitesResponse>
+
+    /**
+     * POST api/v1/invites/bounty/{bountyId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param bountyId 
+     * @param createBountyInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/bounty/{bountyId}")
+    fun postApiV1InvitesBountyByBountyid(@Path("bountyId") bountyId: kotlin.String, @Body createBountyInviteRequest: CreateBountyInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
 
     /**
      * POST api/v1/invites/{inviteId}/resend
@@ -317,6 +234,89 @@ interface InviteControllerApi {
      * @return [Call]<[Unit]>
      */
     @POST("api/v1/invites/{inviteId}/resend")
-    fun sendInvite1(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+    fun postApiV1InvitesByInviteidResend(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+
+    /**
+     * POST api/v1/invites/company/{companyId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param companyId 
+     * @param createCompanyInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/company/{companyId}")
+    fun postApiV1InvitesCompanyByCompanyid(@Path("companyId") companyId: kotlin.String, @Body createCompanyInviteRequest: CreateCompanyInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+
+    /**
+     * POST api/v1/invites/group/{groupId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param groupId 
+     * @param createGroupInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/group/{groupId}")
+    fun postApiV1InvitesGroupByGroupid(@Path("groupId") groupId: kotlin.String, @Body createGroupInviteRequest: CreateGroupInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+
+    /**
+     * POST api/v1/invites/link
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param getInviteLinkRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/link")
+    fun postApiV1InvitesLink(@Body getInviteLinkRequest: GetInviteLinkRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+
+    /**
+     * POST api/v1/invites/platform
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param createPlatformInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/platform")
+    fun postApiV1InvitesPlatform(@Body createPlatformInviteRequest: CreatePlatformInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+
+    /**
+     * PUT api/v1/invites/{inviteId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param inviteId 
+     * @param userInvite 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @PUT("api/v1/invites/{inviteId}")
+    fun putApiV1InvitesByInviteid(@Path("inviteId") inviteId: kotlin.String, @Body userInvite: UserInvite, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

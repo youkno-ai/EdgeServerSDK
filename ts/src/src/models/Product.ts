@@ -213,6 +213,12 @@ export interface Product {
     deliveryTypeAsEnum?: ProductDeliveryTypeAsEnumEnum;
     /**
      * 
+     * @type {number}
+     * @memberof Product
+     */
+    totalQuantity?: number;
+    /**
+     * 
      * @type {boolean}
      * @memberof Product
      */
@@ -223,12 +229,6 @@ export interface Product {
      * @memberof Product
      */
     kindAsEnum?: ProductKindAsEnumEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof Product
-     */
-    totalQuantity?: number;
     /**
      * 
      * @type {number}
@@ -313,9 +313,9 @@ export function ProductFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ChemicalInfoFromJSON)),
         'valid': json['valid'] == null ? undefined : json['valid'],
         'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
+        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
         'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
         'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
         'topLevelVariant': json['topLevelVariant'] == null ? undefined : ProductSpecificInfoFromJSON(json['topLevelVariant']),
     };
@@ -358,9 +358,9 @@ export function ProductToJSONTyped(value?: Product | null, ignoreDiscriminator: 
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ChemicalInfoToJSON)),
         'valid': value['valid'],
         'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
+        'totalQuantity': value['totalQuantity'],
         'fastDelivery': value['fastDelivery'],
         'kindAsEnum': value['kindAsEnum'],
-        'totalQuantity': value['totalQuantity'],
         'optionCount': value['optionCount'],
         'topLevelVariant': ProductSpecificInfoToJSON(value['topLevelVariant']),
     };

@@ -25,49 +25,49 @@ import {
     SeatToJSON,
 } from '../models/index';
 
-export interface BuyRequest {
+export interface DeleteApiV1SeatsBySeatidRequest {
     seatId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface Create2Request {
-    seat: Seat;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface Delete3Request {
+export interface GetApiV1SeatsBySeatidRequest {
     seatId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllByAppUserId1Request {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAllByEventIdRequest {
+export interface GetApiV1SeatsByeventidByEventidRequest {
     eventId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetById3Request {
+export interface GetApiV1SeatsByuseridByUseridRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PatchApiV1SeatsBySeatidReserveRequest {
     seatId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ReserveRequest {
+export interface PostApiV1SeatsRequest {
+    seat: Seat;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1SeatsBySeatidBuyRequest {
     seatId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -91,27 +91,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    buyRaw(requestParameters: BuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    deleteApiV1SeatsBySeatidRaw(requestParameters: DeleteApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    buy(requestParameters: BuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
-
-    /**
-     * 
-     * @param {Seat} seat 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SeatControllerApiInterface
-     */
-    create2Raw(requestParameters: Create2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
-
-    /**
-     */
-    create2(requestParameters: Create2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    deleteApiV1SeatsBySeatid(requestParameters: DeleteApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -123,27 +107,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    delete3Raw(requestParameters: Delete3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>>;
 
     /**
      */
-    delete3(requestParameters: Delete3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SeatControllerApiInterface
-     */
-    getAllByAppUserId1Raw(requestParameters: GetAllByAppUserId1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
-
-    /**
-     */
-    getAllByAppUserId1(requestParameters: GetAllByAppUserId1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
+    getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat>;
 
     /**
      * 
@@ -155,11 +123,27 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    getAllByEventIdRaw(requestParameters: GetAllByEventIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
+    getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
 
     /**
      */
-    getAllByEventId(requestParameters: GetAllByEventIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
+    getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SeatControllerApiInterface
+     */
+    getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
+
+    /**
+     */
+    getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
 
     /**
      * 
@@ -171,11 +155,27 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    getById3Raw(requestParameters: GetById3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>>;
+    patchApiV1SeatsBySeatidReserveRaw(requestParameters: PatchApiV1SeatsBySeatidReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getById3(requestParameters: GetById3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat>;
+    patchApiV1SeatsBySeatidReserve(requestParameters: PatchApiV1SeatsBySeatidReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {Seat} seat 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SeatControllerApiInterface
+     */
+    postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -187,11 +187,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    reserveRaw(requestParameters: ReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    reserve(requestParameters: ReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
 }
 
@@ -202,11 +202,11 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
 
     /**
      */
-    async buyRaw(requestParameters: BuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+    async deleteApiV1SeatsBySeatidRaw(requestParameters: DeleteApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['seatId'] == null) {
             throw new runtime.RequiredError(
                 'seatId',
-                'Required parameter "seatId" was null or undefined when calling buy().'
+                'Required parameter "seatId" was null or undefined when calling deleteApiV1SeatsBySeatid().'
             );
         }
 
@@ -231,33 +231,237 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
         }
 
 
-        let urlPath = `/api/v1/seats/{seatId}/buy`;
+        let urlPath = `/api/v1/seats/{seatId}`;
         urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      */
-    async buy(requestParameters: BuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.buyRaw(requestParameters, initOverrides);
+    async deleteApiV1SeatsBySeatid(requestParameters: DeleteApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1SeatsBySeatidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async create2Raw(requestParameters: Create2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+    async getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>> {
+        if (requestParameters['seatId'] == null) {
+            throw new runtime.RequiredError(
+                'seatId',
+                'Required parameter "seatId" was null or undefined when calling getApiV1SeatsBySeatid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/seats/{seatId}`;
+        urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SeatFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat> {
+        const response = await this.getApiV1SeatsBySeatidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
+        if (requestParameters['eventId'] == null) {
+            throw new runtime.RequiredError(
+                'eventId',
+                'Required parameter "eventId" was null or undefined when calling getApiV1SeatsByeventidByEventid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/seats/byEventId/{eventId}`;
+        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
+        const response = await this.getApiV1SeatsByeventidByEventidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1SeatsByuseridByUserid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/seats/byUserId/{userId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
+        const response = await this.getApiV1SeatsByuseridByUseridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async patchApiV1SeatsBySeatidReserveRaw(requestParameters: PatchApiV1SeatsBySeatidReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['seatId'] == null) {
+            throw new runtime.RequiredError(
+                'seatId',
+                'Required parameter "seatId" was null or undefined when calling patchApiV1SeatsBySeatidReserve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/seats/{seatId}/reserve`;
+        urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async patchApiV1SeatsBySeatidReserve(requestParameters: PatchApiV1SeatsBySeatidReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.patchApiV1SeatsBySeatidReserveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['seat'] == null) {
             throw new runtime.RequiredError(
                 'seat',
-                'Required parameter "seat" was null or undefined when calling create2().'
+                'Required parameter "seat" was null or undefined when calling postApiV1Seats().'
             );
         }
 
@@ -299,18 +503,18 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
 
     /**
      */
-    async create2(requestParameters: Create2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.create2Raw(requestParameters, initOverrides);
+    async postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1SeatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async delete3Raw(requestParameters: Delete3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['seatId'] == null) {
             throw new runtime.RequiredError(
                 'seatId',
-                'Required parameter "seatId" was null or undefined when calling delete3().'
+                'Required parameter "seatId" was null or undefined when calling postApiV1SeatsBySeatidBuy().'
             );
         }
 
@@ -335,227 +539,23 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
         }
 
 
-        let urlPath = `/api/v1/seats/{seatId}`;
+        let urlPath = `/api/v1/seats/{seatId}/buy`;
         urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'DELETE',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async delete3(requestParameters: Delete3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.delete3Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAllByAppUserId1Raw(requestParameters: GetAllByAppUserId1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getAllByAppUserId1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/seats/byUserId/{userId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
-    }
-
-    /**
-     */
-    async getAllByAppUserId1(requestParameters: GetAllByAppUserId1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
-        const response = await this.getAllByAppUserId1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAllByEventIdRaw(requestParameters: GetAllByEventIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
-        if (requestParameters['eventId'] == null) {
-            throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getAllByEventId().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/seats/byEventId/{eventId}`;
-        urlPath = urlPath.replace(`{${"eventId"}}`, encodeURIComponent(String(requestParameters['eventId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
-    }
-
-    /**
-     */
-    async getAllByEventId(requestParameters: GetAllByEventIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
-        const response = await this.getAllByEventIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getById3Raw(requestParameters: GetById3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>> {
-        if (requestParameters['seatId'] == null) {
-            throw new runtime.RequiredError(
-                'seatId',
-                'Required parameter "seatId" was null or undefined when calling getById3().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/seats/{seatId}`;
-        urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SeatFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getById3(requestParameters: GetById3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat> {
-        const response = await this.getById3Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async reserveRaw(requestParameters: ReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['seatId'] == null) {
-            throw new runtime.RequiredError(
-                'seatId',
-                'Required parameter "seatId" was null or undefined when calling reserve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/seats/{seatId}/reserve`;
-        urlPath = urlPath.replace(`{${"seatId"}}`, encodeURIComponent(String(requestParameters['seatId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async reserve(requestParameters: ReserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.reserveRaw(requestParameters, initOverrides);
+    async postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1SeatsBySeatidBuyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

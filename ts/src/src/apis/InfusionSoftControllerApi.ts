@@ -15,13 +15,13 @@
 
 import * as runtime from '../runtime';
 
-export interface InfusionSoftRequest {
+export interface GetApiV1InfusionsoftRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface InfusionSoftAuthCallbackRequest {
+export interface GetApiV1InfusionsoftAuthCallbackRequest {
     state?: string;
     code?: string;
     xEdgeAgent?: string;
@@ -45,11 +45,11 @@ export interface InfusionSoftControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InfusionSoftControllerApiInterface
      */
-    infusionSoftRaw(requestParameters: InfusionSoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1InfusionsoftRaw(requestParameters: GetApiV1InfusionsoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    infusionSoft(requestParameters: InfusionSoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1Infusionsoft(requestParameters: GetApiV1InfusionsoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -62,11 +62,11 @@ export interface InfusionSoftControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InfusionSoftControllerApiInterface
      */
-    infusionSoftAuthCallbackRaw(requestParameters: InfusionSoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1InfusionsoftAuthCallbackRaw(requestParameters: GetApiV1InfusionsoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    infusionSoftAuthCallback(requestParameters: InfusionSoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1InfusionsoftAuthCallback(requestParameters: GetApiV1InfusionsoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -77,7 +77,7 @@ export class InfusionSoftControllerApi extends runtime.BaseAPI implements Infusi
 
     /**
      */
-    async infusionSoftRaw(requestParameters: InfusionSoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1InfusionsoftRaw(requestParameters: GetApiV1InfusionsoftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -113,14 +113,14 @@ export class InfusionSoftControllerApi extends runtime.BaseAPI implements Infusi
 
     /**
      */
-    async infusionSoft(requestParameters: InfusionSoftRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.infusionSoftRaw(requestParameters, initOverrides);
+    async getApiV1Infusionsoft(requestParameters: GetApiV1InfusionsoftRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1InfusionsoftRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async infusionSoftAuthCallbackRaw(requestParameters: InfusionSoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1InfusionsoftAuthCallbackRaw(requestParameters: GetApiV1InfusionsoftAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -164,8 +164,8 @@ export class InfusionSoftControllerApi extends runtime.BaseAPI implements Infusi
 
     /**
      */
-    async infusionSoftAuthCallback(requestParameters: InfusionSoftAuthCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.infusionSoftAuthCallbackRaw(requestParameters, initOverrides);
+    async getApiV1InfusionsoftAuthCallback(requestParameters: GetApiV1InfusionsoftAuthCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1InfusionsoftAuthCallbackRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

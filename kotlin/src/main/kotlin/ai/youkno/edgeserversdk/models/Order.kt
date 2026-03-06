@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
- * @param receiptStatusAsEnum 
  * @param paymentStatusAsEnum 
  * @param vouchersToRedeem 
+ * @param receiptStatusAsEnum 
  * @param merchant 
- * @param statusAsEnum 
  * @param overallSection 
+ * @param statusAsEnum 
  * @param customerEmail 
- * @param merchantId 
  * @param imageUrl 
+ * @param merchantId 
  */
 
 
@@ -124,45 +124,35 @@ data class Order (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
-    @Json(name = "receiptStatusAsEnum")
-    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null,
-
     @Json(name = "paymentStatusAsEnum")
     val paymentStatusAsEnum: Order.PaymentStatusAsEnum? = null,
 
     @Json(name = "vouchersToRedeem")
     val vouchersToRedeem: Reward? = null,
 
+    @Json(name = "receiptStatusAsEnum")
+    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null,
+
     @Json(name = "merchant")
     val merchant: User? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: Order.StatusAsEnum? = null,
 
     @Json(name = "overallSection")
     val overallSection: OrderSection? = null,
 
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: Order.StatusAsEnum? = null,
+
     @Json(name = "customerEmail")
     val customerEmail: kotlin.String? = null,
 
-    @Json(name = "merchantId")
-    val merchantId: kotlin.String? = null,
-
     @Json(name = "imageUrl")
-    val imageUrl: kotlin.String? = null
+    val imageUrl: kotlin.String? = null,
+
+    @Json(name = "merchantId")
+    val merchantId: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: CREATED,SCANNED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "CREATED") CREATED("CREATED"),
-        @Json(name = "SCANNED") SCANNED("SCANNED");
-    }
     /**
      * 
      *
@@ -177,6 +167,16 @@ data class Order (
         @Json(name = "PAID") PAID("PAID"),
         @Json(name = "PAYMENT_FAILED") PAYMENT_FAILED("PAYMENT_FAILED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: CREATED,SCANNED
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "CREATED") CREATED("CREATED"),
+        @Json(name = "SCANNED") SCANNED("SCANNED");
     }
     /**
      * 

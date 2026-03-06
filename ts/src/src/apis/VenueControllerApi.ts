@@ -25,42 +25,42 @@ import {
     VenueToJSON,
 } from '../models/index';
 
-export interface CreateRequest {
-    venue: Venue;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface Delete1Request {
+export interface DeleteApiV1VenuesByVenueidRequest {
     venueId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllRequest {
+export interface GetApiV1VenuesRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetByCompanyRequest {
+export interface GetApiV1VenuesByVenueidRequest {
+    venueId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1VenuesBycompanyByCompanyidRequest {
     companyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetByIdRequest {
+export interface PatchApiV1VenuesByVenueidRequest {
     venueId: string;
+    venue: Venue;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateRequest {
-    venueId: string;
+export interface PostApiV1VenuesRequest {
     venue: Venue;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -76,7 +76,7 @@ export interface UpdateRequest {
 export interface VenueControllerApiInterface {
     /**
      * 
-     * @param {Venue} venue 
+     * @param {string} venueId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -84,11 +84,26 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    createRaw(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    deleteApiV1VenuesByVenueidRaw(requestParameters: DeleteApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    create(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    deleteApiV1VenuesByVenueid(requestParameters: DeleteApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VenueControllerApiInterface
+     */
+    getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
+
+    /**
+     */
+    getApiV1Venues(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
 
     /**
      * 
@@ -100,26 +115,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    delete1Raw(requestParameters: Delete1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
 
     /**
      */
-    delete1(requestParameters: Delete1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VenueControllerApiInterface
-     */
-    getAllRaw(requestParameters: GetAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
-
-    /**
-     */
-    getAll(requestParameters: GetAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
+    getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
 
     /**
      * 
@@ -131,27 +131,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    getByCompanyRaw(requestParameters: GetByCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
+    getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
 
     /**
      */
-    getByCompany(requestParameters: GetByCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
-
-    /**
-     * 
-     * @param {string} venueId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VenueControllerApiInterface
-     */
-    getByIdRaw(requestParameters: GetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
-
-    /**
-     */
-    getById(requestParameters: GetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
+    getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
 
     /**
      * 
@@ -164,11 +148,27 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    updateRaw(requestParameters: UpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
+    patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
 
     /**
      */
-    update(requestParameters: UpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
+    patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
+
+    /**
+     * 
+     * @param {Venue} venue 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VenueControllerApiInterface
+     */
+    postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
 }
 
@@ -179,64 +179,11 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async createRaw(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['venue'] == null) {
-            throw new runtime.RequiredError(
-                'venue',
-                'Required parameter "venue" was null or undefined when calling create().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/venues`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: VenueToJSON(requestParameters['venue']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async create(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.createRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async delete1Raw(requestParameters: Delete1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1VenuesByVenueidRaw(requestParameters: DeleteApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
-                'Required parameter "venueId" was null or undefined when calling delete1().'
+                'Required parameter "venueId" was null or undefined when calling deleteApiV1VenuesByVenueid().'
             );
         }
 
@@ -276,14 +223,14 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async delete1(requestParameters: Delete1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.delete1Raw(requestParameters, initOverrides);
+    async deleteApiV1VenuesByVenueid(requestParameters: DeleteApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1VenuesByVenueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAllRaw(requestParameters: GetAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
+    async getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -319,69 +266,18 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async getAll(requestParameters: GetAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
-        const response = await this.getAllRaw(requestParameters, initOverrides);
+    async getApiV1Venues(requestParameters: GetApiV1VenuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
+        const response = await this.getApiV1VenuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getByCompanyRaw(requestParameters: GetByCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getByCompany().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/venues/byCompany/{companyId}`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(VenueFromJSON));
-    }
-
-    /**
-     */
-    async getByCompany(requestParameters: GetByCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
-        const response = await this.getByCompanyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getByIdRaw(requestParameters: GetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
+    async getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
-                'Required parameter "venueId" was null or undefined when calling getById().'
+                'Required parameter "venueId" was null or undefined when calling getApiV1VenuesByVenueid().'
             );
         }
 
@@ -421,25 +317,76 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async getById(requestParameters: GetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
-        const response = await this.getByIdRaw(requestParameters, initOverrides);
+    async getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
+        const response = await this.getApiV1VenuesByVenueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateRaw(requestParameters: UpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
+    async getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1VenuesBycompanyByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/venues/byCompany/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(VenueFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
+        const response = await this.getApiV1VenuesBycompanyByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
-                'Required parameter "venueId" was null or undefined when calling update().'
+                'Required parameter "venueId" was null or undefined when calling patchApiV1VenuesByVenueid().'
             );
         }
 
         if (requestParameters['venue'] == null) {
             throw new runtime.RequiredError(
                 'venue',
-                'Required parameter "venue" was null or undefined when calling update().'
+                'Required parameter "venue" was null or undefined when calling patchApiV1VenuesByVenueid().'
             );
         }
 
@@ -482,8 +429,61 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async update(requestParameters: UpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
-        const response = await this.updateRaw(requestParameters, initOverrides);
+    async patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
+        const response = await this.patchApiV1VenuesByVenueidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+        if (requestParameters['venue'] == null) {
+            throw new runtime.RequiredError(
+                'venue',
+                'Required parameter "venue" was null or undefined when calling postApiV1Venues().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/venues`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VenueToJSON(requestParameters['venue']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1VenuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

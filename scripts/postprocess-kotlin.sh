@@ -6,19 +6,13 @@ KOTLIN_ROOT="$ROOT_DIR/kotlin/src/main/kotlin/ai/youkno/edgeserversdk"
 
 CLIENT_API_FILE="$KOTLIN_ROOT/apis/ClientControllerApi.kt"
 OPEN_API_FILE="$KOTLIN_ROOT/apis/OpenControllerApi.kt"
-DEJAVOO_FILE="$KOTLIN_ROOT/models/DejavooTransactionData.kt"
 CLIENT_HELPER_FILE="$ROOT_DIR/kotlin/src/main/kotlin/ai/youkno/edgeserversdk/EdgeSdkClientFactory.kt"
 
 [[ -f "$CLIENT_API_FILE" ]] || { echo "Missing $CLIENT_API_FILE" >&2; exit 1; }
 [[ -f "$OPEN_API_FILE" ]] || { echo "Missing $OPEN_API_FILE" >&2; exit 1; }
-[[ -f "$DEJAVOO_FILE" ]] || { echo "Missing $DEJAVOO_FILE" >&2; exit 1; }
 
 # Fix duplicate query parameter names emitted in long signatures.
 perl -0pi -e 's/(\@Query\("length"\)\s+length:\s+[^,]+,\s+\@Query\("ignoreCache"\)\s+)ignoreCache:/$1ignoreCacheSecondary:/g' "$CLIENT_API_FILE" "$OPEN_API_FILE"
-
-# Fix duplicate property names from differently-cased JSON keys.
-perl -0pi -e 's/(\@Json\(name = "LTaxAmount"\)\s+val\s+)ltaxAmount:/${1}ltaxAmountUpper:/g' "$DEJAVOO_FILE"
-perl -0pi -e 's/(\@Json\(name = "STaxAmount"\)\s+val\s+)staxAmount:/${1}staxAmountUpper:/g' "$DEJAVOO_FILE"
 
 # Create SDK-level client helper for shared defaults.
 cat > "$CLIENT_HELPER_FILE" <<'EOF'

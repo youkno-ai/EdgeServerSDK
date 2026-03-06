@@ -98,6 +98,10 @@ import com.squareup.moshi.JsonClass
  * @param billMyBankInfo 
  * @param chargeeInfo 
  * @param empty 
+ * @param embeddedShopUrlAsURI 
+ * @param settingsStrategyAsEnum 
+ * @param settingsWriteModeAsEnum 
+ * @param shopStatusAsEnum 
  * @param landingPageAsEnum 
  * @param medicalIdPromptAsEnum 
  * @param productBalanceAsEnum 
@@ -110,10 +114,6 @@ import com.squareup.moshi.JsonClass
  * @param flwrInferenceStrategyAsEnum 
  * @param settingsTypeAsEnum 
  * @param locationBrandingAsEnum 
- * @param embeddedShopUrlAsURI 
- * @param settingsStrategyAsEnum 
- * @param settingsWriteModeAsEnum 
- * @param shopStatusAsEnum 
  * @param anonUsersAsEnum 
  * @param shopTypeAsEnum 
  * @param loginsAsEnum 
@@ -290,6 +290,18 @@ data class ShopSettings (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
+    @Json(name = "embeddedShopUrlAsURI")
+    val embeddedShopUrlAsURI: java.net.URI? = null,
+
+    @Json(name = "settingsStrategyAsEnum")
+    val settingsStrategyAsEnum: ShopSettings.SettingsStrategyAsEnum? = null,
+
+    @Json(name = "settingsWriteModeAsEnum")
+    val settingsWriteModeAsEnum: ShopSettings.SettingsWriteModeAsEnum? = null,
+
+    @Json(name = "shopStatusAsEnum")
+    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null,
+
     @Json(name = "landingPageAsEnum")
     val landingPageAsEnum: ShopSettings.LandingPageAsEnum? = null,
 
@@ -326,18 +338,6 @@ data class ShopSettings (
     @Json(name = "locationBrandingAsEnum")
     val locationBrandingAsEnum: ShopSettings.LocationBrandingAsEnum? = null,
 
-    @Json(name = "embeddedShopUrlAsURI")
-    val embeddedShopUrlAsURI: java.net.URI? = null,
-
-    @Json(name = "settingsStrategyAsEnum")
-    val settingsStrategyAsEnum: ShopSettings.SettingsStrategyAsEnum? = null,
-
-    @Json(name = "settingsWriteModeAsEnum")
-    val settingsWriteModeAsEnum: ShopSettings.SettingsWriteModeAsEnum? = null,
-
-    @Json(name = "shopStatusAsEnum")
-    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null,
-
     @Json(name = "anonUsersAsEnum")
     val anonUsersAsEnum: ShopSettings.AnonUsersAsEnum? = null,
 
@@ -370,6 +370,40 @@ data class ShopSettings (
         @Json(name = "ALLEAVES") ALLEAVES("ALLEAVES"),
         @Json(name = "MJ_FREEWAY") MJ_FREEWAY("MJ_FREEWAY"),
         @Json(name = "BIOTRACK") BIOTRACK("BIOTRACK");
+    }
+    /**
+     * 
+     *
+     * Values: CORP_ONLY,LOCATION_ONLY,INHERIT
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SettingsStrategyAsEnum(val value: kotlin.String) {
+        @Json(name = "CORP_ONLY") CORP_ONLY("CORP_ONLY"),
+        @Json(name = "LOCATION_ONLY") LOCATION_ONLY("LOCATION_ONLY"),
+        @Json(name = "INHERIT") INHERIT("INHERIT");
+    }
+    /**
+     * 
+     *
+     * Values: LOCATION,CORPORATE,SYSTEM
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SettingsWriteModeAsEnum(val value: kotlin.String) {
+        @Json(name = "LOCATION") LOCATION("LOCATION"),
+        @Json(name = "CORPORATE") CORPORATE("CORPORATE"),
+        @Json(name = "SYSTEM") SYSTEM("SYSTEM");
+    }
+    /**
+     * 
+     *
+     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShopStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "AUTO") AUTO("AUTO"),
+        @Json(name = "ENABLED") ENABLED("ENABLED"),
+        @Json(name = "DISABLED") DISABLED("DISABLED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
@@ -479,40 +513,6 @@ data class ShopSettings (
     enum class LocationBrandingAsEnum(val value: kotlin.String) {
         @Json(name = "DISABLED") DISABLED("DISABLED"),
         @Json(name = "ENABLED") ENABLED("ENABLED");
-    }
-    /**
-     * 
-     *
-     * Values: CORP_ONLY,LOCATION_ONLY,INHERIT
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SettingsStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "CORP_ONLY") CORP_ONLY("CORP_ONLY"),
-        @Json(name = "LOCATION_ONLY") LOCATION_ONLY("LOCATION_ONLY"),
-        @Json(name = "INHERIT") INHERIT("INHERIT");
-    }
-    /**
-     * 
-     *
-     * Values: LOCATION,CORPORATE,SYSTEM
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SettingsWriteModeAsEnum(val value: kotlin.String) {
-        @Json(name = "LOCATION") LOCATION("LOCATION"),
-        @Json(name = "CORPORATE") CORPORATE("CORPORATE"),
-        @Json(name = "SYSTEM") SYSTEM("SYSTEM");
-    }
-    /**
-     * 
-     *
-     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ShopStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "AUTO") AUTO("AUTO"),
-        @Json(name = "ENABLED") ENABLED("ENABLED"),
-        @Json(name = "DISABLED") DISABLED("DISABLED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 

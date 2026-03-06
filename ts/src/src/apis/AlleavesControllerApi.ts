@@ -25,16 +25,16 @@ import {
     TerminalToJSON,
 } from '../models/index';
 
-export interface CreateAlleavesCustomerOperationRequest {
-    merchantId: string;
-    createAlleavesCustomerRequest: CreateAlleavesCustomerRequest;
+export interface GetApiV1AlleavesByClientTerminalsRequest {
+    client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetTerminalsRequest {
-    client: string;
+export interface PostApiV1AlleavesCustomerCreateRequest {
+    merchantId: string;
+    createAlleavesCustomerRequest: CreateAlleavesCustomerRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -49,6 +49,22 @@ export interface GetTerminalsRequest {
 export interface AlleavesControllerApiInterface {
     /**
      * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AlleavesControllerApiInterface
+     */
+    getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>>;
+
+    /**
+     */
+    getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>>;
+
+    /**
+     * 
      * @param {string} merchantId 
      * @param {CreateAlleavesCustomerRequest} createAlleavesCustomerRequest 
      * @param {string} [xEdgeAgent] 
@@ -58,27 +74,11 @@ export interface AlleavesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlleavesControllerApiInterface
      */
-    createAlleavesCustomerRaw(requestParameters: CreateAlleavesCustomerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1AlleavesCustomerCreateRaw(requestParameters: PostApiV1AlleavesCustomerCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    createAlleavesCustomer(requestParameters: CreateAlleavesCustomerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AlleavesControllerApiInterface
-     */
-    getTerminalsRaw(requestParameters: GetTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>>;
-
-    /**
-     */
-    getTerminals(requestParameters: GetTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>>;
+    postApiV1AlleavesCustomerCreate(requestParameters: PostApiV1AlleavesCustomerCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -89,18 +89,69 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
 
     /**
      */
-    async createAlleavesCustomerRaw(requestParameters: CreateAlleavesCustomerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1AlleavesByClientTerminals().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/alleaves/{client}/terminals`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TerminalFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>> {
+        const response = await this.getApiV1AlleavesByClientTerminalsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AlleavesCustomerCreateRaw(requestParameters: PostApiV1AlleavesCustomerCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
-                'Required parameter "merchantId" was null or undefined when calling createAlleavesCustomer().'
+                'Required parameter "merchantId" was null or undefined when calling postApiV1AlleavesCustomerCreate().'
             );
         }
 
         if (requestParameters['createAlleavesCustomerRequest'] == null) {
             throw new runtime.RequiredError(
                 'createAlleavesCustomerRequest',
-                'Required parameter "createAlleavesCustomerRequest" was null or undefined when calling createAlleavesCustomer().'
+                'Required parameter "createAlleavesCustomerRequest" was null or undefined when calling postApiV1AlleavesCustomerCreate().'
             );
         }
 
@@ -146,59 +197,8 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
 
     /**
      */
-    async createAlleavesCustomer(requestParameters: CreateAlleavesCustomerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.createAlleavesCustomerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTerminalsRaw(requestParameters: GetTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling getTerminals().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/alleaves/{client}/terminals`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TerminalFromJSON));
-    }
-
-    /**
-     */
-    async getTerminals(requestParameters: GetTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>> {
-        const response = await this.getTerminalsRaw(requestParameters, initOverrides);
+    async postApiV1AlleavesCustomerCreate(requestParameters: PostApiV1AlleavesCustomerCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1AlleavesCustomerCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

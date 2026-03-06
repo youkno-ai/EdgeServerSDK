@@ -25,6 +25,6 @@ interface BroadcastControllerApi {
      * @return [Call]<[BroadcastToken]>
      */
     @GET("api/v1/broadcast/{stream_id}/token")
-    fun getBroadcastToken(@Path("stream_id") streamId: kotlin.String, @Query("type") type: kotlin.String, @Query("expireDate") expireDate: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BroadcastToken>
+    fun getApiV1BroadcastByStreamIdToken(@Path("stream_id") streamId: kotlin.String, @Query("type") type: kotlin.String, @Query("expireDate") expireDate: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BroadcastToken>
 
 }

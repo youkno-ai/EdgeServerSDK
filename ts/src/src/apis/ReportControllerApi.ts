@@ -25,15 +25,15 @@ import {
     ReportsMetadataToJSON,
 } from '../models/index';
 
-export interface DownloadReportOperationRequest {
-    downloadReportRequest: DownloadReportRequest;
+export interface GetApiV1ReportsMetaRequest {
     authorization?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetReportsMetadataRequest {
+export interface PostApiV1ReportsDownloadRequest {
+    downloadReportRequest: DownloadReportRequest;
     authorization?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -49,6 +49,22 @@ export interface GetReportsMetadataRequest {
 export interface ReportControllerApiInterface {
     /**
      * 
+     * @param {string} [authorization] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReportControllerApiInterface
+     */
+    getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>>;
+
+    /**
+     */
+    getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata>;
+
+    /**
+     * 
      * @param {DownloadReportRequest} downloadReportRequest 
      * @param {string} [authorization] 
      * @param {string} [xEdgeAgent] 
@@ -58,27 +74,11 @@ export interface ReportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReportControllerApiInterface
      */
-    downloadReportRaw(requestParameters: DownloadReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ReportsDownloadRaw(requestParameters: PostApiV1ReportsDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    downloadReport(requestParameters: DownloadReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} [authorization] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReportControllerApiInterface
-     */
-    getReportsMetadataRaw(requestParameters: GetReportsMetadataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>>;
-
-    /**
-     */
-    getReportsMetadata(requestParameters: GetReportsMetadataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata>;
+    postApiV1ReportsDownload(requestParameters: PostApiV1ReportsDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -89,11 +89,58 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
 
     /**
      */
-    async downloadReportRaw(requestParameters: DownloadReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['authorization'] != null) {
+            headerParameters['Authorization'] = String(requestParameters['authorization']);
+        }
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/reports/meta`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReportsMetadataFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata> {
+        const response = await this.getApiV1ReportsMetaRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ReportsDownloadRaw(requestParameters: PostApiV1ReportsDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['downloadReportRequest'] == null) {
             throw new runtime.RequiredError(
                 'downloadReportRequest',
-                'Required parameter "downloadReportRequest" was null or undefined when calling downloadReport().'
+                'Required parameter "downloadReportRequest" was null or undefined when calling postApiV1ReportsDownload().'
             );
         }
 
@@ -139,55 +186,8 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
 
     /**
      */
-    async downloadReport(requestParameters: DownloadReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.downloadReportRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getReportsMetadataRaw(requestParameters: GetReportsMetadataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['authorization'] != null) {
-            headerParameters['Authorization'] = String(requestParameters['authorization']);
-        }
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/reports/meta`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ReportsMetadataFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getReportsMetadata(requestParameters: GetReportsMetadataRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata> {
-        const response = await this.getReportsMetadataRaw(requestParameters, initOverrides);
+    async postApiV1ReportsDownload(requestParameters: PostApiV1ReportsDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ReportsDownloadRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

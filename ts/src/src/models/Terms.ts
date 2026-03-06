@@ -117,16 +117,16 @@ export interface Terms {
     promises?: { [key: string]: Promise; };
     /**
      * 
-     * @type {Reward}
-     * @memberof Terms
-     */
-    distributionReward?: Reward;
-    /**
-     * 
      * @type {string}
      * @memberof Terms
      */
     admissionStrategyAsEnum?: TermsAdmissionStrategyAsEnumEnum;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof Terms
+     */
+    distributionReward?: Reward;
     /**
      * 
      * @type {string}
@@ -184,8 +184,8 @@ export function TermsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ter
         'goalReward': json['goalReward'] == null ? undefined : RewardFromJSON(json['goalReward']),
         'autoClose': json['autoClose'] == null ? undefined : json['autoClose'],
         'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], PromiseFromJSON)),
-        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
         'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
+        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
         'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
     };
 }
@@ -211,8 +211,8 @@ export function TermsToJSONTyped(value?: Terms | null, ignoreDiscriminator: bool
         'goalReward': RewardToJSON(value['goalReward']),
         'autoClose': value['autoClose'],
         'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], PromiseToJSON)),
-        'distributionReward': RewardToJSON(value['distributionReward']),
         'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],
+        'distributionReward': RewardToJSON(value['distributionReward']),
         'receiverAsEnum': value['receiverAsEnum'],
     };
 }

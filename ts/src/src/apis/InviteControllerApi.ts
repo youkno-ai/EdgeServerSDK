@@ -49,60 +49,49 @@ import {
     UserInviteToJSON,
 } from '../models/index';
 
-export interface CancelInviteRequest {
+export interface DeleteApiV1InvitesByInviteidRequest {
     inviteId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateInviteForBountyRequest {
+export interface GetApiV1InvitesRequest {
+    companyId?: string;
+    start?: number;
+    limit?: number;
+    statuses?: Array<GetApiV1InvitesStatusesEnum>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1InvitesBountyByBountyidRequest {
     bountyId: string;
-    createBountyInviteRequest: CreateBountyInviteRequest;
+    start?: number;
+    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateInviteForCompanyRequest {
+export interface GetApiV1InvitesByInviteidRequest {
+    inviteId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1InvitesCompanyByCompanyidRequest {
     companyId: string;
-    createCompanyInviteRequest: CreateCompanyInviteRequest;
+    start?: number;
+    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateInviteForGroupRequest {
-    groupId: string;
-    createGroupInviteRequest: CreateGroupInviteRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateInviteForPlatformRequest {
-    createPlatformInviteRequest: CreatePlatformInviteRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface EditInviteLink1Request {
-    inviteId: string;
-    userInvite: UserInvite;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInviteLink1Request {
-    inviteId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInviteLink2Request {
+export interface GetApiV1InvitesDealsByDealidInvitesByInviteidRequest {
     dealId: string;
     inviteId: string;
     xEdgeAgent?: string;
@@ -110,35 +99,7 @@ export interface GetInviteLink2Request {
     xEdgeClientId?: string;
 }
 
-export interface GetInvitesRequest {
-    companyId?: string;
-    start?: number;
-    limit?: number;
-    statuses?: Array<GetInvitesStatusesEnum>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInvitesForBountyRequest {
-    bountyId: string;
-    start?: number;
-    limit?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInvitesForCompanyRequest {
-    companyId: string;
-    start?: number;
-    limit?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInvitesForGroupRequest {
+export interface GetApiV1InvitesGroupByGroupidRequest {
     groupId: string;
     start?: number;
     limit?: number;
@@ -147,7 +108,7 @@ export interface GetInvitesForGroupRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetInvitesForPlatformRequest {
+export interface GetApiV1InvitesPlatformRequest {
     start?: number;
     limit?: number;
     xEdgeAgent?: string;
@@ -155,28 +116,67 @@ export interface GetInvitesForPlatformRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetLinkRequest {
-    getInviteLinkRequest: GetInviteLinkRequest;
+export interface GetApiV1InvitesRolesRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface InviteRolesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SendInviteRequest {
+export interface PostApiV1InvitesRequest {
     sendInvitesRequest: SendInvitesRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SendInvite1Request {
+export interface PostApiV1InvitesBountyByBountyidRequest {
+    bountyId: string;
+    createBountyInviteRequest: CreateBountyInviteRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesByInviteidResendRequest {
     inviteId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesCompanyByCompanyidRequest {
+    companyId: string;
+    createCompanyInviteRequest: CreateCompanyInviteRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesGroupByGroupidRequest {
+    groupId: string;
+    createGroupInviteRequest: CreateGroupInviteRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesLinkRequest {
+    getInviteLinkRequest: GetInviteLinkRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesPlatformRequest {
+    createPlatformInviteRequest: CreatePlatformInviteRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1InvitesByInviteidRequest {
+    inviteId: string;
+    userInvite: UserInvite;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -199,128 +199,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    cancelInviteRaw(requestParameters: CancelInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteApiV1InvitesByInviteidRaw(requestParameters: DeleteApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    cancelInvite(requestParameters: CancelInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {CreateBountyInviteRequest} createBountyInviteRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    createInviteForBountyRaw(requestParameters: CreateInviteForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    createInviteForBounty(requestParameters: CreateInviteForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {CreateCompanyInviteRequest} createCompanyInviteRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    createInviteForCompanyRaw(requestParameters: CreateInviteForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    createInviteForCompany(requestParameters: CreateInviteForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} groupId 
-     * @param {CreateGroupInviteRequest} createGroupInviteRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    createInviteForGroupRaw(requestParameters: CreateInviteForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    createInviteForGroup(requestParameters: CreateInviteForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {CreatePlatformInviteRequest} createPlatformInviteRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    createInviteForPlatformRaw(requestParameters: CreateInviteForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    createInviteForPlatform(requestParameters: CreateInviteForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} inviteId 
-     * @param {UserInvite} userInvite 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} inviteId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    getInviteLink1Raw(requestParameters: GetInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    getInviteLink1(requestParameters: GetInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} dealId 
-     * @param {string} inviteId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    getInviteLink2Raw(requestParameters: GetInviteLink2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    getInviteLink2(requestParameters: GetInviteLink2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+    deleteApiV1InvitesByInviteid(requestParameters: DeleteApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -335,11 +218,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getInvitesRaw(requestParameters: GetInvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
+    getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
 
     /**
      */
-    getInvites(requestParameters: GetInvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+    getApiV1Invites(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
 
     /**
      * 
@@ -353,11 +236,27 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getInvitesForBountyRaw(requestParameters: GetInvitesForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
+    getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
 
     /**
      */
-    getInvitesForBounty(requestParameters: GetInvitesForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+    getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+
+    /**
+     * 
+     * @param {string} inviteId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -371,11 +270,28 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getInvitesForCompanyRaw(requestParameters: GetInvitesForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
+    getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
 
     /**
      */
-    getInvitesForCompany(requestParameters: GetInvitesForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+    getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+
+    /**
+     * 
+     * @param {string} dealId 
+     * @param {string} inviteId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -389,11 +305,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getInvitesForGroupRaw(requestParameters: GetInvitesForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
+    getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
 
     /**
      */
-    getInvitesForGroup(requestParameters: GetInvitesForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
+    getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
 
     /**
      * 
@@ -406,27 +322,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getInvitesForPlatformRaw(requestParameters: GetInvitesForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
+    getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>>;
 
     /**
      */
-    getInvitesForPlatform(requestParameters: GetInvitesForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
-
-    /**
-     * 
-     * @param {GetInviteLinkRequest} getInviteLinkRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InviteControllerApiInterface
-     */
-    getLinkRaw(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     */
-    getLink(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+    getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite>;
 
     /**
      * 
@@ -437,11 +337,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    inviteRolesRaw(requestParameters: InviteRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvitesRolesResult>>;
+    getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvitesRolesResult>>;
 
     /**
      */
-    inviteRoles(requestParameters: InviteRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvitesRolesResult>;
+    getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvitesRolesResult>;
 
     /**
      * 
@@ -454,12 +354,29 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    sendInviteRaw(requestParameters: SendInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendInvitesResponse>>;
+    postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendInvitesResponse>>;
 
     /**
      * @deprecated
      */
-    sendInvite(requestParameters: SendInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendInvitesResponse>;
+    postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendInvitesResponse>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {CreateBountyInviteRequest} createBountyInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -471,11 +388,94 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    sendInvite1Raw(requestParameters: SendInvite1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    postApiV1InvitesByInviteidResendRaw(requestParameters: PostApiV1InvitesByInviteidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    sendInvite1(requestParameters: SendInvite1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    postApiV1InvitesByInviteidResend(requestParameters: PostApiV1InvitesByInviteidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {CreateCompanyInviteRequest} createCompanyInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {string} groupId 
+     * @param {CreateGroupInviteRequest} createGroupInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {GetInviteLinkRequest} getInviteLinkRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {CreatePlatformInviteRequest} createPlatformInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {string} inviteId 
+     * @param {UserInvite} userInvite 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    putApiV1InvitesByInviteidRaw(requestParameters: PutApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1InvitesByInviteid(requestParameters: PutApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -486,11 +486,11 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async cancelInviteRaw(requestParameters: CancelInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteApiV1InvitesByInviteidRaw(requestParameters: DeleteApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling cancelInvite().'
+                'Required parameter "inviteId" was null or undefined when calling deleteApiV1InvitesByInviteid().'
             );
         }
 
@@ -530,420 +530,13 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async cancelInvite(requestParameters: CancelInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.cancelInviteRaw(requestParameters, initOverrides);
+    async deleteApiV1InvitesByInviteid(requestParameters: DeleteApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteApiV1InvitesByInviteidRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async createInviteForBountyRaw(requestParameters: CreateInviteForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling createInviteForBounty().'
-            );
-        }
-
-        if (requestParameters['createBountyInviteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createBountyInviteRequest',
-                'Required parameter "createBountyInviteRequest" was null or undefined when calling createInviteForBounty().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/bounty/{bountyId}`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateBountyInviteRequestToJSON(requestParameters['createBountyInviteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createInviteForBounty(requestParameters: CreateInviteForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.createInviteForBountyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createInviteForCompanyRaw(requestParameters: CreateInviteForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling createInviteForCompany().'
-            );
-        }
-
-        if (requestParameters['createCompanyInviteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createCompanyInviteRequest',
-                'Required parameter "createCompanyInviteRequest" was null or undefined when calling createInviteForCompany().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/company/{companyId}`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateCompanyInviteRequestToJSON(requestParameters['createCompanyInviteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createInviteForCompany(requestParameters: CreateInviteForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.createInviteForCompanyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createInviteForGroupRaw(requestParameters: CreateInviteForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling createInviteForGroup().'
-            );
-        }
-
-        if (requestParameters['createGroupInviteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createGroupInviteRequest',
-                'Required parameter "createGroupInviteRequest" was null or undefined when calling createInviteForGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/group/{groupId}`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateGroupInviteRequestToJSON(requestParameters['createGroupInviteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createInviteForGroup(requestParameters: CreateInviteForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.createInviteForGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createInviteForPlatformRaw(requestParameters: CreateInviteForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['createPlatformInviteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createPlatformInviteRequest',
-                'Required parameter "createPlatformInviteRequest" was null or undefined when calling createInviteForPlatform().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/platform`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreatePlatformInviteRequestToJSON(requestParameters['createPlatformInviteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createInviteForPlatform(requestParameters: CreateInviteForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.createInviteForPlatformRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['inviteId'] == null) {
-            throw new runtime.RequiredError(
-                'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling editInviteLink1().'
-            );
-        }
-
-        if (requestParameters['userInvite'] == null) {
-            throw new runtime.RequiredError(
-                'userInvite',
-                'Required parameter "userInvite" was null or undefined when calling editInviteLink1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/{inviteId}`;
-        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UserInviteToJSON(requestParameters['userInvite']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.editInviteLink1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getInviteLink1Raw(requestParameters: GetInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['inviteId'] == null) {
-            throw new runtime.RequiredError(
-                'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling getInviteLink1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/{inviteId}`;
-        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getInviteLink1(requestParameters: GetInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.getInviteLink1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getInviteLink2Raw(requestParameters: GetInviteLink2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['dealId'] == null) {
-            throw new runtime.RequiredError(
-                'dealId',
-                'Required parameter "dealId" was null or undefined when calling getInviteLink2().'
-            );
-        }
-
-        if (requestParameters['inviteId'] == null) {
-            throw new runtime.RequiredError(
-                'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling getInviteLink2().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/deals/{dealId}/invites/{inviteId}`;
-        urlPath = urlPath.replace(`{${"dealId"}}`, encodeURIComponent(String(requestParameters['dealId'])));
-        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getInviteLink2(requestParameters: GetInviteLink2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.getInviteLink2Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getInvitesRaw(requestParameters: GetInvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
+    async getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -995,18 +588,18 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getInvites(requestParameters: GetInvitesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
-        const response = await this.getInvitesRaw(requestParameters, initOverrides);
+    async getApiV1Invites(requestParameters: GetApiV1InvitesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
+        const response = await this.getApiV1InvitesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInvitesForBountyRaw(requestParameters: GetInvitesForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
+    async getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getInvitesForBounty().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1InvitesBountyByBountyid().'
             );
         }
 
@@ -1054,18 +647,69 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getInvitesForBounty(requestParameters: GetInvitesForBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
-        const response = await this.getInvitesForBountyRaw(requestParameters, initOverrides);
+    async getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
+        const response = await this.getApiV1InvitesBountyByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInvitesForCompanyRaw(requestParameters: GetInvitesForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
+    async getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['inviteId'] == null) {
+            throw new runtime.RequiredError(
+                'inviteId',
+                'Required parameter "inviteId" was null or undefined when calling getApiV1InvitesByInviteid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/{inviteId}`;
+        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.getApiV1InvitesByInviteidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getInvitesForCompany().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1InvitesCompanyByCompanyid().'
             );
         }
 
@@ -1113,18 +757,77 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getInvitesForCompany(requestParameters: GetInvitesForCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
-        const response = await this.getInvitesForCompanyRaw(requestParameters, initOverrides);
+    async getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
+        const response = await this.getApiV1InvitesCompanyByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInvitesForGroupRaw(requestParameters: GetInvitesForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
+    async getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['dealId'] == null) {
+            throw new runtime.RequiredError(
+                'dealId',
+                'Required parameter "dealId" was null or undefined when calling getApiV1InvitesDealsByDealidInvitesByInviteid().'
+            );
+        }
+
+        if (requestParameters['inviteId'] == null) {
+            throw new runtime.RequiredError(
+                'inviteId',
+                'Required parameter "inviteId" was null or undefined when calling getApiV1InvitesDealsByDealidInvitesByInviteid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/deals/{dealId}/invites/{inviteId}`;
+        urlPath = urlPath.replace(`{${"dealId"}}`, encodeURIComponent(String(requestParameters['dealId'])));
+        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling getInvitesForGroup().'
+                'Required parameter "groupId" was null or undefined when calling getApiV1InvitesGroupByGroupid().'
             );
         }
 
@@ -1172,14 +875,14 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getInvitesForGroup(requestParameters: GetInvitesForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
-        const response = await this.getInvitesForGroupRaw(requestParameters, initOverrides);
+    async getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
+        const response = await this.getApiV1InvitesGroupByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInvitesForPlatformRaw(requestParameters: GetInvitesForPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
+    async getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserInvite>> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -1223,67 +926,14 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getInvitesForPlatform(requestParameters: GetInvitesForPlatformRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
-        const response = await this.getInvitesForPlatformRaw(requestParameters, initOverrides);
+    async getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserInvite> {
+        const response = await this.getApiV1InvitesPlatformRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getLinkRaw(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['getInviteLinkRequest'] == null) {
-            throw new runtime.RequiredError(
-                'getInviteLinkRequest',
-                'Required parameter "getInviteLinkRequest" was null or undefined when calling getLink().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/invites/link`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: GetInviteLinkRequestToJSON(requestParameters['getInviteLinkRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getLink(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.getLinkRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async inviteRolesRaw(requestParameters: InviteRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvitesRolesResult>> {
+    async getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvitesRolesResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1319,19 +969,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async inviteRoles(requestParameters: InviteRolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvitesRolesResult> {
-        const response = await this.inviteRolesRaw(requestParameters, initOverrides);
+    async getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvitesRolesResult> {
+        const response = await this.getApiV1InvitesRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * @deprecated
      */
-    async sendInviteRaw(requestParameters: SendInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendInvitesResponse>> {
+    async postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendInvitesResponse>> {
         if (requestParameters['sendInvitesRequest'] == null) {
             throw new runtime.RequiredError(
                 'sendInvitesRequest',
-                'Required parameter "sendInvitesRequest" was null or undefined when calling sendInvite().'
+                'Required parameter "sendInvitesRequest" was null or undefined when calling postApiV1Invites().'
             );
         }
 
@@ -1374,18 +1024,79 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
     /**
      * @deprecated
      */
-    async sendInvite(requestParameters: SendInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendInvitesResponse> {
-        const response = await this.sendInviteRaw(requestParameters, initOverrides);
+    async postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendInvitesResponse> {
+        const response = await this.postApiV1InvitesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async sendInvite1Raw(requestParameters: SendInvite1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1InvitesBountyByBountyid().'
+            );
+        }
+
+        if (requestParameters['createBountyInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createBountyInviteRequest',
+                'Required parameter "createBountyInviteRequest" was null or undefined when calling postApiV1InvitesBountyByBountyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/bounty/{bountyId}`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateBountyInviteRequestToJSON(requestParameters['createBountyInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesBountyByBountyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesByInviteidResendRaw(requestParameters: PostApiV1InvitesByInviteidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling sendInvite1().'
+                'Required parameter "inviteId" was null or undefined when calling postApiV1InvitesByInviteidResend().'
             );
         }
 
@@ -1425,8 +1136,297 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async sendInvite1(requestParameters: SendInvite1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.sendInvite1Raw(requestParameters, initOverrides);
+    async postApiV1InvitesByInviteidResend(requestParameters: PostApiV1InvitesByInviteidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1InvitesByInviteidResendRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling postApiV1InvitesCompanyByCompanyid().'
+            );
+        }
+
+        if (requestParameters['createCompanyInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createCompanyInviteRequest',
+                'Required parameter "createCompanyInviteRequest" was null or undefined when calling postApiV1InvitesCompanyByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/company/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateCompanyInviteRequestToJSON(requestParameters['createCompanyInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesCompanyByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['groupId'] == null) {
+            throw new runtime.RequiredError(
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling postApiV1InvitesGroupByGroupid().'
+            );
+        }
+
+        if (requestParameters['createGroupInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createGroupInviteRequest',
+                'Required parameter "createGroupInviteRequest" was null or undefined when calling postApiV1InvitesGroupByGroupid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/group/{groupId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateGroupInviteRequestToJSON(requestParameters['createGroupInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesGroupByGroupidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['getInviteLinkRequest'] == null) {
+            throw new runtime.RequiredError(
+                'getInviteLinkRequest',
+                'Required parameter "getInviteLinkRequest" was null or undefined when calling postApiV1InvitesLink().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/link`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GetInviteLinkRequestToJSON(requestParameters['getInviteLinkRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesLinkRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['createPlatformInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createPlatformInviteRequest',
+                'Required parameter "createPlatformInviteRequest" was null or undefined when calling postApiV1InvitesPlatform().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/platform`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreatePlatformInviteRequestToJSON(requestParameters['createPlatformInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesPlatformRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1InvitesByInviteidRaw(requestParameters: PutApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['inviteId'] == null) {
+            throw new runtime.RequiredError(
+                'inviteId',
+                'Required parameter "inviteId" was null or undefined when calling putApiV1InvitesByInviteid().'
+            );
+        }
+
+        if (requestParameters['userInvite'] == null) {
+            throw new runtime.RequiredError(
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling putApiV1InvitesByInviteid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/{inviteId}`;
+        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UserInviteToJSON(requestParameters['userInvite']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1InvitesByInviteid(requestParameters: PutApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1InvitesByInviteidRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }
@@ -1434,7 +1434,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 /**
  * @export
  */
-export const GetInvitesStatusesEnum = {
+export const GetApiV1InvitesStatusesEnum = {
     PENDING: 'PENDING',
     CANCELED: 'CANCELED',
     DELETED: 'DELETED',
@@ -1443,4 +1443,4 @@ export const GetInvitesStatusesEnum = {
     DECLINED: 'DECLINED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetInvitesStatusesEnum = typeof GetInvitesStatusesEnum[keyof typeof GetInvitesStatusesEnum];
+export type GetApiV1InvitesStatusesEnum = typeof GetApiV1InvitesStatusesEnum[keyof typeof GetApiV1InvitesStatusesEnum];

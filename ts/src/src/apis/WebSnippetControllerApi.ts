@@ -25,35 +25,14 @@ import {
     WebSnippetToJSON,
 } from '../models/index';
 
-export interface DeleteRequest {
+export interface DeleteApiV1WebSnippetsByIdRequest {
     id: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateSnippetRequest {
-    webSnippet: WebSnippet;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetHtmlSnippetByIdRequest {
-    snippetId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetSnippetByIdRequest {
-    snippetId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ListSnippetsRequest {
+export interface GetApiV1WebSnippetsRequest {
     q?: string;
     slim?: boolean;
     xEdgeAgent?: string;
@@ -61,7 +40,28 @@ export interface ListSnippetsRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateSnippetRequest {
+export interface GetApiV1WebSnippetsBySnippetidRequest {
+    snippetId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1WebSnippetsBySnippetidRenderRequest {
+    snippetId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1WebSnippetsRequest {
+    webSnippet: WebSnippet;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1WebSnippetsByIdRequest {
     id: string;
     webSnippet: WebSnippet;
     xEdgeAgent?: string;
@@ -86,59 +86,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    _deleteRaw(requestParameters: DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteApiV1WebSnippetsByIdRaw(requestParameters: DeleteApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    _delete(requestParameters: DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-
-    /**
-     * 
-     * @param {WebSnippet} webSnippet 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebSnippetControllerApiInterface
-     */
-    createSnippetRaw(requestParameters: CreateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
-
-    /**
-     */
-    createSnippet(requestParameters: CreateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
-
-    /**
-     * 
-     * @param {string} snippetId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebSnippetControllerApiInterface
-     */
-    getHtmlSnippetByIdRaw(requestParameters: GetHtmlSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    getHtmlSnippetById(requestParameters: GetHtmlSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} snippetId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebSnippetControllerApiInterface
-     */
-    getSnippetByIdRaw(requestParameters: GetSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
-
-    /**
-     */
-    getSnippetById(requestParameters: GetSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
+    deleteApiV1WebSnippetsById(requestParameters: DeleteApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -151,11 +103,59 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    listSnippetsRaw(requestParameters: ListSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>>;
+    getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>>;
 
     /**
      */
-    listSnippets(requestParameters: ListSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>>;
+    getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>>;
+
+    /**
+     * 
+     * @param {string} snippetId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebSnippetControllerApiInterface
+     */
+    getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
+
+    /**
+     */
+    getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
+
+    /**
+     * 
+     * @param {string} snippetId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebSnippetControllerApiInterface
+     */
+    getApiV1WebSnippetsBySnippetidRenderRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRenderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+
+    /**
+     */
+    getApiV1WebSnippetsBySnippetidRender(requestParameters: GetApiV1WebSnippetsBySnippetidRenderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {WebSnippet} webSnippet 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebSnippetControllerApiInterface
+     */
+    postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -168,11 +168,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    updateSnippetRaw(requestParameters: UpdateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
+    putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
 
     /**
      */
-    updateSnippet(requestParameters: UpdateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
+    putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
 
 }
 
@@ -183,11 +183,11 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async _deleteRaw(requestParameters: DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteApiV1WebSnippetsByIdRaw(requestParameters: DeleteApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling _delete().'
+                'Required parameter "id" was null or undefined when calling deleteApiV1WebSnippetsById().'
             );
         }
 
@@ -227,172 +227,13 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async _delete(requestParameters: DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this._deleteRaw(requestParameters, initOverrides);
+    async deleteApiV1WebSnippetsById(requestParameters: DeleteApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteApiV1WebSnippetsByIdRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async createSnippetRaw(requestParameters: CreateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['webSnippet'] == null) {
-            throw new runtime.RequiredError(
-                'webSnippet',
-                'Required parameter "webSnippet" was null or undefined when calling createSnippet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/web-snippets`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: WebSnippetToJSON(requestParameters['webSnippet']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createSnippet(requestParameters: CreateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.createSnippetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getHtmlSnippetByIdRaw(requestParameters: GetHtmlSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['snippetId'] == null) {
-            throw new runtime.RequiredError(
-                'snippetId',
-                'Required parameter "snippetId" was null or undefined when calling getHtmlSnippetById().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/web-snippets/{snippetId}/render`;
-        urlPath = urlPath.replace(`{${"snippetId"}}`, encodeURIComponent(String(requestParameters['snippetId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async getHtmlSnippetById(requestParameters: GetHtmlSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.getHtmlSnippetByIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getSnippetByIdRaw(requestParameters: GetSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
-        if (requestParameters['snippetId'] == null) {
-            throw new runtime.RequiredError(
-                'snippetId',
-                'Required parameter "snippetId" was null or undefined when calling getSnippetById().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/web-snippets/{snippetId}`;
-        urlPath = urlPath.replace(`{${"snippetId"}}`, encodeURIComponent(String(requestParameters['snippetId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebSnippetFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getSnippetById(requestParameters: GetSnippetByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
-        const response = await this.getSnippetByIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async listSnippetsRaw(requestParameters: ListSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>> {
+    async getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>> {
         const queryParameters: any = {};
 
         if (requestParameters['q'] != null) {
@@ -436,25 +277,184 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async listSnippets(requestParameters: ListSnippetsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>> {
-        const response = await this.listSnippetsRaw(requestParameters, initOverrides);
+    async getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>> {
+        const response = await this.getApiV1WebSnippetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateSnippetRaw(requestParameters: UpdateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
+    async getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
+        if (requestParameters['snippetId'] == null) {
+            throw new runtime.RequiredError(
+                'snippetId',
+                'Required parameter "snippetId" was null or undefined when calling getApiV1WebSnippetsBySnippetid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/web-snippets/{snippetId}`;
+        urlPath = urlPath.replace(`{${"snippetId"}}`, encodeURIComponent(String(requestParameters['snippetId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebSnippetFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
+        const response = await this.getApiV1WebSnippetsBySnippetidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1WebSnippetsBySnippetidRenderRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRenderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters['snippetId'] == null) {
+            throw new runtime.RequiredError(
+                'snippetId',
+                'Required parameter "snippetId" was null or undefined when calling getApiV1WebSnippetsBySnippetidRender().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/web-snippets/{snippetId}/render`;
+        urlPath = urlPath.replace(`{${"snippetId"}}`, encodeURIComponent(String(requestParameters['snippetId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async getApiV1WebSnippetsBySnippetidRender(requestParameters: GetApiV1WebSnippetsBySnippetidRenderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.getApiV1WebSnippetsBySnippetidRenderRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+        if (requestParameters['webSnippet'] == null) {
+            throw new runtime.RequiredError(
+                'webSnippet',
+                'Required parameter "webSnippet" was null or undefined when calling postApiV1WebSnippets().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/web-snippets`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: WebSnippetToJSON(requestParameters['webSnippet']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1WebSnippetsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling updateSnippet().'
+                'Required parameter "id" was null or undefined when calling putApiV1WebSnippetsById().'
             );
         }
 
         if (requestParameters['webSnippet'] == null) {
             throw new runtime.RequiredError(
                 'webSnippet',
-                'Required parameter "webSnippet" was null or undefined when calling updateSnippet().'
+                'Required parameter "webSnippet" was null or undefined when calling putApiV1WebSnippetsById().'
             );
         }
 
@@ -497,8 +497,8 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async updateSnippet(requestParameters: UpdateSnippetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
-        const response = await this.updateSnippetRaw(requestParameters, initOverrides);
+    async putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
+        const response = await this.putApiV1WebSnippetsByIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

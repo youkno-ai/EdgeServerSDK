@@ -22,7 +22,31 @@ import {
     CategoryToJSON,
 } from '../models/index';
 
-export interface CreateCategoryRequest {
+export interface DeleteApiV1CategoriesByCategoryidRequest {
+    categoryId: number;
+    clientId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1CategoriesRequest {
+    categoryType: GetApiV1CategoriesCategoryTypeEnum;
+    clientId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1CategoriesByCategoryidRequest {
+    categoryId: number;
+    clientId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1CategoriesRequest {
     category: Category;
     clientId?: string;
     xEdgeAgent?: string;
@@ -30,31 +54,7 @@ export interface CreateCategoryRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteCategoryRequest {
-    categoryId: number;
-    clientId?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategoriesByTypeRequest {
-    categoryType: GetCategoriesByTypeCategoryTypeEnum;
-    clientId?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategoryRequest {
-    categoryId: number;
-    clientId?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateCategoryRequest {
+export interface PutApiV1CategoriesRequest {
     category: Category;
     clientId?: string;
     xEdgeAgent?: string;
@@ -71,23 +71,6 @@ export interface UpdateCategoryRequest {
 export interface CategoryControllerApiInterface {
     /**
      * 
-     * @param {Category} category 
-     * @param {string} [clientId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CategoryControllerApiInterface
-     */
-    createCategoryRaw(requestParameters: CreateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
-
-    /**
-     */
-    createCategory(requestParameters: CreateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
-
-    /**
-     * 
      * @param {number} categoryId 
      * @param {string} [clientId] 
      * @param {string} [xEdgeAgent] 
@@ -97,11 +80,11 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    deleteCategoryRaw(requestParameters: DeleteCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1CategoriesByCategoryidRaw(requestParameters: DeleteApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteCategory(requestParameters: DeleteCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1CategoriesByCategoryid(requestParameters: DeleteApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -114,11 +97,11 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    getCategoriesByTypeRaw(requestParameters: GetCategoriesByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
 
     /**
      */
-    getCategoriesByType(requestParameters: GetCategoriesByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
 
     /**
      * 
@@ -131,11 +114,11 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    getCategoryRaw(requestParameters: GetCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
 
     /**
      */
-    getCategory(requestParameters: GetCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
 
     /**
      * 
@@ -148,11 +131,28 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    updateCategoryRaw(requestParameters: UpdateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
 
     /**
      */
-    updateCategory(requestParameters: UpdateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+
+    /**
+     * 
+     * @param {Category} category 
+     * @param {string} [clientId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryControllerApiInterface
+     */
+    putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+
+    /**
+     */
+    putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
 
 }
 
@@ -163,68 +163,11 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async createCategoryRaw(requestParameters: CreateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
-        if (requestParameters['category'] == null) {
-            throw new runtime.RequiredError(
-                'category',
-                'Required parameter "category" was null or undefined when calling createCategory().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['clientId'] != null) {
-            queryParameters['clientId'] = requestParameters['clientId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/categories`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CategoryToJSON(requestParameters['category']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createCategory(requestParameters: CreateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
-        const response = await this.createCategoryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteCategoryRaw(requestParameters: DeleteCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1CategoriesByCategoryidRaw(requestParameters: DeleteApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['categoryId'] == null) {
             throw new runtime.RequiredError(
                 'categoryId',
-                'Required parameter "categoryId" was null or undefined when calling deleteCategory().'
+                'Required parameter "categoryId" was null or undefined when calling deleteApiV1CategoriesByCategoryid().'
             );
         }
 
@@ -268,18 +211,18 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async deleteCategory(requestParameters: DeleteCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteCategoryRaw(requestParameters, initOverrides);
+    async deleteApiV1CategoriesByCategoryid(requestParameters: DeleteApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1CategoriesByCategoryidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCategoriesByTypeRaw(requestParameters: GetCategoriesByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+    async getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
         if (requestParameters['categoryType'] == null) {
             throw new runtime.RequiredError(
                 'categoryType',
-                'Required parameter "categoryType" was null or undefined when calling getCategoriesByType().'
+                'Required parameter "categoryType" was null or undefined when calling getApiV1Categories().'
             );
         }
 
@@ -326,18 +269,18 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async getCategoriesByType(requestParameters: GetCategoriesByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
-        const response = await this.getCategoriesByTypeRaw(requestParameters, initOverrides);
+    async getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+        const response = await this.getApiV1CategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCategoryRaw(requestParameters: GetCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+    async getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
         if (requestParameters['categoryId'] == null) {
             throw new runtime.RequiredError(
                 'categoryId',
-                'Required parameter "categoryId" was null or undefined when calling getCategory().'
+                'Required parameter "categoryId" was null or undefined when calling getApiV1CategoriesByCategoryid().'
             );
         }
 
@@ -381,18 +324,75 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async getCategory(requestParameters: GetCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
-        const response = await this.getCategoryRaw(requestParameters, initOverrides);
+    async getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+        const response = await this.getApiV1CategoriesByCategoryidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateCategoryRaw(requestParameters: UpdateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+    async postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
         if (requestParameters['category'] == null) {
             throw new runtime.RequiredError(
                 'category',
-                'Required parameter "category" was null or undefined when calling updateCategory().'
+                'Required parameter "category" was null or undefined when calling postApiV1Categories().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['clientId'] != null) {
+            queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/categories`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CategoryToJSON(requestParameters['category']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+        const response = await this.postApiV1CategoriesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+        if (requestParameters['category'] == null) {
+            throw new runtime.RequiredError(
+                'category',
+                'Required parameter "category" was null or undefined when calling putApiV1Categories().'
             );
         }
 
@@ -438,8 +438,8 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async updateCategory(requestParameters: UpdateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
-        const response = await this.updateCategoryRaw(requestParameters, initOverrides);
+    async putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+        const response = await this.putApiV1CategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -448,7 +448,7 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 /**
  * @export
  */
-export const GetCategoriesByTypeCategoryTypeEnum = {
+export const GetApiV1CategoriesCategoryTypeEnum = {
     NONE: 'NONE',
     QUESTION: 'QUESTION',
     THREAD: 'THREAD',
@@ -499,4 +499,4 @@ export const GetCategoriesByTypeCategoryTypeEnum = {
     FEEDBACK: 'FEEDBACK',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetCategoriesByTypeCategoryTypeEnum = typeof GetCategoriesByTypeCategoryTypeEnum[keyof typeof GetCategoriesByTypeCategoryTypeEnum];
+export type GetApiV1CategoriesCategoryTypeEnum = typeof GetApiV1CategoriesCategoryTypeEnum[keyof typeof GetApiV1CategoriesCategoryTypeEnum];

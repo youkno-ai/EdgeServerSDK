@@ -22,8 +22,8 @@ open class OpenPaymentControllerAPI {
      - returns: PaymentSummaryResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func payPointsOnlyPayment(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentSummaryResp {
-        return try await payPointsOnlyPaymentWithRequestBuilder(paymentId: paymentId, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenPaymentsByPaymentidPay(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentSummaryResp {
+        return try await postApiV1OpenPaymentsByPaymentidPayWithRequestBuilder(paymentId: paymentId, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -38,7 +38,7 @@ open class OpenPaymentControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<PaymentSummaryResp> 
      */
-    open class func payPointsOnlyPaymentWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentSummaryResp> {
+    open class func postApiV1OpenPaymentsByPaymentidPayWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentSummaryResp> {
         var localVariablePath = "/api/v1/open/payments/{paymentId}/pay"
         let paymentIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentId))"
         let paymentIdPostEscape = paymentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

@@ -81,12 +81,6 @@ export interface Customer {
      * @type {string}
      * @memberof Customer
      */
-    effectiveState?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Customer
-     */
     phoneStatus?: string;
     /**
      * 
@@ -94,6 +88,12 @@ export interface Customer {
      * @memberof Customer
      */
     personalName?: PersonalName;
+    /**
+     * 
+     * @type {string}
+     * @memberof Customer
+     */
+    effectiveState?: string;
 }
 
 /**
@@ -120,9 +120,9 @@ export function CustomerFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'dob': json['dob'] == null ? undefined : json['dob'],
         'address': json['address'] == null ? undefined : MailingAddressFromJSON(json['address']),
         'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
-        'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
         'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
         'personalName': json['personalName'] == null ? undefined : PersonalNameFromJSON(json['personalName']),
+        'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
     };
 }
 
@@ -144,9 +144,9 @@ export function CustomerToJSONTyped(value?: Customer | null, ignoreDiscriminator
         'dob': value['dob'],
         'address': MailingAddressToJSON(value['address']),
         'phoneRawNumber': value['phoneRawNumber'],
-        'effectiveState': value['effectiveState'],
         'phoneStatus': value['phoneStatus'],
         'personalName': PersonalNameToJSON(value['personalName']),
+        'effectiveState': value['effectiveState'],
     };
 }
 

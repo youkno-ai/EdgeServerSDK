@@ -22,7 +22,7 @@ import {
     AnalyticsInfoResultToJSON,
 } from '../models/index';
 
-export interface GetAnalyticsInfoRequest {
+export interface GetApiV1GoogleByCompanyidAnalyticsInfoRequest {
     companyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -46,11 +46,11 @@ export interface GoogleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GoogleControllerApiInterface
      */
-    getAnalyticsInfoRaw(requestParameters: GetAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>>;
+    getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>>;
 
     /**
      */
-    getAnalyticsInfo(requestParameters: GetAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult>;
+    getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult>;
 
 }
 
@@ -61,11 +61,11 @@ export class GoogleControllerApi extends runtime.BaseAPI implements GoogleContro
 
     /**
      */
-    async getAnalyticsInfoRaw(requestParameters: GetAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>> {
+    async getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getAnalyticsInfo().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1GoogleByCompanyidAnalyticsInfo().'
             );
         }
 
@@ -105,8 +105,8 @@ export class GoogleControllerApi extends runtime.BaseAPI implements GoogleContro
 
     /**
      */
-    async getAnalyticsInfo(requestParameters: GetAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult> {
-        const response = await this.getAnalyticsInfoRaw(requestParameters, initOverrides);
+    async getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult> {
+        const response = await this.getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

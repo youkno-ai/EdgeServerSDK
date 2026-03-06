@@ -70,10 +70,10 @@ import com.squareup.moshi.JsonClass
  * @param frontEnd 
  * @param empty 
  * @param phoneStatusAsEnum 
+ * @param device 
  * @param localeAsEnum 
  * @param explicitUpdate 
  * @param dobAsLocalDate 
- * @param device 
  * @param requesterId 
  */
 
@@ -206,6 +206,9 @@ data class UpdateUserEvent (
     @Json(name = "phoneStatusAsEnum")
     val phoneStatusAsEnum: UpdateUserEvent.PhoneStatusAsEnum? = null,
 
+    @Json(name = "device")
+    val device: Device? = null,
+
     @Json(name = "localeAsEnum")
     val localeAsEnum: kotlin.String? = null,
 
@@ -214,9 +217,6 @@ data class UpdateUserEvent (
 
     @Json(name = "dobAsLocalDate")
     val dobAsLocalDate: java.time.LocalDate? = null,
-
-    @Json(name = "device")
-    val device: Device? = null,
 
     @Json(name = "requesterId")
     val requesterId: kotlin.String? = null

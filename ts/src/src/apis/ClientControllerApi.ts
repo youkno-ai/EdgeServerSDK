@@ -112,56 +112,7 @@ import {
     UserAuthToJSON,
 } from '../models/index';
 
-export interface AssignClientOperationRequest {
-    clientId: string;
-    assignClientRequest: AssignClientRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface AuthClientRequest {
-    client: string;
-    user: string;
-    authorization?: string;
-    deviceId?: Array<string>;
-    deviceSecret?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateClientOperationRequest {
-    createClientRequest: CreateClientRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateCustomProductChemicalInfosRequest {
-    client: string;
-    customChemicalInfoByCategoryConfigDto: CustomChemicalInfoByCategoryConfigDto;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateLocationRequest {
-    clientId: string;
-    createUpdateLocationDto: CreateUpdateLocationDto;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteClientRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteCustomProductChemicalInfosRequest {
+export interface DeleteApiV1ClientsByClientProductcustomchemicalsRequest {
     client: string;
     id: string;
     categoryPath: string;
@@ -170,25 +121,35 @@ export interface DeleteCustomProductChemicalInfosRequest {
     xEdgeClientId?: string;
 }
 
-export interface EditClientRequest {
-    client: string;
-    updateClientRequest: UpdateClientRequest;
+export interface DeleteApiV1ClientsByClientidRequest {
+    clientId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface EditShopSettingsRequest {
-    client: string;
-    shopSettings: ShopSettings;
-    patch?: boolean;
-    posType?: EditShopSettingsPosTypeEnum;
+export interface GetApiV1ClientsRequest {
+    countryCodes?: Array<string>;
+    clientIds?: Array<string>;
+    orgType?: GetApiV1ClientsOrgTypeEnum;
+    start?: number;
+    length?: number;
+    searchCriteria?: string;
+    searchMode?: GetApiV1ClientsSearchModeEnum;
+    status?: GetApiV1ClientsStatusEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetApprovals1Request {
+export interface GetApiV1ClientsByClientRequest {
+    client: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientApprovalsRequest {
     client: string;
     filter: Filter;
     start?: number;
@@ -198,49 +159,28 @@ export interface GetApprovals1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetClientRequest {
+export interface GetApiV1ClientsByClientCampaignPnRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetClientListRequest {
-    countryCodes?: Array<string>;
-    clientIds?: Array<string>;
-    orgType?: GetClientListOrgTypeEnum;
-    start?: number;
-    length?: number;
-    searchCriteria?: string;
-    searchMode?: GetClientListSearchModeEnum;
-    status?: GetClientListStatusEnum;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetDictionaryRequest {
+export interface GetApiV1ClientsByClientInventoryareasRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetInventoryAreasRequest {
+export interface GetApiV1ClientsByClientLocationRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetLocationRequest {
-    client: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetLocations1Request {
+export interface GetApiV1ClientsByClientLocationsRequest {
     client: string;
     onlyOnline?: boolean;
     deliveryZipcode?: string;
@@ -249,22 +189,21 @@ export interface GetLocations1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetModerationRequest {
+export interface GetApiV1ClientsByClientModerationRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetOrder2Request {
+export interface GetApiV1ClientsByClientModerationDictionaryRequest {
     client: string;
-    orderId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetOrdersRequest {
+export interface GetApiV1ClientsByClientOrdersRequest {
     client: string;
     filter: Filter;
     start?: number;
@@ -275,14 +214,22 @@ export interface GetOrdersRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetProductChemicalInfosRequest {
+export interface GetApiV1ClientsByClientOrdersByOrderIdRequest {
+    client: string;
+    orderId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientProductchemicalsRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetProductCustomChemicalInfosRequest {
+export interface GetApiV1ClientsByClientProductcustomchemicalsRequest {
     client: string;
     categoryPath: string;
     xEdgeAgent?: string;
@@ -290,14 +237,15 @@ export interface GetProductCustomChemicalInfosRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetPushNotificationCampaignsRequest {
+export interface GetApiV1ClientsByClientRecommendationByBountyidStatsRequest {
     client: string;
+    bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetReservationStatisticsRequest {
+export interface GetApiV1ClientsByClientReservationsStatisticsRequest {
     client: string;
     filter: Filter;
     xEdgeAgent?: string;
@@ -305,14 +253,40 @@ export interface GetReservationStatisticsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetSalesStatisticsRequest {
+export interface GetApiV1ClientsByClientSalesStatisticsRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetSettingsAuditLogsRequest {
+export interface GetApiV1ClientsByClientSettingsShopsettingsRequest {
+    client: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientSupportchatsRequest {
+    client: string;
+    status?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientUsersByUserAuthRequest {
+    client: string;
+    user: string;
+    authorization?: string;
+    deviceId?: Array<string>;
+    deviceSecret?: Array<string>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientidSettingsShopsettingsAuditLogsRequest {
     clientId: string;
     start?: number;
     length?: number;
@@ -321,22 +295,32 @@ export interface GetSettingsAuditLogsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetShopSettingsRequest {
+export interface PatchApiV1ClientsByClientRequest {
     client: string;
+    updateClientRequest: UpdateClientRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetSupportChatsRequest {
+export interface PatchApiV1ClientsByClientSettingsShopsettingsRequest {
     client: string;
-    status?: string;
+    shopSettings: ShopSettings;
+    patch?: boolean;
+    posType?: PatchApiV1ClientsByClientSettingsShopsettingsPosTypeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface NewPushNotificationCampaignRequest {
+export interface PostApiV1ClientsRequest {
+    createClientRequest: CreateClientRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientCampaignPnRequest {
     client: string;
     pushNotificationCampaignRequest: PushNotificationCampaignRequest;
     xEdgeAgent?: string;
@@ -344,50 +328,45 @@ export interface NewPushNotificationCampaignRequest {
     xEdgeClientId?: string;
 }
 
-export interface PostDeviceFileRequest {
+export interface PostApiV1ClientsByClientDevicesRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface PostProductFileRequest {
+export interface PostApiV1ClientsByClientModerationRequest {
+    client: string;
+    moderationReq: ModerationReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientProductchemicalsRequest {
+    client: string;
+    chemicalInfoDisplayConfig: ChemicalInfoDisplayConfig;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientProductcustomchemicalsRequest {
+    client: string;
+    customChemicalInfoByCategoryConfigDto: CustomChemicalInfoByCategoryConfigDto;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientProductsRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface PostTransactionFileRequest {
-    client: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PostUserFileRequest {
-    client: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface RecommendationStatsRequest {
-    client: string;
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface RestoreClientRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ResyncRequest {
+export interface PostApiV1ClientsByClientSyncByComponentRequest {
     client: string;
     component: string;
     updatedAfter?: Date;
@@ -397,15 +376,53 @@ export interface ResyncRequest {
     xEdgeClientId?: string;
 }
 
-export interface SetModerationRequest {
+export interface PostApiV1ClientsByClientTransactionsRequest {
     client: string;
-    moderationReq: ModerationReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateCustomProductChemicalInfosRequest {
+export interface PostApiV1ClientsByClientUsersRequest {
+    client: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientidAssignRequest {
+    clientId: string;
+    assignClientRequest: AssignClientRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientidLocationsRequest {
+    clientId: string;
+    createUpdateLocationDto: CreateUpdateLocationDto;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1ClientsByClientLoginsRequest {
+    client: string;
+    updateClientLoginsRequest: UpdateClientLoginsRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1ClientsByClientModerationDictionaryRequest {
+    client: string;
+    moderationDictionary: ModerationDictionary;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1ClientsByClientProductcustomchemicalsRequest {
     client: string;
     id: string;
     currentCategoryPath: string;
@@ -415,41 +432,24 @@ export interface UpdateCustomProductChemicalInfosRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateDictionaryRequest {
-    client: string;
-    moderationDictionary: ModerationDictionary;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateLocationRequest {
-    clientId: string;
-    createUpdateLocationDto: CreateUpdateLocationDto;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateLoginsRequest {
-    client: string;
-    updateClientLoginsRequest: UpdateClientLoginsRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateProductChemicalInfosRequest {
-    client: string;
-    chemicalInfoDisplayConfig: ChemicalInfoDisplayConfig;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateSettingsRequest {
+export interface PutApiV1ClientsByClientSettingsRequest {
     client: string;
     updateSettingsReq: UpdateSettingsReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1ClientsByClientidRestoreRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1ClientsLocationsByClientidRequest {
+    clientId: string;
+    createUpdateLocationDto: CreateUpdateLocationDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -464,109 +464,6 @@ export interface UpdateSettingsRequest {
 export interface ClientControllerApiInterface {
     /**
      * 
-     * @param {string} clientId 
-     * @param {AssignClientRequest} assignClientRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    assignClientRaw(requestParameters: AssignClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignClientResponse>>;
-
-    /**
-     */
-    assignClient(requestParameters: AssignClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignClientResponse>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} user 
-     * @param {string} [authorization] 
-     * @param {Array<string>} [deviceId] 
-     * @param {Array<string>} [deviceSecret] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    authClientRaw(requestParameters: AuthClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>>;
-
-    /**
-     */
-    authClient(requestParameters: AuthClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth>;
-
-    /**
-     * 
-     * @param {CreateClientRequest} createClientRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    createClientRaw(requestParameters: CreateClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateClientResult>>;
-
-    /**
-     */
-    createClient(requestParameters: CreateClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {CustomChemicalInfoByCategoryConfigDto} customChemicalInfoByCategoryConfigDto 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    createCustomProductChemicalInfosRaw(requestParameters: CreateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>>;
-
-    /**
-     */
-    createCustomProductChemicalInfos(requestParameters: CreateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {CreateUpdateLocationDto} createUpdateLocationDto 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    createLocationRaw(requestParameters: CreateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>>;
-
-    /**
-     */
-    createLocation(requestParameters: CreateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
      * @param {string} client 
      * @param {string} id 
      * @param {string} categoryPath 
@@ -577,16 +474,15 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: DeleteApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1ClientsByClientProductcustomchemicals(requestParameters: DeleteApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} client 
-     * @param {UpdateClientRequest} updateClientRequest 
+     * @param {string} clientId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -594,65 +490,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1ClientsByClientidRaw(requestParameters: DeleteApiV1ClientsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {ShopSettings} shopSettings 
-     * @param {boolean} [patch] 
-     * @param {'SHOPIFY' | 'ALLEAVES' | 'MJ_FREEWAY' | 'BIOTRACK'} [posType] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {Filter} filter 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    getApprovals1Raw(requestParameters: GetApprovals1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getApprovals1(requestParameters: GetApprovals1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    getClientRaw(requestParameters: GetClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateClientRequest>>;
-
-    /**
-     */
-    getClient(requestParameters: GetClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest>;
+    deleteApiV1ClientsByClientid(requestParameters: DeleteApiV1ClientsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -671,27 +513,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getClientListRaw(requestParameters: GetClientListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyListResult>>;
+    getApiV1ClientsRaw(requestParameters: GetApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyListResult>>;
 
     /**
      */
-    getClientList(requestParameters: GetClientListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyListResult>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    getDictionaryRaw(requestParameters: GetDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>>;
-
-    /**
-     */
-    getDictionary(requestParameters: GetDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>>;
+    getApiV1Clients(requestParameters: GetApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyListResult>;
 
     /**
      * 
@@ -703,11 +529,30 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getInventoryAreasRaw(requestParameters: GetInventoryAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryArea>>;
+    getApiV1ClientsByClientRaw(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateClientRequest>>;
 
     /**
      */
-    getInventoryAreas(requestParameters: GetInventoryAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryArea>;
+    getApiV1ClientsByClient(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {Filter} filter 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientApprovalsRaw(requestParameters: GetApiV1ClientsByClientApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1ClientsByClientApprovals(requestParameters: GetApiV1ClientsByClientApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
 
     /**
      * 
@@ -719,11 +564,43 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getLocationRaw(requestParameters: GetLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationResult>>;
+    getApiV1ClientsByClientCampaignPnRaw(requestParameters: GetApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<NotificationCampaign>>>;
 
     /**
      */
-    getLocation(requestParameters: GetLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationResult>;
+    getApiV1ClientsByClientCampaignPn(requestParameters: GetApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<NotificationCampaign>>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientInventoryareasRaw(requestParameters: GetApiV1ClientsByClientInventoryareasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryArea>>;
+
+    /**
+     */
+    getApiV1ClientsByClientInventoryareas(requestParameters: GetApiV1ClientsByClientInventoryareasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryArea>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientLocationRaw(requestParameters: GetApiV1ClientsByClientLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationResult>>;
+
+    /**
+     */
+    getApiV1ClientsByClientLocation(requestParameters: GetApiV1ClientsByClientLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationResult>;
 
     /**
      * 
@@ -737,11 +614,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getLocations1Raw(requestParameters: GetLocations1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
+    getApiV1ClientsByClientLocationsRaw(requestParameters: GetApiV1ClientsByClientLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
 
     /**
      */
-    getLocations1(requestParameters: GetLocations1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
+    getApiV1ClientsByClientLocations(requestParameters: GetApiV1ClientsByClientLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
 
     /**
      * 
@@ -753,16 +630,15 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getModerationRaw(requestParameters: GetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModerationReq>>;
+    getApiV1ClientsByClientModerationRaw(requestParameters: GetApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModerationReq>>;
 
     /**
      */
-    getModeration(requestParameters: GetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModerationReq>;
+    getApiV1ClientsByClientModeration(requestParameters: GetApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModerationReq>;
 
     /**
      * 
      * @param {string} client 
-     * @param {string} orderId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -770,11 +646,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getOrder2Raw(requestParameters: GetOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+    getApiV1ClientsByClientModerationDictionaryRaw(requestParameters: GetApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>>;
 
     /**
      */
-    getOrder2(requestParameters: GetOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+    getApiV1ClientsByClientModerationDictionary(requestParameters: GetApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>>;
 
     /**
      * 
@@ -790,11 +666,28 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getOrdersRaw(requestParameters: GetOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+    getApiV1ClientsByClientOrdersRaw(requestParameters: GetApiV1ClientsByClientOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
 
     /**
      */
-    getOrders(requestParameters: GetOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+    getApiV1ClientsByClientOrders(requestParameters: GetApiV1ClientsByClientOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} orderId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientOrdersByOrderIdRaw(requestParameters: GetApiV1ClientsByClientOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    getApiV1ClientsByClientOrdersByOrderId(requestParameters: GetApiV1ClientsByClientOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -806,11 +699,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getProductChemicalInfosRaw(requestParameters: GetProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChemicalInfoDisplayConfig>>;
+    getApiV1ClientsByClientProductchemicalsRaw(requestParameters: GetApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChemicalInfoDisplayConfig>>;
 
     /**
      */
-    getProductChemicalInfos(requestParameters: GetProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChemicalInfoDisplayConfig>;
+    getApiV1ClientsByClientProductchemicals(requestParameters: GetApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChemicalInfoDisplayConfig>;
 
     /**
      * 
@@ -823,15 +716,16 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getProductCustomChemicalInfosRaw(requestParameters: GetProductCustomChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CustomChemicalInfoByCategoryConfigDto>>>;
+    getApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: GetApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CustomChemicalInfoByCategoryConfigDto>>>;
 
     /**
      */
-    getProductCustomChemicalInfos(requestParameters: GetProductCustomChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CustomChemicalInfoByCategoryConfigDto>>;
+    getApiV1ClientsByClientProductcustomchemicals(requestParameters: GetApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CustomChemicalInfoByCategoryConfigDto>>;
 
     /**
      * 
      * @param {string} client 
+     * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -839,11 +733,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getPushNotificationCampaignsRaw(requestParameters: GetPushNotificationCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<NotificationCampaign>>>;
+    getApiV1ClientsByClientRecommendationByBountyidStatsRaw(requestParameters: GetApiV1ClientsByClientRecommendationByBountyidStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecommendationsStatsResponse>>;
 
     /**
      */
-    getPushNotificationCampaigns(requestParameters: GetPushNotificationCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<NotificationCampaign>>;
+    getApiV1ClientsByClientRecommendationByBountyidStats(requestParameters: GetApiV1ClientsByClientRecommendationByBountyidStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecommendationsStatsResponse>;
 
     /**
      * 
@@ -856,11 +750,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getReservationStatisticsRaw(requestParameters: GetReservationStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationStatisticsResult>>;
+    getApiV1ClientsByClientReservationsStatisticsRaw(requestParameters: GetApiV1ClientsByClientReservationsStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationStatisticsResult>>;
 
     /**
      */
-    getReservationStatistics(requestParameters: GetReservationStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationStatisticsResult>;
+    getApiV1ClientsByClientReservationsStatistics(requestParameters: GetApiV1ClientsByClientReservationsStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationStatisticsResult>;
 
     /**
      * 
@@ -872,11 +766,64 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getSalesStatisticsRaw(requestParameters: GetSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesStatisticsResult>>;
+    getApiV1ClientsByClientSalesStatisticsRaw(requestParameters: GetApiV1ClientsByClientSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesStatisticsResult>>;
 
     /**
      */
-    getSalesStatistics(requestParameters: GetSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SalesStatisticsResult>;
+    getApiV1ClientsByClientSalesStatistics(requestParameters: GetApiV1ClientsByClientSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SalesStatisticsResult>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters: GetApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>>;
+
+    /**
+     */
+    getApiV1ClientsByClientSettingsShopsettings(requestParameters: GetApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [status] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientSupportchatsRaw(requestParameters: GetApiV1ClientsByClientSupportchatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatRoomResult>>;
+
+    /**
+     */
+    getApiV1ClientsByClientSupportchats(requestParameters: GetApiV1ClientsByClientSupportchatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatRoomResult>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} user 
+     * @param {string} [authorization] 
+     * @param {Array<string>} [deviceId] 
+     * @param {Array<string>} [deviceSecret] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientUsersByUserAuthRaw(requestParameters: GetApiV1ClientsByClientUsersByUserAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>>;
+
+    /**
+     */
+    getApiV1ClientsByClientUsersByUserAuth(requestParameters: GetApiV1ClientsByClientUsersByUserAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth>;
 
     /**
      * 
@@ -890,15 +837,16 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getSettingsAuditLogsRaw(requestParameters: GetSettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
+    getApiV1ClientsByClientidSettingsShopsettingsAuditLogsRaw(requestParameters: GetApiV1ClientsByClientidSettingsShopsettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
 
     /**
      */
-    getSettingsAuditLogs(requestParameters: GetSettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
+    getApiV1ClientsByClientidSettingsShopsettingsAuditLogs(requestParameters: GetApiV1ClientsByClientidSettingsShopsettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
 
     /**
      * 
      * @param {string} client 
+     * @param {UpdateClientRequest} updateClientRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -906,16 +854,18 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getShopSettingsRaw(requestParameters: GetShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>>;
+    patchApiV1ClientsByClientRaw(requestParameters: PatchApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getShopSettings(requestParameters: GetShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings>;
+    patchApiV1ClientsByClient(requestParameters: PatchApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
      * @param {string} client 
-     * @param {string} [status] 
+     * @param {ShopSettings} shopSettings 
+     * @param {boolean} [patch] 
+     * @param {'SHOPIFY' | 'ALLEAVES' | 'MJ_FREEWAY' | 'BIOTRACK'} [posType] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -923,11 +873,27 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    getSupportChatsRaw(requestParameters: GetSupportChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatRoomResult>>;
+    patchApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters: PatchApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getSupportChats(requestParameters: GetSupportChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatRoomResult>;
+    patchApiV1ClientsByClientSettingsShopsettings(requestParameters: PatchApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {CreateClientRequest} createClientRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsRaw(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateClientResult>>;
+
+    /**
+     */
+    postApiV1Clients(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult>;
 
     /**
      * 
@@ -940,27 +906,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    newPushNotificationCampaignRaw(requestParameters: NewPushNotificationCampaignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCampaign>>;
+    postApiV1ClientsByClientCampaignPnRaw(requestParameters: PostApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCampaign>>;
 
     /**
      */
-    newPushNotificationCampaign(requestParameters: NewPushNotificationCampaignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCampaign>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    postDeviceFileRaw(requestParameters: PostDeviceFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    postDeviceFile(requestParameters: PostDeviceFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    postApiV1ClientsByClientCampaignPn(requestParameters: PostApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCampaign>;
 
     /**
      * 
@@ -972,11 +922,62 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    postProductFileRaw(requestParameters: PostProductFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    postApiV1ClientsByClientDevicesRaw(requestParameters: PostApiV1ClientsByClientDevicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    postProductFile(requestParameters: PostProductFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    postApiV1ClientsByClientDevices(requestParameters: PostApiV1ClientsByClientDevicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {ModerationReq} moderationReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientModerationRaw(requestParameters: PostApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1ClientsByClientModeration(requestParameters: PostApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {ChemicalInfoDisplayConfig} chemicalInfoDisplayConfig 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientProductchemicalsRaw(requestParameters: PostApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1ClientsByClientProductchemicals(requestParameters: PostApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {CustomChemicalInfoByCategoryConfigDto} customChemicalInfoByCategoryConfigDto 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: PostApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>>;
+
+    /**
+     */
+    postApiV1ClientsByClientProductcustomchemicals(requestParameters: PostApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto>;
 
     /**
      * 
@@ -988,60 +989,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    postTransactionFileRaw(requestParameters: PostTransactionFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    postApiV1ClientsByClientProductsRaw(requestParameters: PostApiV1ClientsByClientProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    postTransactionFile(requestParameters: PostTransactionFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    postUserFileRaw(requestParameters: PostUserFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    postUserFile(requestParameters: PostUserFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    recommendationStatsRaw(requestParameters: RecommendationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecommendationsStatsResponse>>;
-
-    /**
-     */
-    recommendationStats(requestParameters: RecommendationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecommendationsStatsResponse>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ClientsByClientProducts(requestParameters: PostApiV1ClientsByClientProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
 
     /**
      * 
@@ -1056,16 +1008,15 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ClientsByClientSyncByComponentRaw(requestParameters: PostApiV1ClientsByClientSyncByComponentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ClientsByClientSyncByComponent(requestParameters: PostApiV1ClientsByClientSyncByComponentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
      * @param {string} client 
-     * @param {ModerationReq} moderationReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1073,11 +1024,95 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ClientsByClientTransactionsRaw(requestParameters: PostApiV1ClientsByClientTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ClientsByClientTransactions(requestParameters: PostApiV1ClientsByClientTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientUsersRaw(requestParameters: PostApiV1ClientsByClientUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+
+    /**
+     */
+    postApiV1ClientsByClientUsers(requestParameters: PostApiV1ClientsByClientUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {AssignClientRequest} assignClientRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientidAssignRaw(requestParameters: PostApiV1ClientsByClientidAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignClientResponse>>;
+
+    /**
+     */
+    postApiV1ClientsByClientidAssign(requestParameters: PostApiV1ClientsByClientidAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignClientResponse>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {CreateUpdateLocationDto} createUpdateLocationDto 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientidLocationsRaw(requestParameters: PostApiV1ClientsByClientidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>>;
+
+    /**
+     */
+    postApiV1ClientsByClientidLocations(requestParameters: PostApiV1ClientsByClientidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {UpdateClientLoginsRequest} updateClientLoginsRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    putApiV1ClientsByClientLoginsRaw(requestParameters: PutApiV1ClientsByClientLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1ClientsByClientLogins(requestParameters: PutApiV1ClientsByClientLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {ModerationDictionary} moderationDictionary 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    putApiV1ClientsByClientModerationDictionaryRaw(requestParameters: PutApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>>;
+
+    /**
+     */
+    putApiV1ClientsByClientModerationDictionary(requestParameters: PutApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>>;
 
     /**
      * 
@@ -1092,79 +1127,11 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    updateCustomProductChemicalInfosRaw(requestParameters: UpdateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>>;
+    putApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: PutApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>>;
 
     /**
      */
-    updateCustomProductChemicalInfos(requestParameters: UpdateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {ModerationDictionary} moderationDictionary 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    updateDictionaryRaw(requestParameters: UpdateDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>>;
-
-    /**
-     */
-    updateDictionary(requestParameters: UpdateDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {CreateUpdateLocationDto} createUpdateLocationDto 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    updateLocationRaw(requestParameters: UpdateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>>;
-
-    /**
-     */
-    updateLocation(requestParameters: UpdateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {UpdateClientLoginsRequest} updateClientLoginsRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {ChemicalInfoDisplayConfig} chemicalInfoDisplayConfig 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ClientControllerApiInterface
-     */
-    updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1ClientsByClientProductcustomchemicals(requestParameters: PutApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto>;
 
     /**
      * 
@@ -1177,11 +1144,44 @@ export interface ClientControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    putApiV1ClientsByClientSettingsRaw(requestParameters: PutApiV1ClientsByClientSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1ClientsByClientSettings(requestParameters: PutApiV1ClientsByClientSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    putApiV1ClientsByClientidRestoreRaw(requestParameters: PutApiV1ClientsByClientidRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1ClientsByClientidRestore(requestParameters: PutApiV1ClientsByClientidRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {CreateUpdateLocationDto} createUpdateLocationDto 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    putApiV1ClientsLocationsByClientidRaw(requestParameters: PutApiV1ClientsLocationsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>>;
+
+    /**
+     */
+    putApiV1ClientsLocationsByClientid(requestParameters: PutApiV1ClientsLocationsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo>;
 
 }
 
@@ -1192,383 +1192,25 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async assignClientRaw(requestParameters: AssignClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignClientResponse>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling assignClient().'
-            );
-        }
-
-        if (requestParameters['assignClientRequest'] == null) {
-            throw new runtime.RequiredError(
-                'assignClientRequest',
-                'Required parameter "assignClientRequest" was null or undefined when calling assignClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{clientId}/assign`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AssignClientRequestToJSON(requestParameters['assignClientRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AssignClientResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async assignClient(requestParameters: AssignClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignClientResponse> {
-        const response = await this.assignClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async authClientRaw(requestParameters: AuthClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>> {
+    async deleteApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: DeleteApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling authClient().'
-            );
-        }
-
-        if (requestParameters['user'] == null) {
-            throw new runtime.RequiredError(
-                'user',
-                'Required parameter "user" was null or undefined when calling authClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['deviceId'] != null) {
-            queryParameters['deviceId'] = requestParameters['deviceId'];
-        }
-
-        if (requestParameters['deviceSecret'] != null) {
-            queryParameters['deviceSecret'] = requestParameters['deviceSecret'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['authorization'] != null) {
-            headerParameters['Authorization'] = String(requestParameters['authorization']);
-        }
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/users/{user}/auth`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-        urlPath = urlPath.replace(`{${"user"}}`, encodeURIComponent(String(requestParameters['user'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserAuthFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async authClient(requestParameters: AuthClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth> {
-        const response = await this.authClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createClientRaw(requestParameters: CreateClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateClientResult>> {
-        if (requestParameters['createClientRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createClientRequest',
-                'Required parameter "createClientRequest" was null or undefined when calling createClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateClientRequestToJSON(requestParameters['createClientRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateClientResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createClient(requestParameters: CreateClientOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult> {
-        const response = await this.createClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createCustomProductChemicalInfosRaw(requestParameters: CreateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling createCustomProductChemicalInfos().'
-            );
-        }
-
-        if (requestParameters['customChemicalInfoByCategoryConfigDto'] == null) {
-            throw new runtime.RequiredError(
-                'customChemicalInfoByCategoryConfigDto',
-                'Required parameter "customChemicalInfoByCategoryConfigDto" was null or undefined when calling createCustomProductChemicalInfos().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/productCustomChemicals`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CustomChemicalInfoByCategoryConfigDtoToJSON(requestParameters['customChemicalInfoByCategoryConfigDto']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomChemicalInfoByCategoryConfigDtoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createCustomProductChemicalInfos(requestParameters: CreateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto> {
-        const response = await this.createCustomProductChemicalInfosRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createLocationRaw(requestParameters: CreateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createLocation().'
-            );
-        }
-
-        if (requestParameters['createUpdateLocationDto'] == null) {
-            throw new runtime.RequiredError(
-                'createUpdateLocationDto',
-                'Required parameter "createUpdateLocationDto" was null or undefined when calling createLocation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{clientId}/locations`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateUpdateLocationDtoToJSON(requestParameters['createUpdateLocationDto']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LocationInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createLocation(requestParameters: CreateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo> {
-        const response = await this.createLocationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling deleteClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{clientId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling deleteCustomProductChemicalInfos().'
+                'Required parameter "client" was null or undefined when calling deleteApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling deleteCustomProductChemicalInfos().'
+                'Required parameter "id" was null or undefined when calling deleteApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['categoryPath'] == null) {
             throw new runtime.RequiredError(
                 'categoryPath',
-                'Required parameter "categoryPath" was null or undefined when calling deleteCustomProductChemicalInfos().'
+                'Required parameter "categoryPath" was null or undefined when calling deleteApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
@@ -1616,33 +1258,24 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteCustomProductChemicalInfosRaw(requestParameters, initOverrides);
+    async deleteApiV1ClientsByClientProductcustomchemicals(requestParameters: DeleteApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
+    async deleteApiV1ClientsByClientidRaw(requestParameters: DeleteApiV1ClientsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling editClient().'
-            );
-        }
-
-        if (requestParameters['updateClientRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateClientRequest',
-                'Required parameter "updateClientRequest" was null or undefined when calling editClient().'
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling deleteApiV1ClientsByClientid().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -1661,15 +1294,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        let urlPath = `/api/v1/clients/{clientId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'PATCH',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateClientRequestToJSON(requestParameters['updateClientRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -1677,204 +1309,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.editClientRaw(requestParameters, initOverrides);
+    async deleteApiV1ClientsByClientid(requestParameters: DeleteApiV1ClientsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1ClientsByClientidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling editShopSettings().'
-            );
-        }
-
-        if (requestParameters['shopSettings'] == null) {
-            throw new runtime.RequiredError(
-                'shopSettings',
-                'Required parameter "shopSettings" was null or undefined when calling editShopSettings().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['patch'] != null) {
-            queryParameters['patch'] = requestParameters['patch'];
-        }
-
-        if (requestParameters['posType'] != null) {
-            queryParameters['posType'] = requestParameters['posType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/settings/shopSettings`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ShopSettingsToJSON(requestParameters['shopSettings']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.editShopSettingsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getApprovals1Raw(requestParameters: GetApprovals1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling getApprovals1().'
-            );
-        }
-
-        if (requestParameters['filter'] == null) {
-            throw new runtime.RequiredError(
-                'filter',
-                'Required parameter "filter" was null or undefined when calling getApprovals1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/approvals`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getApprovals1(requestParameters: GetApprovals1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getApprovals1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getClientRaw(requestParameters: GetClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateClientRequest>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling getClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateClientRequestFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getClient(requestParameters: GetClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest> {
-        const response = await this.getClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getClientListRaw(requestParameters: GetClientListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyListResult>> {
+    async getApiV1ClientsRaw(requestParameters: GetApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyListResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['countryCodes'] != null) {
@@ -1942,18 +1384,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getClientList(requestParameters: GetClientListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyListResult> {
-        const response = await this.getClientListRaw(requestParameters, initOverrides);
+    async getApiV1Clients(requestParameters: GetApiV1ClientsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyListResult> {
+        const response = await this.getApiV1ClientsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getDictionaryRaw(requestParameters: GetDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>> {
+    async getApiV1ClientsByClientRaw(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateClientRequest>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getDictionary().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClient().'
             );
         }
 
@@ -1978,7 +1420,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}/moderation/dictionary`;
+        let urlPath = `/api/v1/clients/{client}`;
         urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
 
         const response = await this.request({
@@ -1988,23 +1430,144 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SentimentFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateClientRequestFromJSON(jsonValue));
     }
 
     /**
      */
-    async getDictionary(requestParameters: GetDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>> {
-        const response = await this.getDictionaryRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClient(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest> {
+        const response = await this.getApiV1ClientsByClientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInventoryAreasRaw(requestParameters: GetInventoryAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryArea>> {
+    async getApiV1ClientsByClientApprovalsRaw(requestParameters: GetApiV1ClientsByClientApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getInventoryAreas().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientApprovals().'
+            );
+        }
+
+        if (requestParameters['filter'] == null) {
+            throw new runtime.RequiredError(
+                'filter',
+                'Required parameter "filter" was null or undefined when calling getApiV1ClientsByClientApprovals().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/approvals`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientApprovals(requestParameters: GetApiV1ClientsByClientApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1ClientsByClientApprovalsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientCampaignPnRaw(requestParameters: GetApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<NotificationCampaign>>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientCampaignPn().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/campaign/pn`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(NotificationCampaignFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientCampaignPn(requestParameters: GetApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<NotificationCampaign>> {
+        const response = await this.getApiV1ClientsByClientCampaignPnRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientInventoryareasRaw(requestParameters: GetApiV1ClientsByClientInventoryareasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryArea>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientInventoryareas().'
             );
         }
 
@@ -2044,18 +1607,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getInventoryAreas(requestParameters: GetInventoryAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryArea> {
-        const response = await this.getInventoryAreasRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientInventoryareas(requestParameters: GetApiV1ClientsByClientInventoryareasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryArea> {
+        const response = await this.getApiV1ClientsByClientInventoryareasRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getLocationRaw(requestParameters: GetLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationResult>> {
+    async getApiV1ClientsByClientLocationRaw(requestParameters: GetApiV1ClientsByClientLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getLocation().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientLocation().'
             );
         }
 
@@ -2095,18 +1658,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getLocation(requestParameters: GetLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationResult> {
-        const response = await this.getLocationRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientLocation(requestParameters: GetApiV1ClientsByClientLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationResult> {
+        const response = await this.getApiV1ClientsByClientLocationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getLocations1Raw(requestParameters: GetLocations1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
+    async getApiV1ClientsByClientLocationsRaw(requestParameters: GetApiV1ClientsByClientLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getLocations1().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientLocations().'
             );
         }
 
@@ -2154,18 +1717,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getLocations1(requestParameters: GetLocations1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
-        const response = await this.getLocations1Raw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientLocations(requestParameters: GetApiV1ClientsByClientLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
+        const response = await this.getApiV1ClientsByClientLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getModerationRaw(requestParameters: GetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModerationReq>> {
+    async getApiV1ClientsByClientModerationRaw(requestParameters: GetApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModerationReq>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getModeration().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientModeration().'
             );
         }
 
@@ -2205,25 +1768,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getModeration(requestParameters: GetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModerationReq> {
-        const response = await this.getModerationRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientModeration(requestParameters: GetApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModerationReq> {
+        const response = await this.getApiV1ClientsByClientModerationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrder2Raw(requestParameters: GetOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+    async getApiV1ClientsByClientModerationDictionaryRaw(requestParameters: GetApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getOrder2().'
-            );
-        }
-
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling getOrder2().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientModerationDictionary().'
             );
         }
 
@@ -2248,9 +1804,8 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}/orders/{order_id}`;
+        let urlPath = `/api/v1/clients/{client}/moderation/dictionary`;
         urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-        urlPath = urlPath.replace(`{${"order_id"}}`, encodeURIComponent(String(requestParameters['orderId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2259,30 +1814,30 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SentimentFromJSON));
     }
 
     /**
      */
-    async getOrder2(requestParameters: GetOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.getOrder2Raw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientModerationDictionary(requestParameters: GetApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>> {
+        const response = await this.getApiV1ClientsByClientModerationDictionaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrdersRaw(requestParameters: GetOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+    async getApiV1ClientsByClientOrdersRaw(requestParameters: GetApiV1ClientsByClientOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getOrders().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientOrders().'
             );
         }
 
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
-                'Required parameter "filter" was null or undefined when calling getOrders().'
+                'Required parameter "filter" was null or undefined when calling getApiV1ClientsByClientOrders().'
             );
         }
 
@@ -2338,18 +1893,77 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getOrders(requestParameters: GetOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getOrdersRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientOrders(requestParameters: GetApiV1ClientsByClientOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1ClientsByClientOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getProductChemicalInfosRaw(requestParameters: GetProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChemicalInfoDisplayConfig>> {
+    async getApiV1ClientsByClientOrdersByOrderIdRaw(requestParameters: GetApiV1ClientsByClientOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getProductChemicalInfos().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientOrdersByOrderId().'
+            );
+        }
+
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling getApiV1ClientsByClientOrdersByOrderId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/orders/{order_id}`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        urlPath = urlPath.replace(`{${"order_id"}}`, encodeURIComponent(String(requestParameters['orderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientOrdersByOrderId(requestParameters: GetApiV1ClientsByClientOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.getApiV1ClientsByClientOrdersByOrderIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientProductchemicalsRaw(requestParameters: GetApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChemicalInfoDisplayConfig>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientProductchemicals().'
             );
         }
 
@@ -2389,25 +2003,25 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getProductChemicalInfos(requestParameters: GetProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChemicalInfoDisplayConfig> {
-        const response = await this.getProductChemicalInfosRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientProductchemicals(requestParameters: GetApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChemicalInfoDisplayConfig> {
+        const response = await this.getApiV1ClientsByClientProductchemicalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getProductCustomChemicalInfosRaw(requestParameters: GetProductCustomChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CustomChemicalInfoByCategoryConfigDto>>> {
+    async getApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: GetApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CustomChemicalInfoByCategoryConfigDto>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getProductCustomChemicalInfos().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['categoryPath'] == null) {
             throw new runtime.RequiredError(
                 'categoryPath',
-                'Required parameter "categoryPath" was null or undefined when calling getProductCustomChemicalInfos().'
+                'Required parameter "categoryPath" was null or undefined when calling getApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
@@ -2451,18 +2065,25 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getProductCustomChemicalInfos(requestParameters: GetProductCustomChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CustomChemicalInfoByCategoryConfigDto>> {
-        const response = await this.getProductCustomChemicalInfosRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientProductcustomchemicals(requestParameters: GetApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CustomChemicalInfoByCategoryConfigDto>> {
+        const response = await this.getApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getPushNotificationCampaignsRaw(requestParameters: GetPushNotificationCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<NotificationCampaign>>> {
+    async getApiV1ClientsByClientRecommendationByBountyidStatsRaw(requestParameters: GetApiV1ClientsByClientRecommendationByBountyidStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecommendationsStatsResponse>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getPushNotificationCampaigns().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientRecommendationByBountyidStats().'
+            );
+        }
+
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1ClientsByClientRecommendationByBountyidStats().'
             );
         }
 
@@ -2487,8 +2108,9 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}/campaign/pn`;
+        let urlPath = `/api/v1/clients/{client}/recommendation/{bountyId}/stats`;
         urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2497,30 +2119,30 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(NotificationCampaignFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RecommendationsStatsResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getPushNotificationCampaigns(requestParameters: GetPushNotificationCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<NotificationCampaign>> {
-        const response = await this.getPushNotificationCampaignsRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientRecommendationByBountyidStats(requestParameters: GetApiV1ClientsByClientRecommendationByBountyidStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecommendationsStatsResponse> {
+        const response = await this.getApiV1ClientsByClientRecommendationByBountyidStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getReservationStatisticsRaw(requestParameters: GetReservationStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationStatisticsResult>> {
+    async getApiV1ClientsByClientReservationsStatisticsRaw(requestParameters: GetApiV1ClientsByClientReservationsStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationStatisticsResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getReservationStatistics().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientReservationsStatistics().'
             );
         }
 
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
-                'Required parameter "filter" was null or undefined when calling getReservationStatistics().'
+                'Required parameter "filter" was null or undefined when calling getApiV1ClientsByClientReservationsStatistics().'
             );
         }
 
@@ -2564,18 +2186,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getReservationStatistics(requestParameters: GetReservationStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationStatisticsResult> {
-        const response = await this.getReservationStatisticsRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientReservationsStatistics(requestParameters: GetApiV1ClientsByClientReservationsStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationStatisticsResult> {
+        const response = await this.getApiV1ClientsByClientReservationsStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getSalesStatisticsRaw(requestParameters: GetSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesStatisticsResult>> {
+    async getApiV1ClientsByClientSalesStatisticsRaw(requestParameters: GetApiV1ClientsByClientSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesStatisticsResult>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getSalesStatistics().'
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientSalesStatistics().'
             );
         }
 
@@ -2615,18 +2237,195 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getSalesStatistics(requestParameters: GetSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SalesStatisticsResult> {
-        const response = await this.getSalesStatisticsRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientSalesStatistics(requestParameters: GetApiV1ClientsByClientSalesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SalesStatisticsResult> {
+        const response = await this.getApiV1ClientsByClientSalesStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getSettingsAuditLogsRaw(requestParameters: GetSettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
+    async getApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters: GetApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientSettingsShopsettings().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/settings/shopSettings`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShopSettingsFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientSettingsShopsettings(requestParameters: GetApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings> {
+        const response = await this.getApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientSupportchatsRaw(requestParameters: GetApiV1ClientsByClientSupportchatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatRoomResult>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientSupportchats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/supportChats`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatRoomResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientSupportchats(requestParameters: GetApiV1ClientsByClientSupportchatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatRoomResult> {
+        const response = await this.getApiV1ClientsByClientSupportchatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientUsersByUserAuthRaw(requestParameters: GetApiV1ClientsByClientUsersByUserAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAuth>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientUsersByUserAuth().'
+            );
+        }
+
+        if (requestParameters['user'] == null) {
+            throw new runtime.RequiredError(
+                'user',
+                'Required parameter "user" was null or undefined when calling getApiV1ClientsByClientUsersByUserAuth().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['deviceId'] != null) {
+            queryParameters['deviceId'] = requestParameters['deviceId'];
+        }
+
+        if (requestParameters['deviceSecret'] != null) {
+            queryParameters['deviceSecret'] = requestParameters['deviceSecret'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['authorization'] != null) {
+            headerParameters['Authorization'] = String(requestParameters['authorization']);
+        }
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/users/{user}/auth`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        urlPath = urlPath.replace(`{${"user"}}`, encodeURIComponent(String(requestParameters['user'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserAuthFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientUsersByUserAuth(requestParameters: GetApiV1ClientsByClientUsersByUserAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAuth> {
+        const response = await this.getApiV1ClientsByClientUsersByUserAuthRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientidSettingsShopsettingsAuditLogsRaw(requestParameters: GetApiV1ClientsByClientidSettingsShopsettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getSettingsAuditLogs().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1ClientsByClientidSettingsShopsettingsAuditLogs().'
             );
         }
 
@@ -2674,24 +2473,102 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async getSettingsAuditLogs(requestParameters: GetSettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
-        const response = await this.getSettingsAuditLogsRaw(requestParameters, initOverrides);
+    async getApiV1ClientsByClientidSettingsShopsettingsAuditLogs(requestParameters: GetApiV1ClientsByClientidSettingsShopsettingsAuditLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
+        const response = await this.getApiV1ClientsByClientidSettingsShopsettingsAuditLogsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getShopSettingsRaw(requestParameters: GetShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>> {
+    async patchApiV1ClientsByClientRaw(requestParameters: PatchApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling getShopSettings().'
+                'Required parameter "client" was null or undefined when calling patchApiV1ClientsByClient().'
+            );
+        }
+
+        if (requestParameters['updateClientRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateClientRequest',
+                'Required parameter "updateClientRequest" was null or undefined when calling patchApiV1ClientsByClient().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateClientRequestToJSON(requestParameters['updateClientRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async patchApiV1ClientsByClient(requestParameters: PatchApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.patchApiV1ClientsByClientRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async patchApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters: PatchApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling patchApiV1ClientsByClientSettingsShopsettings().'
+            );
+        }
+
+        if (requestParameters['shopSettings'] == null) {
+            throw new runtime.RequiredError(
+                'shopSettings',
+                'Required parameter "shopSettings" was null or undefined when calling patchApiV1ClientsByClientSettingsShopsettings().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['patch'] != null) {
+            queryParameters['patch'] = requestParameters['patch'];
+        }
+
+        if (requestParameters['posType'] != null) {
+            queryParameters['posType'] = requestParameters['posType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -2715,38 +2592,37 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: ShopSettingsToJSON(requestParameters['shopSettings']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShopSettingsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      */
-    async getShopSettings(requestParameters: GetShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings> {
-        const response = await this.getShopSettingsRaw(requestParameters, initOverrides);
+    async patchApiV1ClientsByClientSettingsShopsettings(requestParameters: PatchApiV1ClientsByClientSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.patchApiV1ClientsByClientSettingsShopsettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getSupportChatsRaw(requestParameters: GetSupportChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatRoomResult>> {
-        if (requestParameters['client'] == null) {
+    async postApiV1ClientsRaw(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateClientResult>> {
+        if (requestParameters['createClientRequest'] == null) {
             throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling getSupportChats().'
+                'createClientRequest',
+                'Required parameter "createClientRequest" was null or undefined when calling postApiV1Clients().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['status'] != null) {
-            queryParameters['status'] = requestParameters['status'];
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -2765,40 +2641,40 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}/supportChats`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        let urlPath = `/api/v1/clients`;
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: CreateClientRequestToJSON(requestParameters['createClientRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ChatRoomResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateClientResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getSupportChats(requestParameters: GetSupportChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatRoomResult> {
-        const response = await this.getSupportChatsRaw(requestParameters, initOverrides);
+    async postApiV1Clients(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult> {
+        const response = await this.postApiV1ClientsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async newPushNotificationCampaignRaw(requestParameters: NewPushNotificationCampaignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCampaign>> {
+    async postApiV1ClientsByClientCampaignPnRaw(requestParameters: PostApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCampaign>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling newPushNotificationCampaign().'
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientCampaignPn().'
             );
         }
 
         if (requestParameters['pushNotificationCampaignRequest'] == null) {
             throw new runtime.RequiredError(
                 'pushNotificationCampaignRequest',
-                'Required parameter "pushNotificationCampaignRequest" was null or undefined when calling newPushNotificationCampaign().'
+                'Required parameter "pushNotificationCampaignRequest" was null or undefined when calling postApiV1ClientsByClientCampaignPn().'
             );
         }
 
@@ -2841,18 +2717,18 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async newPushNotificationCampaign(requestParameters: NewPushNotificationCampaignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCampaign> {
-        const response = await this.newPushNotificationCampaignRaw(requestParameters, initOverrides);
+    async postApiV1ClientsByClientCampaignPn(requestParameters: PostApiV1ClientsByClientCampaignPnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCampaign> {
+        const response = await this.postApiV1ClientsByClientCampaignPnRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postDeviceFileRaw(requestParameters: PostDeviceFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+    async postApiV1ClientsByClientDevicesRaw(requestParameters: PostApiV1ClientsByClientDevicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling postDeviceFile().'
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientDevices().'
             );
         }
 
@@ -2896,18 +2772,201 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async postDeviceFile(requestParameters: PostDeviceFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.postDeviceFileRaw(requestParameters, initOverrides);
+    async postApiV1ClientsByClientDevices(requestParameters: PostApiV1ClientsByClientDevicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1ClientsByClientDevicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postProductFileRaw(requestParameters: PostProductFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+    async postApiV1ClientsByClientModerationRaw(requestParameters: PostApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling postProductFile().'
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientModeration().'
+            );
+        }
+
+        if (requestParameters['moderationReq'] == null) {
+            throw new runtime.RequiredError(
+                'moderationReq',
+                'Required parameter "moderationReq" was null or undefined when calling postApiV1ClientsByClientModeration().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/moderation`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ModerationReqToJSON(requestParameters['moderationReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientModeration(requestParameters: PostApiV1ClientsByClientModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ClientsByClientModerationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientProductchemicalsRaw(requestParameters: PostApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientProductchemicals().'
+            );
+        }
+
+        if (requestParameters['chemicalInfoDisplayConfig'] == null) {
+            throw new runtime.RequiredError(
+                'chemicalInfoDisplayConfig',
+                'Required parameter "chemicalInfoDisplayConfig" was null or undefined when calling postApiV1ClientsByClientProductchemicals().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/productChemicals`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChemicalInfoDisplayConfigToJSON(requestParameters['chemicalInfoDisplayConfig']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientProductchemicals(requestParameters: PostApiV1ClientsByClientProductchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ClientsByClientProductchemicalsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: PostApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientProductcustomchemicals().'
+            );
+        }
+
+        if (requestParameters['customChemicalInfoByCategoryConfigDto'] == null) {
+            throw new runtime.RequiredError(
+                'customChemicalInfoByCategoryConfigDto',
+                'Required parameter "customChemicalInfoByCategoryConfigDto" was null or undefined when calling postApiV1ClientsByClientProductcustomchemicals().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/productCustomChemicals`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CustomChemicalInfoByCategoryConfigDtoToJSON(requestParameters['customChemicalInfoByCategoryConfigDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomChemicalInfoByCategoryConfigDtoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientProductcustomchemicals(requestParameters: PostApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto> {
+        const response = await this.postApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientProductsRaw(requestParameters: PostApiV1ClientsByClientProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientProducts().'
             );
         }
 
@@ -2951,245 +3010,25 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async postProductFile(requestParameters: PostProductFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.postProductFileRaw(requestParameters, initOverrides);
+    async postApiV1ClientsByClientProducts(requestParameters: PostApiV1ClientsByClientProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1ClientsByClientProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postTransactionFileRaw(requestParameters: PostTransactionFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+    async postApiV1ClientsByClientSyncByComponentRaw(requestParameters: PostApiV1ClientsByClientSyncByComponentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling postTransactionFile().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/transactions`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async postTransactionFile(requestParameters: PostTransactionFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.postTransactionFileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async postUserFileRaw(requestParameters: PostUserFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling postUserFile().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/users`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async postUserFile(requestParameters: PostUserFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.postUserFileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async recommendationStatsRaw(requestParameters: RecommendationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecommendationsStatsResponse>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling recommendationStats().'
-            );
-        }
-
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling recommendationStats().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/recommendation/{bountyId}/stats`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RecommendationsStatsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async recommendationStats(requestParameters: RecommendationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecommendationsStatsResponse> {
-        const response = await this.recommendationStatsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling restoreClient().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{clientId}/restore`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.restoreClientRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling resync().'
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientSyncByComponent().'
             );
         }
 
         if (requestParameters['component'] == null) {
             throw new runtime.RequiredError(
                 'component',
-                'Required parameter "component" was null or undefined when calling resync().'
+                'Required parameter "component" was null or undefined when calling postApiV1ClientsByClientSyncByComponent().'
             );
         }
 
@@ -3238,25 +3077,135 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.resyncRaw(requestParameters, initOverrides);
+    async postApiV1ClientsByClientSyncByComponent(requestParameters: PostApiV1ClientsByClientSyncByComponentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ClientsByClientSyncByComponentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1ClientsByClientTransactionsRaw(requestParameters: PostApiV1ClientsByClientTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling setModeration().'
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientTransactions().'
             );
         }
 
-        if (requestParameters['moderationReq'] == null) {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/transactions`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientTransactions(requestParameters: PostApiV1ClientsByClientTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1ClientsByClientTransactionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientUsersRaw(requestParameters: PostApiV1ClientsByClientUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
-                'moderationReq',
-                'Required parameter "moderationReq" was null or undefined when calling setModeration().'
+                'client',
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientUsers().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/users`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientUsers(requestParameters: PostApiV1ClientsByClientUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.postApiV1ClientsByClientUsersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientidAssignRaw(requestParameters: PostApiV1ClientsByClientidAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignClientResponse>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1ClientsByClientidAssign().'
+            );
+        }
+
+        if (requestParameters['assignClientRequest'] == null) {
+            throw new runtime.RequiredError(
+                'assignClientRequest',
+                'Required parameter "assignClientRequest" was null or undefined when calling postApiV1ClientsByClientidAssign().'
             );
         }
 
@@ -3283,15 +3232,137 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
         }
 
 
-        let urlPath = `/api/v1/clients/{client}/moderation`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+        let urlPath = `/api/v1/clients/{clientId}/assign`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ModerationReqToJSON(requestParameters['moderationReq']),
+            body: AssignClientRequestToJSON(requestParameters['assignClientRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AssignClientResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientidAssign(requestParameters: PostApiV1ClientsByClientidAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignClientResponse> {
+        const response = await this.postApiV1ClientsByClientidAssignRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientidLocationsRaw(requestParameters: PostApiV1ClientsByClientidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1ClientsByClientidLocations().'
+            );
+        }
+
+        if (requestParameters['createUpdateLocationDto'] == null) {
+            throw new runtime.RequiredError(
+                'createUpdateLocationDto',
+                'Required parameter "createUpdateLocationDto" was null or undefined when calling postApiV1ClientsByClientidLocations().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{clientId}/locations`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateUpdateLocationDtoToJSON(requestParameters['createUpdateLocationDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LocationInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientidLocations(requestParameters: PostApiV1ClientsByClientidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo> {
+        const response = await this.postApiV1ClientsByClientidLocationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1ClientsByClientLoginsRaw(requestParameters: PutApiV1ClientsByClientLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling putApiV1ClientsByClientLogins().'
+            );
+        }
+
+        if (requestParameters['updateClientLoginsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateClientLoginsRequest',
+                'Required parameter "updateClientLoginsRequest" was null or undefined when calling putApiV1ClientsByClientLogins().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/logins`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateClientLoginsRequestToJSON(requestParameters['updateClientLoginsRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -3299,39 +3370,100 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.setModerationRaw(requestParameters, initOverrides);
+    async putApiV1ClientsByClientLogins(requestParameters: PutApiV1ClientsByClientLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1ClientsByClientLoginsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateCustomProductChemicalInfosRaw(requestParameters: UpdateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>> {
+    async putApiV1ClientsByClientModerationDictionaryRaw(requestParameters: PutApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling updateCustomProductChemicalInfos().'
+                'Required parameter "client" was null or undefined when calling putApiV1ClientsByClientModerationDictionary().'
+            );
+        }
+
+        if (requestParameters['moderationDictionary'] == null) {
+            throw new runtime.RequiredError(
+                'moderationDictionary',
+                'Required parameter "moderationDictionary" was null or undefined when calling putApiV1ClientsByClientModerationDictionary().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/moderation/dictionary`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ModerationDictionaryToJSON(requestParameters['moderationDictionary']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SentimentFromJSON));
+    }
+
+    /**
+     */
+    async putApiV1ClientsByClientModerationDictionary(requestParameters: PutApiV1ClientsByClientModerationDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>> {
+        const response = await this.putApiV1ClientsByClientModerationDictionaryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters: PutApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChemicalInfoByCategoryConfigDto>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling putApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling updateCustomProductChemicalInfos().'
+                'Required parameter "id" was null or undefined when calling putApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['currentCategoryPath'] == null) {
             throw new runtime.RequiredError(
                 'currentCategoryPath',
-                'Required parameter "currentCategoryPath" was null or undefined when calling updateCustomProductChemicalInfos().'
+                'Required parameter "currentCategoryPath" was null or undefined when calling putApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
         if (requestParameters['customChemicalInfoByCategoryConfigDto'] == null) {
             throw new runtime.RequiredError(
                 'customChemicalInfoByCategoryConfigDto',
-                'Required parameter "customChemicalInfoByCategoryConfigDto" was null or undefined when calling updateCustomProductChemicalInfos().'
+                'Required parameter "customChemicalInfoByCategoryConfigDto" was null or undefined when calling putApiV1ClientsByClientProductcustomchemicals().'
             );
         }
 
@@ -3382,269 +3514,25 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateCustomProductChemicalInfos(requestParameters: UpdateCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto> {
-        const response = await this.updateCustomProductChemicalInfosRaw(requestParameters, initOverrides);
+    async putApiV1ClientsByClientProductcustomchemicals(requestParameters: PutApiV1ClientsByClientProductcustomchemicalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChemicalInfoByCategoryConfigDto> {
+        const response = await this.putApiV1ClientsByClientProductcustomchemicalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateDictionaryRaw(requestParameters: UpdateDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Sentiment>>> {
+    async putApiV1ClientsByClientSettingsRaw(requestParameters: PutApiV1ClientsByClientSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
-                'Required parameter "client" was null or undefined when calling updateDictionary().'
-            );
-        }
-
-        if (requestParameters['moderationDictionary'] == null) {
-            throw new runtime.RequiredError(
-                'moderationDictionary',
-                'Required parameter "moderationDictionary" was null or undefined when calling updateDictionary().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/moderation/dictionary`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModerationDictionaryToJSON(requestParameters['moderationDictionary']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SentimentFromJSON));
-    }
-
-    /**
-     */
-    async updateDictionary(requestParameters: UpdateDictionaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Sentiment>> {
-        const response = await this.updateDictionaryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateLocationRaw(requestParameters: UpdateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateLocation().'
-            );
-        }
-
-        if (requestParameters['createUpdateLocationDto'] == null) {
-            throw new runtime.RequiredError(
-                'createUpdateLocationDto',
-                'Required parameter "createUpdateLocationDto" was null or undefined when calling updateLocation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/locations/{clientId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateUpdateLocationDtoToJSON(requestParameters['createUpdateLocationDto']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LocationInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async updateLocation(requestParameters: UpdateLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo> {
-        const response = await this.updateLocationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling updateLogins().'
-            );
-        }
-
-        if (requestParameters['updateClientLoginsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateClientLoginsRequest',
-                'Required parameter "updateClientLoginsRequest" was null or undefined when calling updateLogins().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/logins`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateClientLoginsRequestToJSON(requestParameters['updateClientLoginsRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateLoginsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling updateProductChemicalInfos().'
-            );
-        }
-
-        if (requestParameters['chemicalInfoDisplayConfig'] == null) {
-            throw new runtime.RequiredError(
-                'chemicalInfoDisplayConfig',
-                'Required parameter "chemicalInfoDisplayConfig" was null or undefined when calling updateProductChemicalInfos().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/clients/{client}/productChemicals`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ChemicalInfoDisplayConfigToJSON(requestParameters['chemicalInfoDisplayConfig']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateProductChemicalInfosRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling updateSettings().'
+                'Required parameter "client" was null or undefined when calling putApiV1ClientsByClientSettings().'
             );
         }
 
         if (requestParameters['updateSettingsReq'] == null) {
             throw new runtime.RequiredError(
                 'updateSettingsReq',
-                'Required parameter "updateSettingsReq" was null or undefined when calling updateSettings().'
+                'Required parameter "updateSettingsReq" was null or undefined when calling putApiV1ClientsByClientSettings().'
             );
         }
 
@@ -3687,8 +3575,120 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateSettingsRaw(requestParameters, initOverrides);
+    async putApiV1ClientsByClientSettings(requestParameters: PutApiV1ClientsByClientSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1ClientsByClientSettingsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1ClientsByClientidRestoreRaw(requestParameters: PutApiV1ClientsByClientidRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1ClientsByClientidRestore().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{clientId}/restore`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1ClientsByClientidRestore(requestParameters: PutApiV1ClientsByClientidRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1ClientsByClientidRestoreRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1ClientsLocationsByClientidRaw(requestParameters: PutApiV1ClientsLocationsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationInfo>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1ClientsLocationsByClientid().'
+            );
+        }
+
+        if (requestParameters['createUpdateLocationDto'] == null) {
+            throw new runtime.RequiredError(
+                'createUpdateLocationDto',
+                'Required parameter "createUpdateLocationDto" was null or undefined when calling putApiV1ClientsLocationsByClientid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/locations/{clientId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateUpdateLocationDtoToJSON(requestParameters['createUpdateLocationDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LocationInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1ClientsLocationsByClientid(requestParameters: PutApiV1ClientsLocationsByClientidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationInfo> {
+        const response = await this.putApiV1ClientsLocationsByClientidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -3697,17 +3697,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 /**
  * @export
  */
-export const EditShopSettingsPosTypeEnum = {
-    SHOPIFY: 'SHOPIFY',
-    ALLEAVES: 'ALLEAVES',
-    MJ_FREEWAY: 'MJ_FREEWAY',
-    BIOTRACK: 'BIOTRACK'
-} as const;
-export type EditShopSettingsPosTypeEnum = typeof EditShopSettingsPosTypeEnum[keyof typeof EditShopSettingsPosTypeEnum];
-/**
- * @export
- */
-export const GetClientListOrgTypeEnum = {
+export const GetApiV1ClientsOrgTypeEnum = {
     DEFAULT: 'DEFAULT',
     CTRL: 'CTRL',
     OPERATIONS: 'OPERATIONS',
@@ -3720,21 +3710,21 @@ export const GetClientListOrgTypeEnum = {
     NGO: 'NGO',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetClientListOrgTypeEnum = typeof GetClientListOrgTypeEnum[keyof typeof GetClientListOrgTypeEnum];
+export type GetApiV1ClientsOrgTypeEnum = typeof GetApiV1ClientsOrgTypeEnum[keyof typeof GetApiV1ClientsOrgTypeEnum];
 /**
  * @export
  */
-export const GetClientListSearchModeEnum = {
+export const GetApiV1ClientsSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetClientListSearchModeEnum = typeof GetClientListSearchModeEnum[keyof typeof GetClientListSearchModeEnum];
+export type GetApiV1ClientsSearchModeEnum = typeof GetApiV1ClientsSearchModeEnum[keyof typeof GetApiV1ClientsSearchModeEnum];
 /**
  * @export
  */
-export const GetClientListStatusEnum = {
+export const GetApiV1ClientsStatusEnum = {
     ACTIVE: 'ACTIVE',
     INACTIVE: 'INACTIVE',
     SUSPENDED: 'SUSPENDED',
@@ -3743,4 +3733,14 @@ export const GetClientListStatusEnum = {
     DELETED: 'DELETED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetClientListStatusEnum = typeof GetClientListStatusEnum[keyof typeof GetClientListStatusEnum];
+export type GetApiV1ClientsStatusEnum = typeof GetApiV1ClientsStatusEnum[keyof typeof GetApiV1ClientsStatusEnum];
+/**
+ * @export
+ */
+export const PatchApiV1ClientsByClientSettingsShopsettingsPosTypeEnum = {
+    SHOPIFY: 'SHOPIFY',
+    ALLEAVES: 'ALLEAVES',
+    MJ_FREEWAY: 'MJ_FREEWAY',
+    BIOTRACK: 'BIOTRACK'
+} as const;
+export type PatchApiV1ClientsByClientSettingsShopsettingsPosTypeEnum = typeof PatchApiV1ClientsByClientSettingsShopsettingsPosTypeEnum[keyof typeof PatchApiV1ClientsByClientSettingsShopsettingsPosTypeEnum];

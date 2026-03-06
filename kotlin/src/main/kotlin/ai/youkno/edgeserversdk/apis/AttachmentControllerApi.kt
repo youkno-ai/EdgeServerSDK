@@ -14,7 +14,7 @@ interface AttachmentControllerApi {
     /**
     * enum for parameter anchorType
     */
-    enum class AnchorTypeGetUploadPath(val value: kotlin.String) {
+    enum class AnchorTypeGetApiV1AttachmentsByAnchortypeByAnchoridStorageRef(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "USER") USER("USER"),
         @Json(name = "BOUNTY") BOUNTY("BOUNTY"),
@@ -41,13 +41,13 @@ interface AttachmentControllerApi {
      * @return [Call]<[StorageRefResponse]>
      */
     @GET("api/v1/attachments/{anchorType}/{anchorId}/storage/ref")
-    fun getUploadPath(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Query("attachmentType") attachmentType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StorageRefResponse>
+    fun getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Query("attachmentType") attachmentType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StorageRefResponse>
 
 
     /**
     * enum for parameter anchorType
     */
-    enum class AnchorTypeSaveAttachment(val value: kotlin.String) {
+    enum class AnchorTypePostApiV1AttachmentsByAnchortypeByAnchorid(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "USER") USER("USER"),
         @Json(name = "BOUNTY") BOUNTY("BOUNTY"),
@@ -74,6 +74,6 @@ interface AttachmentControllerApi {
      * @return [Call]<[Attachment]>
      */
     @POST("api/v1/attachments/{anchorType}/{anchorId}")
-    fun saveAttachment(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body attachment: Attachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Attachment>
+    fun postApiV1AttachmentsByAnchortypeByAnchorid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body attachment: Attachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Attachment>
 
 }

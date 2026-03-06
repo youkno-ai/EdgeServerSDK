@@ -14,42 +14,36 @@ open class BileteControllerAPI {
 
     /**
 
-     - parameter ticketCount: (query)  (optional)
-     - parameter totalAmount: (query)  (optional)
-     - parameter userEmail: (query)  (optional)
+     - parameter email: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Void
+     - returns: BiletePage
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func buyCallback(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await buyCallbackWithRequestBuilder(ticketCount: ticketCount, totalAmount: totalAmount, userEmail: userEmail, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1Bilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BiletePage {
+        return try await getApiV1BileteWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
-     - GET /api/v1/tmp/bilete/callbacks/buy
+     - GET /api/v1/bilete
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter ticketCount: (query)  (optional)
-     - parameter totalAmount: (query)  (optional)
-     - parameter userEmail: (query)  (optional)
+     - parameter email: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<BiletePage> 
      */
-    open class func buyCallbackWithRequestBuilder(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
-        let localVariablePath = "/api/v1/tmp/bilete/callbacks/buy"
+    open class func getApiV1BileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BiletePage> {
+        let localVariablePath = "/api/v1/bilete"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "ticketCount": (wrappedValue: ticketCount?.encodeToJSON(), isExplode: true),
-            "totalAmount": (wrappedValue: totalAmount?.encodeToJSON(), isExplode: true),
-            "userEmail": (wrappedValue: userEmail?.encodeToJSON(), isExplode: true),
+            "email": (wrappedValue: email?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -60,7 +54,7 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = BelongSDKAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -76,8 +70,8 @@ open class BileteControllerAPI {
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func buyCallback1(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await buyCallback1WithRequestBuilder(ticketCount: ticketCount, totalAmount: totalAmount, userEmail: userEmail, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1BileteCallbacksBuy(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await getApiV1BileteCallbacksBuyWithRequestBuilder(ticketCount: ticketCount, totalAmount: totalAmount, userEmail: userEmail, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -93,7 +87,7 @@ open class BileteControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Void> 
      */
-    open class func buyCallback1WithRequestBuilder(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+    open class func getApiV1BileteCallbacksBuyWithRequestBuilder(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
         let localVariablePath = "/api/v1/bilete/callbacks/buy"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -127,55 +121,8 @@ open class BileteControllerAPI {
      - returns: TicketDetails
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getTicketDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TicketDetails {
-        return try await getTicketDetailsWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - GET /api/v1/tmp/bilete/details
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter url: (query)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<TicketDetails> 
-     */
-    open class func getTicketDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TicketDetails> {
-        let localVariablePath = "/api/v1/tmp/bilete/details"
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "url": (wrappedValue: url.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<TicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter url: (query)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: TicketDetails
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getTicketDetails1(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TicketDetails {
-        return try await getTicketDetails1WithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1BileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TicketDetails {
+        return try await getApiV1BileteDetailsWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -189,7 +136,7 @@ open class BileteControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<TicketDetails> 
      */
-    open class func getTicketDetails1WithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TicketDetails> {
+    open class func getApiV1BileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TicketDetails> {
         let localVariablePath = "/api/v1/bilete/details"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -221,12 +168,12 @@ open class BileteControllerAPI {
      - returns: BiletePage
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getTickets(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BiletePage {
-        return try await getTicketsWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1TmpBilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BiletePage {
+        return try await getApiV1TmpBileteWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
-     - GET /api/v1/bilete
+     - GET /api/v1/tmp/bilete
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
@@ -236,8 +183,8 @@ open class BileteControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<BiletePage> 
      */
-    open class func getTicketsWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BiletePage> {
-        let localVariablePath = "/api/v1/bilete"
+    open class func getApiV1TmpBileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BiletePage> {
+        let localVariablePath = "/api/v1/tmp/bilete"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
@@ -261,36 +208,42 @@ open class BileteControllerAPI {
 
     /**
 
-     - parameter email: (query)  (optional)
+     - parameter ticketCount: (query)  (optional)
+     - parameter totalAmount: (query)  (optional)
+     - parameter userEmail: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: BiletePage
+     - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getTickets1(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BiletePage {
-        return try await getTickets1WithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1TmpBileteCallbacksBuy(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await getApiV1TmpBileteCallbacksBuyWithRequestBuilder(ticketCount: ticketCount, totalAmount: totalAmount, userEmail: userEmail, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
-     - GET /api/v1/tmp/bilete
+     - GET /api/v1/tmp/bilete/callbacks/buy
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter email: (query)  (optional)
+     - parameter ticketCount: (query)  (optional)
+     - parameter totalAmount: (query)  (optional)
+     - parameter userEmail: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<BiletePage> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func getTickets1WithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BiletePage> {
-        let localVariablePath = "/api/v1/tmp/bilete"
+    open class func getApiV1TmpBileteCallbacksBuyWithRequestBuilder(ticketCount: Int? = nil, totalAmount: Double? = nil, userEmail: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+        let localVariablePath = "/api/v1/tmp/bilete/callbacks/buy"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "email": (wrappedValue: email?.encodeToJSON(), isExplode: true),
+            "ticketCount": (wrappedValue: ticketCount?.encodeToJSON(), isExplode: true),
+            "totalAmount": (wrappedValue: totalAmount?.encodeToJSON(), isExplode: true),
+            "userEmail": (wrappedValue: userEmail?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -301,7 +254,54 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = BelongSDKAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter url: (query)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: TicketDetails
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1TmpBileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TicketDetails {
+        return try await getApiV1TmpBileteDetailsWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/tmp/bilete/details
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter url: (query)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<TicketDetails> 
+     */
+    open class func getApiV1TmpBileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TicketDetails> {
+        let localVariablePath = "/api/v1/tmp/bilete/details"
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "url": (wrappedValue: url.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

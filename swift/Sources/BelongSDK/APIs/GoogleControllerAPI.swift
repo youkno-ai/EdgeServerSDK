@@ -21,8 +21,8 @@ open class GoogleControllerAPI {
      - returns: AnalyticsInfoResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getAnalyticsInfo(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AnalyticsInfoResult {
-        return try await getAnalyticsInfoWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1GoogleByCompanyidAnalyticsInfo(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AnalyticsInfoResult {
+        return try await getApiV1GoogleByCompanyidAnalyticsInfoWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -36,7 +36,7 @@ open class GoogleControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<AnalyticsInfoResult> 
      */
-    open class func getAnalyticsInfoWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AnalyticsInfoResult> {
+    open class func getApiV1GoogleByCompanyidAnalyticsInfoWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AnalyticsInfoResult> {
         var localVariablePath = "/api/v1/google/{companyId}/analytics_info"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

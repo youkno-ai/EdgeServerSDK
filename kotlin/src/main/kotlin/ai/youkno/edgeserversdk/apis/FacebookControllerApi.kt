@@ -10,22 +10,6 @@ import ai.youkno.edgeserversdk.models.DeleteUserCallbackResp
 
 interface FacebookControllerApi {
     /**
-     * POST api/v1/facebook/callbacks/deauthorize/{state}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param state 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @POST("api/v1/facebook/callbacks/deauthorize/{state}")
-    fun deauthorizeCallback(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
      * GET api/v1/facebook/status/{state}
      * 
      * 
@@ -40,7 +24,23 @@ interface FacebookControllerApi {
      * @return [Call]<[kotlin.String]>
      */
     @GET("api/v1/facebook/status/{state}")
-    fun getStatus(@Path("state") state: kotlin.String, @Query("user_id") userId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.String>
+    fun getApiV1FacebookStatusByState(@Path("state") state: kotlin.String, @Query("user_id") userId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.String>
+
+    /**
+     * POST api/v1/facebook/callbacks/deauthorize/{state}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param state 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @POST("api/v1/facebook/callbacks/deauthorize/{state}")
+    fun postApiV1FacebookCallbacksDeauthorizeByState(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/facebook/callbacks/user-data-deletion/{state}
@@ -56,6 +56,6 @@ interface FacebookControllerApi {
      * @return [Call]<[DeleteUserCallbackResp]>
      */
     @POST("api/v1/facebook/callbacks/user-data-deletion/{state}")
-    fun userDataDeletionCallback(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DeleteUserCallbackResp>
+    fun postApiV1FacebookCallbacksUserDataDeletionByState(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DeleteUserCallbackResp>
 
 }

@@ -12,36 +12,52 @@ import ai.youkno.edgeserversdk.models.TicketScan
 
 interface TicketControllerApi {
     /**
-     * POST api/v1/tickets
+     * GET api/v1/tickets/{ticketId}
      * 
      * 
      * Responses:
      *  - 200: OK
      *
-     * @param ticket 
+     * @param ticketId 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[NewId]>
+     * @return [Call]<[Ticket]>
      */
-    @POST("api/v1/tickets")
-    fun create1(@Body ticket: Ticket, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
+    @GET("api/v1/tickets/{ticketId}")
+    fun getApiV1TicketsByTicketid(@Path("ticketId") ticketId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Ticket>
 
     /**
-     * GET api/v1/tickets/byUserId/{userId}
+     * GET api/v1/tickets/{ticketId}/scans
      * 
      * 
      * Responses:
      *  - 200: OK
      *
-     * @param userId 
+     * @param ticketId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.List<TicketScan>]>
+     */
+    @GET("api/v1/tickets/{ticketId}/scans")
+    fun getApiV1TicketsByTicketidScans(@Path("ticketId") ticketId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<TicketScan>>
+
+    /**
+     * GET api/v1/tickets/byEventId/{eventId}/available
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param eventId 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<Ticket>]>
      */
-    @GET("api/v1/tickets/byUserId/{userId}")
-    fun getAllByAppUserId(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
+    @GET("api/v1/tickets/byEventId/{eventId}/available")
+    fun getApiV1TicketsByeventidByEventidAvailable(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
 
     /**
      * GET api/v1/tickets/byEventId/{eventId}/byStatus/{status}
@@ -58,55 +74,39 @@ interface TicketControllerApi {
      * @return [Call]<[kotlin.collections.List<Ticket>]>
      */
     @GET("api/v1/tickets/byEventId/{eventId}/byStatus/{status}")
-    fun getAllByStatus(@Path("eventId") eventId: kotlin.String, @Path("status") status: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
+    fun getApiV1TicketsByeventidByEventidBystatusByStatus(@Path("eventId") eventId: kotlin.String, @Path("status") status: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
 
     /**
-     * GET api/v1/tickets/byEventId/{eventId}/available
+     * GET api/v1/tickets/byUserId/{userId}
      * 
      * 
      * Responses:
      *  - 200: OK
      *
-     * @param eventId 
+     * @param userId 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<Ticket>]>
      */
-    @GET("api/v1/tickets/byEventId/{eventId}/available")
-    fun getAvailableTickets(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
+    @GET("api/v1/tickets/byUserId/{userId}")
+    fun getApiV1TicketsByuseridByUserid(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Ticket>>
 
     /**
-     * GET api/v1/tickets/{ticketId}
+     * POST api/v1/tickets
      * 
      * 
      * Responses:
      *  - 200: OK
      *
-     * @param ticketId 
+     * @param ticket 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Ticket]>
+     * @return [Call]<[NewId]>
      */
-    @GET("api/v1/tickets/{ticketId}")
-    fun getById2(@Path("ticketId") ticketId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Ticket>
-
-    /**
-     * GET api/v1/tickets/{ticketId}/scans
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param ticketId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<TicketScan>]>
-     */
-    @GET("api/v1/tickets/{ticketId}/scans")
-    fun getTicketScansByTicketId(@Path("ticketId") ticketId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<TicketScan>>
+    @POST("api/v1/tickets")
+    fun postApiV1Tickets(@Body ticket: Ticket, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * POST api/v1/tickets/{ticketId}/scan
@@ -120,9 +120,9 @@ interface TicketControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/tickets/{ticketId}/scan")
-    fun scanTicket(@Path("ticketId") ticketId: kotlin.String, @Body ticketScan: TicketScan, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun postApiV1TicketsByTicketidScan(@Path("ticketId") ticketId: kotlin.String, @Body ticketScan: TicketScan, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

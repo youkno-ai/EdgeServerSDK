@@ -31,22 +31,7 @@ import {
     ReputationDefToJSON,
 } from '../models/index';
 
-export interface AddReputationDefRequest {
-    reputationDef: ReputationDef;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface AssignReputationRequest {
-    reputationCode: string;
-    assignReputationReq: AssignReputationReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteReputationRequest {
+export interface DeleteApiV1ReputationsByReputationcodeByHolderidRequest {
     reputationCode: string;
     holderId: string;
     xEdgeAgent?: string;
@@ -54,28 +39,43 @@ export interface DeleteReputationRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteReputationDefRequest {
+export interface DeleteApiV1ReputationsDefsByReputationcodeRequest {
     reputationCode: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface EditReputationDefRequest {
+export interface GetApiV1ReputationsDefsRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ReputationsDefsByReputationcodeRequest {
+    reputationCode: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ReputationsDefsRequest {
     reputationDef: ReputationDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetReputationDefRequest {
+export interface PostApiV1ReputationsDefsByReputationcodeAssignRequest {
     reputationCode: string;
+    assignReputationReq: AssignReputationReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetReputationDefsRequest {
+export interface PutApiV1ReputationsDefsRequest {
+    reputationDef: ReputationDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -90,6 +90,70 @@ export interface GetReputationDefsRequest {
 export interface ReputationsDefsControllerApiInterface {
     /**
      * 
+     * @param {string} reputationCode 
+     * @param {string} holderId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationsDefsControllerApiInterface
+     */
+    deleteApiV1ReputationsByReputationcodeByHolderidRaw(requestParameters: DeleteApiV1ReputationsByReputationcodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    deleteApiV1ReputationsByReputationcodeByHolderid(requestParameters: DeleteApiV1ReputationsByReputationcodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} reputationCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationsDefsControllerApiInterface
+     */
+    deleteApiV1ReputationsDefsByReputationcodeRaw(requestParameters: DeleteApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    deleteApiV1ReputationsDefsByReputationcode(requestParameters: DeleteApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationsDefsControllerApiInterface
+     */
+    getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageReputationDef>>;
+
+    /**
+     */
+    getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageReputationDef>;
+
+    /**
+     * 
+     * @param {string} reputationCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationsDefsControllerApiInterface
+     */
+    getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
+
+    /**
+     */
+    getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
+
+    /**
+     * 
      * @param {ReputationDef} reputationDef 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -98,11 +162,11 @@ export interface ReputationsDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationsDefsControllerApiInterface
      */
-    addReputationDefRaw(requestParameters: AddReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
+    postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
 
     /**
      */
-    addReputationDef(requestParameters: AddReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
+    postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
 
     /**
      * 
@@ -115,44 +179,11 @@ export interface ReputationsDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationsDefsControllerApiInterface
      */
-    assignReputationRaw(requestParameters: AssignReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>>;
+    postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>>;
 
     /**
      */
-    assignReputation(requestParameters: AssignReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation>;
-
-    /**
-     * 
-     * @param {string} reputationCode 
-     * @param {string} holderId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationsDefsControllerApiInterface
-     */
-    deleteReputationRaw(requestParameters: DeleteReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteReputation(requestParameters: DeleteReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} reputationCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationsDefsControllerApiInterface
-     */
-    deleteReputationDefRaw(requestParameters: DeleteReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteReputationDef(requestParameters: DeleteReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation>;
 
     /**
      * 
@@ -164,42 +195,11 @@ export interface ReputationsDefsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationsDefsControllerApiInterface
      */
-    editReputationDefRaw(requestParameters: EditReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
+    putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
 
     /**
      */
-    editReputationDef(requestParameters: EditReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
-
-    /**
-     * 
-     * @param {string} reputationCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationsDefsControllerApiInterface
-     */
-    getReputationDefRaw(requestParameters: GetReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>>;
-
-    /**
-     */
-    getReputationDef(requestParameters: GetReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationsDefsControllerApiInterface
-     */
-    getReputationDefsRaw(requestParameters: GetReputationDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageReputationDef>>;
-
-    /**
-     */
-    getReputationDefs(requestParameters: GetReputationDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageReputationDef>;
+    putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef>;
 
 }
 
@@ -210,11 +210,215 @@ export class ReputationsDefsControllerApi extends runtime.BaseAPI implements Rep
 
     /**
      */
-    async addReputationDefRaw(requestParameters: AddReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
+    async deleteApiV1ReputationsByReputationcodeByHolderidRaw(requestParameters: DeleteApiV1ReputationsByReputationcodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['reputationCode'] == null) {
+            throw new runtime.RequiredError(
+                'reputationCode',
+                'Required parameter "reputationCode" was null or undefined when calling deleteApiV1ReputationsByReputationcodeByHolderid().'
+            );
+        }
+
+        if (requestParameters['holderId'] == null) {
+            throw new runtime.RequiredError(
+                'holderId',
+                'Required parameter "holderId" was null or undefined when calling deleteApiV1ReputationsByReputationcodeByHolderid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/reputations/{reputationCode}/{holderId}`;
+        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
+        urlPath = urlPath.replace(`{${"holderId"}}`, encodeURIComponent(String(requestParameters['holderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1ReputationsByReputationcodeByHolderid(requestParameters: DeleteApiV1ReputationsByReputationcodeByHolderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1ReputationsByReputationcodeByHolderidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1ReputationsDefsByReputationcodeRaw(requestParameters: DeleteApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['reputationCode'] == null) {
+            throw new runtime.RequiredError(
+                'reputationCode',
+                'Required parameter "reputationCode" was null or undefined when calling deleteApiV1ReputationsDefsByReputationcode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/reputations/defs/{reputationCode}`;
+        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1ReputationsDefsByReputationcode(requestParameters: DeleteApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1ReputationsDefsByReputationcodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageReputationDef>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/reputations/defs`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageReputationDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageReputationDef> {
+        const response = await this.getApiV1ReputationsDefsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
+        if (requestParameters['reputationCode'] == null) {
+            throw new runtime.RequiredError(
+                'reputationCode',
+                'Required parameter "reputationCode" was null or undefined when calling getApiV1ReputationsDefsByReputationcode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/reputations/defs/{reputationCode}`;
+        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReputationDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
+        const response = await this.getApiV1ReputationsDefsByReputationcodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
         if (requestParameters['reputationDef'] == null) {
             throw new runtime.RequiredError(
                 'reputationDef',
-                'Required parameter "reputationDef" was null or undefined when calling addReputationDef().'
+                'Required parameter "reputationDef" was null or undefined when calling postApiV1ReputationsDefs().'
             );
         }
 
@@ -256,25 +460,25 @@ export class ReputationsDefsControllerApi extends runtime.BaseAPI implements Rep
 
     /**
      */
-    async addReputationDef(requestParameters: AddReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
-        const response = await this.addReputationDefRaw(requestParameters, initOverrides);
+    async postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
+        const response = await this.postApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async assignReputationRaw(requestParameters: AssignReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>> {
+    async postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>> {
         if (requestParameters['reputationCode'] == null) {
             throw new runtime.RequiredError(
                 'reputationCode',
-                'Required parameter "reputationCode" was null or undefined when calling assignReputation().'
+                'Required parameter "reputationCode" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
             );
         }
 
         if (requestParameters['assignReputationReq'] == null) {
             throw new runtime.RequiredError(
                 'assignReputationReq',
-                'Required parameter "assignReputationReq" was null or undefined when calling assignReputation().'
+                'Required parameter "assignReputationReq" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
             );
         }
 
@@ -317,128 +521,18 @@ export class ReputationsDefsControllerApi extends runtime.BaseAPI implements Rep
 
     /**
      */
-    async assignReputation(requestParameters: AssignReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation> {
-        const response = await this.assignReputationRaw(requestParameters, initOverrides);
+    async postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation> {
+        const response = await this.postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteReputationRaw(requestParameters: DeleteReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['reputationCode'] == null) {
-            throw new runtime.RequiredError(
-                'reputationCode',
-                'Required parameter "reputationCode" was null or undefined when calling deleteReputation().'
-            );
-        }
-
-        if (requestParameters['holderId'] == null) {
-            throw new runtime.RequiredError(
-                'holderId',
-                'Required parameter "holderId" was null or undefined when calling deleteReputation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/reputations/{reputationCode}/{holderId}`;
-        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
-        urlPath = urlPath.replace(`{${"holderId"}}`, encodeURIComponent(String(requestParameters['holderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteReputation(requestParameters: DeleteReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteReputationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteReputationDefRaw(requestParameters: DeleteReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['reputationCode'] == null) {
-            throw new runtime.RequiredError(
-                'reputationCode',
-                'Required parameter "reputationCode" was null or undefined when calling deleteReputationDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/reputations/defs/{reputationCode}`;
-        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteReputationDef(requestParameters: DeleteReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteReputationDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async editReputationDefRaw(requestParameters: EditReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
+    async putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
         if (requestParameters['reputationDef'] == null) {
             throw new runtime.RequiredError(
                 'reputationDef',
-                'Required parameter "reputationDef" was null or undefined when calling editReputationDef().'
+                'Required parameter "reputationDef" was null or undefined when calling putApiV1ReputationsDefs().'
             );
         }
 
@@ -480,102 +574,8 @@ export class ReputationsDefsControllerApi extends runtime.BaseAPI implements Rep
 
     /**
      */
-    async editReputationDef(requestParameters: EditReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
-        const response = await this.editReputationDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getReputationDefRaw(requestParameters: GetReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReputationDef>> {
-        if (requestParameters['reputationCode'] == null) {
-            throw new runtime.RequiredError(
-                'reputationCode',
-                'Required parameter "reputationCode" was null or undefined when calling getReputationDef().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/reputations/defs/{reputationCode}`;
-        urlPath = urlPath.replace(`{${"reputationCode"}}`, encodeURIComponent(String(requestParameters['reputationCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ReputationDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getReputationDef(requestParameters: GetReputationDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
-        const response = await this.getReputationDefRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getReputationDefsRaw(requestParameters: GetReputationDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageReputationDef>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/reputations/defs`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageReputationDefFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getReputationDefs(requestParameters: GetReputationDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageReputationDef> {
-        const response = await this.getReputationDefsRaw(requestParameters, initOverrides);
+    async putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReputationDef> {
+        const response = await this.putApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -52,21 +52,39 @@ import {
     ShopMetaToJSON,
 } from '../models/index';
 
-export interface CheckMxRequest {
-    email: string;
+export interface GetApiV1SystemAuditLogRequest {
+    actorId?: string;
+    objectType?: string;
+    objectId?: string;
+    verbs?: Set<GetApiV1SystemAuditLogVerbsEnum>;
+    start?: number;
+    length?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface DocGetRequest {
+export interface GetApiV1SystemCountriesRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1SystemCountriesByCountrycodeRequest {
+    countryCode: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1SystemDocGetRequest {
     id: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface DocSearchRequest {
+export interface GetApiV1SystemDocSearchRequest {
     s: string;
     index?: string;
     start?: string;
@@ -77,36 +95,11 @@ export interface DocSearchRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetAuditLogRequest {
+export interface GetApiV1SystemEventLogRequest {
     actorId?: string;
     objectType?: string;
     objectId?: string;
-    verbs?: Set<GetAuditLogVerbsEnum>;
-    start?: number;
-    length?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCountriesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCountries1Request {
-    countryCode: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetEventLogRequest {
-    actorId?: string;
-    objectType?: string;
-    objectId?: string;
-    verb?: Set<GetEventLogVerbEnum>;
+    verb?: Set<GetApiV1SystemEventLogVerbEnum>;
     startAt?: string;
     limit?: number;
     xEdgeAgent?: string;
@@ -114,20 +107,27 @@ export interface GetEventLogRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetFrontEndsStats1Request {
+export interface GetApiV1SystemFrontEndsStatsRequest {
     latestOnly?: boolean;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetOrganizationsRequest {
+export interface GetApiV1SystemMxCheckRequest {
+    email: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetShotMetaRequest {
+export interface GetApiV1SystemOrganizationsRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1SystemShopsByShopidMetaRequest {
     shopId: string;
     locationId?: string;
     xEdgeAgent?: string;
@@ -135,7 +135,7 @@ export interface GetShotMetaRequest {
     xEdgeClientId?: string;
 }
 
-export interface SaveSystemCurrenciesRequest {
+export interface PostApiV1SystemCurrenciesRequest {
     saveCurrencyReq: SaveCurrencyReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -151,7 +151,12 @@ export interface SaveSystemCurrenciesRequest {
 export interface SystemControllerApiInterface {
     /**
      * 
-     * @param {string} email 
+     * @param {string} [actorId] 
+     * @param {string} [objectType] 
+     * @param {string} [objectId] 
+     * @param {Set<'ASSIGN_COMPANY' | 'USER_CREATED' | 'PIN_CHANGED' | 'REFERRAL_CODE_CHANGED' | 'BLACKLISTED_CHANGED' | 'USER_SIGNED_IN' | 'USER_UPDATED' | 'ATTACHMENT_ADDED' | 'ATTACHMENT_UPDATED' | 'ATTACHMENT_DELETED' | 'TAG_ADDED' | 'TAG_DELETED' | 'SHOP_SETTINGS_CHANGED'>} [verbs] 
+     * @param {number} [start] 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -159,11 +164,42 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    checkMxRaw(requestParameters: CheckMxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>>;
+    getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
 
     /**
      */
-    checkMx(requestParameters: CheckMxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse>;
+    getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemControllerApiInterface
+     */
+    getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>>;
+
+    /**
+     */
+    getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse>;
+
+    /**
+     * 
+     * @param {string} countryCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemControllerApiInterface
+     */
+    getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>>;
+
+    /**
+     */
+    getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo>;
 
     /**
      * 
@@ -175,11 +211,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    docGetRaw(requestParameters: DocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1SystemDocGetRaw(requestParameters: GetApiV1SystemDocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    docGet(requestParameters: DocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1SystemDocGet(requestParameters: GetApiV1SystemDocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -195,63 +231,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    docSearchRaw(requestParameters: DocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>>;
+    getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>>;
 
     /**
      */
-    docSearch(requestParameters: DocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult>;
-
-    /**
-     * 
-     * @param {string} [actorId] 
-     * @param {string} [objectType] 
-     * @param {string} [objectId] 
-     * @param {Set<'ASSIGN_COMPANY' | 'USER_CREATED' | 'PIN_CHANGED' | 'REFERRAL_CODE_CHANGED' | 'BLACKLISTED_CHANGED' | 'USER_SIGNED_IN' | 'USER_UPDATED' | 'ATTACHMENT_ADDED' | 'ATTACHMENT_UPDATED' | 'ATTACHMENT_DELETED' | 'TAG_ADDED' | 'TAG_DELETED' | 'SHOP_SETTINGS_CHANGED'>} [verbs] 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SystemControllerApiInterface
-     */
-    getAuditLogRaw(requestParameters: GetAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
-
-    /**
-     */
-    getAuditLog(requestParameters: GetAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SystemControllerApiInterface
-     */
-    getCountriesRaw(requestParameters: GetCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>>;
-
-    /**
-     */
-    getCountries(requestParameters: GetCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse>;
-
-    /**
-     * 
-     * @param {string} countryCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SystemControllerApiInterface
-     */
-    getCountries1Raw(requestParameters: GetCountries1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>>;
-
-    /**
-     */
-    getCountries1(requestParameters: GetCountries1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo>;
+    getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult>;
 
     /**
      * 
@@ -268,11 +252,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getEventLogRaw(requestParameters: GetEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>>;
+    getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>>;
 
     /**
      */
-    getEventLog(requestParameters: GetEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry>;
+    getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry>;
 
     /**
      * 
@@ -284,11 +268,27 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getFrontEndsStats1Raw(requestParameters: GetFrontEndsStats1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>>;
+    getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>>;
 
     /**
      */
-    getFrontEndsStats1(requestParameters: GetFrontEndsStats1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount>;
+    getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount>;
+
+    /**
+     * 
+     * @param {string} email 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemControllerApiInterface
+     */
+    getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>>;
+
+    /**
+     */
+    getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse>;
 
     /**
      * 
@@ -299,11 +299,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getOrganizationsRaw(requestParameters: GetOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>>;
+    getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>>;
 
     /**
      */
-    getOrganizations(requestParameters: GetOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp>;
+    getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp>;
 
     /**
      * 
@@ -316,11 +316,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getShotMetaRaw(requestParameters: GetShotMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>>;
+    getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>>;
 
     /**
      */
-    getShotMeta(requestParameters: GetShotMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta>;
+    getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta>;
 
     /**
      * 
@@ -332,11 +332,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    saveSystemCurrenciesRaw(requestParameters: SaveSystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>>;
+    postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>>;
 
     /**
      */
-    saveSystemCurrencies(requestParameters: SaveSystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse>;
+    postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse>;
 
 }
 
@@ -347,185 +347,7 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async checkMxRaw(requestParameters: CheckMxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>> {
-        if (requestParameters['email'] == null) {
-            throw new runtime.RequiredError(
-                'email',
-                'Required parameter "email" was null or undefined when calling checkMx().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['email'] != null) {
-            queryParameters['email'] = requestParameters['email'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/system/mx-check`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MxCheckResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async checkMx(requestParameters: CheckMxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse> {
-        const response = await this.checkMxRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async docGetRaw(requestParameters: DocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling docGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['id'] != null) {
-            queryParameters['id'] = requestParameters['id'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/system/doc-get`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async docGet(requestParameters: DocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.docGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async docSearchRaw(requestParameters: DocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>> {
-        if (requestParameters['s'] == null) {
-            throw new runtime.RequiredError(
-                's',
-                'Required parameter "s" was null or undefined when calling docSearch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['s'] != null) {
-            queryParameters['s'] = requestParameters['s'];
-        }
-
-        if (requestParameters['index'] != null) {
-            queryParameters['index'] = requestParameters['index'];
-        }
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/system/doc-search`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DocSearchResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async docSearch(requestParameters: DocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult> {
-        const response = await this.docSearchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAuditLogRaw(requestParameters: GetAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
+    async getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['actorId'] != null) {
@@ -585,14 +407,14 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getAuditLog(requestParameters: GetAuditLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
-        const response = await this.getAuditLogRaw(requestParameters, initOverrides);
+    async getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
+        const response = await this.getApiV1SystemAuditLogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCountriesRaw(requestParameters: GetCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>> {
+    async getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -628,18 +450,18 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getCountries(requestParameters: GetCountriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse> {
-        const response = await this.getCountriesRaw(requestParameters, initOverrides);
+    async getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse> {
+        const response = await this.getApiV1SystemCountriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCountries1Raw(requestParameters: GetCountries1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>> {
+    async getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>> {
         if (requestParameters['countryCode'] == null) {
             throw new runtime.RequiredError(
                 'countryCode',
-                'Required parameter "countryCode" was null or undefined when calling getCountries1().'
+                'Required parameter "countryCode" was null or undefined when calling getApiV1SystemCountriesByCountrycode().'
             );
         }
 
@@ -679,14 +501,138 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getCountries1(requestParameters: GetCountries1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo> {
-        const response = await this.getCountries1Raw(requestParameters, initOverrides);
+    async getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo> {
+        const response = await this.getApiV1SystemCountriesByCountrycodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getEventLogRaw(requestParameters: GetEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>> {
+    async getApiV1SystemDocGetRaw(requestParameters: GetApiV1SystemDocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getApiV1SystemDocGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['id'] != null) {
+            queryParameters['id'] = requestParameters['id'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/system/doc-get`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1SystemDocGet(requestParameters: GetApiV1SystemDocGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1SystemDocGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>> {
+        if (requestParameters['s'] == null) {
+            throw new runtime.RequiredError(
+                's',
+                'Required parameter "s" was null or undefined when calling getApiV1SystemDocSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['s'] != null) {
+            queryParameters['s'] = requestParameters['s'];
+        }
+
+        if (requestParameters['index'] != null) {
+            queryParameters['index'] = requestParameters['index'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/system/doc-search`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DocSearchResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult> {
+        const response = await this.getApiV1SystemDocSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>> {
         const queryParameters: any = {};
 
         if (requestParameters['actorId'] != null) {
@@ -746,14 +692,14 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getEventLog(requestParameters: GetEventLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry> {
-        const response = await this.getEventLogRaw(requestParameters, initOverrides);
+    async getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry> {
+        const response = await this.getApiV1SystemEventLogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getFrontEndsStats1Raw(requestParameters: GetFrontEndsStats1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>> {
+    async getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>> {
         const queryParameters: any = {};
 
         if (requestParameters['latestOnly'] != null) {
@@ -793,14 +739,68 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getFrontEndsStats1(requestParameters: GetFrontEndsStats1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount> {
-        const response = await this.getFrontEndsStats1Raw(requestParameters, initOverrides);
+    async getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount> {
+        const response = await this.getApiV1SystemFrontEndsStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrganizationsRaw(requestParameters: GetOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>> {
+    async getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>> {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError(
+                'email',
+                'Required parameter "email" was null or undefined when calling getApiV1SystemMxCheck().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['email'] != null) {
+            queryParameters['email'] = requestParameters['email'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/system/mx-check`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MxCheckResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse> {
+        const response = await this.getApiV1SystemMxCheckRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -836,18 +836,18 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getOrganizations(requestParameters: GetOrganizationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp> {
-        const response = await this.getOrganizationsRaw(requestParameters, initOverrides);
+    async getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp> {
+        const response = await this.getApiV1SystemOrganizationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getShotMetaRaw(requestParameters: GetShotMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>> {
+    async getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>> {
         if (requestParameters['shopId'] == null) {
             throw new runtime.RequiredError(
                 'shopId',
-                'Required parameter "shopId" was null or undefined when calling getShotMeta().'
+                'Required parameter "shopId" was null or undefined when calling getApiV1SystemShopsByShopidMeta().'
             );
         }
 
@@ -891,18 +891,18 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getShotMeta(requestParameters: GetShotMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta> {
-        const response = await this.getShotMetaRaw(requestParameters, initOverrides);
+    async getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta> {
+        const response = await this.getApiV1SystemShopsByShopidMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async saveSystemCurrenciesRaw(requestParameters: SaveSystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>> {
+    async postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>> {
         if (requestParameters['saveCurrencyReq'] == null) {
             throw new runtime.RequiredError(
                 'saveCurrencyReq',
-                'Required parameter "saveCurrencyReq" was null or undefined when calling saveSystemCurrencies().'
+                'Required parameter "saveCurrencyReq" was null or undefined when calling postApiV1SystemCurrencies().'
             );
         }
 
@@ -944,8 +944,8 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async saveSystemCurrencies(requestParameters: SaveSystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse> {
-        const response = await this.saveSystemCurrenciesRaw(requestParameters, initOverrides);
+    async postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse> {
+        const response = await this.postApiV1SystemCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -954,7 +954,7 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 /**
  * @export
  */
-export const GetAuditLogVerbsEnum = {
+export const GetApiV1SystemAuditLogVerbsEnum = {
     ASSIGN_COMPANY: 'ASSIGN_COMPANY',
     USER_CREATED: 'USER_CREATED',
     PIN_CHANGED: 'PIN_CHANGED',
@@ -969,13 +969,13 @@ export const GetAuditLogVerbsEnum = {
     TAG_DELETED: 'TAG_DELETED',
     SHOP_SETTINGS_CHANGED: 'SHOP_SETTINGS_CHANGED'
 } as const;
-export type GetAuditLogVerbsEnum = typeof GetAuditLogVerbsEnum[keyof typeof GetAuditLogVerbsEnum];
+export type GetApiV1SystemAuditLogVerbsEnum = typeof GetApiV1SystemAuditLogVerbsEnum[keyof typeof GetApiV1SystemAuditLogVerbsEnum];
 /**
  * @export
  */
-export const GetEventLogVerbEnum = {
+export const GetApiV1SystemEventLogVerbEnum = {
     ADD: 'ADD',
     UPDATE: 'UPDATE',
     DELETE: 'DELETE'
 } as const;
-export type GetEventLogVerbEnum = typeof GetEventLogVerbEnum[keyof typeof GetEventLogVerbEnum];
+export type GetApiV1SystemEventLogVerbEnum = typeof GetApiV1SystemEventLogVerbEnum[keyof typeof GetApiV1SystemEventLogVerbEnum];

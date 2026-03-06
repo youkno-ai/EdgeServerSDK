@@ -46,21 +46,14 @@ import {
     UserChatToJSON,
 } from '../models/index';
 
-export interface CreateChatRequest {
-    createChat: CreateChat;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAiBotRequest {
+export interface GetApiV1ChatsAiBotRequest {
     botName?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetSupportRequest {
+export interface GetApiV1ChatsSupportRequest {
     companyId?: string;
     userId?: string;
     bountyId?: string;
@@ -73,55 +66,14 @@ export interface GetSupportRequest {
     xEdgeClientId?: string;
 }
 
-export interface HandlePsgEventRequest {
-    roomId: string;
-    eventType: HandlePsgEventEventTypeEnum;
+export interface PostApiV1ChatsRequest {
+    createChat: CreateChat;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface HandleSupportMessageRequest {
-    roomId: string;
-    msgId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface MarkAsReadRequest {
-    roomId: string;
-    chatMessageRead: ChatMessageRead;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface OobMarkAsReadRequest {
-    roomId: string;
-    chatMessageRead: ChatMessageRead;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface OobWatchingRequest {
-    roomId: string;
-    chatOobWatching: ChatOobWatching;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PostMessageRequest {
-    roomId: string;
-    chatMessage: ChatMessage;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PostMessage1Request {
+export interface PostApiV1ChatsByRoomIdCommandsRequest {
     roomId: string;
     chatCommand: ChatCommand;
     xEdgeAgent?: string;
@@ -129,10 +81,58 @@ export interface PostMessage1Request {
     xEdgeClientId?: string;
 }
 
-export interface ReactionRequest {
+export interface PostApiV1ChatsByRoomIdMessagesRequest {
+    roomId: string;
+    chatMessage: ChatMessage;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest {
+    roomId: string;
+    msgId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest {
     roomId: string;
     msgId: string;
     chatOobWatching: ChatOobWatching;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdMessagesReadRequest {
+    roomId: string;
+    chatMessageRead: ChatMessageRead;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdOobReadRequest {
+    roomId: string;
+    chatMessageRead: ChatMessageRead;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdOobWatchingRequest {
+    roomId: string;
+    chatOobWatching: ChatOobWatching;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ChatsByRoomIdSupportByEventTypeRequest {
+    roomId: string;
+    eventType: PostApiV1ChatsByRoomIdSupportByEventTypeEventTypeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -147,22 +147,6 @@ export interface ReactionRequest {
 export interface ChatControllerApiInterface {
     /**
      * 
-     * @param {CreateChat} createChat 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    createChatRaw(requestParameters: CreateChatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChat>>;
-
-    /**
-     */
-    createChat(requestParameters: CreateChatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChat>;
-
-    /**
-     * 
      * @param {string} [botName] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -171,11 +155,11 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    getAiBotRaw(requestParameters: GetAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
+    getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
 
     /**
      */
-    getAiBot(requestParameters: GetAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
+    getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
@@ -193,16 +177,15 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    getSupportRaw(requestParameters: GetSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
+    getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
 
     /**
      */
-    getSupport(requestParameters: GetSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
+    getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
-     * @param {string} roomId 
-     * @param {'NONE' | 'ABANDON' | 'RESOLVE' | 'UNKNOWN'} eventType 
+     * @param {CreateChat} createChat 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -210,96 +193,11 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1ChatsRaw(requestParameters: PostApiV1ChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChat>>;
 
     /**
      */
-    handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} roomId 
-     * @param {string} msgId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    handleSupportMessageRaw(requestParameters: HandleSupportMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
-
-    /**
-     */
-    handleSupportMessage(requestParameters: HandleSupportMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
-
-    /**
-     * 
-     * @param {string} roomId 
-     * @param {ChatMessageRead} chatMessageRead 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    markAsReadRaw(requestParameters: MarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-
-    /**
-     */
-    markAsRead(requestParameters: MarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-
-    /**
-     * 
-     * @param {string} roomId 
-     * @param {ChatMessageRead} chatMessageRead 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    oobMarkAsReadRaw(requestParameters: OobMarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-
-    /**
-     */
-    oobMarkAsRead(requestParameters: OobMarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-
-    /**
-     * 
-     * @param {string} roomId 
-     * @param {ChatOobWatching} chatOobWatching 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    oobWatchingRaw(requestParameters: OobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
-
-    /**
-     */
-    oobWatching(requestParameters: OobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
-
-    /**
-     * 
-     * @param {string} roomId 
-     * @param {ChatMessage} chatMessage 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ChatControllerApiInterface
-     */
-    postMessageRaw(requestParameters: PostMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
-
-    /**
-     */
-    postMessage(requestParameters: PostMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    postApiV1Chats(requestParameters: PostApiV1ChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChat>;
 
     /**
      * 
@@ -312,11 +210,45 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    postMessage1Raw(requestParameters: PostMessage1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSlashResult>>;
+    postApiV1ChatsByRoomIdCommandsRaw(requestParameters: PostApiV1ChatsByRoomIdCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSlashResult>>;
 
     /**
      */
-    postMessage1(requestParameters: PostMessage1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSlashResult>;
+    postApiV1ChatsByRoomIdCommands(requestParameters: PostApiV1ChatsByRoomIdCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSlashResult>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {ChatMessage} chatMessage 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {string} msgId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
@@ -330,11 +262,79 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    reactionRaw(requestParameters: ReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    postApiV1ChatsByRoomIdMessagesByMsgIdReactionsRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    reaction(requestParameters: ReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    postApiV1ChatsByRoomIdMessagesByMsgIdReactions(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {ChatMessageRead} chatMessageRead 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdMessagesReadRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdMessagesRead(requestParameters: PostApiV1ChatsByRoomIdMessagesReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {ChatMessageRead} chatMessageRead 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdOobReadRaw(requestParameters: PostApiV1ChatsByRoomIdOobReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdOobRead(requestParameters: PostApiV1ChatsByRoomIdOobReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {ChatOobWatching} chatOobWatching 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+
+    /**
+     * 
+     * @param {string} roomId 
+     * @param {'NONE' | 'ABANDON' | 'RESOLVE' | 'UNKNOWN'} eventType 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatControllerApiInterface
+     */
+    postApiV1ChatsByRoomIdSupportByEventTypeRaw(requestParameters: PostApiV1ChatsByRoomIdSupportByEventTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1ChatsByRoomIdSupportByEventType(requestParameters: PostApiV1ChatsByRoomIdSupportByEventTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -345,60 +345,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async createChatRaw(requestParameters: CreateChatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChat>> {
-        if (requestParameters['createChat'] == null) {
-            throw new runtime.RequiredError(
-                'createChat',
-                'Required parameter "createChat" was null or undefined when calling createChat().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateChatToJSON(requestParameters['createChat']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserChatFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createChat(requestParameters: CreateChatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChat> {
-        const response = await this.createChatRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAiBotRaw(requestParameters: GetAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
+    async getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['botName'] != null) {
@@ -438,14 +385,14 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async getAiBot(requestParameters: GetAiBotRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
-        const response = await this.getAiBotRaw(requestParameters, initOverrides);
+    async getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
+        const response = await this.getApiV1ChatsAiBotRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getSupportRaw(requestParameters: GetSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
+    async getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -509,143 +456,18 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async getSupport(requestParameters: GetSupportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
-        const response = await this.getSupportRaw(requestParameters, initOverrides);
+    async getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
+        const response = await this.getApiV1ChatsSupportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['roomId'] == null) {
+    async postApiV1ChatsRaw(requestParameters: PostApiV1ChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChat>> {
+        if (requestParameters['createChat'] == null) {
             throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling handlePsgEvent().'
-            );
-        }
-
-        if (requestParameters['eventType'] == null) {
-            throw new runtime.RequiredError(
-                'eventType',
-                'Required parameter "eventType" was null or undefined when calling handlePsgEvent().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats/{room_id}/support/{event_type}`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
-        urlPath = urlPath.replace(`{${"event_type"}}`, encodeURIComponent(String(requestParameters['eventType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.handlePsgEventRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async handleSupportMessageRaw(requestParameters: HandleSupportMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
-        if (requestParameters['roomId'] == null) {
-            throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling handleSupportMessage().'
-            );
-        }
-
-        if (requestParameters['msgId'] == null) {
-            throw new runtime.RequiredError(
-                'msgId',
-                'Required parameter "msgId" was null or undefined when calling handleSupportMessage().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats/{room_id}/messages/{msg_id}/handle_message`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
-        urlPath = urlPath.replace(`{${"msg_id"}}`, encodeURIComponent(String(requestParameters['msgId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SupportChartResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async handleSupportMessage(requestParameters: HandleSupportMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
-        const response = await this.handleSupportMessageRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async markAsReadRaw(requestParameters: MarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['roomId'] == null) {
-            throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling markAsRead().'
-            );
-        }
-
-        if (requestParameters['chatMessageRead'] == null) {
-            throw new runtime.RequiredError(
-                'chatMessageRead',
-                'Required parameter "chatMessageRead" was null or undefined when calling markAsRead().'
+                'createChat',
+                'Required parameter "createChat" was null or undefined when calling postApiV1Chats().'
             );
         }
 
@@ -672,222 +494,40 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
         }
 
 
-        let urlPath = `/api/v1/chats/{room_id}/messages/read`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+        let urlPath = `/api/v1/chats`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
+            body: CreateChatToJSON(requestParameters['createChat']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserChatFromJSON(jsonValue));
     }
 
     /**
      */
-    async markAsRead(requestParameters: MarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.markAsReadRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async oobMarkAsReadRaw(requestParameters: OobMarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['roomId'] == null) {
-            throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling oobMarkAsRead().'
-            );
-        }
-
-        if (requestParameters['chatMessageRead'] == null) {
-            throw new runtime.RequiredError(
-                'chatMessageRead',
-                'Required parameter "chatMessageRead" was null or undefined when calling oobMarkAsRead().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats/{room_id}/oob/read`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async oobMarkAsRead(requestParameters: OobMarkAsReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.oobMarkAsReadRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async oobWatchingRaw(requestParameters: OobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['roomId'] == null) {
-            throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling oobWatching().'
-            );
-        }
-
-        if (requestParameters['chatOobWatching'] == null) {
-            throw new runtime.RequiredError(
-                'chatOobWatching',
-                'Required parameter "chatOobWatching" was null or undefined when calling oobWatching().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats/{room_id}/oob/watching`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ChatOobWatchingToJSON(requestParameters['chatOobWatching']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async oobWatching(requestParameters: OobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.oobWatchingRaw(requestParameters, initOverrides);
+    async postApiV1Chats(requestParameters: PostApiV1ChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChat> {
+        const response = await this.postApiV1ChatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postMessageRaw(requestParameters: PostMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+    async postApiV1ChatsByRoomIdCommandsRaw(requestParameters: PostApiV1ChatsByRoomIdCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSlashResult>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
-                'Required parameter "roomId" was null or undefined when calling postMessage().'
-            );
-        }
-
-        if (requestParameters['chatMessage'] == null) {
-            throw new runtime.RequiredError(
-                'chatMessage',
-                'Required parameter "chatMessage" was null or undefined when calling postMessage().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/chats/{room_id}/messages`;
-        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ChatMessageToJSON(requestParameters['chatMessage']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async postMessage(requestParameters: PostMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.postMessageRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async postMessage1Raw(requestParameters: PostMessage1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSlashResult>> {
-        if (requestParameters['roomId'] == null) {
-            throw new runtime.RequiredError(
-                'roomId',
-                'Required parameter "roomId" was null or undefined when calling postMessage1().'
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdCommands().'
             );
         }
 
         if (requestParameters['chatCommand'] == null) {
             throw new runtime.RequiredError(
                 'chatCommand',
-                'Required parameter "chatCommand" was null or undefined when calling postMessage1().'
+                'Required parameter "chatCommand" was null or undefined when calling postApiV1ChatsByRoomIdCommands().'
             );
         }
 
@@ -930,32 +570,152 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async postMessage1(requestParameters: PostMessage1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSlashResult> {
-        const response = await this.postMessage1Raw(requestParameters, initOverrides);
+    async postApiV1ChatsByRoomIdCommands(requestParameters: PostApiV1ChatsByRoomIdCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSlashResult> {
+        const response = await this.postApiV1ChatsByRoomIdCommandsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async reactionRaw(requestParameters: ReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
-                'Required parameter "roomId" was null or undefined when calling reaction().'
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdMessages().'
+            );
+        }
+
+        if (requestParameters['chatMessage'] == null) {
+            throw new runtime.RequiredError(
+                'chatMessage',
+                'Required parameter "chatMessage" was null or undefined when calling postApiV1ChatsByRoomIdMessages().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/messages`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChatMessageToJSON(requestParameters['chatMessage']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1ChatsByRoomIdMessagesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage().'
             );
         }
 
         if (requestParameters['msgId'] == null) {
             throw new runtime.RequiredError(
                 'msgId',
-                'Required parameter "msgId" was null or undefined when calling reaction().'
+                'Required parameter "msgId" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/messages/{msg_id}/handle_message`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+        urlPath = urlPath.replace(`{${"msg_id"}}`, encodeURIComponent(String(requestParameters['msgId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupportChartResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
+        const response = await this.postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessagesByMsgIdReactionsRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdReactions().'
+            );
+        }
+
+        if (requestParameters['msgId'] == null) {
+            throw new runtime.RequiredError(
+                'msgId',
+                'Required parameter "msgId" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdReactions().'
             );
         }
 
         if (requestParameters['chatOobWatching'] == null) {
             throw new runtime.RequiredError(
                 'chatOobWatching',
-                'Required parameter "chatOobWatching" was null or undefined when calling reaction().'
+                'Required parameter "chatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdReactions().'
             );
         }
 
@@ -999,8 +759,248 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async reaction(requestParameters: ReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.reactionRaw(requestParameters, initOverrides);
+    async postApiV1ChatsByRoomIdMessagesByMsgIdReactions(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1ChatsByRoomIdMessagesByMsgIdReactionsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessagesReadRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdMessagesRead().'
+            );
+        }
+
+        if (requestParameters['chatMessageRead'] == null) {
+            throw new runtime.RequiredError(
+                'chatMessageRead',
+                'Required parameter "chatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdMessagesRead().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/messages/read`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdMessagesRead(requestParameters: PostApiV1ChatsByRoomIdMessagesReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1ChatsByRoomIdMessagesReadRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdOobReadRaw(requestParameters: PostApiV1ChatsByRoomIdOobReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdOobRead().'
+            );
+        }
+
+        if (requestParameters['chatMessageRead'] == null) {
+            throw new runtime.RequiredError(
+                'chatMessageRead',
+                'Required parameter "chatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdOobRead().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/oob/read`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdOobRead(requestParameters: PostApiV1ChatsByRoomIdOobReadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1ChatsByRoomIdOobReadRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdOobWatching().'
+            );
+        }
+
+        if (requestParameters['chatOobWatching'] == null) {
+            throw new runtime.RequiredError(
+                'chatOobWatching',
+                'Required parameter "chatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdOobWatching().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/oob/watching`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChatOobWatchingToJSON(requestParameters['chatOobWatching']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdSupportByEventTypeRaw(requestParameters: PostApiV1ChatsByRoomIdSupportByEventTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['roomId'] == null) {
+            throw new runtime.RequiredError(
+                'roomId',
+                'Required parameter "roomId" was null or undefined when calling postApiV1ChatsByRoomIdSupportByEventType().'
+            );
+        }
+
+        if (requestParameters['eventType'] == null) {
+            throw new runtime.RequiredError(
+                'eventType',
+                'Required parameter "eventType" was null or undefined when calling postApiV1ChatsByRoomIdSupportByEventType().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/chats/{room_id}/support/{event_type}`;
+        urlPath = urlPath.replace(`{${"room_id"}}`, encodeURIComponent(String(requestParameters['roomId'])));
+        urlPath = urlPath.replace(`{${"event_type"}}`, encodeURIComponent(String(requestParameters['eventType'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1ChatsByRoomIdSupportByEventType(requestParameters: PostApiV1ChatsByRoomIdSupportByEventTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ChatsByRoomIdSupportByEventTypeRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }
@@ -1008,10 +1008,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 /**
  * @export
  */
-export const HandlePsgEventEventTypeEnum = {
+export const PostApiV1ChatsByRoomIdSupportByEventTypeEventTypeEnum = {
     NONE: 'NONE',
     ABANDON: 'ABANDON',
     RESOLVE: 'RESOLVE',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type HandlePsgEventEventTypeEnum = typeof HandlePsgEventEventTypeEnum[keyof typeof HandlePsgEventEventTypeEnum];
+export type PostApiV1ChatsByRoomIdSupportByEventTypeEventTypeEnum = typeof PostApiV1ChatsByRoomIdSupportByEventTypeEventTypeEnum[keyof typeof PostApiV1ChatsByRoomIdSupportByEventTypeEventTypeEnum];

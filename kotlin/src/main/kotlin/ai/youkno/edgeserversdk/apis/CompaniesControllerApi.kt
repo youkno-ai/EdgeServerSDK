@@ -21,16 +21,16 @@ interface CompaniesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/companies/{companyId}")
-    fun deleteCompany(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun deleteApiV1CompaniesByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 
     /**
     * enum for parameter userStatus
     */
-    enum class UserStatusGetCompanyEmployees(val value: kotlin.String) {
+    enum class UserStatusGetApiV1CompaniesByCompanyIdEmployees(val value: kotlin.String) {
         @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
         @Json(name = "INACTIVE") INACTIVE("INACTIVE"),
         @Json(name = "SUSPENDED") SUSPENDED("SUSPENDED"),
@@ -44,7 +44,7 @@ interface CompaniesControllerApi {
     /**
     * enum for parameter searchMode
     */
-    enum class SearchModeGetCompanyEmployees(val value: kotlin.String) {
+    enum class SearchModeGetApiV1CompaniesByCompanyIdEmployees(val value: kotlin.String) {
         @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
         @Json(name = "REGULAR") REGULAR("REGULAR"),
         @Json(name = "TEST") TEST("TEST"),
@@ -72,43 +72,13 @@ interface CompaniesControllerApi {
      * @return [Call]<[CompanyEmployeesResult]>
      */
     @GET("api/v1/companies/{company_id}/employees")
-    fun getCompanyEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetCompanyEmployees? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyEmployeesResult>
+    fun getApiV1CompaniesByCompanyIdEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdEmployees? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyEmployeesResult>
 
 
     /**
     * enum for parameter searchMode
     */
-    enum class SearchModeGetInviters(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "REGULAR") REGULAR("REGULAR"),
-        @Json(name = "TEST") TEST("TEST"),
-        @Json(name = "ALL") ALL("ALL")
-    }
-
-    /**
-     * GET api/v1/companies/{company_id}/inviters
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param companyId 
-     * @param start  (optional, default to 0)
-     * @param limit  (optional, default to 50)
-     * @param searchMode  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageUser]>
-     */
-    @GET("api/v1/companies/{company_id}/inviters")
-    fun getInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetInviters? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUser>
-
-
-    /**
-    * enum for parameter searchMode
-    */
-    enum class SearchModeGetUsersRegisteredByInviteCode(val value: kotlin.String) {
+    enum class SearchModeGetApiV1CompaniesByCompanyIdInvitees(val value: kotlin.String) {
         @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
         @Json(name = "REGULAR") REGULAR("REGULAR"),
         @Json(name = "TEST") TEST("TEST"),
@@ -119,7 +89,7 @@ interface CompaniesControllerApi {
     /**
     * enum for parameter searchFields
     */
-    enum class SearchFieldsGetUsersRegisteredByInviteCode(val value: kotlin.String) {
+    enum class SearchFieldsGetApiV1CompaniesByCompanyIdInvitees(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "USER_NAME") USER_NAME("USER_NAME"),
         @Json(name = "USER_FIRST_NAME") USER_FIRST_NAME("USER_FIRST_NAME"),
@@ -161,9 +131,39 @@ interface CompaniesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @GET("api/v1/companies/{company_id}/invitees")
-    fun getUsersRegisteredByInviteCode(@Path("company_id") companyId: kotlin.String, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviter") inviter: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviteCode") inviteCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetUsersRegisteredByInviteCode? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun getApiV1CompaniesByCompanyIdInvitees(@Path("company_id") companyId: kotlin.String, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviter") inviter: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviteCode") inviteCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdInvitees? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+
+    /**
+    * enum for parameter searchMode
+    */
+    enum class SearchModeGetApiV1CompaniesByCompanyIdInviters(val value: kotlin.String) {
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
+        @Json(name = "REGULAR") REGULAR("REGULAR"),
+        @Json(name = "TEST") TEST("TEST"),
+        @Json(name = "ALL") ALL("ALL")
+    }
+
+    /**
+     * GET api/v1/companies/{company_id}/inviters
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param companyId 
+     * @param start  (optional, default to 0)
+     * @param limit  (optional, default to 50)
+     * @param searchMode  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[PageUser]>
+     */
+    @GET("api/v1/companies/{company_id}/inviters")
+    fun getApiV1CompaniesByCompanyIdInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdInviters? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUser>
 
 }

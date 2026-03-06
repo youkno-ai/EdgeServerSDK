@@ -115,32 +115,15 @@ import {
     UserProfileToJSON,
 } from '../models/index';
 
-export interface AddItemToOrderRequest {
+export interface DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest {
     clientId: string;
-    posOrderId: string;
-    addOrderItemDto: AddOrderItemDto;
+    cycleCountId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface AddQueueItemRequest {
-    clientId: string;
-    customerId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface AdjustInventoryItemsRequest {
-    clientId: string;
-    manageInventoryAdjustReq: ManageInventoryAdjustReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ApplyDiscountRequest {
+export interface DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest {
     clientId: string;
     posOrderId: string;
     discountId: string;
@@ -149,71 +132,16 @@ export interface ApplyDiscountRequest {
     xEdgeClientId?: string;
 }
 
-export interface CreateCustomerRequest {
+export interface DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest {
     clientId: string;
-    customer: Customer;
+    posOrderId: string;
+    itemId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateCustomer1Request {
-    clientId: string;
-    customer: Customer;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateCustomerNewRequest {
-    clientId: string;
-    customer: Customer;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateCycleCountRequest {
-    clientId: string;
-    cycleCountReq: CycleCountReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateOrderNewRequest {
-    clientId: string;
-    shoppingCart: ShoppingCart;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateOrderOldRequest {
-    clientId: string;
-    order: Order;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateOrderOld1Request {
-    clientId: string;
-    order: Order;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteCycleCountRequest {
-    clientId: string;
-    cycleCountId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteQueueItemRequest {
+export interface DeleteApiV1PosClientsByClientidQueueByQueueidRequest {
     clientId: string;
     queueId: number;
     xEdgeAgent?: string;
@@ -221,42 +149,7 @@ export interface DeleteQueueItemRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetAdjustReasonsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBrandsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategoriesRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategories1Request {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategoriesTmpRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomerRequest {
+export interface GetApiV1PosClientsByClientidCustomersByCustomeridRequest {
     clientId: string;
     customerId: string;
     xEdgeAgent?: string;
@@ -264,7 +157,7 @@ export interface GetCustomerRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetCustomer1Request {
+export interface GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest {
     clientId: string;
     customerId: string;
     xEdgeAgent?: string;
@@ -272,7 +165,7 @@ export interface GetCustomer1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetCustomerNewRequest {
+export interface GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest {
     clientId: string;
     customerId: string;
     xEdgeAgent?: string;
@@ -280,62 +173,7 @@ export interface GetCustomerNewRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetCustomerOrdersNewRequest {
-    clientId: string;
-    customerId: string;
-    searchReq: SearchReq;
-    completed?: boolean;
-    paidInFull?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomerOrdersOldRequest {
-    clientId: string;
-    customerId: string;
-    searchReq: SearchReq;
-    completed?: boolean;
-    paidInFull?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomerOrdersOld1Request {
-    clientId: string;
-    customerId: string;
-    searchReq: SearchReq;
-    completed?: boolean;
-    paidInFull?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCycleCountRequest {
-    clientId: string;
-    cycleCountId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCycleCountsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetDeliveryRoutesRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetDiscountsRequest {
+export interface GetApiV1PosClientsByClientidDiscountsRequest {
     clientId: string;
     customerId?: string;
     promotionCode?: number;
@@ -345,14 +183,92 @@ export interface GetDiscountsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetLocationAreasRequest {
+export interface GetApiV1PosClientsByClientidInventoryAdjustReasonRequest {
     clientId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetOrderRequest {
+export interface GetApiV1PosClientsByClientidInventoryAreaRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryBrandRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryCategoryRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryCategoryNewRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryCategoryOldRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryCycleCountRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest {
+    clientId: string;
+    cycleCountId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryStrainRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryUomRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidInventoryVendorRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidOrdersByPosorderidRequest {
     clientId: string;
     posOrderId: string;
     xEdgeAgent?: string;
@@ -360,7 +276,7 @@ export interface GetOrderRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetOrder1Request {
+export interface GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest {
     clientId: string;
     posOrderId: string;
     xEdgeAgent?: string;
@@ -368,7 +284,150 @@ export interface GetOrder1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetOrderAsBountyRequest {
+export interface GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest {
+    clientId: string;
+    posOrderId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidQueueRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1PosClientsByClientidTerminalsLabelsRequest {
+    clientId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersRequest {
+    clientId: string;
+    customer: Customer;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest {
+    clientId: string;
+    customerId: string;
+    searchReq: SearchReq;
+    completed?: boolean;
+    paidInFull?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest {
+    clientId: string;
+    customerId: string;
+    searchReq: SearchReq;
+    completed?: boolean;
+    paidInFull?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest {
+    clientId: string;
+    customerId: string;
+    searchReq: SearchReq;
+    completed?: boolean;
+    paidInFull?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersNewRequest {
+    clientId: string;
+    customer: Customer;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersNewSearchRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersOldRequest {
+    clientId: string;
+    customer: Customer;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersOldSearchRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidCustomersSearchRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidInventoryCycleCountRequest {
+    clientId: string;
+    cycleCountReq: CycleCountReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidInventoryItemSearchRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidInventorySearchRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidInventorySearchCycleCountRequest {
+    clientId: string;
+    searchReq: SearchReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidOrdersRequest {
+    clientId: string;
+    order: Order;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1PosClientsByClientidOrdersBountyRequest {
     clientId: string;
     posOrderIds: Array<string>;
     xEdgeAgent?: string;
@@ -377,85 +436,7 @@ export interface GetOrderAsBountyRequest {
     order?: Array<Order>;
 }
 
-export interface GetOrderNewRequest {
-    clientId: string;
-    posOrderId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetQueueRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetStrainsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTerminalLabelsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUomsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetVendorsRequest {
-    clientId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface MergeOrdersOperationRequest {
-    clientId: string;
-    posOrderId: string;
-    mergeOrdersRequest: MergeOrdersRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface MergeOrders1Request {
-    clientId: string;
-    posOrderId: string;
-    mergeOrdersRequest: MergeOrdersRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface MergeOrdersNewRequest {
-    clientId: string;
-    posOrderId: string;
-    mergeOrdersRequest: MergeOrdersRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface MoveInventoryItemsRequest {
-    clientId: string;
-    manageInventoryReq: ManageInventoryReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface RemoveDiscountFromOrderRequest {
+export interface PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest {
     clientId: string;
     posOrderId: string;
     discountId: string;
@@ -464,64 +445,40 @@ export interface RemoveDiscountFromOrderRequest {
     xEdgeClientId?: string;
 }
 
-export interface RemoveItemFromOrderRequest {
+export interface PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest {
     clientId: string;
     posOrderId: string;
-    itemId: string;
+    addOrderItemDto: AddOrderItemDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SearchCustomerRequest {
+export interface PostApiV1PosClientsByClientidOrdersNewRequest {
     clientId: string;
-    searchReq: SearchReq;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SearchCustomer1Request {
+export interface PostApiV1PosClientsByClientidOrdersOldRequest {
     clientId: string;
-    searchReq: SearchReq;
+    order: Order;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SearchCustomerNewRequest {
+export interface PostApiV1PosClientsByClientidQueueRequest {
     clientId: string;
-    searchReq: SearchReq;
+    customerId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SearchCycleCountsRequest {
-    clientId: string;
-    searchReq: SearchReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SearchInventoryRequest {
-    clientId: string;
-    searchReq: SearchReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SearchInventoryItemsRequest {
-    clientId: string;
-    searchReq: SearchReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateCustomerRequest {
+export interface PutApiV1PosClientsByClientidCustomersByCustomeridRequest {
     clientId: string;
     customerId: string;
     customer: Customer;
@@ -530,7 +487,7 @@ export interface UpdateCustomerRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateCustomer1Request {
+export interface PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest {
     clientId: string;
     customerId: string;
     customer: Customer;
@@ -539,7 +496,7 @@ export interface UpdateCustomer1Request {
     xEdgeClientId?: string;
 }
 
-export interface UpdateCustomerNewRequest {
+export interface PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest {
     clientId: string;
     customerId: string;
     customer: Customer;
@@ -548,7 +505,15 @@ export interface UpdateCustomerNewRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateCycleCountRequest {
+export interface PutApiV1PosClientsByClientidInventoryAdjustRequest {
+    clientId: string;
+    manageInventoryAdjustReq: ManageInventoryAdjustReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest {
     clientId: string;
     cycleCountId: string;
     cycleCountReq: CycleCountReq;
@@ -557,7 +522,15 @@ export interface UpdateCycleCountRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateOrderRequest {
+export interface PutApiV1PosClientsByClientidInventoryMoveRequest {
+    clientId: string;
+    manageInventoryReq: ManageInventoryReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1PosClientsByClientidOrdersByPosorderidRequest {
     clientId: string;
     posOrderId: number;
     order: Order;
@@ -566,16 +539,34 @@ export interface UpdateOrderRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateOrder1Request {
+export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest {
     clientId: string;
-    posOrderId: number;
-    order: Order;
+    posOrderId: string;
+    mergeOrdersRequest: MergeOrdersRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateOrderNewRequest {
+export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest {
+    clientId: string;
+    posOrderId: string;
+    mergeOrdersRequest: MergeOrdersRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest {
+    clientId: string;
+    posOrderId: string;
+    mergeOrdersRequest: MergeOrdersRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest {
     clientId: string;
     posOrderId: string;
     shoppingCart: ShoppingCart;
@@ -584,7 +575,16 @@ export interface UpdateOrderNewRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateQueueItemStatusRequest {
+export interface PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest {
+    clientId: string;
+    posOrderId: number;
+    order: Order;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1PosClientsByClientidQueueByQueueidRequest {
     clientId: string;
     queueId: string;
     status: string;
@@ -603,8 +603,7 @@ export interface PosProxyControllerApiInterface {
     /**
      * 
      * @param {string} clientId 
-     * @param {string} posOrderId 
-     * @param {AddOrderItemDto} addOrderItemDto 
+     * @param {string} cycleCountId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -612,45 +611,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    addItemToOrderRaw(requestParameters: AddItemToOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    addItemToOrder(requestParameters: AddItemToOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    addQueueItemRaw(requestParameters: AddQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueItemResp>>;
-
-    /**
-     */
-    addQueueItem(requestParameters: AddQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueItemResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {ManageInventoryAdjustReq} manageInventoryAdjustReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    adjustInventoryItemsRaw(requestParameters: AdjustInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    adjustInventoryItems(requestParameters: AdjustInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -664,16 +629,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    applyDiscountRaw(requestParameters: ApplyDiscountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    applyDiscount(requestParameters: ApplyDiscountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {Customer} customer 
+     * @param {string} posOrderId 
+     * @param {string} itemId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -681,130 +647,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    createCustomerRaw(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    createCustomer(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {Customer} customer 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createCustomer1Raw(requestParameters: CreateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
-
-    /**
-     */
-    createCustomer1(requestParameters: CreateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {Customer} customer 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createCustomerNewRaw(requestParameters: CreateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
-
-    /**
-     */
-    createCustomerNew(requestParameters: CreateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {CycleCountReq} cycleCountReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createCycleCountRaw(requestParameters: CreateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    createCycleCount(requestParameters: CreateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {ShoppingCart} shoppingCart 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createOrderNewRaw(requestParameters: CreateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    createOrderNew(requestParameters: CreateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {Order} order 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createOrderOldRaw(requestParameters: CreateOrderOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
-
-    /**
-     */
-    createOrderOld(requestParameters: CreateOrderOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {Order} order 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    createOrderOld1Raw(requestParameters: CreateOrderOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
-
-    /**
-     */
-    createOrderOld1(requestParameters: CreateOrderOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} cycleCountId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    deleteCycleCountRaw(requestParameters: DeleteCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteCycleCount(requestParameters: DeleteCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
@@ -817,91 +664,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    deleteQueueItemRaw(requestParameters: DeleteQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters: DeleteApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteQueueItem(requestParameters: DeleteQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getAdjustReasonsRaw(requestParameters: GetAdjustReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAdjustReasonResp>>;
-
-    /**
-     */
-    getAdjustReasons(requestParameters: GetAdjustReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAdjustReasonResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getBrandsRaw(requestParameters: GetBrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBrandResp>>;
-
-    /**
-     */
-    getBrands(requestParameters: GetBrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBrandResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCategoriesRaw(requestParameters: GetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>>;
-
-    /**
-     */
-    getCategories(requestParameters: GetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCategories1Raw(requestParameters: GetCategories1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>>;
-
-    /**
-     */
-    getCategories1(requestParameters: GetCategories1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCategoriesTmpRaw(requestParameters: GetCategoriesTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategory>>;
-
-    /**
-     */
-    getCategoriesTmp(requestParameters: GetCategoriesTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategory>;
+    deleteApiV1PosClientsByClientidQueueByQueueid(requestParameters: DeleteApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -914,28 +681,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getCustomerRaw(requestParameters: GetCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+    getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
 
     /**
      */
-    getCustomer(requestParameters: GetCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCustomer1Raw(requestParameters: GetCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
-
-    /**
-     */
-    getCustomer1(requestParameters: GetCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+    getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
 
     /**
      * 
@@ -948,39 +698,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getCustomerNewRaw(requestParameters: GetCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
+    getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
      */
-    getCustomerNew(requestParameters: GetCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {SearchReq} searchReq 
-     * @param {boolean} [completed] 
-     * @param {boolean} [paidInFull] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCustomerOrdersNewRaw(requestParameters: GetCustomerOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
-
-    /**
-     */
-    getCustomerOrdersNew(requestParameters: GetCustomerOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
+    getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {SearchReq} searchReq 
-     * @param {boolean} [completed] 
-     * @param {boolean} [paidInFull] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -988,80 +715,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getCustomerOrdersOldRaw(requestParameters: GetCustomerOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>>;
+    getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
 
     /**
      */
-    getCustomerOrdersOld(requestParameters: GetCustomerOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {SearchReq} searchReq 
-     * @param {boolean} [completed] 
-     * @param {boolean} [paidInFull] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCustomerOrdersOld1Raw(requestParameters: GetCustomerOrdersOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>>;
-
-    /**
-     */
-    getCustomerOrdersOld1(requestParameters: GetCustomerOrdersOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} cycleCountId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCycleCountRaw(requestParameters: GetCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CycleCountResp>>;
-
-    /**
-     */
-    getCycleCount(requestParameters: GetCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CycleCountResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getCycleCountsRaw(requestParameters: GetCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCycleCountResp>>;
-
-    /**
-     */
-    getCycleCounts(requestParameters: GetCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCycleCountResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getDeliveryRoutesRaw(requestParameters: GetDeliveryRoutesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageDeliveryRouteResp>>;
-
-    /**
-     */
-    getDeliveryRoutes(requestParameters: GetDeliveryRoutesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageDeliveryRouteResp>;
+    getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
 
     /**
      * 
@@ -1076,11 +734,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getDiscountsRaw(requestParameters: GetDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DiscountResp>>>;
+    getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DiscountResp>>>;
 
     /**
      */
-    getDiscounts(requestParameters: GetDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DiscountResp>>;
+    getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DiscountResp>>;
 
     /**
      * 
@@ -1092,11 +750,188 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getLocationAreasRaw(requestParameters: GetLocationAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAreaResp>>;
+    getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAdjustReasonResp>>;
 
     /**
      */
-    getLocationAreas(requestParameters: GetLocationAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAreaResp>;
+    getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAdjustReasonResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAreaResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAreaResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBrandResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBrandResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategory>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategory>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCycleCountResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCycleCountResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} cycleCountId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CycleCountResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CycleCountResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageDeliveryRouteResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageDeliveryRouteResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageStrainResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageStrainResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUomResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUomResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVendorResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVendorResp>;
 
     /**
      * 
@@ -1109,11 +944,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getOrderRaw(requestParameters: GetOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    getOrder(requestParameters: GetOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
@@ -1126,11 +961,307 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getOrder1Raw(requestParameters: GetOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    getOrder1(requestParameters: GetOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} posOrderId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueItemResp>>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueItemResp>>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TerminalLabelResp>>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TerminalLabelResp>>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {Customer} customer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} customerId 
+     * @param {SearchReq} searchReq 
+     * @param {boolean} [completed] 
+     * @param {boolean} [paidInFull] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} customerId 
+     * @param {SearchReq} searchReq 
+     * @param {boolean} [completed] 
+     * @param {boolean} [paidInFull] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} customerId 
+     * @param {SearchReq} searchReq 
+     * @param {boolean} [completed] 
+     * @param {boolean} [paidInFull] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {Customer} customer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserProfile>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserProfile>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {Customer} customer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {CycleCountReq} cycleCountReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidInventoryCycleCount(requestParameters: PostApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryItemResp>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryItemResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryResp>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {SearchReq} searchReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageSearchCycleCountResp>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageSearchCycleCountResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {Order} order 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
@@ -1144,179 +1275,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getOrderAsBountyRaw(requestParameters: GetOrderAsBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
+    postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
 
     /**
      */
-    getOrderAsBounty(requestParameters: GetOrderAsBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} posOrderId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getOrderNewRaw(requestParameters: GetOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    getOrderNew(requestParameters: GetOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getQueueRaw(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueItemResp>>>;
-
-    /**
-     */
-    getQueue(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueItemResp>>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getStrainsRaw(requestParameters: GetStrainsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageStrainResp>>;
-
-    /**
-     */
-    getStrains(requestParameters: GetStrainsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageStrainResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getTerminalLabelsRaw(requestParameters: GetTerminalLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TerminalLabelResp>>>;
-
-    /**
-     */
-    getTerminalLabels(requestParameters: GetTerminalLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TerminalLabelResp>>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getUomsRaw(requestParameters: GetUomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUomResp>>;
-
-    /**
-     */
-    getUoms(requestParameters: GetUomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUomResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getVendorsRaw(requestParameters: GetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVendorResp>>;
-
-    /**
-     */
-    getVendors(requestParameters: GetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVendorResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} posOrderId 
-     * @param {MergeOrdersRequest} mergeOrdersRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    mergeOrdersRaw(requestParameters: MergeOrdersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
-
-    /**
-     */
-    mergeOrders(requestParameters: MergeOrdersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} posOrderId 
-     * @param {MergeOrdersRequest} mergeOrdersRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    mergeOrders1Raw(requestParameters: MergeOrders1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
-
-    /**
-     */
-    mergeOrders1(requestParameters: MergeOrders1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} posOrderId 
-     * @param {MergeOrdersRequest} mergeOrdersRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    mergeOrdersNewRaw(requestParameters: MergeOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    mergeOrdersNew(requestParameters: MergeOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {ManageInventoryReq} manageInventoryReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    moveInventoryItemsRaw(requestParameters: MoveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    moveInventoryItems(requestParameters: MoveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
 
     /**
      * 
@@ -1330,17 +1293,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    removeDiscountFromOrderRaw(requestParameters: RemoveDiscountFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    removeDiscountFromOrder(requestParameters: RemoveDiscountFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {string} itemId 
+     * @param {AddOrderItemDto} addOrderItemDto 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1348,16 +1311,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    removeItemFromOrderRaw(requestParameters: RemoveItemFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    removeItemFromOrder(requestParameters: RemoveItemFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {SearchReq} searchReq 
+     * @param {ShoppingCart} shoppingCart 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1365,16 +1328,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    searchCustomerRaw(requestParameters: SearchCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>>;
+    postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    searchCustomer(requestParameters: SearchCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer>;
+    postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {SearchReq} searchReq 
+     * @param {Order} order 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1382,16 +1345,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    searchCustomer1Raw(requestParameters: SearchCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>>;
+    postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    searchCustomer1(requestParameters: SearchCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer>;
+    postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {SearchReq} searchReq 
+     * @param {string} customerId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1399,62 +1362,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    searchCustomerNewRaw(requestParameters: SearchCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserProfile>>;
+    postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueItemResp>>;
 
     /**
      */
-    searchCustomerNew(requestParameters: SearchCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserProfile>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {SearchReq} searchReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    searchCycleCountsRaw(requestParameters: SearchCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageSearchCycleCountResp>>;
-
-    /**
-     */
-    searchCycleCounts(requestParameters: SearchCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageSearchCycleCountResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {SearchReq} searchReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    searchInventoryRaw(requestParameters: SearchInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryResp>>;
-
-    /**
-     */
-    searchInventory(requestParameters: SearchInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {SearchReq} searchReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    searchInventoryItemsRaw(requestParameters: SearchInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryItemResp>>;
-
-    /**
-     */
-    searchInventoryItems(requestParameters: SearchInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryItemResp>;
+    postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueItemResp>;
 
     /**
      * 
@@ -1468,29 +1380,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateCustomerRaw(requestParameters: UpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+    putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
 
     /**
      */
-    updateCustomer(requestParameters: UpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {Customer} customer 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    updateCustomer1Raw(requestParameters: UpdateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
-
-    /**
-     */
-    updateCustomer1(requestParameters: UpdateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+    putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
 
     /**
      * 
@@ -1504,11 +1398,46 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateCustomerNewRaw(requestParameters: UpdateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
+    putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
      */
-    updateCustomerNew(requestParameters: UpdateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
+    putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} customerId 
+     * @param {Customer} customer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {ManageInventoryAdjustReq} manageInventoryAdjustReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidInventoryAdjustRaw(requestParameters: PutApiV1PosClientsByClientidInventoryAdjustRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidInventoryAdjust(requestParameters: PutApiV1PosClientsByClientidInventoryAdjustRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -1522,11 +1451,28 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateCycleCountRaw(requestParameters: UpdateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    updateCycleCount(requestParameters: UpdateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {ManageInventoryReq} manageInventoryReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidInventoryMoveRaw(requestParameters: PutApiV1PosClientsByClientidInventoryMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidInventoryMove(requestParameters: PutApiV1PosClientsByClientidInventoryMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -1540,17 +1486,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateOrderRaw(requestParameters: UpdateOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    updateOrder(requestParameters: UpdateOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {number} posOrderId 
-     * @param {Order} order 
+     * @param {string} posOrderId 
+     * @param {MergeOrdersRequest} mergeOrdersRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1558,11 +1504,47 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateOrder1Raw(requestParameters: UpdateOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
 
     /**
      */
-    updateOrder1(requestParameters: UpdateOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} posOrderId 
+     * @param {MergeOrdersRequest} mergeOrdersRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} posOrderId 
+     * @param {MergeOrdersRequest} mergeOrdersRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
@@ -1576,11 +1558,29 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateOrderNewRaw(requestParameters: UpdateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+    putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    updateOrderNew(requestParameters: UpdateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+    putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {number} posOrderId 
+     * @param {Order} order 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order>;
 
     /**
      * 
@@ -1594,11 +1594,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    updateQueueItemStatusRaw(requestParameters: UpdateQueueItemStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    putApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters: PutApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    updateQueueItemStatus(requestParameters: UpdateQueueItemStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    putApiV1PosClientsByClientidQueueByQueueid(requestParameters: PutApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -1609,704 +1609,18 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async addItemToOrderRaw(requestParameters: AddItemToOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling addItemToOrder().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling addItemToOrder().'
-            );
-        }
-
-        if (requestParameters['addOrderItemDto'] == null) {
-            throw new runtime.RequiredError(
-                'addOrderItemDto',
-                'Required parameter "addOrderItemDto" was null or undefined when calling addItemToOrder().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AddOrderItemDtoToJSON(requestParameters['addOrderItemDto']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async addItemToOrder(requestParameters: AddItemToOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.addItemToOrderRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async addQueueItemRaw(requestParameters: AddQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueItemResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling addQueueItem().'
-            );
-        }
-
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling addQueueItem().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['customerId'] != null) {
-            queryParameters['customerId'] = requestParameters['customerId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/queue`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => QueueItemRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async addQueueItem(requestParameters: AddQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueItemResp> {
-        const response = await this.addQueueItemRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async adjustInventoryItemsRaw(requestParameters: AdjustInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling adjustInventoryItems().'
-            );
-        }
-
-        if (requestParameters['manageInventoryAdjustReq'] == null) {
-            throw new runtime.RequiredError(
-                'manageInventoryAdjustReq',
-                'Required parameter "manageInventoryAdjustReq" was null or undefined when calling adjustInventoryItems().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/adjust`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ManageInventoryAdjustReqToJSON(requestParameters['manageInventoryAdjustReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async adjustInventoryItems(requestParameters: AdjustInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.adjustInventoryItemsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async applyDiscountRaw(requestParameters: ApplyDiscountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling applyDiscount().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling applyDiscount().'
-            );
-        }
-
-        if (requestParameters['discountId'] == null) {
-            throw new runtime.RequiredError(
-                'discountId',
-                'Required parameter "discountId" was null or undefined when calling applyDiscount().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-        urlPath = urlPath.replace(`{${"discountId"}}`, encodeURIComponent(String(requestParameters['discountId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async applyDiscount(requestParameters: ApplyDiscountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.applyDiscountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createCustomerRaw(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createCustomer().'
-            );
-        }
-
-        if (requestParameters['customer'] == null) {
-            throw new runtime.RequiredError(
-                'customer',
-                'Required parameter "customer" was null or undefined when calling createCustomer().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CustomerToJSON(requestParameters['customer']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createCustomer(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.createCustomerRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createCustomer1Raw(requestParameters: CreateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createCustomer1().'
-            );
-        }
-
-        if (requestParameters['customer'] == null) {
-            throw new runtime.RequiredError(
-                'customer',
-                'Required parameter "customer" was null or undefined when calling createCustomer1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CustomerToJSON(requestParameters['customer']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createCustomer1(requestParameters: CreateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.createCustomer1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createCustomerNewRaw(requestParameters: CreateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createCustomerNew().'
-            );
-        }
-
-        if (requestParameters['customer'] == null) {
-            throw new runtime.RequiredError(
-                'customer',
-                'Required parameter "customer" was null or undefined when calling createCustomerNew().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_new`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CustomerToJSON(requestParameters['customer']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createCustomerNew(requestParameters: CreateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
-        const response = await this.createCustomerNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createCycleCountRaw(requestParameters: CreateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createCycleCount().'
-            );
-        }
-
-        if (requestParameters['cycleCountReq'] == null) {
-            throw new runtime.RequiredError(
-                'cycleCountReq',
-                'Required parameter "cycleCountReq" was null or undefined when calling createCycleCount().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CycleCountReqToJSON(requestParameters['cycleCountReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async createCycleCount(requestParameters: CreateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.createCycleCountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createOrderNewRaw(requestParameters: CreateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createOrderNew().'
-            );
-        }
-
-        if (requestParameters['shoppingCart'] == null) {
-            throw new runtime.RequiredError(
-                'shoppingCart',
-                'Required parameter "shoppingCart" was null or undefined when calling createOrderNew().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders_new`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createOrderNew(requestParameters: CreateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.createOrderNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createOrderOldRaw(requestParameters: CreateOrderOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createOrderOld().'
-            );
-        }
-
-        if (requestParameters['order'] == null) {
-            throw new runtime.RequiredError(
-                'order',
-                'Required parameter "order" was null or undefined when calling createOrderOld().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders_old`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: OrderToJSON(requestParameters['order']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createOrderOld(requestParameters: CreateOrderOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.createOrderOldRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createOrderOld1Raw(requestParameters: CreateOrderOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling createOrderOld1().'
-            );
-        }
-
-        if (requestParameters['order'] == null) {
-            throw new runtime.RequiredError(
-                'order',
-                'Required parameter "order" was null or undefined when calling createOrderOld1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: OrderToJSON(requestParameters['order']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createOrderOld1(requestParameters: CreateOrderOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.createOrderOld1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteCycleCountRaw(requestParameters: DeleteCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling deleteCycleCount().'
+                'Required parameter "clientId" was null or undefined when calling deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
         if (requestParameters['cycleCountId'] == null) {
             throw new runtime.RequiredError(
                 'cycleCountId',
-                'Required parameter "cycleCountId" was null or undefined when calling deleteCycleCount().'
+                'Required parameter "cycleCountId" was null or undefined when calling deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
@@ -2347,25 +1661,159 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async deleteCycleCount(requestParameters: DeleteCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteCycleCountRaw(requestParameters, initOverrides);
+    async deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteQueueItemRaw(requestParameters: DeleteQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling deleteQueueItem().'
+                'Required parameter "clientId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
+            );
+        }
+
+        if (requestParameters['discountId'] == null) {
+            throw new runtime.RequiredError(
+                'discountId',
+                'Required parameter "discountId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+        urlPath = urlPath.replace(`{${"discountId"}}`, encodeURIComponent(String(requestParameters['discountId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid().'
+            );
+        }
+
+        if (requestParameters['itemId'] == null) {
+            throw new runtime.RequiredError(
+                'itemId',
+                'Required parameter "itemId" was null or undefined when calling deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items/{itemId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+        urlPath = urlPath.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters: DeleteApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling deleteApiV1PosClientsByClientidQueueByQueueid().'
             );
         }
 
         if (requestParameters['queueId'] == null) {
             throw new runtime.RequiredError(
                 'queueId',
-                'Required parameter "queueId" was null or undefined when calling deleteQueueItem().'
+                'Required parameter "queueId" was null or undefined when calling deleteApiV1PosClientsByClientidQueueByQueueid().'
             );
         }
 
@@ -2406,280 +1854,25 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async deleteQueueItem(requestParameters: DeleteQueueItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteQueueItemRaw(requestParameters, initOverrides);
+    async deleteApiV1PosClientsByClientidQueueByQueueid(requestParameters: DeleteApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAdjustReasonsRaw(requestParameters: GetAdjustReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAdjustReasonResp>> {
+    async getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getAdjustReasons().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/adjust_reason`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAdjustReasonRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAdjustReasons(requestParameters: GetAdjustReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAdjustReasonResp> {
-        const response = await this.getAdjustReasonsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBrandsRaw(requestParameters: GetBrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBrandResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getBrands().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/brand`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageBrandRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBrands(requestParameters: GetBrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBrandResp> {
-        const response = await this.getBrandsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCategoriesRaw(requestParameters: GetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCategories().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCategories(requestParameters: GetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp> {
-        const response = await this.getCategoriesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCategories1Raw(requestParameters: GetCategories1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCategories1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category_old`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCategories1(requestParameters: GetCategories1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp> {
-        const response = await this.getCategories1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCategoriesTmpRaw(requestParameters: GetCategoriesTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategory>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCategoriesTmp().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category_new`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCategoriesTmp(requestParameters: GetCategoriesTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategory> {
-        const response = await this.getCategoriesTmpRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomerRaw(requestParameters: GetCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomer().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidCustomersByCustomerid().'
             );
         }
 
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomer().'
+                'Required parameter "customerId" was null or undefined when calling getApiV1PosClientsByClientidCustomersByCustomerid().'
             );
         }
 
@@ -2720,84 +1913,25 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getCustomer(requestParameters: GetCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.getCustomerRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCustomer1Raw(requestParameters: GetCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+    async getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomer1().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomer1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/{customerId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomer1(requestParameters: GetCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.getCustomer1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomerNewRaw(requestParameters: GetCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomerNew().'
-            );
-        }
-
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomerNew().'
+                'Required parameter "customerId" was null or undefined when calling getApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
@@ -2838,48 +1972,31 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getCustomerNew(requestParameters: GetCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
-        const response = await this.getCustomerNewRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
+        const response = await this.getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCustomerOrdersNewRaw(requestParameters: GetCustomerOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
+    async getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomerOrdersNew().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidCustomersOldByCustomerid().'
             );
         }
 
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomerOrdersNew().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling getCustomerOrdersNew().'
+                'Required parameter "customerId" was null or undefined when calling getApiV1PosClientsByClientidCustomersOldByCustomerid().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
-        }
-
-        if (requestParameters['paidInFull'] != null) {
-            queryParameters['paidInFull'] = requestParameters['paidInFull'];
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -2898,223 +2015,9 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
         }
 
 
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_new`;
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/{customerId}`;
         urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
         urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageBountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomerOrdersNew(requestParameters: GetCustomerOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
-        const response = await this.getCustomerOrdersNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomerOrdersOldRaw(requestParameters: GetCustomerOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomerOrdersOld().'
-            );
-        }
-
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomerOrdersOld().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling getCustomerOrdersOld().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
-        }
-
-        if (requestParameters['paidInFull'] != null) {
-            queryParameters['paidInFull'] = requestParameters['paidInFull'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_old`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageOrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomerOrdersOld(requestParameters: GetCustomerOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder> {
-        const response = await this.getCustomerOrdersOldRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomerOrdersOld1Raw(requestParameters: GetCustomerOrdersOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCustomerOrdersOld1().'
-            );
-        }
-
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling getCustomerOrdersOld1().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling getCustomerOrdersOld1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
-        }
-
-        if (requestParameters['paidInFull'] != null) {
-            queryParameters['paidInFull'] = requestParameters['paidInFull'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageOrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomerOrdersOld1(requestParameters: GetCustomerOrdersOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder> {
-        const response = await this.getCustomerOrdersOld1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCycleCountRaw(requestParameters: GetCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CycleCountResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCycleCount().'
-            );
-        }
-
-        if (requestParameters['cycleCountId'] == null) {
-            throw new runtime.RequiredError(
-                'cycleCountId',
-                'Required parameter "cycleCountId" was null or undefined when calling getCycleCount().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"cycle_count_id"}}`, encodeURIComponent(String(requestParameters['cycleCountId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -3123,125 +2026,23 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CycleCountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async getCycleCount(requestParameters: GetCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CycleCountResp> {
-        const response = await this.getCycleCountRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCycleCountsRaw(requestParameters: GetCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCycleCountResp>> {
+    async getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DiscountResp>>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getCycleCounts().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCycleCountRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCycleCounts(requestParameters: GetCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCycleCountResp> {
-        const response = await this.getCycleCountsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getDeliveryRoutesRaw(requestParameters: GetDeliveryRoutesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageDeliveryRouteResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getDeliveryRoutes().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/delivery_route`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageDeliveryRouteRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getDeliveryRoutes(requestParameters: GetDeliveryRoutesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageDeliveryRouteResp> {
-        const response = await this.getDeliveryRoutesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getDiscountsRaw(requestParameters: GetDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DiscountResp>>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getDiscounts().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidDiscounts().'
             );
         }
 
@@ -3293,18 +2094,69 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getDiscounts(requestParameters: GetDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DiscountResp>> {
-        const response = await this.getDiscountsRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DiscountResp>> {
+        const response = await this.getApiV1PosClientsByClientidDiscountsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getLocationAreasRaw(requestParameters: GetLocationAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAreaResp>> {
+    async getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAdjustReasonResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getLocationAreas().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryAdjustReason().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/adjust_reason`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageAdjustReasonRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAdjustReasonResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAreaResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryArea().'
             );
         }
 
@@ -3344,25 +2196,543 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getLocationAreas(requestParameters: GetLocationAreasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAreaResp> {
-        const response = await this.getLocationAreasRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAreaResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrderRaw(requestParameters: GetOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBrandResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getOrder().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryBrand().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/brand`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageBrandRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBrandResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategory>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCategoryNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category_new`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategory> {
+        const response = await this.getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCategoryResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCategoryOld().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/category_old`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCategoryRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCategoryResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCycleCountResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCycleCount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCycleCountRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCycleCountResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CycleCountResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
+            );
+        }
+
+        if (requestParameters['cycleCountId'] == null) {
+            throw new runtime.RequiredError(
+                'cycleCountId',
+                'Required parameter "cycleCountId" was null or undefined when calling getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"cycle_count_id"}}`, encodeURIComponent(String(requestParameters['cycleCountId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CycleCountRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CycleCountResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageDeliveryRouteResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryDeliveryRoute().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/delivery_route`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageDeliveryRouteRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageDeliveryRouteResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageStrainResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryStrain().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/strain`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageStrainRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageStrainResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUomResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryUom().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/uom`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageUomRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUomResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryUomRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVendorResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidInventoryVendor().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/vendor`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageVendorRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVendorResp> {
+        const response = await this.getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling getOrder().'
+                'Required parameter "posOrderId" was null or undefined when calling getApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
@@ -3403,25 +2773,84 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getOrder(requestParameters: GetOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.getOrderRaw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrder1Raw(requestParameters: GetOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getOrder1().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidOrdersNewByPosorderid().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling getOrder1().'
+                'Required parameter "posOrderId" was null or undefined when calling getApiV1PosClientsByClientidOrdersNewByPosorderid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders_new/{posOrderId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidOrdersOldByPosorderid().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling getApiV1PosClientsByClientidOrdersOldByPosorderid().'
             );
         }
 
@@ -3462,25 +2891,1029 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getOrder1(requestParameters: GetOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.getOrder1Raw(requestParameters, initOverrides);
+    async getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrderAsBountyRaw(requestParameters: GetOrderAsBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
+    async getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueItemResp>>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getOrderAsBounty().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidQueue().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/queue`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(QueueItemRespFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueItemResp>> {
+        const response = await this.getApiV1PosClientsByClientidQueueRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TerminalLabelResp>>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1PosClientsByClientidTerminalsLabels().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/terminals/labels`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TerminalLabelRespFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TerminalLabelResp>> {
+        const response = await this.getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomers().'
+            );
+        }
+
+        if (requestParameters['customer'] == null) {
+            throw new runtime.RequiredError(
+                'customer',
+                'Required parameter "customer" was null or undefined when calling postApiV1PosClientsByClientidCustomers().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CustomerToJSON(requestParameters['customer']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.postApiV1PosClientsByClientidCustomersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrders().'
+            );
+        }
+
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrders().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrders().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['paidInFull'] != null) {
+            queryParameters['paidInFull'] = requestParameters['paidInFull'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageOrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder> {
+        const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew().'
+            );
+        }
+
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['paidInFull'] != null) {
+            queryParameters['paidInFull'] = requestParameters['paidInFull'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_new`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageBountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
+        const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrder>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld().'
+            );
+        }
+
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['paidInFull'] != null) {
+            queryParameters['paidInFull'] = requestParameters['paidInFull'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_old`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageOrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrder> {
+        const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersNew().'
+            );
+        }
+
+        if (requestParameters['customer'] == null) {
+            throw new runtime.RequiredError(
+                'customer',
+                'Required parameter "customer" was null or undefined when calling postApiV1PosClientsByClientidCustomersNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_new`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CustomerToJSON(requestParameters['customer']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
+        const response = await this.postApiV1PosClientsByClientidCustomersNewRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserProfile>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersNewSearch().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersNewSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_new/search`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserProfileFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserProfile> {
+        const response = await this.postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersOld().'
+            );
+        }
+
+        if (requestParameters['customer'] == null) {
+            throw new runtime.RequiredError(
+                'customer',
+                'Required parameter "customer" was null or undefined when calling postApiV1PosClientsByClientidCustomersOld().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CustomerToJSON(requestParameters['customer']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.postApiV1PosClientsByClientidCustomersOldRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersOldSearch().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersOldSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/search`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer> {
+        const response = await this.postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidCustomersSearch().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers/search`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer> {
+        const response = await this.postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidInventoryCycleCount().'
+            );
+        }
+
+        if (requestParameters['cycleCountReq'] == null) {
+            throw new runtime.RequiredError(
+                'cycleCountReq',
+                'Required parameter "cycleCountReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryCycleCount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/cycle_count`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CycleCountReqToJSON(requestParameters['cycleCountReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventoryCycleCount(requestParameters: PostApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryItemResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidInventoryItemSearch().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryItemSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/item/search`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageInventoryItemRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryItemResp> {
+        const response = await this.postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidInventorySearch().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/search`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageInventoryRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryResp> {
+        const response = await this.postApiV1PosClientsByClientidInventorySearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageSearchCycleCountResp>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidInventorySearchCycleCount().'
+            );
+        }
+
+        if (requestParameters['searchReq'] == null) {
+            throw new runtime.RequiredError(
+                'searchReq',
+                'Required parameter "searchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearchCycleCount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/search/cycle_count`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SearchReqToJSON(requestParameters['searchReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageSearchCycleCountRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageSearchCycleCountResp> {
+        const response = await this.postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrders().'
+            );
+        }
+
+        if (requestParameters['order'] == null) {
+            throw new runtime.RequiredError(
+                'order',
+                'Required parameter "order" was null or undefined when calling postApiV1PosClientsByClientidOrders().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: OrderToJSON(requestParameters['order']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.postApiV1PosClientsByClientidOrdersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrdersBounty().'
             );
         }
 
         if (requestParameters['posOrderIds'] == null) {
             throw new runtime.RequiredError(
                 'posOrderIds',
-                'Required parameter "posOrderIds" was null or undefined when calling getOrderAsBounty().'
+                'Required parameter "posOrderIds" was null or undefined when calling postApiV1PosClientsByClientidOrdersBounty().'
             );
         }
 
@@ -3527,614 +3960,32 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getOrderAsBounty(requestParameters: GetOrderAsBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
-        const response = await this.getOrderAsBountyRaw(requestParameters, initOverrides);
+    async postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
+        const response = await this.postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getOrderNewRaw(requestParameters: GetOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getOrderNew().'
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling getOrderNew().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders_new/{posOrderId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getOrderNew(requestParameters: GetOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.getOrderNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getQueueRaw(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueItemResp>>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getQueue().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/queue`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(QueueItemRespFromJSON));
-    }
-
-    /**
-     */
-    async getQueue(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueItemResp>> {
-        const response = await this.getQueueRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getStrainsRaw(requestParameters: GetStrainsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageStrainResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getStrains().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/strain`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageStrainRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getStrains(requestParameters: GetStrainsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageStrainResp> {
-        const response = await this.getStrainsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTerminalLabelsRaw(requestParameters: GetTerminalLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TerminalLabelResp>>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getTerminalLabels().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/terminals/labels`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TerminalLabelRespFromJSON));
-    }
-
-    /**
-     */
-    async getTerminalLabels(requestParameters: GetTerminalLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TerminalLabelResp>> {
-        const response = await this.getTerminalLabelsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUomsRaw(requestParameters: GetUomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUomResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getUoms().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/uom`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageUomRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUoms(requestParameters: GetUomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUomResp> {
-        const response = await this.getUomsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getVendorsRaw(requestParameters: GetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVendorResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getVendors().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/vendor`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageVendorRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getVendors(requestParameters: GetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVendorResp> {
-        const response = await this.getVendorsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async mergeOrdersRaw(requestParameters: MergeOrdersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling mergeOrders().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling mergeOrders().'
-            );
-        }
-
-        if (requestParameters['mergeOrdersRequest'] == null) {
-            throw new runtime.RequiredError(
-                'mergeOrdersRequest',
-                'Required parameter "mergeOrdersRequest" was null or undefined when calling mergeOrders().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_old`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async mergeOrders(requestParameters: MergeOrdersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.mergeOrdersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async mergeOrders1Raw(requestParameters: MergeOrders1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling mergeOrders1().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling mergeOrders1().'
-            );
-        }
-
-        if (requestParameters['mergeOrdersRequest'] == null) {
-            throw new runtime.RequiredError(
-                'mergeOrdersRequest',
-                'Required parameter "mergeOrdersRequest" was null or undefined when calling mergeOrders1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async mergeOrders1(requestParameters: MergeOrders1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.mergeOrders1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async mergeOrdersNewRaw(requestParameters: MergeOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling mergeOrdersNew().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling mergeOrdersNew().'
-            );
-        }
-
-        if (requestParameters['mergeOrdersRequest'] == null) {
-            throw new runtime.RequiredError(
-                'mergeOrdersRequest',
-                'Required parameter "mergeOrdersRequest" was null or undefined when calling mergeOrdersNew().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_new`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async mergeOrdersNew(requestParameters: MergeOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.mergeOrdersNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async moveInventoryItemsRaw(requestParameters: MoveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling moveInventoryItems().'
-            );
-        }
-
-        if (requestParameters['manageInventoryReq'] == null) {
-            throw new runtime.RequiredError(
-                'manageInventoryReq',
-                'Required parameter "manageInventoryReq" was null or undefined when calling moveInventoryItems().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/move`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ManageInventoryReqToJSON(requestParameters['manageInventoryReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async moveInventoryItems(requestParameters: MoveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.moveInventoryItemsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async removeDiscountFromOrderRaw(requestParameters: RemoveDiscountFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling removeDiscountFromOrder().'
-            );
-        }
-
-        if (requestParameters['posOrderId'] == null) {
-            throw new runtime.RequiredError(
-                'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling removeDiscountFromOrder().'
+                'Required parameter "posOrderId" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
             );
         }
 
         if (requestParameters['discountId'] == null) {
             throw new runtime.RequiredError(
                 'discountId',
-                'Required parameter "discountId" was null or undefined when calling removeDiscountFromOrder().'
+                'Required parameter "discountId" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid().'
             );
         }
 
@@ -4166,7 +4017,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
         const response = await this.request({
             path: urlPath,
-            method: 'DELETE',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
@@ -4176,38 +4027,40 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async removeDiscountFromOrder(requestParameters: RemoveDiscountFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.removeDiscountFromOrderRaw(requestParameters, initOverrides);
+    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async removeItemFromOrderRaw(requestParameters: RemoveItemFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling removeItemFromOrder().'
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidItems().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling removeItemFromOrder().'
+                'Required parameter "posOrderId" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidItems().'
             );
         }
 
-        if (requestParameters['itemId'] == null) {
+        if (requestParameters['addOrderItemDto'] == null) {
             throw new runtime.RequiredError(
-                'itemId',
-                'Required parameter "itemId" was null or undefined when calling removeItemFromOrder().'
+                'addOrderItemDto',
+                'Required parameter "addOrderItemDto" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidItems().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4226,16 +4079,16 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
         }
 
 
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items/{itemId}`;
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items`;
         urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
         urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
-        urlPath = urlPath.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'DELETE',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: AddOrderItemDtoToJSON(requestParameters['addOrderItemDto']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
@@ -4243,25 +4096,25 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async removeItemFromOrder(requestParameters: RemoveItemFromOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.removeItemFromOrderRaw(requestParameters, initOverrides);
+    async postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async searchCustomerRaw(requestParameters: SearchCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>> {
+    async postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchCustomer().'
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrdersNew().'
             );
         }
 
-        if (requestParameters['searchReq'] == null) {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchCustomer().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling postApiV1PosClientsByClientidOrdersNew().'
             );
         }
 
@@ -4288,7 +4141,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
         }
 
 
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/search`;
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders_new`;
         urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
 
         const response = await this.request({
@@ -4296,33 +4149,33 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async searchCustomer(requestParameters: SearchCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer> {
-        const response = await this.searchCustomerRaw(requestParameters, initOverrides);
+    async postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.postApiV1PosClientsByClientidOrdersNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async searchCustomer1Raw(requestParameters: SearchCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageCustomer>> {
+    async postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchCustomer1().'
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidOrdersOld().'
             );
         }
 
-        if (requestParameters['searchReq'] == null) {
+        if (requestParameters['order'] == null) {
             throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchCustomer1().'
+                'order',
+                'Required parameter "order" was null or undefined when calling postApiV1PosClientsByClientidOrdersOld().'
             );
         }
 
@@ -4349,7 +4202,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
         }
 
 
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers/search`;
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders_old`;
         urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
 
         const response = await this.request({
@@ -4357,284 +4210,102 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
+            body: OrderToJSON(requestParameters['order']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async searchCustomer1(requestParameters: SearchCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageCustomer> {
-        const response = await this.searchCustomer1Raw(requestParameters, initOverrides);
+    async postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.postApiV1PosClientsByClientidOrdersOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async searchCustomerNewRaw(requestParameters: SearchCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserProfile>> {
+    async postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueItemResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchCustomerNew().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchCustomerNew().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_new/search`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserProfileFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async searchCustomerNew(requestParameters: SearchCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserProfile> {
-        const response = await this.searchCustomerNewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async searchCycleCountsRaw(requestParameters: SearchCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageSearchCycleCountResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchCycleCounts().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchCycleCounts().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/search/cycle_count`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageSearchCycleCountRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async searchCycleCounts(requestParameters: SearchCycleCountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageSearchCycleCountResp> {
-        const response = await this.searchCycleCountsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async searchInventoryRaw(requestParameters: SearchInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchInventory().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchInventory().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/search`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageInventoryRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async searchInventory(requestParameters: SearchInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryResp> {
-        const response = await this.searchInventoryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async searchInventoryItemsRaw(requestParameters: SearchInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageInventoryItemResp>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling searchInventoryItems().'
-            );
-        }
-
-        if (requestParameters['searchReq'] == null) {
-            throw new runtime.RequiredError(
-                'searchReq',
-                'Required parameter "searchReq" was null or undefined when calling searchInventoryItems().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/item/search`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SearchReqToJSON(requestParameters['searchReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageInventoryItemRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async searchInventoryItems(requestParameters: SearchInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageInventoryItemResp> {
-        const response = await this.searchInventoryItemsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateCustomerRaw(requestParameters: UpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateCustomer().'
+                'Required parameter "clientId" was null or undefined when calling postApiV1PosClientsByClientidQueue().'
             );
         }
 
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling updateCustomer().'
+                'Required parameter "customerId" was null or undefined when calling postApiV1PosClientsByClientidQueue().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['customerId'] != null) {
+            queryParameters['customerId'] = requestParameters['customerId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/queue`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => QueueItemRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueItemResp> {
+        const response = await this.postApiV1PosClientsByClientidQueueRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidCustomersByCustomerid().'
+            );
+        }
+
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling putApiV1PosClientsByClientidCustomersByCustomerid().'
             );
         }
 
         if (requestParameters['customer'] == null) {
             throw new runtime.RequiredError(
                 'customer',
-                'Required parameter "customer" was null or undefined when calling updateCustomer().'
+                'Required parameter "customer" was null or undefined when calling putApiV1PosClientsByClientidCustomersByCustomerid().'
             );
         }
 
@@ -4678,101 +4349,32 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateCustomer(requestParameters: UpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.updateCustomerRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateCustomer1Raw(requestParameters: UpdateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+    async putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateCustomer1().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
-                'Required parameter "customerId" was null or undefined when calling updateCustomer1().'
+                'Required parameter "customerId" was null or undefined when calling putApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
         if (requestParameters['customer'] == null) {
             throw new runtime.RequiredError(
                 'customer',
-                'Required parameter "customer" was null or undefined when calling updateCustomer1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/{customerId}`;
-        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CustomerToJSON(requestParameters['customer']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async updateCustomer1(requestParameters: UpdateCustomer1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
-        const response = await this.updateCustomer1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateCustomerNewRaw(requestParameters: UpdateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateCustomerNew().'
-            );
-        }
-
-        if (requestParameters['customerId'] == null) {
-            throw new runtime.RequiredError(
-                'customerId',
-                'Required parameter "customerId" was null or undefined when calling updateCustomerNew().'
-            );
-        }
-
-        if (requestParameters['customer'] == null) {
-            throw new runtime.RequiredError(
-                'customer',
-                'Required parameter "customer" was null or undefined when calling updateCustomerNew().'
+                'Required parameter "customer" was null or undefined when calling putApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
@@ -4816,32 +4418,162 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateCustomerNew(requestParameters: UpdateCustomerNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
-        const response = await this.updateCustomerNewRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
+        const response = await this.putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateCycleCountRaw(requestParameters: UpdateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateCycleCount().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidCustomersOldByCustomerid().'
+            );
+        }
+
+        if (requestParameters['customerId'] == null) {
+            throw new runtime.RequiredError(
+                'customerId',
+                'Required parameter "customerId" was null or undefined when calling putApiV1PosClientsByClientidCustomersOldByCustomerid().'
+            );
+        }
+
+        if (requestParameters['customer'] == null) {
+            throw new runtime.RequiredError(
+                'customer',
+                'Required parameter "customer" was null or undefined when calling putApiV1PosClientsByClientidCustomersOldByCustomerid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/customers_old/{customerId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"customerId"}}`, encodeURIComponent(String(requestParameters['customerId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CustomerToJSON(requestParameters['customer']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+        const response = await this.putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidInventoryAdjustRaw(requestParameters: PutApiV1PosClientsByClientidInventoryAdjustRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidInventoryAdjust().'
+            );
+        }
+
+        if (requestParameters['manageInventoryAdjustReq'] == null) {
+            throw new runtime.RequiredError(
+                'manageInventoryAdjustReq',
+                'Required parameter "manageInventoryAdjustReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryAdjust().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/adjust`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ManageInventoryAdjustReqToJSON(requestParameters['manageInventoryAdjustReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidInventoryAdjust(requestParameters: PutApiV1PosClientsByClientidInventoryAdjustRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1PosClientsByClientidInventoryAdjustRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
         if (requestParameters['cycleCountId'] == null) {
             throw new runtime.RequiredError(
                 'cycleCountId',
-                'Required parameter "cycleCountId" was null or undefined when calling updateCycleCount().'
+                'Required parameter "cycleCountId" was null or undefined when calling putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
         if (requestParameters['cycleCountReq'] == null) {
             throw new runtime.RequiredError(
                 'cycleCountReq',
-                'Required parameter "cycleCountReq" was null or undefined when calling updateCycleCount().'
+                'Required parameter "cycleCountReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
@@ -4885,32 +4617,93 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateCycleCount(requestParameters: UpdateCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateCycleCountRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateOrderRaw(requestParameters: UpdateOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async putApiV1PosClientsByClientidInventoryMoveRaw(requestParameters: PutApiV1PosClientsByClientidInventoryMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateOrder().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidInventoryMove().'
+            );
+        }
+
+        if (requestParameters['manageInventoryReq'] == null) {
+            throw new runtime.RequiredError(
+                'manageInventoryReq',
+                'Required parameter "manageInventoryReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryMove().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/inventory/move`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ManageInventoryReqToJSON(requestParameters['manageInventoryReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidInventoryMove(requestParameters: PutApiV1PosClientsByClientidInventoryMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1PosClientsByClientidInventoryMoveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling updateOrder().'
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
         if (requestParameters['order'] == null) {
             throw new runtime.RequiredError(
                 'order',
-                'Required parameter "order" was null or undefined when calling updateOrder().'
+                'Required parameter "order" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
@@ -4954,32 +4747,32 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateOrder(requestParameters: UpdateOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.updateOrderRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateOrder1Raw(requestParameters: UpdateOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateOrder1().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMerge().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling updateOrder1().'
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMerge().'
             );
         }
 
-        if (requestParameters['order'] == null) {
+        if (requestParameters['mergeOrdersRequest'] == null) {
             throw new runtime.RequiredError(
-                'order',
-                'Required parameter "order" was null or undefined when calling updateOrder1().'
+                'mergeOrdersRequest',
+                'Required parameter "mergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMerge().'
             );
         }
 
@@ -5006,7 +4799,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
         }
 
 
-        let urlPath = `/api/v1/pos/clients/{clientId}/orders_old/{posOrderId}`;
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge`;
         urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
         urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
 
@@ -5015,7 +4808,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: OrderToJSON(requestParameters['order']),
+            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
@@ -5023,32 +4816,170 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateOrder1(requestParameters: UpdateOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
-        const response = await this.updateOrder1Raw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateOrderNewRaw(requestParameters: UpdateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateOrderNew().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeNew().'
             );
         }
 
         if (requestParameters['posOrderId'] == null) {
             throw new runtime.RequiredError(
                 'posOrderId',
-                'Required parameter "posOrderId" was null or undefined when calling updateOrderNew().'
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeNew().'
+            );
+        }
+
+        if (requestParameters['mergeOrdersRequest'] == null) {
+            throw new runtime.RequiredError(
+                'mergeOrdersRequest',
+                'Required parameter "mergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_new`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeOld().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeOld().'
+            );
+        }
+
+        if (requestParameters['mergeOrdersRequest'] == null) {
+            throw new runtime.RequiredError(
+                'mergeOrdersRequest',
+                'Required parameter "mergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeOld().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_old`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: MergeOrdersRequestToJSON(requestParameters['mergeOrdersRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersNewByPosorderid().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersNewByPosorderid().'
             );
         }
 
         if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
                 'shoppingCart',
-                'Required parameter "shoppingCart" was null or undefined when calling updateOrderNew().'
+                'Required parameter "shoppingCart" was null or undefined when calling putApiV1PosClientsByClientidOrdersNewByPosorderid().'
             );
         }
 
@@ -5092,32 +5023,101 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateOrderNew(requestParameters: UpdateOrderNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.updateOrderNewRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateQueueItemStatusRaw(requestParameters: UpdateQueueItemStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Order>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling updateQueueItemStatus().'
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidOrdersOldByPosorderid().'
+            );
+        }
+
+        if (requestParameters['posOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'posOrderId',
+                'Required parameter "posOrderId" was null or undefined when calling putApiV1PosClientsByClientidOrdersOldByPosorderid().'
+            );
+        }
+
+        if (requestParameters['order'] == null) {
+            throw new runtime.RequiredError(
+                'order',
+                'Required parameter "order" was null or undefined when calling putApiV1PosClientsByClientidOrdersOldByPosorderid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/pos/clients/{clientId}/orders_old/{posOrderId}`;
+        urlPath = urlPath.replace(`{${"clientId"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+        urlPath = urlPath.replace(`{${"posOrderId"}}`, encodeURIComponent(String(requestParameters['posOrderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: OrderToJSON(requestParameters['order']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Order> {
+        const response = await this.putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters: PutApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['clientId'] == null) {
+            throw new runtime.RequiredError(
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling putApiV1PosClientsByClientidQueueByQueueid().'
             );
         }
 
         if (requestParameters['queueId'] == null) {
             throw new runtime.RequiredError(
                 'queueId',
-                'Required parameter "queueId" was null or undefined when calling updateQueueItemStatus().'
+                'Required parameter "queueId" was null or undefined when calling putApiV1PosClientsByClientidQueueByQueueid().'
             );
         }
 
         if (requestParameters['status'] == null) {
             throw new runtime.RequiredError(
                 'status',
-                'Required parameter "status" was null or undefined when calling updateQueueItemStatus().'
+                'Required parameter "status" was null or undefined when calling putApiV1PosClientsByClientidQueueByQueueid().'
             );
         }
 
@@ -5162,8 +5162,8 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async updateQueueItemStatus(requestParameters: UpdateQueueItemStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateQueueItemStatusRaw(requestParameters, initOverrides);
+    async putApiV1PosClientsByClientidQueueByQueueid(requestParameters: PutApiV1PosClientsByClientidQueueByQueueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1PosClientsByClientidQueueByQueueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -11,23 +11,6 @@ import ai.youkno.edgeserversdk.models.Terminal
 
 interface AlleavesControllerApi {
     /**
-     * POST api/v1/alleaves/customer/create
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param merchantId 
-     * @param createAlleavesCustomerRequest 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @POST("api/v1/alleaves/customer/create")
-    fun createAlleavesCustomer(@Query("merchantId") merchantId: kotlin.String, @Body createAlleavesCustomerRequest: CreateAlleavesCustomerRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
      * GET api/v1/alleaves/{client}/terminals
      * 
      * 
@@ -41,6 +24,23 @@ interface AlleavesControllerApi {
      * @return [Call]<[kotlin.collections.List<Terminal>]>
      */
     @GET("api/v1/alleaves/{client}/terminals")
-    fun getTerminals(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Terminal>>
+    fun getApiV1AlleavesByClientTerminals(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Terminal>>
+
+    /**
+     * POST api/v1/alleaves/customer/create
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param merchantId 
+     * @param createAlleavesCustomerRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @POST("api/v1/alleaves/customer/create")
+    fun postApiV1AlleavesCustomerCreate(@Query("merchantId") merchantId: kotlin.String, @Body createAlleavesCustomerRequest: CreateAlleavesCustomerRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

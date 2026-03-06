@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  Search200Response,
+  GetApiV1SearchByType200Response,
 } from '../models/index';
 import {
-    Search200ResponseFromJSON,
-    Search200ResponseToJSON,
+    GetApiV1SearchByType200ResponseFromJSON,
+    GetApiV1SearchByType200ResponseToJSON,
 } from '../models/index';
 
-export interface SearchRequest {
+export interface GetApiV1SearchByTypeRequest {
     type: string;
     searchText?: string;
     searchTags?: Array<string>;
@@ -50,11 +50,11 @@ export interface SearchControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SearchControllerApiInterface
      */
-    searchRaw(requestParameters: SearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Search200Response>>;
+    getApiV1SearchByTypeRaw(requestParameters: GetApiV1SearchByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApiV1SearchByType200Response>>;
 
     /**
      */
-    search(requestParameters: SearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Search200Response>;
+    getApiV1SearchByType(requestParameters: GetApiV1SearchByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApiV1SearchByType200Response>;
 
 }
 
@@ -65,11 +65,11 @@ export class SearchControllerApi extends runtime.BaseAPI implements SearchContro
 
     /**
      */
-    async searchRaw(requestParameters: SearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Search200Response>> {
+    async getApiV1SearchByTypeRaw(requestParameters: GetApiV1SearchByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApiV1SearchByType200Response>> {
         if (requestParameters['type'] == null) {
             throw new runtime.RequiredError(
                 'type',
-                'Required parameter "type" was null or undefined when calling search().'
+                'Required parameter "type" was null or undefined when calling getApiV1SearchByType().'
             );
         }
 
@@ -112,13 +112,13 @@ export class SearchControllerApi extends runtime.BaseAPI implements SearchContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Search200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetApiV1SearchByType200ResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async search(requestParameters: SearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Search200Response> {
-        const response = await this.searchRaw(requestParameters, initOverrides);
+    async getApiV1SearchByType(requestParameters: GetApiV1SearchByTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApiV1SearchByType200Response> {
+        const response = await this.getApiV1SearchByTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

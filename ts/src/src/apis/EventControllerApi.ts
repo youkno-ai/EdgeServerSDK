@@ -25,42 +25,42 @@ import {
     NewIdToJSON,
 } from '../models/index';
 
-export interface Create3Request {
-    event: Event;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface Delete2Request {
+export interface DeleteApiV1ActsEventsByEventidRequest {
     eventId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAll1Request {
+export interface GetApiV1ActsEventsRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllByVenueIdRequest {
+export interface GetApiV1ActsEventsByEventidRequest {
+    eventId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ActsEventsByVenueidRequest {
     venueId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetById1Request {
+export interface PatchApiV1ActsEventsByEventidRequest {
     eventId: string;
+    event: Event;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface Update1Request {
-    eventId: string;
+export interface PostApiV1ActsEventsRequest {
     event: Event;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -76,7 +76,7 @@ export interface Update1Request {
 export interface EventControllerApiInterface {
     /**
      * 
-     * @param {Event} event 
+     * @param {string} eventId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -84,11 +84,26 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    create3Raw(requestParameters: Create3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    deleteApiV1ActsEventsByEventidRaw(requestParameters: DeleteApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    create3(requestParameters: Create3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    deleteApiV1ActsEventsByEventid(requestParameters: DeleteApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EventControllerApiInterface
+     */
+    getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
+
+    /**
+     */
+    getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
 
     /**
      * 
@@ -100,26 +115,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    delete2Raw(requestParameters: Delete2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
 
     /**
      */
-    delete2(requestParameters: Delete2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EventControllerApiInterface
-     */
-    getAll1Raw(requestParameters: GetAll1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
-
-    /**
-     */
-    getAll1(requestParameters: GetAll1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
+    getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
 
     /**
      * 
@@ -131,27 +131,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    getAllByVenueIdRaw(requestParameters: GetAllByVenueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
+    getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
 
     /**
      */
-    getAllByVenueId(requestParameters: GetAllByVenueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
-
-    /**
-     * 
-     * @param {string} eventId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EventControllerApiInterface
-     */
-    getById1Raw(requestParameters: GetById1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
-
-    /**
-     */
-    getById1(requestParameters: GetById1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
+    getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
 
     /**
      * 
@@ -164,11 +148,27 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    update1Raw(requestParameters: Update1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
+    patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
 
     /**
      */
-    update1(requestParameters: Update1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
+    patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
+
+    /**
+     * 
+     * @param {Event} event 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EventControllerApiInterface
+     */
+    postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+
+    /**
+     */
+    postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
 }
 
@@ -179,64 +179,11 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async create3Raw(requestParameters: Create3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['event'] == null) {
-            throw new runtime.RequiredError(
-                'event',
-                'Required parameter "event" was null or undefined when calling create3().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/acts/events`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: EventToJSON(requestParameters['event']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async create3(requestParameters: Create3Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
-        const response = await this.create3Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async delete2Raw(requestParameters: Delete2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1ActsEventsByEventidRaw(requestParameters: DeleteApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
-                'Required parameter "eventId" was null or undefined when calling delete2().'
+                'Required parameter "eventId" was null or undefined when calling deleteApiV1ActsEventsByEventid().'
             );
         }
 
@@ -276,14 +223,14 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async delete2(requestParameters: Delete2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.delete2Raw(requestParameters, initOverrides);
+    async deleteApiV1ActsEventsByEventid(requestParameters: DeleteApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1ActsEventsByEventidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAll1Raw(requestParameters: GetAll1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
+    async getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -319,69 +266,18 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async getAll1(requestParameters: GetAll1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
-        const response = await this.getAll1Raw(requestParameters, initOverrides);
+    async getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
+        const response = await this.getApiV1ActsEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAllByVenueIdRaw(requestParameters: GetAllByVenueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
-        if (requestParameters['venueId'] == null) {
-            throw new runtime.RequiredError(
-                'venueId',
-                'Required parameter "venueId" was null or undefined when calling getAllByVenueId().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/acts/events/{venueId}`;
-        urlPath = urlPath.replace(`{${"venueId"}}`, encodeURIComponent(String(requestParameters['venueId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EventFromJSON));
-    }
-
-    /**
-     */
-    async getAllByVenueId(requestParameters: GetAllByVenueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
-        const response = await this.getAllByVenueIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getById1Raw(requestParameters: GetById1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
+    async getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
-                'Required parameter "eventId" was null or undefined when calling getById1().'
+                'Required parameter "eventId" was null or undefined when calling getApiV1ActsEventsByEventid().'
             );
         }
 
@@ -421,25 +317,76 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async getById1(requestParameters: GetById1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
-        const response = await this.getById1Raw(requestParameters, initOverrides);
+    async getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
+        const response = await this.getApiV1ActsEventsByEventidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async update1Raw(requestParameters: Update1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
+    async getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling getApiV1ActsEventsByVenueid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/acts/events/{venueId}`;
+        urlPath = urlPath.replace(`{${"venueId"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EventFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
+        const response = await this.getApiV1ActsEventsByVenueidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
-                'Required parameter "eventId" was null or undefined when calling update1().'
+                'Required parameter "eventId" was null or undefined when calling patchApiV1ActsEventsByEventid().'
             );
         }
 
         if (requestParameters['event'] == null) {
             throw new runtime.RequiredError(
                 'event',
-                'Required parameter "event" was null or undefined when calling update1().'
+                'Required parameter "event" was null or undefined when calling patchApiV1ActsEventsByEventid().'
             );
         }
 
@@ -482,8 +429,61 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async update1(requestParameters: Update1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
-        const response = await this.update1Raw(requestParameters, initOverrides);
+    async patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
+        const response = await this.patchApiV1ActsEventsByEventidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+        if (requestParameters['event'] == null) {
+            throw new runtime.RequiredError(
+                'event',
+                'Required parameter "event" was null or undefined when calling postApiV1ActsEvents().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/acts/events`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: EventToJSON(requestParameters['event']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+        const response = await this.postApiV1ActsEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

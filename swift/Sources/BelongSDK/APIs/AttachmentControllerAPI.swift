@@ -15,7 +15,7 @@ open class AttachmentControllerAPI {
     /**
      * enum for parameter anchorType
      */
-    public enum AnchorType_getUploadPath: String, CaseIterable {
+    public enum AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef: String, CaseIterable {
         case _none = "NONE"
         case user = "USER"
         case bounty = "BOUNTY"
@@ -37,8 +37,8 @@ open class AttachmentControllerAPI {
      - returns: StorageRefResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getUploadPath(anchorType: AnchorType_getUploadPath, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StorageRefResponse {
-        return try await getUploadPathWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachmentType: attachmentType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StorageRefResponse {
+        return try await getApiV1AttachmentsByAnchortypeByAnchoridStorageRefWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachmentType: attachmentType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -54,7 +54,7 @@ open class AttachmentControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<StorageRefResponse> 
      */
-    open class func getUploadPathWithRequestBuilder(anchorType: AnchorType_getUploadPath, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StorageRefResponse> {
+    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRefWithRequestBuilder(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StorageRefResponse> {
         var localVariablePath = "/api/v1/attachments/{anchorType}/{anchorId}/storage/ref"
         let anchorTypePreEscape = "\(anchorType.rawValue)"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -86,7 +86,7 @@ open class AttachmentControllerAPI {
     /**
      * enum for parameter anchorType
      */
-    public enum AnchorType_saveAttachment: String, CaseIterable {
+    public enum AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid: String, CaseIterable {
         case _none = "NONE"
         case user = "USER"
         case bounty = "BOUNTY"
@@ -108,8 +108,8 @@ open class AttachmentControllerAPI {
      - returns: Attachment
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func saveAttachment(anchorType: AnchorType_saveAttachment, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Attachment {
-        return try await saveAttachmentWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachment: attachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AttachmentsByAnchortypeByAnchorid(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Attachment {
+        return try await postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachment: attachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -125,7 +125,7 @@ open class AttachmentControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Attachment> 
      */
-    open class func saveAttachmentWithRequestBuilder(anchorType: AnchorType_saveAttachment, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Attachment> {
+    open class func postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Attachment> {
         var localVariablePath = "/api/v1/attachments/{anchorType}/{anchorId}"
         let anchorTypePreEscape = "\(anchorType.rawValue)"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

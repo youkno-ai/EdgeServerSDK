@@ -29,33 +29,10 @@ import com.squareup.moshi.JsonClass
 data class BusinessTypesResp (
 
     @Json(name = "types")
-    val types: BusinessTypesResp.Types? = null
+    val types: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,COFFEE_SHOP,RESTAURANT,BAKERY,BAR_PUB,RETAIL_STORE,ONLINE_STORE,FREELANCER,BEAUTY_SALON,FITNESS_STUDIO_GYM,WELLNESS_CENTER,SERVICE_PROVIDER,EVENT_ORGANIZER,OTHER,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Types(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "COFFEE_SHOP") COFFEE_SHOP("COFFEE_SHOP"),
-        @Json(name = "RESTAURANT") RESTAURANT("RESTAURANT"),
-        @Json(name = "BAKERY") BAKERY("BAKERY"),
-        @Json(name = "BAR_PUB") BAR_PUB("BAR_PUB"),
-        @Json(name = "RETAIL_STORE") RETAIL_STORE("RETAIL_STORE"),
-        @Json(name = "ONLINE_STORE") ONLINE_STORE("ONLINE_STORE"),
-        @Json(name = "FREELANCER") FREELANCER("FREELANCER"),
-        @Json(name = "BEAUTY_SALON") BEAUTY_SALON("BEAUTY_SALON"),
-        @Json(name = "FITNESS_STUDIO_GYM") FITNESS_STUDIO_GYM("FITNESS_STUDIO_GYM"),
-        @Json(name = "WELLNESS_CENTER") WELLNESS_CENTER("WELLNESS_CENTER"),
-        @Json(name = "SERVICE_PROVIDER") SERVICE_PROVIDER("SERVICE_PROVIDER"),
-        @Json(name = "EVENT_ORGANIZER") EVENT_ORGANIZER("EVENT_ORGANIZER"),
-        @Json(name = "OTHER") OTHER("OTHER"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

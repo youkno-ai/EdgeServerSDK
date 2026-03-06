@@ -38,7 +38,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class Search200Response (
+data class GetApiV1SearchByType200Response (
 
     @Json(name = "users")
     val users: kotlin.collections.List<User>? = null,

@@ -15,18 +15,18 @@
 
 import * as runtime from '../runtime';
 
-export interface AuthCallbackRequest {
-    code?: string;
-    state?: string;
-    idToken?: string;
-    user?: string;
+export interface GetApiV1AppleTransactionByTransactionidProcessRequest {
+    transactionId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ProcessTransactionRequest {
-    transactionId: string;
+export interface PostApiV1AppleAuthCallbackRequest {
+    code?: string;
+    state?: string;
+    idToken?: string;
+    user?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -41,6 +41,22 @@ export interface ProcessTransactionRequest {
 export interface AppleControllerApiInterface {
     /**
      * 
+     * @param {string} transactionId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AppleControllerApiInterface
+     */
+    getApiV1AppleTransactionByTransactionidProcessRaw(requestParameters: GetApiV1AppleTransactionByTransactionidProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    getApiV1AppleTransactionByTransactionidProcess(requestParameters: GetApiV1AppleTransactionByTransactionidProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
      * @param {string} [code] 
      * @param {string} [state] 
      * @param {string} [idToken] 
@@ -52,27 +68,11 @@ export interface AppleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AppleControllerApiInterface
      */
-    authCallbackRaw(requestParameters: AuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1AppleAuthCallbackRaw(requestParameters: PostApiV1AppleAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    authCallback(requestParameters: AuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} transactionId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AppleControllerApiInterface
-     */
-    processTransactionRaw(requestParameters: ProcessTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    processTransaction(requestParameters: ProcessTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1AppleAuthCallback(requestParameters: PostApiV1AppleAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -83,7 +83,58 @@ export class AppleControllerApi extends runtime.BaseAPI implements AppleControll
 
     /**
      */
-    async authCallbackRaw(requestParameters: AuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1AppleTransactionByTransactionidProcessRaw(requestParameters: GetApiV1AppleTransactionByTransactionidProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['transactionId'] == null) {
+            throw new runtime.RequiredError(
+                'transactionId',
+                'Required parameter "transactionId" was null or undefined when calling getApiV1AppleTransactionByTransactionidProcess().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/apple/transaction/{transactionId}/process`;
+        urlPath = urlPath.replace(`{${"transactionId"}}`, encodeURIComponent(String(requestParameters['transactionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1AppleTransactionByTransactionidProcess(requestParameters: GetApiV1AppleTransactionByTransactionidProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1AppleTransactionByTransactionidProcessRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AppleAuthCallbackRaw(requestParameters: PostApiV1AppleAuthCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         if (requestParameters['code'] != null) {
@@ -135,59 +186,8 @@ export class AppleControllerApi extends runtime.BaseAPI implements AppleControll
 
     /**
      */
-    async authCallback(requestParameters: AuthCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.authCallbackRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async processTransactionRaw(requestParameters: ProcessTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['transactionId'] == null) {
-            throw new runtime.RequiredError(
-                'transactionId',
-                'Required parameter "transactionId" was null or undefined when calling processTransaction().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/apple/transaction/{transactionId}/process`;
-        urlPath = urlPath.replace(`{${"transactionId"}}`, encodeURIComponent(String(requestParameters['transactionId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async processTransaction(requestParameters: ProcessTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.processTransactionRaw(requestParameters, initOverrides);
+    async postApiV1AppleAuthCallback(requestParameters: PostApiV1AppleAuthCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1AppleAuthCallbackRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

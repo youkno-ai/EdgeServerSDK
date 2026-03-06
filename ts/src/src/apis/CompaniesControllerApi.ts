@@ -25,48 +25,48 @@ import {
     PageUserToJSON,
 } from '../models/index';
 
-export interface DeleteCompanyRequest {
+export interface DeleteApiV1CompaniesByCompanyidRequest {
     companyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCompanyEmployeesRequest {
+export interface GetApiV1CompaniesByCompanyIdEmployeesRequest {
     companyId: string;
     searchCriteria?: string;
     country?: Array<string>;
     gender?: Array<string>;
     start?: number;
     length?: number;
-    userStatus?: Array<GetCompanyEmployeesUserStatusEnum>;
-    searchMode?: GetCompanyEmployeesSearchModeEnum;
+    userStatus?: Array<GetApiV1CompaniesByCompanyIdEmployeesUserStatusEnum>;
+    searchMode?: GetApiV1CompaniesByCompanyIdEmployeesSearchModeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetInvitersRequest {
-    companyId: string;
-    start?: number;
-    limit?: number;
-    searchMode?: GetInvitersSearchModeEnum;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUsersRegisteredByInviteCodeRequest {
+export interface GetApiV1CompaniesByCompanyIdInviteesRequest {
     companyId: string;
     gender?: Array<string>;
     inviter?: Array<string>;
     inviteCode?: Array<string>;
     start?: number;
     limit?: number;
-    searchMode?: GetUsersRegisteredByInviteCodeSearchModeEnum;
+    searchMode?: GetApiV1CompaniesByCompanyIdInviteesSearchModeEnum;
     blacklisted?: boolean;
     query?: string;
-    searchFields?: Set<GetUsersRegisteredByInviteCodeSearchFieldsEnum>;
+    searchFields?: Set<GetApiV1CompaniesByCompanyIdInviteesSearchFieldsEnum>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1CompaniesByCompanyIdInvitersRequest {
+    companyId: string;
+    start?: number;
+    limit?: number;
+    searchMode?: GetApiV1CompaniesByCompanyIdInvitersSearchModeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -89,11 +89,11 @@ export interface CompaniesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1CompaniesByCompanyidRaw(requestParameters: DeleteApiV1CompaniesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1CompaniesByCompanyid(requestParameters: DeleteApiV1CompaniesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -112,30 +112,11 @@ export interface CompaniesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    getCompanyEmployeesRaw(requestParameters: GetCompanyEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>>;
+    getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>>;
 
     /**
      */
-    getCompanyEmployees(requestParameters: GetCompanyEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {number} [start] 
-     * @param {number} [limit] 
-     * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CompaniesControllerApiInterface
-     */
-    getInvitersRaw(requestParameters: GetInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>>;
-
-    /**
-     */
-    getInviters(requestParameters: GetInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser>;
+    getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult>;
 
     /**
      * 
@@ -156,11 +137,30 @@ export interface CompaniesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1CompaniesByCompanyIdInviteesRaw(requestParameters: GetApiV1CompaniesByCompanyIdInviteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1CompaniesByCompanyIdInvitees(requestParameters: GetApiV1CompaniesByCompanyIdInviteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CompaniesControllerApiInterface
+     */
+    getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>>;
+
+    /**
+     */
+    getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser>;
 
 }
 
@@ -171,11 +171,11 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1CompaniesByCompanyidRaw(requestParameters: DeleteApiV1CompaniesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling deleteCompany().'
+                'Required parameter "companyId" was null or undefined when calling deleteApiV1CompaniesByCompanyid().'
             );
         }
 
@@ -215,18 +215,18 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteCompanyRaw(requestParameters, initOverrides);
+    async deleteApiV1CompaniesByCompanyid(requestParameters: DeleteApiV1CompaniesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1CompaniesByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getCompanyEmployeesRaw(requestParameters: GetCompanyEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>> {
+    async getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getCompanyEmployees().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1CompaniesByCompanyIdEmployees().'
             );
         }
 
@@ -294,81 +294,18 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getCompanyEmployees(requestParameters: GetCompanyEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult> {
-        const response = await this.getCompanyEmployeesRaw(requestParameters, initOverrides);
+    async getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult> {
+        const response = await this.getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getInvitersRaw(requestParameters: GetInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>> {
+    async getApiV1CompaniesByCompanyIdInviteesRaw(requestParameters: GetApiV1CompaniesByCompanyIdInviteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
-                'Required parameter "companyId" was null or undefined when calling getInviters().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['searchMode'] != null) {
-            queryParameters['searchMode'] = requestParameters['searchMode'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/companies/{company_id}/inviters`;
-        urlPath = urlPath.replace(`{${"company_id"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getInviters(requestParameters: GetInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser> {
-        const response = await this.getInvitersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getUsersRegisteredByInviteCode().'
+                'Required parameter "companyId" was null or undefined when calling getApiV1CompaniesByCompanyIdInvitees().'
             );
         }
 
@@ -444,8 +381,71 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getUsersRegisteredByInviteCodeRaw(requestParameters, initOverrides);
+    async getApiV1CompaniesByCompanyIdInvitees(requestParameters: GetApiV1CompaniesByCompanyIdInviteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1CompaniesByCompanyIdInviteesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1CompaniesByCompanyIdInviters().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['searchMode'] != null) {
+            queryParameters['searchMode'] = requestParameters['searchMode'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/companies/{company_id}/inviters`;
+        urlPath = urlPath.replace(`{${"company_id"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser> {
+        const response = await this.getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -454,7 +454,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 /**
  * @export
  */
-export const GetCompanyEmployeesUserStatusEnum = {
+export const GetApiV1CompaniesByCompanyIdEmployeesUserStatusEnum = {
     ACTIVE: 'ACTIVE',
     INACTIVE: 'INACTIVE',
     SUSPENDED: 'SUSPENDED',
@@ -463,41 +463,31 @@ export const GetCompanyEmployeesUserStatusEnum = {
     DELETED: 'DELETED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetCompanyEmployeesUserStatusEnum = typeof GetCompanyEmployeesUserStatusEnum[keyof typeof GetCompanyEmployeesUserStatusEnum];
+export type GetApiV1CompaniesByCompanyIdEmployeesUserStatusEnum = typeof GetApiV1CompaniesByCompanyIdEmployeesUserStatusEnum[keyof typeof GetApiV1CompaniesByCompanyIdEmployeesUserStatusEnum];
 /**
  * @export
  */
-export const GetCompanyEmployeesSearchModeEnum = {
+export const GetApiV1CompaniesByCompanyIdEmployeesSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetCompanyEmployeesSearchModeEnum = typeof GetCompanyEmployeesSearchModeEnum[keyof typeof GetCompanyEmployeesSearchModeEnum];
+export type GetApiV1CompaniesByCompanyIdEmployeesSearchModeEnum = typeof GetApiV1CompaniesByCompanyIdEmployeesSearchModeEnum[keyof typeof GetApiV1CompaniesByCompanyIdEmployeesSearchModeEnum];
 /**
  * @export
  */
-export const GetInvitersSearchModeEnum = {
+export const GetApiV1CompaniesByCompanyIdInviteesSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetInvitersSearchModeEnum = typeof GetInvitersSearchModeEnum[keyof typeof GetInvitersSearchModeEnum];
+export type GetApiV1CompaniesByCompanyIdInviteesSearchModeEnum = typeof GetApiV1CompaniesByCompanyIdInviteesSearchModeEnum[keyof typeof GetApiV1CompaniesByCompanyIdInviteesSearchModeEnum];
 /**
  * @export
  */
-export const GetUsersRegisteredByInviteCodeSearchModeEnum = {
-    DEFAULT: 'DEFAULT',
-    REGULAR: 'REGULAR',
-    TEST: 'TEST',
-    ALL: 'ALL'
-} as const;
-export type GetUsersRegisteredByInviteCodeSearchModeEnum = typeof GetUsersRegisteredByInviteCodeSearchModeEnum[keyof typeof GetUsersRegisteredByInviteCodeSearchModeEnum];
-/**
- * @export
- */
-export const GetUsersRegisteredByInviteCodeSearchFieldsEnum = {
+export const GetApiV1CompaniesByCompanyIdInviteesSearchFieldsEnum = {
     NONE: 'NONE',
     USER_NAME: 'USER_NAME',
     USER_FIRST_NAME: 'USER_FIRST_NAME',
@@ -518,4 +508,14 @@ export const GetUsersRegisteredByInviteCodeSearchFieldsEnum = {
     PHONE: 'PHONE',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetUsersRegisteredByInviteCodeSearchFieldsEnum = typeof GetUsersRegisteredByInviteCodeSearchFieldsEnum[keyof typeof GetUsersRegisteredByInviteCodeSearchFieldsEnum];
+export type GetApiV1CompaniesByCompanyIdInviteesSearchFieldsEnum = typeof GetApiV1CompaniesByCompanyIdInviteesSearchFieldsEnum[keyof typeof GetApiV1CompaniesByCompanyIdInviteesSearchFieldsEnum];
+/**
+ * @export
+ */
+export const GetApiV1CompaniesByCompanyIdInvitersSearchModeEnum = {
+    DEFAULT: 'DEFAULT',
+    REGULAR: 'REGULAR',
+    TEST: 'TEST',
+    ALL: 'ALL'
+} as const;
+export type GetApiV1CompaniesByCompanyIdInvitersSearchModeEnum = typeof GetApiV1CompaniesByCompanyIdInvitersSearchModeEnum[keyof typeof GetApiV1CompaniesByCompanyIdInvitersSearchModeEnum];

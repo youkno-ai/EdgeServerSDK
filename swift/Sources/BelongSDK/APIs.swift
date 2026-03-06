@@ -9,7 +9,7 @@ import Foundation
 import FoundationNetworking
 #endif
 open class BelongSDKAPI {
-    public static var basePath = "http://localhost"
+    public static var basePath = "https://api.belong.is"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

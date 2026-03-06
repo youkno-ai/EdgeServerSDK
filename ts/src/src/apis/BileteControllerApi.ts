@@ -25,7 +25,14 @@ import {
     TicketDetailsToJSON,
 } from '../models/index';
 
-export interface BuyCallbackRequest {
+export interface GetApiV1BileteRequest {
+    email?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1BileteCallbacksBuyRequest {
     ticketCount?: number;
     totalAmount?: number;
     userEmail?: string;
@@ -34,7 +41,21 @@ export interface BuyCallbackRequest {
     xEdgeClientId?: string;
 }
 
-export interface BuyCallback1Request {
+export interface GetApiV1BileteDetailsRequest {
+    url: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1TmpBileteRequest {
+    email?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1TmpBileteCallbacksBuyRequest {
     ticketCount?: number;
     totalAmount?: number;
     userEmail?: string;
@@ -43,29 +64,8 @@ export interface BuyCallback1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetTicketDetailsRequest {
+export interface GetApiV1TmpBileteDetailsRequest {
     url: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTicketDetails1Request {
-    url: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTicketsRequest {
-    email?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTickets1Request {
-    email?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -80,9 +80,7 @@ export interface GetTickets1Request {
 export interface BileteControllerApiInterface {
     /**
      * 
-     * @param {number} [ticketCount] 
-     * @param {number} [totalAmount] 
-     * @param {string} [userEmail] 
+     * @param {string} [email] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -90,11 +88,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    buyCallbackRaw(requestParameters: BuyCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
 
     /**
      */
-    buyCallback(requestParameters: BuyCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getApiV1Bilete(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
 
     /**
      * 
@@ -108,11 +106,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    buyCallback1Raw(requestParameters: BuyCallback1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    getApiV1BileteCallbacksBuyRaw(requestParameters: GetApiV1BileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    buyCallback1(requestParameters: BuyCallback1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getApiV1BileteCallbacksBuy(requestParameters: GetApiV1BileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -124,11 +122,45 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getTicketDetailsRaw(requestParameters: GetTicketDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
+    getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
 
     /**
      */
-    getTicketDetails(requestParameters: GetTicketDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
+    getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
+
+    /**
+     * 
+     * @param {string} [email] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BileteControllerApiInterface
+     */
+    getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
+
+    /**
+     */
+    getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
+
+    /**
+     * 
+     * @param {number} [ticketCount] 
+     * @param {number} [totalAmount] 
+     * @param {string} [userEmail] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BileteControllerApiInterface
+     */
+    getApiV1TmpBileteCallbacksBuyRaw(requestParameters: GetApiV1TmpBileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     */
+    getApiV1TmpBileteCallbacksBuy(requestParameters: GetApiV1TmpBileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -140,43 +172,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getTicketDetails1Raw(requestParameters: GetTicketDetails1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
+    getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
 
     /**
      */
-    getTicketDetails1(requestParameters: GetTicketDetails1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
-
-    /**
-     * 
-     * @param {string} [email] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BileteControllerApiInterface
-     */
-    getTicketsRaw(requestParameters: GetTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
-
-    /**
-     */
-    getTickets(requestParameters: GetTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
-
-    /**
-     * 
-     * @param {string} [email] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BileteControllerApiInterface
-     */
-    getTickets1Raw(requestParameters: GetTickets1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
-
-    /**
-     */
-    getTickets1(requestParameters: GetTickets1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
+    getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
 
 }
 
@@ -187,19 +187,11 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async buyCallbackRaw(requestParameters: BuyCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
         const queryParameters: any = {};
 
-        if (requestParameters['ticketCount'] != null) {
-            queryParameters['ticketCount'] = requestParameters['ticketCount'];
-        }
-
-        if (requestParameters['totalAmount'] != null) {
-            queryParameters['totalAmount'] = requestParameters['totalAmount'];
-        }
-
-        if (requestParameters['userEmail'] != null) {
-            queryParameters['userEmail'] = requestParameters['userEmail'];
+        if (requestParameters['email'] != null) {
+            queryParameters['email'] = requestParameters['email'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -221,7 +213,7 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
         }
 
 
-        let urlPath = `/api/v1/tmp/bilete/callbacks/buy`;
+        let urlPath = `/api/v1/bilete`;
 
         const response = await this.request({
             path: urlPath,
@@ -230,18 +222,19 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => BiletePageFromJSON(jsonValue));
     }
 
     /**
      */
-    async buyCallback(requestParameters: BuyCallbackRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.buyCallbackRaw(requestParameters, initOverrides);
+    async getApiV1Bilete(requestParameters: GetApiV1BileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
+        const response = await this.getApiV1BileteRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
      */
-    async buyCallback1Raw(requestParameters: BuyCallback1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async getApiV1BileteCallbacksBuyRaw(requestParameters: GetApiV1BileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         if (requestParameters['ticketCount'] != null) {
@@ -289,71 +282,17 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async buyCallback1(requestParameters: BuyCallback1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.buyCallback1Raw(requestParameters, initOverrides);
+    async getApiV1BileteCallbacksBuy(requestParameters: GetApiV1BileteCallbacksBuyRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getApiV1BileteCallbacksBuyRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async getTicketDetailsRaw(requestParameters: GetTicketDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
+    async getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
-                'Required parameter "url" was null or undefined when calling getTicketDetails().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['url'] != null) {
-            queryParameters['url'] = requestParameters['url'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/tmp/bilete/details`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TicketDetailsFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getTicketDetails(requestParameters: GetTicketDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
-        const response = await this.getTicketDetailsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTicketDetails1Raw(requestParameters: GetTicketDetails1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
-        if (requestParameters['url'] == null) {
-            throw new runtime.RequiredError(
-                'url',
-                'Required parameter "url" was null or undefined when calling getTicketDetails1().'
+                'Required parameter "url" was null or undefined when calling getApiV1BileteDetails().'
             );
         }
 
@@ -396,61 +335,14 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async getTicketDetails1(requestParameters: GetTicketDetails1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
-        const response = await this.getTicketDetails1Raw(requestParameters, initOverrides);
+    async getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
+        const response = await this.getApiV1BileteDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getTicketsRaw(requestParameters: GetTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['email'] != null) {
-            queryParameters['email'] = requestParameters['email'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/bilete`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BiletePageFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getTickets(requestParameters: GetTicketsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
-        const response = await this.getTicketsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTickets1Raw(requestParameters: GetTickets1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
+    async getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
         const queryParameters: any = {};
 
         if (requestParameters['email'] != null) {
@@ -490,8 +382,116 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async getTickets1(requestParameters: GetTickets1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
-        const response = await this.getTickets1Raw(requestParameters, initOverrides);
+    async getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
+        const response = await this.getApiV1TmpBileteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1TmpBileteCallbacksBuyRaw(requestParameters: GetApiV1TmpBileteCallbacksBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['ticketCount'] != null) {
+            queryParameters['ticketCount'] = requestParameters['ticketCount'];
+        }
+
+        if (requestParameters['totalAmount'] != null) {
+            queryParameters['totalAmount'] = requestParameters['totalAmount'];
+        }
+
+        if (requestParameters['userEmail'] != null) {
+            queryParameters['userEmail'] = requestParameters['userEmail'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tmp/bilete/callbacks/buy`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     */
+    async getApiV1TmpBileteCallbacksBuy(requestParameters: GetApiV1TmpBileteCallbacksBuyRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getApiV1TmpBileteCallbacksBuyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
+        if (requestParameters['url'] == null) {
+            throw new runtime.RequiredError(
+                'url',
+                'Required parameter "url" was null or undefined when calling getApiV1TmpBileteDetails().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/tmp/bilete/details`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TicketDetailsFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
+        const response = await this.getApiV1TmpBileteDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

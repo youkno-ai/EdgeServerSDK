@@ -31,7 +31,6 @@ import com.squareup.moshi.JsonClass
  * @param silent 
  * @param note 
  * @param transactionTypeAsEnum 
- * @param reverseTransactionLine 
  */
 
 
@@ -56,10 +55,7 @@ data class TransactionLine (
     val note: kotlin.String? = null,
 
     @Json(name = "transactionTypeAsEnum")
-    val transactionTypeAsEnum: TransactionLine.TransactionTypeAsEnum? = null,
-
-    @Json(name = "reverseTransactionLine")
-    val reverseTransactionLine: TransactionLine? = null
+    val transactionTypeAsEnum: TransactionLine.TransactionTypeAsEnum? = null
 
 ) {
 

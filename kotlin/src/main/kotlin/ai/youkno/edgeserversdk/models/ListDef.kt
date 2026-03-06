@@ -49,7 +49,6 @@ import com.squareup.moshi.JsonClass
  * @param tags 
  * @param visibilityTypeAsEnum 
  * @param notificationModeAsEnum 
- * @param permissionTypeAsEnum 
  * @param effectiveUserSpecial 
  * @param effectiveCompanySpecial 
  * @param bountyTypesAsEnum 
@@ -59,13 +58,14 @@ import com.squareup.moshi.JsonClass
  * @param effectiveMainBountyType 
  * @param filterBountyTypeAsEnum 
  * @param effectiveDisplayModeAsEnum 
+ * @param permissionTypeAsEnum 
  * @param shownInAsEnum 
  * @param multi 
- * @param effectiveUrl 
  * @param viewable 
  * @param kindAsEnum 
  * @param visibilityRoles 
  * @param effectiveCode 
+ * @param effectiveUrl 
  * @param postable 
  * @param favorites 
  * @param stream 
@@ -148,9 +148,6 @@ data class ListDef (
     @Json(name = "notificationModeAsEnum")
     val notificationModeAsEnum: ListDef.NotificationModeAsEnum? = null,
 
-    @Json(name = "permissionTypeAsEnum")
-    val permissionTypeAsEnum: ListDef.PermissionTypeAsEnum? = null,
-
     @Json(name = "effectiveUserSpecial")
     val effectiveUserSpecial: kotlin.String? = null,
 
@@ -178,14 +175,14 @@ data class ListDef (
     @Json(name = "effectiveDisplayModeAsEnum")
     val effectiveDisplayModeAsEnum: ListDef.EffectiveDisplayModeAsEnum? = null,
 
+    @Json(name = "permissionTypeAsEnum")
+    val permissionTypeAsEnum: ListDef.PermissionTypeAsEnum? = null,
+
     @Json(name = "shownInAsEnum")
     val shownInAsEnum: ListDef.ShownInAsEnum? = null,
 
     @Json(name = "multi")
     val multi: kotlin.Boolean? = null,
-
-    @Json(name = "effectiveUrl")
-    val effectiveUrl: kotlin.String? = null,
 
     @Json(name = "viewable")
     val viewable: kotlin.Boolean? = null,
@@ -198,6 +195,9 @@ data class ListDef (
 
     @Json(name = "effectiveCode")
     val effectiveCode: kotlin.String? = null,
+
+    @Json(name = "effectiveUrl")
+    val effectiveUrl: kotlin.String? = null,
 
     @Json(name = "postable")
     val postable: kotlin.Boolean? = null,
@@ -246,19 +246,6 @@ data class ListDef (
     enum class NotificationModeAsEnum(val value: kotlin.String) {
         @Json(name = "MUTE") MUTE("MUTE"),
         @Json(name = "DEFAULT") DEFAULT("DEFAULT");
-    }
-    /**
-     * 
-     *
-     * Values: HIDE,READ_ONLY,WRITE_ONLY,READ_WRITE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PermissionTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "HIDE") HIDE("HIDE"),
-        @Json(name = "READ_ONLY") READ_ONLY("READ_ONLY"),
-        @Json(name = "WRITE_ONLY") WRITE_ONLY("WRITE_ONLY"),
-        @Json(name = "READ_WRITE") READ_WRITE("READ_WRITE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
@@ -470,6 +457,19 @@ data class ListDef (
         @Json(name = "LIST") LIST("LIST"),
         @Json(name = "DETAILS") DETAILS("DETAILS"),
         @Json(name = "HEADER") HEADER("HEADER");
+    }
+    /**
+     * 
+     *
+     * Values: HIDE,READ_ONLY,WRITE_ONLY,READ_WRITE,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PermissionTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "HIDE") HIDE("HIDE"),
+        @Json(name = "READ_ONLY") READ_ONLY("READ_ONLY"),
+        @Json(name = "WRITE_ONLY") WRITE_ONLY("WRITE_ONLY"),
+        @Json(name = "READ_WRITE") READ_WRITE("READ_WRITE"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 

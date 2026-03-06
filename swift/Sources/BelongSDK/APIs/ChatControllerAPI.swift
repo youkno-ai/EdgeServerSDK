@@ -14,51 +14,6 @@ open class ChatControllerAPI {
 
     /**
 
-     - parameter createChat: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserChat
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func createChat(createChat: CreateChat, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserChat {
-        return try await createChatWithRequestBuilder(createChat: createChat, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - POST /api/v1/chats
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter createChat: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserChat> 
-     */
-    open class func createChatWithRequestBuilder(createChat: CreateChat, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserChat> {
-        let localVariablePath = "/api/v1/chats"
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createChat)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<UserChat>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
      - parameter botName: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
@@ -66,8 +21,8 @@ open class ChatControllerAPI {
      - returns: SupportChartResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getAiBot(botName: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
-        return try await getAiBotWithRequestBuilder(botName: botName, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1ChatsAiBot(botName: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
+        return try await getApiV1ChatsAiBotWithRequestBuilder(botName: botName, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -81,7 +36,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SupportChartResult> 
      */
-    open class func getAiBotWithRequestBuilder(botName: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
+    open class func getApiV1ChatsAiBotWithRequestBuilder(botName: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
         let localVariablePath = "/api/v1/chats/ai-bot"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -119,8 +74,8 @@ open class ChatControllerAPI {
      - returns: SupportChartResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getSupport(companyId: String? = nil, userId: String? = nil, bountyId: String? = nil, productId: String? = nil, orderId: String? = nil, existingOnly: Bool? = nil, autoJoin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
-        return try await getSupportWithRequestBuilder(companyId: companyId, userId: userId, bountyId: bountyId, productId: productId, orderId: orderId, existingOnly: existingOnly, autoJoin: autoJoin, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1ChatsSupport(companyId: String? = nil, userId: String? = nil, bountyId: String? = nil, productId: String? = nil, orderId: String? = nil, existingOnly: Bool? = nil, autoJoin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
+        return try await getApiV1ChatsSupportWithRequestBuilder(companyId: companyId, userId: userId, bountyId: bountyId, productId: productId, orderId: orderId, existingOnly: existingOnly, autoJoin: autoJoin, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -140,7 +95,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SupportChartResult> 
      */
-    open class func getSupportWithRequestBuilder(companyId: String? = nil, userId: String? = nil, bountyId: String? = nil, productId: String? = nil, orderId: String? = nil, existingOnly: Bool? = nil, autoJoin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
+    open class func getApiV1ChatsSupportWithRequestBuilder(companyId: String? = nil, userId: String? = nil, bountyId: String? = nil, productId: String? = nil, orderId: String? = nil, existingOnly: Bool? = nil, autoJoin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
         let localVariablePath = "/api/v1/chats/support"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -170,55 +125,38 @@ open class ChatControllerAPI {
     }
 
     /**
-     * enum for parameter eventType
-     */
-    public enum EventType_handlePsgEvent: String, CaseIterable {
-        case _none = "NONE"
-        case abandon = "ABANDON"
-        case resolve = "RESOLVE"
-        case unknown = "UNKNOWN"
-    }
 
-    /**
-
-     - parameter roomId: (path)  
-     - parameter eventType: (path)  
+     - parameter createChat: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: AnyCodable]
+     - returns: UserChat
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func handlePsgEvent(roomId: String, eventType: EventType_handlePsgEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: AnyCodable] {
-        return try await handlePsgEventWithRequestBuilder(roomId: roomId, eventType: eventType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Chats(createChat: CreateChat, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserChat {
+        return try await postApiV1ChatsWithRequestBuilder(createChat: createChat, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
-     - POST /api/v1/chats/{room_id}/support/{event_type}
+     - POST /api/v1/chats
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter roomId: (path)  
-     - parameter eventType: (path)  
+     - parameter createChat: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: AnyCodable]> 
+     - returns: RequestBuilder<UserChat> 
      */
-    open class func handlePsgEventWithRequestBuilder(roomId: String, eventType: EventType_handlePsgEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: AnyCodable]> {
-        var localVariablePath = "/api/v1/chats/{room_id}/support/{event_type}"
-        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
-        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
-        let eventTypePreEscape = "\(eventType.rawValue)"
-        let eventTypePostEscape = eventTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{event_type}", with: eventTypePostEscape, options: .literal, range: nil)
+    open class func postApiV1ChatsWithRequestBuilder(createChat: CreateChat, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserChat> {
+        let localVariablePath = "/api/v1/chats"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createChat)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
             "X-edge-agent": xEdgeAgent?.encodeToJSON(),
             "X-edge-state": xEdgeState?.encodeToJSON(),
             "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
@@ -226,7 +164,107 @@ open class ChatControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserChat>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter roomId: (path)  
+     - parameter chatCommand: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: ChatSlashResult
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1ChatsByRoomIdCommands(roomId: String, chatCommand: ChatCommand, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ChatSlashResult {
+        return try await postApiV1ChatsByRoomIdCommandsWithRequestBuilder(roomId: roomId, chatCommand: chatCommand, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/chats/{room_id}/commands
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter roomId: (path)  
+     - parameter chatCommand: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<ChatSlashResult> 
+     */
+    open class func postApiV1ChatsByRoomIdCommandsWithRequestBuilder(roomId: String, chatCommand: ChatCommand, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ChatSlashResult> {
+        var localVariablePath = "/api/v1/chats/{room_id}/commands"
+        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
+        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatCommand)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ChatSlashResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter roomId: (path)  
+     - parameter chatMessage: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: NewId
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1ChatsByRoomIdMessages(roomId: String, chatMessage: ChatMessage, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> NewId {
+        return try await postApiV1ChatsByRoomIdMessagesWithRequestBuilder(roomId: roomId, chatMessage: chatMessage, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/chats/{room_id}/messages
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter roomId: (path)  
+     - parameter chatMessage: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<NewId> 
+     */
+    open class func postApiV1ChatsByRoomIdMessagesWithRequestBuilder(roomId: String, chatMessage: ChatMessage, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<NewId> {
+        var localVariablePath = "/api/v1/chats/{room_id}/messages"
+        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
+        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatMessage)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<NewId>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -241,8 +279,8 @@ open class ChatControllerAPI {
      - returns: SupportChartResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func handleSupportMessage(roomId: String, msgId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
-        return try await handleSupportMessageWithRequestBuilder(roomId: roomId, msgId: msgId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(roomId: String, msgId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SupportChartResult {
+        return try await postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageWithRequestBuilder(roomId: roomId, msgId: msgId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -257,7 +295,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SupportChartResult> 
      */
-    open class func handleSupportMessageWithRequestBuilder(roomId: String, msgId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
+    open class func postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageWithRequestBuilder(roomId: String, msgId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SupportChartResult> {
         var localVariablePath = "/api/v1/chats/{room_id}/messages/{msg_id}/handle_message"
         let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
         let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -286,6 +324,61 @@ open class ChatControllerAPI {
     /**
 
      - parameter roomId: (path)  
+     - parameter msgId: (path)  
+     - parameter chatOobWatching: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1ChatsByRoomIdMessagesByMsgIdReactions(roomId: String, msgId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await postApiV1ChatsByRoomIdMessagesByMsgIdReactionsWithRequestBuilder(roomId: roomId, msgId: msgId, chatOobWatching: chatOobWatching, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/chats/{room_id}/messages/{msg_id}/reactions
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter roomId: (path)  
+     - parameter msgId: (path)  
+     - parameter chatOobWatching: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postApiV1ChatsByRoomIdMessagesByMsgIdReactionsWithRequestBuilder(roomId: String, msgId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+        var localVariablePath = "/api/v1/chats/{room_id}/messages/{msg_id}/reactions"
+        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
+        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
+        let msgIdPreEscape = "\(APIHelper.mapValueToPathItem(msgId))"
+        let msgIdPostEscape = msgIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{msg_id}", with: msgIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatOobWatching)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = BelongSDKAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter roomId: (path)  
      - parameter chatMessageRead: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
@@ -293,8 +386,8 @@ open class ChatControllerAPI {
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func markAsRead(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await markAsReadWithRequestBuilder(roomId: roomId, chatMessageRead: chatMessageRead, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ChatsByRoomIdMessagesRead(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await postApiV1ChatsByRoomIdMessagesReadWithRequestBuilder(roomId: roomId, chatMessageRead: chatMessageRead, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -309,7 +402,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Void> 
      */
-    open class func markAsReadWithRequestBuilder(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+    open class func postApiV1ChatsByRoomIdMessagesReadWithRequestBuilder(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
         var localVariablePath = "/api/v1/chats/{room_id}/messages/read"
         let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
         let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -343,8 +436,8 @@ open class ChatControllerAPI {
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func oobMarkAsRead(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await oobMarkAsReadWithRequestBuilder(roomId: roomId, chatMessageRead: chatMessageRead, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ChatsByRoomIdOobRead(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await postApiV1ChatsByRoomIdOobReadWithRequestBuilder(roomId: roomId, chatMessageRead: chatMessageRead, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -359,7 +452,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Void> 
      */
-    open class func oobMarkAsReadWithRequestBuilder(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+    open class func postApiV1ChatsByRoomIdOobReadWithRequestBuilder(roomId: String, chatMessageRead: ChatMessageRead, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
         var localVariablePath = "/api/v1/chats/{room_id}/oob/read"
         let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
         let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -393,8 +486,8 @@ open class ChatControllerAPI {
      - returns: NewId
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func oobWatching(roomId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> NewId {
-        return try await oobWatchingWithRequestBuilder(roomId: roomId, chatOobWatching: chatOobWatching, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ChatsByRoomIdOobWatching(roomId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> NewId {
+        return try await postApiV1ChatsByRoomIdOobWatchingWithRequestBuilder(roomId: roomId, chatOobWatching: chatOobWatching, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -409,7 +502,7 @@ open class ChatControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<NewId> 
      */
-    open class func oobWatchingWithRequestBuilder(roomId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<NewId> {
+    open class func postApiV1ChatsByRoomIdOobWatchingWithRequestBuilder(roomId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<NewId> {
         var localVariablePath = "/api/v1/chats/{room_id}/oob/watching"
         let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
         let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -434,43 +527,55 @@ open class ChatControllerAPI {
     }
 
     /**
-
-     - parameter roomId: (path)  
-     - parameter chatMessage: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: NewId
+     * enum for parameter eventType
      */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postMessage(roomId: String, chatMessage: ChatMessage, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> NewId {
-        return try await postMessageWithRequestBuilder(roomId: roomId, chatMessage: chatMessage, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    public enum EventType_postApiV1ChatsByRoomIdSupportByEventType: String, CaseIterable {
+        case _none = "NONE"
+        case abandon = "ABANDON"
+        case resolve = "RESOLVE"
+        case unknown = "UNKNOWN"
     }
 
     /**
-     - POST /api/v1/chats/{room_id}/messages
+
+     - parameter roomId: (path)  
+     - parameter eventType: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: [String: String]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1ChatsByRoomIdSupportByEventType(roomId: String, eventType: EventType_postApiV1ChatsByRoomIdSupportByEventType, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1ChatsByRoomIdSupportByEventTypeWithRequestBuilder(roomId: roomId, eventType: eventType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/chats/{room_id}/support/{event_type}
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter roomId: (path)  
-     - parameter chatMessage: (body)  
+     - parameter eventType: (path)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<NewId> 
+     - returns: RequestBuilder<[String: String]> 
      */
-    open class func postMessageWithRequestBuilder(roomId: String, chatMessage: ChatMessage, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<NewId> {
-        var localVariablePath = "/api/v1/chats/{room_id}/messages"
+    open class func postApiV1ChatsByRoomIdSupportByEventTypeWithRequestBuilder(roomId: String, eventType: EventType_postApiV1ChatsByRoomIdSupportByEventType, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+        var localVariablePath = "/api/v1/chats/{room_id}/support/{event_type}"
         let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
         let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
+        let eventTypePreEscape = "\(eventType.rawValue)"
+        let eventTypePostEscape = eventTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{event_type}", with: eventTypePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatMessage)
+        let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
             "X-edge-agent": xEdgeAgent?.encodeToJSON(),
             "X-edge-state": xEdgeState?.encodeToJSON(),
             "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
@@ -478,112 +583,7 @@ open class ChatControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NewId>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter roomId: (path)  
-     - parameter chatCommand: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: ChatSlashResult
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postMessage1(roomId: String, chatCommand: ChatCommand, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ChatSlashResult {
-        return try await postMessage1WithRequestBuilder(roomId: roomId, chatCommand: chatCommand, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - POST /api/v1/chats/{room_id}/commands
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter roomId: (path)  
-     - parameter chatCommand: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ChatSlashResult> 
-     */
-    open class func postMessage1WithRequestBuilder(roomId: String, chatCommand: ChatCommand, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ChatSlashResult> {
-        var localVariablePath = "/api/v1/chats/{room_id}/commands"
-        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
-        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatCommand)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ChatSlashResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter roomId: (path)  
-     - parameter msgId: (path)  
-     - parameter chatOobWatching: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: Void
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func reaction(roomId: String, msgId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await reactionWithRequestBuilder(roomId: roomId, msgId: msgId, chatOobWatching: chatOobWatching, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
-    }
-
-    /**
-     - POST /api/v1/chats/{room_id}/messages/{msg_id}/reactions
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: JWT
-     - parameter roomId: (path)  
-     - parameter msgId: (path)  
-     - parameter chatOobWatching: (body)  
-     - parameter xEdgeAgent: (header)  (optional)
-     - parameter xEdgeState: (header)  (optional)
-     - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Void> 
-     */
-    open class func reactionWithRequestBuilder(roomId: String, msgId: String, chatOobWatching: ChatOobWatching, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/v1/chats/{room_id}/messages/{msg_id}/reactions"
-        let roomIdPreEscape = "\(APIHelper.mapValueToPathItem(roomId))"
-        let roomIdPostEscape = roomIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{room_id}", with: roomIdPostEscape, options: .literal, range: nil)
-        let msgIdPreEscape = "\(APIHelper.mapValueToPathItem(msgId))"
-        let msgIdPostEscape = msgIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{msg_id}", with: msgIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: chatOobWatching)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
-            "X-edge-state": xEdgeState?.encodeToJSON(),
-            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = BelongSDKAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

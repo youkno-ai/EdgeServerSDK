@@ -25,8 +25,8 @@ import {
     StorageRefResponseToJSON,
 } from '../models/index';
 
-export interface GetUploadPathRequest {
-    anchorType: GetUploadPathAnchorTypeEnum;
+export interface GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest {
+    anchorType: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefAnchorTypeEnum;
     anchorId: string;
     attachmentType: string;
     xEdgeAgent?: string;
@@ -34,8 +34,8 @@ export interface GetUploadPathRequest {
     xEdgeClientId?: string;
 }
 
-export interface SaveAttachmentRequest {
-    anchorType: SaveAttachmentAnchorTypeEnum;
+export interface PostApiV1AttachmentsByAnchortypeByAnchoridRequest {
+    anchorType: PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum;
     anchorId: string;
     attachment: Attachment;
     xEdgeAgent?: string;
@@ -62,11 +62,11 @@ export interface AttachmentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AttachmentControllerApiInterface
      */
-    getUploadPathRaw(requestParameters: GetUploadPathRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>>;
+    getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>>;
 
     /**
      */
-    getUploadPath(requestParameters: GetUploadPathRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse>;
+    getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse>;
 
     /**
      * 
@@ -80,11 +80,11 @@ export interface AttachmentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AttachmentControllerApiInterface
      */
-    saveAttachmentRaw(requestParameters: SaveAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
+    postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
 
     /**
      */
-    saveAttachment(requestParameters: SaveAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
+    postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
 
 }
 
@@ -95,25 +95,25 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 
     /**
      */
-    async getUploadPathRaw(requestParameters: GetUploadPathRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>> {
+    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
-                'Required parameter "anchorType" was null or undefined when calling getUploadPath().'
+                'Required parameter "anchorType" was null or undefined when calling getApiV1AttachmentsByAnchortypeByAnchoridStorageRef().'
             );
         }
 
         if (requestParameters['anchorId'] == null) {
             throw new runtime.RequiredError(
                 'anchorId',
-                'Required parameter "anchorId" was null or undefined when calling getUploadPath().'
+                'Required parameter "anchorId" was null or undefined when calling getApiV1AttachmentsByAnchortypeByAnchoridStorageRef().'
             );
         }
 
         if (requestParameters['attachmentType'] == null) {
             throw new runtime.RequiredError(
                 'attachmentType',
-                'Required parameter "attachmentType" was null or undefined when calling getUploadPath().'
+                'Required parameter "attachmentType" was null or undefined when calling getApiV1AttachmentsByAnchortypeByAnchoridStorageRef().'
             );
         }
 
@@ -158,32 +158,32 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 
     /**
      */
-    async getUploadPath(requestParameters: GetUploadPathRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse> {
-        const response = await this.getUploadPathRaw(requestParameters, initOverrides);
+    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse> {
+        const response = await this.getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async saveAttachmentRaw(requestParameters: SaveAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
+    async postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
-                'Required parameter "anchorType" was null or undefined when calling saveAttachment().'
+                'Required parameter "anchorType" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
             );
         }
 
         if (requestParameters['anchorId'] == null) {
             throw new runtime.RequiredError(
                 'anchorId',
-                'Required parameter "anchorId" was null or undefined when calling saveAttachment().'
+                'Required parameter "anchorId" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
             );
         }
 
         if (requestParameters['attachment'] == null) {
             throw new runtime.RequiredError(
                 'attachment',
-                'Required parameter "attachment" was null or undefined when calling saveAttachment().'
+                'Required parameter "attachment" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
             );
         }
 
@@ -227,8 +227,8 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 
     /**
      */
-    async saveAttachment(requestParameters: SaveAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
-        const response = await this.saveAttachmentRaw(requestParameters, initOverrides);
+    async postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
+        const response = await this.postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -237,7 +237,7 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 /**
  * @export
  */
-export const GetUploadPathAnchorTypeEnum = {
+export const GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefAnchorTypeEnum = {
     NONE: 'NONE',
     USER: 'USER',
     BOUNTY: 'BOUNTY',
@@ -247,11 +247,11 @@ export const GetUploadPathAnchorTypeEnum = {
     SETTINGS: 'SETTINGS',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetUploadPathAnchorTypeEnum = typeof GetUploadPathAnchorTypeEnum[keyof typeof GetUploadPathAnchorTypeEnum];
+export type GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefAnchorTypeEnum = typeof GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefAnchorTypeEnum[keyof typeof GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefAnchorTypeEnum];
 /**
  * @export
  */
-export const SaveAttachmentAnchorTypeEnum = {
+export const PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum = {
     NONE: 'NONE',
     USER: 'USER',
     BOUNTY: 'BOUNTY',
@@ -261,4 +261,4 @@ export const SaveAttachmentAnchorTypeEnum = {
     SETTINGS: 'SETTINGS',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type SaveAttachmentAnchorTypeEnum = typeof SaveAttachmentAnchorTypeEnum[keyof typeof SaveAttachmentAnchorTypeEnum];
+export type PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum = typeof PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum[keyof typeof PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum];

@@ -23,6 +23,6 @@ interface GoogleControllerApi {
      * @return [Call]<[AnalyticsInfoResult]>
      */
     @GET("api/v1/google/{companyId}/analytics_info")
-    fun getAnalyticsInfo(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AnalyticsInfoResult>
+    fun getApiV1GoogleByCompanyidAnalyticsInfo(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AnalyticsInfoResult>
 
 }

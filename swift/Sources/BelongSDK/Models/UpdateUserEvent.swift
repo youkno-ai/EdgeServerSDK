@@ -87,13 +87,13 @@ public struct UpdateUserEvent: Codable, JSONEncodable, Hashable {
     public var frontEnd: FrontEnd?
     public var empty: Bool?
     public var phoneStatusAsEnum: PhoneStatusAsEnum?
+    public var device: Device?
     public var localeAsEnum: String?
     public var explicitUpdate: Bool?
     public var dobAsLocalDate: Date?
-    public var device: Device?
     public var requesterId: String?
 
-    public init(id: String? = nil, meta: Meta? = nil, userId: String? = nil, shortId: String? = nil, clientId: String? = nil, shopId: String? = nil, deviceJson: String? = nil, providerId: String? = nil, name: String? = nil, latinizedName: String? = nil, description: String? = nil, avatar: String? = nil, email: String? = nil, currency: String? = nil, dob: String? = nil, gender: String? = nil, countryCode: String? = nil, city: String? = nil, locale: String? = nil, address: MailingAddress? = nil, joiningStrategy: String? = nil, subType: String? = nil, signUpMethod: String? = nil, createClientCapability: Bool? = nil, validatedPhone: String? = nil, phoneNumber: String? = nil, phoneStatus: String? = nil, skipEmailValidation: Bool? = nil, externalUserId: String? = nil, externalUserSource: String? = nil, geoIPInfo: GeoIPInfo? = nil, inviteCode: String? = nil, coverImageUrl: String? = nil, interestsInfo: InterestsInfo? = nil, ageRangeType: AgeRangeType? = nil, selfOnboardingInfo: SelfOnboardingInfo? = nil, segment: Segment? = nil, paymentMode: PaymentMode? = nil, validateUserMerge: Bool? = nil, frontEnd: FrontEnd? = nil, empty: Bool? = nil, phoneStatusAsEnum: PhoneStatusAsEnum? = nil, localeAsEnum: String? = nil, explicitUpdate: Bool? = nil, dobAsLocalDate: Date? = nil, device: Device? = nil, requesterId: String? = nil) {
+    public init(id: String? = nil, meta: Meta? = nil, userId: String? = nil, shortId: String? = nil, clientId: String? = nil, shopId: String? = nil, deviceJson: String? = nil, providerId: String? = nil, name: String? = nil, latinizedName: String? = nil, description: String? = nil, avatar: String? = nil, email: String? = nil, currency: String? = nil, dob: String? = nil, gender: String? = nil, countryCode: String? = nil, city: String? = nil, locale: String? = nil, address: MailingAddress? = nil, joiningStrategy: String? = nil, subType: String? = nil, signUpMethod: String? = nil, createClientCapability: Bool? = nil, validatedPhone: String? = nil, phoneNumber: String? = nil, phoneStatus: String? = nil, skipEmailValidation: Bool? = nil, externalUserId: String? = nil, externalUserSource: String? = nil, geoIPInfo: GeoIPInfo? = nil, inviteCode: String? = nil, coverImageUrl: String? = nil, interestsInfo: InterestsInfo? = nil, ageRangeType: AgeRangeType? = nil, selfOnboardingInfo: SelfOnboardingInfo? = nil, segment: Segment? = nil, paymentMode: PaymentMode? = nil, validateUserMerge: Bool? = nil, frontEnd: FrontEnd? = nil, empty: Bool? = nil, phoneStatusAsEnum: PhoneStatusAsEnum? = nil, device: Device? = nil, localeAsEnum: String? = nil, explicitUpdate: Bool? = nil, dobAsLocalDate: Date? = nil, requesterId: String? = nil) {
         self.id = id
         self.meta = meta
         self.userId = userId
@@ -136,10 +136,10 @@ public struct UpdateUserEvent: Codable, JSONEncodable, Hashable {
         self.frontEnd = frontEnd
         self.empty = empty
         self.phoneStatusAsEnum = phoneStatusAsEnum
+        self.device = device
         self.localeAsEnum = localeAsEnum
         self.explicitUpdate = explicitUpdate
         self.dobAsLocalDate = dobAsLocalDate
-        self.device = device
         self.requesterId = requesterId
     }
 
@@ -186,10 +186,10 @@ public struct UpdateUserEvent: Codable, JSONEncodable, Hashable {
         case frontEnd
         case empty
         case phoneStatusAsEnum
+        case device
         case localeAsEnum
         case explicitUpdate
         case dobAsLocalDate
-        case device
         case requesterId
     }
 
@@ -239,10 +239,10 @@ public struct UpdateUserEvent: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(frontEnd, forKey: .frontEnd)
         try container.encodeIfPresent(empty, forKey: .empty)
         try container.encodeIfPresent(phoneStatusAsEnum, forKey: .phoneStatusAsEnum)
+        try container.encodeIfPresent(device, forKey: .device)
         try container.encodeIfPresent(localeAsEnum, forKey: .localeAsEnum)
         try container.encodeIfPresent(explicitUpdate, forKey: .explicitUpdate)
         try container.encodeIfPresent(dobAsLocalDate, forKey: .dobAsLocalDate)
-        try container.encodeIfPresent(device, forKey: .device)
         try container.encodeIfPresent(requesterId, forKey: .requesterId)
     }
 }

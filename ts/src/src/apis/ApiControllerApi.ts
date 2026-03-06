@@ -70,9 +70,9 @@ import {
     ValidateAddressResultToJSON,
 } from '../models/index';
 
-export interface AddTagsRequest {
+export interface DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest {
     entityId: string;
-    entityType: AddTagsEntityTypeEnum;
+    entityType: DeleteApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum;
     tags: Tags;
     reason?: string;
     xEdgeAgent?: string;
@@ -80,32 +80,46 @@ export interface AddTagsRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteMemberRequest {
-    groupId: string;
-    memberId: string;
+export interface GetApiV1Request {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface DeleteTagRequest {
-    entityId: string;
-    entityType: DeleteTagEntityTypeEnum;
-    tags: Tags;
-    reason?: string;
+export interface GetApiV1AttachmentsResolveRequest {
+    url?: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface DownloadProductRequest {
+export interface GetApiV1DownloadSampleProductsRequest {
     origin?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetFilters1Request {
+export interface GetApiV1EntitiesByBountyIdLeaderboardRequest {
+    bountyId: string;
+    excludeAnon?: boolean;
+    includeNextActivities?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest {
+    entityId: string;
+    entityType: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryEntityTypeEnum;
+    start?: number;
+    limit?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1FiltersByListidRequest {
     listId: string;
     q?: string;
     category?: Array<string>;
@@ -116,21 +130,7 @@ export interface GetFilters1Request {
     xEdgeClientId?: string;
 }
 
-export interface GetFollowerUsersRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetFollowingUsersRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGeoIpRequest {
+export interface GetApiV1GeoipRequest {
     xClientGeoLocation?: string;
     xClientGeoLatLng?: string;
     xClientRTT?: string;
@@ -139,34 +139,26 @@ export interface GetGeoIpRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetLeaderboardRequest {
-    bountyId: string;
-    excludeAnon?: boolean;
-    includeNextActivities?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetLookUpsRequest {
+export interface GetApiV1LookupsByLookupTypeRequest {
     lookupType: string;
     q?: string;
     limit?: string;
     query?: Array<string>;
-    searchMode?: GetLookUpsSearchModeEnum;
+    searchMode?: GetApiV1LookupsByLookupTypeSearchModeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetPrivateInfoRequest {
-    userId: string;
+export interface GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest {
+    groupId: string;
+    memberId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetPromotionsRequest {
+export interface GetApiV1PromotionsRequest {
     entityType?: Array<string>;
     bountyType?: Array<string>;
     start?: Array<string>;
@@ -177,68 +169,7 @@ export interface GetPromotionsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetResponseListRequest {
-    bountyType: string;
-    userId?: string;
-    bountyId?: string;
-    searchCriteria?: string;
-    country?: Array<string>;
-    responseStates?: Array<GetResponseListResponseStatesEnum>;
-    gender?: Array<string>;
-    start?: number;
-    length?: number;
-    order?: string;
-    searchMode?: GetResponseListSearchModeEnum;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetTagsHistoryRequest {
-    entityId: string;
-    entityType: GetTagsHistoryEntityTypeEnum;
-    start?: number;
-    limit?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUserPinRequest {
-    clientId?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface NotifyRequest {
-    notification: Notification;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PostReferralRequest {
-    code?: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ResolveAttachmentsRequest {
-    url?: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface RootRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface SmartRepliesRequest {
+export interface GetApiV1RepliesSmartRequest {
     bountyId?: Array<string>;
     bountyType?: Array<string>;
     chatType?: Array<string>;
@@ -248,7 +179,76 @@ export interface SmartRepliesRequest {
     xEdgeClientId?: string;
 }
 
-export interface ValidateAddressRequest {
+export interface GetApiV1ResponsesByBountyTypeRequest {
+    bountyType: string;
+    userId?: string;
+    bountyId?: string;
+    searchCriteria?: string;
+    country?: Array<string>;
+    responseStates?: Array<GetApiV1ResponsesByBountyTypeResponseStatesEnum>;
+    gender?: Array<string>;
+    start?: number;
+    length?: number;
+    order?: string;
+    searchMode?: GetApiV1ResponsesByBountyTypeSearchModeEnum;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UserInfoRequest {
+    clientId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUserIdPrivateRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridFollowersRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridFollowingRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AddressesValidateRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest {
+    entityId: string;
+    entityType: PostApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum;
+    tags: Tags;
+    reason?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1NotifyRequest {
+    notification: Notification;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ReferralsRequest {
+    code?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -274,16 +274,14 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    addTagsRaw(requestParameters: AddTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters: DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    addTags(requestParameters: AddTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1EntitiesByEntityTypeByEntityIdTags(requestParameters: DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} groupId 
-     * @param {string} memberId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -291,18 +289,15 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    deleteMemberRaw(requestParameters: DeleteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>>;
+    getApiV1Raw(requestParameters: GetApiV1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteMember(requestParameters: DeleteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult>;
+    getApiV1(requestParameters: GetApiV1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} entityId 
-     * @param {'NONE' | 'UNKNOWN' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'COMMENT' | 'CHAT' | 'MESSAGE' | 'ATTACHMENT' | 'PUSH_NOTIFICATION' | 'ADDRESS' | 'SEAT' | 'EVENT' | 'VENUE' | 'TICKET' | 'CATEGORY' | 'SYSTEM'} entityType 
-     * @param {Tags} tags 
-     * @param {string} [reason] 
+     * @param {Array<string>} [url] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -310,11 +305,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    deleteTagRaw(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>>;
 
     /**
      */
-    deleteTag(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult>;
 
     /**
      * 
@@ -326,11 +321,48 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    downloadProductRaw(requestParameters: DownloadProductRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1DownloadSampleProductsRaw(requestParameters: GetApiV1DownloadSampleProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    downloadProduct(requestParameters: DownloadProductRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1DownloadSampleProducts(requestParameters: GetApiV1DownloadSampleProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {boolean} [excludeAnon] 
+     * @param {boolean} [includeNextActivities] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>>;
+
+    /**
+     */
+    getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult>;
+
+    /**
+     * 
+     * @param {string} entityId 
+     * @param {'NONE' | 'UNKNOWN' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'COMMENT' | 'CHAT' | 'MESSAGE' | 'ATTACHMENT' | 'PUSH_NOTIFICATION' | 'ADDRESS' | 'SEAT' | 'EVENT' | 'VENUE' | 'TICKET' | 'CATEGORY' | 'SYSTEM'} entityType 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
+
+    /**
+     */
+    getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
 
     /**
      * 
@@ -346,43 +378,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getFilters1Raw(requestParameters: GetFilters1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>>;
+    getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>>;
 
     /**
      */
-    getFilters1(requestParameters: GetFilters1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    getFollowerUsersRaw(requestParameters: GetFollowerUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
-
-    /**
-     */
-    getFollowerUsers(requestParameters: GetFollowerUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    getFollowingUsersRaw(requestParameters: GetFollowingUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
-
-    /**
-     */
-    getFollowingUsers(requestParameters: GetFollowingUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
+    getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult>;
 
     /**
      * 
@@ -396,29 +396,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getGeoIpRaw(requestParameters: GetGeoIpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeoIPInfo>>;
+    getApiV1GeoipRaw(requestParameters: GetApiV1GeoipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeoIPInfo>>;
 
     /**
      */
-    getGeoIp(requestParameters: GetGeoIpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeoIPInfo>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {boolean} [excludeAnon] 
-     * @param {boolean} [includeNextActivities] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    getLeaderboardRaw(requestParameters: GetLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>>;
-
-    /**
-     */
-    getLeaderboard(requestParameters: GetLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult>;
+    getApiV1Geoip(requestParameters: GetApiV1GeoipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeoIPInfo>;
 
     /**
      * 
@@ -434,15 +416,16 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getLookUpsRaw(requestParameters: GetLookUpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>>;
+    getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>>;
 
     /**
      */
-    getLookUps(requestParameters: GetLookUpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult>;
+    getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult>;
 
     /**
      * 
-     * @param {string} userId 
+     * @param {string} groupId 
+     * @param {string} memberId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -450,11 +433,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getPrivateInfoRaw(requestParameters: GetPrivateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>>;
+    getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>>;
 
     /**
      */
-    getPrivateInfo(requestParameters: GetPrivateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo>;
+    getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult>;
 
     /**
      * 
@@ -470,11 +453,30 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getPromotionsRaw(requestParameters: GetPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>>;
+    getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>>;
 
     /**
      */
-    getPromotions(requestParameters: GetPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult>;
+    getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult>;
+
+    /**
+     * 
+     * @param {Array<string>} [bountyId] 
+     * @param {Array<string>} [bountyType] 
+     * @param {Array<string>} [chatType] 
+     * @param {Array<string>} [version] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>>;
+
+    /**
+     */
+    getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult>;
 
     /**
      * 
@@ -496,30 +498,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getResponseListRaw(requestParameters: GetResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>>;
+    getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>>;
 
     /**
      */
-    getResponseList(requestParameters: GetResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult>;
-
-    /**
-     * 
-     * @param {string} entityId 
-     * @param {'NONE' | 'UNKNOWN' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'COMMENT' | 'CHAT' | 'MESSAGE' | 'ATTACHMENT' | 'PUSH_NOTIFICATION' | 'ADDRESS' | 'SEAT' | 'EVENT' | 'VENUE' | 'TICKET' | 'CATEGORY' | 'SYSTEM'} entityType 
-     * @param {number} [start] 
-     * @param {number} [limit] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    getTagsHistoryRaw(requestParameters: GetTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
-
-    /**
-     */
-    getTagsHistory(requestParameters: GetTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
+    getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult>;
 
     /**
      * 
@@ -531,11 +514,93 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getUserPinRaw(requestParameters: GetUserPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>>;
+    getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>>;
 
     /**
      */
-    getUserPin(requestParameters: GetUserPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult>;
+    getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>>;
+
+    /**
+     */
+    getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>>;
+
+    /**
+     */
+    postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult>;
+
+    /**
+     * 
+     * @param {string} entityId 
+     * @param {'NONE' | 'UNKNOWN' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'COMMENT' | 'CHAT' | 'MESSAGE' | 'ATTACHMENT' | 'PUSH_NOTIFICATION' | 'ADDRESS' | 'SEAT' | 'EVENT' | 'VENUE' | 'TICKET' | 'CATEGORY' | 'SYSTEM'} entityType 
+     * @param {Tags} tags 
+     * @param {string} [reason] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    postApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters: PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1EntitiesByEntityTypeByEntityIdTags(requestParameters: PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -547,11 +612,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    notifyRaw(requestParameters: NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1NotifyRaw(requestParameters: PostApiV1NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    notify(requestParameters: NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1Notify(requestParameters: PostApiV1NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -563,76 +628,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    postReferralRaw(requestParameters: PostReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>>;
+    postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>>;
 
     /**
      */
-    postReferral(requestParameters: PostReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult>;
-
-    /**
-     * 
-     * @param {Array<string>} [url] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    resolveAttachmentsRaw(requestParameters: ResolveAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>>;
-
-    /**
-     */
-    resolveAttachments(requestParameters: ResolveAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    rootRaw(requestParameters: RootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    root(requestParameters: RootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {Array<string>} [bountyId] 
-     * @param {Array<string>} [bountyType] 
-     * @param {Array<string>} [chatType] 
-     * @param {Array<string>} [version] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    smartRepliesRaw(requestParameters: SmartRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>>;
-
-    /**
-     */
-    smartReplies(requestParameters: SmartRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    validateAddressRaw(requestParameters: ValidateAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>>;
-
-    /**
-     */
-    validateAddress(requestParameters: ValidateAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult>;
+    postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult>;
 
 }
 
@@ -643,157 +643,25 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async addTagsRaw(requestParameters: AddTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters: DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
-                'Required parameter "entityId" was null or undefined when calling addTags().'
+                'Required parameter "entityId" was null or undefined when calling deleteApiV1EntitiesByEntityTypeByEntityIdTags().'
             );
         }
 
         if (requestParameters['entityType'] == null) {
             throw new runtime.RequiredError(
                 'entityType',
-                'Required parameter "entityType" was null or undefined when calling addTags().'
+                'Required parameter "entityType" was null or undefined when calling deleteApiV1EntitiesByEntityTypeByEntityIdTags().'
             );
         }
 
         if (requestParameters['tags'] == null) {
             throw new runtime.RequiredError(
                 'tags',
-                'Required parameter "tags" was null or undefined when calling addTags().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['reason'] != null) {
-            queryParameters['reason'] = requestParameters['reason'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/entities/{entity_type}/{entity_id}/tags`;
-        urlPath = urlPath.replace(`{${"entity_id"}}`, encodeURIComponent(String(requestParameters['entityId'])));
-        urlPath = urlPath.replace(`{${"entity_type"}}`, encodeURIComponent(String(requestParameters['entityType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: TagsToJSON(requestParameters['tags']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async addTags(requestParameters: AddTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.addTagsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteMemberRaw(requestParameters: DeleteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling deleteMember().'
-            );
-        }
-
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling deleteMember().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/permission/{groupId}/delete_member/{memberId}`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemberDeletePermissionResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async deleteMember(requestParameters: DeleteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult> {
-        const response = await this.deleteMemberRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteTagRaw(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['entityId'] == null) {
-            throw new runtime.RequiredError(
-                'entityId',
-                'Required parameter "entityId" was null or undefined when calling deleteTag().'
-            );
-        }
-
-        if (requestParameters['entityType'] == null) {
-            throw new runtime.RequiredError(
-                'entityType',
-                'Required parameter "entityType" was null or undefined when calling deleteTag().'
-            );
-        }
-
-        if (requestParameters['tags'] == null) {
-            throw new runtime.RequiredError(
-                'tags',
-                'Required parameter "tags" was null or undefined when calling deleteTag().'
+                'Required parameter "tags" was null or undefined when calling deleteApiV1EntitiesByEntityTypeByEntityIdTags().'
             );
         }
 
@@ -841,14 +709,104 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async deleteTag(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteTagRaw(requestParameters, initOverrides);
+    async deleteApiV1EntitiesByEntityTypeByEntityIdTags(requestParameters: DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async downloadProductRaw(requestParameters: DownloadProductRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1Raw(requestParameters: GetApiV1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1(requestParameters: GetApiV1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1Raw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/attachments/resolve`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResolveAttachmentResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult> {
+        const response = await this.getApiV1AttachmentsResolveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1DownloadSampleProductsRaw(requestParameters: GetApiV1DownloadSampleProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -888,18 +846,144 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async downloadProduct(requestParameters: DownloadProductRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.downloadProductRaw(requestParameters, initOverrides);
+    async getApiV1DownloadSampleProducts(requestParameters: GetApiV1DownloadSampleProductsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1DownloadSampleProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getFilters1Raw(requestParameters: GetFilters1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>> {
+    async getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1EntitiesByBountyIdLeaderboard().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['excludeAnon'] != null) {
+            queryParameters['exclude_anon'] = requestParameters['excludeAnon'];
+        }
+
+        if (requestParameters['includeNextActivities'] != null) {
+            queryParameters['include_next_activities'] = requestParameters['includeNextActivities'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/entities/{bounty_id}/leaderboard`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LeaderboardResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult> {
+        const response = await this.getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
+        if (requestParameters['entityId'] == null) {
+            throw new runtime.RequiredError(
+                'entityId',
+                'Required parameter "entityId" was null or undefined when calling getApiV1EntitiesByEntityTypeByEntityIdTagsHistory().'
+            );
+        }
+
+        if (requestParameters['entityType'] == null) {
+            throw new runtime.RequiredError(
+                'entityType',
+                'Required parameter "entityType" was null or undefined when calling getApiV1EntitiesByEntityTypeByEntityIdTagsHistory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/entities/{entity_type}/{entity_id}/tags/history`;
+        urlPath = urlPath.replace(`{${"entity_id"}}`, encodeURIComponent(String(requestParameters['entityId'])));
+        urlPath = urlPath.replace(`{${"entity_type"}}`, encodeURIComponent(String(requestParameters['entityType'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuditLogResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
+        const response = await this.getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
-                'Required parameter "listId" was null or undefined when calling getFilters1().'
+                'Required parameter "listId" was null or undefined when calling getApiV1FiltersByListid().'
             );
         }
 
@@ -955,116 +1039,14 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getFilters1(requestParameters: GetFilters1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult> {
-        const response = await this.getFilters1Raw(requestParameters, initOverrides);
+    async getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult> {
+        const response = await this.getApiV1FiltersByListidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getFollowerUsersRaw(requestParameters: GetFollowerUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getFollowerUsers().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/followers`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getFollowerUsers(requestParameters: GetFollowerUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
-        const response = await this.getFollowerUsersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getFollowingUsersRaw(requestParameters: GetFollowingUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getFollowingUsers().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/following`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getFollowingUsers(requestParameters: GetFollowingUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
-        const response = await this.getFollowingUsersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getGeoIpRaw(requestParameters: GetGeoIpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeoIPInfo>> {
+    async getApiV1GeoipRaw(requestParameters: GetApiV1GeoipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeoIPInfo>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1112,77 +1094,18 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getGeoIp(requestParameters: GetGeoIpRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeoIPInfo> {
-        const response = await this.getGeoIpRaw(requestParameters, initOverrides);
+    async getApiV1Geoip(requestParameters: GetApiV1GeoipRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeoIPInfo> {
+        const response = await this.getApiV1GeoipRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getLeaderboardRaw(requestParameters: GetLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getLeaderboard().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['excludeAnon'] != null) {
-            queryParameters['exclude_anon'] = requestParameters['excludeAnon'];
-        }
-
-        if (requestParameters['includeNextActivities'] != null) {
-            queryParameters['include_next_activities'] = requestParameters['includeNextActivities'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/entities/{bounty_id}/leaderboard`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LeaderboardResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getLeaderboard(requestParameters: GetLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult> {
-        const response = await this.getLeaderboardRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getLookUpsRaw(requestParameters: GetLookUpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>> {
+    async getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>> {
         if (requestParameters['lookupType'] == null) {
             throw new runtime.RequiredError(
                 'lookupType',
-                'Required parameter "lookupType" was null or undefined when calling getLookUps().'
+                'Required parameter "lookupType" was null or undefined when calling getApiV1LookupsByLookupType().'
             );
         }
 
@@ -1238,18 +1161,25 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getLookUps(requestParameters: GetLookUpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult> {
-        const response = await this.getLookUpsRaw(requestParameters, initOverrides);
+    async getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult> {
+        const response = await this.getApiV1LookupsByLookupTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getPrivateInfoRaw(requestParameters: GetPrivateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>> {
-        if (requestParameters['userId'] == null) {
+    async getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>> {
+        if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getPrivateInfo().'
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling getApiV1PermissionByGroupidDeleteMemberByMemberid().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling getApiV1PermissionByGroupidDeleteMemberByMemberid().'
             );
         }
 
@@ -1274,8 +1204,9 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
         }
 
 
-        let urlPath = `/api/v1/users/{user_id}/private`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        let urlPath = `/api/v1/permission/{groupId}/delete_member/{memberId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -1284,19 +1215,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserPrivateInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberDeletePermissionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getPrivateInfo(requestParameters: GetPrivateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo> {
-        const response = await this.getPrivateInfoRaw(requestParameters, initOverrides);
+    async getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult> {
+        const response = await this.getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getPromotionsRaw(requestParameters: GetPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>> {
+    async getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['entityType'] != null) {
@@ -1352,18 +1283,77 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getPromotions(requestParameters: GetPromotionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult> {
-        const response = await this.getPromotionsRaw(requestParameters, initOverrides);
+    async getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult> {
+        const response = await this.getApiV1PromotionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getResponseListRaw(requestParameters: GetResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>> {
+    async getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['bountyId'] != null) {
+            queryParameters['bountyId'] = requestParameters['bountyId'];
+        }
+
+        if (requestParameters['bountyType'] != null) {
+            queryParameters['bountyType'] = requestParameters['bountyType'];
+        }
+
+        if (requestParameters['chatType'] != null) {
+            queryParameters['chatType'] = requestParameters['chatType'];
+        }
+
+        if (requestParameters['version'] != null) {
+            queryParameters['version'] = requestParameters['version'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/replies/smart`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CannedResponseResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult> {
+        const response = await this.getApiV1RepliesSmartRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>> {
         if (requestParameters['bountyType'] == null) {
             throw new runtime.RequiredError(
                 'bountyType',
-                'Required parameter "bountyType" was null or undefined when calling getResponseList().'
+                'Required parameter "bountyType" was null or undefined when calling getApiV1ResponsesByBountyType().'
             );
         }
 
@@ -1443,81 +1433,14 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getResponseList(requestParameters: GetResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult> {
-        const response = await this.getResponseListRaw(requestParameters, initOverrides);
+    async getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult> {
+        const response = await this.getApiV1ResponsesByBountyTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getTagsHistoryRaw(requestParameters: GetTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
-        if (requestParameters['entityId'] == null) {
-            throw new runtime.RequiredError(
-                'entityId',
-                'Required parameter "entityId" was null or undefined when calling getTagsHistory().'
-            );
-        }
-
-        if (requestParameters['entityType'] == null) {
-            throw new runtime.RequiredError(
-                'entityType',
-                'Required parameter "entityType" was null or undefined when calling getTagsHistory().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/entities/{entity_type}/{entity_id}/tags/history`;
-        urlPath = urlPath.replace(`{${"entity_id"}}`, encodeURIComponent(String(requestParameters['entityId'])));
-        urlPath = urlPath.replace(`{${"entity_type"}}`, encodeURIComponent(String(requestParameters['entityType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AuditLogResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getTagsHistory(requestParameters: GetTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
-        const response = await this.getTagsHistoryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserPinRaw(requestParameters: GetUserPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>> {
+    async getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['clientId'] != null) {
@@ -1557,18 +1480,287 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getUserPin(requestParameters: GetUserPinRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult> {
-        const response = await this.getUserPinRaw(requestParameters, initOverrides);
+    async getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult> {
+        const response = await this.getApiV1UserInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async notifyRaw(requestParameters: NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUserIdPrivate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{user_id}/private`;
+        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPrivateInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo> {
+        const response = await this.getApiV1UsersByUserIdPrivateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridFollowers().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/followers`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
+        const response = await this.getApiV1UsersByUseridFollowersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridFollowing().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/following`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
+        const response = await this.getApiV1UsersByUseridFollowingRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/addresses/validate`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ValidateAddressResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult> {
+        const response = await this.postApiV1AddressesValidateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters: PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['entityId'] == null) {
+            throw new runtime.RequiredError(
+                'entityId',
+                'Required parameter "entityId" was null or undefined when calling postApiV1EntitiesByEntityTypeByEntityIdTags().'
+            );
+        }
+
+        if (requestParameters['entityType'] == null) {
+            throw new runtime.RequiredError(
+                'entityType',
+                'Required parameter "entityType" was null or undefined when calling postApiV1EntitiesByEntityTypeByEntityIdTags().'
+            );
+        }
+
+        if (requestParameters['tags'] == null) {
+            throw new runtime.RequiredError(
+                'tags',
+                'Required parameter "tags" was null or undefined when calling postApiV1EntitiesByEntityTypeByEntityIdTags().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['reason'] != null) {
+            queryParameters['reason'] = requestParameters['reason'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/entities/{entity_type}/{entity_id}/tags`;
+        urlPath = urlPath.replace(`{${"entity_id"}}`, encodeURIComponent(String(requestParameters['entityId'])));
+        urlPath = urlPath.replace(`{${"entity_type"}}`, encodeURIComponent(String(requestParameters['entityType'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: TagsToJSON(requestParameters['tags']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1EntitiesByEntityTypeByEntityIdTags(requestParameters: PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1EntitiesByEntityTypeByEntityIdTagsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1NotifyRaw(requestParameters: PostApiV1NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['notification'] == null) {
             throw new runtime.RequiredError(
                 'notification',
-                'Required parameter "notification" was null or undefined when calling notify().'
+                'Required parameter "notification" was null or undefined when calling postApiV1Notify().'
             );
         }
 
@@ -1610,14 +1802,14 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async notify(requestParameters: NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.notifyRaw(requestParameters, initOverrides);
+    async postApiV1Notify(requestParameters: PostApiV1NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1NotifyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postReferralRaw(requestParameters: PostReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>> {
+    async postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['code'] != null) {
@@ -1657,200 +1849,8 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async postReferral(requestParameters: PostReferralRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult> {
-        const response = await this.postReferralRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async resolveAttachmentsRaw(requestParameters: ResolveAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['url'] != null) {
-            queryParameters['url'] = requestParameters['url'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/attachments/resolve`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResolveAttachmentResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async resolveAttachments(requestParameters: ResolveAttachmentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult> {
-        const response = await this.resolveAttachmentsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async rootRaw(requestParameters: RootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async root(requestParameters: RootRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.rootRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async smartRepliesRaw(requestParameters: SmartRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['bountyId'] != null) {
-            queryParameters['bountyId'] = requestParameters['bountyId'];
-        }
-
-        if (requestParameters['bountyType'] != null) {
-            queryParameters['bountyType'] = requestParameters['bountyType'];
-        }
-
-        if (requestParameters['chatType'] != null) {
-            queryParameters['chatType'] = requestParameters['chatType'];
-        }
-
-        if (requestParameters['version'] != null) {
-            queryParameters['version'] = requestParameters['version'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/replies/smart`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CannedResponseResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async smartReplies(requestParameters: SmartRepliesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult> {
-        const response = await this.smartRepliesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async validateAddressRaw(requestParameters: ValidateAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/addresses/validate`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ValidateAddressResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async validateAddress(requestParameters: ValidateAddressRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult> {
-        const response = await this.validateAddressRaw(requestParameters, initOverrides);
+    async postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult> {
+        const response = await this.postApiV1ReferralsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1859,7 +1859,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 /**
  * @export
  */
-export const AddTagsEntityTypeEnum = {
+export const DeleteApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum = {
     NONE: 'NONE',
     UNKNOWN: 'UNKNOWN',
     USER: 'USER',
@@ -1878,11 +1878,11 @@ export const AddTagsEntityTypeEnum = {
     CATEGORY: 'CATEGORY',
     SYSTEM: 'SYSTEM'
 } as const;
-export type AddTagsEntityTypeEnum = typeof AddTagsEntityTypeEnum[keyof typeof AddTagsEntityTypeEnum];
+export type DeleteApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum = typeof DeleteApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum[keyof typeof DeleteApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum];
 /**
  * @export
  */
-export const DeleteTagEntityTypeEnum = {
+export const GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryEntityTypeEnum = {
     NONE: 'NONE',
     UNKNOWN: 'UNKNOWN',
     USER: 'USER',
@@ -1901,21 +1901,21 @@ export const DeleteTagEntityTypeEnum = {
     CATEGORY: 'CATEGORY',
     SYSTEM: 'SYSTEM'
 } as const;
-export type DeleteTagEntityTypeEnum = typeof DeleteTagEntityTypeEnum[keyof typeof DeleteTagEntityTypeEnum];
+export type GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryEntityTypeEnum = typeof GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryEntityTypeEnum[keyof typeof GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryEntityTypeEnum];
 /**
  * @export
  */
-export const GetLookUpsSearchModeEnum = {
+export const GetApiV1LookupsByLookupTypeSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetLookUpsSearchModeEnum = typeof GetLookUpsSearchModeEnum[keyof typeof GetLookUpsSearchModeEnum];
+export type GetApiV1LookupsByLookupTypeSearchModeEnum = typeof GetApiV1LookupsByLookupTypeSearchModeEnum[keyof typeof GetApiV1LookupsByLookupTypeSearchModeEnum];
 /**
  * @export
  */
-export const GetResponseListResponseStatesEnum = {
+export const GetApiV1ResponsesByBountyTypeResponseStatesEnum = {
     NONE: 'NONE',
     DRAFT: 'DRAFT',
     APPROVAL: 'APPROVAL',
@@ -1932,21 +1932,21 @@ export const GetResponseListResponseStatesEnum = {
     DELETED: 'DELETED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetResponseListResponseStatesEnum = typeof GetResponseListResponseStatesEnum[keyof typeof GetResponseListResponseStatesEnum];
+export type GetApiV1ResponsesByBountyTypeResponseStatesEnum = typeof GetApiV1ResponsesByBountyTypeResponseStatesEnum[keyof typeof GetApiV1ResponsesByBountyTypeResponseStatesEnum];
 /**
  * @export
  */
-export const GetResponseListSearchModeEnum = {
+export const GetApiV1ResponsesByBountyTypeSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetResponseListSearchModeEnum = typeof GetResponseListSearchModeEnum[keyof typeof GetResponseListSearchModeEnum];
+export type GetApiV1ResponsesByBountyTypeSearchModeEnum = typeof GetApiV1ResponsesByBountyTypeSearchModeEnum[keyof typeof GetApiV1ResponsesByBountyTypeSearchModeEnum];
 /**
  * @export
  */
-export const GetTagsHistoryEntityTypeEnum = {
+export const PostApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum = {
     NONE: 'NONE',
     UNKNOWN: 'UNKNOWN',
     USER: 'USER',
@@ -1965,4 +1965,4 @@ export const GetTagsHistoryEntityTypeEnum = {
     CATEGORY: 'CATEGORY',
     SYSTEM: 'SYSTEM'
 } as const;
-export type GetTagsHistoryEntityTypeEnum = typeof GetTagsHistoryEntityTypeEnum[keyof typeof GetTagsHistoryEntityTypeEnum];
+export type PostApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum = typeof PostApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum[keyof typeof PostApiV1EntitiesByEntityTypeByEntityIdTagsEntityTypeEnum];

@@ -11,23 +11,6 @@ import ai.youkno.edgeserversdk.models.ReportsMetadata
 
 interface ReportControllerApi {
     /**
-     * POST api/v1/reports/download
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param downloadReportRequest 
-     * @param authorization  (optional)
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @POST("api/v1/reports/download")
-    fun downloadReport(@Body downloadReportRequest: DownloadReportRequest, @Header("Authorization") authorization: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
      * GET api/v1/reports/meta
      * 
      * 
@@ -41,6 +24,23 @@ interface ReportControllerApi {
      * @return [Call]<[ReportsMetadata]>
      */
     @GET("api/v1/reports/meta")
-    fun getReportsMetadata(@Header("Authorization") authorization: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReportsMetadata>
+    fun getApiV1ReportsMeta(@Header("Authorization") authorization: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReportsMetadata>
+
+    /**
+     * POST api/v1/reports/download
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param downloadReportRequest 
+     * @param authorization  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @POST("api/v1/reports/download")
+    fun postApiV1ReportsDownload(@Body downloadReportRequest: DownloadReportRequest, @Header("Authorization") authorization: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

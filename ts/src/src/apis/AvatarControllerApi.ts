@@ -25,23 +25,23 @@ import {
     CreateAvatarRequestToJSON,
 } from '../models/index';
 
-export interface CreateAvatarOperationRequest {
-    createAvatarRequest: CreateAvatarRequest;
+export interface GetApiV1AvatarsRequest {
+    name: string;
+    length?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAvatarByIdRequest {
+export interface GetApiV1AvatarsByAvataridRequest {
     avatarId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SearchAvatarsRequest {
-    name: string;
-    length?: number;
+export interface PostApiV1AvatarsRequest {
+    createAvatarRequest: CreateAvatarRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -56,7 +56,8 @@ export interface SearchAvatarsRequest {
 export interface AvatarControllerApiInterface {
     /**
      * 
-     * @param {CreateAvatarRequest} createAvatarRequest 
+     * @param {string} name 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -64,11 +65,11 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    createAvatarRaw(requestParameters: CreateAvatarOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
+    getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>>;
 
     /**
      */
-    createAvatar(requestParameters: CreateAvatarOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
+    getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>>;
 
     /**
      * 
@@ -80,16 +81,15 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    getAvatarByIdRaw(requestParameters: GetAvatarByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
+    getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
 
     /**
      */
-    getAvatarById(requestParameters: GetAvatarByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
+    getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
 
     /**
      * 
-     * @param {string} name 
-     * @param {number} [length] 
+     * @param {CreateAvatarRequest} createAvatarRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -97,11 +97,11 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    searchAvatarsRaw(requestParameters: SearchAvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>>;
+    postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
 
     /**
      */
-    searchAvatars(requestParameters: SearchAvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>>;
+    postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
 
 }
 
@@ -112,115 +112,11 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
 
     /**
      */
-    async createAvatarRaw(requestParameters: CreateAvatarOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
-        if (requestParameters['createAvatarRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createAvatarRequest',
-                'Required parameter "createAvatarRequest" was null or undefined when calling createAvatar().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/avatars`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateAvatarRequestToJSON(requestParameters['createAvatarRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createAvatar(requestParameters: CreateAvatarOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
-        const response = await this.createAvatarRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAvatarByIdRaw(requestParameters: GetAvatarByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
-        if (requestParameters['avatarId'] == null) {
-            throw new runtime.RequiredError(
-                'avatarId',
-                'Required parameter "avatarId" was null or undefined when calling getAvatarById().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/avatars/{avatarId}`;
-        urlPath = urlPath.replace(`{${"avatarId"}}`, encodeURIComponent(String(requestParameters['avatarId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAvatarById(requestParameters: GetAvatarByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
-        const response = await this.getAvatarByIdRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async searchAvatarsRaw(requestParameters: SearchAvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>> {
+    async getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>> {
         if (requestParameters['name'] == null) {
             throw new runtime.RequiredError(
                 'name',
-                'Required parameter "name" was null or undefined when calling searchAvatars().'
+                'Required parameter "name" was null or undefined when calling getApiV1Avatars().'
             );
         }
 
@@ -267,8 +163,112 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
 
     /**
      */
-    async searchAvatars(requestParameters: SearchAvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>> {
-        const response = await this.searchAvatarsRaw(requestParameters, initOverrides);
+    async getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>> {
+        const response = await this.getApiV1AvatarsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
+        if (requestParameters['avatarId'] == null) {
+            throw new runtime.RequiredError(
+                'avatarId',
+                'Required parameter "avatarId" was null or undefined when calling getApiV1AvatarsByAvatarid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/avatars/{avatarId}`;
+        urlPath = urlPath.replace(`{${"avatarId"}}`, encodeURIComponent(String(requestParameters['avatarId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
+        const response = await this.getApiV1AvatarsByAvataridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
+        if (requestParameters['createAvatarRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createAvatarRequest',
+                'Required parameter "createAvatarRequest" was null or undefined when calling postApiV1Avatars().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/avatars`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateAvatarRequestToJSON(requestParameters['createAvatarRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
+        const response = await this.postApiV1AvatarsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

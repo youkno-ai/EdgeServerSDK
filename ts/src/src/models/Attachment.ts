@@ -241,6 +241,18 @@ export interface Attachment {
      * @type {string}
      * @memberof Attachment
      */
+    effectiveActionUrl?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Attachment
+     */
+    visibilityAsEnum?: AttachmentVisibilityAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Attachment
+     */
     displayStyleAsEnum?: AttachmentDisplayStyleAsEnumEnum;
     /**
      * 
@@ -254,18 +266,6 @@ export interface Attachment {
      * @memberof Attachment
      */
     storageTypeAsEnum?: AttachmentStorageTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Attachment
-     */
-    visibilityAsEnum?: AttachmentVisibilityAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Attachment
-     */
-    effectiveActionUrl?: string;
     /**
      * 
      * @type {string}
@@ -296,6 +296,17 @@ export interface Attachment {
 /**
  * @export
  */
+export const AttachmentVisibilityAsEnumEnum = {
+    NONE: 'NONE',
+    CREATOR: 'CREATOR',
+    PARTICIPANTS: 'PARTICIPANTS',
+    ALL: 'ALL'
+} as const;
+export type AttachmentVisibilityAsEnumEnum = typeof AttachmentVisibilityAsEnumEnum[keyof typeof AttachmentVisibilityAsEnumEnum];
+
+/**
+ * @export
+ */
 export const AttachmentDisplayStyleAsEnumEnum = {
     INLINE: 'INLINE',
     ATTACH: 'ATTACH'
@@ -313,17 +324,6 @@ export const AttachmentStorageTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type AttachmentStorageTypeAsEnumEnum = typeof AttachmentStorageTypeAsEnumEnum[keyof typeof AttachmentStorageTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const AttachmentVisibilityAsEnumEnum = {
-    NONE: 'NONE',
-    CREATOR: 'CREATOR',
-    PARTICIPANTS: 'PARTICIPANTS',
-    ALL: 'ALL'
-} as const;
-export type AttachmentVisibilityAsEnumEnum = typeof AttachmentVisibilityAsEnumEnum[keyof typeof AttachmentVisibilityAsEnumEnum];
 
 /**
  * @export
@@ -418,11 +418,11 @@ export function AttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'cdnDisplayUrl': json['cdnDisplayUrl'] == null ? undefined : json['cdnDisplayUrl'],
         'attUrl': json['attUrl'] == null ? undefined : json['attUrl'],
         'valid': json['valid'] == null ? undefined : json['valid'],
+        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
+        'visibilityAsEnum': json['visibilityAsEnum'] == null ? undefined : json['visibilityAsEnum'],
         'displayStyleAsEnum': json['displayStyleAsEnum'] == null ? undefined : json['displayStyleAsEnum'],
         'youTubeCoverImage': json['youTubeCoverImage'] == null ? undefined : json['youTubeCoverImage'],
         'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
-        'visibilityAsEnum': json['visibilityAsEnum'] == null ? undefined : json['visibilityAsEnum'],
-        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
         'fileNameFromUrl': json['fileNameFromUrl'] == null ? undefined : json['fileNameFromUrl'],
         'youTubeVideoId': json['youTubeVideoId'] == null ? undefined : json['youTubeVideoId'],
         'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
@@ -470,11 +470,11 @@ export function AttachmentToJSONTyped(value?: Attachment | null, ignoreDiscrimin
         'cdnDisplayUrl': value['cdnDisplayUrl'],
         'attUrl': value['attUrl'],
         'valid': value['valid'],
+        'effectiveActionUrl': value['effectiveActionUrl'],
+        'visibilityAsEnum': value['visibilityAsEnum'],
         'displayStyleAsEnum': value['displayStyleAsEnum'],
         'youTubeCoverImage': value['youTubeCoverImage'],
         'storageTypeAsEnum': value['storageTypeAsEnum'],
-        'visibilityAsEnum': value['visibilityAsEnum'],
-        'effectiveActionUrl': value['effectiveActionUrl'],
         'fileNameFromUrl': value['fileNameFromUrl'],
         'youTubeVideoId': value['youTubeVideoId'],
         'meaningAsEnum': value['meaningAsEnum'],

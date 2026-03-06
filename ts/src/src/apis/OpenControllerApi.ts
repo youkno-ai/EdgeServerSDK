@@ -184,60 +184,76 @@ import {
     UserProfileExToJSON,
 } from '../models/index';
 
-export interface AccessBountyContentRequest {
-    bountyId: string;
-    accessBountyContentReq: AccessBountyContentReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CalculateExchangeRequest {
-    currencyFrom: string;
-    amountFrom: number;
-    currencyTo: Array<string>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CancelReservationRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface ConfirmEmailRequest {
-    token: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteCommentRequest {
+export interface DeleteApiV1OpenCommentsByCommentidRequest {
     commentId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface EditCommentRequest {
-    commentId: string;
-    comment: Comment;
+export interface GetApiV1OpenAdvertsByTargetappByBannertypeRequest {
+    targetApp: GetApiV1OpenAdvertsByTargetappByBannertypeTargetAppEnum;
+    bannerType: GetApiV1OpenAdvertsByTargetappByBannertypeBannerTypeEnum;
+    locationCompanyId?: string;
+    locationPin?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ExplainSelfLinkRequest {
-    url: string;
+export interface GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest {
+    anchorType: string;
+    anchorId: string;
+    attachmentId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface FetchBountyRequest {
+export interface GetApiV1OpenBountiesByBountyIdActivitiesChainRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountiesByBountyIdBudgetRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountiesByBountyIdBudgetNewRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountiesByBountyIdBudgetOldRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountiesByBountyIdInfoRequest {
+    bountyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountiesByBountyidContentAccessStatusRequest {
+    bountyId: string;
+    includSubbounties?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenBountyFetchByBountyIdRequest {
     bountyId: string;
     fetchFromFb?: boolean;
     creatorId?: string;
@@ -249,110 +265,24 @@ export interface FetchBountyRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetAccessBountyContentStatusRequest {
-    bountyId: string;
-    includSubbounties?: boolean;
+export interface GetApiV1OpenByUserIdOrdersByOrderIdRequest {
+    userId: string;
+    orderId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAdsRequest {
-    targetApp: GetAdsTargetAppEnum;
-    bannerType: GetAdsBannerTypeEnum;
-    locationCompanyId?: string;
-    locationPin?: string;
+export interface GetApiV1OpenByUserIdSubordersByParentOrderIdRequest {
+    userId: string;
+    parentOrderId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetAllowedCurrenciesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAttachmentRequest {
-    anchorType: string;
-    anchorId: string;
-    attachmentId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAvailabilityRequest {
-    date: number;
-    partySize: number;
-    restaurantId?: number;
-    forwardMinutes?: number;
-    backwardMinutes?: number;
-    includeCcResults?: boolean;
-    includeExperiences?: boolean;
-    reservationAttribute?: Array<GetAvailabilityReservationAttributeEnum>;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBountyBudgetRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBountyBudgetOldRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBountyBudgetOld1Request {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBountyInfoRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetBusinessTypesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignsRequest {
-    pageFilter: PageFilter;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignsChainRequest {
-    bountyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCampaignsSectionsRequest {
-    pageFilter: PageFilter;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCategoriesWithBountyFilterRequest {
-    categoryType: GetCategoriesWithBountyFilterCategoryTypeEnum;
+export interface GetApiV1OpenCategoriesByCategoryTypeRequest {
+    categoryType: GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum;
     filter: Filter;
     clientId?: string;
     category?: Array<string>;
@@ -363,35 +293,30 @@ export interface GetCategoriesWithBountyFilterRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetClientInfoRequest {
+export interface GetApiV1OpenClientsByClientIdRequest {
     clientId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCommentRequest {
+export interface GetApiV1OpenClientsGuessRequest {
+    url: string;
+    clientId?: string;
+    kiosk?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenCommentsByCommentidRequest {
     commentId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCompanyInfoByUrlRequest {
-    url: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomCurrencyRequest {
-    code: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetEntityCommentsRequest {
+export interface GetApiV1OpenCommentsByEntitytypeByEntityidRequest {
     entityId: string;
     entityType: string;
     start?: number;
@@ -401,7 +326,48 @@ export interface GetEntityCommentsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetFiltersRequest {
+export interface GetApiV1OpenCompaniesByCompanyidKiosksRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenCompaniesByCompanyidLocationsRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenCompanyInfoRequest {
+    url: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenCurrenciesRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenCurrencyByCodeRequest {
+    code: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenEmailConfirmRequest {
+    token: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenFiltersByListIdRequest {
     listId: string;
     tag?: Array<string>;
     category?: Array<string>;
@@ -412,52 +378,51 @@ export interface GetFiltersRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetGuessLocationsRequest {
+export interface GetApiV1OpenIntegrationsRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetInviteInfoRequest {
+export interface GetApiV1OpenInvitesByInviteidInfoRequest {
     inviteId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetKiosksRequest {
-    companyId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetLocationsRequest {
+export interface GetApiV1OpenLocationsRequest {
     deliveryZipcode?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetLocationsInfoRequest {
-    companyId: string;
+export interface GetApiV1OpenLocationsGuessRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetLookupsRequest {
+export interface GetApiV1OpenLookupsByLookupTypeRequest {
     lookupType: string;
     q?: string;
     limit?: string;
     query?: Array<string>;
-    searchMode?: GetLookupsSearchModeEnum;
+    searchMode?: GetApiV1OpenLookupsByLookupTypeSearchModeEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetOrderReceiptRequest {
+export interface GetApiV1OpenMetaTabletEntrypointRequest {
+    test?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenOrdersByBountyidReceiptRequest {
     bountyId: string;
     redirectUrl: string;
     xEdgeAgent?: string;
@@ -465,7 +430,7 @@ export interface GetOrderReceiptRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetPickupOrdersQtyRequest {
+export interface GetApiV1OpenPickupOrdersByClientRequest {
     client: string;
     pickupDate: string;
     deliveryMethod?: string;
@@ -474,14 +439,27 @@ export interface GetPickupOrdersQtyRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetProductExtrasRequest {
+export interface GetApiV1OpenProductsRequest {
+    filter: Filter;
+    category?: Array<string>;
+    tag?: Array<string>;
+    q?: string;
+    start?: number;
+    length?: number;
+    ignoreCache?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenProductsByProductidExtrasRequest {
     productId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetProductRecomendationsRequest {
+export interface GetApiV1OpenProductsRecommendationsRequest {
     actionVerb?: string;
     actionObjectType?: string;
     actionObjectId?: string;
@@ -493,26 +471,13 @@ export interface GetProductRecomendationsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetProductsRequest {
-    filter: Filter;
-    category?: Array<string>;
-    tag?: Array<string>;
-    q?: string;
-    start?: number;
-    length?: number;
-    ignoreCache?: boolean;
+export interface GetApiV1OpenReportContentTypesRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetReportTypesRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetReservationsRequest {
+export interface GetApiV1OpenReservationsRequest {
     filter: Filter;
     start?: number;
     length?: number;
@@ -521,20 +486,47 @@ export interface GetReservationsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetRestaurantsRequest {
+export interface GetApiV1OpenReservationsAvailabilityRequest {
+    date: number;
+    partySize: number;
+    restaurantId?: number;
+    forwardMinutes?: number;
+    backwardMinutes?: number;
+    includeCcResults?: boolean;
+    includeExperiences?: boolean;
+    reservationAttribute?: Array<GetApiV1OpenReservationsAvailabilityReservationAttributeEnum>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetShopSettings1Request {
+export interface GetApiV1OpenRestaurantsRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenSelflinksExplainRequest {
+    url: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenSelfonboardingBusinesstypesRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1OpenSettingsShopsettingsRequest {
     companyId?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetStatesRequest {
+export interface GetApiV1OpenStatesByClientIdRequest {
     clientId: string;
     administrative?: boolean;
     xEdgeAgent?: string;
@@ -542,52 +534,38 @@ export interface GetStatesRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetSurveyAnswersRequest {
+export interface GetApiV1OpenSurveysByBountyidRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetSurveyBundleRequest {
+export interface GetApiV1OpenSurveysByBountyidAnswerRequest {
     bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserEarningsRequest {
-    userId: string;
-    bountyId: Array<string>;
+export interface GetApiV1OpenTokensByCurrencyfromExchangeRequest {
+    currencyFrom: string;
+    amountFrom: number;
+    currencyTo: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserOrder1Request {
-    userId: string;
-    orderId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUserProfile1Request {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUserStreamRequest {
+export interface GetApiV1OpenUserStreamByListidRequest {
     listId: string;
     userId?: string;
     groupId?: string;
     companyId?: string;
     postedAt?: number;
-    searchDirection?: GetUserStreamSearchDirectionEnum;
-    searchMode?: GetUserStreamSearchModeEnum;
-    strategy?: GetUserStreamStrategyEnum;
+    searchDirection?: GetApiV1OpenUserStreamByListidSearchDirectionEnum;
+    searchMode?: GetApiV1OpenUserStreamByListidSearchModeEnum;
+    strategy?: GetApiV1OpenUserStreamByListidStrategyEnum;
     order?: string;
     displayScreen?: string;
     start?: number;
@@ -598,45 +576,70 @@ export interface GetUserStreamRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserSubOrdersRequest {
+export interface GetApiV1OpenUsersByUserIdEarningsRequest {
     userId: string;
-    parentOrderId: string;
+    bountyId: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetVendorPoliciesRequest {
+export interface GetApiV1OpenUsersByUserIdProfileRequest {
     userId: string;
-    policyType?: Array<GetVendorPoliciesPolicyTypeEnum>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GuessClientInfoRequest {
-    url: string;
-    clientId?: string;
-    kiosk?: boolean;
+export interface GetApiV1OpenVendorByUseridPolicyRequest {
+    userId: string;
+    policyType?: Array<GetApiV1OpenVendorByUseridPolicyPolicyTypeEnum>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface IntegrationsRequest {
+export interface PatchApiV1OpenOrdersByOrderidRequest {
+    orderId: string;
+    orderUpdate: OrderUpdate;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface KioskEntryPointRequest {
-    test?: boolean;
+export interface PostApiV1OpenBountiesByBountyidContentAccessRequest {
+    bountyId: string;
+    accessBountyContentReq: AccessBountyContentReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface LikeOperationRequest {
+export interface PostApiV1OpenBountyByBountyidBidRequest {
+    bountyId: string;
+    placeBidReq: PlaceBidReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1OpenBountyByBountyidQuickClaimRequest {
+    bountyId: string;
+    bountyResponseRequest: BountyResponseRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1OpenBountyByBountyidResponseRequest {
+    bountyId: string;
+    bountyResponse: BountyResponse;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1OpenByEntitytypeByEntityidLikeRequest {
     entityType: string;
     entityId: string;
     likeRequest: LikeRequest;
@@ -645,23 +648,28 @@ export interface LikeOperationRequest {
     xEdgeClientId?: string;
 }
 
-export interface PayOrderRequest {
-    orderId: string;
-    payOrderReq: PayOrderReq;
+export interface PostApiV1OpenCampaignsRequest {
+    pageFilter: PageFilter;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface PlaceBidRequest {
-    bountyId: string;
-    placeBidReq: PlaceBidReq;
+export interface PostApiV1OpenCampaignsSectionsRequest {
+    pageFilter: PageFilter;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface PromoteCommentRequest {
+export interface PostApiV1OpenCommentsRequest {
+    comment: Comment;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1OpenCommentsByCommentidPromoteRequest {
     commentId: string;
     comment: Comment;
     xEdgeAgent?: string;
@@ -669,46 +677,15 @@ export interface PromoteCommentRequest {
     xEdgeClientId?: string;
 }
 
-export interface PublishCommentRequest {
-    comment: Comment;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PublishResponseRequest {
-    bountyId: string;
-    bountyResponse: BountyResponse;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface PublishSurveyAnswersRequest {
-    bountyId: string;
-    surveyAnswers: SurveyAnswers;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface QuickClaimRequest {
-    bountyId: string;
-    bountyResponseRequest: BountyResponseRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateOrder2Request {
+export interface PostApiV1OpenOrdersByOrderidPayRequest {
     orderId: string;
-    orderUpdate: OrderUpdate;
+    payOrderReq: PayOrderReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateOrderPaymentRequest {
+export interface PostApiV1OpenOrdersByOrderidPaymentResultRequest {
     orderId: string;
     orderPaymentResult: OrderPaymentResult;
     xEdgeAgent?: string;
@@ -716,7 +693,7 @@ export interface UpdateOrderPaymentRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateOrderStatusRequest {
+export interface PostApiV1OpenOrdersByOrderidStatusByStatusRequest {
     orderId: string;
     status: string;
     xEdgeAgent?: string;
@@ -724,10 +701,33 @@ export interface UpdateOrderStatusRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateResponseRequest {
+export interface PostApiV1OpenSurveysByBountyidAnswerRequest {
+    bountyId: string;
+    surveyAnswers: SurveyAnswers;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1OpenBountyByBountyidResponseByResponseidRequest {
     bountyId: string;
     responseId: string;
     responseChanges: ResponseChanges;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1OpenCommentsByCommentidRequest {
+    commentId: string;
+    comment: Comment;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1OpenReservationsByBountyidCancelRequest {
+    bountyId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -742,73 +742,6 @@ export interface UpdateResponseRequest {
 export interface OpenControllerApiInterface {
     /**
      * 
-     * @param {string} bountyId 
-     * @param {AccessBountyContentReq} accessBountyContentReq 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    accessBountyContentRaw(requestParameters: AccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>>;
-
-    /**
-     */
-    accessBountyContent(requestParameters: AccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult>;
-
-    /**
-     * 
-     * @param {string} currencyFrom 
-     * @param {number} amountFrom 
-     * @param {Array<string>} currencyTo 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    calculateExchangeRaw(requestParameters: CalculateExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeTokenResp>>;
-
-    /**
-     */
-    calculateExchange(requestParameters: CalculateExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeTokenResp>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    cancelReservationRaw(requestParameters: CancelReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    cancelReservation(requestParameters: CancelReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} token 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    confirmEmailRaw(requestParameters: ConfirmEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    confirmEmail(requestParameters: ConfirmEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
      * @param {string} commentId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -817,16 +750,18 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    deleteCommentRaw(requestParameters: DeleteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1OpenCommentsByCommentidRaw(requestParameters: DeleteApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteComment(requestParameters: DeleteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1OpenCommentsByCommentid(requestParameters: DeleteApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} commentId 
-     * @param {Comment} comment 
+     * @param {'NONE' | 'ANDROID' | 'IOS' | 'WEB' | 'JOIN_WEB' | 'SERVER' | 'SHOP' | 'KIOSK' | 'UNKNOWN'} targetApp 
+     * @param {'NONE' | 'HERO' | 'HIGHLIGHTS' | 'RECOMMENDATIONS' | 'SPECIALS' | 'UNKNOWN'} bannerType 
+     * @param {string} [locationCompanyId] 
+     * @param {string} [locationPin] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -834,15 +769,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    editCommentRaw(requestParameters: EditCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
+    getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Advert>>>;
 
     /**
      */
-    editComment(requestParameters: EditCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
+    getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Advert>>;
 
     /**
      * 
-     * @param {string} url 
+     * @param {string} anchorType 
+     * @param {string} anchorId 
+     * @param {string} attachmentId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -850,11 +787,112 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    explainSelfLinkRaw(requestParameters: ExplainSelfLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExplainSelfLinkResp>>;
+    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
 
     /**
      */
-    explainSelfLink(requestParameters: ExplainSelfLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExplainSelfLinkResp>;
+    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
+
+    /**
+     * @deprecated
+     */
+    getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Budget>>;
+
+    /**
+     */
+    getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Budget>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
+
+    /**
+     * @deprecated
+     */
+    getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyInfoResult>>;
+
+    /**
+     */
+    getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyInfoResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {boolean} [includSubbounties] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessBountyContentResult>>;
+
+    /**
+     */
+    getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessBountyContentResult>;
 
     /**
      * 
@@ -871,16 +909,353 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    fetchBountyRaw(requestParameters: FetchBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+    getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    fetchBounty(requestParameters: FetchBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+    getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} orderId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} parentOrderId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'UNKNOWN'} categoryType 
+     * @param {Filter} filter 
+     * @param {string} [clientId] 
+     * @param {Array<string>} [category] 
+     * @param {Array<string>} [tag] 
+     * @param {string} [q] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+
+    /**
+     */
+    getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>>;
+
+    /**
+     */
+    getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo>;
+
+    /**
+     * 
+     * @param {string} url 
+     * @param {string} [clientId] 
+     * @param {boolean} [kiosk] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientGuessResult>>;
+
+    /**
+     */
+    getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientGuessResult>;
+
+    /**
+     * 
+     * @param {string} commentId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
+
+    /**
+     */
+    getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
+
+    /**
+     * 
+     * @param {string} entityId 
+     * @param {string} entityType 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageComment>>;
+
+    /**
+     */
+    getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageComment>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageKioskInfo>>;
+
+    /**
+     */
+    getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageKioskInfo>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageLocationInfo>>;
+
+    /**
+     */
+    getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageLocationInfo>;
+
+    /**
+     * 
+     * @param {string} url 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyInfo>>;
+
+    /**
+     */
+    getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyInfo>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>>;
+
+    /**
+     */
+    getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse>;
+
+    /**
+     * 
+     * @param {string} code 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
+
+    /**
+     */
+    getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
+
+    /**
+     * 
+     * @param {string} token 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenEmailConfirmRaw(requestParameters: GetApiV1OpenEmailConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    getApiV1OpenEmailConfirm(requestParameters: GetApiV1OpenEmailConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} listId 
+     * @param {Array<string>} [tag] 
+     * @param {Array<string>} [category] 
+     * @param {string} [q] 
+     * @param {string} [clientId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>>;
+
+    /**
+     */
+    getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AllowedIntegrationsResponse>>;
+
+    /**
+     */
+    getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AllowedIntegrationsResponse>;
+
+    /**
+     * 
+     * @param {string} inviteId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteInfoResult>>;
+
+    /**
+     */
+    getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteInfoResult>;
+
+    /**
+     * 
+     * @param {string} [deliveryZipcode] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
+
+    /**
+     */
+    getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationGuessResult>>;
+
+    /**
+     */
+    getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationGuessResult>;
+
+    /**
+     * 
+     * @param {string} lookupType 
+     * @param {string} [q] 
+     * @param {string} [limit] 
+     * @param {Array<string>} [query] 
+     * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>>;
+
+    /**
+     */
+    getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult>;
+
+    /**
+     * 
+     * @param {boolean} [test] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KioskEntryPointResult>>;
+
+    /**
+     */
+    getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KioskEntryPointResult>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {boolean} [includSubbounties] 
+     * @param {string} redirectUrl 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -888,18 +1263,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getAccessBountyContentStatusRaw(requestParameters: GetAccessBountyContentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessBountyContentResult>>;
+    getApiV1OpenOrdersByBountyidReceiptRaw(requestParameters: GetApiV1OpenOrdersByBountyidReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getAccessBountyContentStatus(requestParameters: GetAccessBountyContentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessBountyContentResult>;
+    getApiV1OpenOrdersByBountyidReceipt(requestParameters: GetApiV1OpenOrdersByBountyidReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {'NONE' | 'ANDROID' | 'IOS' | 'WEB' | 'JOIN_WEB' | 'SERVER' | 'SHOP' | 'KIOSK' | 'UNKNOWN'} targetApp 
-     * @param {'NONE' | 'HERO' | 'HIGHLIGHTS' | 'RECOMMENDATIONS' | 'SPECIALS' | 'UNKNOWN'} bannerType 
-     * @param {string} [locationCompanyId] 
-     * @param {string} [locationPin] 
+     * @param {string} client 
+     * @param {string} pickupDate 
+     * @param {string} [deliveryMethod] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -907,11 +1281,70 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getAdsRaw(requestParameters: GetAdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Advert>>>;
+    getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PickupOrdersResult>>>;
 
     /**
      */
-    getAds(requestParameters: GetAdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Advert>>;
+    getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PickupOrdersResult>>;
+
+    /**
+     * 
+     * @param {Filter} filter 
+     * @param {Array<string>} [category] 
+     * @param {Array<string>} [tag] 
+     * @param {string} [q] 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {boolean} [ignoreCache] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {string} productId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductExtras>>;
+
+    /**
+     */
+    getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductExtras>;
+
+    /**
+     * 
+     * @param {string} [actionVerb] 
+     * @param {string} [actionObjectType] 
+     * @param {string} [actionObjectId] 
+     * @param {string} [actionSearchQuery] 
+     * @param {string} [actionRecommendationToken] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
 
     /**
      * 
@@ -922,17 +1355,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getAllowedCurrenciesRaw(requestParameters: GetAllowedCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>>;
+    getApiV1OpenReportContentTypesRaw(requestParameters: GetApiV1OpenReportContentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    getAllowedCurrencies(requestParameters: GetAllowedCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse>;
+    getApiV1OpenReportContentTypes(requestParameters: GetApiV1OpenReportContentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} anchorType 
-     * @param {string} anchorId 
-     * @param {string} attachmentId 
+     * @param {Filter} filter 
+     * @param {number} [start] 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -940,11 +1373,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getAttachmentRaw(requestParameters: GetAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
+    getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
 
     /**
      */
-    getAttachment(requestParameters: GetAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
+    getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
 
     /**
      * 
@@ -963,79 +1396,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getAvailabilityRaw(requestParameters: GetAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Availability>>;
+    getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Availability>>;
 
     /**
      */
-    getAvailability(requestParameters: GetAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Availability>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getBountyBudgetRaw(requestParameters: GetBountyBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Budget>>;
-
-    /**
-     */
-    getBountyBudget(requestParameters: GetBountyBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Budget>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getBountyBudgetOldRaw(requestParameters: GetBountyBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
-
-    /**
-     * @deprecated
-     */
-    getBountyBudgetOld(requestParameters: GetBountyBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getBountyBudgetOld1Raw(requestParameters: GetBountyBudgetOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
-
-    /**
-     * @deprecated
-     */
-    getBountyBudgetOld1(requestParameters: GetBountyBudgetOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getBountyInfoRaw(requestParameters: GetBountyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyInfoResult>>;
-
-    /**
-     */
-    getBountyInfo(requestParameters: GetBountyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyInfoResult>;
+    getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Availability>;
 
     /**
      * 
@@ -1046,112 +1411,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getBusinessTypesRaw(requestParameters: GetBusinessTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessTypesResp>>;
+    getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
 
     /**
      */
-    getBusinessTypes(requestParameters: GetBusinessTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BusinessTypesResp>;
-
-    /**
-     * 
-     * @param {PageFilter} pageFilter 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCampaignsRaw(requestParameters: GetCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getCampaigns(requestParameters: GetCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCampaignsChainRaw(requestParameters: GetCampaignsChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getCampaignsChain(requestParameters: GetCampaignsChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {PageFilter} pageFilter 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCampaignsSectionsRaw(requestParameters: GetCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionsResult>>;
-
-    /**
-     */
-    getCampaignsSections(requestParameters: GetCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionsResult>;
-
-    /**
-     * 
-     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'UNKNOWN'} categoryType 
-     * @param {Filter} filter 
-     * @param {string} [clientId] 
-     * @param {Array<string>} [category] 
-     * @param {Array<string>} [tag] 
-     * @param {string} [q] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCategoriesWithBountyFilterRaw(requestParameters: GetCategoriesWithBountyFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
-
-    /**
-     */
-    getCategoriesWithBountyFilter(requestParameters: GetCategoriesWithBountyFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getClientInfoRaw(requestParameters: GetClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>>;
-
-    /**
-     */
-    getClientInfo(requestParameters: GetClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo>;
-
-    /**
-     * 
-     * @param {string} commentId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCommentRaw(requestParameters: GetCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
-
-    /**
-     */
-    getComment(requestParameters: GetCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
+    getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
 
     /**
      * 
@@ -1163,66 +1427,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getCompanyInfoByUrlRaw(requestParameters: GetCompanyInfoByUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyInfo>>;
+    getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExplainSelfLinkResp>>;
 
     /**
      */
-    getCompanyInfoByUrl(requestParameters: GetCompanyInfoByUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyInfo>;
-
-    /**
-     * 
-     * @param {string} code 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getCustomCurrencyRaw(requestParameters: GetCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
-
-    /**
-     */
-    getCustomCurrency(requestParameters: GetCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
-
-    /**
-     * 
-     * @param {string} entityId 
-     * @param {string} entityType 
-     * @param {number} [start] 
-     * @param {number} [limit] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getEntityCommentsRaw(requestParameters: GetEntityCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageComment>>;
-
-    /**
-     */
-    getEntityComments(requestParameters: GetEntityCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageComment>;
-
-    /**
-     * 
-     * @param {string} listId 
-     * @param {Array<string>} [tag] 
-     * @param {Array<string>} [category] 
-     * @param {string} [q] 
-     * @param {string} [clientId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getFiltersRaw(requestParameters: GetFiltersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>>;
-
-    /**
-     */
-    getFilters(requestParameters: GetFiltersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult>;
+    getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExplainSelfLinkResp>;
 
     /**
      * 
@@ -1233,237 +1442,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getGuessLocationsRaw(requestParameters: GetGuessLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationGuessResult>>;
+    getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessTypesResp>>;
 
     /**
      */
-    getGuessLocations(requestParameters: GetGuessLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationGuessResult>;
-
-    /**
-     * 
-     * @param {string} inviteId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getInviteInfoRaw(requestParameters: GetInviteInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteInfoResult>>;
-
-    /**
-     */
-    getInviteInfo(requestParameters: GetInviteInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteInfoResult>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getKiosksRaw(requestParameters: GetKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageKioskInfo>>;
-
-    /**
-     */
-    getKiosks(requestParameters: GetKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageKioskInfo>;
-
-    /**
-     * 
-     * @param {string} [deliveryZipcode] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getLocationsRaw(requestParameters: GetLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
-
-    /**
-     */
-    getLocations(requestParameters: GetLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getLocationsInfoRaw(requestParameters: GetLocationsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageLocationInfo>>;
-
-    /**
-     */
-    getLocationsInfo(requestParameters: GetLocationsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageLocationInfo>;
-
-    /**
-     * 
-     * @param {string} lookupType 
-     * @param {string} [q] 
-     * @param {string} [limit] 
-     * @param {Array<string>} [query] 
-     * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getLookupsRaw(requestParameters: GetLookupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>>;
-
-    /**
-     */
-    getLookups(requestParameters: GetLookupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} redirectUrl 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getOrderReceiptRaw(requestParameters: GetOrderReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    getOrderReceipt(requestParameters: GetOrderReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} client 
-     * @param {string} pickupDate 
-     * @param {string} [deliveryMethod] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getPickupOrdersQtyRaw(requestParameters: GetPickupOrdersQtyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PickupOrdersResult>>>;
-
-    /**
-     */
-    getPickupOrdersQty(requestParameters: GetPickupOrdersQtyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PickupOrdersResult>>;
-
-    /**
-     * 
-     * @param {string} productId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getProductExtrasRaw(requestParameters: GetProductExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductExtras>>;
-
-    /**
-     */
-    getProductExtras(requestParameters: GetProductExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductExtras>;
-
-    /**
-     * 
-     * @param {string} [actionVerb] 
-     * @param {string} [actionObjectType] 
-     * @param {string} [actionObjectId] 
-     * @param {string} [actionSearchQuery] 
-     * @param {string} [actionRecommendationToken] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getProductRecomendationsRaw(requestParameters: GetProductRecomendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getProductRecomendations(requestParameters: GetProductRecomendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {Filter} filter 
-     * @param {Array<string>} [category] 
-     * @param {Array<string>} [tag] 
-     * @param {string} [q] 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {boolean} [ignoreCache] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getProductsRaw(requestParameters: GetProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getProducts(requestParameters: GetProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getReportTypesRaw(requestParameters: GetReportTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
-
-    /**
-     */
-    getReportTypes(requestParameters: GetReportTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
-
-    /**
-     * 
-     * @param {Filter} filter 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getReservationsRaw(requestParameters: GetReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getReservations(requestParameters: GetReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getRestaurantsRaw(requestParameters: GetRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>>;
-
-    /**
-     */
-    getRestaurants(requestParameters: GetRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult>;
+    getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BusinessTypesResp>;
 
     /**
      * 
@@ -1475,11 +1458,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getShopSettings1Raw(requestParameters: GetShopSettings1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>>;
+    getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>>;
 
     /**
      */
-    getShopSettings1(requestParameters: GetShopSettings1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings>;
+    getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings>;
 
     /**
      * 
@@ -1492,27 +1475,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getStatesRaw(requestParameters: GetStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatesResult>>;
+    getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatesResult>>;
 
     /**
      */
-    getStates(requestParameters: GetStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StatesResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getSurveyAnswersRaw(requestParameters: GetSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>>;
-
-    /**
-     */
-    getSurveyAnswers(requestParameters: GetSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers>;
+    getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StatesResult>;
 
     /**
      * 
@@ -1524,16 +1491,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getSurveyBundleRaw(requestParameters: GetSurveyBundleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyBundleResp>>;
+    getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyBundleResp>>;
 
     /**
      */
-    getSurveyBundle(requestParameters: GetSurveyBundleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyBundleResp>;
+    getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyBundleResp>;
 
     /**
      * 
-     * @param {string} userId 
-     * @param {Array<string>} bountyId 
+     * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1541,16 +1507,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getUserEarningsRaw(requestParameters: GetUserEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserEarningsResult>>;
+    getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>>;
 
     /**
      */
-    getUserEarnings(requestParameters: GetUserEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserEarningsResult>;
+    getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers>;
 
     /**
      * 
-     * @param {string} userId 
-     * @param {string} orderId 
+     * @param {string} currencyFrom 
+     * @param {number} amountFrom 
+     * @param {Array<string>} currencyTo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1558,27 +1525,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getUserOrder1Raw(requestParameters: GetUserOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+    getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeTokenResp>>;
 
     /**
      */
-    getUserOrder1(requestParameters: GetUserOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getUserProfile1Raw(requestParameters: GetUserProfile1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>>;
-
-    /**
-     */
-    getUserProfile1(requestParameters: GetUserProfile1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx>;
+    getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeTokenResp>;
 
     /**
      * 
@@ -1602,16 +1553,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getUserStreamRaw(requestParameters: GetUserStreamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
+    getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>>;
 
     /**
      */
-    getUserStream(requestParameters: GetUserStreamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
+    getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {string} parentOrderId 
+     * @param {Array<string>} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1619,11 +1570,27 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getUserSubOrdersRaw(requestParameters: GetUserSubOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+    getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserEarningsResult>>;
 
     /**
      */
-    getUserSubOrders(requestParameters: GetUserSubOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+    getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserEarningsResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>>;
+
+    /**
+     */
+    getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx>;
 
     /**
      * 
@@ -1636,17 +1603,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getVendorPoliciesRaw(requestParameters: GetVendorPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: Policy; }>>;
+    getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: Policy; }>>;
 
     /**
      */
-    getVendorPolicies(requestParameters: GetVendorPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: Policy; }>;
+    getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: Policy; }>;
 
     /**
      * 
-     * @param {string} url 
-     * @param {string} [clientId] 
-     * @param {boolean} [kiosk] 
+     * @param {string} orderId 
+     * @param {OrderUpdate} orderUpdate 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1654,14 +1620,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    guessClientInfoRaw(requestParameters: GuessClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientGuessResult>>;
+    patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>>;
 
     /**
      */
-    guessClientInfo(requestParameters: GuessClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientGuessResult>;
+    patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse>;
 
     /**
      * 
+     * @param {string} bountyId 
+     * @param {AccessBountyContentReq} accessBountyContentReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1669,15 +1637,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    integrationsRaw(requestParameters: IntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AllowedIntegrationsResponse>>;
+    postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>>;
 
     /**
      */
-    integrations(requestParameters: IntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AllowedIntegrationsResponse>;
+    postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult>;
 
     /**
      * 
-     * @param {boolean} [test] 
+     * @param {string} bountyId 
+     * @param {PlaceBidReq} placeBidReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1685,11 +1654,45 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    kioskEntryPointRaw(requestParameters: KioskEntryPointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KioskEntryPointResult>>;
+    postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
 
     /**
      */
-    kioskEntryPoint(requestParameters: KioskEntryPointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KioskEntryPointResult>;
+    postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {BountyResponseRequest} bountyResponseRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
+
+    /**
+     */
+    postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {BountyResponse} bountyResponse 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
+
+    /**
+     */
+    postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
 
     /**
      * 
@@ -1703,16 +1706,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    likeRaw(requestParameters: LikeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    postApiV1OpenByEntitytypeByEntityidLikeRaw(requestParameters: PostApiV1OpenByEntitytypeByEntityidLikeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    like(requestParameters: LikeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    postApiV1OpenByEntitytypeByEntityidLike(requestParameters: PostApiV1OpenByEntitytypeByEntityidLikeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {string} orderId 
-     * @param {PayOrderReq} payOrderReq 
+     * @param {PageFilter} pageFilter 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1720,16 +1722,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    payOrderRaw(requestParameters: PayOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>>;
+    postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
 
     /**
      */
-    payOrder(requestParameters: PayOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse>;
+    postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
 
     /**
      * 
-     * @param {string} bountyId 
-     * @param {PlaceBidReq} placeBidReq 
+     * @param {PageFilter} pageFilter 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1737,11 +1738,27 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    placeBidRaw(requestParameters: PlaceBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
+    postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionsResult>>;
 
     /**
      */
-    placeBid(requestParameters: PlaceBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+    postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionsResult>;
+
+    /**
+     * 
+     * @param {Comment} comment 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
+
+    /**
+     */
+    postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
 
     /**
      * 
@@ -1754,83 +1771,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    promoteCommentRaw(requestParameters: PromoteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
+    postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
 
     /**
      */
-    promoteComment(requestParameters: PromoteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
-
-    /**
-     * 
-     * @param {Comment} comment 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    publishCommentRaw(requestParameters: PublishCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
-
-    /**
-     */
-    publishComment(requestParameters: PublishCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {BountyResponse} bountyResponse 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    publishResponseRaw(requestParameters: PublishResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
-
-    /**
-     */
-    publishResponse(requestParameters: PublishResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {SurveyAnswers} surveyAnswers 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    publishSurveyAnswersRaw(requestParameters: PublishSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>>;
-
-    /**
-     */
-    publishSurveyAnswers(requestParameters: PublishSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {BountyResponseRequest} bountyResponseRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    quickClaimRaw(requestParameters: QuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
-
-    /**
-     */
-    quickClaim(requestParameters: QuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+    postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
 
     /**
      * 
      * @param {string} orderId 
-     * @param {OrderUpdate} orderUpdate 
+     * @param {PayOrderReq} payOrderReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1838,11 +1788,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    updateOrder2Raw(requestParameters: UpdateOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>>;
+    postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>>;
 
     /**
      */
-    updateOrder2(requestParameters: UpdateOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse>;
+    postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse>;
 
     /**
      * 
@@ -1855,11 +1805,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    updateOrderPaymentRaw(requestParameters: UpdateOrderPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    postApiV1OpenOrdersByOrderidPaymentResultRaw(requestParameters: PostApiV1OpenOrdersByOrderidPaymentResultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    updateOrderPayment(requestParameters: UpdateOrderPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    postApiV1OpenOrdersByOrderidPaymentResult(requestParameters: PostApiV1OpenOrdersByOrderidPaymentResultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -1872,11 +1822,28 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    updateOrderStatusRaw(requestParameters: UpdateOrderStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    postApiV1OpenOrdersByOrderidStatusByStatusRaw(requestParameters: PostApiV1OpenOrdersByOrderidStatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    updateOrderStatus(requestParameters: UpdateOrderStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    postApiV1OpenOrdersByOrderidStatusByStatus(requestParameters: PostApiV1OpenOrdersByOrderidStatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {SurveyAnswers} surveyAnswers 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>>;
+
+    /**
+     */
+    postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers>;
 
     /**
      * 
@@ -1890,11 +1857,44 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    updateResponseRaw(requestParameters: UpdateResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
+    putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>>;
 
     /**
      */
-    updateResponse(requestParameters: UpdateResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+    putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse>;
+
+    /**
+     * 
+     * @param {string} commentId 
+     * @param {Comment} comment 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>>;
+
+    /**
+     */
+    putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    putApiV1OpenReservationsByBountyidCancelRaw(requestParameters: PutApiV1OpenReservationsByBountyidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    putApiV1OpenReservationsByBountyidCancel(requestParameters: PutApiV1OpenReservationsByBountyidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -1905,250 +1905,11 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async accessBountyContentRaw(requestParameters: AccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling accessBountyContent().'
-            );
-        }
-
-        if (requestParameters['accessBountyContentReq'] == null) {
-            throw new runtime.RequiredError(
-                'accessBountyContentReq',
-                'Required parameter "accessBountyContentReq" was null or undefined when calling accessBountyContent().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bountyId}/content/access`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AccessBountyContentReqToJSON(requestParameters['accessBountyContentReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessBountyContentResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async accessBountyContent(requestParameters: AccessBountyContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult> {
-        const response = await this.accessBountyContentRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async calculateExchangeRaw(requestParameters: CalculateExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeTokenResp>> {
-        if (requestParameters['currencyFrom'] == null) {
-            throw new runtime.RequiredError(
-                'currencyFrom',
-                'Required parameter "currencyFrom" was null or undefined when calling calculateExchange().'
-            );
-        }
-
-        if (requestParameters['amountFrom'] == null) {
-            throw new runtime.RequiredError(
-                'amountFrom',
-                'Required parameter "amountFrom" was null or undefined when calling calculateExchange().'
-            );
-        }
-
-        if (requestParameters['currencyTo'] == null) {
-            throw new runtime.RequiredError(
-                'currencyTo',
-                'Required parameter "currencyTo" was null or undefined when calling calculateExchange().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['amountFrom'] != null) {
-            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-        }
-
-        if (requestParameters['currencyTo'] != null) {
-            queryParameters['currencyTo'] = requestParameters['currencyTo'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/tokens/{currencyFrom}/exchange`;
-        urlPath = urlPath.replace(`{${"currencyFrom"}}`, encodeURIComponent(String(requestParameters['currencyFrom'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ExchangeTokenRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async calculateExchange(requestParameters: CalculateExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeTokenResp> {
-        const response = await this.calculateExchangeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async cancelReservationRaw(requestParameters: CancelReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling cancelReservation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/reservations/{bountyId}/cancel`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async cancelReservation(requestParameters: CancelReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.cancelReservationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async confirmEmailRaw(requestParameters: ConfirmEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['token'] == null) {
-            throw new runtime.RequiredError(
-                'token',
-                'Required parameter "token" was null or undefined when calling confirmEmail().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['token'] != null) {
-            queryParameters['token'] = requestParameters['token'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/email/confirm`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async confirmEmail(requestParameters: ConfirmEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.confirmEmailRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteCommentRaw(requestParameters: DeleteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1OpenCommentsByCommentidRaw(requestParameters: DeleteApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['commentId'] == null) {
             throw new runtime.RequiredError(
                 'commentId',
-                'Required parameter "commentId" was null or undefined when calling deleteComment().'
+                'Required parameter "commentId" was null or undefined when calling deleteApiV1OpenCommentsByCommentid().'
             );
         }
 
@@ -2188,86 +1949,36 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async deleteComment(requestParameters: DeleteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteCommentRaw(requestParameters, initOverrides);
+    async deleteApiV1OpenCommentsByCommentid(requestParameters: DeleteApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1OpenCommentsByCommentidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async editCommentRaw(requestParameters: EditCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
-        if (requestParameters['commentId'] == null) {
+    async getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Advert>>> {
+        if (requestParameters['targetApp'] == null) {
             throw new runtime.RequiredError(
-                'commentId',
-                'Required parameter "commentId" was null or undefined when calling editComment().'
+                'targetApp',
+                'Required parameter "targetApp" was null or undefined when calling getApiV1OpenAdvertsByTargetappByBannertype().'
             );
         }
 
-        if (requestParameters['comment'] == null) {
+        if (requestParameters['bannerType'] == null) {
             throw new runtime.RequiredError(
-                'comment',
-                'Required parameter "comment" was null or undefined when calling editComment().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/comments/{commentId}`;
-        urlPath = urlPath.replace(`{${"commentId"}}`, encodeURIComponent(String(requestParameters['commentId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CommentToJSON(requestParameters['comment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async editComment(requestParameters: EditCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
-        const response = await this.editCommentRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async explainSelfLinkRaw(requestParameters: ExplainSelfLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExplainSelfLinkResp>> {
-        if (requestParameters['url'] == null) {
-            throw new runtime.RequiredError(
-                'url',
-                'Required parameter "url" was null or undefined when calling explainSelfLink().'
+                'bannerType',
+                'Required parameter "bannerType" was null or undefined when calling getApiV1OpenAdvertsByTargetappByBannertype().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['url'] != null) {
-            queryParameters['url'] = requestParameters['url'];
+        if (requestParameters['locationCompanyId'] != null) {
+            queryParameters['locationCompanyId'] = requestParameters['locationCompanyId'];
+        }
+
+        if (requestParameters['locationPin'] != null) {
+            queryParameters['locationPin'] = requestParameters['locationPin'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2289,7 +2000,9 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/selfLinks/explain`;
+        let urlPath = `/api/v1/open/adverts/{targetApp}/{bannerType}`;
+        urlPath = urlPath.replace(`{${"targetApp"}}`, encodeURIComponent(String(requestParameters['targetApp'])));
+        urlPath = urlPath.replace(`{${"bannerType"}}`, encodeURIComponent(String(requestParameters['bannerType'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2298,23 +2011,404 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ExplainSelfLinkRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvertFromJSON));
     }
 
     /**
      */
-    async explainSelfLink(requestParameters: ExplainSelfLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExplainSelfLinkResp> {
-        const response = await this.explainSelfLinkRaw(requestParameters, initOverrides);
+    async getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Advert>> {
+        const response = await this.getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async fetchBountyRaw(requestParameters: FetchBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
+        if (requestParameters['anchorType'] == null) {
+            throw new runtime.RequiredError(
+                'anchorType',
+                'Required parameter "anchorType" was null or undefined when calling getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid().'
+            );
+        }
+
+        if (requestParameters['anchorId'] == null) {
+            throw new runtime.RequiredError(
+                'anchorId',
+                'Required parameter "anchorId" was null or undefined when calling getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid().'
+            );
+        }
+
+        if (requestParameters['attachmentId'] == null) {
+            throw new runtime.RequiredError(
+                'attachmentId',
+                'Required parameter "attachmentId" was null or undefined when calling getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/attachments/{anchorType}/{anchorId}/{attachmentId}`;
+        urlPath = urlPath.replace(`{${"anchorType"}}`, encodeURIComponent(String(requestParameters['anchorType'])));
+        urlPath = urlPath.replace(`{${"anchorId"}}`, encodeURIComponent(String(requestParameters['anchorId'])));
+        urlPath = urlPath.replace(`{${"attachmentId"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
+        const response = await this.getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling fetchBounty().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyIdActivitiesChain().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bounty_id}/activities/chain`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyIdBudget().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
+        const response = await this.getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Budget>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyIdBudgetNew().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget_new`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BudgetFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Budget> {
+        const response = await this.getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyIdBudgetOld().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget_old`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
+        const response = await this.getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyInfoResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyIdInfo().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bounty_id}/info`;
+        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyInfoResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyInfoResult> {
+        const response = await this.getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessBountyContentResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountiesByBountyidContentAccessStatus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['includSubbounties'] != null) {
+            queryParameters['includSubbounties'] = requestParameters['includSubbounties'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounties/{bountyId}/content/access/status`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessBountyContentResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessBountyContentResult> {
+        const response = await this.getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenBountyFetchByBountyId().'
             );
         }
 
@@ -2374,25 +2468,166 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async fetchBounty(requestParameters: FetchBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.fetchBountyRaw(requestParameters, initOverrides);
+    async getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.getApiV1OpenBountyFetchByBountyIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAccessBountyContentStatusRaw(requestParameters: GetAccessBountyContentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessBountyContentResult>> {
-        if (requestParameters['bountyId'] == null) {
+    async getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getAccessBountyContentStatus().'
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1OpenByUserIdOrdersByOrderId().'
+            );
+        }
+
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling getApiV1OpenByUserIdOrdersByOrderId().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['includSubbounties'] != null) {
-            queryParameters['includSubbounties'] = requestParameters['includSubbounties'];
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/{user_id}/orders/{order_id}`;
+        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"order_id"}}`, encodeURIComponent(String(requestParameters['orderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1OpenByUserIdSubordersByParentOrderId().'
+            );
+        }
+
+        if (requestParameters['parentOrderId'] == null) {
+            throw new runtime.RequiredError(
+                'parentOrderId',
+                'Required parameter "parentOrderId" was null or undefined when calling getApiV1OpenByUserIdSubordersByParentOrderId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/{user_id}/suborders/{parent_order_id}`;
+        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"parent_order_id"}}`, encodeURIComponent(String(requestParameters['parentOrderId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+        if (requestParameters['categoryType'] == null) {
+            throw new runtime.RequiredError(
+                'categoryType',
+                'Required parameter "categoryType" was null or undefined when calling getApiV1OpenCategoriesByCategoryType().'
+            );
+        }
+
+        if (requestParameters['filter'] == null) {
+            throw new runtime.RequiredError(
+                'filter',
+                'Required parameter "filter" was null or undefined when calling getApiV1OpenCategoriesByCategoryType().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['clientId'] != null) {
+            queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
+
+        if (requestParameters['tag'] != null) {
+            queryParameters['tag'] = requestParameters['tag'];
+        }
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
+        }
+
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2414,8 +2649,8 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/bounties/{bountyId}/content/access/status`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+        let urlPath = `/api/v1/open/categories/{category_type}`;
+        urlPath = urlPath.replace(`{${"category_type"}}`, encodeURIComponent(String(requestParameters['categoryType'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2424,41 +2659,89 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessBountyContentResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getAccessBountyContentStatus(requestParameters: GetAccessBountyContentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessBountyContentResult> {
-        const response = await this.getAccessBountyContentStatusRaw(requestParameters, initOverrides);
+    async getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+        const response = await this.getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAdsRaw(requestParameters: GetAdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Advert>>> {
-        if (requestParameters['targetApp'] == null) {
+    async getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>> {
+        if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
-                'targetApp',
-                'Required parameter "targetApp" was null or undefined when calling getAds().'
-            );
-        }
-
-        if (requestParameters['bannerType'] == null) {
-            throw new runtime.RequiredError(
-                'bannerType',
-                'Required parameter "bannerType" was null or undefined when calling getAds().'
+                'clientId',
+                'Required parameter "clientId" was null or undefined when calling getApiV1OpenClientsByClientId().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['locationCompanyId'] != null) {
-            queryParameters['locationCompanyId'] = requestParameters['locationCompanyId'];
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['locationPin'] != null) {
-            queryParameters['locationPin'] = requestParameters['locationPin'];
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/clients/{client_id}`;
+        urlPath = urlPath.replace(`{${"client_id"}}`, encodeURIComponent(String(requestParameters['clientId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo> {
+        const response = await this.getApiV1OpenClientsByClientIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientGuessResult>> {
+        if (requestParameters['url'] == null) {
+            throw new runtime.RequiredError(
+                'url',
+                'Required parameter "url" was null or undefined when calling getApiV1OpenClientsGuess().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        if (requestParameters['clientId'] != null) {
+            queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        if (requestParameters['kiosk'] != null) {
+            queryParameters['kiosk'] = requestParameters['kiosk'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2480,9 +2763,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/adverts/{targetApp}/{bannerType}`;
-        urlPath = urlPath.replace(`{${"targetApp"}}`, encodeURIComponent(String(requestParameters['targetApp'])));
-        urlPath = urlPath.replace(`{${"bannerType"}}`, encodeURIComponent(String(requestParameters['bannerType'])));
+        let urlPath = `/api/v1/open/clients/guess`;
 
         const response = await this.request({
             path: urlPath,
@@ -2491,19 +2772,293 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvertFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClientGuessResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getAds(requestParameters: GetAdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Advert>> {
-        const response = await this.getAdsRaw(requestParameters, initOverrides);
+    async getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientGuessResult> {
+        const response = await this.getApiV1OpenClientsGuessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAllowedCurrenciesRaw(requestParameters: GetAllowedCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>> {
+    async getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
+        if (requestParameters['commentId'] == null) {
+            throw new runtime.RequiredError(
+                'commentId',
+                'Required parameter "commentId" was null or undefined when calling getApiV1OpenCommentsByCommentid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/comments/{commentId}`;
+        urlPath = urlPath.replace(`{${"commentId"}}`, encodeURIComponent(String(requestParameters['commentId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
+        const response = await this.getApiV1OpenCommentsByCommentidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageComment>> {
+        if (requestParameters['entityId'] == null) {
+            throw new runtime.RequiredError(
+                'entityId',
+                'Required parameter "entityId" was null or undefined when calling getApiV1OpenCommentsByEntitytypeByEntityid().'
+            );
+        }
+
+        if (requestParameters['entityType'] == null) {
+            throw new runtime.RequiredError(
+                'entityType',
+                'Required parameter "entityType" was null or undefined when calling getApiV1OpenCommentsByEntitytypeByEntityid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/comments/{entityType}/{entityId}`;
+        urlPath = urlPath.replace(`{${"entityId"}}`, encodeURIComponent(String(requestParameters['entityId'])));
+        urlPath = urlPath.replace(`{${"entityType"}}`, encodeURIComponent(String(requestParameters['entityType'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageCommentFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageComment> {
+        const response = await this.getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageKioskInfo>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1OpenCompaniesByCompanyidKiosks().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/companies/{companyId}/kiosks`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageKioskInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageKioskInfo> {
+        const response = await this.getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageLocationInfo>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1OpenCompaniesByCompanyidLocations().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/companies/{companyId}/locations`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageLocationInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageLocationInfo> {
+        const response = await this.getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyInfo>> {
+        if (requestParameters['url'] == null) {
+            throw new runtime.RequiredError(
+                'url',
+                'Required parameter "url" was null or undefined when calling getApiV1OpenCompanyInfo().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/company/info`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyInfoFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyInfo> {
+        const response = await this.getApiV1OpenCompanyInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2539,32 +3094,18 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getAllowedCurrencies(requestParameters: GetAllowedCurrenciesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse> {
-        const response = await this.getAllowedCurrenciesRaw(requestParameters, initOverrides);
+    async getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse> {
+        const response = await this.getApiV1OpenCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAttachmentRaw(requestParameters: GetAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
-        if (requestParameters['anchorType'] == null) {
+    async getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
+        if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
-                'anchorType',
-                'Required parameter "anchorType" was null or undefined when calling getAttachment().'
-            );
-        }
-
-        if (requestParameters['anchorId'] == null) {
-            throw new runtime.RequiredError(
-                'anchorId',
-                'Required parameter "anchorId" was null or undefined when calling getAttachment().'
-            );
-        }
-
-        if (requestParameters['attachmentId'] == null) {
-            throw new runtime.RequiredError(
-                'attachmentId',
-                'Required parameter "attachmentId" was null or undefined when calling getAttachment().'
+                'code',
+                'Required parameter "code" was null or undefined when calling getApiV1OpenCurrencyByCode().'
             );
         }
 
@@ -2589,10 +3130,8 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/attachments/{anchorType}/{anchorId}/{attachmentId}`;
-        urlPath = urlPath.replace(`{${"anchorType"}}`, encodeURIComponent(String(requestParameters['anchorType'])));
-        urlPath = urlPath.replace(`{${"anchorId"}}`, encodeURIComponent(String(requestParameters['anchorId'])));
-        urlPath = urlPath.replace(`{${"attachmentId"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        let urlPath = `/api/v1/open/currency/{code}`;
+        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2601,30 +3140,878 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getAttachment(requestParameters: GetAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
-        const response = await this.getAttachmentRaw(requestParameters, initOverrides);
+    async getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
+        const response = await this.getApiV1OpenCurrencyByCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getAvailabilityRaw(requestParameters: GetAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Availability>> {
+    async getApiV1OpenEmailConfirmRaw(requestParameters: GetApiV1OpenEmailConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['token'] == null) {
+            throw new runtime.RequiredError(
+                'token',
+                'Required parameter "token" was null or undefined when calling getApiV1OpenEmailConfirm().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['token'] != null) {
+            queryParameters['token'] = requestParameters['token'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/email/confirm`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1OpenEmailConfirm(requestParameters: GetApiV1OpenEmailConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1OpenEmailConfirmRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>> {
+        if (requestParameters['listId'] == null) {
+            throw new runtime.RequiredError(
+                'listId',
+                'Required parameter "listId" was null or undefined when calling getApiV1OpenFiltersByListId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['tag'] != null) {
+            queryParameters['tag'] = requestParameters['tag'];
+        }
+
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
+        }
+
+        if (requestParameters['clientId'] != null) {
+            queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/filters/{list_id}`;
+        urlPath = urlPath.replace(`{${"list_id"}}`, encodeURIComponent(String(requestParameters['listId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFiltersResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult> {
+        const response = await this.getApiV1OpenFiltersByListIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AllowedIntegrationsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/integrations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AllowedIntegrationsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AllowedIntegrationsResponse> {
+        const response = await this.getApiV1OpenIntegrationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteInfoResult>> {
+        if (requestParameters['inviteId'] == null) {
+            throw new runtime.RequiredError(
+                'inviteId',
+                'Required parameter "inviteId" was null or undefined when calling getApiV1OpenInvitesByInviteidInfo().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/invites/{inviteId}/info`;
+        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InviteInfoResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteInfoResult> {
+        const response = await this.getApiV1OpenInvitesByInviteidInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['deliveryZipcode'] != null) {
+            queryParameters['deliveryZipcode'] = requestParameters['deliveryZipcode'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/locations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LocationsResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
+        const response = await this.getApiV1OpenLocationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationGuessResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/locations/guess`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LocationGuessResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationGuessResult> {
+        const response = await this.getApiV1OpenLocationsGuessRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>> {
+        if (requestParameters['lookupType'] == null) {
+            throw new runtime.RequiredError(
+                'lookupType',
+                'Required parameter "lookupType" was null or undefined when calling getApiV1OpenLookupsByLookupType().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['query'] != null) {
+            queryParameters['query'] = requestParameters['query'];
+        }
+
+        if (requestParameters['searchMode'] != null) {
+            queryParameters['searchMode'] = requestParameters['searchMode'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/lookups/{lookup_type}`;
+        urlPath = urlPath.replace(`{${"lookup_type"}}`, encodeURIComponent(String(requestParameters['lookupType'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LookupResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult> {
+        const response = await this.getApiV1OpenLookupsByLookupTypeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KioskEntryPointResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['test'] != null) {
+            queryParameters['test'] = requestParameters['test'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/meta/tablet/entrypoint`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => KioskEntryPointResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KioskEntryPointResult> {
+        const response = await this.getApiV1OpenMetaTabletEntrypointRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenOrdersByBountyidReceiptRaw(requestParameters: GetApiV1OpenOrdersByBountyidReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenOrdersByBountyidReceipt().'
+            );
+        }
+
+        if (requestParameters['redirectUrl'] == null) {
+            throw new runtime.RequiredError(
+                'redirectUrl',
+                'Required parameter "redirectUrl" was null or undefined when calling getApiV1OpenOrdersByBountyidReceipt().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['redirectUrl'] != null) {
+            queryParameters['redirectUrl'] = requestParameters['redirectUrl'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/orders/{bountyId}/receipt`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1OpenOrdersByBountyidReceipt(requestParameters: GetApiV1OpenOrdersByBountyidReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1OpenOrdersByBountyidReceiptRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PickupOrdersResult>>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1OpenPickupOrdersByClient().'
+            );
+        }
+
+        if (requestParameters['pickupDate'] == null) {
+            throw new runtime.RequiredError(
+                'pickupDate',
+                'Required parameter "pickupDate" was null or undefined when calling getApiV1OpenPickupOrdersByClient().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['pickupDate'] != null) {
+            queryParameters['pickup_date'] = requestParameters['pickupDate'];
+        }
+
+        if (requestParameters['deliveryMethod'] != null) {
+            queryParameters['delivery_method'] = requestParameters['deliveryMethod'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/pickup_orders/{client}`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PickupOrdersResultFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PickupOrdersResult>> {
+        const response = await this.getApiV1OpenPickupOrdersByClientRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['filter'] == null) {
+            throw new runtime.RequiredError(
+                'filter',
+                'Required parameter "filter" was null or undefined when calling getApiV1OpenProducts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
+
+        if (requestParameters['tag'] != null) {
+            queryParameters['tag'] = requestParameters['tag'];
+        }
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        if (requestParameters['ignoreCache'] != null) {
+            queryParameters['ignoreCache'] = requestParameters['ignoreCache'];
+        }
+
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/products`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1OpenProductsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductExtras>> {
+        if (requestParameters['productId'] == null) {
+            throw new runtime.RequiredError(
+                'productId',
+                'Required parameter "productId" was null or undefined when calling getApiV1OpenProductsByProductidExtras().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/products/{productId}/extras`;
+        urlPath = urlPath.replace(`{${"productId"}}`, encodeURIComponent(String(requestParameters['productId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductExtrasFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductExtras> {
+        const response = await this.getApiV1OpenProductsByProductidExtrasRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['actionVerb'] != null) {
+            queryParameters['actionVerb'] = requestParameters['actionVerb'];
+        }
+
+        if (requestParameters['actionObjectType'] != null) {
+            queryParameters['actionObjectType'] = requestParameters['actionObjectType'];
+        }
+
+        if (requestParameters['actionObjectId'] != null) {
+            queryParameters['actionObjectId'] = requestParameters['actionObjectId'];
+        }
+
+        if (requestParameters['actionSearchQuery'] != null) {
+            queryParameters['actionSearchQuery'] = requestParameters['actionSearchQuery'];
+        }
+
+        if (requestParameters['actionRecommendationToken'] != null) {
+            queryParameters['actionRecommendationToken'] = requestParameters['actionRecommendationToken'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/products/recommendations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1OpenProductsRecommendationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenReportContentTypesRaw(requestParameters: GetApiV1OpenReportContentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/report/content/types`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1OpenReportContentTypes(requestParameters: GetApiV1OpenReportContentTypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1OpenReportContentTypesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['filter'] == null) {
+            throw new runtime.RequiredError(
+                'filter',
+                'Required parameter "filter" was null or undefined when calling getApiV1OpenReservations().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/reservations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1OpenReservationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Availability>> {
         if (requestParameters['date'] == null) {
             throw new runtime.RequiredError(
                 'date',
-                'Required parameter "date" was null or undefined when calling getAvailability().'
+                'Required parameter "date" was null or undefined when calling getApiV1OpenReservationsAvailability().'
             );
         }
 
         if (requestParameters['partySize'] == null) {
             throw new runtime.RequiredError(
                 'partySize',
-                'Required parameter "partySize" was null or undefined when calling getAvailability().'
+                'Required parameter "partySize" was null or undefined when calling getApiV1OpenReservationsAvailability().'
             );
         }
 
@@ -2695,1580 +4082,14 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getAvailability(requestParameters: GetAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Availability> {
-        const response = await this.getAvailabilityRaw(requestParameters, initOverrides);
+    async getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Availability> {
+        const response = await this.getApiV1OpenReservationsAvailabilityRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getBountyBudgetRaw(requestParameters: GetBountyBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Budget>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyBudget().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget_new`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BudgetFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBountyBudget(requestParameters: GetBountyBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Budget> {
-        const response = await this.getBountyBudgetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async getBountyBudgetOldRaw(requestParameters: GetBountyBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyBudgetOld().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
-    }
-
-    /**
-     * @deprecated
-     */
-    async getBountyBudgetOld(requestParameters: GetBountyBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
-        const response = await this.getBountyBudgetOldRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async getBountyBudgetOld1Raw(requestParameters: GetBountyBudgetOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyBudgetOld1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bounty_id}/budget_old`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
-    }
-
-    /**
-     * @deprecated
-     */
-    async getBountyBudgetOld1(requestParameters: GetBountyBudgetOld1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
-        const response = await this.getBountyBudgetOld1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBountyInfoRaw(requestParameters: GetBountyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyInfoResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getBountyInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bounty_id}/info`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyInfoResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBountyInfo(requestParameters: GetBountyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyInfoResult> {
-        const response = await this.getBountyInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getBusinessTypesRaw(requestParameters: GetBusinessTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessTypesResp>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/selfonboarding/businessTypes`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BusinessTypesRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getBusinessTypes(requestParameters: GetBusinessTypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BusinessTypesResp> {
-        const response = await this.getBusinessTypesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCampaignsRaw(requestParameters: GetCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['pageFilter'] == null) {
-            throw new runtime.RequiredError(
-                'pageFilter',
-                'Required parameter "pageFilter" was null or undefined when calling getCampaigns().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/campaigns`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PageFilterToJSON(requestParameters['pageFilter']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCampaigns(requestParameters: GetCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getCampaignsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCampaignsChainRaw(requestParameters: GetCampaignsChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getCampaignsChain().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounties/{bounty_id}/activities/chain`;
-        urlPath = urlPath.replace(`{${"bounty_id"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCampaignsChain(requestParameters: GetCampaignsChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getCampaignsChainRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCampaignsSectionsRaw(requestParameters: GetCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionsResult>> {
-        if (requestParameters['pageFilter'] == null) {
-            throw new runtime.RequiredError(
-                'pageFilter',
-                'Required parameter "pageFilter" was null or undefined when calling getCampaignsSections().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/campaigns/sections`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PageFilterToJSON(requestParameters['pageFilter']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SectionsResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCampaignsSections(requestParameters: GetCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionsResult> {
-        const response = await this.getCampaignsSectionsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCategoriesWithBountyFilterRaw(requestParameters: GetCategoriesWithBountyFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
-        if (requestParameters['categoryType'] == null) {
-            throw new runtime.RequiredError(
-                'categoryType',
-                'Required parameter "categoryType" was null or undefined when calling getCategoriesWithBountyFilter().'
-            );
-        }
-
-        if (requestParameters['filter'] == null) {
-            throw new runtime.RequiredError(
-                'filter',
-                'Required parameter "filter" was null or undefined when calling getCategoriesWithBountyFilter().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['clientId'] != null) {
-            queryParameters['clientId'] = requestParameters['clientId'];
-        }
-
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
-        }
-
-        if (requestParameters['tag'] != null) {
-            queryParameters['tag'] = requestParameters['tag'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/categories/{category_type}`;
-        urlPath = urlPath.replace(`{${"category_type"}}`, encodeURIComponent(String(requestParameters['categoryType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCategoriesWithBountyFilter(requestParameters: GetCategoriesWithBountyFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
-        const response = await this.getCategoriesWithBountyFilterRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getClientInfoRaw(requestParameters: GetClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>> {
-        if (requestParameters['clientId'] == null) {
-            throw new runtime.RequiredError(
-                'clientId',
-                'Required parameter "clientId" was null or undefined when calling getClientInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/clients/{client_id}`;
-        urlPath = urlPath.replace(`{${"client_id"}}`, encodeURIComponent(String(requestParameters['clientId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getClientInfo(requestParameters: GetClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo> {
-        const response = await this.getClientInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCommentRaw(requestParameters: GetCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
-        if (requestParameters['commentId'] == null) {
-            throw new runtime.RequiredError(
-                'commentId',
-                'Required parameter "commentId" was null or undefined when calling getComment().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/comments/{commentId}`;
-        urlPath = urlPath.replace(`{${"commentId"}}`, encodeURIComponent(String(requestParameters['commentId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getComment(requestParameters: GetCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
-        const response = await this.getCommentRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCompanyInfoByUrlRaw(requestParameters: GetCompanyInfoByUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyInfo>> {
-        if (requestParameters['url'] == null) {
-            throw new runtime.RequiredError(
-                'url',
-                'Required parameter "url" was null or undefined when calling getCompanyInfoByUrl().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['url'] != null) {
-            queryParameters['url'] = requestParameters['url'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/company/info`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCompanyInfoByUrl(requestParameters: GetCompanyInfoByUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyInfo> {
-        const response = await this.getCompanyInfoByUrlRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomCurrencyRaw(requestParameters: GetCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
-        if (requestParameters['code'] == null) {
-            throw new runtime.RequiredError(
-                'code',
-                'Required parameter "code" was null or undefined when calling getCustomCurrency().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/currency/{code}`;
-        urlPath = urlPath.replace(`{${"code"}}`, encodeURIComponent(String(requestParameters['code'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCustomCurrency(requestParameters: GetCustomCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
-        const response = await this.getCustomCurrencyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getEntityCommentsRaw(requestParameters: GetEntityCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageComment>> {
-        if (requestParameters['entityId'] == null) {
-            throw new runtime.RequiredError(
-                'entityId',
-                'Required parameter "entityId" was null or undefined when calling getEntityComments().'
-            );
-        }
-
-        if (requestParameters['entityType'] == null) {
-            throw new runtime.RequiredError(
-                'entityType',
-                'Required parameter "entityType" was null or undefined when calling getEntityComments().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/comments/{entityType}/{entityId}`;
-        urlPath = urlPath.replace(`{${"entityId"}}`, encodeURIComponent(String(requestParameters['entityId'])));
-        urlPath = urlPath.replace(`{${"entityType"}}`, encodeURIComponent(String(requestParameters['entityType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageCommentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getEntityComments(requestParameters: GetEntityCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageComment> {
-        const response = await this.getEntityCommentsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getFiltersRaw(requestParameters: GetFiltersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>> {
-        if (requestParameters['listId'] == null) {
-            throw new runtime.RequiredError(
-                'listId',
-                'Required parameter "listId" was null or undefined when calling getFilters().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['tag'] != null) {
-            queryParameters['tag'] = requestParameters['tag'];
-        }
-
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        if (requestParameters['clientId'] != null) {
-            queryParameters['clientId'] = requestParameters['clientId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/filters/{list_id}`;
-        urlPath = urlPath.replace(`{${"list_id"}}`, encodeURIComponent(String(requestParameters['listId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetFiltersResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getFilters(requestParameters: GetFiltersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult> {
-        const response = await this.getFiltersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getGuessLocationsRaw(requestParameters: GetGuessLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationGuessResult>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/locations/guess`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LocationGuessResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getGuessLocations(requestParameters: GetGuessLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationGuessResult> {
-        const response = await this.getGuessLocationsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getInviteInfoRaw(requestParameters: GetInviteInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteInfoResult>> {
-        if (requestParameters['inviteId'] == null) {
-            throw new runtime.RequiredError(
-                'inviteId',
-                'Required parameter "inviteId" was null or undefined when calling getInviteInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/invites/{inviteId}/info`;
-        urlPath = urlPath.replace(`{${"inviteId"}}`, encodeURIComponent(String(requestParameters['inviteId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => InviteInfoResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getInviteInfo(requestParameters: GetInviteInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteInfoResult> {
-        const response = await this.getInviteInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getKiosksRaw(requestParameters: GetKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageKioskInfo>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getKiosks().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/companies/{companyId}/kiosks`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageKioskInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getKiosks(requestParameters: GetKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageKioskInfo> {
-        const response = await this.getKiosksRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getLocationsRaw(requestParameters: GetLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['deliveryZipcode'] != null) {
-            queryParameters['deliveryZipcode'] = requestParameters['deliveryZipcode'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/locations`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LocationsResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getLocations(requestParameters: GetLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
-        const response = await this.getLocationsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getLocationsInfoRaw(requestParameters: GetLocationsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageLocationInfo>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getLocationsInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/companies/{companyId}/locations`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageLocationInfoFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getLocationsInfo(requestParameters: GetLocationsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageLocationInfo> {
-        const response = await this.getLocationsInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getLookupsRaw(requestParameters: GetLookupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>> {
-        if (requestParameters['lookupType'] == null) {
-            throw new runtime.RequiredError(
-                'lookupType',
-                'Required parameter "lookupType" was null or undefined when calling getLookups().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['query'] != null) {
-            queryParameters['query'] = requestParameters['query'];
-        }
-
-        if (requestParameters['searchMode'] != null) {
-            queryParameters['searchMode'] = requestParameters['searchMode'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/lookups/{lookup_type}`;
-        urlPath = urlPath.replace(`{${"lookup_type"}}`, encodeURIComponent(String(requestParameters['lookupType'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => LookupResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getLookups(requestParameters: GetLookupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult> {
-        const response = await this.getLookupsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getOrderReceiptRaw(requestParameters: GetOrderReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getOrderReceipt().'
-            );
-        }
-
-        if (requestParameters['redirectUrl'] == null) {
-            throw new runtime.RequiredError(
-                'redirectUrl',
-                'Required parameter "redirectUrl" was null or undefined when calling getOrderReceipt().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['redirectUrl'] != null) {
-            queryParameters['redirectUrl'] = requestParameters['redirectUrl'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/orders/{bountyId}/receipt`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async getOrderReceipt(requestParameters: GetOrderReceiptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getOrderReceiptRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getPickupOrdersQtyRaw(requestParameters: GetPickupOrdersQtyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PickupOrdersResult>>> {
-        if (requestParameters['client'] == null) {
-            throw new runtime.RequiredError(
-                'client',
-                'Required parameter "client" was null or undefined when calling getPickupOrdersQty().'
-            );
-        }
-
-        if (requestParameters['pickupDate'] == null) {
-            throw new runtime.RequiredError(
-                'pickupDate',
-                'Required parameter "pickupDate" was null or undefined when calling getPickupOrdersQty().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['pickupDate'] != null) {
-            queryParameters['pickup_date'] = requestParameters['pickupDate'];
-        }
-
-        if (requestParameters['deliveryMethod'] != null) {
-            queryParameters['delivery_method'] = requestParameters['deliveryMethod'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/pickup_orders/{client}`;
-        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PickupOrdersResultFromJSON));
-    }
-
-    /**
-     */
-    async getPickupOrdersQty(requestParameters: GetPickupOrdersQtyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PickupOrdersResult>> {
-        const response = await this.getPickupOrdersQtyRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getProductExtrasRaw(requestParameters: GetProductExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductExtras>> {
-        if (requestParameters['productId'] == null) {
-            throw new runtime.RequiredError(
-                'productId',
-                'Required parameter "productId" was null or undefined when calling getProductExtras().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/products/{productId}/extras`;
-        urlPath = urlPath.replace(`{${"productId"}}`, encodeURIComponent(String(requestParameters['productId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductExtrasFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getProductExtras(requestParameters: GetProductExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductExtras> {
-        const response = await this.getProductExtrasRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getProductRecomendationsRaw(requestParameters: GetProductRecomendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['actionVerb'] != null) {
-            queryParameters['actionVerb'] = requestParameters['actionVerb'];
-        }
-
-        if (requestParameters['actionObjectType'] != null) {
-            queryParameters['actionObjectType'] = requestParameters['actionObjectType'];
-        }
-
-        if (requestParameters['actionObjectId'] != null) {
-            queryParameters['actionObjectId'] = requestParameters['actionObjectId'];
-        }
-
-        if (requestParameters['actionSearchQuery'] != null) {
-            queryParameters['actionSearchQuery'] = requestParameters['actionSearchQuery'];
-        }
-
-        if (requestParameters['actionRecommendationToken'] != null) {
-            queryParameters['actionRecommendationToken'] = requestParameters['actionRecommendationToken'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/products/recommendations`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getProductRecomendations(requestParameters: GetProductRecomendationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getProductRecomendationsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getProductsRaw(requestParameters: GetProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['filter'] == null) {
-            throw new runtime.RequiredError(
-                'filter',
-                'Required parameter "filter" was null or undefined when calling getProducts().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
-        }
-
-        if (requestParameters['tag'] != null) {
-            queryParameters['tag'] = requestParameters['tag'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        if (requestParameters['ignoreCache'] != null) {
-            queryParameters['ignoreCache'] = requestParameters['ignoreCache'];
-        }
-
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/products`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getProducts(requestParameters: GetProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getProductsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getReportTypesRaw(requestParameters: GetReportTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/report/content/types`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async getReportTypes(requestParameters: GetReportTypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
-        const response = await this.getReportTypesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getReservationsRaw(requestParameters: GetReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['filter'] == null) {
-            throw new runtime.RequiredError(
-                'filter',
-                'Required parameter "filter" was null or undefined when calling getReservations().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/reservations`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getReservations(requestParameters: GetReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getReservationsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getRestaurantsRaw(requestParameters: GetRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
+    async getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationsResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4304,14 +4125,111 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getRestaurants(requestParameters: GetRestaurantsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
-        const response = await this.getRestaurantsRaw(requestParameters, initOverrides);
+    async getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocationsResult> {
+        const response = await this.getApiV1OpenRestaurantsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getShopSettings1Raw(requestParameters: GetShopSettings1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>> {
+    async getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExplainSelfLinkResp>> {
+        if (requestParameters['url'] == null) {
+            throw new runtime.RequiredError(
+                'url',
+                'Required parameter "url" was null or undefined when calling getApiV1OpenSelflinksExplain().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/selfLinks/explain`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExplainSelfLinkRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExplainSelfLinkResp> {
+        const response = await this.getApiV1OpenSelflinksExplainRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessTypesResp>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/selfonboarding/businessTypes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BusinessTypesRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BusinessTypesResp> {
+        const response = await this.getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopSettings>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -4351,18 +4269,18 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getShopSettings1(requestParameters: GetShopSettings1Request = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings> {
-        const response = await this.getShopSettings1Raw(requestParameters, initOverrides);
+    async getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopSettings> {
+        const response = await this.getApiV1OpenSettingsShopsettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getStatesRaw(requestParameters: GetStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatesResult>> {
+    async getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatesResult>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
-                'Required parameter "clientId" was null or undefined when calling getStates().'
+                'Required parameter "clientId" was null or undefined when calling getApiV1OpenStatesByClientId().'
             );
         }
 
@@ -4406,69 +4324,18 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getStates(requestParameters: GetStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StatesResult> {
-        const response = await this.getStatesRaw(requestParameters, initOverrides);
+    async getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StatesResult> {
+        const response = await this.getApiV1OpenStatesByClientIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getSurveyAnswersRaw(requestParameters: GetSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>> {
+    async getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyBundleResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getSurveyAnswers().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/surveys/{bountyId}/answer`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SurveyAnswersFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getSurveyAnswers(requestParameters: GetSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers> {
-        const response = await this.getSurveyAnswersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getSurveyBundleRaw(requestParameters: GetSurveyBundleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyBundleResp>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getSurveyBundle().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenSurveysByBountyid().'
             );
         }
 
@@ -4508,87 +4375,18 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getSurveyBundle(requestParameters: GetSurveyBundleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyBundleResp> {
-        const response = await this.getSurveyBundleRaw(requestParameters, initOverrides);
+    async getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyBundleResp> {
+        const response = await this.getApiV1OpenSurveysByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getUserEarningsRaw(requestParameters: GetUserEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserEarningsResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserEarnings().'
-            );
-        }
-
+    async getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling getUserEarnings().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['bountyId'] != null) {
-            queryParameters['bounty_id'] = requestParameters['bountyId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/users/{user_id}/earnings`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserEarningsResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserEarnings(requestParameters: GetUserEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserEarningsResult> {
-        const response = await this.getUserEarningsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserOrder1Raw(requestParameters: GetUserOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserOrder1().'
-            );
-        }
-
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling getUserOrder1().'
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenSurveysByBountyidAnswer().'
             );
         }
 
@@ -4613,9 +4411,8 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/{user_id}/orders/{order_id}`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
-        urlPath = urlPath.replace(`{${"order_id"}}`, encodeURIComponent(String(requestParameters['orderId'])));
+        let urlPath = `/api/v1/open/surveys/{bountyId}/answer`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -4624,27 +4421,49 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SurveyAnswersFromJSON(jsonValue));
     }
 
     /**
      */
-    async getUserOrder1(requestParameters: GetUserOrder1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.getUserOrder1Raw(requestParameters, initOverrides);
+    async getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers> {
+        const response = await this.getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getUserProfile1Raw(requestParameters: GetUserProfile1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>> {
-        if (requestParameters['userId'] == null) {
+    async getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeTokenResp>> {
+        if (requestParameters['currencyFrom'] == null) {
             throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserProfile1().'
+                'currencyFrom',
+                'Required parameter "currencyFrom" was null or undefined when calling getApiV1OpenTokensByCurrencyfromExchange().'
+            );
+        }
+
+        if (requestParameters['amountFrom'] == null) {
+            throw new runtime.RequiredError(
+                'amountFrom',
+                'Required parameter "amountFrom" was null or undefined when calling getApiV1OpenTokensByCurrencyfromExchange().'
+            );
+        }
+
+        if (requestParameters['currencyTo'] == null) {
+            throw new runtime.RequiredError(
+                'currencyTo',
+                'Required parameter "currencyTo" was null or undefined when calling getApiV1OpenTokensByCurrencyfromExchange().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['currencyTo'] != null) {
+            queryParameters['currencyTo'] = requestParameters['currencyTo'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -4665,8 +4484,8 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/users/{user_id}/profile`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        let urlPath = `/api/v1/open/tokens/{currencyFrom}/exchange`;
+        urlPath = urlPath.replace(`{${"currencyFrom"}}`, encodeURIComponent(String(requestParameters['currencyFrom'])));
 
         const response = await this.request({
             path: urlPath,
@@ -4675,23 +4494,23 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileExFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExchangeTokenRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getUserProfile1(requestParameters: GetUserProfile1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx> {
-        const response = await this.getUserProfile1Raw(requestParameters, initOverrides);
+    async getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeTokenResp> {
+        const response = await this.getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getUserStreamRaw(requestParameters: GetUserStreamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
+    async getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBounty>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
-                'Required parameter "listId" was null or undefined when calling getUserStream().'
+                'Required parameter "listId" was null or undefined when calling getApiV1OpenUserStreamByListid().'
             );
         }
 
@@ -4779,25 +4598,80 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getUserStream(requestParameters: GetUserStreamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
-        const response = await this.getUserStreamRaw(requestParameters, initOverrides);
+    async getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBounty> {
+        const response = await this.getApiV1OpenUserStreamByListidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getUserSubOrdersRaw(requestParameters: GetUserSubOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+    async getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserEarningsResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getUserSubOrders().'
+                'Required parameter "userId" was null or undefined when calling getApiV1OpenUsersByUserIdEarnings().'
             );
         }
 
-        if (requestParameters['parentOrderId'] == null) {
+        if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
-                'parentOrderId',
-                'Required parameter "parentOrderId" was null or undefined when calling getUserSubOrders().'
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling getApiV1OpenUsersByUserIdEarnings().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['bountyId'] != null) {
+            queryParameters['bounty_id'] = requestParameters['bountyId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/users/{user_id}/earnings`;
+        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserEarningsResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserEarningsResult> {
+        const response = await this.getApiV1OpenUsersByUserIdEarningsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1OpenUsersByUserIdProfile().'
             );
         }
 
@@ -4822,9 +4696,8 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/{user_id}/suborders/{parent_order_id}`;
+        let urlPath = `/api/v1/open/users/{user_id}/profile`;
         urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
-        urlPath = urlPath.replace(`{${"parent_order_id"}}`, encodeURIComponent(String(requestParameters['parentOrderId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -4833,23 +4706,23 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileExFromJSON(jsonValue));
     }
 
     /**
      */
-    async getUserSubOrders(requestParameters: GetUserSubOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getUserSubOrdersRaw(requestParameters, initOverrides);
+    async getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx> {
+        const response = await this.getApiV1OpenUsersByUserIdProfileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getVendorPoliciesRaw(requestParameters: GetVendorPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: Policy; }>> {
+    async getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: Policy; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling getVendorPolicies().'
+                'Required parameter "userId" was null or undefined when calling getApiV1OpenVendorByUseridPolicy().'
             );
         }
 
@@ -4893,36 +4766,33 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getVendorPolicies(requestParameters: GetVendorPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: Policy; }> {
-        const response = await this.getVendorPoliciesRaw(requestParameters, initOverrides);
+    async getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: Policy; }> {
+        const response = await this.getApiV1OpenVendorByUseridPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async guessClientInfoRaw(requestParameters: GuessClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientGuessResult>> {
-        if (requestParameters['url'] == null) {
+    async patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
+        if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
-                'url',
-                'Required parameter "url" was null or undefined when calling guessClientInfo().'
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling patchApiV1OpenOrdersByOrderid().'
+            );
+        }
+
+        if (requestParameters['orderUpdate'] == null) {
+            throw new runtime.RequiredError(
+                'orderUpdate',
+                'Required parameter "orderUpdate" was null or undefined when calling patchApiV1OpenOrdersByOrderid().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['url'] != null) {
-            queryParameters['url'] = requestParameters['url'];
-        }
-
-        if (requestParameters['clientId'] != null) {
-            queryParameters['clientId'] = requestParameters['clientId'];
-        }
-
-        if (requestParameters['kiosk'] != null) {
-            queryParameters['kiosk'] = requestParameters['kiosk'];
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4941,32 +4811,50 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/clients/guess`;
+        let urlPath = `/api/v1/open/orders/{orderId}`;
+        urlPath = urlPath.replace(`{${"orderId"}}`, encodeURIComponent(String(requestParameters['orderId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: OrderUpdateToJSON(requestParameters['orderUpdate']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ClientGuessResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async guessClientInfo(requestParameters: GuessClientInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientGuessResult> {
-        const response = await this.guessClientInfoRaw(requestParameters, initOverrides);
+    async patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse> {
+        const response = await this.patchApiV1OpenOrdersByOrderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async integrationsRaw(requestParameters: IntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AllowedIntegrationsResponse>> {
+    async postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1OpenBountiesByBountyidContentAccess().'
+            );
+        }
+
+        if (requestParameters['accessBountyContentReq'] == null) {
+            throw new runtime.RequiredError(
+                'accessBountyContentReq',
+                'Required parameter "accessBountyContentReq" was null or undefined when calling postApiV1OpenBountiesByBountyidContentAccess().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        headerParameters['Content-Type'] = 'application/json';
+
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
@@ -4984,36 +4872,50 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/integrations`;
+        let urlPath = `/api/v1/open/bounties/{bountyId}/content/access`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: AccessBountyContentReqToJSON(requestParameters['accessBountyContentReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AllowedIntegrationsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessBountyContentResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async integrations(requestParameters: IntegrationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AllowedIntegrationsResponse> {
-        const response = await this.integrationsRaw(requestParameters, initOverrides);
+    async postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult> {
+        const response = await this.postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async kioskEntryPointRaw(requestParameters: KioskEntryPointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KioskEntryPointResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['test'] != null) {
-            queryParameters['test'] = requestParameters['test'];
+    async postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1OpenBountyByBountyidBid().'
+            );
         }
+
+        if (requestParameters['placeBidReq'] == null) {
+            throw new runtime.RequiredError(
+                'placeBidReq',
+                'Required parameter "placeBidReq" was null or undefined when calling postApiV1OpenBountyByBountyidBid().'
+            );
+        }
+
+        const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        headerParameters['Content-Type'] = 'application/json';
+
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
@@ -5031,46 +4933,170 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/meta/tablet/entrypoint`;
+        let urlPath = `/api/v1/open/bounty/{bountyId}/bid`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: PlaceBidReqToJSON(requestParameters['placeBidReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => KioskEntryPointResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async kioskEntryPoint(requestParameters: KioskEntryPointRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KioskEntryPointResult> {
-        const response = await this.kioskEntryPointRaw(requestParameters, initOverrides);
+    async postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
+        const response = await this.postApiV1OpenBountyByBountyidBidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async likeRaw(requestParameters: LikeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1OpenBountyByBountyidQuickClaim().'
+            );
+        }
+
+        if (requestParameters['bountyResponseRequest'] == null) {
+            throw new runtime.RequiredError(
+                'bountyResponseRequest',
+                'Required parameter "bountyResponseRequest" was null or undefined when calling postApiV1OpenBountyByBountyidQuickClaim().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounty/{bountyId}/quick_claim`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BountyResponseRequestToJSON(requestParameters['bountyResponseRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
+        const response = await this.postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling postApiV1OpenBountyByBountyidResponse().'
+            );
+        }
+
+        if (requestParameters['bountyResponse'] == null) {
+            throw new runtime.RequiredError(
+                'bountyResponse',
+                'Required parameter "bountyResponse" was null or undefined when calling postApiV1OpenBountyByBountyidResponse().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/bounty/{bountyId}/response`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BountyResponseToJSON(requestParameters['bountyResponse']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
+        const response = await this.postApiV1OpenBountyByBountyidResponseRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1OpenByEntitytypeByEntityidLikeRaw(requestParameters: PostApiV1OpenByEntitytypeByEntityidLikeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['entityType'] == null) {
             throw new runtime.RequiredError(
                 'entityType',
-                'Required parameter "entityType" was null or undefined when calling like().'
+                'Required parameter "entityType" was null or undefined when calling postApiV1OpenByEntitytypeByEntityidLike().'
             );
         }
 
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
-                'Required parameter "entityId" was null or undefined when calling like().'
+                'Required parameter "entityId" was null or undefined when calling postApiV1OpenByEntitytypeByEntityidLike().'
             );
         }
 
         if (requestParameters['likeRequest'] == null) {
             throw new runtime.RequiredError(
                 'likeRequest',
-                'Required parameter "likeRequest" was null or undefined when calling like().'
+                'Required parameter "likeRequest" was null or undefined when calling postApiV1OpenByEntitytypeByEntityidLike().'
             );
         }
 
@@ -5114,25 +5140,18 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async like(requestParameters: LikeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.likeRaw(requestParameters, initOverrides);
+    async postApiV1OpenByEntitytypeByEntityidLike(requestParameters: PostApiV1OpenByEntitytypeByEntityidLikeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1OpenByEntitytypeByEntityidLikeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async payOrderRaw(requestParameters: PayOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
-        if (requestParameters['orderId'] == null) {
+    async postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['pageFilter'] == null) {
             throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling payOrder().'
-            );
-        }
-
-        if (requestParameters['payOrderReq'] == null) {
-            throw new runtime.RequiredError(
-                'payOrderReq',
-                'Required parameter "payOrderReq" was null or undefined when calling payOrder().'
+                'pageFilter',
+                'Required parameter "pageFilter" was null or undefined when calling postApiV1OpenCampaigns().'
             );
         }
 
@@ -5159,41 +5178,33 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/orders/{orderId}/pay`;
-        urlPath = urlPath.replace(`{${"orderId"}}`, encodeURIComponent(String(requestParameters['orderId'])));
+        let urlPath = `/api/v1/open/campaigns`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PayOrderReqToJSON(requestParameters['payOrderReq']),
+            body: PageFilterToJSON(requestParameters['pageFilter']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async payOrder(requestParameters: PayOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse> {
-        const response = await this.payOrderRaw(requestParameters, initOverrides);
+    async postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.postApiV1OpenCampaignsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async placeBidRaw(requestParameters: PlaceBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
-        if (requestParameters['bountyId'] == null) {
+    async postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionsResult>> {
+        if (requestParameters['pageFilter'] == null) {
             throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling placeBid().'
-            );
-        }
-
-        if (requestParameters['placeBidReq'] == null) {
-            throw new runtime.RequiredError(
-                'placeBidReq',
-                'Required parameter "placeBidReq" was null or undefined when calling placeBid().'
+                'pageFilter',
+                'Required parameter "pageFilter" was null or undefined when calling postApiV1OpenCampaignsSections().'
             );
         }
 
@@ -5220,41 +5231,93 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/bounty/{bountyId}/bid`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+        let urlPath = `/api/v1/open/campaigns/sections`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PlaceBidReqToJSON(requestParameters['placeBidReq']),
+            body: PageFilterToJSON(requestParameters['pageFilter']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SectionsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async placeBid(requestParameters: PlaceBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
-        const response = await this.placeBidRaw(requestParameters, initOverrides);
+    async postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionsResult> {
+        const response = await this.postApiV1OpenCampaignsSectionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async promoteCommentRaw(requestParameters: PromoteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
+    async postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
+        if (requestParameters['comment'] == null) {
+            throw new runtime.RequiredError(
+                'comment',
+                'Required parameter "comment" was null or undefined when calling postApiV1OpenComments().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/comments`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CommentToJSON(requestParameters['comment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
+        const response = await this.postApiV1OpenCommentsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
         if (requestParameters['commentId'] == null) {
             throw new runtime.RequiredError(
                 'commentId',
-                'Required parameter "commentId" was null or undefined when calling promoteComment().'
+                'Required parameter "commentId" was null or undefined when calling postApiV1OpenCommentsByCommentidPromote().'
             );
         }
 
         if (requestParameters['comment'] == null) {
             throw new runtime.RequiredError(
                 'comment',
-                'Required parameter "comment" was null or undefined when calling promoteComment().'
+                'Required parameter "comment" was null or undefined when calling postApiV1OpenCommentsByCommentidPromote().'
             );
         }
 
@@ -5297,261 +5360,25 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async promoteComment(requestParameters: PromoteCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
-        const response = await this.promoteCommentRaw(requestParameters, initOverrides);
+    async postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
+        const response = await this.postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async publishCommentRaw(requestParameters: PublishCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
-        if (requestParameters['comment'] == null) {
-            throw new runtime.RequiredError(
-                'comment',
-                'Required parameter "comment" was null or undefined when calling publishComment().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/comments`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CommentToJSON(requestParameters['comment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async publishComment(requestParameters: PublishCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
-        const response = await this.publishCommentRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async publishResponseRaw(requestParameters: PublishResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling publishResponse().'
-            );
-        }
-
-        if (requestParameters['bountyResponse'] == null) {
-            throw new runtime.RequiredError(
-                'bountyResponse',
-                'Required parameter "bountyResponse" was null or undefined when calling publishResponse().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounty/{bountyId}/response`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: BountyResponseToJSON(requestParameters['bountyResponse']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async publishResponse(requestParameters: PublishResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
-        const response = await this.publishResponseRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async publishSurveyAnswersRaw(requestParameters: PublishSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling publishSurveyAnswers().'
-            );
-        }
-
-        if (requestParameters['surveyAnswers'] == null) {
-            throw new runtime.RequiredError(
-                'surveyAnswers',
-                'Required parameter "surveyAnswers" was null or undefined when calling publishSurveyAnswers().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/surveys/{bountyId}/answer`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SurveyAnswersToJSON(requestParameters['surveyAnswers']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SurveyAnswersFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async publishSurveyAnswers(requestParameters: PublishSurveyAnswersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers> {
-        const response = await this.publishSurveyAnswersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async quickClaimRaw(requestParameters: QuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
-        if (requestParameters['bountyId'] == null) {
-            throw new runtime.RequiredError(
-                'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling quickClaim().'
-            );
-        }
-
-        if (requestParameters['bountyResponseRequest'] == null) {
-            throw new runtime.RequiredError(
-                'bountyResponseRequest',
-                'Required parameter "bountyResponseRequest" was null or undefined when calling quickClaim().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/open/bounty/{bountyId}/quick_claim`;
-        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: BountyResponseRequestToJSON(requestParameters['bountyResponseRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async quickClaim(requestParameters: QuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
-        const response = await this.quickClaimRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateOrder2Raw(requestParameters: UpdateOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
+    async postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
-                'Required parameter "orderId" was null or undefined when calling updateOrder2().'
+                'Required parameter "orderId" was null or undefined when calling postApiV1OpenOrdersByOrderidPay().'
             );
         }
 
-        if (requestParameters['orderUpdate'] == null) {
+        if (requestParameters['payOrderReq'] == null) {
             throw new runtime.RequiredError(
-                'orderUpdate',
-                'Required parameter "orderUpdate" was null or undefined when calling updateOrder2().'
+                'payOrderReq',
+                'Required parameter "payOrderReq" was null or undefined when calling postApiV1OpenOrdersByOrderidPay().'
             );
         }
 
@@ -5578,15 +5405,15 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
         }
 
 
-        let urlPath = `/api/v1/open/orders/{orderId}`;
+        let urlPath = `/api/v1/open/orders/{orderId}/pay`;
         urlPath = urlPath.replace(`{${"orderId"}}`, encodeURIComponent(String(requestParameters['orderId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'PATCH',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: OrderUpdateToJSON(requestParameters['orderUpdate']),
+            body: PayOrderReqToJSON(requestParameters['payOrderReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrderResponseFromJSON(jsonValue));
@@ -5594,25 +5421,25 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async updateOrder2(requestParameters: UpdateOrder2Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse> {
-        const response = await this.updateOrder2Raw(requestParameters, initOverrides);
+    async postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse> {
+        const response = await this.postApiV1OpenOrdersByOrderidPayRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateOrderPaymentRaw(requestParameters: UpdateOrderPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postApiV1OpenOrdersByOrderidPaymentResultRaw(requestParameters: PostApiV1OpenOrdersByOrderidPaymentResultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
-                'Required parameter "orderId" was null or undefined when calling updateOrderPayment().'
+                'Required parameter "orderId" was null or undefined when calling postApiV1OpenOrdersByOrderidPaymentResult().'
             );
         }
 
         if (requestParameters['orderPaymentResult'] == null) {
             throw new runtime.RequiredError(
                 'orderPaymentResult',
-                'Required parameter "orderPaymentResult" was null or undefined when calling updateOrderPayment().'
+                'Required parameter "orderPaymentResult" was null or undefined when calling postApiV1OpenOrdersByOrderidPaymentResult().'
             );
         }
 
@@ -5655,24 +5482,24 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async updateOrderPayment(requestParameters: UpdateOrderPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.updateOrderPaymentRaw(requestParameters, initOverrides);
+    async postApiV1OpenOrdersByOrderidPaymentResult(requestParameters: PostApiV1OpenOrdersByOrderidPaymentResultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1OpenOrdersByOrderidPaymentResultRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async updateOrderStatusRaw(requestParameters: UpdateOrderStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postApiV1OpenOrdersByOrderidStatusByStatusRaw(requestParameters: PostApiV1OpenOrdersByOrderidStatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
-                'Required parameter "orderId" was null or undefined when calling updateOrderStatus().'
+                'Required parameter "orderId" was null or undefined when calling postApiV1OpenOrdersByOrderidStatusByStatus().'
             );
         }
 
         if (requestParameters['status'] == null) {
             throw new runtime.RequiredError(
                 'status',
-                'Required parameter "status" was null or undefined when calling updateOrderStatus().'
+                'Required parameter "status" was null or undefined when calling postApiV1OpenOrdersByOrderidStatusByStatus().'
             );
         }
 
@@ -5713,31 +5540,92 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async updateOrderStatus(requestParameters: UpdateOrderStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.updateOrderStatusRaw(requestParameters, initOverrides);
+    async postApiV1OpenOrdersByOrderidStatusByStatus(requestParameters: PostApiV1OpenOrdersByOrderidStatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postApiV1OpenOrdersByOrderidStatusByStatusRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async updateResponseRaw(requestParameters: UpdateResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
+    async postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SurveyAnswers>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
-                'Required parameter "bountyId" was null or undefined when calling updateResponse().'
+                'Required parameter "bountyId" was null or undefined when calling postApiV1OpenSurveysByBountyidAnswer().'
+            );
+        }
+
+        if (requestParameters['surveyAnswers'] == null) {
+            throw new runtime.RequiredError(
+                'surveyAnswers',
+                'Required parameter "surveyAnswers" was null or undefined when calling postApiV1OpenSurveysByBountyidAnswer().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/surveys/{bountyId}/answer`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SurveyAnswersToJSON(requestParameters['surveyAnswers']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SurveyAnswersFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SurveyAnswers> {
+        const response = await this.postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponseResponse>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling putApiV1OpenBountyByBountyidResponseByResponseid().'
             );
         }
 
         if (requestParameters['responseId'] == null) {
             throw new runtime.RequiredError(
                 'responseId',
-                'Required parameter "responseId" was null or undefined when calling updateResponse().'
+                'Required parameter "responseId" was null or undefined when calling putApiV1OpenBountyByBountyidResponseByResponseid().'
             );
         }
 
         if (requestParameters['responseChanges'] == null) {
             throw new runtime.RequiredError(
                 'responseChanges',
-                'Required parameter "responseChanges" was null or undefined when calling updateResponse().'
+                'Required parameter "responseChanges" was null or undefined when calling putApiV1OpenBountyByBountyidResponseByResponseid().'
             );
         }
 
@@ -5781,8 +5669,120 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async updateResponse(requestParameters: UpdateResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
-        const response = await this.updateResponseRaw(requestParameters, initOverrides);
+    async putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponseResponse> {
+        const response = await this.putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommentResp>> {
+        if (requestParameters['commentId'] == null) {
+            throw new runtime.RequiredError(
+                'commentId',
+                'Required parameter "commentId" was null or undefined when calling putApiV1OpenCommentsByCommentid().'
+            );
+        }
+
+        if (requestParameters['comment'] == null) {
+            throw new runtime.RequiredError(
+                'comment',
+                'Required parameter "comment" was null or undefined when calling putApiV1OpenCommentsByCommentid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/comments/{commentId}`;
+        urlPath = urlPath.replace(`{${"commentId"}}`, encodeURIComponent(String(requestParameters['commentId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CommentToJSON(requestParameters['comment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CommentRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommentResp> {
+        const response = await this.putApiV1OpenCommentsByCommentidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1OpenReservationsByBountyidCancelRaw(requestParameters: PutApiV1OpenReservationsByBountyidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['bountyId'] == null) {
+            throw new runtime.RequiredError(
+                'bountyId',
+                'Required parameter "bountyId" was null or undefined when calling putApiV1OpenReservationsByBountyidCancel().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/open/reservations/{bountyId}/cancel`;
+        urlPath = urlPath.replace(`{${"bountyId"}}`, encodeURIComponent(String(requestParameters['bountyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async putApiV1OpenReservationsByBountyidCancel(requestParameters: PutApiV1OpenReservationsByBountyidCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1OpenReservationsByBountyidCancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -5791,7 +5791,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 /**
  * @export
  */
-export const GetAdsTargetAppEnum = {
+export const GetApiV1OpenAdvertsByTargetappByBannertypeTargetAppEnum = {
     NONE: 'NONE',
     ANDROID: 'ANDROID',
     IOS: 'IOS',
@@ -5802,11 +5802,11 @@ export const GetAdsTargetAppEnum = {
     KIOSK: 'KIOSK',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetAdsTargetAppEnum = typeof GetAdsTargetAppEnum[keyof typeof GetAdsTargetAppEnum];
+export type GetApiV1OpenAdvertsByTargetappByBannertypeTargetAppEnum = typeof GetApiV1OpenAdvertsByTargetappByBannertypeTargetAppEnum[keyof typeof GetApiV1OpenAdvertsByTargetappByBannertypeTargetAppEnum];
 /**
  * @export
  */
-export const GetAdsBannerTypeEnum = {
+export const GetApiV1OpenAdvertsByTargetappByBannertypeBannerTypeEnum = {
     NONE: 'NONE',
     HERO: 'HERO',
     HIGHLIGHTS: 'HIGHLIGHTS',
@@ -5814,22 +5814,11 @@ export const GetAdsBannerTypeEnum = {
     SPECIALS: 'SPECIALS',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetAdsBannerTypeEnum = typeof GetAdsBannerTypeEnum[keyof typeof GetAdsBannerTypeEnum];
+export type GetApiV1OpenAdvertsByTargetappByBannertypeBannerTypeEnum = typeof GetApiV1OpenAdvertsByTargetappByBannertypeBannerTypeEnum[keyof typeof GetApiV1OpenAdvertsByTargetappByBannertypeBannerTypeEnum];
 /**
  * @export
  */
-export const GetAvailabilityReservationAttributeEnum = {
-    HIGHTOP: 'HIGHTOP',
-    BAR: 'BAR',
-    COUNTER: 'COUNTER',
-    OUTDOOR: 'OUTDOOR',
-    DEFAULT: 'DEFAULT'
-} as const;
-export type GetAvailabilityReservationAttributeEnum = typeof GetAvailabilityReservationAttributeEnum[keyof typeof GetAvailabilityReservationAttributeEnum];
-/**
- * @export
- */
-export const GetCategoriesWithBountyFilterCategoryTypeEnum = {
+export const GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum = {
     NONE: 'NONE',
     QUESTION: 'QUESTION',
     THREAD: 'THREAD',
@@ -5880,47 +5869,58 @@ export const GetCategoriesWithBountyFilterCategoryTypeEnum = {
     FEEDBACK: 'FEEDBACK',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetCategoriesWithBountyFilterCategoryTypeEnum = typeof GetCategoriesWithBountyFilterCategoryTypeEnum[keyof typeof GetCategoriesWithBountyFilterCategoryTypeEnum];
+export type GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum = typeof GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum[keyof typeof GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum];
 /**
  * @export
  */
-export const GetLookupsSearchModeEnum = {
+export const GetApiV1OpenLookupsByLookupTypeSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetLookupsSearchModeEnum = typeof GetLookupsSearchModeEnum[keyof typeof GetLookupsSearchModeEnum];
+export type GetApiV1OpenLookupsByLookupTypeSearchModeEnum = typeof GetApiV1OpenLookupsByLookupTypeSearchModeEnum[keyof typeof GetApiV1OpenLookupsByLookupTypeSearchModeEnum];
 /**
  * @export
  */
-export const GetUserStreamSearchDirectionEnum = {
+export const GetApiV1OpenReservationsAvailabilityReservationAttributeEnum = {
+    HIGHTOP: 'HIGHTOP',
+    BAR: 'BAR',
+    COUNTER: 'COUNTER',
+    OUTDOOR: 'OUTDOOR',
+    DEFAULT: 'DEFAULT'
+} as const;
+export type GetApiV1OpenReservationsAvailabilityReservationAttributeEnum = typeof GetApiV1OpenReservationsAvailabilityReservationAttributeEnum[keyof typeof GetApiV1OpenReservationsAvailabilityReservationAttributeEnum];
+/**
+ * @export
+ */
+export const GetApiV1OpenUserStreamByListidSearchDirectionEnum = {
     UP: 'UP',
     DOWN: 'DOWN'
 } as const;
-export type GetUserStreamSearchDirectionEnum = typeof GetUserStreamSearchDirectionEnum[keyof typeof GetUserStreamSearchDirectionEnum];
+export type GetApiV1OpenUserStreamByListidSearchDirectionEnum = typeof GetApiV1OpenUserStreamByListidSearchDirectionEnum[keyof typeof GetApiV1OpenUserStreamByListidSearchDirectionEnum];
 /**
  * @export
  */
-export const GetUserStreamSearchModeEnum = {
+export const GetApiV1OpenUserStreamByListidSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetUserStreamSearchModeEnum = typeof GetUserStreamSearchModeEnum[keyof typeof GetUserStreamSearchModeEnum];
+export type GetApiV1OpenUserStreamByListidSearchModeEnum = typeof GetApiV1OpenUserStreamByListidSearchModeEnum[keyof typeof GetApiV1OpenUserStreamByListidSearchModeEnum];
 /**
  * @export
  */
-export const GetUserStreamStrategyEnum = {
+export const GetApiV1OpenUserStreamByListidStrategyEnum = {
     FULL: 'FULL',
     SKELETON: 'SKELETON'
 } as const;
-export type GetUserStreamStrategyEnum = typeof GetUserStreamStrategyEnum[keyof typeof GetUserStreamStrategyEnum];
+export type GetApiV1OpenUserStreamByListidStrategyEnum = typeof GetApiV1OpenUserStreamByListidStrategyEnum[keyof typeof GetApiV1OpenUserStreamByListidStrategyEnum];
 /**
  * @export
  */
-export const GetVendorPoliciesPolicyTypeEnum = {
+export const GetApiV1OpenVendorByUseridPolicyPolicyTypeEnum = {
     NONE: 'NONE',
     SHIPPING: 'SHIPPING',
     RETURN: 'RETURN',
@@ -5928,4 +5928,4 @@ export const GetVendorPoliciesPolicyTypeEnum = {
     ADDITIONAL: 'ADDITIONAL',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetVendorPoliciesPolicyTypeEnum = typeof GetVendorPoliciesPolicyTypeEnum[keyof typeof GetVendorPoliciesPolicyTypeEnum];
+export type GetApiV1OpenVendorByUseridPolicyPolicyTypeEnum = typeof GetApiV1OpenVendorByUseridPolicyPolicyTypeEnum[keyof typeof GetApiV1OpenVendorByUseridPolicyPolicyTypeEnum];

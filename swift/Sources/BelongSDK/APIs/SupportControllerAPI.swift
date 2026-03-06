@@ -21,8 +21,8 @@ open class SupportControllerAPI {
      - returns: DetectedLanguageResultListListDetection
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getDetectedLanguage(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> DetectedLanguageResultListListDetection {
-        return try await getDetectedLanguageWithRequestBuilder(text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1Detect(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> DetectedLanguageResultListListDetection {
+        return try await getApiV1DetectWithRequestBuilder(text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -36,7 +36,7 @@ open class SupportControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<DetectedLanguageResultListListDetection> 
      */
-    open class func getDetectedLanguageWithRequestBuilder(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<DetectedLanguageResultListListDetection> {
+    open class func getApiV1DetectWithRequestBuilder(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<DetectedLanguageResultListListDetection> {
         let localVariablePath = "/api/v1/detect"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -70,8 +70,8 @@ open class SupportControllerAPI {
      - returns: TranslateTextResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getTranslatedText(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TranslateTextResult {
-        return try await getTranslatedTextWithRequestBuilder(source: source, target: target, text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1Translate(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> TranslateTextResult {
+        return try await getApiV1TranslateWithRequestBuilder(source: source, target: target, text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -87,7 +87,7 @@ open class SupportControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<TranslateTextResult> 
      */
-    open class func getTranslatedTextWithRequestBuilder(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TranslateTextResult> {
+    open class func getApiV1TranslateWithRequestBuilder(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<TranslateTextResult> {
         let localVariablePath = "/api/v1/translate"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil

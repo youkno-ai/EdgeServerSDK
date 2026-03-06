@@ -23,8 +23,8 @@ open class BroadcastControllerAPI {
      - returns: BroadcastToken
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getBroadcastToken(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BroadcastToken {
-        return try await getBroadcastTokenWithRequestBuilder(streamId: streamId, type: type, expireDate: expireDate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1BroadcastByStreamIdToken(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BroadcastToken {
+        return try await getApiV1BroadcastByStreamIdTokenWithRequestBuilder(streamId: streamId, type: type, expireDate: expireDate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -40,7 +40,7 @@ open class BroadcastControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<BroadcastToken> 
      */
-    open class func getBroadcastTokenWithRequestBuilder(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BroadcastToken> {
+    open class func getApiV1BroadcastByStreamIdTokenWithRequestBuilder(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BroadcastToken> {
         var localVariablePath = "/api/v1/broadcast/{stream_id}/token"
         let streamIdPreEscape = "\(APIHelper.mapValueToPathItem(streamId))"
         let streamIdPostEscape = streamIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

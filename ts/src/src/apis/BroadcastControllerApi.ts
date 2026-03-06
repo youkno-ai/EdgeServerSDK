@@ -22,7 +22,7 @@ import {
     BroadcastTokenToJSON,
 } from '../models/index';
 
-export interface GetBroadcastTokenRequest {
+export interface GetApiV1BroadcastByStreamIdTokenRequest {
     streamId: string;
     type: string;
     expireDate?: number;
@@ -50,11 +50,11 @@ export interface BroadcastControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BroadcastControllerApiInterface
      */
-    getBroadcastTokenRaw(requestParameters: GetBroadcastTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>>;
+    getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>>;
 
     /**
      */
-    getBroadcastToken(requestParameters: GetBroadcastTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken>;
+    getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken>;
 
 }
 
@@ -65,18 +65,18 @@ export class BroadcastControllerApi extends runtime.BaseAPI implements Broadcast
 
     /**
      */
-    async getBroadcastTokenRaw(requestParameters: GetBroadcastTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>> {
+    async getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>> {
         if (requestParameters['streamId'] == null) {
             throw new runtime.RequiredError(
                 'streamId',
-                'Required parameter "streamId" was null or undefined when calling getBroadcastToken().'
+                'Required parameter "streamId" was null or undefined when calling getApiV1BroadcastByStreamIdToken().'
             );
         }
 
         if (requestParameters['type'] == null) {
             throw new runtime.RequiredError(
                 'type',
-                'Required parameter "type" was null or undefined when calling getBroadcastToken().'
+                'Required parameter "type" was null or undefined when calling getApiV1BroadcastByStreamIdToken().'
             );
         }
 
@@ -124,8 +124,8 @@ export class BroadcastControllerApi extends runtime.BaseAPI implements Broadcast
 
     /**
      */
-    async getBroadcastToken(requestParameters: GetBroadcastTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken> {
-        const response = await this.getBroadcastTokenRaw(requestParameters, initOverrides);
+    async getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken> {
+        const response = await this.getApiV1BroadcastByStreamIdTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

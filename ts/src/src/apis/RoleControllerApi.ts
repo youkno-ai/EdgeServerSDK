@@ -31,15 +31,7 @@ import {
     RoleToJSON,
 } from '../models/index';
 
-export interface CreateRoleRequest {
-    scopeName: string;
-    role: Role;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteRoleRequest {
+export interface DeleteApiV1RolesByRolenameByScopenameRequest {
     roleName: string;
     scopeName: string;
     xEdgeAgent?: string;
@@ -47,33 +39,41 @@ export interface DeleteRoleRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetOpsRequest {
+export interface GetApiV1RolesByScopenameRequest {
     scopeName: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetRolesRequest {
+export interface GetApiV1RolesOpsByScopenameRequest {
     scopeName: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetScopesRequest {
+export interface GetApiV1RolesResolveRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ResolveRequest {
+export interface GetApiV1RolesScopesRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateRoleRequest {
+export interface PostApiV1RolesByScopenameRequest {
+    scopeName: string;
+    role: Role;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1RolesByRolenameByScopenameRequest {
     roleName: string;
     scopeName: string;
     role: Role;
@@ -91,23 +91,6 @@ export interface UpdateRoleRequest {
 export interface RoleControllerApiInterface {
     /**
      * 
-     * @param {string} scopeName 
-     * @param {Role} role 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RoleControllerApiInterface
-     */
-    createRoleRaw(requestParameters: CreateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
-
-    /**
-     */
-    createRole(requestParameters: CreateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
-
-    /**
-     * 
      * @param {string} roleName 
      * @param {string} scopeName 
      * @param {string} [xEdgeAgent] 
@@ -117,27 +100,11 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    deleteRoleRaw(requestParameters: DeleteRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1RolesByRolenameByScopenameRaw(requestParameters: DeleteApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteRole(requestParameters: DeleteRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} scopeName 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RoleControllerApiInterface
-     */
-    getOpsRaw(requestParameters: GetOpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePermission>>;
-
-    /**
-     */
-    getOps(requestParameters: GetOpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePermission>;
+    deleteApiV1RolesByRolenameByScopename(requestParameters: DeleteApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -149,11 +116,27 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    getRolesRaw(requestParameters: GetRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>>;
+    getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>>;
 
     /**
      */
-    getRoles(requestParameters: GetRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole>;
+    getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole>;
+
+    /**
+     * 
+     * @param {string} scopeName 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoleControllerApiInterface
+     */
+    getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePermission>>;
+
+    /**
+     */
+    getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePermission>;
 
     /**
      * 
@@ -164,11 +147,11 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    getScopesRaw(requestParameters: GetScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageScope>>;
+    getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>>;
 
     /**
      */
-    getScopes(requestParameters: GetScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageScope>;
+    getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole>;
 
     /**
      * 
@@ -179,11 +162,28 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    resolveRaw(requestParameters: ResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>>;
+    getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageScope>>;
 
     /**
      */
-    resolve(requestParameters: ResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole>;
+    getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageScope>;
+
+    /**
+     * 
+     * @param {string} scopeName 
+     * @param {Role} role 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoleControllerApiInterface
+     */
+    postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
+
+    /**
+     */
+    postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
 
     /**
      * 
@@ -197,11 +197,11 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    updateRoleRaw(requestParameters: UpdateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
+    putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
 
     /**
      */
-    updateRole(requestParameters: UpdateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
+    putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
 
 }
 
@@ -212,18 +212,265 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
 
     /**
      */
-    async createRoleRaw(requestParameters: CreateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
+    async deleteApiV1RolesByRolenameByScopenameRaw(requestParameters: DeleteApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['roleName'] == null) {
+            throw new runtime.RequiredError(
+                'roleName',
+                'Required parameter "roleName" was null or undefined when calling deleteApiV1RolesByRolenameByScopename().'
+            );
+        }
+
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
-                'Required parameter "scopeName" was null or undefined when calling createRole().'
+                'Required parameter "scopeName" was null or undefined when calling deleteApiV1RolesByRolenameByScopename().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/roles/{roleName}/{scopeName}`;
+        urlPath = urlPath.replace(`{${"roleName"}}`, encodeURIComponent(String(requestParameters['roleName'])));
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1RolesByRolenameByScopename(requestParameters: DeleteApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1RolesByRolenameByScopenameRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>> {
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling getApiV1RolesByScopename().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/roles/{scopeName}`;
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageRoleFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole> {
+        const response = await this.getApiV1RolesByScopenameRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePermission>> {
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling getApiV1RolesOpsByScopename().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/roles/ops/{scopeName}`;
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PagePermissionFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePermission> {
+        const response = await this.getApiV1RolesOpsByScopenameRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/roles/resolve`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageRoleFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole> {
+        const response = await this.getApiV1RolesResolveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageScope>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/roles/scopes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageScopeFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageScope> {
+        const response = await this.getApiV1RolesScopesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling postApiV1RolesByScopename().'
             );
         }
 
         if (requestParameters['role'] == null) {
             throw new runtime.RequiredError(
                 'role',
-                'Required parameter "role" was null or undefined when calling createRole().'
+                'Required parameter "role" was null or undefined when calling postApiV1RolesByScopename().'
             );
         }
 
@@ -266,279 +513,32 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
 
     /**
      */
-    async createRole(requestParameters: CreateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
-        const response = await this.createRoleRaw(requestParameters, initOverrides);
+    async postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
+        const response = await this.postApiV1RolesByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteRoleRaw(requestParameters: DeleteRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
         if (requestParameters['roleName'] == null) {
             throw new runtime.RequiredError(
                 'roleName',
-                'Required parameter "roleName" was null or undefined when calling deleteRole().'
+                'Required parameter "roleName" was null or undefined when calling putApiV1RolesByRolenameByScopename().'
             );
         }
 
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
-                'Required parameter "scopeName" was null or undefined when calling deleteRole().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/roles/{roleName}/{scopeName}`;
-        urlPath = urlPath.replace(`{${"roleName"}}`, encodeURIComponent(String(requestParameters['roleName'])));
-        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteRole(requestParameters: DeleteRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteRoleRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getOpsRaw(requestParameters: GetOpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePermission>> {
-        if (requestParameters['scopeName'] == null) {
-            throw new runtime.RequiredError(
-                'scopeName',
-                'Required parameter "scopeName" was null or undefined when calling getOps().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/roles/ops/{scopeName}`;
-        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PagePermissionFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getOps(requestParameters: GetOpsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePermission> {
-        const response = await this.getOpsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getRolesRaw(requestParameters: GetRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>> {
-        if (requestParameters['scopeName'] == null) {
-            throw new runtime.RequiredError(
-                'scopeName',
-                'Required parameter "scopeName" was null or undefined when calling getRoles().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/roles/{scopeName}`;
-        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageRoleFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getRoles(requestParameters: GetRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole> {
-        const response = await this.getRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getScopesRaw(requestParameters: GetScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageScope>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/roles/scopes`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageScopeFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getScopes(requestParameters: GetScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageScope> {
-        const response = await this.getScopesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async resolveRaw(requestParameters: ResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageRole>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/roles/resolve`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageRoleFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async resolve(requestParameters: ResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageRole> {
-        const response = await this.resolveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateRoleRaw(requestParameters: UpdateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
-        if (requestParameters['roleName'] == null) {
-            throw new runtime.RequiredError(
-                'roleName',
-                'Required parameter "roleName" was null or undefined when calling updateRole().'
-            );
-        }
-
-        if (requestParameters['scopeName'] == null) {
-            throw new runtime.RequiredError(
-                'scopeName',
-                'Required parameter "scopeName" was null or undefined when calling updateRole().'
+                'Required parameter "scopeName" was null or undefined when calling putApiV1RolesByRolenameByScopename().'
             );
         }
 
         if (requestParameters['role'] == null) {
             throw new runtime.RequiredError(
                 'role',
-                'Required parameter "role" was null or undefined when calling updateRole().'
+                'Required parameter "role" was null or undefined when calling putApiV1RolesByRolenameByScopename().'
             );
         }
 
@@ -582,8 +582,8 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
 
     /**
      */
-    async updateRole(requestParameters: UpdateRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
-        const response = await this.updateRoleRaw(requestParameters, initOverrides);
+    async putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
+        const response = await this.putApiV1RolesByRolenameByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

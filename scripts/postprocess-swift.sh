@@ -4,7 +4,6 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SWIFT_SRC_DIR="$ROOT_DIR/swift/Sources/BelongSDK"
 ANYCODABLE_FILE="$SWIFT_SRC_DIR/AnyCodable.swift"
-CREDENTIALS_FILE="$SWIFT_SRC_DIR/Models/Credentials.swift"
 CLIENT_HELPER_FILE="$SWIFT_SRC_DIR/EdgeSDKClient.swift"
 
 [[ -d "$SWIFT_SRC_DIR" ]] || { echo "Missing $SWIFT_SRC_DIR" >&2; exit 1; }
@@ -76,26 +75,6 @@ EOF
   echo "Injected AnyCodable.swift for generated Swift models"
 fi
 
-echo "Applied Swift post-generation patches"
-
-if [[ -f "$CREDENTIALS_FILE" ]]; then
-  perl -0pi -e 's/public var maskedCreds: Credentials\?/public var maskedCreds: AnyCodable?/g' "$CREDENTIALS_FILE"
-  perl -0pi -e 's/maskedCreds: Credentials\? = nil/maskedCreds: AnyCodable? = nil/g' "$CREDENTIALS_FILE"
-  echo "Patched recursive Credentials.maskedCreds type"
-fi
-
-for model_file in "$SWIFT_SRC_DIR"/Models/*.swift; do
-  model_name="$(sed -n 's/^public struct \([A-Za-z0-9_]*\).*/\1/p' "$model_file" | head -n1)"
-  if [[ -z "$model_name" ]]; then
-    continue
-  fi
-
-  perl -0pi -e "s/public var ([A-Za-z0-9_]+): ${model_name}\\?/public var \\1: AnyCodable?/g" "$model_file"
-  perl -0pi -e "s/(\\b[A-Za-z0-9_]+: )${model_name}(\\? = nil)/\\1AnyCodable\\2/g" "$model_file"
-done
-
-echo "Patched recursive self-referential Swift model fields"
-
 cat > "$CLIENT_HELPER_FILE" <<'EOF'
 import Foundation
 
@@ -145,4 +124,4 @@ public enum EdgeSDKClient {
 }
 EOF
 
-echo "Created Swift SDK-level client helper"
+echo "Applied Swift post-generation patches"

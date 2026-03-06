@@ -24,7 +24,7 @@ interface SupportControllerApi {
      * @return [Call]<[DetectedLanguageResultListListDetection]>
      */
     @GET("api/v1/detect")
-    fun getDetectedLanguage(@Query("text") text: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DetectedLanguageResultListListDetection>
+    fun getApiV1Detect(@Query("text") text: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DetectedLanguageResultListListDetection>
 
     /**
      * GET api/v1/translate
@@ -42,6 +42,6 @@ interface SupportControllerApi {
      * @return [Call]<[TranslateTextResult]>
      */
     @GET("api/v1/translate")
-    fun getTranslatedText(@Query("source") source: kotlin.String, @Query("target") target: kotlin.String, @Query("text") text: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TranslateTextResult>
+    fun getApiV1Translate(@Query("source") source: kotlin.String, @Query("target") target: kotlin.String, @Query("text") text: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TranslateTextResult>
 
 }

@@ -12,22 +12,6 @@ import ai.youkno.edgeserversdk.models.PageGeofencesResp
 
 interface GeofencesControllerApi {
     /**
-     * POST api/v1/geofences
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param geofences 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[GeofencesResp]>
-     */
-    @POST("api/v1/geofences")
-    fun createGeofences(@Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
-
-    /**
      * DELETE api/v1/geofences/{bountyId}
      * 
      * 
@@ -38,10 +22,10 @@ interface GeofencesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/geofences/{bountyId}")
-    fun deleteGeofences(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun deleteApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * GET api/v1/geofences
@@ -59,7 +43,7 @@ interface GeofencesControllerApi {
      * @return [Call]<[PageGeofencesResp]>
      */
     @GET("api/v1/geofences")
-    fun getAllGeofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageGeofencesResp>
+    fun getApiV1Geofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageGeofencesResp>
 
     /**
      * GET api/v1/geofences/{bountyId}
@@ -75,7 +59,23 @@ interface GeofencesControllerApi {
      * @return [Call]<[GeofencesResp]>
      */
     @GET("api/v1/geofences/{bountyId}")
-    fun getGeofences(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
+    fun getApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
+
+    /**
+     * POST api/v1/geofences
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param geofences 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[GeofencesResp]>
+     */
+    @POST("api/v1/geofences")
+    fun postApiV1Geofences(@Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
 
     /**
      * PUT api/v1/geofences/{bountyId}
@@ -92,6 +92,6 @@ interface GeofencesControllerApi {
      * @return [Call]<[GeofencesResp]>
      */
     @PUT("api/v1/geofences/{bountyId}")
-    fun updateGeofences(@Path("bountyId") bountyId: kotlin.String, @Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
+    fun putApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GeofencesResp>
 
 }

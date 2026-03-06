@@ -13,6 +13,70 @@ import ai.youkno.edgeserversdk.models.ReputationDef
 
 interface ReputationsDefsControllerApi {
     /**
+     * DELETE api/v1/reputations/{reputationCode}/{holderId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param reputationCode 
+     * @param holderId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @DELETE("api/v1/reputations/{reputationCode}/{holderId}")
+    fun deleteApiV1ReputationsByReputationcodeByHolderid(@Path("reputationCode") reputationCode: kotlin.String, @Path("holderId") holderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+    /**
+     * DELETE api/v1/reputations/defs/{reputationCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param reputationCode 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @DELETE("api/v1/reputations/defs/{reputationCode}")
+    fun deleteApiV1ReputationsDefsByReputationcode(@Path("reputationCode") reputationCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+
+    /**
+     * GET api/v1/reputations/defs
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[PageReputationDef]>
+     */
+    @GET("api/v1/reputations/defs")
+    fun getApiV1ReputationsDefs(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageReputationDef>
+
+    /**
+     * GET api/v1/reputations/defs/{reputationCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param reputationCode 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[ReputationDef]>
+     */
+    @GET("api/v1/reputations/defs/{reputationCode}")
+    fun getApiV1ReputationsDefsByReputationcode(@Path("reputationCode") reputationCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
+
+    /**
      * POST api/v1/reputations/defs
      * 
      * 
@@ -26,7 +90,7 @@ interface ReputationsDefsControllerApi {
      * @return [Call]<[ReputationDef]>
      */
     @POST("api/v1/reputations/defs")
-    fun addReputationDef(@Body reputationDef: ReputationDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
+    fun postApiV1ReputationsDefs(@Body reputationDef: ReputationDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
 
     /**
      * POST api/v1/reputations/defs/{reputationCode}/assign
@@ -43,40 +107,7 @@ interface ReputationsDefsControllerApi {
      * @return [Call]<[Reputation]>
      */
     @POST("api/v1/reputations/defs/{reputationCode}/assign")
-    fun assignReputation(@Path("reputationCode") reputationCode: kotlin.String, @Body assignReputationReq: AssignReputationReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Reputation>
-
-    /**
-     * DELETE api/v1/reputations/{reputationCode}/{holderId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param reputationCode 
-     * @param holderId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @DELETE("api/v1/reputations/{reputationCode}/{holderId}")
-    fun deleteReputation(@Path("reputationCode") reputationCode: kotlin.String, @Path("holderId") holderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
-
-    /**
-     * DELETE api/v1/reputations/defs/{reputationCode}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param reputationCode 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
-     */
-    @DELETE("api/v1/reputations/defs/{reputationCode}")
-    fun deleteReputationDef(@Path("reputationCode") reputationCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun postApiV1ReputationsDefsByReputationcodeAssign(@Path("reputationCode") reputationCode: kotlin.String, @Body assignReputationReq: AssignReputationReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Reputation>
 
     /**
      * PUT api/v1/reputations/defs
@@ -92,37 +123,6 @@ interface ReputationsDefsControllerApi {
      * @return [Call]<[ReputationDef]>
      */
     @PUT("api/v1/reputations/defs")
-    fun editReputationDef(@Body reputationDef: ReputationDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
-
-    /**
-     * GET api/v1/reputations/defs/{reputationCode}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param reputationCode 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[ReputationDef]>
-     */
-    @GET("api/v1/reputations/defs/{reputationCode}")
-    fun getReputationDef(@Path("reputationCode") reputationCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
-
-    /**
-     * GET api/v1/reputations/defs
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageReputationDef]>
-     */
-    @GET("api/v1/reputations/defs")
-    fun getReputationDefs(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageReputationDef>
+    fun putApiV1ReputationsDefs(@Body reputationDef: ReputationDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ReputationDef>
 
 }

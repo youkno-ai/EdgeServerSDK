@@ -40,7 +40,14 @@ import {
     UpdateMemberRolesReqToJSON,
 } from '../models/index';
 
-export interface AcceptMemberForGroupRequest {
+export interface DeleteApiV1GroupsByGroupidRequest {
+    groupId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface DeleteApiV1GroupsByGroupidMembersByMemberidRequest {
     groupId: string;
     memberId: string;
     xEdgeAgent?: string;
@@ -48,62 +55,14 @@ export interface AcceptMemberForGroupRequest {
     xEdgeClientId?: string;
 }
 
-export interface AddMemberToGroupRequest {
-    groupId: string;
+export interface DeleteApiV1GroupsSupportMembersByMemberidRequest {
     memberId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface AddMemberToSupportGroupRequest {
-    memberId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateGroupRequest {
-    group: Group;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteGroupRequest {
-    groupId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGroupRequest {
-    groupId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGroupMemberRequest {
-    groupId: string;
-    memberId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGroupMembersRequest {
-    groupId: string;
-    query?: string;
-    state?: GetGroupMembersStateEnum;
-    start?: number;
-    length?: number;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetGroupsRequest {
+export interface GetApiV1GroupsRequest {
     clientId?: string;
     start?: number;
     length?: number;
@@ -112,7 +71,14 @@ export interface GetGroupsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserGroupCandidatesRequest {
+export interface GetApiV1GroupsByGroupidRequest {
+    groupId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1GroupsByGroupidCandidatesRequest {
     groupId: string;
     query?: string;
     start?: number;
@@ -122,7 +88,18 @@ export interface GetUserGroupCandidatesRequest {
     xEdgeClientId?: string;
 }
 
-export interface RejectMemberForGroupRequest {
+export interface GetApiV1GroupsByGroupidMembersRequest {
+    groupId: string;
+    query?: string;
+    state?: GetApiV1GroupsByGroupidMembersStateEnum;
+    start?: number;
+    length?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1GroupsByGroupidMembersByMemberidRequest {
     groupId: string;
     memberId: string;
     xEdgeAgent?: string;
@@ -130,7 +107,14 @@ export interface RejectMemberForGroupRequest {
     xEdgeClientId?: string;
 }
 
-export interface RemoveMemberFromGroupRequest {
+export interface PostApiV1GroupsRequest {
+    group: Group;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1GroupsByGroupidMembersByMemberidAcceptRequest {
     groupId: string;
     memberId: string;
     xEdgeAgent?: string;
@@ -138,14 +122,24 @@ export interface RemoveMemberFromGroupRequest {
     xEdgeClientId?: string;
 }
 
-export interface RemoveMemberFromGroup1Request {
+export interface PostApiV1GroupsByGroupidMembersByMemberidRejectRequest {
+    groupId: string;
     memberId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateGroupRequest {
+export interface PostApiV1GroupsByGroupidMembersByMemberidRolesRequest {
+    groupId: string;
+    memberId: string;
+    updateMemberRolesReq: UpdateMemberRolesReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1GroupsByGroupidRequest {
     groupId: string;
     group: Group;
     xEdgeAgent?: string;
@@ -153,10 +147,16 @@ export interface UpdateGroupRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateMemberRoleRequest {
+export interface PutApiV1GroupsByGroupidMembersByMemberidRequest {
     groupId: string;
     memberId: string;
-    updateMemberRolesReq: UpdateMemberRolesReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1GroupsSupportMembersByMemberidRequest {
+    memberId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -172,7 +172,6 @@ export interface GroupControllerApiInterface {
     /**
      * 
      * @param {string} groupId 
-     * @param {string} memberId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -180,11 +179,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    acceptMemberForGroupRaw(requestParameters: AcceptMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1GroupsByGroupidRaw(requestParameters: DeleteApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
      */
-    acceptMemberForGroup(requestParameters: AcceptMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    deleteApiV1GroupsByGroupid(requestParameters: DeleteApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -197,11 +196,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    addMemberToGroupRaw(requestParameters: AddMemberToGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+    deleteApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: DeleteApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    addMemberToGroup(requestParameters: AddMemberToGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+    deleteApiV1GroupsByGroupidMembersByMemberid(requestParameters: DeleteApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -213,15 +212,17 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    addMemberToSupportGroupRaw(requestParameters: AddMemberToSupportGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+    deleteApiV1GroupsSupportMembersByMemberidRaw(requestParameters: DeleteApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    addMemberToSupportGroup(requestParameters: AddMemberToSupportGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+    deleteApiV1GroupsSupportMembersByMemberid(requestParameters: DeleteApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
-     * @param {Group} group 
+     * @param {string} [clientId] 
+     * @param {number} [start] 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -229,27 +230,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    createGroupRaw(requestParameters: CreateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
+    getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>>;
 
     /**
      */
-    createGroup(requestParameters: CreateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
-
-    /**
-     * 
-     * @param {string} groupId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GroupControllerApiInterface
-     */
-    deleteGroupRaw(requestParameters: DeleteGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-
-    /**
-     */
-    deleteGroup(requestParameters: DeleteGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getApiV1Groups(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult>;
 
     /**
      * 
@@ -261,16 +246,18 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getGroupRaw(requestParameters: GetGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>>;
+    getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>>;
 
     /**
      */
-    getGroup(requestParameters: GetGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult>;
+    getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult>;
 
     /**
      * 
      * @param {string} groupId 
-     * @param {string} memberId 
+     * @param {string} [query] 
+     * @param {number} [start] 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -278,11 +265,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getGroupMemberRaw(requestParameters: GetGroupMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+    getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>>;
 
     /**
      */
-    getGroupMember(requestParameters: GetGroupMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+    getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser>;
 
     /**
      * 
@@ -298,48 +285,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getGroupMembersRaw(requestParameters: GetGroupMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageMember>>;
+    getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageMember>>;
 
     /**
      */
-    getGroupMembers(requestParameters: GetGroupMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageMember>;
-
-    /**
-     * 
-     * @param {string} [clientId] 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GroupControllerApiInterface
-     */
-    getGroupsRaw(requestParameters: GetGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>>;
-
-    /**
-     */
-    getGroups(requestParameters: GetGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult>;
-
-    /**
-     * 
-     * @param {string} groupId 
-     * @param {string} [query] 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GroupControllerApiInterface
-     */
-    getUserGroupCandidatesRaw(requestParameters: GetUserGroupCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>>;
-
-    /**
-     */
-    getUserGroupCandidates(requestParameters: GetUserGroupCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser>;
+    getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageMember>;
 
     /**
      * 
@@ -352,48 +302,14 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    rejectMemberForGroupRaw(requestParameters: RejectMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    rejectMemberForGroup(requestParameters: RejectMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
     /**
      * 
-     * @param {string} groupId 
-     * @param {string} memberId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GroupControllerApiInterface
-     */
-    removeMemberFromGroupRaw(requestParameters: RemoveMemberFromGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    removeMemberFromGroup(requestParameters: RemoveMemberFromGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} memberId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GroupControllerApiInterface
-     */
-    removeMemberFromGroup1Raw(requestParameters: RemoveMemberFromGroup1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    removeMemberFromGroup1(requestParameters: RemoveMemberFromGroup1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} groupId 
      * @param {Group} group 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -402,11 +318,45 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    updateGroupRaw(requestParameters: UpdateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
+    postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
 
     /**
      */
-    updateGroup(requestParameters: UpdateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
+    postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
+
+    /**
+     * 
+     * @param {string} groupId 
+     * @param {string} memberId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupControllerApiInterface
+     */
+    postApiV1GroupsByGroupidMembersByMemberidAcceptRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1GroupsByGroupidMembersByMemberidAccept(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} groupId 
+     * @param {string} memberId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupControllerApiInterface
+     */
+    postApiV1GroupsByGroupidMembersByMemberidRejectRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1GroupsByGroupidMembersByMemberidReject(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -420,11 +370,61 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    updateMemberRoleRaw(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+    postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    updateMemberRole(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+    postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+
+    /**
+     * 
+     * @param {string} groupId 
+     * @param {Group} group 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupControllerApiInterface
+     */
+    putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
+
+    /**
+     */
+    putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
+
+    /**
+     * 
+     * @param {string} groupId 
+     * @param {string} memberId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupControllerApiInterface
+     */
+    putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+
+    /**
+     */
+    putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
+
+    /**
+     * 
+     * @param {string} memberId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupControllerApiInterface
+     */
+    putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
+
+    /**
+     */
+    putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
 }
 
@@ -435,233 +435,11 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async acceptMemberForGroupRaw(requestParameters: AcceptMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1GroupsByGroupidRaw(requestParameters: DeleteApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling acceptMemberForGroup().'
-            );
-        }
-
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling acceptMemberForGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}/accept`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async acceptMemberForGroup(requestParameters: AcceptMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.acceptMemberForGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async addMemberToGroupRaw(requestParameters: AddMemberToGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling addMemberToGroup().'
-            );
-        }
-
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling addMemberToGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async addMemberToGroup(requestParameters: AddMemberToGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
-        const response = await this.addMemberToGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async addMemberToSupportGroupRaw(requestParameters: AddMemberToSupportGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling addMemberToSupportGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/support/members/{memberId}`;
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async addMemberToSupportGroup(requestParameters: AddMemberToSupportGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
-        const response = await this.addMemberToSupportGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createGroupRaw(requestParameters: CreateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
-        if (requestParameters['group'] == null) {
-            throw new runtime.RequiredError(
-                'group',
-                'Required parameter "group" was null or undefined when calling createGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: GroupToJSON(requestParameters['group']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createGroup(requestParameters: CreateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
-        const response = await this.createGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteGroupRaw(requestParameters: DeleteGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling deleteGroup().'
+                'Required parameter "groupId" was null or undefined when calling deleteApiV1GroupsByGroupid().'
             );
         }
 
@@ -701,17 +479,182 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async deleteGroup(requestParameters: DeleteGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteGroupRaw(requestParameters, initOverrides);
+    async deleteApiV1GroupsByGroupid(requestParameters: DeleteApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteApiV1GroupsByGroupidRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async getGroupRaw(requestParameters: GetGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>> {
+    async deleteApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: DeleteApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling getGroup().'
+                'Required parameter "groupId" was null or undefined when calling deleteApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling deleteApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1GroupsByGroupidMembersByMemberid(requestParameters: DeleteApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1GroupsSupportMembersByMemberidRaw(requestParameters: DeleteApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling deleteApiV1GroupsSupportMembersByMemberid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/support/members/{memberId}`;
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1GroupsSupportMembersByMemberid(requestParameters: DeleteApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1GroupsSupportMembersByMemberidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['clientId'] != null) {
+            queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageGroupSearchResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1Groups(requestParameters: GetApiV1GroupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult> {
+        const response = await this.getApiV1GroupsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>> {
+        if (requestParameters['groupId'] == null) {
+            throw new runtime.RequiredError(
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling getApiV1GroupsByGroupid().'
             );
         }
 
@@ -751,29 +694,34 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async getGroup(requestParameters: GetGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult> {
-        const response = await this.getGroupRaw(requestParameters, initOverrides);
+    async getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult> {
+        const response = await this.getApiV1GroupsByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getGroupMemberRaw(requestParameters: GetGroupMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
+    async getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling getGroupMember().'
-            );
-        }
-
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling getGroupMember().'
+                'Required parameter "groupId" was null or undefined when calling getApiV1GroupsByGroupidCandidates().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['query'] != null) {
+            queryParameters['query'] = requestParameters['query'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -794,9 +742,8 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
         }
 
 
-        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
+        let urlPath = `/api/v1/groups/{groupId}/candidates`;
         urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -805,23 +752,23 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserFromJSON(jsonValue));
     }
 
     /**
      */
-    async getGroupMember(requestParameters: GetGroupMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
-        const response = await this.getGroupMemberRaw(requestParameters, initOverrides);
+    async getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser> {
+        const response = await this.getApiV1GroupsByGroupidCandidatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getGroupMembersRaw(requestParameters: GetGroupMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageMember>> {
+    async getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageMember>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling getGroupMembers().'
+                'Required parameter "groupId" was null or undefined when calling getApiV1GroupsByGroupidMembers().'
             );
         }
 
@@ -877,29 +824,85 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async getGroupMembers(requestParameters: GetGroupMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageMember> {
-        const response = await this.getGroupMembersRaw(requestParameters, initOverrides);
+    async getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageMember> {
+        const response = await this.getApiV1GroupsByGroupidMembersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getGroupsRaw(requestParameters: GetGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>> {
+    async getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
+        if (requestParameters['groupId'] == null) {
+            throw new runtime.RequiredError(
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling getApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling getApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
         const queryParameters: any = {};
 
-        if (requestParameters['clientId'] != null) {
-            queryParameters['clientId'] = requestParameters['clientId'];
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
+        const response = await this.getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
+        if (requestParameters['group'] == null) {
+            throw new runtime.RequiredError(
+                'group',
+                'Required parameter "group" was null or undefined when calling postApiV1Groups().'
+            );
+        }
+
+        const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -922,44 +925,40 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: GroupToJSON(requestParameters['group']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageGroupSearchResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
     }
 
     /**
      */
-    async getGroups(requestParameters: GetGroupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult> {
-        const response = await this.getGroupsRaw(requestParameters, initOverrides);
+    async postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
+        const response = await this.postApiV1GroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getUserGroupCandidatesRaw(requestParameters: GetUserGroupCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUser>> {
+    async postApiV1GroupsByGroupidMembersByMemberidAcceptRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling getUserGroupCandidates().'
+                'Required parameter "groupId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidAccept().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidAccept().'
             );
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters['query'] != null) {
-            queryParameters['query'] = requestParameters['query'];
-        }
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -980,40 +979,41 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
         }
 
 
-        let urlPath = `/api/v1/groups/{groupId}/candidates`;
+        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}/accept`;
         urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      */
-    async getUserGroupCandidates(requestParameters: GetUserGroupCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUser> {
-        const response = await this.getUserGroupCandidatesRaw(requestParameters, initOverrides);
+    async postApiV1GroupsByGroupidMembersByMemberidAccept(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidAcceptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1GroupsByGroupidMembersByMemberidAcceptRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async rejectMemberForGroupRaw(requestParameters: RejectMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1GroupsByGroupidMembersByMemberidRejectRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling rejectMemberForGroup().'
+                'Required parameter "groupId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidReject().'
             );
         }
 
         if (requestParameters['memberId'] == null) {
             throw new runtime.RequiredError(
                 'memberId',
-                'Required parameter "memberId" was null or undefined when calling rejectMemberForGroup().'
+                'Required parameter "memberId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidReject().'
             );
         }
 
@@ -1054,203 +1054,32 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async rejectMemberForGroup(requestParameters: RejectMemberForGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.rejectMemberForGroupRaw(requestParameters, initOverrides);
+    async postApiV1GroupsByGroupidMembersByMemberidReject(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1GroupsByGroupidMembersByMemberidRejectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async removeMemberFromGroupRaw(requestParameters: RemoveMemberFromGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
-                'Required parameter "groupId" was null or undefined when calling removeMemberFromGroup().'
+                'Required parameter "groupId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidRoles().'
             );
         }
 
         if (requestParameters['memberId'] == null) {
             throw new runtime.RequiredError(
                 'memberId',
-                'Required parameter "memberId" was null or undefined when calling removeMemberFromGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async removeMemberFromGroup(requestParameters: RemoveMemberFromGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.removeMemberFromGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async removeMemberFromGroup1Raw(requestParameters: RemoveMemberFromGroup1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling removeMemberFromGroup1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/support/members/{memberId}`;
-        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async removeMemberFromGroup1(requestParameters: RemoveMemberFromGroup1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.removeMemberFromGroup1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateGroupRaw(requestParameters: UpdateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling updateGroup().'
-            );
-        }
-
-        if (requestParameters['group'] == null) {
-            throw new runtime.RequiredError(
-                'group',
-                'Required parameter "group" was null or undefined when calling updateGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/groups/{groupId}`;
-        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: GroupToJSON(requestParameters['group']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async updateGroup(requestParameters: UpdateGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
-        const response = await this.updateGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateMemberRoleRaw(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
-        if (requestParameters['groupId'] == null) {
-            throw new runtime.RequiredError(
-                'groupId',
-                'Required parameter "groupId" was null or undefined when calling updateMemberRole().'
-            );
-        }
-
-        if (requestParameters['memberId'] == null) {
-            throw new runtime.RequiredError(
-                'memberId',
-                'Required parameter "memberId" was null or undefined when calling updateMemberRole().'
+                'Required parameter "memberId" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidRoles().'
             );
         }
 
         if (requestParameters['updateMemberRolesReq'] == null) {
             throw new runtime.RequiredError(
                 'updateMemberRolesReq',
-                'Required parameter "updateMemberRolesReq" was null or undefined when calling updateMemberRole().'
+                'Required parameter "updateMemberRolesReq" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidRoles().'
             );
         }
 
@@ -1294,8 +1123,179 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async updateMemberRole(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
-        const response = await this.updateMemberRoleRaw(requestParameters, initOverrides);
+    async postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
+        const response = await this.postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
+        if (requestParameters['groupId'] == null) {
+            throw new runtime.RequiredError(
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling putApiV1GroupsByGroupid().'
+            );
+        }
+
+        if (requestParameters['group'] == null) {
+            throw new runtime.RequiredError(
+                'group',
+                'Required parameter "group" was null or undefined when calling putApiV1GroupsByGroupid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/{groupId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GroupToJSON(requestParameters['group']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
+        const response = await this.putApiV1GroupsByGroupidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
+        if (requestParameters['groupId'] == null) {
+            throw new runtime.RequiredError(
+                'groupId',
+                'Required parameter "groupId" was null or undefined when calling putApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling putApiV1GroupsByGroupidMembersByMemberid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/{groupId}/members/{memberId}`;
+        urlPath = urlPath.replace(`{${"groupId"}}`, encodeURIComponent(String(requestParameters['groupId'])));
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
+        const response = await this.putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling putApiV1GroupsSupportMembersByMemberid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/groups/support/members/{memberId}`;
+        urlPath = urlPath.replace(`{${"memberId"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
+        const response = await this.putApiV1GroupsSupportMembersByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1304,11 +1304,11 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 /**
  * @export
  */
-export const GetGroupMembersStateEnum = {
+export const GetApiV1GroupsByGroupidMembersStateEnum = {
     NONE: 'NONE',
     PENDING: 'PENDING',
     ACTIVE: 'ACTIVE',
     REJECTED: 'REJECTED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetGroupMembersStateEnum = typeof GetGroupMembersStateEnum[keyof typeof GetGroupMembersStateEnum];
+export type GetApiV1GroupsByGroupidMembersStateEnum = typeof GetApiV1GroupsByGroupidMembersStateEnum[keyof typeof GetApiV1GroupsByGroupidMembersStateEnum];

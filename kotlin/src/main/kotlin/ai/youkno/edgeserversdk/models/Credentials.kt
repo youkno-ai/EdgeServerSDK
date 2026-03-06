@@ -40,7 +40,6 @@ import com.squareup.moshi.JsonClass
  * @param shopName 
  * @param accessToken 
  * @param empty 
- * @param maskedCreds 
  */
 
 
@@ -98,10 +97,7 @@ data class Credentials (
     val accessToken: kotlin.String? = null,
 
     @Json(name = "empty")
-    val empty: kotlin.Boolean? = null,
-
-    @Json(name = "maskedCreds")
-    val maskedCreds: Credentials? = null
+    val empty: kotlin.Boolean? = null
 
 ) {
 

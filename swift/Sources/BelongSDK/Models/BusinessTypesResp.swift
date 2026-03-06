@@ -12,23 +12,6 @@ import AnyCodable
 
 public struct BusinessTypesResp: Codable, JSONEncodable, Hashable {
 
-    public enum Types: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case coffeeShop = "COFFEE_SHOP"
-        case restaurant = "RESTAURANT"
-        case bakery = "BAKERY"
-        case barPub = "BAR_PUB"
-        case retailStore = "RETAIL_STORE"
-        case onlineStore = "ONLINE_STORE"
-        case freelancer = "FREELANCER"
-        case beautySalon = "BEAUTY_SALON"
-        case fitnessStudioGym = "FITNESS_STUDIO_GYM"
-        case wellnessCenter = "WELLNESS_CENTER"
-        case serviceProvider = "SERVICE_PROVIDER"
-        case eventOrganizer = "EVENT_ORGANIZER"
-        case other = "OTHER"
-        case unknown = "UNKNOWN"
-    }
     public var types: [String: [String]]?
 
     public init(types: [String: [String]]? = nil) {

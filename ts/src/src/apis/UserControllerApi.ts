@@ -127,35 +127,14 @@ import {
     ValidateUserTicketRequestToJSON,
 } from '../models/index';
 
-export interface BlackListUserRequest {
+export interface DeleteApiV1UsersByUseridRequest {
     userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface CreateApiSecretRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateInviteLinkRequest {
-    userInvite: UserInvite;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface CreateReservationRequest {
-    reservationInfo: ReservationInfo;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface DeleteAddressRequest {
+export interface DeleteApiV1UsersByUseridAddressesByAddressidRequest {
     userId: string;
     addressId: string;
     xEdgeAgent?: string;
@@ -163,74 +142,27 @@ export interface DeleteAddressRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteUserRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface EditInviteLinkRequest {
-    inviteCode: string;
-    userInvite: UserInvite;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GenerateAnonAuthTokenRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAccountInfoRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetAllowedRolesRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetApprovalsRequest {
-    userId: string;
+export interface GetApiV1UsersRequest {
+    query?: string;
+    searchFields?: Set<GetApiV1UsersSearchFieldsEnum>;
+    companyId?: string;
+    email?: Array<string>;
+    country?: Array<string>;
+    referralCode?: Array<string>;
+    pin?: Array<string>;
+    provider?: Array<string>;
     start?: number;
-    length?: number;
+    limit?: number;
+    order?: string;
+    searchMode?: GetApiV1UsersSearchModeEnum;
+    blacklisted?: boolean;
+    role?: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetCompanyPrivateDataRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetCustomCurrenciesStatisticsRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetFrontEndsRequest {
-    userId: string;
-    latestOnly?: boolean;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetFrontEndsStatsRequest {
+export interface GetApiV1UsersByCompanyidFrontEndsStatsRequest {
     companyId: string;
     latestOnly?: boolean;
     xEdgeAgent?: string;
@@ -238,27 +170,7 @@ export interface GetFrontEndsStatsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetInviteLinkRequest {
-    inviteCode: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetInviteLinksRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetManageUserDataRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetMerchantOrdersRequest {
+export interface GetApiV1UsersByMerchantidMerchantOrdersRequest {
     merchantId: string;
     start?: number;
     length?: number;
@@ -267,31 +179,38 @@ export interface GetMerchantOrdersRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetPaymentAccountRequest {
-    merchantId?: string;
+export interface GetApiV1UsersByUserIdProfileRequest {
+    userId: string;
+    deleted?: boolean;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetPhoneStatusRequest {
+export interface GetApiV1UsersByUseridAccountRequest {
     userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetTransactionsRequest {
+export interface GetApiV1UsersByUseridAnonTokenRequest {
     userId: string;
-    from?: number;
-    to?: number;
-    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserBadgesRequest {
+export interface GetApiV1UsersByUseridApprovalsRequest {
+    userId: string;
+    start?: number;
+    length?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridBadgesRequest {
     userId: string;
     badgeDefType?: string;
     start?: number;
@@ -301,7 +220,16 @@ export interface GetUserBadgesRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserChatsRequest {
+export interface GetApiV1UsersByUseridByStateExistRequest {
+    userId: string;
+    state: string;
+    timeout?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridChatsRequest {
     userId: string;
     type?: string;
     state?: string;
@@ -310,14 +238,29 @@ export interface GetUserChatsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserDataRequest {
+export interface GetApiV1UsersByUseridCurrenciesStatisticsRequest {
     userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserGroupsRequest {
+export interface GetApiV1UsersByUseridDataRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridFrontEndsRequest {
+    userId: string;
+    latestOnly?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridGroupsRequest {
     userId: string;
     start?: number;
     length?: number;
@@ -326,28 +269,21 @@ export interface GetUserGroupsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserLanguageRequest {
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface GetUserMetaRequest {
+export interface GetApiV1UsersByUseridManageDataRequest {
     userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserOrderRequest {
+export interface GetApiV1UsersByUseridMetaRequest {
     userId: string;
-    orderId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserOrdersRequest {
+export interface GetApiV1UsersByUseridOrdersRequest {
     userId: string;
     orderId?: string;
     includeSubOrders?: boolean;
@@ -358,22 +294,43 @@ export interface GetUserOrdersRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUserProfileRequest {
+export interface GetApiV1UsersByUseridOrdersByOrderidRequest {
     userId: string;
-    deleted?: boolean;
+    orderId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserTicketsRequest {
+export interface GetApiV1UsersByUseridPhoneStatusRequest {
     userId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface GetUserTicketsHistoryRequest {
+export interface GetApiV1UsersByUseridPrivateDataRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridRolesAllowedRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridTicketsRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersByUseridTicketsHistoryRequest {
     userId: string;
     ticketId?: string;
     xEdgeAgent?: string;
@@ -381,51 +338,52 @@ export interface GetUserTicketsHistoryRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetUsersRequest {
-    query?: string;
-    searchFields?: Set<GetUsersSearchFieldsEnum>;
-    companyId?: string;
-    email?: Array<string>;
-    country?: Array<string>;
-    referralCode?: Array<string>;
-    pin?: Array<string>;
-    provider?: Array<string>;
-    start?: number;
+export interface GetApiV1UsersByUseridTransactionsRequest {
+    userId: string;
+    from?: number;
+    to?: number;
     limit?: number;
-    order?: string;
-    searchMode?: GetUsersSearchModeEnum;
-    blacklisted?: boolean;
-    role?: Array<string>;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface IsUserExistRequest {
+export interface GetApiV1UsersByUseridWhatNextRequest {
     userId: string;
-    state: string;
-    timeout?: number;
+    currentStep?: string;
+    inviteCode?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface ResetPasswordRequest {
-    userId: string;
+export interface GetApiV1UsersInvitelinksRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SaveAgreementRequest {
-    userId: string;
-    policy: Policy;
+export interface GetApiV1UsersInvitelinksByInvitecodeRequest {
+    inviteCode: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface SaveAgreement1Request {
+export interface GetApiV1UsersLanguageRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1UsersPaymentaccountRequest {
+    merchantId?: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridAgreementRequest {
     userId: string;
     agreement: Agreement;
     xEdgeAgent?: string;
@@ -433,7 +391,21 @@ export interface SaveAgreement1Request {
     xEdgeClientId?: string;
 }
 
-export interface SaveConfirmationRequest {
+export interface PostApiV1UsersByUseridApiSecretRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridBlacklistRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridConfirmationRequest {
     userId: string;
     confirmation: Confirmation;
     xEdgeAgent?: string;
@@ -441,36 +413,7 @@ export interface SaveConfirmationRequest {
     xEdgeClientId?: string;
 }
 
-export interface SignoutRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface TopupUserRequest {
-    userId: string;
-    topupRewardReq: TopupRewardReq;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UnassignEmployeeRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UnblackListUserRequest {
-    userId: string;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UpdateLocaleRequest {
+export interface PostApiV1UsersByUseridLocaleRequest {
     userId: string;
     lang: string;
     xEdgeAgent?: string;
@@ -478,7 +421,7 @@ export interface UpdateLocaleRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateNotificationStateRequest {
+export interface PostApiV1UsersByUseridNotificationRequest {
     userId: string;
     updateNotificationRequest: UpdateNotificationRequest;
     xEdgeAgent?: string;
@@ -486,7 +429,14 @@ export interface UpdateNotificationStateRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdatePinRequest {
+export interface PostApiV1UsersByUseridPasswordResetRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridPinRequest {
     userId: string;
     pin: string;
     force: boolean;
@@ -495,7 +445,15 @@ export interface UpdatePinRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateReferralCodeRequest {
+export interface PostApiV1UsersByUseridPolicyRequest {
+    userId: string;
+    policy: Policy;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridReferralCodeRequest {
     userId: string;
     referralCode: string;
     xEdgeAgent?: string;
@@ -503,7 +461,7 @@ export interface UpdateReferralCodeRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateRolesOperationRequest {
+export interface PostApiV1UsersByUseridRolesRequest {
     userId: string;
     updateRolesRequest: UpdateRolesRequest;
     xEdgeAgent?: string;
@@ -511,31 +469,22 @@ export interface UpdateRolesOperationRequest {
     xEdgeClientId?: string;
 }
 
-export interface UpdateSegmentRequest {
+export interface PostApiV1UsersByUseridSegmentRequest {
     userId: string;
-    segment: UpdateSegmentSegmentEnum;
+    segment: PostApiV1UsersByUseridSegmentSegmentEnum;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateUserOperationRequest {
+export interface PostApiV1UsersByUseridSignoutRequest {
     userId: string;
-    updateUserEvent: UpdateUserEvent;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface UpdateUser1Request {
-    userId: string;
-    updateUserRequest: UpdateUserRequest;
-    xEdgeAgent?: string;
-    xEdgeState?: string;
-    xEdgeClientId?: string;
-}
-
-export interface UseUserTicketOperationRequest {
+export interface PostApiV1UsersByUseridTicketsUseRequest {
     userId: string;
     useUserTicketRequest: UseUserTicketRequest;
     xEdgeAgent?: string;
@@ -543,7 +492,7 @@ export interface UseUserTicketOperationRequest {
     xEdgeClientId?: string;
 }
 
-export interface ValidateUserTicketOperationRequest {
+export interface PostApiV1UsersByUseridTicketsValidateRequest {
     userId: string;
     validateUserTicketRequest: ValidateUserTicketRequest;
     xEdgeAgent?: string;
@@ -551,10 +500,61 @@ export interface ValidateUserTicketOperationRequest {
     xEdgeClientId?: string;
 }
 
-export interface WhatNextRequest {
+export interface PostApiV1UsersByUseridTopupRequest {
     userId: string;
-    currentStep?: string;
-    inviteCode?: string;
+    topupRewardReq: TopupRewardReq;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridUnassignRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersByUseridUnblacklistRequest {
+    userId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersInvitelinksRequest {
+    userInvite: UserInvite;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1UsersReservationsRequest {
+    reservationInfo: ReservationInfo;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1UsersByUseridUpdateRequest {
+    userId: string;
+    updateUserRequest: UpdateUserRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1UsersByUseridUpdateUserRequest {
+    userId: string;
+    updateUserEvent: UpdateUserEvent;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1UsersInvitelinksByInvitecodeRequest {
+    inviteCode: string;
+    userInvite: UserInvite;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -577,61 +577,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    blackListUserRaw(requestParameters: BlackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1UsersByUseridRaw(requestParameters: DeleteApiV1UsersByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    blackListUser(requestParameters: BlackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    createApiSecretRaw(requestParameters: CreateApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiSecret>>;
-
-    /**
-     */
-    createApiSecret(requestParameters: CreateApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiSecret>;
-
-    /**
-     * 
-     * @param {UserInvite} userInvite 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    createInviteLinkRaw(requestParameters: CreateInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     * @deprecated
-     */
-    createInviteLink(requestParameters: CreateInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {ReservationInfo} reservationInfo 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    createReservationRaw(requestParameters: CreateReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    createReservation(requestParameters: CreateReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+    deleteApiV1UsersByUserid(requestParameters: DeleteApiV1UsersByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -644,487 +594,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    deleteAddressRaw(requestParameters: DeleteAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    deleteApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: DeleteApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteAddress(requestParameters: DeleteAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    deleteUserRaw(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    deleteUser(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} inviteCode 
-     * @param {UserInvite} userInvite 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    editInviteLinkRaw(requestParameters: EditInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     * @deprecated
-     */
-    editInviteLink(requestParameters: EditInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    generateAnonAuthTokenRaw(requestParameters: GenerateAnonAuthTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnonAuthResp>>;
-
-    /**
-     */
-    generateAnonAuthToken(requestParameters: GenerateAnonAuthTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnonAuthResp>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getAccountInfoRaw(requestParameters: GetAccountInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
-
-    /**
-     */
-    getAccountInfo(requestParameters: GetAccountInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getAllowedRolesRaw(requestParameters: GetAllowedRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAllowedRoles>>;
-
-    /**
-     */
-    getAllowedRoles(requestParameters: GetAllowedRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAllowedRoles>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getApprovalsRaw(requestParameters: GetApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getApprovals(requestParameters: GetApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getCompanyPrivateDataRaw(requestParameters: GetCompanyPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyPrivateData>>;
-
-    /**
-     */
-    getCompanyPrivateData(requestParameters: GetCompanyPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyPrivateData>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getCustomCurrenciesStatisticsRaw(requestParameters: GetCustomCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PointCurrencyStats>>>;
-
-    /**
-     */
-    getCustomCurrenciesStatistics(requestParameters: GetCustomCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PointCurrencyStats>>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {boolean} [latestOnly] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getFrontEndsRaw(requestParameters: GetFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndData>>;
-
-    /**
-     */
-    getFrontEnds(requestParameters: GetFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndData>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {boolean} [latestOnly] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getFrontEndsStatsRaw(requestParameters: GetFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>>;
-
-    /**
-     */
-    getFrontEndsStats(requestParameters: GetFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount>;
-
-    /**
-     * 
-     * @param {string} inviteCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getInviteLinkRaw(requestParameters: GetInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
-
-    /**
-     * @deprecated
-     */
-    getInviteLink(requestParameters: GetInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getInviteLinksRaw(requestParameters: GetInviteLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>>;
-
-    /**
-     * @deprecated
-     */
-    getInviteLinks(requestParameters: GetInviteLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getManageUserDataRaw(requestParameters: GetManageUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageUserData>>;
-
-    /**
-     */
-    getManageUserData(requestParameters: GetManageUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageUserData>;
-
-    /**
-     * 
-     * @param {string} merchantId 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getMerchantOrdersRaw(requestParameters: GetMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getMerchantOrders(requestParameters: GetMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} [merchantId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getPaymentAccountRaw(requestParameters: GetPaymentAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentAccountResult>>;
-
-    /**
-     */
-    getPaymentAccount(requestParameters: GetPaymentAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentAccountResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getPhoneStatusRaw(requestParameters: GetPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
-
-    /**
-     */
-    getPhoneStatus(requestParameters: GetPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {number} [from] 
-     * @param {number} [to] 
-     * @param {number} [limit] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getTransactionsRaw(requestParameters: GetTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>>;
-
-    /**
-     */
-    getTransactions(requestParameters: GetTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [badgeDefType] 
-     * @param {number} [start] 
-     * @param {number} [limit] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserBadgesRaw(requestParameters: GetUserBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeStash>>;
-
-    /**
-     */
-    getUserBadges(requestParameters: GetUserBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeStash>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [type] 
-     * @param {string} [state] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserChatsRaw(requestParameters: GetUserChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChatResult>>;
-
-    /**
-     */
-    getUserChats(requestParameters: GetUserChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChatResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserDataRaw(requestParameters: GetUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>>;
-
-    /**
-     */
-    getUserData(requestParameters: GetUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserGroupsRaw(requestParameters: GetUserGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>>;
-
-    /**
-     */
-    getUserGroups(requestParameters: GetUserGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserLanguageRaw(requestParameters: GetUserLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    getUserLanguage(requestParameters: GetUserLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserMetaRaw(requestParameters: GetUserMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserMetaResult>>;
-
-    /**
-     */
-    getUserMeta(requestParameters: GetUserMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserMetaResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} orderId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserOrderRaw(requestParameters: GetUserOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
-
-    /**
-     */
-    getUserOrder(requestParameters: GetUserOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [orderId] 
-     * @param {boolean} [includeSubOrders] 
-     * @param {number} [start] 
-     * @param {number} [length] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserOrdersRaw(requestParameters: GetUserOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
-
-    /**
-     */
-    getUserOrders(requestParameters: GetUserOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {boolean} [deleted] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserProfileRaw(requestParameters: GetUserProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>>;
-
-    /**
-     */
-    getUserProfile(requestParameters: GetUserProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserTicketsRaw(requestParameters: GetUserTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketResult>>;
-
-    /**
-     */
-    getUserTickets(requestParameters: GetUserTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [ticketId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getUserTicketsHistoryRaw(requestParameters: GetUserTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketHistoryResult>>;
-
-    /**
-     */
-    getUserTicketsHistory(requestParameters: GetUserTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketHistoryResult>;
+    deleteApiV1UsersByUseridAddressesByAddressid(requestParameters: DeleteApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -1149,11 +623,132 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getUsersRaw(requestParameters: GetUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserListResult>>;
+    getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserListResult>>;
 
     /**
      */
-    getUsers(requestParameters: GetUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserListResult>;
+    getApiV1Users(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserListResult>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {boolean} [latestOnly] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>>;
+
+    /**
+     */
+    getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount>;
+
+    /**
+     * 
+     * @param {string} merchantId 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {boolean} [deleted] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>>;
+
+    /**
+     */
+    getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
+
+    /**
+     */
+    getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnonAuthResp>>;
+
+    /**
+     */
+    getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnonAuthResp>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [badgeDefType] 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeStash>>;
+
+    /**
+     */
+    getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeStash>;
 
     /**
      * 
@@ -1167,11 +762,29 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    isUserExistRaw(requestParameters: IsUserExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridByStateExistRaw(requestParameters: GetApiV1UsersByUseridByStateExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    isUserExist(requestParameters: IsUserExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridByStateExist(requestParameters: GetApiV1UsersByUseridByStateExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [type] 
+     * @param {string} [state] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChatResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChatResult>;
 
     /**
      * 
@@ -1183,62 +796,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PointCurrencyStats>>>;
 
     /**
      */
-    resetPassword(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {Policy} policy 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    saveAgreementRaw(requestParameters: SaveAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
-
-    /**
-     */
-    saveAgreement(requestParameters: SaveAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {Agreement} agreement 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    saveAgreement1Raw(requestParameters: SaveAgreement1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
-
-    /**
-     */
-    saveAgreement1(requestParameters: SaveAgreement1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {Confirmation} confirmation 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    saveConfirmationRaw(requestParameters: SaveConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
-
-    /**
-     */
-    saveConfirmation(requestParameters: SaveConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+    getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PointCurrencyStats>>;
 
     /**
      * 
@@ -1250,16 +812,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    signoutRaw(requestParameters: SignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>>;
 
     /**
      */
-    signout(requestParameters: SignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {TopupRewardReq} topupRewardReq 
+     * @param {boolean} [latestOnly] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1267,11 +829,29 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    topupUserRaw(requestParameters: TopupUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndData>>;
 
     /**
      */
-    topupUser(requestParameters: TopupUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndData>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {number} [start] 
+     * @param {number} [length] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult>;
 
     /**
      * 
@@ -1283,11 +863,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    unassignEmployeeRaw(requestParameters: UnassignEmployeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageUserData>>;
 
     /**
      */
-    unassignEmployee(requestParameters: UnassignEmployeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageUserData>;
 
     /**
      * 
@@ -1299,16 +879,19 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    unblackListUserRaw(requestParameters: UnblackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserMetaResult>>;
 
     /**
      */
-    unblackListUser(requestParameters: UnblackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserMetaResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {string} lang 
+     * @param {string} [orderId] 
+     * @param {boolean} [includeSubOrders] 
+     * @param {number} [start] 
+     * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1316,16 +899,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateLocaleRaw(requestParameters: UpdateLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>>;
 
     /**
      */
-    updateLocale(requestParameters: UpdateLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {UpdateNotificationRequest} updateNotificationRequest 
+     * @param {string} orderId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1333,17 +916,15 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateNotificationStateRaw(requestParameters: UpdateNotificationStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    updateNotificationState(requestParameters: UpdateNotificationStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {string} pin 
-     * @param {boolean} force 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1351,16 +932,15 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updatePinRaw(requestParameters: UpdatePinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridPhoneStatusRaw(requestParameters: GetApiV1UsersByUseridPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
 
     /**
      */
-    updatePin(requestParameters: UpdatePinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridPhoneStatus(requestParameters: GetApiV1UsersByUseridPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {string} referralCode 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1368,16 +948,15 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateReferralCodeRaw(requestParameters: UpdateReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyPrivateData>>;
 
     /**
      */
-    updateReferralCode(requestParameters: UpdateReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyPrivateData>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {UpdateRolesRequest} updateRolesRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1385,16 +964,15 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateRolesRaw(requestParameters: UpdateRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAllowedRoles>>;
 
     /**
      */
-    updateRoles(requestParameters: UpdateRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAllowedRoles>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {'REGULAR' | 'TEST'} segment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1402,16 +980,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateSegmentRaw(requestParameters: UpdateSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketResult>>;
 
     /**
      */
-    updateSegment(requestParameters: UpdateSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {UpdateUserEvent} updateUserEvent 
+     * @param {string} [ticketId] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1419,35 +997,18 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    updateUserRaw(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>>;
+    getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketHistoryResult>>;
 
     /**
      */
-    updateUser(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult>;
+    getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketHistoryResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {UpdateUserRequest} updateUserRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    updateUser1Raw(requestParameters: UpdateUser1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     * @deprecated
-     */
-    updateUser1(requestParameters: UpdateUser1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {UseUserTicketRequest} useUserTicketRequest 
+     * @param {number} [from] 
+     * @param {number} [to] 
+     * @param {number} [limit] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1455,28 +1016,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    useUserTicketRaw(requestParameters: UseUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
+    getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>>;
 
     /**
      */
-    useUserTicket(requestParameters: UseUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {ValidateUserTicketRequest} validateUserTicketRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    validateUserTicketRaw(requestParameters: ValidateUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
-
-    /**
-     */
-    validateUserTicket(requestParameters: ValidateUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
+    getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>>;
 
     /**
      * 
@@ -1490,11 +1034,467 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    whatNextRaw(requestParameters: WhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>>;
+    getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>>;
 
     /**
      */
-    whatNext(requestParameters: WhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision>;
+    getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>>;
+
+    /**
+     * @deprecated
+     */
+    getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>>;
+
+    /**
+     * 
+     * @param {string} inviteCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     * @deprecated
+     */
+    getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersLanguageRaw(requestParameters: GetApiV1UsersLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    getApiV1UsersLanguage(requestParameters: GetApiV1UsersLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} [merchantId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentAccountResult>>;
+
+    /**
+     */
+    getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentAccountResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {Agreement} agreement 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
+
+    /**
+     */
+    postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiSecret>>;
+
+    /**
+     */
+    postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiSecret>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridBlacklistRaw(requestParameters: PostApiV1UsersByUseridBlacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridBlacklist(requestParameters: PostApiV1UsersByUseridBlacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {Confirmation} confirmation 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
+
+    /**
+     */
+    postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} lang 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridLocaleRaw(requestParameters: PostApiV1UsersByUseridLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridLocale(requestParameters: PostApiV1UsersByUseridLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {UpdateNotificationRequest} updateNotificationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridNotificationRaw(requestParameters: PostApiV1UsersByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridNotification(requestParameters: PostApiV1UsersByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridPasswordResetRaw(requestParameters: PostApiV1UsersByUseridPasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridPasswordReset(requestParameters: PostApiV1UsersByUseridPasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} pin 
+     * @param {boolean} force 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridPinRaw(requestParameters: PostApiV1UsersByUseridPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridPin(requestParameters: PostApiV1UsersByUseridPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {Policy} policy 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
+
+    /**
+     */
+    postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} referralCode 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridReferralCodeRaw(requestParameters: PostApiV1UsersByUseridReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridReferralCode(requestParameters: PostApiV1UsersByUseridReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {UpdateRolesRequest} updateRolesRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridRolesRaw(requestParameters: PostApiV1UsersByUseridRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridRoles(requestParameters: PostApiV1UsersByUseridRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {'REGULAR' | 'TEST'} segment 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridSegmentRaw(requestParameters: PostApiV1UsersByUseridSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridSegment(requestParameters: PostApiV1UsersByUseridSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridSignoutRaw(requestParameters: PostApiV1UsersByUseridSignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridSignout(requestParameters: PostApiV1UsersByUseridSignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {UseUserTicketRequest} useUserTicketRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridTicketsUseRaw(requestParameters: PostApiV1UsersByUseridTicketsUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridTicketsUse(requestParameters: PostApiV1UsersByUseridTicketsUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {ValidateUserTicketRequest} validateUserTicketRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridTicketsValidateRaw(requestParameters: PostApiV1UsersByUseridTicketsValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridTicketsValidate(requestParameters: PostApiV1UsersByUseridTicketsValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {TopupRewardReq} topupRewardReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridTopupRaw(requestParameters: PostApiV1UsersByUseridTopupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridTopup(requestParameters: PostApiV1UsersByUseridTopupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridUnassignRaw(requestParameters: PostApiV1UsersByUseridUnassignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridUnassign(requestParameters: PostApiV1UsersByUseridUnassignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersByUseridUnblacklistRaw(requestParameters: PostApiV1UsersByUseridUnblacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1UsersByUseridUnblacklist(requestParameters: PostApiV1UsersByUseridUnblacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {UserInvite} userInvite 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersInvitelinksRaw(requestParameters: PostApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     * @deprecated
+     */
+    postApiV1UsersInvitelinks(requestParameters: PostApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {ReservationInfo} reservationInfo 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
+
+    /**
+     */
+    postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {UpdateUserRequest} updateUserRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    putApiV1UsersByUseridUpdateRaw(requestParameters: PutApiV1UsersByUseridUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     * @deprecated
+     */
+    putApiV1UsersByUseridUpdate(requestParameters: PutApiV1UsersByUseridUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {UpdateUserEvent} updateUserEvent 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>>;
+
+    /**
+     */
+    putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult>;
+
+    /**
+     * 
+     * @param {string} inviteCode 
+     * @param {UserInvite} userInvite 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    putApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: PutApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     * @deprecated
+     */
+    putApiV1UsersInvitelinksByInvitecode(requestParameters: PutApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
 }
 
@@ -1505,11 +1505,11 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async blackListUserRaw(requestParameters: BlackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async deleteApiV1UsersByUseridRaw(requestParameters: DeleteApiV1UsersByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling blackListUser().'
+                'Required parameter "userId" was null or undefined when calling deleteApiV1UsersByUserid().'
             );
         }
 
@@ -1534,12 +1534,12 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/blacklist`;
+        let urlPath = `/api/v1/users/{userId}`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
@@ -1549,184 +1549,25 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async blackListUser(requestParameters: BlackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.blackListUserRaw(requestParameters, initOverrides);
+    async deleteApiV1UsersByUserid(requestParameters: DeleteApiV1UsersByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1UsersByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async createApiSecretRaw(requestParameters: CreateApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiSecret>> {
+    async deleteApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: DeleteApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling createApiSecret().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/api-secret`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiSecretFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createApiSecret(requestParameters: CreateApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiSecret> {
-        const response = await this.createApiSecretRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async createInviteLinkRaw(requestParameters: CreateInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userInvite'] == null) {
-            throw new runtime.RequiredError(
-                'userInvite',
-                'Required parameter "userInvite" was null or undefined when calling createInviteLink().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/inviteLinks`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UserInviteToJSON(requestParameters['userInvite']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     * @deprecated
-     */
-    async createInviteLink(requestParameters: CreateInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.createInviteLinkRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async createReservationRaw(requestParameters: CreateReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['reservationInfo'] == null) {
-            throw new runtime.RequiredError(
-                'reservationInfo',
-                'Required parameter "reservationInfo" was null or undefined when calling createReservation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/reservations`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ReservationInfoToJSON(requestParameters['reservationInfo']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async createReservation(requestParameters: CreateReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.createReservationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async deleteAddressRaw(requestParameters: DeleteAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling deleteAddress().'
+                'Required parameter "userId" was null or undefined when calling deleteApiV1UsersByUseridAddressesByAddressid().'
             );
         }
 
         if (requestParameters['addressId'] == null) {
             throw new runtime.RequiredError(
                 'addressId',
-                'Required parameter "addressId" was null or undefined when calling deleteAddress().'
+                'Required parameter "addressId" was null or undefined when calling deleteApiV1UsersByUseridAddressesByAddressid().'
             );
         }
 
@@ -1767,1538 +1608,14 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async deleteAddress(requestParameters: DeleteAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteAddressRaw(requestParameters, initOverrides);
+    async deleteApiV1UsersByUseridAddressesByAddressid(requestParameters: DeleteApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1UsersByUseridAddressesByAddressidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteUserRaw(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling deleteUser().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async deleteUser(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.deleteUserRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async editInviteLinkRaw(requestParameters: EditInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['inviteCode'] == null) {
-            throw new runtime.RequiredError(
-                'inviteCode',
-                'Required parameter "inviteCode" was null or undefined when calling editInviteLink().'
-            );
-        }
-
-        if (requestParameters['userInvite'] == null) {
-            throw new runtime.RequiredError(
-                'userInvite',
-                'Required parameter "userInvite" was null or undefined when calling editInviteLink().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/inviteLinks/{inviteCode}`;
-        urlPath = urlPath.replace(`{${"inviteCode"}}`, encodeURIComponent(String(requestParameters['inviteCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UserInviteToJSON(requestParameters['userInvite']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     * @deprecated
-     */
-    async editInviteLink(requestParameters: EditInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.editInviteLinkRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async generateAnonAuthTokenRaw(requestParameters: GenerateAnonAuthTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnonAuthResp>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling generateAnonAuthToken().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/anon/token`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AnonAuthRespFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async generateAnonAuthToken(requestParameters: GenerateAnonAuthTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnonAuthResp> {
-        const response = await this.generateAnonAuthTokenRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAccountInfoRaw(requestParameters: GetAccountInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getAccountInfo().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/account`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAccountInfo(requestParameters: GetAccountInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
-        const response = await this.getAccountInfoRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getAllowedRolesRaw(requestParameters: GetAllowedRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAllowedRoles>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getAllowedRoles().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/roles/allowed`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserAllowedRolesFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getAllowedRoles(requestParameters: GetAllowedRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAllowedRoles> {
-        const response = await this.getAllowedRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getApprovalsRaw(requestParameters: GetApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getApprovals().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/approvals`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getApprovals(requestParameters: GetApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getApprovalsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCompanyPrivateDataRaw(requestParameters: GetCompanyPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyPrivateData>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getCompanyPrivateData().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/private_data`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyPrivateDataFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getCompanyPrivateData(requestParameters: GetCompanyPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyPrivateData> {
-        const response = await this.getCompanyPrivateDataRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getCustomCurrenciesStatisticsRaw(requestParameters: GetCustomCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PointCurrencyStats>>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getCustomCurrenciesStatistics().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/currencies/statistics`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PointCurrencyStatsFromJSON));
-    }
-
-    /**
-     */
-    async getCustomCurrenciesStatistics(requestParameters: GetCustomCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PointCurrencyStats>> {
-        const response = await this.getCustomCurrenciesStatisticsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getFrontEndsRaw(requestParameters: GetFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndData>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getFrontEnds().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['latestOnly'] != null) {
-            queryParameters['latestOnly'] = requestParameters['latestOnly'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/front-ends`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageFrontEndDataFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getFrontEnds(requestParameters: GetFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndData> {
-        const response = await this.getFrontEndsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getFrontEndsStatsRaw(requestParameters: GetFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>> {
-        if (requestParameters['companyId'] == null) {
-            throw new runtime.RequiredError(
-                'companyId',
-                'Required parameter "companyId" was null or undefined when calling getFrontEndsStats().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['latestOnly'] != null) {
-            queryParameters['latestOnly'] = requestParameters['latestOnly'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{companyId}/front-ends-stats`;
-        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageFrontEndCountFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getFrontEndsStats(requestParameters: GetFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount> {
-        const response = await this.getFrontEndsStatsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async getInviteLinkRaw(requestParameters: GetInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
-        if (requestParameters['inviteCode'] == null) {
-            throw new runtime.RequiredError(
-                'inviteCode',
-                'Required parameter "inviteCode" was null or undefined when calling getInviteLink().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/inviteLinks/{inviteCode}`;
-        urlPath = urlPath.replace(`{${"inviteCode"}}`, encodeURIComponent(String(requestParameters['inviteCode'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
-    }
-
-    /**
-     * @deprecated
-     */
-    async getInviteLink(requestParameters: GetInviteLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
-        const response = await this.getInviteLinkRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * @deprecated
-     */
-    async getInviteLinksRaw(requestParameters: GetInviteLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/inviteLinks`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UserInviteFromJSON));
-    }
-
-    /**
-     * @deprecated
-     */
-    async getInviteLinks(requestParameters: GetInviteLinksRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>> {
-        const response = await this.getInviteLinksRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getManageUserDataRaw(requestParameters: GetManageUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageUserData>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getManageUserData().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/manage_data`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ManageUserDataFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getManageUserData(requestParameters: GetManageUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageUserData> {
-        const response = await this.getManageUserDataRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getMerchantOrdersRaw(requestParameters: GetMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['merchantId'] == null) {
-            throw new runtime.RequiredError(
-                'merchantId',
-                'Required parameter "merchantId" was null or undefined when calling getMerchantOrders().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{merchantId}/merchant/orders`;
-        urlPath = urlPath.replace(`{${"merchantId"}}`, encodeURIComponent(String(requestParameters['merchantId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getMerchantOrders(requestParameters: GetMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getMerchantOrdersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getPaymentAccountRaw(requestParameters: GetPaymentAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentAccountResult>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['merchantId'] != null) {
-            queryParameters['merchantId'] = requestParameters['merchantId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/paymentAccount`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentAccountResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getPaymentAccount(requestParameters: GetPaymentAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentAccountResult> {
-        const response = await this.getPaymentAccountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getPhoneStatusRaw(requestParameters: GetPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getPhoneStatus().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/phone_status`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     */
-    async getPhoneStatus(requestParameters: GetPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
-        const response = await this.getPhoneStatusRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getTransactionsRaw(requestParameters: GetTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getTransactions().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['from'] != null) {
-            queryParameters['from'] = requestParameters['from'];
-        }
-
-        if (requestParameters['to'] != null) {
-            queryParameters['to'] = requestParameters['to'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/transactions`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TransactionFromJSON));
-    }
-
-    /**
-     */
-    async getTransactions(requestParameters: GetTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>> {
-        const response = await this.getTransactionsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserBadgesRaw(requestParameters: GetUserBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeStash>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserBadges().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['badgeDefType'] != null) {
-            queryParameters['badgeDefType'] = requestParameters['badgeDefType'];
-        }
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/badges`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageBadgeStashFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserBadges(requestParameters: GetUserBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeStash> {
-        const response = await this.getUserBadgesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserChatsRaw(requestParameters: GetUserChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChatResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserChats().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
-        }
-
-        if (requestParameters['state'] != null) {
-            queryParameters['state'] = requestParameters['state'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/chats`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserChatResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserChats(requestParameters: GetUserChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChatResult> {
-        const response = await this.getUserChatsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserDataRaw(requestParameters: GetUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserData().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/data`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserDataFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserData(requestParameters: GetUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData> {
-        const response = await this.getUserDataRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserGroupsRaw(requestParameters: GetUserGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserGroups().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/groups`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageGroupSearchResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserGroups(requestParameters: GetUserGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult> {
-        const response = await this.getUserGroupsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserLanguageRaw(requestParameters: GetUserLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/language`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async getUserLanguage(requestParameters: GetUserLanguageRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.getUserLanguageRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserMetaRaw(requestParameters: GetUserMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserMetaResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserMeta().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/meta`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserMetaResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserMeta(requestParameters: GetUserMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserMetaResult> {
-        const response = await this.getUserMetaRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserOrderRaw(requestParameters: GetUserOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserOrder().'
-            );
-        }
-
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling getUserOrder().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/orders/{orderId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-        urlPath = urlPath.replace(`{${"orderId"}}`, encodeURIComponent(String(requestParameters['orderId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserOrder(requestParameters: GetUserOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
-        const response = await this.getUserOrderRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserOrdersRaw(requestParameters: GetUserOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserOrders().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['orderId'] != null) {
-            queryParameters['orderId'] = requestParameters['orderId'];
-        }
-
-        if (requestParameters['includeSubOrders'] != null) {
-            queryParameters['includeSubOrders'] = requestParameters['includeSubOrders'];
-        }
-
-        if (requestParameters['start'] != null) {
-            queryParameters['start'] = requestParameters['start'];
-        }
-
-        if (requestParameters['length'] != null) {
-            queryParameters['length'] = requestParameters['length'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/orders`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserOrders(requestParameters: GetUserOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
-        const response = await this.getUserOrdersRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserProfileRaw(requestParameters: GetUserProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserProfile().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['deleted'] != null) {
-            queryParameters['deleted'] = requestParameters['deleted'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{user_id}/profile`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileExFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserProfile(requestParameters: GetUserProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx> {
-        const response = await this.getUserProfileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserTicketsRaw(requestParameters: GetUserTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserTickets().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/tickets`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserTicketResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserTickets(requestParameters: GetUserTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketResult> {
-        const response = await this.getUserTicketsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUserTicketsHistoryRaw(requestParameters: GetUserTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketHistoryResult>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling getUserTicketsHistory().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['ticketId'] != null) {
-            queryParameters['ticket_id'] = requestParameters['ticketId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/tickets/history`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserTicketHistoryResultFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async getUserTicketsHistory(requestParameters: GetUserTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketHistoryResult> {
-        const response = await this.getUserTicketsHistoryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async getUsersRaw(requestParameters: GetUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserListResult>> {
+    async getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserListResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['query'] != null) {
@@ -3390,25 +1707,418 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async getUsers(requestParameters: GetUsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserListResult> {
-        const response = await this.getUsersRaw(requestParameters, initOverrides);
+    async getApiV1Users(requestParameters: GetApiV1UsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserListResult> {
+        const response = await this.getApiV1UsersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async isUserExistRaw(requestParameters: IsUserExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1UsersByCompanyidFrontEndsStats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['latestOnly'] != null) {
+            queryParameters['latestOnly'] = requestParameters['latestOnly'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{companyId}/front-ends-stats`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageFrontEndCountFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount> {
+        const response = await this.getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['merchantId'] == null) {
+            throw new runtime.RequiredError(
+                'merchantId',
+                'Required parameter "merchantId" was null or undefined when calling getApiV1UsersByMerchantidMerchantOrders().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{merchantId}/merchant/orders`;
+        urlPath = urlPath.replace(`{${"merchantId"}}`, encodeURIComponent(String(requestParameters['merchantId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfileEx>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling isUserExist().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUserIdProfile().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['deleted'] != null) {
+            queryParameters['deleted'] = requestParameters['deleted'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{user_id}/profile`;
+        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileExFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfileEx> {
+        const response = await this.getApiV1UsersByUserIdProfileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridAccount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/account`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
+        const response = await this.getApiV1UsersByUseridAccountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnonAuthResp>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridAnonToken().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/anon/token`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AnonAuthRespFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnonAuthResp> {
+        const response = await this.getApiV1UsersByUseridAnonTokenRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridApprovals().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/approvals`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1UsersByUseridApprovalsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageBadgeStash>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridBadges().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['badgeDefType'] != null) {
+            queryParameters['badgeDefType'] = requestParameters['badgeDefType'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/badges`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageBadgeStashFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageBadgeStash> {
+        const response = await this.getApiV1UsersByUseridBadgesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridByStateExistRaw(requestParameters: GetApiV1UsersByUseridByStateExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridByStateExist().'
             );
         }
 
         if (requestParameters['state'] == null) {
             throw new runtime.RequiredError(
                 'state',
-                'Required parameter "state" was null or undefined when calling isUserExist().'
+                'Required parameter "state" was null or undefined when calling getApiV1UsersByUseridByStateExist().'
             );
         }
 
@@ -3453,18 +2163,77 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async isUserExist(requestParameters: IsUserExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.isUserExistRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridByStateExist(requestParameters: GetApiV1UsersByUseridByStateExistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1UsersByUseridByStateExistRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChatResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling resetPassword().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridChats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['state'] != null) {
+            queryParameters['state'] = requestParameters['state'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/chats`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserChatResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserChatResult> {
+        const response = await this.getApiV1UsersByUseridChatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PointCurrencyStats>>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridCurrenciesStatistics().'
             );
         }
 
@@ -3489,216 +2258,33 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/password_reset`;
+        let urlPath = `/api/v1/users/{userId}/currencies/statistics`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PointCurrencyStatsFromJSON));
     }
 
     /**
      */
-    async resetPassword(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.resetPasswordRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PointCurrencyStats>> {
+        const response = await this.getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async saveAgreementRaw(requestParameters: SaveAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+    async getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling saveAgreement().'
-            );
-        }
-
-        if (requestParameters['policy'] == null) {
-            throw new runtime.RequiredError(
-                'policy',
-                'Required parameter "policy" was null or undefined when calling saveAgreement().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/policy`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PolicyToJSON(requestParameters['policy']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async saveAgreement(requestParameters: SaveAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
-        const response = await this.saveAgreementRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveAgreement1Raw(requestParameters: SaveAgreement1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling saveAgreement1().'
-            );
-        }
-
-        if (requestParameters['agreement'] == null) {
-            throw new runtime.RequiredError(
-                'agreement',
-                'Required parameter "agreement" was null or undefined when calling saveAgreement1().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/agreement`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AgreementToJSON(requestParameters['agreement']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async saveAgreement1(requestParameters: SaveAgreement1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
-        const response = await this.saveAgreement1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async saveConfirmationRaw(requestParameters: SaveConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling saveConfirmation().'
-            );
-        }
-
-        if (requestParameters['confirmation'] == null) {
-            throw new runtime.RequiredError(
-                'confirmation',
-                'Required parameter "confirmation" was null or undefined when calling saveConfirmation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/confirmation`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ConfirmationToJSON(requestParameters['confirmation']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async saveConfirmation(requestParameters: SaveConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
-        const response = await this.saveConfirmationRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async signoutRaw(requestParameters: SignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling signout().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridData().'
             );
         }
 
@@ -3723,210 +2309,40 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/signout`;
+        let urlPath = `/api/v1/users/{userId}/data`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async signout(requestParameters: SignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.signoutRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData> {
+        const response = await this.getApiV1UsersByUseridDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async topupUserRaw(requestParameters: TopupUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling topupUser().'
-            );
-        }
-
-        if (requestParameters['topupRewardReq'] == null) {
-            throw new runtime.RequiredError(
-                'topupRewardReq',
-                'Required parameter "topupRewardReq" was null or undefined when calling topupUser().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridFrontEnds().'
             );
         }
 
         const queryParameters: any = {};
 
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/topup`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: TopupRewardReqToJSON(requestParameters['topupRewardReq']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async topupUser(requestParameters: TopupUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.topupUserRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async unassignEmployeeRaw(requestParameters: UnassignEmployeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling unassignEmployee().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/unassign`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async unassignEmployee(requestParameters: UnassignEmployeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.unassignEmployeeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async unblackListUserRaw(requestParameters: UnblackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling unblackListUser().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/unblacklist`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async unblackListUser(requestParameters: UnblackListUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.unblackListUserRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateLocaleRaw(requestParameters: UpdateLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling updateLocale().'
-            );
-        }
-
-        if (requestParameters['lang'] == null) {
-            throw new runtime.RequiredError(
-                'lang',
-                'Required parameter "lang" was null or undefined when calling updateLocale().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['lang'] != null) {
-            queryParameters['lang'] = requestParameters['lang'];
+        if (requestParameters['latestOnly'] != null) {
+            queryParameters['latestOnly'] = requestParameters['latestOnly'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3948,119 +2364,44 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/locale`;
+        let urlPath = `/api/v1/users/{userId}/front-ends`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageFrontEndDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async updateLocale(requestParameters: UpdateLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateLocaleRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndData> {
+        const response = await this.getApiV1UsersByUseridFrontEndsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateNotificationStateRaw(requestParameters: UpdateNotificationStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGroupSearchResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateNotificationState().'
-            );
-        }
-
-        if (requestParameters['updateNotificationRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateNotificationRequest',
-                'Required parameter "updateNotificationRequest" was null or undefined when calling updateNotificationState().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridGroups().'
             );
         }
 
         const queryParameters: any = {};
 
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
         }
 
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/notification`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateNotificationRequestToJSON(requestParameters['updateNotificationRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async updateNotificationState(requestParameters: UpdateNotificationStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateNotificationStateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updatePinRaw(requestParameters: UpdatePinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling updatePin().'
-            );
-        }
-
-        if (requestParameters['pin'] == null) {
-            throw new runtime.RequiredError(
-                'pin',
-                'Required parameter "pin" was null or undefined when calling updatePin().'
-            );
-        }
-
-        if (requestParameters['force'] == null) {
-            throw new runtime.RequiredError(
-                'force',
-                'Required parameter "force" was null or undefined when calling updatePin().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['pin'] != null) {
-            queryParameters['pin'] = requestParameters['pin'];
-        }
-
-        if (requestParameters['force'] != null) {
-            queryParameters['force'] = requestParameters['force'];
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4082,47 +2423,154 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/pin`;
+        let urlPath = `/api/v1/users/{userId}/groups`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageGroupSearchResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async updatePin(requestParameters: UpdatePinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updatePinRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGroupSearchResult> {
+        const response = await this.getApiV1UsersByUseridGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateReferralCodeRaw(requestParameters: UpdateReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageUserData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateReferralCode().'
-            );
-        }
-
-        if (requestParameters['referralCode'] == null) {
-            throw new runtime.RequiredError(
-                'referralCode',
-                'Required parameter "referralCode" was null or undefined when calling updateReferralCode().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridManageData().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['referralCode'] != null) {
-            queryParameters['referral_code'] = requestParameters['referralCode'];
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/manage_data`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ManageUserDataFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageUserData> {
+        const response = await this.getApiV1UsersByUseridManageDataRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserMetaResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridMeta().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/meta`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserMetaResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserMetaResult> {
+        const response = await this.getApiV1UsersByUseridMetaRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridOrders().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['orderId'] != null) {
+            queryParameters['orderId'] = requestParameters['orderId'];
+        }
+
+        if (requestParameters['includeSubOrders'] != null) {
+            queryParameters['includeSubOrders'] = requestParameters['includeSubOrders'];
+        }
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['length'] != null) {
+            queryParameters['length'] = requestParameters['length'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4144,109 +2592,44 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/referral_code`;
+        let urlPath = `/api/v1/users/{userId}/orders`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async updateReferralCode(requestParameters: UpdateReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateReferralCodeRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListResult> {
+        const response = await this.getApiV1UsersByUseridOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateRolesRaw(requestParameters: UpdateRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateRoles().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridOrdersByOrderid().'
             );
         }
 
-        if (requestParameters['updateRolesRequest'] == null) {
+        if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
-                'updateRolesRequest',
-                'Required parameter "updateRolesRequest" was null or undefined when calling updateRoles().'
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling getApiV1UsersByUseridOrdersByOrderid().'
             );
         }
 
         const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (requestParameters['xEdgeAgent'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
-        }
-
-        if (requestParameters['xEdgeState'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
-        }
-
-        if (requestParameters['xEdgeClientId'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}/roles`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateRolesRequestToJSON(requestParameters['updateRolesRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     */
-    async updateRoles(requestParameters: UpdateRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async updateSegmentRaw(requestParameters: UpdateSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling updateSegment().'
-            );
-        }
-
-        if (requestParameters['segment'] == null) {
-            throw new runtime.RequiredError(
-                'segment',
-                'Required parameter "segment" was null or undefined when calling updateSegment().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['segment'] != null) {
-            queryParameters['segment'] = requestParameters['segment'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -4267,48 +2650,40 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/segment`;
+        let urlPath = `/api/v1/users/{userId}/orders/{orderId}`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"orderId"}}`, encodeURIComponent(String(requestParameters['orderId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async updateSegment(requestParameters: UpdateSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateSegmentRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateUserRaw(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>> {
+    async getApiV1UsersByUseridPhoneStatusRaw(requestParameters: GetApiV1UsersByUseridPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateUser().'
-            );
-        }
-
-        if (requestParameters['updateUserEvent'] == null) {
-            throw new runtime.RequiredError(
-                'updateUserEvent',
-                'Required parameter "updateUserEvent" was null or undefined when calling updateUser().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridPhoneStatus().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4327,50 +2702,43 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/update_user`;
+        let urlPath = `/api/v1/users/{userId}/phone_status`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'PUT',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateUserEventToJSON(requestParameters['updateUserEvent']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateUserResultFromJSON(jsonValue));
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
     }
 
     /**
      */
-    async updateUser(requestParameters: UpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult> {
-        const response = await this.updateUserRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridPhoneStatus(requestParameters: GetApiV1UsersByUseridPhoneStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.getApiV1UsersByUseridPhoneStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * @deprecated
      */
-    async updateUser1Raw(requestParameters: UpdateUser1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyPrivateData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling updateUser1().'
-            );
-        }
-
-        if (requestParameters['updateUserRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateUserRequest',
-                'Required parameter "updateUserRequest" was null or undefined when calling updateUser1().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridPrivateData().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4389,50 +2757,39 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/update`;
+        let urlPath = `/api/v1/users/{userId}/private_data`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'PUT',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateUserRequestToJSON(requestParameters['updateUserRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyPrivateDataFromJSON(jsonValue));
     }
 
     /**
-     * @deprecated
      */
-    async updateUser1(requestParameters: UpdateUser1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.updateUser1Raw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyPrivateData> {
+        const response = await this.getApiV1UsersByUseridPrivateDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async useUserTicketRaw(requestParameters: UseUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAllowedRoles>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling useUserTicket().'
-            );
-        }
-
-        if (requestParameters['useUserTicketRequest'] == null) {
-            throw new runtime.RequiredError(
-                'useUserTicketRequest',
-                'Required parameter "useUserTicketRequest" was null or undefined when calling useUserTicket().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridRolesAllowed().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4451,49 +2808,39 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/tickets/use`;
+        let urlPath = `/api/v1/users/{userId}/roles/allowed`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: UseUserTicketRequestToJSON(requestParameters['useUserTicketRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserAllowedRolesFromJSON(jsonValue));
     }
 
     /**
      */
-    async useUserTicket(requestParameters: UseUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.useUserTicketRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAllowedRoles> {
+        const response = await this.getApiV1UsersByUseridRolesAllowedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async validateUserTicketRaw(requestParameters: ValidateUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    async getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling validateUserTicket().'
-            );
-        }
-
-        if (requestParameters['validateUserTicketRequest'] == null) {
-            throw new runtime.RequiredError(
-                'validateUserTicketRequest',
-                'Required parameter "validateUserTicketRequest" was null or undefined when calling validateUserTicket().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridTickets().'
             );
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters['xEdgeAgent'] != null) {
             headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
@@ -4512,34 +2859,151 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
         }
 
 
-        let urlPath = `/api/v1/users/{userId}/tickets/validate`;
+        let urlPath = `/api/v1/users/{userId}/tickets`;
         urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: ValidateUserTicketRequestToJSON(requestParameters['validateUserTicketRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserTicketResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async validateUserTicket(requestParameters: ValidateUserTicketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
-        const response = await this.validateUserTicketRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketResult> {
+        const response = await this.getApiV1UsersByUseridTicketsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async whatNextRaw(requestParameters: WhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>> {
+    async getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserTicketHistoryResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
-                'Required parameter "userId" was null or undefined when calling whatNext().'
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridTicketsHistory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ticketId'] != null) {
+            queryParameters['ticket_id'] = requestParameters['ticketId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/tickets/history`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserTicketHistoryResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserTicketHistoryResult> {
+        const response = await this.getApiV1UsersByUseridTicketsHistoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridTransactions().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = requestParameters['from'];
+        }
+
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = requestParameters['to'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/transactions`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TransactionFromJSON));
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>> {
+        const response = await this.getApiV1UsersByUseridTransactionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1UsersByUseridWhatNext().'
             );
         }
 
@@ -4587,8 +3051,1544 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async whatNext(requestParameters: WhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision> {
-        const response = await this.whatNextRaw(requestParameters, initOverrides);
+    async getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision> {
+        const response = await this.getApiV1UsersByUseridWhatNextRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/inviteLinks`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UserInviteFromJSON));
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>> {
+        const response = await this.getApiV1UsersInvitelinksRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['inviteCode'] == null) {
+            throw new runtime.RequiredError(
+                'inviteCode',
+                'Required parameter "inviteCode" was null or undefined when calling getApiV1UsersInvitelinksByInvitecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/inviteLinks/{inviteCode}`;
+        urlPath = urlPath.replace(`{${"inviteCode"}}`, encodeURIComponent(String(requestParameters['inviteCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     * @deprecated
+     */
+    async getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersLanguageRaw(requestParameters: GetApiV1UsersLanguageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/language`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async getApiV1UsersLanguage(requestParameters: GetApiV1UsersLanguageRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.getApiV1UsersLanguageRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentAccountResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/paymentAccount`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentAccountResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentAccountResult> {
+        const response = await this.getApiV1UsersPaymentaccountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridAgreement().'
+            );
+        }
+
+        if (requestParameters['agreement'] == null) {
+            throw new runtime.RequiredError(
+                'agreement',
+                'Required parameter "agreement" was null or undefined when calling postApiV1UsersByUseridAgreement().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/agreement`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AgreementToJSON(requestParameters['agreement']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
+        const response = await this.postApiV1UsersByUseridAgreementRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiSecret>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridApiSecret().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/api-secret`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiSecretFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiSecret> {
+        const response = await this.postApiV1UsersByUseridApiSecretRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridBlacklistRaw(requestParameters: PostApiV1UsersByUseridBlacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridBlacklist().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/blacklist`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridBlacklist(requestParameters: PostApiV1UsersByUseridBlacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridBlacklistRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridConfirmation().'
+            );
+        }
+
+        if (requestParameters['confirmation'] == null) {
+            throw new runtime.RequiredError(
+                'confirmation',
+                'Required parameter "confirmation" was null or undefined when calling postApiV1UsersByUseridConfirmation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/confirmation`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ConfirmationToJSON(requestParameters['confirmation']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
+        const response = await this.postApiV1UsersByUseridConfirmationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridLocaleRaw(requestParameters: PostApiV1UsersByUseridLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridLocale().'
+            );
+        }
+
+        if (requestParameters['lang'] == null) {
+            throw new runtime.RequiredError(
+                'lang',
+                'Required parameter "lang" was null or undefined when calling postApiV1UsersByUseridLocale().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/locale`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridLocale(requestParameters: PostApiV1UsersByUseridLocaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridLocaleRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridNotificationRaw(requestParameters: PostApiV1UsersByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridNotification().'
+            );
+        }
+
+        if (requestParameters['updateNotificationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateNotificationRequest',
+                'Required parameter "updateNotificationRequest" was null or undefined when calling postApiV1UsersByUseridNotification().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/notification`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateNotificationRequestToJSON(requestParameters['updateNotificationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridNotification(requestParameters: PostApiV1UsersByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridNotificationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPasswordResetRaw(requestParameters: PostApiV1UsersByUseridPasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridPasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/password_reset`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPasswordReset(requestParameters: PostApiV1UsersByUseridPasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridPasswordResetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPinRaw(requestParameters: PostApiV1UsersByUseridPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridPin().'
+            );
+        }
+
+        if (requestParameters['pin'] == null) {
+            throw new runtime.RequiredError(
+                'pin',
+                'Required parameter "pin" was null or undefined when calling postApiV1UsersByUseridPin().'
+            );
+        }
+
+        if (requestParameters['force'] == null) {
+            throw new runtime.RequiredError(
+                'force',
+                'Required parameter "force" was null or undefined when calling postApiV1UsersByUseridPin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['pin'] != null) {
+            queryParameters['pin'] = requestParameters['pin'];
+        }
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/pin`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPin(requestParameters: PostApiV1UsersByUseridPinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridPinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridPolicy().'
+            );
+        }
+
+        if (requestParameters['policy'] == null) {
+            throw new runtime.RequiredError(
+                'policy',
+                'Required parameter "policy" was null or undefined when calling postApiV1UsersByUseridPolicy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/policy`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PolicyToJSON(requestParameters['policy']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
+        const response = await this.postApiV1UsersByUseridPolicyRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridReferralCodeRaw(requestParameters: PostApiV1UsersByUseridReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridReferralCode().'
+            );
+        }
+
+        if (requestParameters['referralCode'] == null) {
+            throw new runtime.RequiredError(
+                'referralCode',
+                'Required parameter "referralCode" was null or undefined when calling postApiV1UsersByUseridReferralCode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['referralCode'] != null) {
+            queryParameters['referral_code'] = requestParameters['referralCode'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/referral_code`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridReferralCode(requestParameters: PostApiV1UsersByUseridReferralCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridReferralCodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridRolesRaw(requestParameters: PostApiV1UsersByUseridRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridRoles().'
+            );
+        }
+
+        if (requestParameters['updateRolesRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateRolesRequest',
+                'Required parameter "updateRolesRequest" was null or undefined when calling postApiV1UsersByUseridRoles().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/roles`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateRolesRequestToJSON(requestParameters['updateRolesRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridRoles(requestParameters: PostApiV1UsersByUseridRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridRolesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridSegmentRaw(requestParameters: PostApiV1UsersByUseridSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridSegment().'
+            );
+        }
+
+        if (requestParameters['segment'] == null) {
+            throw new runtime.RequiredError(
+                'segment',
+                'Required parameter "segment" was null or undefined when calling postApiV1UsersByUseridSegment().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['segment'] != null) {
+            queryParameters['segment'] = requestParameters['segment'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/segment`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridSegment(requestParameters: PostApiV1UsersByUseridSegmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridSegmentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridSignoutRaw(requestParameters: PostApiV1UsersByUseridSignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridSignout().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/signout`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridSignout(requestParameters: PostApiV1UsersByUseridSignoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridSignoutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTicketsUseRaw(requestParameters: PostApiV1UsersByUseridTicketsUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridTicketsUse().'
+            );
+        }
+
+        if (requestParameters['useUserTicketRequest'] == null) {
+            throw new runtime.RequiredError(
+                'useUserTicketRequest',
+                'Required parameter "useUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsUse().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/tickets/use`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UseUserTicketRequestToJSON(requestParameters['useUserTicketRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTicketsUse(requestParameters: PostApiV1UsersByUseridTicketsUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridTicketsUseRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTicketsValidateRaw(requestParameters: PostApiV1UsersByUseridTicketsValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridTicketsValidate().'
+            );
+        }
+
+        if (requestParameters['validateUserTicketRequest'] == null) {
+            throw new runtime.RequiredError(
+                'validateUserTicketRequest',
+                'Required parameter "validateUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsValidate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/tickets/validate`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ValidateUserTicketRequestToJSON(requestParameters['validateUserTicketRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTicketsValidate(requestParameters: PostApiV1UsersByUseridTicketsValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridTicketsValidateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTopupRaw(requestParameters: PostApiV1UsersByUseridTopupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridTopup().'
+            );
+        }
+
+        if (requestParameters['topupRewardReq'] == null) {
+            throw new runtime.RequiredError(
+                'topupRewardReq',
+                'Required parameter "topupRewardReq" was null or undefined when calling postApiV1UsersByUseridTopup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/topup`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: TopupRewardReqToJSON(requestParameters['topupRewardReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridTopup(requestParameters: PostApiV1UsersByUseridTopupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridTopupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridUnassignRaw(requestParameters: PostApiV1UsersByUseridUnassignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridUnassign().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/unassign`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridUnassign(requestParameters: PostApiV1UsersByUseridUnassignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridUnassignRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridUnblacklistRaw(requestParameters: PostApiV1UsersByUseridUnblacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1UsersByUseridUnblacklist().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/unblacklist`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1UsersByUseridUnblacklist(requestParameters: PostApiV1UsersByUseridUnblacklistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersByUseridUnblacklistRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async postApiV1UsersInvitelinksRaw(requestParameters: PostApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userInvite'] == null) {
+            throw new runtime.RequiredError(
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling postApiV1UsersInvitelinks().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/inviteLinks`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UserInviteToJSON(requestParameters['userInvite']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * @deprecated
+     */
+    async postApiV1UsersInvitelinks(requestParameters: PostApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1UsersInvitelinksRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['reservationInfo'] == null) {
+            throw new runtime.RequiredError(
+                'reservationInfo',
+                'Required parameter "reservationInfo" was null or undefined when calling postApiV1UsersReservations().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/reservations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ReservationInfoToJSON(requestParameters['reservationInfo']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
+        const response = await this.postApiV1UsersReservationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async putApiV1UsersByUseridUpdateRaw(requestParameters: PutApiV1UsersByUseridUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling putApiV1UsersByUseridUpdate().'
+            );
+        }
+
+        if (requestParameters['updateUserRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateUserRequest',
+                'Required parameter "updateUserRequest" was null or undefined when calling putApiV1UsersByUseridUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/update`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateUserRequestToJSON(requestParameters['updateUserRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * @deprecated
+     */
+    async putApiV1UsersByUseridUpdate(requestParameters: PutApiV1UsersByUseridUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1UsersByUseridUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling putApiV1UsersByUseridUpdateUser().'
+            );
+        }
+
+        if (requestParameters['updateUserEvent'] == null) {
+            throw new runtime.RequiredError(
+                'updateUserEvent',
+                'Required parameter "updateUserEvent" was null or undefined when calling putApiV1UsersByUseridUpdateUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}/update_user`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateUserEventToJSON(requestParameters['updateUserEvent']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateUserResultFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult> {
+        const response = await this.putApiV1UsersByUseridUpdateUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * @deprecated
+     */
+    async putApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: PutApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['inviteCode'] == null) {
+            throw new runtime.RequiredError(
+                'inviteCode',
+                'Required parameter "inviteCode" was null or undefined when calling putApiV1UsersInvitelinksByInvitecode().'
+            );
+        }
+
+        if (requestParameters['userInvite'] == null) {
+            throw new runtime.RequiredError(
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling putApiV1UsersInvitelinksByInvitecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/users/inviteLinks/{inviteCode}`;
+        urlPath = urlPath.replace(`{${"inviteCode"}}`, encodeURIComponent(String(requestParameters['inviteCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UserInviteToJSON(requestParameters['userInvite']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * @deprecated
+     */
+    async putApiV1UsersInvitelinksByInvitecode(requestParameters: PutApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.putApiV1UsersInvitelinksByInvitecodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -4597,7 +4597,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 /**
  * @export
  */
-export const GetUsersSearchFieldsEnum = {
+export const GetApiV1UsersSearchFieldsEnum = {
     NONE: 'NONE',
     USER_NAME: 'USER_NAME',
     USER_FIRST_NAME: 'USER_FIRST_NAME',
@@ -4618,22 +4618,22 @@ export const GetUsersSearchFieldsEnum = {
     PHONE: 'PHONE',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type GetUsersSearchFieldsEnum = typeof GetUsersSearchFieldsEnum[keyof typeof GetUsersSearchFieldsEnum];
+export type GetApiV1UsersSearchFieldsEnum = typeof GetApiV1UsersSearchFieldsEnum[keyof typeof GetApiV1UsersSearchFieldsEnum];
 /**
  * @export
  */
-export const GetUsersSearchModeEnum = {
+export const GetApiV1UsersSearchModeEnum = {
     DEFAULT: 'DEFAULT',
     REGULAR: 'REGULAR',
     TEST: 'TEST',
     ALL: 'ALL'
 } as const;
-export type GetUsersSearchModeEnum = typeof GetUsersSearchModeEnum[keyof typeof GetUsersSearchModeEnum];
+export type GetApiV1UsersSearchModeEnum = typeof GetApiV1UsersSearchModeEnum[keyof typeof GetApiV1UsersSearchModeEnum];
 /**
  * @export
  */
-export const UpdateSegmentSegmentEnum = {
+export const PostApiV1UsersByUseridSegmentSegmentEnum = {
     REGULAR: 'REGULAR',
     TEST: 'TEST'
 } as const;
-export type UpdateSegmentSegmentEnum = typeof UpdateSegmentSegmentEnum[keyof typeof UpdateSegmentSegmentEnum];
+export type PostApiV1UsersByUseridSegmentSegmentEnum = typeof PostApiV1UsersByUseridSegmentSegmentEnum[keyof typeof PostApiV1UsersByUseridSegmentSegmentEnum];

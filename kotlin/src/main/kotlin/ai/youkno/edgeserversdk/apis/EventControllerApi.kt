@@ -11,22 +11,6 @@ import ai.youkno.edgeserversdk.models.NewId
 
 interface EventControllerApi {
     /**
-     * POST api/v1/acts/events
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param event 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[NewId]>
-     */
-    @POST("api/v1/acts/events")
-    fun create3(@Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
-
-    /**
      * DELETE api/v1/acts/events/{eventId}
      * 
      * 
@@ -37,10 +21,10 @@ interface EventControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/acts/events/{eventId}")
-    fun delete2(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
+    fun deleteApiV1ActsEventsByEventid(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * GET api/v1/acts/events
@@ -55,23 +39,7 @@ interface EventControllerApi {
      * @return [Call]<[kotlin.collections.List<Event>]>
      */
     @GET("api/v1/acts/events")
-    fun getAll1(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Event>>
-
-    /**
-     * GET api/v1/acts/events/{venueId}
-     * 
-     * 
-     * Responses:
-     *  - 200: OK
-     *
-     * @param venueId 
-     * @param xEdgeAgent  (optional)
-     * @param xEdgeState  (optional)
-     * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<Event>]>
-     */
-    @GET("api/v1/acts/events/{venueId}")
-    fun getAllByVenueId(@Path("venueId") venueId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Event>>
+    fun getApiV1ActsEvents(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Event>>
 
     /**
      * GET api/v1/acts/events/{eventId}
@@ -87,7 +55,23 @@ interface EventControllerApi {
      * @return [Call]<[Event]>
      */
     @GET("api/v1/acts/events/{eventId}")
-    fun getById1(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Event>
+    fun getApiV1ActsEventsByEventid(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Event>
+
+    /**
+     * GET api/v1/acts/events/{venueId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param venueId 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.List<Event>]>
+     */
+    @GET("api/v1/acts/events/{venueId}")
+    fun getApiV1ActsEventsByVenueid(@Path("venueId") venueId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Event>>
 
     /**
      * PATCH api/v1/acts/events/{eventId}
@@ -104,6 +88,22 @@ interface EventControllerApi {
      * @return [Call]<[Event]>
      */
     @PATCH("api/v1/acts/events/{eventId}")
-    fun update1(@Path("eventId") eventId: kotlin.String, @Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Event>
+    fun patchApiV1ActsEventsByEventid(@Path("eventId") eventId: kotlin.String, @Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Event>
+
+    /**
+     * POST api/v1/acts/events
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param event 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[NewId]>
+     */
+    @POST("api/v1/acts/events")
+    fun postApiV1ActsEvents(@Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
 }

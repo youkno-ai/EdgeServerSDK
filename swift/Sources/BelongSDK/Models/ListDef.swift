@@ -22,13 +22,6 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case mute = "MUTE"
         case _default = "DEFAULT"
     }
-    public enum PermissionTypeAsEnum: String, Codable, CaseIterable {
-        case hide = "HIDE"
-        case readOnly = "READ_ONLY"
-        case writeOnly = "WRITE_ONLY"
-        case readWrite = "READ_WRITE"
-        case unknown = "UNKNOWN"
-    }
     public enum BountyTypesAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case question = "QUESTION"
@@ -203,6 +196,13 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case list = "LIST"
         case details = "DETAILS"
         case header = "HEADER"
+    }
+    public enum PermissionTypeAsEnum: String, Codable, CaseIterable {
+        case hide = "HIDE"
+        case readOnly = "READ_ONLY"
+        case writeOnly = "WRITE_ONLY"
+        case readWrite = "READ_WRITE"
+        case unknown = "UNKNOWN"
     }
     public enum ShownInAsEnum: String, Codable, CaseIterable {
         case home = "HOME"
@@ -481,7 +481,6 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
     public var tags: String?
     public var visibilityTypeAsEnum: VisibilityTypeAsEnum?
     public var notificationModeAsEnum: NotificationModeAsEnum?
-    public var permissionTypeAsEnum: PermissionTypeAsEnum?
     public var effectiveUserSpecial: String?
     public var effectiveCompanySpecial: String?
     public var bountyTypesAsEnum: [BountyTypesAsEnum]?
@@ -491,13 +490,14 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
     public var effectiveMainBountyType: EffectiveMainBountyType?
     public var filterBountyTypeAsEnum: FilterBountyTypeAsEnum?
     public var effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum?
+    public var permissionTypeAsEnum: PermissionTypeAsEnum?
     public var shownInAsEnum: ShownInAsEnum?
     public var multi: Bool?
-    public var effectiveUrl: String?
     public var viewable: Bool?
     public var kindAsEnum: KindAsEnum?
     public var visibilityRoles: [String]?
     public var effectiveCode: String?
+    public var effectiveUrl: String?
     public var postable: Bool?
     public var favorites: Bool?
     public var stream: Bool?
@@ -507,7 +507,7 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
     public var typeAsEnum: TypeAsEnum?
     public var special: Bool?
 
-    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, shownInAsEnum: ShownInAsEnum? = nil, multi: Bool? = nil, effectiveUrl: String? = nil, viewable: Bool? = nil, kindAsEnum: KindAsEnum? = nil, visibilityRoles: [String]? = nil, effectiveCode: String? = nil, postable: Bool? = nil, favorites: Bool? = nil, stream: Bool? = nil, webview: Bool? = nil, effectiveOp: EffectiveOp? = nil, filterable: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, special: Bool? = nil) {
+    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil, shownInAsEnum: ShownInAsEnum? = nil, multi: Bool? = nil, viewable: Bool? = nil, kindAsEnum: KindAsEnum? = nil, visibilityRoles: [String]? = nil, effectiveCode: String? = nil, effectiveUrl: String? = nil, postable: Bool? = nil, favorites: Bool? = nil, stream: Bool? = nil, webview: Bool? = nil, effectiveOp: EffectiveOp? = nil, filterable: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, special: Bool? = nil) {
         self.id = id
         self.code = code
         self.kind = kind
@@ -531,7 +531,6 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         self.tags = tags
         self.visibilityTypeAsEnum = visibilityTypeAsEnum
         self.notificationModeAsEnum = notificationModeAsEnum
-        self.permissionTypeAsEnum = permissionTypeAsEnum
         self.effectiveUserSpecial = effectiveUserSpecial
         self.effectiveCompanySpecial = effectiveCompanySpecial
         self.bountyTypesAsEnum = bountyTypesAsEnum
@@ -541,13 +540,14 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         self.effectiveMainBountyType = effectiveMainBountyType
         self.filterBountyTypeAsEnum = filterBountyTypeAsEnum
         self.effectiveDisplayModeAsEnum = effectiveDisplayModeAsEnum
+        self.permissionTypeAsEnum = permissionTypeAsEnum
         self.shownInAsEnum = shownInAsEnum
         self.multi = multi
-        self.effectiveUrl = effectiveUrl
         self.viewable = viewable
         self.kindAsEnum = kindAsEnum
         self.visibilityRoles = visibilityRoles
         self.effectiveCode = effectiveCode
+        self.effectiveUrl = effectiveUrl
         self.postable = postable
         self.favorites = favorites
         self.stream = stream
@@ -582,7 +582,6 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case tags
         case visibilityTypeAsEnum
         case notificationModeAsEnum
-        case permissionTypeAsEnum
         case effectiveUserSpecial
         case effectiveCompanySpecial
         case bountyTypesAsEnum
@@ -592,13 +591,14 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         case effectiveMainBountyType
         case filterBountyTypeAsEnum
         case effectiveDisplayModeAsEnum
+        case permissionTypeAsEnum
         case shownInAsEnum
         case multi
-        case effectiveUrl
         case viewable
         case kindAsEnum
         case visibilityRoles
         case effectiveCode
+        case effectiveUrl
         case postable
         case favorites
         case stream
@@ -636,7 +636,6 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(tags, forKey: .tags)
         try container.encodeIfPresent(visibilityTypeAsEnum, forKey: .visibilityTypeAsEnum)
         try container.encodeIfPresent(notificationModeAsEnum, forKey: .notificationModeAsEnum)
-        try container.encodeIfPresent(permissionTypeAsEnum, forKey: .permissionTypeAsEnum)
         try container.encodeIfPresent(effectiveUserSpecial, forKey: .effectiveUserSpecial)
         try container.encodeIfPresent(effectiveCompanySpecial, forKey: .effectiveCompanySpecial)
         try container.encodeIfPresent(bountyTypesAsEnum, forKey: .bountyTypesAsEnum)
@@ -646,13 +645,14 @@ public struct ListDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(effectiveMainBountyType, forKey: .effectiveMainBountyType)
         try container.encodeIfPresent(filterBountyTypeAsEnum, forKey: .filterBountyTypeAsEnum)
         try container.encodeIfPresent(effectiveDisplayModeAsEnum, forKey: .effectiveDisplayModeAsEnum)
+        try container.encodeIfPresent(permissionTypeAsEnum, forKey: .permissionTypeAsEnum)
         try container.encodeIfPresent(shownInAsEnum, forKey: .shownInAsEnum)
         try container.encodeIfPresent(multi, forKey: .multi)
-        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
         try container.encodeIfPresent(viewable, forKey: .viewable)
         try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
         try container.encodeIfPresent(visibilityRoles, forKey: .visibilityRoles)
         try container.encodeIfPresent(effectiveCode, forKey: .effectiveCode)
+        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
         try container.encodeIfPresent(postable, forKey: .postable)
         try container.encodeIfPresent(favorites, forKey: .favorites)
         try container.encodeIfPresent(stream, forKey: .stream)
