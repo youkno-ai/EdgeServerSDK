@@ -48,16 +48,16 @@ import {
 
 export interface CreateChatRequest {
     createChat: CreateChat;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetAiBotRequest {
     botName?: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetSupportRequest {
@@ -68,74 +68,74 @@ export interface GetSupportRequest {
     orderId?: string;
     existingOnly?: boolean;
     autoJoin?: boolean;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface HandlePsgEventRequest {
     roomId: string;
     eventType: HandlePsgEventEventTypeEnum;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface HandleSupportMessageRequest {
     roomId: string;
     msgId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface MarkAsReadRequest {
     roomId: string;
     chatMessageRead: ChatMessageRead;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface OobMarkAsReadRequest {
     roomId: string;
     chatMessageRead: ChatMessageRead;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface OobWatchingRequest {
     roomId: string;
     chatOobWatching: ChatOobWatching;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostMessageRequest {
     roomId: string;
     chatMessage: ChatMessage;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostMessage1Request {
     roomId: string;
     chatCommand: ChatCommand;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface ReactionRequest {
     roomId: string;
     msgId: string;
     chatOobWatching: ChatOobWatching;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -148,9 +148,9 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {CreateChat} createChat 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -164,9 +164,9 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {string} [botName] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -186,9 +186,9 @@ export interface ChatControllerApiInterface {
      * @param {string} [orderId] 
      * @param {boolean} [existingOnly] 
      * @param {boolean} [autoJoin] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -203,26 +203,26 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {'NONE' | 'ABANDON' | 'RESOLVE' | 'UNKNOWN'} eventType 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} roomId 
      * @param {string} msgId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -237,9 +237,9 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {ChatMessageRead} chatMessageRead 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -254,9 +254,9 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {ChatMessageRead} chatMessageRead 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -271,9 +271,9 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {ChatOobWatching} chatOobWatching 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -288,9 +288,9 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {ChatMessage} chatMessage 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -305,9 +305,9 @@ export interface ChatControllerApiInterface {
      * 
      * @param {string} roomId 
      * @param {ChatCommand} chatCommand 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -323,9 +323,9 @@ export interface ChatControllerApiInterface {
      * @param {string} roomId 
      * @param {string} msgId 
      * @param {ChatOobWatching} chatOobWatching 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
@@ -359,16 +359,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -407,16 +407,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -478,16 +478,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -516,7 +516,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async handlePsgEventRaw(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
@@ -535,16 +535,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -568,7 +568,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async handlePsgEvent(requestParameters: HandlePsgEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.handlePsgEventRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -594,16 +594,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -655,16 +655,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -715,16 +715,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -775,16 +775,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -836,16 +836,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -897,16 +897,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -965,16 +965,16 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {

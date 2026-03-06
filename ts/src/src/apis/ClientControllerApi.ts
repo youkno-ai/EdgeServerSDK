@@ -115,9 +115,9 @@ import {
 export interface AssignClientOperationRequest {
     clientId: string;
     assignClientRequest: AssignClientRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface AuthClientRequest {
@@ -126,56 +126,56 @@ export interface AuthClientRequest {
     authorization?: string;
     deviceId?: Array<string>;
     deviceSecret?: Array<string>;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateClientOperationRequest {
     createClientRequest: CreateClientRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateCustomProductChemicalInfosRequest {
     client: string;
     customChemicalInfoByCategoryConfigDto: CustomChemicalInfoByCategoryConfigDto;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateLocationRequest {
     clientId: string;
     createUpdateLocationDto: CreateUpdateLocationDto;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface DeleteClientRequest {
     clientId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface DeleteCustomProductChemicalInfosRequest {
     client: string;
     id: string;
     categoryPath: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface EditClientRequest {
     client: string;
     updateClientRequest: UpdateClientRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface EditShopSettingsRequest {
@@ -183,9 +183,9 @@ export interface EditShopSettingsRequest {
     shopSettings: ShopSettings;
     patch?: boolean;
     posType?: EditShopSettingsPosTypeEnum;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetApprovals1Request {
@@ -193,16 +193,16 @@ export interface GetApprovals1Request {
     filter: Filter;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetClientRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetClientListRequest {
@@ -214,54 +214,54 @@ export interface GetClientListRequest {
     searchCriteria?: string;
     searchMode?: GetClientListSearchModeEnum;
     status?: GetClientListStatusEnum;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetDictionaryRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInventoryAreasRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetLocationRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetLocations1Request {
     client: string;
     onlyOnline?: boolean;
     deliveryZipcode?: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetModerationRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetOrder2Request {
     client: string;
     orderId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetOrdersRequest {
@@ -270,121 +270,121 @@ export interface GetOrdersRequest {
     start?: number;
     length?: number;
     ignoreCache?: boolean;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetProductChemicalInfosRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetProductCustomChemicalInfosRequest {
     client: string;
     categoryPath: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetPushNotificationCampaignsRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetReservationStatisticsRequest {
     client: string;
     filter: Filter;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetSalesStatisticsRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetSettingsAuditLogsRequest {
     clientId: string;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetShopSettingsRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetSupportChatsRequest {
     client: string;
     status?: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface NewPushNotificationCampaignRequest {
     client: string;
     pushNotificationCampaignRequest: PushNotificationCampaignRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostDeviceFileRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostProductFileRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostTransactionFileRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PostUserFileRequest {
     client: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface RecommendationStatsRequest {
     client: string;
     bountyId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface RestoreClientRequest {
     clientId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface ResyncRequest {
@@ -392,17 +392,17 @@ export interface ResyncRequest {
     component: string;
     updatedAfter?: Date;
     syncFromLastUpdatedDate?: boolean;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface SetModerationRequest {
     client: string;
     moderationReq: ModerationReq;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateCustomProductChemicalInfosRequest {
@@ -410,49 +410,49 @@ export interface UpdateCustomProductChemicalInfosRequest {
     id: string;
     currentCategoryPath: string;
     customChemicalInfoByCategoryConfigDto: CustomChemicalInfoByCategoryConfigDto;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateDictionaryRequest {
     client: string;
     moderationDictionary: ModerationDictionary;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateLocationRequest {
     clientId: string;
     createUpdateLocationDto: CreateUpdateLocationDto;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateLoginsRequest {
     client: string;
     updateClientLoginsRequest: UpdateClientLoginsRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateProductChemicalInfosRequest {
     client: string;
     chemicalInfoDisplayConfig: ChemicalInfoDisplayConfig;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateSettingsRequest {
     client: string;
     updateSettingsReq: UpdateSettingsReq;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -466,9 +466,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} clientId 
      * @param {AssignClientRequest} assignClientRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -486,9 +486,9 @@ export interface ClientControllerApiInterface {
      * @param {string} [authorization] 
      * @param {Array<string>} [deviceId] 
      * @param {Array<string>} [deviceSecret] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -502,9 +502,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {CreateClientRequest} createClientRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -519,9 +519,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {CustomChemicalInfoByCategoryConfigDto} customChemicalInfoByCategoryConfigDto 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -536,9 +536,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} clientId 
      * @param {CreateUpdateLocationDto} createUpdateLocationDto 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -552,53 +552,53 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} clientId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} client 
      * @param {string} id 
      * @param {string} categoryPath 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} client 
      * @param {UpdateClientRequest} updateClientRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
@@ -606,18 +606,18 @@ export interface ClientControllerApiInterface {
      * @param {ShopSettings} shopSettings 
      * @param {boolean} [patch] 
      * @param {'SHOPIFY' | 'ALLEAVES' | 'MJ_FREEWAY' | 'BIOTRACK'} [posType] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
@@ -625,9 +625,9 @@ export interface ClientControllerApiInterface {
      * @param {Filter} filter 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -641,9 +641,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -664,9 +664,9 @@ export interface ClientControllerApiInterface {
      * @param {string} [searchCriteria] 
      * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
      * @param {'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'BLACKLISTED' | 'TO_BE_DELETED' | 'DELETED' | 'UNKNOWN'} [status] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -680,9 +680,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -696,9 +696,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -712,9 +712,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -730,9 +730,9 @@ export interface ClientControllerApiInterface {
      * @param {string} client 
      * @param {boolean} [onlyOnline] 
      * @param {string} [deliveryZipcode] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -746,9 +746,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -763,9 +763,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {string} orderId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -783,9 +783,9 @@ export interface ClientControllerApiInterface {
      * @param {number} [start] 
      * @param {number} [length] 
      * @param {boolean} [ignoreCache] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -799,9 +799,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -816,9 +816,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {string} categoryPath 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -832,9 +832,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -849,9 +849,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {Filter} filter 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -865,9 +865,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -883,9 +883,9 @@ export interface ClientControllerApiInterface {
      * @param {string} clientId 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -899,9 +899,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -916,9 +916,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {string} [status] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -933,9 +933,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {PushNotificationCampaignRequest} pushNotificationCampaignRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -949,9 +949,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -965,9 +965,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -981,9 +981,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -997,9 +997,9 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -1014,9 +1014,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {string} bountyId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -1030,18 +1030,18 @@ export interface ClientControllerApiInterface {
     /**
      * 
      * @param {string} clientId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
@@ -1049,35 +1049,35 @@ export interface ClientControllerApiInterface {
      * @param {string} component 
      * @param {Date} [updatedAfter] 
      * @param {boolean} [syncFromLastUpdatedDate] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} client 
      * @param {ModerationReq} moderationReq 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
@@ -1085,9 +1085,9 @@ export interface ClientControllerApiInterface {
      * @param {string} id 
      * @param {string} currentCategoryPath 
      * @param {CustomChemicalInfoByCategoryConfigDto} customChemicalInfoByCategoryConfigDto 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -1102,9 +1102,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {ModerationDictionary} moderationDictionary 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -1119,9 +1119,9 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} clientId 
      * @param {CreateUpdateLocationDto} createUpdateLocationDto 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
@@ -1136,52 +1136,52 @@ export interface ClientControllerApiInterface {
      * 
      * @param {string} client 
      * @param {UpdateClientLoginsRequest} updateClientLoginsRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} client 
      * @param {ChemicalInfoDisplayConfig} chemicalInfoDisplayConfig 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} client 
      * @param {UpdateSettingsReq} updateSettingsReq 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClientControllerApiInterface
      */
-    updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
 }
 
@@ -1213,16 +1213,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1284,16 +1284,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
             headerParameters['Authorization'] = String(requestParameters['authorization']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1338,16 +1338,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1398,16 +1398,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1459,16 +1459,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1499,7 +1499,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteClientRaw(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -1511,16 +1511,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1543,14 +1543,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteClient(requestParameters: DeleteClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.deleteClientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteCustomProductChemicalInfosRaw(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -1584,16 +1584,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1616,14 +1616,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteCustomProductChemicalInfos(requestParameters: DeleteCustomProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.deleteCustomProductChemicalInfosRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async editClientRaw(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -1644,16 +1644,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1677,14 +1677,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async editClient(requestParameters: EditClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.editClientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async editShopSettingsRaw(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -1713,16 +1713,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1746,7 +1746,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async editShopSettings(requestParameters: EditShopSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.editShopSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1784,16 +1784,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1835,16 +1835,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1911,16 +1911,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1961,16 +1961,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2012,16 +2012,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2063,16 +2063,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2122,16 +2122,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2173,16 +2173,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2231,16 +2231,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2306,16 +2306,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2357,16 +2357,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2419,16 +2419,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2470,16 +2470,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2532,16 +2532,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2583,16 +2583,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2642,16 +2642,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2693,16 +2693,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2748,16 +2748,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2808,16 +2808,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2860,16 +2860,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2915,16 +2915,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2970,16 +2970,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3025,16 +3025,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3087,16 +3087,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3127,7 +3127,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async restoreClientRaw(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3139,16 +3139,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3171,14 +3171,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async restoreClient(requestParameters: RestoreClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.restoreClientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async resyncRaw(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3205,16 +3205,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3238,14 +3238,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async resync(requestParameters: ResyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.resyncRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async setModerationRaw(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3266,16 +3266,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3299,7 +3299,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async setModeration(requestParameters: SetModerationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.setModerationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3349,16 +3349,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3410,16 +3410,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3471,16 +3471,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3511,7 +3511,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async updateLoginsRaw(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3532,16 +3532,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3565,14 +3565,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async updateLogins(requestParameters: UpdateLoginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.updateLoginsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async updateProductChemicalInfosRaw(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3593,16 +3593,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3626,14 +3626,14 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async updateProductChemicalInfos(requestParameters: UpdateProductChemicalInfosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.updateProductChemicalInfosRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async updateSettingsRaw(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3654,16 +3654,16 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3687,7 +3687,7 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
 
     /**
      */
-    async updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async updateSettings(requestParameters: UpdateSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.updateSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }

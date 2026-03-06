@@ -108,76 +108,7 @@ export interface Survey {
      * @memberof Survey
      */
     options?: Array<Option>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Survey
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof Survey
-     */
-    expectedNrOfResponses?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Survey
-     */
-    choiceTypeAsEnum?: SurveyChoiceTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Survey
-     */
-    rewardTypeAsEnum?: SurveyRewardTypeAsEnumEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof Survey
-     */
-    maxWeight?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Survey
-     */
-    typeAsEnum?: SurveyTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const SurveyChoiceTypeAsEnumEnum = {
-    SINGLE_CHOICE: 'SINGLE_CHOICE',
-    MULTI_CHOICE: 'MULTI_CHOICE'
-} as const;
-export type SurveyChoiceTypeAsEnumEnum = typeof SurveyChoiceTypeAsEnumEnum[keyof typeof SurveyChoiceTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const SurveyRewardTypeAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    TIME_BASED: 'TIME_BASED'
-} as const;
-export type SurveyRewardTypeAsEnumEnum = typeof SurveyRewardTypeAsEnumEnum[keyof typeof SurveyRewardTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const SurveyTypeAsEnumEnum = {
-    POLL: 'POLL',
-    MCQ: 'MCQ',
-    SCORE: 'SCORE',
-    CHECKLIST: 'CHECKLIST',
-    FUNDING: 'FUNDING',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type SurveyTypeAsEnumEnum = typeof SurveyTypeAsEnumEnum[keyof typeof SurveyTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Survey interface.
@@ -206,12 +137,6 @@ export function SurveyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         'question': json['question'] == null ? undefined : json['question'],
         'timeLimit': json['timeLimit'] == null ? undefined : json['timeLimit'],
         'options': json['options'] == null ? undefined : ((json['options'] as Array<any>).map(OptionFromJSON)),
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'expectedNrOfResponses': json['expectedNrOfResponses'] == null ? undefined : json['expectedNrOfResponses'],
-        'choiceTypeAsEnum': json['choiceTypeAsEnum'] == null ? undefined : json['choiceTypeAsEnum'],
-        'rewardTypeAsEnum': json['rewardTypeAsEnum'] == null ? undefined : json['rewardTypeAsEnum'],
-        'maxWeight': json['maxWeight'] == null ? undefined : json['maxWeight'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -236,12 +161,6 @@ export function SurveyToJSONTyped(value?: Survey | null, ignoreDiscriminator: bo
         'question': value['question'],
         'timeLimit': value['timeLimit'],
         'options': value['options'] == null ? undefined : ((value['options'] as Array<any>).map(OptionToJSON)),
-        'valid': value['valid'],
-        'expectedNrOfResponses': value['expectedNrOfResponses'],
-        'choiceTypeAsEnum': value['choiceTypeAsEnum'],
-        'rewardTypeAsEnum': value['rewardTypeAsEnum'],
-        'maxWeight': value['maxWeight'],
-        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

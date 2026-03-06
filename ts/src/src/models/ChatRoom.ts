@@ -91,65 +91,7 @@ export interface ChatRoom {
      * @memberof ChatRoom
      */
     choice?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatRoom
-     */
-    psgStatusAsEnum?: ChatRoomPsgStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatRoom
-     */
-    roomTypeAsEnum?: ChatRoomRoomTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ChatRoom
-     */
-    roomStateAsEnum?: ChatRoomRoomStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const ChatRoomPsgStatusAsEnumEnum = {
-    NEW: 'NEW',
-    ACTIVE: 'ACTIVE',
-    RESOLVED: 'RESOLVED',
-    ABANDONED: 'ABANDONED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ChatRoomPsgStatusAsEnumEnum = typeof ChatRoomPsgStatusAsEnumEnum[keyof typeof ChatRoomPsgStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const ChatRoomRoomTypeAsEnumEnum = {
-    PRIVATE: 'PRIVATE',
-    GROUP: 'GROUP',
-    RECIPIENTS: 'RECIPIENTS',
-    PARTICIPANTS: 'PARTICIPANTS',
-    SURVEY_CHOICE: 'SURVEY_CHOICE',
-    SUPPORT: 'SUPPORT',
-    PSG: 'PSG',
-    AIB: 'AIB',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ChatRoomRoomTypeAsEnumEnum = typeof ChatRoomRoomTypeAsEnumEnum[keyof typeof ChatRoomRoomTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ChatRoomRoomStateAsEnumEnum = {
-    ACTIVE: 'ACTIVE',
-    ARCHIVED: 'ARCHIVED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ChatRoomRoomStateAsEnumEnum = typeof ChatRoomRoomStateAsEnumEnum[keyof typeof ChatRoomRoomStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the ChatRoom interface.
@@ -180,9 +122,6 @@ export function ChatRoomFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'collocutorId': json['collocutorId'] == null ? undefined : json['collocutorId'],
         'groupId': json['groupId'] == null ? undefined : json['groupId'],
         'choice': json['choice'] == null ? undefined : json['choice'],
-        'psgStatusAsEnum': json['psgStatusAsEnum'] == null ? undefined : json['psgStatusAsEnum'],
-        'roomTypeAsEnum': json['roomTypeAsEnum'] == null ? undefined : json['roomTypeAsEnum'],
-        'roomStateAsEnum': json['roomStateAsEnum'] == null ? undefined : json['roomStateAsEnum'],
     };
 }
 
@@ -209,9 +148,6 @@ export function ChatRoomToJSONTyped(value?: ChatRoom | null, ignoreDiscriminator
         'collocutorId': value['collocutorId'],
         'groupId': value['groupId'],
         'choice': value['choice'],
-        'psgStatusAsEnum': value['psgStatusAsEnum'],
-        'roomTypeAsEnum': value['roomTypeAsEnum'],
-        'roomStateAsEnum': value['roomStateAsEnum'],
     };
 }
 

@@ -51,63 +51,63 @@ import {
 
 export interface CancelInviteRequest {
     inviteId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateInviteForBountyRequest {
     bountyId: string;
     createBountyInviteRequest: CreateBountyInviteRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateInviteForCompanyRequest {
     companyId: string;
     createCompanyInviteRequest: CreateCompanyInviteRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateInviteForGroupRequest {
     groupId: string;
     createGroupInviteRequest: CreateGroupInviteRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateInviteForPlatformRequest {
     createPlatformInviteRequest: CreatePlatformInviteRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface EditInviteLink1Request {
     inviteId: string;
     userInvite: UserInvite;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInviteLink1Request {
     inviteId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInviteLink2Request {
     dealId: string;
     inviteId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitesRequest {
@@ -115,71 +115,71 @@ export interface GetInvitesRequest {
     start?: number;
     limit?: number;
     statuses?: Array<GetInvitesStatusesEnum>;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitesForBountyRequest {
     bountyId: string;
     start?: number;
     limit?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitesForCompanyRequest {
     companyId: string;
     start?: number;
     limit?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitesForGroupRequest {
     groupId: string;
     start?: number;
     limit?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitesForPlatformRequest {
     start?: number;
     limit?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetLinkRequest {
     getInviteLinkRequest: GetInviteLinkRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface InviteRolesRequest {
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface SendInviteRequest {
     sendInvitesRequest: SendInvitesRequest;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface SendInvite1Request {
     inviteId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -192,9 +192,9 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {string} inviteId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -209,9 +209,9 @@ export interface InviteControllerApiInterface {
      * 
      * @param {string} bountyId 
      * @param {CreateBountyInviteRequest} createBountyInviteRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -226,9 +226,9 @@ export interface InviteControllerApiInterface {
      * 
      * @param {string} companyId 
      * @param {CreateCompanyInviteRequest} createCompanyInviteRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -243,9 +243,9 @@ export interface InviteControllerApiInterface {
      * 
      * @param {string} groupId 
      * @param {CreateGroupInviteRequest} createGroupInviteRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -259,9 +259,9 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {CreatePlatformInviteRequest} createPlatformInviteRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -276,25 +276,25 @@ export interface InviteControllerApiInterface {
      * 
      * @param {string} inviteId 
      * @param {UserInvite} userInvite 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} inviteId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -309,9 +309,9 @@ export interface InviteControllerApiInterface {
      * 
      * @param {string} dealId 
      * @param {string} inviteId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -328,9 +328,9 @@ export interface InviteControllerApiInterface {
      * @param {number} [start] 
      * @param {number} [limit] 
      * @param {Array<'PENDING' | 'CANCELED' | 'DELETED' | 'VOIDED' | 'ACCEPTED' | 'DECLINED' | 'UNKNOWN'>} [statuses] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -346,9 +346,9 @@ export interface InviteControllerApiInterface {
      * @param {string} bountyId 
      * @param {number} [start] 
      * @param {number} [limit] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -364,9 +364,9 @@ export interface InviteControllerApiInterface {
      * @param {string} companyId 
      * @param {number} [start] 
      * @param {number} [limit] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -382,9 +382,9 @@ export interface InviteControllerApiInterface {
      * @param {string} groupId 
      * @param {number} [start] 
      * @param {number} [limit] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -399,9 +399,9 @@ export interface InviteControllerApiInterface {
      * 
      * @param {number} [start] 
      * @param {number} [limit] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -415,9 +415,9 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {GetInviteLinkRequest} getInviteLinkRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -430,9 +430,9 @@ export interface InviteControllerApiInterface {
 
     /**
      * 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -446,9 +446,9 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {SendInvitesRequest} sendInvitesRequest 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @deprecated
      * @throws {RequiredError}
@@ -464,9 +464,9 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {string} inviteId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
@@ -498,16 +498,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -557,16 +557,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -618,16 +618,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -679,16 +679,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -733,16 +733,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -772,7 +772,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async editInviteLink1Raw(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
@@ -793,16 +793,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -826,7 +826,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async editInviteLink1(requestParameters: EditInviteLink1Request, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.editInviteLink1Raw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -845,16 +845,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -903,16 +903,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -964,16 +964,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1022,16 +1022,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1081,16 +1081,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1140,16 +1140,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1192,16 +1192,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1244,16 +1244,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1288,16 +1288,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1341,16 +1341,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1393,16 +1393,16 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {

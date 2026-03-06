@@ -49,8 +49,8 @@ import com.squareup.moshi.JsonClass
  * @param balances 
  * @param products 
  * @param invalidProducts 
- * @param deliveryFeeToPay 
  * @param itemsTotalToPay 
+ * @param deliveryFeeToPay 
  */
 
 
@@ -116,11 +116,11 @@ data class OrderSection (
     @Json(name = "invalidProducts")
     val invalidProducts: kotlin.collections.List<InvalidProductInfo>? = null,
 
-    @Json(name = "deliveryFeeToPay")
-    val deliveryFeeToPay: Reward? = null,
-
     @Json(name = "itemsTotalToPay")
-    val itemsTotalToPay: Reward? = null
+    val itemsTotalToPay: Reward? = null,
+
+    @Json(name = "deliveryFeeToPay")
+    val deliveryFeeToPay: Reward? = null
 
 ) {
 

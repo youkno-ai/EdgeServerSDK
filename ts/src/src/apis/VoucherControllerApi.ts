@@ -40,46 +40,46 @@ import {
 export interface CreateVoucherRequest {
     voucherDefId: string;
     voucherHolder: VoucherHolder;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateVoucherDefRequest {
     voucherDef: VoucherDef;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface DeleteVoucherDefRequest {
     voucherDefId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetScannedVouchersRequest {
     order?: string;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetVoucherRequest {
     voucherId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetVoucherDefRequest {
     voucherDefId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetVoucherDefsRequest {
@@ -89,9 +89,9 @@ export interface GetVoucherDefsRequest {
     excludeWithExpDate?: boolean;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetVouchersRequest {
@@ -102,17 +102,17 @@ export interface GetVouchersRequest {
     category?: Array<string>;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface RedeemVoucherRequest {
     voucherId: string;
     redeemVoucherReq: RedeemVoucherReq;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -126,9 +126,9 @@ export interface VoucherControllerApiInterface {
      * 
      * @param {string} voucherDefId 
      * @param {VoucherHolder} voucherHolder 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -142,9 +142,9 @@ export interface VoucherControllerApiInterface {
     /**
      * 
      * @param {VoucherDef} voucherDef 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -158,27 +158,27 @@ export interface VoucherControllerApiInterface {
     /**
      * 
      * @param {string} voucherDefId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    deleteVoucherDefRaw(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteVoucherDefRaw(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    deleteVoucherDef(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteVoucherDef(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} [order] 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -192,9 +192,9 @@ export interface VoucherControllerApiInterface {
     /**
      * 
      * @param {string} voucherId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -208,9 +208,9 @@ export interface VoucherControllerApiInterface {
     /**
      * 
      * @param {string} voucherDefId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -229,9 +229,9 @@ export interface VoucherControllerApiInterface {
      * @param {boolean} [excludeWithExpDate] 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -251,9 +251,9 @@ export interface VoucherControllerApiInterface {
      * @param {Array<string>} [category] 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -268,9 +268,9 @@ export interface VoucherControllerApiInterface {
      * 
      * @param {string} voucherId 
      * @param {RedeemVoucherReq} redeemVoucherReq 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
@@ -311,16 +311,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -365,16 +365,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -404,7 +404,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async deleteVoucherDefRaw(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteVoucherDefRaw(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['voucherDefId'] == null) {
             throw new runtime.RequiredError(
                 'voucherDefId',
@@ -416,16 +416,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -448,7 +448,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async deleteVoucherDef(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteVoucherDef(requestParameters: DeleteVoucherDefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.deleteVoucherDefRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -472,16 +472,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -522,16 +522,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -573,16 +573,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -641,16 +641,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -712,16 +712,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -771,16 +771,16 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {

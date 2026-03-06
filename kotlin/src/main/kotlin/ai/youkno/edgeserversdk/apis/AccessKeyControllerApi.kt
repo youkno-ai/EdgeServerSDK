@@ -21,13 +21,13 @@ interface AccessKeyControllerApi {
      *  - 200: OK
      *
      * @param accessKeyDefId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @DELETE("api/v1/accessKeys/defs/{accessKeyDefId}")
-    fun deleteAccessKeyDef(@Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun deleteAccessKeyDef(@Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * GET api/v1/accessKeys/{userId}/{accessKeyDefId}
@@ -38,13 +38,13 @@ interface AccessKeyControllerApi {
      *
      * @param userId 
      * @param accessKeyDefId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[PageAccessKey]>
      */
     @GET("api/v1/accessKeys/{userId}/{accessKeyDefId}")
-    fun getAccessKeyChain(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<PageAccessKey>
+    fun getAccessKeyChain(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageAccessKey>
 
     /**
      * GET api/v1/accessKeys/defs/{accessKeyDefId}
@@ -54,13 +54,13 @@ interface AccessKeyControllerApi {
      *  - 200: OK
      *
      * @param accessKeyDefId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[AccessKeyDef]>
      */
     @GET("api/v1/accessKeys/defs/{accessKeyDefId}")
-    fun getAccessKeyDef(@Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<AccessKeyDef>
+    fun getAccessKeyDef(@Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyDef>
 
     /**
      * GET api/v1/accessKeys/defs
@@ -71,13 +71,13 @@ interface AccessKeyControllerApi {
      *
      * @param start  (optional, default to 0)
      * @param length  (optional, default to 20)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[PageAccessKeyDef]>
      */
     @GET("api/v1/accessKeys/defs")
-    fun getAccessKeyDefs(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<PageAccessKeyDef>
+    fun getAccessKeyDefs(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageAccessKeyDef>
 
     /**
      * GET api/v1/accessKeys/{userId}
@@ -89,13 +89,13 @@ interface AccessKeyControllerApi {
      * @param userId 
      * @param start  (optional, default to 0)
      * @param length  (optional, default to 20)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[PageAccessKey]>
      */
     @GET("api/v1/accessKeys/{userId}")
-    fun getAccessKeys(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<PageAccessKey>
+    fun getAccessKeys(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageAccessKey>
 
     /**
      * POST api/v1/accessKeys/{userId}/grant/{accessKeyDefId}
@@ -107,13 +107,13 @@ interface AccessKeyControllerApi {
      * @param userId 
      * @param accessKeyDefId 
      * @param metaData 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[AccessKey]>
      */
     @POST("api/v1/accessKeys/{userId}/grant/{accessKeyDefId}")
-    fun grantAccessKey(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Body metaData: MetaData, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<AccessKey>
+    fun grantAccessKey(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Body metaData: MetaData, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKey>
 
     /**
      * DELETE api/v1/accessKeys/{userId}/revoke/{accessKeyId}
@@ -124,13 +124,13 @@ interface AccessKeyControllerApi {
      *
      * @param userId 
      * @param accessKeyId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @DELETE("api/v1/accessKeys/{userId}/revoke/{accessKeyId}")
-    fun revokeAccessKey(@Path("userId") userId: kotlin.String, @Path("accessKeyId") accessKeyId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun revokeAccessKey(@Path("userId") userId: kotlin.String, @Path("accessKeyId") accessKeyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * POST api/v1/accessKeys/defs
@@ -140,12 +140,12 @@ interface AccessKeyControllerApi {
      *  - 200: OK
      *
      * @param accessKeyDef 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[AccessKeyDef]>
      */
     @POST("api/v1/accessKeys/defs")
-    fun saveAccessKeyDef(@Body accessKeyDef: AccessKeyDef, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<AccessKeyDef>
+    fun saveAccessKeyDef(@Body accessKeyDef: AccessKeyDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyDef>
 
 }

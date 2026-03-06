@@ -18,13 +18,13 @@ interface CompaniesControllerApi {
      *  - 200: OK
      *
      * @param companyId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @DELETE("api/v1/companies/{companyId}")
-    fun deleteCompany(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun deleteCompany(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
 
     /**
@@ -66,13 +66,13 @@ interface CompaniesControllerApi {
      * @param length  (optional)
      * @param userStatus  (optional)
      * @param searchMode  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[CompanyEmployeesResult]>
      */
     @GET("api/v1/companies/{company_id}/employees")
-    fun getCompanyEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetCompanyEmployees? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<CompanyEmployeesResult>
+    fun getCompanyEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetCompanyEmployees? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyEmployeesResult>
 
 
     /**
@@ -96,13 +96,13 @@ interface CompaniesControllerApi {
      * @param start  (optional, default to 0)
      * @param limit  (optional, default to 50)
      * @param searchMode  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[PageUser]>
      */
     @GET("api/v1/companies/{company_id}/inviters")
-    fun getInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetInviters? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<PageUser>
+    fun getInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetInviters? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUser>
 
 
     /**
@@ -158,12 +158,12 @@ interface CompaniesControllerApi {
      * @param blacklisted  (optional)
      * @param query  (optional)
      * @param searchFields  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @GET("api/v1/companies/{company_id}/invitees")
-    fun getUsersRegisteredByInviteCode(@Path("company_id") companyId: kotlin.String, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviter") inviter: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviteCode") inviteCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetUsersRegisteredByInviteCode? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun getUsersRegisteredByInviteCode(@Path("company_id") companyId: kotlin.String, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviter") inviter: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("inviteCode") inviteCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetUsersRegisteredByInviteCode? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
 }

@@ -37,45 +37,45 @@ import {
 export interface AddCartItemRequest {
     cartId: string;
     productInfo: ProductInfo;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface CreateCartRequest {
     shoppingCart: ShoppingCart;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface DeleteCartRequest {
     cartId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface DeleteCartItemRequest {
     cartId: string;
     itemId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetCartRequest {
     cartId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetCartSummaryRequest {
     cartId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetCartsRequest {
@@ -83,34 +83,34 @@ export interface GetCartsRequest {
     status?: GetCartsStatusEnum;
     start?: number;
     length?: number;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface PlaceOrderRequest {
     cartId: string;
     shoppingCart: ShoppingCart;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateCartRequest {
     cartId: string;
     shoppingCart: ShoppingCart;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface UpdateCartItemRequest {
     cartId: string;
     itemId: string;
     productInfo: ProductInfo;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -124,9 +124,9 @@ export interface OpenRetailControllerApiInterface {
      * 
      * @param {string} cartId 
      * @param {ProductInfo} productInfo 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -140,9 +140,9 @@ export interface OpenRetailControllerApiInterface {
     /**
      * 
      * @param {ShoppingCart} shoppingCart 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -156,26 +156,26 @@ export interface OpenRetailControllerApiInterface {
     /**
      * 
      * @param {string} cartId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    deleteCartRaw(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteCartRaw(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    deleteCart(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteCart(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
      * @param {string} cartId 
      * @param {string} itemId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -189,9 +189,9 @@ export interface OpenRetailControllerApiInterface {
     /**
      * 
      * @param {string} cartId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -205,9 +205,9 @@ export interface OpenRetailControllerApiInterface {
     /**
      * 
      * @param {string} cartId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -224,9 +224,9 @@ export interface OpenRetailControllerApiInterface {
      * @param {'NONE' | 'ACTIVE' | 'ABANDONED' | 'CLOSED' | 'UNKNOWN'} [status] 
      * @param {number} [start] 
      * @param {number} [length] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -241,9 +241,9 @@ export interface OpenRetailControllerApiInterface {
      * 
      * @param {string} cartId 
      * @param {ShoppingCart} shoppingCart 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -258,9 +258,9 @@ export interface OpenRetailControllerApiInterface {
      * 
      * @param {string} cartId 
      * @param {ShoppingCart} shoppingCart 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -276,9 +276,9 @@ export interface OpenRetailControllerApiInterface {
      * @param {string} cartId 
      * @param {string} itemId 
      * @param {ProductInfo} productInfo 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
@@ -319,16 +319,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -373,16 +373,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -412,7 +412,7 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
     /**
      */
-    async deleteCartRaw(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteCartRaw(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -424,16 +424,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -456,7 +456,7 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
     /**
      */
-    async deleteCart(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteCart(requestParameters: DeleteCartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.deleteCartRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -482,16 +482,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -534,16 +534,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -585,16 +585,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -645,16 +645,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -704,16 +704,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -765,16 +765,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -833,16 +833,16 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {

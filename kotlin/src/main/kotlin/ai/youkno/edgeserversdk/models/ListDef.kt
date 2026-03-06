@@ -47,7 +47,23 @@ import com.squareup.moshi.JsonClass
  * @param displayMode 
  * @param notificationMode 
  * @param tags 
- * @param permissionTypeAsEnum 
+ * @param typeAsEnum 
+ * @param special 
+ * @param multi 
+ * @param shownInAsEnum 
+ * @param effectiveCode 
+ * @param visibilityRoles 
+ * @param effectiveUrl 
+ * @param viewable 
+ * @param kindAsEnum 
+ * @param postable 
+ * @param favorites 
+ * @param stream 
+ * @param webview 
+ * @param effectiveOp 
+ * @param filterable 
+ * @param visibilityTypeAsEnum 
+ * @param notificationModeAsEnum 
  * @param effectiveUserSpecial 
  * @param effectiveCompanySpecial 
  * @param bountyTypesAsEnum 
@@ -57,23 +73,7 @@ import com.squareup.moshi.JsonClass
  * @param effectiveMainBountyType 
  * @param filterBountyTypeAsEnum 
  * @param effectiveDisplayModeAsEnum 
- * @param visibilityTypeAsEnum 
- * @param notificationModeAsEnum 
- * @param postable 
- * @param favorites 
- * @param stream 
- * @param webview 
- * @param effectiveOp 
- * @param filterable 
- * @param multi 
- * @param shownInAsEnum 
- * @param effectiveUrl 
- * @param viewable 
- * @param kindAsEnum 
- * @param effectiveCode 
- * @param visibilityRoles 
- * @param typeAsEnum 
- * @param special 
+ * @param permissionTypeAsEnum 
  */
 
 
@@ -142,8 +142,56 @@ data class ListDef (
     @Json(name = "tags")
     val tags: kotlin.String? = null,
 
-    @Json(name = "permissionTypeAsEnum")
-    val permissionTypeAsEnum: ListDef.PermissionTypeAsEnum? = null,
+    @Json(name = "typeAsEnum")
+    val typeAsEnum: ListDef.TypeAsEnum? = null,
+
+    @Json(name = "special")
+    val special: kotlin.Boolean? = null,
+
+    @Json(name = "multi")
+    val multi: kotlin.Boolean? = null,
+
+    @Json(name = "shownInAsEnum")
+    val shownInAsEnum: ListDef.ShownInAsEnum? = null,
+
+    @Json(name = "effectiveCode")
+    val effectiveCode: kotlin.String? = null,
+
+    @Json(name = "visibilityRoles")
+    val visibilityRoles: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "effectiveUrl")
+    val effectiveUrl: kotlin.String? = null,
+
+    @Json(name = "viewable")
+    val viewable: kotlin.Boolean? = null,
+
+    @Json(name = "kindAsEnum")
+    val kindAsEnum: ListDef.KindAsEnum? = null,
+
+    @Json(name = "postable")
+    val postable: kotlin.Boolean? = null,
+
+    @Json(name = "favorites")
+    val favorites: kotlin.Boolean? = null,
+
+    @Json(name = "stream")
+    val stream: kotlin.Boolean? = null,
+
+    @Json(name = "webview")
+    val webview: kotlin.Boolean? = null,
+
+    @Json(name = "effectiveOp")
+    val effectiveOp: ListDef.EffectiveOp? = null,
+
+    @Json(name = "filterable")
+    val filterable: kotlin.Boolean? = null,
+
+    @Json(name = "visibilityTypeAsEnum")
+    val visibilityTypeAsEnum: ListDef.VisibilityTypeAsEnum? = null,
+
+    @Json(name = "notificationModeAsEnum")
+    val notificationModeAsEnum: ListDef.NotificationModeAsEnum? = null,
 
     @Json(name = "effectiveUserSpecial")
     val effectiveUserSpecial: kotlin.String? = null,
@@ -172,304 +220,65 @@ data class ListDef (
     @Json(name = "effectiveDisplayModeAsEnum")
     val effectiveDisplayModeAsEnum: ListDef.EffectiveDisplayModeAsEnum? = null,
 
-    @Json(name = "visibilityTypeAsEnum")
-    val visibilityTypeAsEnum: ListDef.VisibilityTypeAsEnum? = null,
-
-    @Json(name = "notificationModeAsEnum")
-    val notificationModeAsEnum: ListDef.NotificationModeAsEnum? = null,
-
-    @Json(name = "postable")
-    val postable: kotlin.Boolean? = null,
-
-    @Json(name = "favorites")
-    val favorites: kotlin.Boolean? = null,
-
-    @Json(name = "stream")
-    val stream: kotlin.Boolean? = null,
-
-    @Json(name = "webview")
-    val webview: kotlin.Boolean? = null,
-
-    @Json(name = "effectiveOp")
-    val effectiveOp: ListDef.EffectiveOp? = null,
-
-    @Json(name = "filterable")
-    val filterable: kotlin.Boolean? = null,
-
-    @Json(name = "multi")
-    val multi: kotlin.Boolean? = null,
-
-    @Json(name = "shownInAsEnum")
-    val shownInAsEnum: ListDef.ShownInAsEnum? = null,
-
-    @Json(name = "effectiveUrl")
-    val effectiveUrl: kotlin.String? = null,
-
-    @Json(name = "viewable")
-    val viewable: kotlin.Boolean? = null,
-
-    @Json(name = "kindAsEnum")
-    val kindAsEnum: ListDef.KindAsEnum? = null,
-
-    @Json(name = "effectiveCode")
-    val effectiveCode: kotlin.String? = null,
-
-    @Json(name = "visibilityRoles")
-    val visibilityRoles: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: ListDef.TypeAsEnum? = null,
-
-    @Json(name = "special")
-    val special: kotlin.Boolean? = null
+    @Json(name = "permissionTypeAsEnum")
+    val permissionTypeAsEnum: ListDef.PermissionTypeAsEnum? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: HIDE,READ_ONLY,WRITE_ONLY,READ_WRITE,UNKNOWN
+     * Values: NONE,STREAM,EDGE_COACHINGS,EDGE_IN_FOCUS,EDGE_CHALLENGES,BUY_SELL,MARKET,SUPPLY_MARKET,AUTOSUGGESTIONS,NEWS,WEBVIEW,CUSTOM,FAVORITES
      */
     @JsonClass(generateAdapter = false)
-    enum class PermissionTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "HIDE") HIDE("HIDE"),
-        @Json(name = "READ_ONLY") READ_ONLY("READ_ONLY"),
-        @Json(name = "WRITE_ONLY") WRITE_ONLY("WRITE_ONLY"),
-        @Json(name = "READ_WRITE") READ_WRITE("READ_WRITE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class BountyTypesAsEnum(val value: kotlin.String) {
+    enum class TypeAsEnum(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "QUESTION") QUESTION("QUESTION"),
-        @Json(name = "THREAD") THREAD("THREAD"),
-        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
-        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
-        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
-        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
-        @Json(name = "ORDER") ORDER("ORDER"),
-        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
-        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
-        @Json(name = "SURVEY") SURVEY("SURVEY"),
-        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
-        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
-        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
-        @Json(name = "STORY") STORY("STORY"),
-        @Json(name = "SCORE") SCORE("SCORE"),
-        @Json(name = "SERIES") SERIES("SERIES"),
-        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
-        @Json(name = "DEAL") DEAL("DEAL"),
-        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
-        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
-        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
-        @Json(name = "MCQ") MCQ("MCQ"),
-        @Json(name = "FUNDING") FUNDING("FUNDING"),
-        @Json(name = "AUCTION") AUCTION("AUCTION"),
-        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
-        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
-        @Json(name = "QUEST") QUEST("QUEST"),
-        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
-        @Json(name = "ALBUM") ALBUM("ALBUM"),
-        @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "BANNER") BANNER("BANNER"),
-        @Json(name = "MATCH") MATCH("MATCH"),
-        @Json(name = "CONTEST") CONTEST("CONTEST"),
-        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
-        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
-        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
-        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
-        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
-        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
-        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
-        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
-        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
-        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
-        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
-        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DEFAULT,POSTS,MARKET,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SortingModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "POSTS") POSTS("POSTS"),
+        @Json(name = "STREAM") STREAM("STREAM"),
+        @Json(name = "EDGE_COACHINGS") EDGE_COACHINGS("EDGE_COACHINGS"),
+        @Json(name = "EDGE_IN_FOCUS") EDGE_IN_FOCUS("EDGE_IN_FOCUS"),
+        @Json(name = "EDGE_CHALLENGES") EDGE_CHALLENGES("EDGE_CHALLENGES"),
+        @Json(name = "BUY_SELL") BUY_SELL("BUY_SELL"),
         @Json(name = "MARKET") MARKET("MARKET"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DEFAULT,MARKET_DEFAULT,MARKET_SUPPLY,MARKET_COMPANY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class EffectiveFilterModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "MARKET_DEFAULT") MARKET_DEFAULT("MARKET_DEFAULT"),
-        @Json(name = "MARKET_SUPPLY") MARKET_SUPPLY("MARKET_SUPPLY"),
-        @Json(name = "MARKET_COMPANY") MARKET_COMPANY("MARKET_COMPANY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class EffectiveMainBountyType(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "QUESTION") QUESTION("QUESTION"),
-        @Json(name = "THREAD") THREAD("THREAD"),
-        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
-        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
-        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
-        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
-        @Json(name = "ORDER") ORDER("ORDER"),
-        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
-        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
-        @Json(name = "SURVEY") SURVEY("SURVEY"),
-        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
-        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
-        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
-        @Json(name = "STORY") STORY("STORY"),
-        @Json(name = "SCORE") SCORE("SCORE"),
-        @Json(name = "SERIES") SERIES("SERIES"),
-        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
-        @Json(name = "DEAL") DEAL("DEAL"),
-        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
-        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
-        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
-        @Json(name = "MCQ") MCQ("MCQ"),
-        @Json(name = "FUNDING") FUNDING("FUNDING"),
-        @Json(name = "AUCTION") AUCTION("AUCTION"),
-        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
-        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
-        @Json(name = "QUEST") QUEST("QUEST"),
-        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
-        @Json(name = "ALBUM") ALBUM("ALBUM"),
+        @Json(name = "SUPPLY_MARKET") SUPPLY_MARKET("SUPPLY_MARKET"),
+        @Json(name = "AUTOSUGGESTIONS") AUTOSUGGESTIONS("AUTOSUGGESTIONS"),
         @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "BANNER") BANNER("BANNER"),
-        @Json(name = "MATCH") MATCH("MATCH"),
-        @Json(name = "CONTEST") CONTEST("CONTEST"),
-        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
-        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
-        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
-        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
-        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
-        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
-        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
-        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
-        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
-        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
-        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
-        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
+        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
+        @Json(name = "CUSTOM") CUSTOM("CUSTOM"),
+        @Json(name = "FAVORITES") FAVORITES("FAVORITES");
+    }
+    /**
+     * 
+     *
+     * Values: HOME,EXPLICIT,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShownInAsEnum(val value: kotlin.String) {
+        @Json(name = "HOME") HOME("HOME"),
+        @Json(name = "EXPLICIT") EXPLICIT("EXPLICIT"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
      *
-     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
+     * Values: INBOX,REFS,BUCKET,FILTER_BY_BOUNTY_TYPE,REST_CALL,SPECIAL,WEBVIEW,TARGET,MULTI,STATS,NEWS,HUB,LIST_STREAM,UNION,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class FilterBountyTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "QUESTION") QUESTION("QUESTION"),
-        @Json(name = "THREAD") THREAD("THREAD"),
-        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
-        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
-        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
-        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
-        @Json(name = "ORDER") ORDER("ORDER"),
-        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
-        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
-        @Json(name = "SURVEY") SURVEY("SURVEY"),
-        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
-        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
-        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
-        @Json(name = "STORY") STORY("STORY"),
-        @Json(name = "SCORE") SCORE("SCORE"),
-        @Json(name = "SERIES") SERIES("SERIES"),
-        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
-        @Json(name = "DEAL") DEAL("DEAL"),
-        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
-        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
-        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
-        @Json(name = "MCQ") MCQ("MCQ"),
-        @Json(name = "FUNDING") FUNDING("FUNDING"),
-        @Json(name = "AUCTION") AUCTION("AUCTION"),
-        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
-        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
-        @Json(name = "QUEST") QUEST("QUEST"),
-        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
-        @Json(name = "ALBUM") ALBUM("ALBUM"),
+    enum class KindAsEnum(val value: kotlin.String) {
+        @Json(name = "INBOX") INBOX("INBOX"),
+        @Json(name = "REFS") REFS("REFS"),
+        @Json(name = "BUCKET") BUCKET("BUCKET"),
+        @Json(name = "FILTER_BY_BOUNTY_TYPE") FILTER_BY_BOUNTY_TYPE("FILTER_BY_BOUNTY_TYPE"),
+        @Json(name = "REST_CALL") REST_CALL("REST_CALL"),
+        @Json(name = "SPECIAL") SPECIAL("SPECIAL"),
+        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
+        @Json(name = "TARGET") TARGET("TARGET"),
+        @Json(name = "MULTI") MULTI("MULTI"),
+        @Json(name = "STATS") STATS("STATS"),
         @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "BANNER") BANNER("BANNER"),
-        @Json(name = "MATCH") MATCH("MATCH"),
-        @Json(name = "CONTEST") CONTEST("CONTEST"),
-        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
-        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
-        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
-        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
-        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
-        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
-        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
-        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
-        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
-        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
-        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
-        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
+        @Json(name = "HUB") HUB("HUB"),
+        @Json(name = "LIST_STREAM") LIST_STREAM("LIST_STREAM"),
+        @Json(name = "UNION") UNION("UNION"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,ICON_PREVIEW,LIST,DETAILS,HEADER
-     */
-    @JsonClass(generateAdapter = false)
-    enum class EffectiveDisplayModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ICON_PREVIEW") ICON_PREVIEW("ICON_PREVIEW"),
-        @Json(name = "LIST") LIST("LIST"),
-        @Json(name = "DETAILS") DETAILS("DETAILS"),
-        @Json(name = "HEADER") HEADER("HEADER");
-    }
-    /**
-     * 
-     *
-     * Values: DEFAULT,USER,VISIBLE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class VisibilityTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "USER") USER("USER"),
-        @Json(name = "VISIBLE") VISIBLE("VISIBLE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: MUTE,DEFAULT
-     */
-    @JsonClass(generateAdapter = false)
-    enum class NotificationModeAsEnum(val value: kotlin.String) {
-        @Json(name = "MUTE") MUTE("MUTE"),
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT");
     }
     /**
      * 
@@ -697,57 +506,248 @@ data class ListDef (
     /**
      * 
      *
-     * Values: HOME,EXPLICIT,UNKNOWN
+     * Values: DEFAULT,USER,VISIBLE,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class ShownInAsEnum(val value: kotlin.String) {
-        @Json(name = "HOME") HOME("HOME"),
-        @Json(name = "EXPLICIT") EXPLICIT("EXPLICIT"),
+    enum class VisibilityTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
+        @Json(name = "USER") USER("USER"),
+        @Json(name = "VISIBLE") VISIBLE("VISIBLE"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
      *
-     * Values: INBOX,REFS,BUCKET,FILTER_BY_BOUNTY_TYPE,REST_CALL,SPECIAL,WEBVIEW,TARGET,MULTI,STATS,NEWS,HUB,LIST_STREAM,UNION,UNKNOWN
+     * Values: MUTE,DEFAULT
      */
     @JsonClass(generateAdapter = false)
-    enum class KindAsEnum(val value: kotlin.String) {
-        @Json(name = "INBOX") INBOX("INBOX"),
-        @Json(name = "REFS") REFS("REFS"),
-        @Json(name = "BUCKET") BUCKET("BUCKET"),
-        @Json(name = "FILTER_BY_BOUNTY_TYPE") FILTER_BY_BOUNTY_TYPE("FILTER_BY_BOUNTY_TYPE"),
-        @Json(name = "REST_CALL") REST_CALL("REST_CALL"),
-        @Json(name = "SPECIAL") SPECIAL("SPECIAL"),
-        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
-        @Json(name = "TARGET") TARGET("TARGET"),
-        @Json(name = "MULTI") MULTI("MULTI"),
-        @Json(name = "STATS") STATS("STATS"),
-        @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "HUB") HUB("HUB"),
-        @Json(name = "LIST_STREAM") LIST_STREAM("LIST_STREAM"),
-        @Json(name = "UNION") UNION("UNION"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    enum class NotificationModeAsEnum(val value: kotlin.String) {
+        @Json(name = "MUTE") MUTE("MUTE"),
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT");
     }
     /**
      * 
      *
-     * Values: NONE,STREAM,EDGE_COACHINGS,EDGE_IN_FOCUS,EDGE_CHALLENGES,BUY_SELL,MARKET,SUPPLY_MARKET,AUTOSUGGESTIONS,NEWS,WEBVIEW,CUSTOM,FAVORITES
+     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
+    enum class BountyTypesAsEnum(val value: kotlin.String) {
         @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "STREAM") STREAM("STREAM"),
-        @Json(name = "EDGE_COACHINGS") EDGE_COACHINGS("EDGE_COACHINGS"),
-        @Json(name = "EDGE_IN_FOCUS") EDGE_IN_FOCUS("EDGE_IN_FOCUS"),
-        @Json(name = "EDGE_CHALLENGES") EDGE_CHALLENGES("EDGE_CHALLENGES"),
-        @Json(name = "BUY_SELL") BUY_SELL("BUY_SELL"),
-        @Json(name = "MARKET") MARKET("MARKET"),
-        @Json(name = "SUPPLY_MARKET") SUPPLY_MARKET("SUPPLY_MARKET"),
-        @Json(name = "AUTOSUGGESTIONS") AUTOSUGGESTIONS("AUTOSUGGESTIONS"),
+        @Json(name = "QUESTION") QUESTION("QUESTION"),
+        @Json(name = "THREAD") THREAD("THREAD"),
+        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
+        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
+        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
+        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
+        @Json(name = "ORDER") ORDER("ORDER"),
+        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
+        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
+        @Json(name = "SURVEY") SURVEY("SURVEY"),
+        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
+        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
+        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
+        @Json(name = "STORY") STORY("STORY"),
+        @Json(name = "SCORE") SCORE("SCORE"),
+        @Json(name = "SERIES") SERIES("SERIES"),
+        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
+        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
+        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
+        @Json(name = "DEAL") DEAL("DEAL"),
+        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
+        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
+        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
+        @Json(name = "MCQ") MCQ("MCQ"),
+        @Json(name = "FUNDING") FUNDING("FUNDING"),
+        @Json(name = "AUCTION") AUCTION("AUCTION"),
+        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
+        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
+        @Json(name = "QUEST") QUEST("QUEST"),
+        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
+        @Json(name = "ALBUM") ALBUM("ALBUM"),
         @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
-        @Json(name = "CUSTOM") CUSTOM("CUSTOM"),
-        @Json(name = "FAVORITES") FAVORITES("FAVORITES");
+        @Json(name = "BANNER") BANNER("BANNER"),
+        @Json(name = "MATCH") MATCH("MATCH"),
+        @Json(name = "CONTEST") CONTEST("CONTEST"),
+        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
+        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
+        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
+        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
+        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
+        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
+        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
+        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
+        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
+        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
+        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
+        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,DEFAULT,POSTS,MARKET,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SortingModeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
+        @Json(name = "POSTS") POSTS("POSTS"),
+        @Json(name = "MARKET") MARKET("MARKET"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,DEFAULT,MARKET_DEFAULT,MARKET_SUPPLY,MARKET_COMPANY,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class EffectiveFilterModeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
+        @Json(name = "MARKET_DEFAULT") MARKET_DEFAULT("MARKET_DEFAULT"),
+        @Json(name = "MARKET_SUPPLY") MARKET_SUPPLY("MARKET_SUPPLY"),
+        @Json(name = "MARKET_COMPANY") MARKET_COMPANY("MARKET_COMPANY"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class EffectiveMainBountyType(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "QUESTION") QUESTION("QUESTION"),
+        @Json(name = "THREAD") THREAD("THREAD"),
+        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
+        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
+        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
+        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
+        @Json(name = "ORDER") ORDER("ORDER"),
+        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
+        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
+        @Json(name = "SURVEY") SURVEY("SURVEY"),
+        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
+        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
+        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
+        @Json(name = "STORY") STORY("STORY"),
+        @Json(name = "SCORE") SCORE("SCORE"),
+        @Json(name = "SERIES") SERIES("SERIES"),
+        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
+        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
+        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
+        @Json(name = "DEAL") DEAL("DEAL"),
+        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
+        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
+        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
+        @Json(name = "MCQ") MCQ("MCQ"),
+        @Json(name = "FUNDING") FUNDING("FUNDING"),
+        @Json(name = "AUCTION") AUCTION("AUCTION"),
+        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
+        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
+        @Json(name = "QUEST") QUEST("QUEST"),
+        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
+        @Json(name = "ALBUM") ALBUM("ALBUM"),
+        @Json(name = "NEWS") NEWS("NEWS"),
+        @Json(name = "BANNER") BANNER("BANNER"),
+        @Json(name = "MATCH") MATCH("MATCH"),
+        @Json(name = "CONTEST") CONTEST("CONTEST"),
+        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
+        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
+        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
+        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
+        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
+        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
+        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
+        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
+        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
+        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
+        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
+        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class FilterBountyTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "QUESTION") QUESTION("QUESTION"),
+        @Json(name = "THREAD") THREAD("THREAD"),
+        @Json(name = "TALENT_SEARCH") TALENT_SEARCH("TALENT_SEARCH"),
+        @Json(name = "TALENT_RECOMMENDATION") TALENT_RECOMMENDATION("TALENT_RECOMMENDATION"),
+        @Json(name = "TMOB_CHALLENGE") TMOB_CHALLENGE("TMOB_CHALLENGE"),
+        @Json(name = "TMOB_COACHING") TMOB_COACHING("TMOB_COACHING"),
+        @Json(name = "ORDER") ORDER("ORDER"),
+        @Json(name = "REALESTATE_CUSTOMER") REALESTATE_CUSTOMER("REALESTATE_CUSTOMER"),
+        @Json(name = "REALESTATE_RECOMMENDATION") REALESTATE_RECOMMENDATION("REALESTATE_RECOMMENDATION"),
+        @Json(name = "SURVEY") SURVEY("SURVEY"),
+        @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
+        @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
+        @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
+        @Json(name = "STORY") STORY("STORY"),
+        @Json(name = "SCORE") SCORE("SCORE"),
+        @Json(name = "SERIES") SERIES("SERIES"),
+        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
+        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
+        @Json(name = "AI_BOT") AI_BOT("AI_BOT"),
+        @Json(name = "DEAL") DEAL("DEAL"),
+        @Json(name = "PROMOTION") PROMOTION("PROMOTION"),
+        @Json(name = "AUTOSUGGESTION") AUTOSUGGESTION("AUTOSUGGESTION"),
+        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
+        @Json(name = "MCQ") MCQ("MCQ"),
+        @Json(name = "FUNDING") FUNDING("FUNDING"),
+        @Json(name = "AUCTION") AUCTION("AUCTION"),
+        @Json(name = "ROLEPLAY") ROLEPLAY("ROLEPLAY"),
+        @Json(name = "PRIVATE_LISTING") PRIVATE_LISTING("PRIVATE_LISTING"),
+        @Json(name = "QUEST") QUEST("QUEST"),
+        @Json(name = "LIVE_STREAM") LIVE_STREAM("LIVE_STREAM"),
+        @Json(name = "ALBUM") ALBUM("ALBUM"),
+        @Json(name = "NEWS") NEWS("NEWS"),
+        @Json(name = "BANNER") BANNER("BANNER"),
+        @Json(name = "MATCH") MATCH("MATCH"),
+        @Json(name = "CONTEST") CONTEST("CONTEST"),
+        @Json(name = "TRIVIA") TRIVIA("TRIVIA"),
+        @Json(name = "LOTTERY") LOTTERY("LOTTERY"),
+        @Json(name = "BADGE_COLLECTION") BADGE_COLLECTION("BADGE_COLLECTION"),
+        @Json(name = "RAFFLE") RAFFLE("RAFFLE"),
+        @Json(name = "CALENDAR_EVENT") CALENDAR_EVENT("CALENDAR_EVENT"),
+        @Json(name = "CURRENCY") CURRENCY("CURRENCY"),
+        @Json(name = "RESERVATION") RESERVATION("RESERVATION"),
+        @Json(name = "QUICK_CLAIM") QUICK_CLAIM("QUICK_CLAIM"),
+        @Json(name = "CAMPAIGN") CAMPAIGN("CAMPAIGN"),
+        @Json(name = "EXPRESS_CAMPAIGN") EXPRESS_CAMPAIGN("EXPRESS_CAMPAIGN"),
+        @Json(name = "GEO_LOCATION") GEO_LOCATION("GEO_LOCATION"),
+        @Json(name = "FEEDBACK") FEEDBACK("FEEDBACK"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,ICON_PREVIEW,LIST,DETAILS,HEADER
+     */
+    @JsonClass(generateAdapter = false)
+    enum class EffectiveDisplayModeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "ICON_PREVIEW") ICON_PREVIEW("ICON_PREVIEW"),
+        @Json(name = "LIST") LIST("LIST"),
+        @Json(name = "DETAILS") DETAILS("DETAILS"),
+        @Json(name = "HEADER") HEADER("HEADER");
+    }
+    /**
+     * 
+     *
+     * Values: HIDE,READ_ONLY,WRITE_ONLY,READ_WRITE,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PermissionTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "HIDE") HIDE("HIDE"),
+        @Json(name = "READ_ONLY") READ_ONLY("READ_ONLY"),
+        @Json(name = "WRITE_ONLY") WRITE_ONLY("WRITE_ONLY"),
+        @Json(name = "READ_WRITE") READ_WRITE("READ_WRITE"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

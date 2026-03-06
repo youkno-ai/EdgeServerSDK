@@ -17,13 +17,13 @@ interface ShopifyControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @GET("api/v1/shopify/app-info")
-    fun getAppPage(@Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun getAppPage(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * GET api/v1/shopify/info
@@ -32,13 +32,13 @@ interface ShopifyControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<ShopifyShopInfo>]>
      */
     @GET("api/v1/shopify/info")
-    fun getInfo(@Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<ShopifyShopInfo>>
+    fun getInfo(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<ShopifyShopInfo>>
 
     /**
      * GET api/v1/shopify/connect
@@ -49,13 +49,13 @@ interface ShopifyControllerApi {
      *
      * @param shop 
      * @param redirectUrl 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[ShopifyConnectResponse]>
      */
     @GET("api/v1/shopify/connect")
-    fun getLink1(@Query("shop") shop: kotlin.String, @Query("redirectUrl") redirectUrl: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<ShopifyConnectResponse>
+    fun getLink1(@Query("shop") shop: kotlin.String, @Query("redirectUrl") redirectUrl: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShopifyConnectResponse>
 
     /**
      * GET api/v1/shopify/connect/complete
@@ -68,13 +68,13 @@ interface ShopifyControllerApi {
      * @param code  (optional)
      * @param hmac  (optional)
      * @param state  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @GET("api/v1/shopify/connect/complete")
-    fun shopify(@Query("shop") shop: kotlin.String? = null, @Query("code") code: kotlin.String? = null, @Query("hmac") hmac: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun shopify(@Query("shop") shop: kotlin.String? = null, @Query("code") code: kotlin.String? = null, @Query("hmac") hmac: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * POST api/v1/shopify/gdpr/webhook
@@ -85,13 +85,13 @@ interface ShopifyControllerApi {
      *
      * @param xShopifyHmacSha256  (optional)
      * @param xShopifyTopic  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @POST("api/v1/shopify/gdpr/webhook")
-    fun shopifyGdprWebhook(@Header("X-Shopify-Hmac-Sha256") xShopifyHmacSha256: kotlin.String? = null, @Header("X-Shopify-Topic") xShopifyTopic: kotlin.String? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun shopifyGdprWebhook(@Header("X-Shopify-Hmac-Sha256") xShopifyHmacSha256: kotlin.String? = null, @Header("X-Shopify-Topic") xShopifyTopic: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * POST api/v1/shopify/webhook
@@ -104,12 +104,12 @@ interface ShopifyControllerApi {
      * @param xShopifyHmacSha256  (optional)
      * @param state  (optional)
      * @param webhookType  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @POST("api/v1/shopify/webhook")
-    fun shopifyWebhook(@Header("X-Shopify-Shop-Domain") xShopifyShopDomain: kotlin.String? = null, @Header("X-Shopify-Hmac-Sha256") xShopifyHmacSha256: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("webhook_type") webhookType: kotlin.String? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun shopifyWebhook(@Header("X-Shopify-Shop-Domain") xShopifyShopDomain: kotlin.String? = null, @Header("X-Shopify-Hmac-Sha256") xShopifyHmacSha256: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Query("webhook_type") webhookType: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
 }

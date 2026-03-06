@@ -71,73 +71,7 @@ export interface CurrencyInfo {
      * @memberof CurrencyInfo
      */
     description?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    equivalentCurrency?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    scopeAsEnum?: CurrencyInfoScopeAsEnumEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof CurrencyInfo
-     */
-    equivalentValue?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    imageUrl?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    code?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CurrencyInfo
-     */
-    stateAsEnum?: CurrencyInfoStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const CurrencyInfoScopeAsEnumEnum = {
-    USER: 'USER',
-    COMPANY: 'COMPANY',
-    GLOBAL: 'GLOBAL',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type CurrencyInfoScopeAsEnumEnum = typeof CurrencyInfoScopeAsEnumEnum[keyof typeof CurrencyInfoScopeAsEnumEnum];
-
-/**
- * @export
- */
-export const CurrencyInfoStateAsEnumEnum = {
-    ACTIVE: 'ACTIVE',
-    ON_CANCELATION: 'ON_CANCELATION',
-    EXPIRED: 'EXPIRED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type CurrencyInfoStateAsEnumEnum = typeof CurrencyInfoStateAsEnumEnum[keyof typeof CurrencyInfoStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the CurrencyInfo interface.
@@ -161,13 +95,6 @@ export function CurrencyInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'meta': json['meta'] == null ? undefined : MetaInfoFromJSON(json['meta']),
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
         'description': json['description'] == null ? undefined : json['description'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'equivalentCurrency': json['equivalentCurrency'] == null ? undefined : json['equivalentCurrency'],
-        'scopeAsEnum': json['scopeAsEnum'] == null ? undefined : json['scopeAsEnum'],
-        'equivalentValue': json['equivalentValue'] == null ? undefined : json['equivalentValue'],
-        'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'code': json['code'] == null ? undefined : json['code'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
     };
 }
 
@@ -187,13 +114,6 @@ export function CurrencyInfoToJSONTyped(value?: CurrencyInfo | null, ignoreDiscr
         'meta': MetaInfoToJSON(value['meta']),
         'metaError': value['metaError'],
         'description': value['description'],
-        'name': value['name'],
-        'equivalentCurrency': value['equivalentCurrency'],
-        'scopeAsEnum': value['scopeAsEnum'],
-        'equivalentValue': value['equivalentValue'],
-        'imageUrl': value['imageUrl'],
-        'code': value['code'],
-        'stateAsEnum': value['stateAsEnum'],
     };
 }
 

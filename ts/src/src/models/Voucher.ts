@@ -181,86 +181,7 @@ export interface Voucher {
      * @memberof Voucher
      */
     selfLink?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Voucher
-     */
-    virtual?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Voucher
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Voucher
-     */
-    discountTypeAsEnum?: VoucherDiscountTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Voucher
-     */
-    selfLinkType?: VoucherSelfLinkTypeEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Voucher
-     */
-    negativeValue?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof Voucher
-     */
-    decimalValue?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Voucher
-     */
-    stateAsEnum?: VoucherStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const VoucherDiscountTypeAsEnumEnum = {
-    NONE: 'NONE',
-    FLAT: 'FLAT',
-    PERCENTAGE: 'PERCENTAGE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type VoucherDiscountTypeAsEnumEnum = typeof VoucherDiscountTypeAsEnumEnum[keyof typeof VoucherDiscountTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const VoucherSelfLinkTypeEnum = {
-    NONE: 'NONE',
-    VOUCHER: 'VOUCHER',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type VoucherSelfLinkTypeEnum = typeof VoucherSelfLinkTypeEnum[keyof typeof VoucherSelfLinkTypeEnum];
-
-/**
- * @export
- */
-export const VoucherStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    REDEEMED: 'REDEEMED',
-    CANCELED: 'CANCELED',
-    EXPIRED: 'EXPIRED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type VoucherStateAsEnumEnum = typeof VoucherStateAsEnumEnum[keyof typeof VoucherStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Voucher interface.
@@ -300,13 +221,6 @@ export function VoucherFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'redeemedAt': json['redeemedAt'] == null ? undefined : json['redeemedAt'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'selfLink': json['selfLink'] == null ? undefined : json['selfLink'],
-        'virtual': json['virtual'] == null ? undefined : json['virtual'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'discountTypeAsEnum': json['discountTypeAsEnum'] == null ? undefined : json['discountTypeAsEnum'],
-        'selfLinkType': json['selfLinkType'] == null ? undefined : json['selfLinkType'],
-        'negativeValue': json['negativeValue'] == null ? undefined : json['negativeValue'],
-        'decimalValue': json['decimalValue'] == null ? undefined : json['decimalValue'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
     };
 }
 
@@ -342,13 +256,6 @@ export function VoucherToJSONTyped(value?: Voucher | null, ignoreDiscriminator: 
         'redeemedAt': value['redeemedAt'],
         'createdAt': value['createdAt'],
         'selfLink': value['selfLink'],
-        'virtual': value['virtual'],
-        'valid': value['valid'],
-        'discountTypeAsEnum': value['discountTypeAsEnum'],
-        'selfLinkType': value['selfLinkType'],
-        'negativeValue': value['negativeValue'],
-        'decimalValue': value['decimalValue'],
-        'stateAsEnum': value['stateAsEnum'],
     };
 }
 

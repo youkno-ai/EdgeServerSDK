@@ -20,13 +20,13 @@ interface MerchantControllerApi {
      *
      * @param userId 
      * @param selfOnboardingInfo 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[CompleteSelfOnboardingResponse]>
      */
     @POST("api/v1/merchant/{userId}/selfOnboarding/complete")
-    fun completeSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<CompleteSelfOnboardingResponse>
+    fun completeSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompleteSelfOnboardingResponse>
 
     /**
      * GET api/v1/merchant/{userId}/selfOnboarding
@@ -36,13 +36,13 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SelfOnboardingInfo]>
      */
     @GET("api/v1/merchant/{userId}/selfOnboarding")
-    fun getSelfOnboarding(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SelfOnboardingInfo>
+    fun getSelfOnboarding(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SelfOnboardingInfo>
 
     /**
      * GET api/v1/merchant/{userId}/shippingFee
@@ -52,13 +52,13 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[ShippingFee]>
      */
     @GET("api/v1/merchant/{userId}/shippingFee")
-    fun getShippingFee(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<ShippingFee>
+    fun getShippingFee(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShippingFee>
 
     /**
      * POST api/v1/merchant/{userId}/selfOnboarding
@@ -69,13 +69,13 @@ interface MerchantControllerApi {
      *
      * @param userId 
      * @param selfOnboardingInfo 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SelfOnboardingInfo]>
      */
     @POST("api/v1/merchant/{userId}/selfOnboarding")
-    fun saveSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SelfOnboardingInfo>
+    fun saveSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SelfOnboardingInfo>
 
     /**
      * POST api/v1/merchant/{userId}/shippingFee
@@ -86,13 +86,13 @@ interface MerchantControllerApi {
      *
      * @param userId 
      * @param shippingFee 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @POST("api/v1/merchant/{userId}/shippingFee")
-    fun saveShippingFee(@Path("userId") userId: kotlin.String, @Body shippingFee: ShippingFee, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun saveShippingFee(@Path("userId") userId: kotlin.String, @Body shippingFee: ShippingFee, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * PATCH api/v1/merchant/{userId}/selfOnboarding
@@ -103,12 +103,12 @@ interface MerchantControllerApi {
      *
      * @param userId 
      * @param selfOnboardingInfo 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SelfOnboardingInfo]>
      */
     @PATCH("api/v1/merchant/{userId}/selfOnboarding")
-    fun updateSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SelfOnboardingInfo>
+    fun updateSelfOnboarding(@Path("userId") userId: kotlin.String, @Body selfOnboardingInfo: SelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SelfOnboardingInfo>
 
 }

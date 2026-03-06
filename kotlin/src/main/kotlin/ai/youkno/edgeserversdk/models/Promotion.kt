@@ -38,9 +38,6 @@ import com.squareup.moshi.JsonClass
  * @param deliveryFee 
  * @param maxUsageQty 
  * @param maxOverallUsageQty 
- * @param negative 
- * @param stateAsEnum 
- * @param typeAsEnum 
  */
 
 
@@ -83,44 +80,10 @@ data class Promotion (
     val maxUsageQty: kotlin.Int? = null,
 
     @Json(name = "maxOverallUsageQty")
-    val maxOverallUsageQty: kotlin.Int? = null,
-
-    @Json(name = "negative")
-    val negative: kotlin.Boolean? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: Promotion.StateAsEnum? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: Promotion.TypeAsEnum? = null
+    val maxOverallUsageQty: kotlin.Int? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,ACTIVE,CLOSED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,SELECT_ONE,DISCOUNT,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "SELECT_ONE") SELECT_ONE("SELECT_ONE"),
-        @Json(name = "DISCOUNT") DISCOUNT("DISCOUNT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

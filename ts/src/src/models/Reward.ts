@@ -98,18 +98,6 @@ export interface Reward {
      * @memberof Reward
      */
     accessKeys?: { [key: string]: AccessReward; };
-    /**
-     * 
-     * @type {number}
-     * @memberof Reward
-     */
-    partCount?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Reward
-     */
-    simpleReward?: boolean;
 }
 
 /**
@@ -135,8 +123,6 @@ export function RewardFromJSONTyped(json: any, ignoreDiscriminator: boolean): Re
         'badges': json['badges'] == null ? undefined : (mapValues(json['badges'], BadgeFromJSON)),
         'promotions': json['promotions'] == null ? undefined : (mapValues(json['promotions'], PromotionFromJSON)),
         'accessKeys': json['accessKeys'] == null ? undefined : (mapValues(json['accessKeys'], AccessRewardFromJSON)),
-        'partCount': json['partCount'] == null ? undefined : json['partCount'],
-        'simpleReward': json['simpleReward'] == null ? undefined : json['simpleReward'],
     };
 }
 
@@ -157,8 +143,6 @@ export function RewardToJSONTyped(value?: Reward | null, ignoreDiscriminator: bo
         'badges': value['badges'] == null ? undefined : (mapValues(value['badges'], BadgeToJSON)),
         'promotions': value['promotions'] == null ? undefined : (mapValues(value['promotions'], PromotionToJSON)),
         'accessKeys': value['accessKeys'] == null ? undefined : (mapValues(value['accessKeys'], AccessRewardToJSON)),
-        'partCount': value['partCount'],
-        'simpleReward': value['simpleReward'],
     };
 }
 

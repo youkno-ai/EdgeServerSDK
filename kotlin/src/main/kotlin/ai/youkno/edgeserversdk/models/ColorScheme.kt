@@ -27,8 +27,8 @@ import com.squareup.moshi.JsonClass
  * @param colors 
  * @param displayMode 
  * @param patternType 
- * @param patternTypeAsEnum 
  * @param displayModeAsEnum 
+ * @param patternTypeAsEnum 
  */
 
 
@@ -46,14 +46,26 @@ data class ColorScheme (
     @Json(name = "patternType")
     val patternType: kotlin.String? = null,
 
-    @Json(name = "patternTypeAsEnum")
-    val patternTypeAsEnum: ColorScheme.PatternTypeAsEnum? = null,
-
     @Json(name = "displayModeAsEnum")
-    val displayModeAsEnum: ColorScheme.DisplayModeAsEnum? = null
+    val displayModeAsEnum: ColorScheme.DisplayModeAsEnum? = null,
+
+    @Json(name = "patternTypeAsEnum")
+    val patternTypeAsEnum: ColorScheme.PatternTypeAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,RANDOM,ORDERED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DisplayModeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "RANDOM") RANDOM("RANDOM"),
+        @Json(name = "ORDERED") ORDERED("ORDERED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -68,18 +80,6 @@ data class ColorScheme (
         @Json(name = "HORIZONTAL_LINES") HORIZONTAL_LINES("HORIZONTAL_LINES"),
         @Json(name = "FOUR_DOTS") FOUR_DOTS("FOUR_DOTS"),
         @Json(name = "DOWNWARD_ARROWS") DOWNWARD_ARROWS("DOWNWARD_ARROWS"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,RANDOM,ORDERED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DisplayModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "RANDOM") RANDOM("RANDOM"),
-        @Json(name = "ORDERED") ORDERED("ORDERED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

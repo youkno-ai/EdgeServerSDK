@@ -72,18 +72,6 @@ export interface Customer {
     address?: MailingAddress;
     /**
      * 
-     * @type {string}
-     * @memberof Customer
-     */
-    phoneRawNumber?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Customer
-     */
-    phoneStatus?: string;
-    /**
-     * 
      * @type {PersonalName}
      * @memberof Customer
      */
@@ -94,6 +82,18 @@ export interface Customer {
      * @memberof Customer
      */
     effectiveState?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Customer
+     */
+    phoneStatus?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Customer
+     */
+    phoneRawNumber?: string;
 }
 
 /**
@@ -119,10 +119,10 @@ export function CustomerFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'email': json['email'] == null ? undefined : json['email'],
         'dob': json['dob'] == null ? undefined : json['dob'],
         'address': json['address'] == null ? undefined : MailingAddressFromJSON(json['address']),
-        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
-        'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
         'personalName': json['personalName'] == null ? undefined : PersonalNameFromJSON(json['personalName']),
         'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
+        'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
+        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
     };
 }
 
@@ -143,10 +143,10 @@ export function CustomerToJSONTyped(value?: Customer | null, ignoreDiscriminator
         'email': value['email'],
         'dob': value['dob'],
         'address': MailingAddressToJSON(value['address']),
-        'phoneRawNumber': value['phoneRawNumber'],
-        'phoneStatus': value['phoneStatus'],
         'personalName': PersonalNameToJSON(value['personalName']),
         'effectiveState': value['effectiveState'],
+        'phoneStatus': value['phoneStatus'],
+        'phoneRawNumber': value['phoneRawNumber'],
     };
 }
 

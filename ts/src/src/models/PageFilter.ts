@@ -623,24 +623,6 @@ export interface PageFilter {
      * @memberof PageFilter
      */
     length?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PageFilter
-     */
-    marketModeAsEnum?: PageFilterMarketModeAsEnumEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof PageFilter
-     */
-    effectiveCategoryCodes?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof PageFilter
-     */
-    sortTypeAsEnum?: PageFilterSortTypeAsEnumEnum;
 }
 
 
@@ -915,43 +897,6 @@ export const PageFilterNewsPriorityEnum = {
 } as const;
 export type PageFilterNewsPriorityEnum = typeof PageFilterNewsPriorityEnum[keyof typeof PageFilterNewsPriorityEnum];
 
-/**
- * @export
- */
-export const PageFilterMarketModeAsEnumEnum = {
-    NONE: 'NONE',
-    DEFAULT: 'DEFAULT',
-    GLOBAL: 'GLOBAL',
-    FILTERED: 'FILTERED',
-    SUPPLY: 'SUPPLY',
-    PRIVATE: 'PRIVATE',
-    INTERNAL: 'INTERNAL',
-    EXTERNAL: 'EXTERNAL',
-    MIXED: 'MIXED',
-    USER_INTERNAL: 'USER_INTERNAL',
-    ALL: 'ALL'
-} as const;
-export type PageFilterMarketModeAsEnumEnum = typeof PageFilterMarketModeAsEnumEnum[keyof typeof PageFilterMarketModeAsEnumEnum];
-
-/**
- * @export
- */
-export const PageFilterSortTypeAsEnumEnum = {
-    NONE: 'NONE',
-    NOVELTY: 'NOVELTY',
-    POSTED_ASC: 'POSTED_ASC',
-    POSTED_DESC: 'POSTED_DESC',
-    RATING: 'RATING',
-    PRICE_DESC: 'PRICE_DESC',
-    PRICE_ASC: 'PRICE_ASC',
-    SCHEDULED: 'SCHEDULED',
-    PINNED_TO_TOP: 'PINNED_TO_TOP',
-    DELIVERY_METHOD: 'DELIVERY_METHOD',
-    THC_VALUE: 'THC_VALUE',
-    RANDOM: 'RANDOM'
-} as const;
-export type PageFilterSortTypeAsEnumEnum = typeof PageFilterSortTypeAsEnumEnum[keyof typeof PageFilterSortTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the PageFilter interface.
@@ -1067,9 +1012,6 @@ export function PageFilterFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'ignoreCache': json['ignoreCache'] == null ? undefined : json['ignoreCache'],
         'start': json['start'] == null ? undefined : json['start'],
         'length': json['length'] == null ? undefined : json['length'],
-        'marketModeAsEnum': json['marketModeAsEnum'] == null ? undefined : json['marketModeAsEnum'],
-        'effectiveCategoryCodes': json['effectiveCategoryCodes'] == null ? undefined : json['effectiveCategoryCodes'],
-        'sortTypeAsEnum': json['sortTypeAsEnum'] == null ? undefined : json['sortTypeAsEnum'],
     };
 }
 
@@ -1181,9 +1123,6 @@ export function PageFilterToJSONTyped(value?: PageFilter | null, ignoreDiscrimin
         'ignoreCache': value['ignoreCache'],
         'start': value['start'],
         'length': value['length'],
-        'marketModeAsEnum': value['marketModeAsEnum'],
-        'effectiveCategoryCodes': value['effectiveCategoryCodes'],
-        'sortTypeAsEnum': value['sortTypeAsEnum'],
     };
 }
 

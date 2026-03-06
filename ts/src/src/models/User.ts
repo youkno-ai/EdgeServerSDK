@@ -13,21 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PersonalName } from './PersonalName';
-import {
-    PersonalNameFromJSON,
-    PersonalNameFromJSONTyped,
-    PersonalNameToJSON,
-    PersonalNameToJSONTyped,
-} from './PersonalName';
-import type { Reputation } from './Reputation';
-import {
-    ReputationFromJSON,
-    ReputationFromJSONTyped,
-    ReputationToJSON,
-    ReputationToJSONTyped,
-} from './Reputation';
-
 /**
  * 
  * @export
@@ -106,125 +91,7 @@ export interface User {
      * @memberof User
      */
     status?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof User
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {Reputation}
-     * @memberof User
-     */
-    reputationAsData?: Reputation;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    statusAsEnum?: UserStatusAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof User
-     */
-    undercover?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    kindAsEnum?: UserKindAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof User
-     */
-    fakeAuthor?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    subTypeAsEnum?: UserSubTypeAsEnumEnum;
-    /**
-     * 
-     * @type {PersonalName}
-     * @memberof User
-     */
-    personalName?: PersonalName;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    typeAsEnum?: UserTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof User
-     */
-    anonymous?: boolean;
 }
-
-
-/**
- * @export
- */
-export const UserStatusAsEnumEnum = {
-    ACTIVE: 'ACTIVE',
-    INACTIVE: 'INACTIVE',
-    SUSPENDED: 'SUSPENDED',
-    BLACKLISTED: 'BLACKLISTED',
-    TO_BE_DELETED: 'TO_BE_DELETED',
-    DELETED: 'DELETED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserStatusAsEnumEnum = typeof UserStatusAsEnumEnum[keyof typeof UserStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const UserKindAsEnumEnum = {
-    USER: 'USER',
-    GROUP: 'GROUP',
-    COMPANY: 'COMPANY',
-    AVATAR: 'AVATAR',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserKindAsEnumEnum = typeof UserKindAsEnumEnum[keyof typeof UserKindAsEnumEnum];
-
-/**
- * @export
- */
-export const UserSubTypeAsEnumEnum = {
-    NONE: 'NONE',
-    BOT: 'BOT',
-    GHOST: 'GHOST',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserSubTypeAsEnumEnum = typeof UserSubTypeAsEnumEnum[keyof typeof UserSubTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const UserTypeAsEnumEnum = {
-    NONE: 'NONE',
-    SYS_ROOT: 'SYS_ROOT',
-    INDIVIDUAL: 'INDIVIDUAL',
-    EMPLOYEE: 'EMPLOYEE',
-    ANON: 'ANON',
-    COMPANY: 'COMPANY',
-    EMPLOYEES: 'EMPLOYEES',
-    APPLICANTS: 'APPLICANTS',
-    INFLUENCERS: 'INFLUENCERS',
-    GROUP: 'GROUP',
-    GROUPS_ROOT: 'GROUPS_ROOT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserTypeAsEnumEnum = typeof UserTypeAsEnumEnum[keyof typeof UserTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the User interface.
@@ -255,16 +122,6 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'verified': json['verified'] == null ? undefined : json['verified'],
         'anon': json['anon'] == null ? undefined : json['anon'],
         'status': json['status'] == null ? undefined : json['status'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'reputationAsData': json['reputationAsData'] == null ? undefined : ReputationFromJSON(json['reputationAsData']),
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'undercover': json['undercover'] == null ? undefined : json['undercover'],
-        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'fakeAuthor': json['fakeAuthor'] == null ? undefined : json['fakeAuthor'],
-        'subTypeAsEnum': json['subTypeAsEnum'] == null ? undefined : json['subTypeAsEnum'],
-        'personalName': json['personalName'] == null ? undefined : PersonalNameFromJSON(json['personalName']),
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
-        'anonymous': json['anonymous'] == null ? undefined : json['anonymous'],
     };
 }
 
@@ -291,16 +148,6 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'verified': value['verified'],
         'anon': value['anon'],
         'status': value['status'],
-        'valid': value['valid'],
-        'reputationAsData': ReputationToJSON(value['reputationAsData']),
-        'statusAsEnum': value['statusAsEnum'],
-        'undercover': value['undercover'],
-        'kindAsEnum': value['kindAsEnum'],
-        'fakeAuthor': value['fakeAuthor'],
-        'subTypeAsEnum': value['subTypeAsEnum'],
-        'personalName': PersonalNameToJSON(value['personalName']),
-        'typeAsEnum': value['typeAsEnum'],
-        'anonymous': value['anonymous'],
     };
 }
 

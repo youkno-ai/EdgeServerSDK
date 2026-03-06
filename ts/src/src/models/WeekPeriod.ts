@@ -33,12 +33,6 @@ export interface WeekPeriod {
      * @memberof WeekPeriod
      */
     dayPeriods?: { [key: string]: DayPeriod; };
-    /**
-     * 
-     * @type {boolean}
-     * @memberof WeekPeriod
-     */
-    valid?: boolean;
 }
 
 /**
@@ -59,7 +53,6 @@ export function WeekPeriodFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'dayPeriods': json['dayPeriods'] == null ? undefined : (mapValues(json['dayPeriods'], DayPeriodFromJSON)),
-        'valid': json['valid'] == null ? undefined : json['valid'],
     };
 }
 
@@ -75,7 +68,6 @@ export function WeekPeriodToJSONTyped(value?: WeekPeriod | null, ignoreDiscrimin
     return {
         
         'dayPeriods': value['dayPeriods'] == null ? undefined : (mapValues(value['dayPeriods'], DayPeriodToJSON)),
-        'valid': value['valid'],
     };
 }
 

@@ -33,18 +33,6 @@ export interface Tags {
      * @memberof Tags
      */
     tags?: { [key: string]: Tag; };
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Tags
-     */
-    empty?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Tags
-     */
-    tagIds?: Array<string>;
 }
 
 /**
@@ -65,8 +53,6 @@ export function TagsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Tags
     return {
         
         'tags': json['tags'] == null ? undefined : (mapValues(json['tags'], TagFromJSON)),
-        'empty': json['empty'] == null ? undefined : json['empty'],
-        'tagIds': json['tagIds'] == null ? undefined : json['tagIds'],
     };
 }
 
@@ -82,8 +68,6 @@ export function TagsToJSONTyped(value?: Tags | null, ignoreDiscriminator: boolea
     return {
         
         'tags': value['tags'] == null ? undefined : (mapValues(value['tags'], TagToJSON)),
-        'empty': value['empty'],
-        'tagIds': value['tagIds'],
     };
 }
 

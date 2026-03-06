@@ -179,7 +179,103 @@ export interface ListDef {
      * @type {string}
      * @memberof ListDef
      */
-    permissionTypeAsEnum?: ListDefPermissionTypeAsEnumEnum;
+    typeAsEnum?: ListDefTypeAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    special?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    multi?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    shownInAsEnum?: ListDefShownInAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    effectiveCode?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ListDef
+     */
+    visibilityRoles?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    effectiveUrl?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    viewable?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    kindAsEnum?: ListDefKindAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    postable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    favorites?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    stream?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    webview?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    effectiveOp?: ListDefEffectiveOpEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListDef
+     */
+    filterable?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    visibilityTypeAsEnum?: ListDefVisibilityTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListDef
+     */
+    notificationModeAsEnum?: ListDefNotificationModeAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -239,342 +335,61 @@ export interface ListDef {
      * @type {string}
      * @memberof ListDef
      */
-    visibilityTypeAsEnum?: ListDefVisibilityTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    notificationModeAsEnum?: ListDefNotificationModeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    postable?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    favorites?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    stream?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    webview?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    effectiveOp?: ListDefEffectiveOpEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    filterable?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    multi?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    shownInAsEnum?: ListDefShownInAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    effectiveUrl?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    viewable?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    kindAsEnum?: ListDefKindAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    effectiveCode?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ListDef
-     */
-    visibilityRoles?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListDef
-     */
-    typeAsEnum?: ListDefTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListDef
-     */
-    special?: boolean;
+    permissionTypeAsEnum?: ListDefPermissionTypeAsEnumEnum;
 }
 
 
 /**
  * @export
  */
-export const ListDefPermissionTypeAsEnumEnum = {
-    HIDE: 'HIDE',
-    READ_ONLY: 'READ_ONLY',
-    WRITE_ONLY: 'WRITE_ONLY',
-    READ_WRITE: 'READ_WRITE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefPermissionTypeAsEnumEnum = typeof ListDefPermissionTypeAsEnumEnum[keyof typeof ListDefPermissionTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefBountyTypesAsEnumEnum = {
+export const ListDefTypeAsEnumEnum = {
     NONE: 'NONE',
-    QUESTION: 'QUESTION',
-    THREAD: 'THREAD',
-    TALENT_SEARCH: 'TALENT_SEARCH',
-    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
-    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
-    TMOB_COACHING: 'TMOB_COACHING',
-    ORDER: 'ORDER',
-    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
-    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
-    SURVEY: 'SURVEY',
-    CLASSIFIED: 'CLASSIFIED',
-    PRODUCT: 'PRODUCT',
-    BUNDLE: 'BUNDLE',
-    STORY: 'STORY',
-    SCORE: 'SCORE',
-    SERIES: 'SERIES',
-    CHECKLIST: 'CHECKLIST',
-    SUPPORT: 'SUPPORT',
-    AI_BOT: 'AI_BOT',
-    DEAL: 'DEAL',
-    PROMOTION: 'PROMOTION',
-    AUTOSUGGESTION: 'AUTOSUGGESTION',
-    APPROVAL: 'APPROVAL',
-    MCQ: 'MCQ',
-    FUNDING: 'FUNDING',
-    AUCTION: 'AUCTION',
-    ROLEPLAY: 'ROLEPLAY',
-    PRIVATE_LISTING: 'PRIVATE_LISTING',
-    QUEST: 'QUEST',
-    LIVE_STREAM: 'LIVE_STREAM',
-    ALBUM: 'ALBUM',
-    NEWS: 'NEWS',
-    BANNER: 'BANNER',
-    MATCH: 'MATCH',
-    CONTEST: 'CONTEST',
-    TRIVIA: 'TRIVIA',
-    LOTTERY: 'LOTTERY',
-    BADGE_COLLECTION: 'BADGE_COLLECTION',
-    RAFFLE: 'RAFFLE',
-    CALENDAR_EVENT: 'CALENDAR_EVENT',
-    CURRENCY: 'CURRENCY',
-    RESERVATION: 'RESERVATION',
-    QUICK_CLAIM: 'QUICK_CLAIM',
-    CAMPAIGN: 'CAMPAIGN',
-    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
-    GEO_LOCATION: 'GEO_LOCATION',
-    FEEDBACK: 'FEEDBACK',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefBountyTypesAsEnumEnum = typeof ListDefBountyTypesAsEnumEnum[keyof typeof ListDefBountyTypesAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefSortingModeAsEnumEnum = {
-    NONE: 'NONE',
-    DEFAULT: 'DEFAULT',
-    POSTS: 'POSTS',
+    STREAM: 'STREAM',
+    EDGE_COACHINGS: 'EDGE_COACHINGS',
+    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
+    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
+    BUY_SELL: 'BUY_SELL',
     MARKET: 'MARKET',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefSortingModeAsEnumEnum = typeof ListDefSortingModeAsEnumEnum[keyof typeof ListDefSortingModeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefEffectiveFilterModeAsEnumEnum = {
-    NONE: 'NONE',
-    DEFAULT: 'DEFAULT',
-    MARKET_DEFAULT: 'MARKET_DEFAULT',
-    MARKET_SUPPLY: 'MARKET_SUPPLY',
-    MARKET_COMPANY: 'MARKET_COMPANY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefEffectiveFilterModeAsEnumEnum = typeof ListDefEffectiveFilterModeAsEnumEnum[keyof typeof ListDefEffectiveFilterModeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefEffectiveMainBountyTypeEnum = {
-    NONE: 'NONE',
-    QUESTION: 'QUESTION',
-    THREAD: 'THREAD',
-    TALENT_SEARCH: 'TALENT_SEARCH',
-    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
-    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
-    TMOB_COACHING: 'TMOB_COACHING',
-    ORDER: 'ORDER',
-    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
-    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
-    SURVEY: 'SURVEY',
-    CLASSIFIED: 'CLASSIFIED',
-    PRODUCT: 'PRODUCT',
-    BUNDLE: 'BUNDLE',
-    STORY: 'STORY',
-    SCORE: 'SCORE',
-    SERIES: 'SERIES',
-    CHECKLIST: 'CHECKLIST',
-    SUPPORT: 'SUPPORT',
-    AI_BOT: 'AI_BOT',
-    DEAL: 'DEAL',
-    PROMOTION: 'PROMOTION',
-    AUTOSUGGESTION: 'AUTOSUGGESTION',
-    APPROVAL: 'APPROVAL',
-    MCQ: 'MCQ',
-    FUNDING: 'FUNDING',
-    AUCTION: 'AUCTION',
-    ROLEPLAY: 'ROLEPLAY',
-    PRIVATE_LISTING: 'PRIVATE_LISTING',
-    QUEST: 'QUEST',
-    LIVE_STREAM: 'LIVE_STREAM',
-    ALBUM: 'ALBUM',
+    SUPPLY_MARKET: 'SUPPLY_MARKET',
+    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
     NEWS: 'NEWS',
-    BANNER: 'BANNER',
-    MATCH: 'MATCH',
-    CONTEST: 'CONTEST',
-    TRIVIA: 'TRIVIA',
-    LOTTERY: 'LOTTERY',
-    BADGE_COLLECTION: 'BADGE_COLLECTION',
-    RAFFLE: 'RAFFLE',
-    CALENDAR_EVENT: 'CALENDAR_EVENT',
-    CURRENCY: 'CURRENCY',
-    RESERVATION: 'RESERVATION',
-    QUICK_CLAIM: 'QUICK_CLAIM',
-    CAMPAIGN: 'CAMPAIGN',
-    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
-    GEO_LOCATION: 'GEO_LOCATION',
-    FEEDBACK: 'FEEDBACK',
-    UNKNOWN: 'UNKNOWN'
+    WEBVIEW: 'WEBVIEW',
+    CUSTOM: 'CUSTOM',
+    FAVORITES: 'FAVORITES'
 } as const;
-export type ListDefEffectiveMainBountyTypeEnum = typeof ListDefEffectiveMainBountyTypeEnum[keyof typeof ListDefEffectiveMainBountyTypeEnum];
+export type ListDefTypeAsEnumEnum = typeof ListDefTypeAsEnumEnum[keyof typeof ListDefTypeAsEnumEnum];
 
 /**
  * @export
  */
-export const ListDefFilterBountyTypeAsEnumEnum = {
-    NONE: 'NONE',
-    QUESTION: 'QUESTION',
-    THREAD: 'THREAD',
-    TALENT_SEARCH: 'TALENT_SEARCH',
-    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
-    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
-    TMOB_COACHING: 'TMOB_COACHING',
-    ORDER: 'ORDER',
-    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
-    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
-    SURVEY: 'SURVEY',
-    CLASSIFIED: 'CLASSIFIED',
-    PRODUCT: 'PRODUCT',
-    BUNDLE: 'BUNDLE',
-    STORY: 'STORY',
-    SCORE: 'SCORE',
-    SERIES: 'SERIES',
-    CHECKLIST: 'CHECKLIST',
-    SUPPORT: 'SUPPORT',
-    AI_BOT: 'AI_BOT',
-    DEAL: 'DEAL',
-    PROMOTION: 'PROMOTION',
-    AUTOSUGGESTION: 'AUTOSUGGESTION',
-    APPROVAL: 'APPROVAL',
-    MCQ: 'MCQ',
-    FUNDING: 'FUNDING',
-    AUCTION: 'AUCTION',
-    ROLEPLAY: 'ROLEPLAY',
-    PRIVATE_LISTING: 'PRIVATE_LISTING',
-    QUEST: 'QUEST',
-    LIVE_STREAM: 'LIVE_STREAM',
-    ALBUM: 'ALBUM',
+export const ListDefShownInAsEnumEnum = {
+    HOME: 'HOME',
+    EXPLICIT: 'EXPLICIT',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefShownInAsEnumEnum = typeof ListDefShownInAsEnumEnum[keyof typeof ListDefShownInAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefKindAsEnumEnum = {
+    INBOX: 'INBOX',
+    REFS: 'REFS',
+    BUCKET: 'BUCKET',
+    FILTER_BY_BOUNTY_TYPE: 'FILTER_BY_BOUNTY_TYPE',
+    REST_CALL: 'REST_CALL',
+    SPECIAL: 'SPECIAL',
+    WEBVIEW: 'WEBVIEW',
+    TARGET: 'TARGET',
+    MULTI: 'MULTI',
+    STATS: 'STATS',
     NEWS: 'NEWS',
-    BANNER: 'BANNER',
-    MATCH: 'MATCH',
-    CONTEST: 'CONTEST',
-    TRIVIA: 'TRIVIA',
-    LOTTERY: 'LOTTERY',
-    BADGE_COLLECTION: 'BADGE_COLLECTION',
-    RAFFLE: 'RAFFLE',
-    CALENDAR_EVENT: 'CALENDAR_EVENT',
-    CURRENCY: 'CURRENCY',
-    RESERVATION: 'RESERVATION',
-    QUICK_CLAIM: 'QUICK_CLAIM',
-    CAMPAIGN: 'CAMPAIGN',
-    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
-    GEO_LOCATION: 'GEO_LOCATION',
-    FEEDBACK: 'FEEDBACK',
+    HUB: 'HUB',
+    LIST_STREAM: 'LIST_STREAM',
+    UNION: 'UNION',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type ListDefFilterBountyTypeAsEnumEnum = typeof ListDefFilterBountyTypeAsEnumEnum[keyof typeof ListDefFilterBountyTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefEffectiveDisplayModeAsEnumEnum = {
-    NONE: 'NONE',
-    ICON_PREVIEW: 'ICON_PREVIEW',
-    LIST: 'LIST',
-    DETAILS: 'DETAILS',
-    HEADER: 'HEADER'
-} as const;
-export type ListDefEffectiveDisplayModeAsEnumEnum = typeof ListDefEffectiveDisplayModeAsEnumEnum[keyof typeof ListDefEffectiveDisplayModeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefVisibilityTypeAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    USER: 'USER',
-    VISIBLE: 'VISIBLE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListDefVisibilityTypeAsEnumEnum = typeof ListDefVisibilityTypeAsEnumEnum[keyof typeof ListDefVisibilityTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListDefNotificationModeAsEnumEnum = {
-    MUTE: 'MUTE',
-    DEFAULT: 'DEFAULT'
-} as const;
-export type ListDefNotificationModeAsEnumEnum = typeof ListDefNotificationModeAsEnumEnum[keyof typeof ListDefNotificationModeAsEnumEnum];
+export type ListDefKindAsEnumEnum = typeof ListDefKindAsEnumEnum[keyof typeof ListDefKindAsEnumEnum];
 
 /**
  * @export
@@ -801,54 +616,239 @@ export type ListDefEffectiveOpEnum = typeof ListDefEffectiveOpEnum[keyof typeof 
 /**
  * @export
  */
-export const ListDefShownInAsEnumEnum = {
-    HOME: 'HOME',
-    EXPLICIT: 'EXPLICIT',
+export const ListDefVisibilityTypeAsEnumEnum = {
+    DEFAULT: 'DEFAULT',
+    USER: 'USER',
+    VISIBLE: 'VISIBLE',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type ListDefShownInAsEnumEnum = typeof ListDefShownInAsEnumEnum[keyof typeof ListDefShownInAsEnumEnum];
+export type ListDefVisibilityTypeAsEnumEnum = typeof ListDefVisibilityTypeAsEnumEnum[keyof typeof ListDefVisibilityTypeAsEnumEnum];
 
 /**
  * @export
  */
-export const ListDefKindAsEnumEnum = {
-    INBOX: 'INBOX',
-    REFS: 'REFS',
-    BUCKET: 'BUCKET',
-    FILTER_BY_BOUNTY_TYPE: 'FILTER_BY_BOUNTY_TYPE',
-    REST_CALL: 'REST_CALL',
-    SPECIAL: 'SPECIAL',
-    WEBVIEW: 'WEBVIEW',
-    TARGET: 'TARGET',
-    MULTI: 'MULTI',
-    STATS: 'STATS',
-    NEWS: 'NEWS',
-    HUB: 'HUB',
-    LIST_STREAM: 'LIST_STREAM',
-    UNION: 'UNION',
-    UNKNOWN: 'UNKNOWN'
+export const ListDefNotificationModeAsEnumEnum = {
+    MUTE: 'MUTE',
+    DEFAULT: 'DEFAULT'
 } as const;
-export type ListDefKindAsEnumEnum = typeof ListDefKindAsEnumEnum[keyof typeof ListDefKindAsEnumEnum];
+export type ListDefNotificationModeAsEnumEnum = typeof ListDefNotificationModeAsEnumEnum[keyof typeof ListDefNotificationModeAsEnumEnum];
 
 /**
  * @export
  */
-export const ListDefTypeAsEnumEnum = {
+export const ListDefBountyTypesAsEnumEnum = {
     NONE: 'NONE',
-    STREAM: 'STREAM',
-    EDGE_COACHINGS: 'EDGE_COACHINGS',
-    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
-    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
-    BUY_SELL: 'BUY_SELL',
-    MARKET: 'MARKET',
-    SUPPLY_MARKET: 'SUPPLY_MARKET',
-    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
+    QUESTION: 'QUESTION',
+    THREAD: 'THREAD',
+    TALENT_SEARCH: 'TALENT_SEARCH',
+    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
+    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
+    TMOB_COACHING: 'TMOB_COACHING',
+    ORDER: 'ORDER',
+    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
+    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
+    SURVEY: 'SURVEY',
+    CLASSIFIED: 'CLASSIFIED',
+    PRODUCT: 'PRODUCT',
+    BUNDLE: 'BUNDLE',
+    STORY: 'STORY',
+    SCORE: 'SCORE',
+    SERIES: 'SERIES',
+    CHECKLIST: 'CHECKLIST',
+    SUPPORT: 'SUPPORT',
+    AI_BOT: 'AI_BOT',
+    DEAL: 'DEAL',
+    PROMOTION: 'PROMOTION',
+    AUTOSUGGESTION: 'AUTOSUGGESTION',
+    APPROVAL: 'APPROVAL',
+    MCQ: 'MCQ',
+    FUNDING: 'FUNDING',
+    AUCTION: 'AUCTION',
+    ROLEPLAY: 'ROLEPLAY',
+    PRIVATE_LISTING: 'PRIVATE_LISTING',
+    QUEST: 'QUEST',
+    LIVE_STREAM: 'LIVE_STREAM',
+    ALBUM: 'ALBUM',
     NEWS: 'NEWS',
-    WEBVIEW: 'WEBVIEW',
-    CUSTOM: 'CUSTOM',
-    FAVORITES: 'FAVORITES'
+    BANNER: 'BANNER',
+    MATCH: 'MATCH',
+    CONTEST: 'CONTEST',
+    TRIVIA: 'TRIVIA',
+    LOTTERY: 'LOTTERY',
+    BADGE_COLLECTION: 'BADGE_COLLECTION',
+    RAFFLE: 'RAFFLE',
+    CALENDAR_EVENT: 'CALENDAR_EVENT',
+    CURRENCY: 'CURRENCY',
+    RESERVATION: 'RESERVATION',
+    QUICK_CLAIM: 'QUICK_CLAIM',
+    CAMPAIGN: 'CAMPAIGN',
+    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
+    GEO_LOCATION: 'GEO_LOCATION',
+    FEEDBACK: 'FEEDBACK',
+    UNKNOWN: 'UNKNOWN'
 } as const;
-export type ListDefTypeAsEnumEnum = typeof ListDefTypeAsEnumEnum[keyof typeof ListDefTypeAsEnumEnum];
+export type ListDefBountyTypesAsEnumEnum = typeof ListDefBountyTypesAsEnumEnum[keyof typeof ListDefBountyTypesAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefSortingModeAsEnumEnum = {
+    NONE: 'NONE',
+    DEFAULT: 'DEFAULT',
+    POSTS: 'POSTS',
+    MARKET: 'MARKET',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefSortingModeAsEnumEnum = typeof ListDefSortingModeAsEnumEnum[keyof typeof ListDefSortingModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefEffectiveFilterModeAsEnumEnum = {
+    NONE: 'NONE',
+    DEFAULT: 'DEFAULT',
+    MARKET_DEFAULT: 'MARKET_DEFAULT',
+    MARKET_SUPPLY: 'MARKET_SUPPLY',
+    MARKET_COMPANY: 'MARKET_COMPANY',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefEffectiveFilterModeAsEnumEnum = typeof ListDefEffectiveFilterModeAsEnumEnum[keyof typeof ListDefEffectiveFilterModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefEffectiveMainBountyTypeEnum = {
+    NONE: 'NONE',
+    QUESTION: 'QUESTION',
+    THREAD: 'THREAD',
+    TALENT_SEARCH: 'TALENT_SEARCH',
+    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
+    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
+    TMOB_COACHING: 'TMOB_COACHING',
+    ORDER: 'ORDER',
+    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
+    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
+    SURVEY: 'SURVEY',
+    CLASSIFIED: 'CLASSIFIED',
+    PRODUCT: 'PRODUCT',
+    BUNDLE: 'BUNDLE',
+    STORY: 'STORY',
+    SCORE: 'SCORE',
+    SERIES: 'SERIES',
+    CHECKLIST: 'CHECKLIST',
+    SUPPORT: 'SUPPORT',
+    AI_BOT: 'AI_BOT',
+    DEAL: 'DEAL',
+    PROMOTION: 'PROMOTION',
+    AUTOSUGGESTION: 'AUTOSUGGESTION',
+    APPROVAL: 'APPROVAL',
+    MCQ: 'MCQ',
+    FUNDING: 'FUNDING',
+    AUCTION: 'AUCTION',
+    ROLEPLAY: 'ROLEPLAY',
+    PRIVATE_LISTING: 'PRIVATE_LISTING',
+    QUEST: 'QUEST',
+    LIVE_STREAM: 'LIVE_STREAM',
+    ALBUM: 'ALBUM',
+    NEWS: 'NEWS',
+    BANNER: 'BANNER',
+    MATCH: 'MATCH',
+    CONTEST: 'CONTEST',
+    TRIVIA: 'TRIVIA',
+    LOTTERY: 'LOTTERY',
+    BADGE_COLLECTION: 'BADGE_COLLECTION',
+    RAFFLE: 'RAFFLE',
+    CALENDAR_EVENT: 'CALENDAR_EVENT',
+    CURRENCY: 'CURRENCY',
+    RESERVATION: 'RESERVATION',
+    QUICK_CLAIM: 'QUICK_CLAIM',
+    CAMPAIGN: 'CAMPAIGN',
+    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
+    GEO_LOCATION: 'GEO_LOCATION',
+    FEEDBACK: 'FEEDBACK',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefEffectiveMainBountyTypeEnum = typeof ListDefEffectiveMainBountyTypeEnum[keyof typeof ListDefEffectiveMainBountyTypeEnum];
+
+/**
+ * @export
+ */
+export const ListDefFilterBountyTypeAsEnumEnum = {
+    NONE: 'NONE',
+    QUESTION: 'QUESTION',
+    THREAD: 'THREAD',
+    TALENT_SEARCH: 'TALENT_SEARCH',
+    TALENT_RECOMMENDATION: 'TALENT_RECOMMENDATION',
+    TMOB_CHALLENGE: 'TMOB_CHALLENGE',
+    TMOB_COACHING: 'TMOB_COACHING',
+    ORDER: 'ORDER',
+    REALESTATE_CUSTOMER: 'REALESTATE_CUSTOMER',
+    REALESTATE_RECOMMENDATION: 'REALESTATE_RECOMMENDATION',
+    SURVEY: 'SURVEY',
+    CLASSIFIED: 'CLASSIFIED',
+    PRODUCT: 'PRODUCT',
+    BUNDLE: 'BUNDLE',
+    STORY: 'STORY',
+    SCORE: 'SCORE',
+    SERIES: 'SERIES',
+    CHECKLIST: 'CHECKLIST',
+    SUPPORT: 'SUPPORT',
+    AI_BOT: 'AI_BOT',
+    DEAL: 'DEAL',
+    PROMOTION: 'PROMOTION',
+    AUTOSUGGESTION: 'AUTOSUGGESTION',
+    APPROVAL: 'APPROVAL',
+    MCQ: 'MCQ',
+    FUNDING: 'FUNDING',
+    AUCTION: 'AUCTION',
+    ROLEPLAY: 'ROLEPLAY',
+    PRIVATE_LISTING: 'PRIVATE_LISTING',
+    QUEST: 'QUEST',
+    LIVE_STREAM: 'LIVE_STREAM',
+    ALBUM: 'ALBUM',
+    NEWS: 'NEWS',
+    BANNER: 'BANNER',
+    MATCH: 'MATCH',
+    CONTEST: 'CONTEST',
+    TRIVIA: 'TRIVIA',
+    LOTTERY: 'LOTTERY',
+    BADGE_COLLECTION: 'BADGE_COLLECTION',
+    RAFFLE: 'RAFFLE',
+    CALENDAR_EVENT: 'CALENDAR_EVENT',
+    CURRENCY: 'CURRENCY',
+    RESERVATION: 'RESERVATION',
+    QUICK_CLAIM: 'QUICK_CLAIM',
+    CAMPAIGN: 'CAMPAIGN',
+    EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
+    GEO_LOCATION: 'GEO_LOCATION',
+    FEEDBACK: 'FEEDBACK',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefFilterBountyTypeAsEnumEnum = typeof ListDefFilterBountyTypeAsEnumEnum[keyof typeof ListDefFilterBountyTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefEffectiveDisplayModeAsEnumEnum = {
+    NONE: 'NONE',
+    ICON_PREVIEW: 'ICON_PREVIEW',
+    LIST: 'LIST',
+    DETAILS: 'DETAILS',
+    HEADER: 'HEADER'
+} as const;
+export type ListDefEffectiveDisplayModeAsEnumEnum = typeof ListDefEffectiveDisplayModeAsEnumEnum[keyof typeof ListDefEffectiveDisplayModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListDefPermissionTypeAsEnumEnum = {
+    HIDE: 'HIDE',
+    READ_ONLY: 'READ_ONLY',
+    WRITE_ONLY: 'WRITE_ONLY',
+    READ_WRITE: 'READ_WRITE',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListDefPermissionTypeAsEnumEnum = typeof ListDefPermissionTypeAsEnumEnum[keyof typeof ListDefPermissionTypeAsEnumEnum];
 
 
 /**
@@ -889,7 +889,23 @@ export function ListDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
         'displayMode': json['displayMode'] == null ? undefined : json['displayMode'],
         'notificationMode': json['notificationMode'] == null ? undefined : json['notificationMode'],
         'tags': json['tags'] == null ? undefined : json['tags'],
-        'permissionTypeAsEnum': json['permissionTypeAsEnum'] == null ? undefined : json['permissionTypeAsEnum'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'special': json['special'] == null ? undefined : json['special'],
+        'multi': json['multi'] == null ? undefined : json['multi'],
+        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
+        'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
+        'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
+        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
+        'viewable': json['viewable'] == null ? undefined : json['viewable'],
+        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
+        'postable': json['postable'] == null ? undefined : json['postable'],
+        'favorites': json['favorites'] == null ? undefined : json['favorites'],
+        'stream': json['stream'] == null ? undefined : json['stream'],
+        'webview': json['webview'] == null ? undefined : json['webview'],
+        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
+        'filterable': json['filterable'] == null ? undefined : json['filterable'],
+        'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
+        'notificationModeAsEnum': json['notificationModeAsEnum'] == null ? undefined : json['notificationModeAsEnum'],
         'effectiveUserSpecial': json['effectiveUserSpecial'] == null ? undefined : json['effectiveUserSpecial'],
         'effectiveCompanySpecial': json['effectiveCompanySpecial'] == null ? undefined : json['effectiveCompanySpecial'],
         'bountyTypesAsEnum': json['bountyTypesAsEnum'] == null ? undefined : json['bountyTypesAsEnum'],
@@ -899,23 +915,7 @@ export function ListDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
         'effectiveMainBountyType': json['effectiveMainBountyType'] == null ? undefined : json['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': json['filterBountyTypeAsEnum'] == null ? undefined : json['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': json['effectiveDisplayModeAsEnum'] == null ? undefined : json['effectiveDisplayModeAsEnum'],
-        'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
-        'notificationModeAsEnum': json['notificationModeAsEnum'] == null ? undefined : json['notificationModeAsEnum'],
-        'postable': json['postable'] == null ? undefined : json['postable'],
-        'favorites': json['favorites'] == null ? undefined : json['favorites'],
-        'stream': json['stream'] == null ? undefined : json['stream'],
-        'webview': json['webview'] == null ? undefined : json['webview'],
-        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
-        'filterable': json['filterable'] == null ? undefined : json['filterable'],
-        'multi': json['multi'] == null ? undefined : json['multi'],
-        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
-        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
-        'viewable': json['viewable'] == null ? undefined : json['viewable'],
-        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
-        'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
-        'special': json['special'] == null ? undefined : json['special'],
+        'permissionTypeAsEnum': json['permissionTypeAsEnum'] == null ? undefined : json['permissionTypeAsEnum'],
     };
 }
 
@@ -951,7 +951,23 @@ export function ListDefToJSONTyped(value?: ListDef | null, ignoreDiscriminator: 
         'displayMode': value['displayMode'],
         'notificationMode': value['notificationMode'],
         'tags': value['tags'],
-        'permissionTypeAsEnum': value['permissionTypeAsEnum'],
+        'typeAsEnum': value['typeAsEnum'],
+        'special': value['special'],
+        'multi': value['multi'],
+        'shownInAsEnum': value['shownInAsEnum'],
+        'effectiveCode': value['effectiveCode'],
+        'visibilityRoles': value['visibilityRoles'],
+        'effectiveUrl': value['effectiveUrl'],
+        'viewable': value['viewable'],
+        'kindAsEnum': value['kindAsEnum'],
+        'postable': value['postable'],
+        'favorites': value['favorites'],
+        'stream': value['stream'],
+        'webview': value['webview'],
+        'effectiveOp': value['effectiveOp'],
+        'filterable': value['filterable'],
+        'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
+        'notificationModeAsEnum': value['notificationModeAsEnum'],
         'effectiveUserSpecial': value['effectiveUserSpecial'],
         'effectiveCompanySpecial': value['effectiveCompanySpecial'],
         'bountyTypesAsEnum': value['bountyTypesAsEnum'],
@@ -961,23 +977,7 @@ export function ListDefToJSONTyped(value?: ListDef | null, ignoreDiscriminator: 
         'effectiveMainBountyType': value['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': value['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': value['effectiveDisplayModeAsEnum'],
-        'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
-        'notificationModeAsEnum': value['notificationModeAsEnum'],
-        'postable': value['postable'],
-        'favorites': value['favorites'],
-        'stream': value['stream'],
-        'webview': value['webview'],
-        'effectiveOp': value['effectiveOp'],
-        'filterable': value['filterable'],
-        'multi': value['multi'],
-        'shownInAsEnum': value['shownInAsEnum'],
-        'effectiveUrl': value['effectiveUrl'],
-        'viewable': value['viewable'],
-        'kindAsEnum': value['kindAsEnum'],
-        'effectiveCode': value['effectiveCode'],
-        'visibilityRoles': value['visibilityRoles'],
-        'typeAsEnum': value['typeAsEnum'],
-        'special': value['special'],
+        'permissionTypeAsEnum': value['permissionTypeAsEnum'],
     };
 }
 

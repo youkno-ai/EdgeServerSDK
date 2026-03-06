@@ -475,12 +475,6 @@ export interface BountyChanges {
      * @memberof BountyChanges
      */
     source?: ChangesString;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyChanges
-     */
-    empty?: boolean;
 }
 
 /**
@@ -542,7 +536,6 @@ export function BountyChangesFromJSONTyped(json: any, ignoreDiscriminator: boole
         'updateCompanyId': json['updateCompanyId'] == null ? undefined : json['updateCompanyId'],
         'editedAt': json['editedAt'] == null ? undefined : json['editedAt'],
         'source': json['source'] == null ? undefined : ChangesStringFromJSON(json['source']),
-        'empty': json['empty'] == null ? undefined : json['empty'],
     };
 }
 
@@ -599,7 +592,6 @@ export function BountyChangesToJSONTyped(value?: BountyChanges | null, ignoreDis
         'updateCompanyId': value['updateCompanyId'],
         'editedAt': value['editedAt'],
         'source': ChangesStringToJSON(value['source']),
-        'empty': value['empty'],
     };
 }
 

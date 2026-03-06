@@ -24,9 +24,9 @@ import com.squareup.moshi.JsonClass
  *
  * @param fullName 
  * @param empty 
- * @param middleName 
  * @param firstName 
  * @param lastName 
+ * @param middleName 
  * @param initials 
  */
 
@@ -39,14 +39,14 @@ data class PersonalName (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "middleName")
-    val middleName: kotlin.String? = null,
-
     @Json(name = "firstName")
     val firstName: kotlin.String? = null,
 
     @Json(name = "lastName")
     val lastName: kotlin.String? = null,
+
+    @Json(name = "middleName")
+    val middleName: kotlin.String? = null,
 
     @Json(name = "initials")
     val initials: kotlin.String? = null

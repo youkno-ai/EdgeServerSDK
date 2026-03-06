@@ -32,7 +32,6 @@ import com.squareup.moshi.JsonClass
  * @param soldAt 
  * @param reservedAt 
  * @param releasedAt 
- * @param seatStatusAsEnum 
  */
 
 
@@ -66,26 +65,10 @@ data class Seat (
     val reservedAt: kotlin.Long? = null,
 
     @Json(name = "releasedAt")
-    val releasedAt: kotlin.Long? = null,
-
-    @Json(name = "seatStatusAsEnum")
-    val seatStatusAsEnum: Seat.SeatStatusAsEnum? = null
+    val releasedAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,AVAILABLE,RESERVED,SOLD,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SeatStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "AVAILABLE") AVAILABLE("AVAILABLE"),
-        @Json(name = "RESERVED") RESERVED("RESERVED"),
-        @Json(name = "SOLD") SOLD("SOLD"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

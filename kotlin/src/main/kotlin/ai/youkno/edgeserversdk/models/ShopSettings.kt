@@ -98,6 +98,9 @@ import com.squareup.moshi.JsonClass
  * @param billMyBankInfo 
  * @param chargeeInfo 
  * @param empty 
+ * @param loginsAsEnum 
+ * @param anonUsersAsEnum 
+ * @param shopTypeAsEnum 
  * @param landingPageAsEnum 
  * @param medicalIdPromptAsEnum 
  * @param productBalanceAsEnum 
@@ -114,9 +117,6 @@ import com.squareup.moshi.JsonClass
  * @param settingsStrategyAsEnum 
  * @param settingsWriteModeAsEnum 
  * @param shopStatusAsEnum 
- * @param anonUsersAsEnum 
- * @param shopTypeAsEnum 
- * @param loginsAsEnum 
  */
 
 
@@ -290,6 +290,15 @@ data class ShopSettings (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
+    @Json(name = "loginsAsEnum")
+    val loginsAsEnum: kotlin.collections.List<ShopSettings.LoginsAsEnum>? = null,
+
+    @Json(name = "anonUsersAsEnum")
+    val anonUsersAsEnum: ShopSettings.AnonUsersAsEnum? = null,
+
+    @Json(name = "shopTypeAsEnum")
+    val shopTypeAsEnum: ShopSettings.ShopTypeAsEnum? = null,
+
     @Json(name = "landingPageAsEnum")
     val landingPageAsEnum: ShopSettings.LandingPageAsEnum? = null,
 
@@ -336,16 +345,7 @@ data class ShopSettings (
     val settingsWriteModeAsEnum: ShopSettings.SettingsWriteModeAsEnum? = null,
 
     @Json(name = "shopStatusAsEnum")
-    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null,
-
-    @Json(name = "anonUsersAsEnum")
-    val anonUsersAsEnum: ShopSettings.AnonUsersAsEnum? = null,
-
-    @Json(name = "shopTypeAsEnum")
-    val shopTypeAsEnum: ShopSettings.ShopTypeAsEnum? = null,
-
-    @Json(name = "loginsAsEnum")
-    val loginsAsEnum: kotlin.collections.List<ShopSettings.LoginsAsEnum>? = null
+    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null
 
 ) {
 
@@ -370,6 +370,46 @@ data class ShopSettings (
         @Json(name = "ALLEAVES") ALLEAVES("ALLEAVES"),
         @Json(name = "MJ_FREEWAY") MJ_FREEWAY("MJ_FREEWAY"),
         @Json(name = "BIOTRACK") BIOTRACK("BIOTRACK");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,SSO,GOOGLE,APPLE,MICROSOFT,EMAIL,PHONE,INTERNET,ANON,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class LoginsAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "SSO") SSO("SSO"),
+        @Json(name = "GOOGLE") GOOGLE("GOOGLE"),
+        @Json(name = "APPLE") APPLE("APPLE"),
+        @Json(name = "MICROSOFT") MICROSOFT("MICROSOFT"),
+        @Json(name = "EMAIL") EMAIL("EMAIL"),
+        @Json(name = "PHONE") PHONE("PHONE"),
+        @Json(name = "INTERNET") INTERNET("INTERNET"),
+        @Json(name = "ANON") ANON("ANON"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: AUTH_AT_START,AUTH_AT_ORDER,ALLOW_PURCHASE
+     */
+    @JsonClass(generateAdapter = false)
+    enum class AnonUsersAsEnum(val value: kotlin.String) {
+        @Json(name = "AUTH_AT_START") AUTH_AT_START("AUTH_AT_START"),
+        @Json(name = "AUTH_AT_ORDER") AUTH_AT_ORDER("AUTH_AT_ORDER"),
+        @Json(name = "ALLOW_PURCHASE") ALLOW_PURCHASE("ALLOW_PURCHASE");
+    }
+    /**
+     * 
+     *
+     * Values: POS,SHOP,MARKET
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShopTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "POS") POS("POS"),
+        @Json(name = "SHOP") SHOP("SHOP"),
+        @Json(name = "MARKET") MARKET("MARKET");
     }
     /**
      * 
@@ -512,46 +552,6 @@ data class ShopSettings (
         @Json(name = "AUTO") AUTO("AUTO"),
         @Json(name = "ENABLED") ENABLED("ENABLED"),
         @Json(name = "DISABLED") DISABLED("DISABLED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: AUTH_AT_START,AUTH_AT_ORDER,ALLOW_PURCHASE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AnonUsersAsEnum(val value: kotlin.String) {
-        @Json(name = "AUTH_AT_START") AUTH_AT_START("AUTH_AT_START"),
-        @Json(name = "AUTH_AT_ORDER") AUTH_AT_ORDER("AUTH_AT_ORDER"),
-        @Json(name = "ALLOW_PURCHASE") ALLOW_PURCHASE("ALLOW_PURCHASE");
-    }
-    /**
-     * 
-     *
-     * Values: POS,SHOP,MARKET
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ShopTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "POS") POS("POS"),
-        @Json(name = "SHOP") SHOP("SHOP"),
-        @Json(name = "MARKET") MARKET("MARKET");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,SSO,GOOGLE,APPLE,MICROSOFT,EMAIL,PHONE,INTERNET,ANON,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class LoginsAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "SSO") SSO("SSO"),
-        @Json(name = "GOOGLE") GOOGLE("GOOGLE"),
-        @Json(name = "APPLE") APPLE("APPLE"),
-        @Json(name = "MICROSOFT") MICROSOFT("MICROSOFT"),
-        @Json(name = "EMAIL") EMAIL("EMAIL"),
-        @Json(name = "PHONE") PHONE("PHONE"),
-        @Json(name = "INTERNET") INTERNET("INTERNET"),
-        @Json(name = "ANON") ANON("ANON"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

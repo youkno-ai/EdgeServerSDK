@@ -34,9 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param collocutorId 
  * @param groupId 
  * @param choice 
- * @param psgStatusAsEnum 
- * @param roomTypeAsEnum 
- * @param roomStateAsEnum 
  */
 
 
@@ -76,60 +73,10 @@ data class ChatRoom (
     val groupId: kotlin.String? = null,
 
     @Json(name = "choice")
-    val choice: kotlin.String? = null,
-
-    @Json(name = "psgStatusAsEnum")
-    val psgStatusAsEnum: ChatRoom.PsgStatusAsEnum? = null,
-
-    @Json(name = "roomTypeAsEnum")
-    val roomTypeAsEnum: ChatRoom.RoomTypeAsEnum? = null,
-
-    @Json(name = "roomStateAsEnum")
-    val roomStateAsEnum: ChatRoom.RoomStateAsEnum? = null
+    val choice: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NEW,ACTIVE,RESOLVED,ABANDONED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PsgStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NEW") NEW("NEW"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "RESOLVED") RESOLVED("RESOLVED"),
-        @Json(name = "ABANDONED") ABANDONED("ABANDONED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: PRIVATE,GROUP,RECIPIENTS,PARTICIPANTS,SURVEY_CHOICE,SUPPORT,PSG,AIB,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RoomTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "PRIVATE") PRIVATE("PRIVATE"),
-        @Json(name = "GROUP") GROUP("GROUP"),
-        @Json(name = "RECIPIENTS") RECIPIENTS("RECIPIENTS"),
-        @Json(name = "PARTICIPANTS") PARTICIPANTS("PARTICIPANTS"),
-        @Json(name = "SURVEY_CHOICE") SURVEY_CHOICE("SURVEY_CHOICE"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "PSG") PSG("PSG"),
-        @Json(name = "AIB") AIB("AIB"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ACTIVE,ARCHIVED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RoomStateAsEnum(val value: kotlin.String) {
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "ARCHIVED") ARCHIVED("ARCHIVED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

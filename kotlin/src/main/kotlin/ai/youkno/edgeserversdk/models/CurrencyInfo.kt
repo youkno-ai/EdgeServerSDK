@@ -30,13 +30,6 @@ import com.squareup.moshi.JsonClass
  * @param meta 
  * @param metaError 
  * @param description 
- * @param name 
- * @param equivalentCurrency 
- * @param scopeAsEnum 
- * @param equivalentValue 
- * @param imageUrl 
- * @param code 
- * @param stateAsEnum 
  */
 
 
@@ -55,55 +48,10 @@ data class CurrencyInfo (
     val metaError: kotlin.String? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
-    @Json(name = "equivalentCurrency")
-    val equivalentCurrency: kotlin.String? = null,
-
-    @Json(name = "scopeAsEnum")
-    val scopeAsEnum: CurrencyInfo.ScopeAsEnum? = null,
-
-    @Json(name = "equivalentValue")
-    val equivalentValue: java.math.BigDecimal? = null,
-
-    @Json(name = "imageUrl")
-    val imageUrl: kotlin.String? = null,
-
-    @Json(name = "code")
-    val code: kotlin.String? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: CurrencyInfo.StateAsEnum? = null
+    val description: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: USER,COMPANY,GLOBAL,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ScopeAsEnum(val value: kotlin.String) {
-        @Json(name = "USER") USER("USER"),
-        @Json(name = "COMPANY") COMPANY("COMPANY"),
-        @Json(name = "GLOBAL") GLOBAL("GLOBAL"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ACTIVE,ON_CANCELATION,EXPIRED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "ON_CANCELATION") ON_CANCELATION("ON_CANCELATION"),
-        @Json(name = "EXPIRED") EXPIRED("EXPIRED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

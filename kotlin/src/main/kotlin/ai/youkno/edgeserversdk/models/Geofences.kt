@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param areas 
  * @param meaning 
- * @param meaningAsEnum 
  */
 
 
@@ -35,25 +34,10 @@ data class Geofences (
     val areas: kotlin.collections.Map<kotlin.String, Area>? = null,
 
     @Json(name = "meaning")
-    val meaning: kotlin.String? = null,
-
-    @Json(name = "meaningAsEnum")
-    val meaningAsEnum: Geofences.MeaningAsEnum? = null
+    val meaning: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,VISIBILITY_AREA,INTERACTION_AREA,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class MeaningAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "VISIBILITY_AREA") VISIBILITY_AREA("VISIBILITY_AREA"),
-        @Json(name = "INTERACTION_AREA") INTERACTION_AREA("INTERACTION_AREA"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

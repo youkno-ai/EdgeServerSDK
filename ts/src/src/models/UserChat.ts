@@ -108,12 +108,6 @@ export interface UserChat {
     state?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof UserChat
-     */
-    silent?: boolean;
-    /**
-     * 
      * @type {User}
      * @memberof UserChat
      */
@@ -148,95 +142,7 @@ export interface UserChat {
      * @memberof UserChat
      */
     notifiedRecvMsgAt?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    id?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof UserChat
-     */
-    effectiveRealCollocutor?: User;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    defaultRoomAvatar?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    effectiveRoomAvatar?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    roomTypeAsEnum?: UserChatRoomTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    roomStateAsEnum?: UserChatRoomStateAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserChat
-     */
-    dismissed?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserChat
-     */
-    stateAsEnum?: UserChatStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const UserChatRoomTypeAsEnumEnum = {
-    PRIVATE: 'PRIVATE',
-    GROUP: 'GROUP',
-    RECIPIENTS: 'RECIPIENTS',
-    PARTICIPANTS: 'PARTICIPANTS',
-    SURVEY_CHOICE: 'SURVEY_CHOICE',
-    SUPPORT: 'SUPPORT',
-    PSG: 'PSG',
-    AIB: 'AIB',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserChatRoomTypeAsEnumEnum = typeof UserChatRoomTypeAsEnumEnum[keyof typeof UserChatRoomTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const UserChatRoomStateAsEnumEnum = {
-    ACTIVE: 'ACTIVE',
-    ARCHIVED: 'ARCHIVED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserChatRoomStateAsEnumEnum = typeof UserChatRoomStateAsEnumEnum[keyof typeof UserChatRoomStateAsEnumEnum];
-
-/**
- * @export
- */
-export const UserChatStateAsEnumEnum = {
-    ACTIVE: 'ACTIVE',
-    DISMISSED: 'DISMISSED',
-    BLOCKED: 'BLOCKED',
-    LEFT: 'LEFT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserChatStateAsEnumEnum = typeof UserChatStateAsEnumEnum[keyof typeof UserChatStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the UserChat interface.
@@ -267,21 +173,12 @@ export function UserChatFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'collocutor': json['collocutor'] == null ? undefined : UserFromJSON(json['collocutor']),
         'realCollocutor': json['realCollocutor'] == null ? undefined : UserFromJSON(json['realCollocutor']),
         'state': json['state'] == null ? undefined : json['state'],
-        'silent': json['silent'] == null ? undefined : json['silent'],
         'company': json['company'] == null ? undefined : UserFromJSON(json['company']),
         'group': json['group'] == null ? undefined : UserFromJSON(json['group']),
         'choice': json['choice'] == null ? undefined : json['choice'],
         'lastReadMsgAt': json['lastReadMsgAt'] == null ? undefined : json['lastReadMsgAt'],
         'lastSentMsgAt': json['lastSentMsgAt'] == null ? undefined : json['lastSentMsgAt'],
         'notifiedRecvMsgAt': json['notifiedRecvMsgAt'] == null ? undefined : json['notifiedRecvMsgAt'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'effectiveRealCollocutor': json['effectiveRealCollocutor'] == null ? undefined : UserFromJSON(json['effectiveRealCollocutor']),
-        'defaultRoomAvatar': json['defaultRoomAvatar'] == null ? undefined : json['defaultRoomAvatar'],
-        'effectiveRoomAvatar': json['effectiveRoomAvatar'] == null ? undefined : json['effectiveRoomAvatar'],
-        'roomTypeAsEnum': json['roomTypeAsEnum'] == null ? undefined : json['roomTypeAsEnum'],
-        'roomStateAsEnum': json['roomStateAsEnum'] == null ? undefined : json['roomStateAsEnum'],
-        'dismissed': json['dismissed'] == null ? undefined : json['dismissed'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
     };
 }
 
@@ -308,21 +205,12 @@ export function UserChatToJSONTyped(value?: UserChat | null, ignoreDiscriminator
         'collocutor': UserToJSON(value['collocutor']),
         'realCollocutor': UserToJSON(value['realCollocutor']),
         'state': value['state'],
-        'silent': value['silent'],
         'company': UserToJSON(value['company']),
         'group': UserToJSON(value['group']),
         'choice': value['choice'],
         'lastReadMsgAt': value['lastReadMsgAt'],
         'lastSentMsgAt': value['lastSentMsgAt'],
         'notifiedRecvMsgAt': value['notifiedRecvMsgAt'],
-        'id': value['id'],
-        'effectiveRealCollocutor': UserToJSON(value['effectiveRealCollocutor']),
-        'defaultRoomAvatar': value['defaultRoomAvatar'],
-        'effectiveRoomAvatar': value['effectiveRoomAvatar'],
-        'roomTypeAsEnum': value['roomTypeAsEnum'],
-        'roomStateAsEnum': value['roomStateAsEnum'],
-        'dismissed': value['dismissed'],
-        'stateAsEnum': value['stateAsEnum'],
     };
 }
 

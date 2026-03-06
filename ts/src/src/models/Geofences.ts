@@ -39,26 +39,7 @@ export interface Geofences {
      * @memberof Geofences
      */
     meaning?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Geofences
-     */
-    meaningAsEnum?: GeofencesMeaningAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const GeofencesMeaningAsEnumEnum = {
-    NONE: 'NONE',
-    VISIBILITY_AREA: 'VISIBILITY_AREA',
-    INTERACTION_AREA: 'INTERACTION_AREA',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type GeofencesMeaningAsEnumEnum = typeof GeofencesMeaningAsEnumEnum[keyof typeof GeofencesMeaningAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Geofences interface.
@@ -79,7 +60,6 @@ export function GeofencesFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
         'areas': json['areas'] == null ? undefined : (mapValues(json['areas'], AreaFromJSON)),
         'meaning': json['meaning'] == null ? undefined : json['meaning'],
-        'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
     };
 }
 
@@ -96,7 +76,6 @@ export function GeofencesToJSONTyped(value?: Geofences | null, ignoreDiscriminat
         
         'areas': value['areas'] == null ? undefined : (mapValues(value['areas'], AreaToJSON)),
         'meaning': value['meaning'],
-        'meaningAsEnum': value['meaningAsEnum'],
     };
 }
 

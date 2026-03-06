@@ -35,8 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param comment 
  * @param description 
  * @param moderationReason 
- * @param approvalStateAsEnum 
  * @param entityTypeAsEnum 
+ * @param approvalStateAsEnum 
  */
 
 
@@ -72,27 +72,14 @@ data class ApprovalInfo (
     @Json(name = "moderationReason")
     val moderationReason: kotlin.String? = null,
 
-    @Json(name = "approvalStateAsEnum")
-    val approvalStateAsEnum: ApprovalInfo.ApprovalStateAsEnum? = null,
-
     @Json(name = "entityTypeAsEnum")
-    val entityTypeAsEnum: ApprovalInfo.EntityTypeAsEnum? = null
+    val entityTypeAsEnum: ApprovalInfo.EntityTypeAsEnum? = null,
+
+    @Json(name = "approvalStateAsEnum")
+    val approvalStateAsEnum: ApprovalInfo.ApprovalStateAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,APPROVED,DECLINED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ApprovalStateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "APPROVED") APPROVED("APPROVED"),
-        @Json(name = "DECLINED") DECLINED("DECLINED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -117,6 +104,19 @@ data class ApprovalInfo (
         @Json(name = "TICKET") TICKET("TICKET"),
         @Json(name = "CATEGORY") CATEGORY("CATEGORY"),
         @Json(name = "SYSTEM") SYSTEM("SYSTEM");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,PENDING,APPROVED,DECLINED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ApprovalStateAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "PENDING") PENDING("PENDING"),
+        @Json(name = "APPROVED") APPROVED("APPROVED"),
+        @Json(name = "DECLINED") DECLINED("DECLINED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

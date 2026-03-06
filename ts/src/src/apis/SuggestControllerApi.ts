@@ -18,9 +18,9 @@ import * as runtime from '../runtime';
 export interface GetPredictedCitiesRequest {
     countryCode: string;
     search: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -34,18 +34,18 @@ export interface SuggestControllerApiInterface {
      * 
      * @param {string} countryCode 
      * @param {string} search 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuggestControllerApiInterface
      */
-    getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
 }
 
@@ -56,7 +56,7 @@ export class SuggestControllerApi extends runtime.BaseAPI implements SuggestCont
 
     /**
      */
-    async getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getPredictedCitiesRaw(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['countryCode'] == null) {
             throw new runtime.RequiredError(
                 'countryCode',
@@ -83,16 +83,16 @@ export class SuggestControllerApi extends runtime.BaseAPI implements SuggestCont
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -114,7 +114,7 @@ export class SuggestControllerApi extends runtime.BaseAPI implements SuggestCont
 
     /**
      */
-    async getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getPredictedCities(requestParameters: GetPredictedCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.getPredictedCitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }

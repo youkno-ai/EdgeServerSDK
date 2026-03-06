@@ -20,13 +20,6 @@ import {
     ChargeInfoToJSON,
     ChargeInfoToJSONTyped,
 } from './ChargeInfo';
-import type { Money } from './Money';
-import {
-    MoneyFromJSON,
-    MoneyFromJSONTyped,
-    MoneyToJSON,
-    MoneyToJSONTyped,
-} from './Money';
 import type { OrderSummary } from './OrderSummary';
 import {
     OrderSummaryFromJSON,
@@ -34,13 +27,6 @@ import {
     OrderSummaryToJSON,
     OrderSummaryToJSONTyped,
 } from './OrderSummary';
-import type { Reward } from './Reward';
-import {
-    RewardFromJSON,
-    RewardFromJSONTyped,
-    RewardToJSON,
-    RewardToJSONTyped,
-} from './Reward';
 
 /**
  * 
@@ -78,18 +64,6 @@ export interface InvoiceInfo {
      * @memberof InvoiceInfo
      */
     livePayment?: boolean;
-    /**
-     * 
-     * @type {Money}
-     * @memberof InvoiceInfo
-     */
-    totalMoneyCharged?: Money;
-    /**
-     * 
-     * @type {Reward}
-     * @memberof InvoiceInfo
-     */
-    deliveryFee?: Reward;
 }
 
 
@@ -127,8 +101,6 @@ export function InvoiceInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'cardCharges': json['cardCharges'] == null ? undefined : (mapValues(json['cardCharges'], ChargeInfoFromJSON)),
         'paymentType': json['paymentType'] == null ? undefined : json['paymentType'],
         'livePayment': json['livePayment'] == null ? undefined : json['livePayment'],
-        'totalMoneyCharged': json['totalMoneyCharged'] == null ? undefined : MoneyFromJSON(json['totalMoneyCharged']),
-        'deliveryFee': json['deliveryFee'] == null ? undefined : RewardFromJSON(json['deliveryFee']),
     };
 }
 
@@ -148,8 +120,6 @@ export function InvoiceInfoToJSONTyped(value?: InvoiceInfo | null, ignoreDiscrim
         'cardCharges': value['cardCharges'] == null ? undefined : (mapValues(value['cardCharges'], ChargeInfoToJSON)),
         'paymentType': value['paymentType'],
         'livePayment': value['livePayment'],
-        'totalMoneyCharged': MoneyToJSON(value['totalMoneyCharged']),
-        'deliveryFee': RewardToJSON(value['deliveryFee']),
     };
 }
 

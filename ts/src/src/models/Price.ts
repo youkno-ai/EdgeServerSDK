@@ -45,24 +45,6 @@ export interface Price {
      * @memberof Price
      */
     altPrice2?: Reward;
-    /**
-     * 
-     * @type {Reward}
-     * @memberof Price
-     */
-    firstNonEmptyPrice?: Reward;
-    /**
-     * 
-     * @type {number}
-     * @memberof Price
-     */
-    priceCount?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Price
-     */
-    simplePrice?: boolean;
 }
 
 /**
@@ -85,9 +67,6 @@ export function PriceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Pri
         'mainPrice': json['mainPrice'] == null ? undefined : RewardFromJSON(json['mainPrice']),
         'altPrice1': json['altPrice1'] == null ? undefined : RewardFromJSON(json['altPrice1']),
         'altPrice2': json['altPrice2'] == null ? undefined : RewardFromJSON(json['altPrice2']),
-        'firstNonEmptyPrice': json['firstNonEmptyPrice'] == null ? undefined : RewardFromJSON(json['firstNonEmptyPrice']),
-        'priceCount': json['priceCount'] == null ? undefined : json['priceCount'],
-        'simplePrice': json['simplePrice'] == null ? undefined : json['simplePrice'],
     };
 }
 
@@ -105,9 +84,6 @@ export function PriceToJSONTyped(value?: Price | null, ignoreDiscriminator: bool
         'mainPrice': RewardToJSON(value['mainPrice']),
         'altPrice1': RewardToJSON(value['altPrice1']),
         'altPrice2': RewardToJSON(value['altPrice2']),
-        'firstNonEmptyPrice': RewardToJSON(value['firstNonEmptyPrice']),
-        'priceCount': value['priceCount'],
-        'simplePrice': value['simplePrice'],
     };
 }
 

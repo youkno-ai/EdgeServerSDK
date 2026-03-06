@@ -57,27 +57,7 @@ export interface Ticket {
      * @memberof Ticket
      */
     qrCodeInfoJson?: TicketQrCodeInfo;
-    /**
-     * 
-     * @type {string}
-     * @memberof Ticket
-     */
-    typeAsEnum?: TicketTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const TicketTypeAsEnumEnum = {
-    NONE: 'NONE',
-    GENERAL: 'GENERAL',
-    MULTI_USE: 'MULTI_USE',
-    SINGLE_USE: 'SINGLE_USE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type TicketTypeAsEnumEnum = typeof TicketTypeAsEnumEnum[keyof typeof TicketTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Ticket interface.
@@ -101,7 +81,6 @@ export function TicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ti
         'seatId': json['seatId'] == null ? undefined : json['seatId'],
         'type': json['type'] == null ? undefined : json['type'],
         'qrCodeInfoJson': json['qrCodeInfoJson'] == null ? undefined : TicketQrCodeInfoFromJSON(json['qrCodeInfoJson']),
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -121,7 +100,6 @@ export function TicketToJSONTyped(value?: Ticket | null, ignoreDiscriminator: bo
         'seatId': value['seatId'],
         'type': value['type'],
         'qrCodeInfoJson': TicketQrCodeInfoToJSON(value['qrCodeInfoJson']),
-        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

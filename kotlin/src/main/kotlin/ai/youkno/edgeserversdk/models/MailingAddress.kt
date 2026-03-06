@@ -34,10 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param phoneNumber 
  * @param phoneStatus 
  * @param instructions 
- * @param empty 
- * @param fullAddressAsText 
- * @param phoneStatusAsEnum 
- * @param typeAsEnum 
  */
 
 
@@ -77,46 +73,10 @@ data class MailingAddress (
     val phoneStatus: kotlin.String? = null,
 
     @Json(name = "instructions")
-    val instructions: kotlin.String? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null,
-
-    @Json(name = "fullAddressAsText")
-    val fullAddressAsText: kotlin.String? = null,
-
-    @Json(name = "phoneStatusAsEnum")
-    val phoneStatusAsEnum: MailingAddress.PhoneStatusAsEnum? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: MailingAddress.TypeAsEnum? = null
+    val instructions: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: UNVERIFIED,VERIFIED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PhoneStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "UNVERIFIED") UNVERIFIED("UNVERIFIED"),
-        @Json(name = "VERIFIED") VERIFIED("VERIFIED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,SHIPPING,BILLING,TAX,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "SHIPPING") SHIPPING("SHIPPING"),
-        @Json(name = "BILLING") BILLING("BILLING"),
-        @Json(name = "TAX") TAX("TAX"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

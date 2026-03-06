@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param source 
  * @param reason 
  * @param errorMessage 
- * @param sourceAsEnum 
  */
 
 
@@ -38,23 +37,10 @@ data class SummaryInfo (
     val reason: kotlin.String? = null,
 
     @Json(name = "errorMessage")
-    val errorMessage: kotlin.String? = null,
-
-    @Json(name = "sourceAsEnum")
-    val sourceAsEnum: SummaryInfo.SourceAsEnum? = null
+    val errorMessage: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: INTERNAL,POINT_OF_SALE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SourceAsEnum(val value: kotlin.String) {
-        @Json(name = "INTERNAL") INTERNAL("INTERNAL"),
-        @Json(name = "POINT_OF_SALE") POINT_OF_SALE("POINT_OF_SALE");
-    }
 
 }
 

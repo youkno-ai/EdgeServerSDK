@@ -243,77 +243,11 @@ export interface UserProfile {
     segment?: string;
     /**
      * 
-     * @type {Array<string>}
-     * @memberof UserProfile
-     */
-    visibilityRolesList?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserProfile
-     */
-    attachmentsAnchorType?: UserProfileAttachmentsAnchorTypeEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserProfile
-     */
-    joiningStrategyAsEnum?: UserProfileJoiningStrategyAsEnumEnum;
-    /**
-     * 
-     * @type {User}
-     * @memberof UserProfile
-     */
-    creator?: User;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserProfile
-     */
-    level1Id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserProfile
-     */
-    level2Id?: string;
-    /**
-     * 
      * @type {string}
      * @memberof UserProfile
      */
     entityId?: string;
 }
-
-
-/**
- * @export
- */
-export const UserProfileAttachmentsAnchorTypeEnum = {
-    NONE: 'NONE',
-    USER: 'USER',
-    BOUNTY: 'BOUNTY',
-    RESPONSE: 'RESPONSE',
-    MESSAGE: 'MESSAGE',
-    VOUCHER: 'VOUCHER',
-    SETTINGS: 'SETTINGS',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserProfileAttachmentsAnchorTypeEnum = typeof UserProfileAttachmentsAnchorTypeEnum[keyof typeof UserProfileAttachmentsAnchorTypeEnum];
-
-/**
- * @export
- */
-export const UserProfileJoiningStrategyAsEnumEnum = {
-    INVITE_ONLY: 'INVITE_ONLY',
-    NEEDS_APPROVAL: 'NEEDS_APPROVAL',
-    OPEN: 'OPEN',
-    CLOSED: 'CLOSED',
-    GROUPS_ONLY: 'GROUPS_ONLY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserProfileJoiningStrategyAsEnumEnum = typeof UserProfileJoiningStrategyAsEnumEnum[keyof typeof UserProfileJoiningStrategyAsEnumEnum];
-
 
 /**
  * Check if a given object implements the UserProfile interface.
@@ -356,12 +290,6 @@ export function UserProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'selfOnboardingInfo': json['selfOnboardingInfo'] == null ? undefined : SelfOnboardingInfoFromJSON(json['selfOnboardingInfo']),
         'livePaymentMode': json['livePaymentMode'] == null ? undefined : json['livePaymentMode'],
         'segment': json['segment'] == null ? undefined : json['segment'],
-        'visibilityRolesList': json['visibilityRolesList'] == null ? undefined : json['visibilityRolesList'],
-        'attachmentsAnchorType': json['attachmentsAnchorType'] == null ? undefined : json['attachmentsAnchorType'],
-        'joiningStrategyAsEnum': json['joiningStrategyAsEnum'] == null ? undefined : json['joiningStrategyAsEnum'],
-        'creator': json['creator'] == null ? undefined : UserFromJSON(json['creator']),
-        'level1Id': json['level1Id'] == null ? undefined : json['level1Id'],
-        'level2Id': json['level2Id'] == null ? undefined : json['level2Id'],
         'entityId': json['entityId'] == null ? undefined : json['entityId'],
     };
 }
@@ -401,12 +329,6 @@ export function UserProfileToJSONTyped(value?: UserProfile | null, ignoreDiscrim
         'selfOnboardingInfo': SelfOnboardingInfoToJSON(value['selfOnboardingInfo']),
         'livePaymentMode': value['livePaymentMode'],
         'segment': value['segment'],
-        'visibilityRolesList': value['visibilityRolesList'],
-        'attachmentsAnchorType': value['attachmentsAnchorType'],
-        'joiningStrategyAsEnum': value['joiningStrategyAsEnum'],
-        'creator': UserToJSON(value['creator']),
-        'level1Id': value['level1Id'],
-        'level2Id': value['level2Id'],
         'entityId': value['entityId'],
     };
 }

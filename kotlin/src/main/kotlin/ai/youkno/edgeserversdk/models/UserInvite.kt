@@ -15,7 +15,6 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.Applicant
 import ai.youkno.edgeserversdk.models.InviteStats
 import ai.youkno.edgeserversdk.models.User
 
@@ -51,13 +50,6 @@ import com.squareup.moshi.JsonClass
  * @param updatedAt 
  * @param createdAt 
  * @param stats 
- * @param valid 
- * @param statusAsEnum 
- * @param channelAsEnum 
- * @param targetAsEnum 
- * @param contactDetail 
- * @param applicant 
- * @param typeAsEnum 
  */
 
 
@@ -139,88 +131,10 @@ data class UserInvite (
     val createdAt: kotlin.Long? = null,
 
     @Json(name = "stats")
-    val stats: InviteStats? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: UserInvite.StatusAsEnum? = null,
-
-    @Json(name = "channelAsEnum")
-    val channelAsEnum: UserInvite.ChannelAsEnum? = null,
-
-    @Json(name = "targetAsEnum")
-    val targetAsEnum: UserInvite.TargetAsEnum? = null,
-
-    @Json(name = "contactDetail")
-    val contactDetail: kotlin.String? = null,
-
-    @Json(name = "applicant")
-    val applicant: Applicant? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: UserInvite.TypeAsEnum? = null
+    val stats: InviteStats? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: PENDING,CANCELED,DELETED,VOIDED,ACCEPTED,DECLINED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "CANCELED") CANCELED("CANCELED"),
-        @Json(name = "DELETED") DELETED("DELETED"),
-        @Json(name = "VOIDED") VOIDED("VOIDED"),
-        @Json(name = "ACCEPTED") ACCEPTED("ACCEPTED"),
-        @Json(name = "DECLINED") DECLINED("DECLINED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: EMAIL,SMS,PN,ANY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ChannelAsEnum(val value: kotlin.String) {
-        @Json(name = "EMAIL") EMAIL("EMAIL"),
-        @Json(name = "SMS") SMS("SMS"),
-        @Json(name = "PN") PN("PN"),
-        @Json(name = "ANY") ANY("ANY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: CONSOLE,NATIVE_APP,NONE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TargetAsEnum(val value: kotlin.String) {
-        @Json(name = "CONSOLE") CONSOLE("CONSOLE"),
-        @Json(name = "NATIVE_APP") NATIVE_APP("NATIVE_APP"),
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,INVITE_TO_APP,INVITE_TO_COMPANY,COMPANY_ASSIGN,INVITE_TO_BOUNTY,SHARE_BOUNTY,SHARE_GROUP,INVITE_TO_GROUP,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "INVITE_TO_APP") INVITE_TO_APP("INVITE_TO_APP"),
-        @Json(name = "INVITE_TO_COMPANY") INVITE_TO_COMPANY("INVITE_TO_COMPANY"),
-        @Json(name = "COMPANY_ASSIGN") COMPANY_ASSIGN("COMPANY_ASSIGN"),
-        @Json(name = "INVITE_TO_BOUNTY") INVITE_TO_BOUNTY("INVITE_TO_BOUNTY"),
-        @Json(name = "SHARE_BOUNTY") SHARE_BOUNTY("SHARE_BOUNTY"),
-        @Json(name = "SHARE_GROUP") SHARE_GROUP("SHARE_GROUP"),
-        @Json(name = "INVITE_TO_GROUP") INVITE_TO_GROUP("INVITE_TO_GROUP"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

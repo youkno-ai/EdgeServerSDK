@@ -45,42 +45,6 @@ export interface Attachments {
      * @memberof Attachments
      */
     autoAttachments?: { [key: string]: Attachment; };
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Attachments
-     */
-    empty?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Attachments
-     */
-    nextAttachmentId?: string;
-    /**
-     * 
-     * @type {Array<Attachment>}
-     * @memberof Attachments
-     */
-    inlineAttachments?: Array<Attachment>;
-    /**
-     * 
-     * @type {Array<Attachment>}
-     * @memberof Attachments
-     */
-    simpleAttachments?: Array<Attachment>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Attachments
-     */
-    attachmentLocalIds?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof Attachments
-     */
-    nextOrder?: string;
 }
 
 /**
@@ -103,12 +67,6 @@ export function AttachmentsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'attachments': json['attachments'] == null ? undefined : (mapValues(json['attachments'], AttachmentFromJSON)),
         'autoTextMd5': json['autoTextMd5'] == null ? undefined : json['autoTextMd5'],
         'autoAttachments': json['autoAttachments'] == null ? undefined : (mapValues(json['autoAttachments'], AttachmentFromJSON)),
-        'empty': json['empty'] == null ? undefined : json['empty'],
-        'nextAttachmentId': json['nextAttachmentId'] == null ? undefined : json['nextAttachmentId'],
-        'inlineAttachments': json['inlineAttachments'] == null ? undefined : ((json['inlineAttachments'] as Array<any>).map(AttachmentFromJSON)),
-        'simpleAttachments': json['simpleAttachments'] == null ? undefined : ((json['simpleAttachments'] as Array<any>).map(AttachmentFromJSON)),
-        'attachmentLocalIds': json['attachmentLocalIds'] == null ? undefined : json['attachmentLocalIds'],
-        'nextOrder': json['nextOrder'] == null ? undefined : json['nextOrder'],
     };
 }
 
@@ -126,12 +84,6 @@ export function AttachmentsToJSONTyped(value?: Attachments | null, ignoreDiscrim
         'attachments': value['attachments'] == null ? undefined : (mapValues(value['attachments'], AttachmentToJSON)),
         'autoTextMd5': value['autoTextMd5'],
         'autoAttachments': value['autoAttachments'] == null ? undefined : (mapValues(value['autoAttachments'], AttachmentToJSON)),
-        'empty': value['empty'],
-        'nextAttachmentId': value['nextAttachmentId'],
-        'inlineAttachments': value['inlineAttachments'] == null ? undefined : ((value['inlineAttachments'] as Array<any>).map(AttachmentToJSON)),
-        'simpleAttachments': value['simpleAttachments'] == null ? undefined : ((value['simpleAttachments'] as Array<any>).map(AttachmentToJSON)),
-        'attachmentLocalIds': value['attachmentLocalIds'],
-        'nextOrder': value['nextOrder'],
     };
 }
 

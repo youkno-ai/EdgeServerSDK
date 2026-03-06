@@ -136,53 +136,7 @@ export interface ClientInfo {
      * @memberof ClientInfo
      */
     parentName?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ClientInfo
-     */
-    emailValidationRequired?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ClientInfo
-     */
-    statusAsEnum?: ClientInfoStatusAsEnumEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ClientInfo
-     */
-    loginsAsEnum?: Array<ClientInfoLoginsAsEnumEnum>;
 }
-
-
-/**
- * @export
- */
-export const ClientInfoStatusAsEnumEnum = {
-    ENABLED: 'ENABLED',
-    DISABLED: 'DISABLED'
-} as const;
-export type ClientInfoStatusAsEnumEnum = typeof ClientInfoStatusAsEnumEnum[keyof typeof ClientInfoStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const ClientInfoLoginsAsEnumEnum = {
-    NONE: 'NONE',
-    SSO: 'SSO',
-    GOOGLE: 'GOOGLE',
-    APPLE: 'APPLE',
-    MICROSOFT: 'MICROSOFT',
-    EMAIL: 'EMAIL',
-    PHONE: 'PHONE',
-    INTERNET: 'INTERNET',
-    ANON: 'ANON',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ClientInfoLoginsAsEnumEnum = typeof ClientInfoLoginsAsEnumEnum[keyof typeof ClientInfoLoginsAsEnumEnum];
-
 
 /**
  * Check if a given object implements the ClientInfo interface.
@@ -218,9 +172,6 @@ export function ClientInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'hasLocations': json['hasLocations'] == null ? undefined : json['hasLocations'],
         'parentSlug': json['parentSlug'] == null ? undefined : json['parentSlug'],
         'parentName': json['parentName'] == null ? undefined : json['parentName'],
-        'emailValidationRequired': json['emailValidationRequired'] == null ? undefined : json['emailValidationRequired'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
     };
 }
 
@@ -252,9 +203,6 @@ export function ClientInfoToJSONTyped(value?: ClientInfo | null, ignoreDiscrimin
         'hasLocations': value['hasLocations'],
         'parentSlug': value['parentSlug'],
         'parentName': value['parentName'],
-        'emailValidationRequired': value['emailValidationRequired'],
-        'statusAsEnum': value['statusAsEnum'],
-        'loginsAsEnum': value['loginsAsEnum'],
     };
 }
 

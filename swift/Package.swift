@@ -12,17 +12,10 @@ let package = Package(
     products: [
         .library(name: "BelongSDK", targets: ["BelongSDK"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.0.0")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "BelongSDK",
-            dependencies: [
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession")
-            ],
             path: "Sources/BelongSDK"
         ),
         .testTarget(

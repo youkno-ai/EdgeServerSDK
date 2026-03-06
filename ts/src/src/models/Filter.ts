@@ -611,24 +611,6 @@ export interface Filter {
      * @memberof Filter
      */
     ignoreCache?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Filter
-     */
-    marketModeAsEnum?: FilterMarketModeAsEnumEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Filter
-     */
-    effectiveCategoryCodes?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof Filter
-     */
-    sortTypeAsEnum?: FilterSortTypeAsEnumEnum;
 }
 
 
@@ -903,43 +885,6 @@ export const FilterNewsPriorityEnum = {
 } as const;
 export type FilterNewsPriorityEnum = typeof FilterNewsPriorityEnum[keyof typeof FilterNewsPriorityEnum];
 
-/**
- * @export
- */
-export const FilterMarketModeAsEnumEnum = {
-    NONE: 'NONE',
-    DEFAULT: 'DEFAULT',
-    GLOBAL: 'GLOBAL',
-    FILTERED: 'FILTERED',
-    SUPPLY: 'SUPPLY',
-    PRIVATE: 'PRIVATE',
-    INTERNAL: 'INTERNAL',
-    EXTERNAL: 'EXTERNAL',
-    MIXED: 'MIXED',
-    USER_INTERNAL: 'USER_INTERNAL',
-    ALL: 'ALL'
-} as const;
-export type FilterMarketModeAsEnumEnum = typeof FilterMarketModeAsEnumEnum[keyof typeof FilterMarketModeAsEnumEnum];
-
-/**
- * @export
- */
-export const FilterSortTypeAsEnumEnum = {
-    NONE: 'NONE',
-    NOVELTY: 'NOVELTY',
-    POSTED_ASC: 'POSTED_ASC',
-    POSTED_DESC: 'POSTED_DESC',
-    RATING: 'RATING',
-    PRICE_DESC: 'PRICE_DESC',
-    PRICE_ASC: 'PRICE_ASC',
-    SCHEDULED: 'SCHEDULED',
-    PINNED_TO_TOP: 'PINNED_TO_TOP',
-    DELIVERY_METHOD: 'DELIVERY_METHOD',
-    THC_VALUE: 'THC_VALUE',
-    RANDOM: 'RANDOM'
-} as const;
-export type FilterSortTypeAsEnumEnum = typeof FilterSortTypeAsEnumEnum[keyof typeof FilterSortTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Filter interface.
@@ -1053,9 +998,6 @@ export function FilterFromJSONTyped(json: any, ignoreDiscriminator: boolean): Fi
         'excludeWithExpDate': json['excludeWithExpDate'] == null ? undefined : json['excludeWithExpDate'],
         'newsPriority': json['newsPriority'] == null ? undefined : json['newsPriority'],
         'ignoreCache': json['ignoreCache'] == null ? undefined : json['ignoreCache'],
-        'marketModeAsEnum': json['marketModeAsEnum'] == null ? undefined : json['marketModeAsEnum'],
-        'effectiveCategoryCodes': json['effectiveCategoryCodes'] == null ? undefined : json['effectiveCategoryCodes'],
-        'sortTypeAsEnum': json['sortTypeAsEnum'] == null ? undefined : json['sortTypeAsEnum'],
     };
 }
 
@@ -1165,9 +1107,6 @@ export function FilterToJSONTyped(value?: Filter | null, ignoreDiscriminator: bo
         'excludeWithExpDate': value['excludeWithExpDate'],
         'newsPriority': value['newsPriority'],
         'ignoreCache': value['ignoreCache'],
-        'marketModeAsEnum': value['marketModeAsEnum'],
-        'effectiveCategoryCodes': value['effectiveCategoryCodes'],
-        'sortTypeAsEnum': value['sortTypeAsEnum'],
     };
 }
 

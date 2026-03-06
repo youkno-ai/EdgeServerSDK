@@ -57,32 +57,7 @@ export interface AccessKeyDef {
      * @memberof AccessKeyDef
      */
     createdAt?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AccessKeyDef
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessKeyDef
-     */
-    stateAsEnum?: AccessKeyDefStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const AccessKeyDefStateAsEnumEnum = {
-    NONE: 'NONE',
-    ACTIVE: 'ACTIVE',
-    INACTIVE: 'INACTIVE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type AccessKeyDefStateAsEnumEnum = typeof AccessKeyDefStateAsEnumEnum[keyof typeof AccessKeyDefStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the AccessKeyDef interface.
@@ -106,8 +81,6 @@ export function AccessKeyDefFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'description': json['description'] == null ? undefined : json['description'],
         'meta': json['meta'] == null ? undefined : MetaDataFromJSON(json['meta']),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
     };
 }
 
@@ -127,8 +100,6 @@ export function AccessKeyDefToJSONTyped(value?: AccessKeyDef | null, ignoreDiscr
         'description': value['description'],
         'meta': MetaDataToJSON(value['meta']),
         'createdAt': value['createdAt'],
-        'valid': value['valid'],
-        'stateAsEnum': value['stateAsEnum'],
     };
 }
 

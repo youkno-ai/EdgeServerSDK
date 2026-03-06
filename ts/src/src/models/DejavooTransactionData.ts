@@ -227,24 +227,6 @@ export interface DejavooTransactionData {
     transId?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof DejavooTransactionData
-     */
-    completedByWalletBmb?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DejavooTransactionData
-     */
-    reimburseApplicable?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    paymentStatusAsEnum?: DejavooTransactionDataPaymentStatusAsEnumEnum;
-    /**
-     * 
      * @type {string}
      * @memberof DejavooTransactionData
      */
@@ -261,6 +243,24 @@ export interface DejavooTransactionData {
      * @memberof DejavooTransactionData
      */
     extDataAsObj?: ExtData;
+    /**
+     * 
+     * @type {string}
+     * @memberof DejavooTransactionData
+     */
+    paymentStatusAsEnum?: DejavooTransactionDataPaymentStatusAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DejavooTransactionData
+     */
+    completedByWalletBmb?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DejavooTransactionData
+     */
+    reimburseApplicable?: boolean;
     /**
      * 
      * @type {string}
@@ -391,12 +391,12 @@ export function DejavooTransactionDataFromJSONTyped(json: any, ignoreDiscriminat
         'tipLine': json['tipLine'] == null ? undefined : json['tipLine'],
         'totalAmount': json['totalAmount'] == null ? undefined : json['totalAmount'],
         'transId': json['transId'] == null ? undefined : json['transId'],
-        'completedByWalletBmb': json['completedByWalletBmb'] == null ? undefined : json['completedByWalletBmb'],
-        'reimburseApplicable': json['reimburseApplicable'] == null ? undefined : json['reimburseApplicable'],
-        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'ltaxAmount': json['ltaxAmount'] == null ? undefined : json['ltaxAmount'],
         'staxAmount': json['staxAmount'] == null ? undefined : json['staxAmount'],
         'extDataAsObj': json['extDataAsObj'] == null ? undefined : ExtDataFromJSON(json['extDataAsObj']),
+        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
+        'completedByWalletBmb': json['completedByWalletBmb'] == null ? undefined : json['completedByWalletBmb'],
+        'reimburseApplicable': json['reimburseApplicable'] == null ? undefined : json['reimburseApplicable'],
         'LTaxAmount': json['LTaxAmount'] == null ? undefined : json['LTaxAmount'],
         'STaxAmount': json['STaxAmount'] == null ? undefined : json['STaxAmount'],
         'amount_paid': json['amount_paid'] == null ? undefined : json['amount_paid'],
@@ -455,12 +455,12 @@ export function DejavooTransactionDataToJSONTyped(value?: DejavooTransactionData
         'tipLine': value['tipLine'],
         'totalAmount': value['totalAmount'],
         'transId': value['transId'],
-        'completedByWalletBmb': value['completedByWalletBmb'],
-        'reimburseApplicable': value['reimburseApplicable'],
-        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'ltaxAmount': value['ltaxAmount'],
         'staxAmount': value['staxAmount'],
         'extDataAsObj': ExtDataToJSON(value['extDataAsObj']),
+        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
+        'completedByWalletBmb': value['completedByWalletBmb'],
+        'reimburseApplicable': value['reimburseApplicable'],
         'LTaxAmount': value['LTaxAmount'],
         'STaxAmount': value['STaxAmount'],
         'amount_paid': value['amount_paid'],

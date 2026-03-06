@@ -31,37 +31,7 @@ export interface IdentityMode {
      * @memberof IdentityMode
      */
     identityType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityMode
-     */
-    identityTypeAsEnum?: IdentityModeIdentityTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityMode
-     */
-    enforced?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityMode
-     */
-    complete?: boolean;
 }
-
-
-/**
- * @export
- */
-export const IdentityModeIdentityTypeAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    REAL: 'REAL',
-    ANON: 'ANON'
-} as const;
-export type IdentityModeIdentityTypeAsEnumEnum = typeof IdentityModeIdentityTypeAsEnumEnum[keyof typeof IdentityModeIdentityTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the IdentityMode interface.
@@ -82,9 +52,6 @@ export function IdentityModeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'forced': json['forced'] == null ? undefined : json['forced'],
         'identityType': json['identityType'] == null ? undefined : json['identityType'],
-        'identityTypeAsEnum': json['identityTypeAsEnum'] == null ? undefined : json['identityTypeAsEnum'],
-        'enforced': json['enforced'] == null ? undefined : json['enforced'],
-        'complete': json['complete'] == null ? undefined : json['complete'],
     };
 }
 
@@ -101,9 +68,6 @@ export function IdentityModeToJSONTyped(value?: IdentityMode | null, ignoreDiscr
         
         'forced': value['forced'],
         'identityType': value['identityType'],
-        'identityTypeAsEnum': value['identityTypeAsEnum'],
-        'enforced': value['enforced'],
-        'complete': value['complete'],
     };
 }
 

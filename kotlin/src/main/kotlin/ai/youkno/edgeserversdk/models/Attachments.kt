@@ -26,12 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param attachments 
  * @param autoTextMd5 
  * @param autoAttachments 
- * @param empty 
- * @param nextAttachmentId 
- * @param inlineAttachments 
- * @param simpleAttachments 
- * @param attachmentLocalIds 
- * @param nextOrder 
  */
 
 
@@ -44,25 +38,7 @@ data class Attachments (
     val autoTextMd5: kotlin.String? = null,
 
     @Json(name = "autoAttachments")
-    val autoAttachments: kotlin.collections.Map<kotlin.String, Attachment>? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null,
-
-    @Json(name = "nextAttachmentId")
-    val nextAttachmentId: kotlin.String? = null,
-
-    @Json(name = "inlineAttachments")
-    val inlineAttachments: kotlin.collections.List<Attachment>? = null,
-
-    @Json(name = "simpleAttachments")
-    val simpleAttachments: kotlin.collections.List<Attachment>? = null,
-
-    @Json(name = "attachmentLocalIds")
-    val attachmentLocalIds: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "nextOrder")
-    val nextOrder: kotlin.String? = null
+    val autoAttachments: kotlin.collections.Map<kotlin.String, Attachment>? = null
 
 ) {
 

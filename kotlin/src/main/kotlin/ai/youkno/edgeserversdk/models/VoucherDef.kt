@@ -45,9 +45,6 @@ import com.squareup.moshi.JsonClass
  * @param lifespanMs 
  * @param expiresAt 
  * @param createdAt 
- * @param discountTypeAsEnum 
- * @param stateAsEnum 
- * @param expired 
  */
 
 
@@ -108,46 +105,10 @@ data class VoucherDef (
     val expiresAt: kotlin.Long? = null,
 
     @Json(name = "createdAt")
-    val createdAt: kotlin.Long? = null,
-
-    @Json(name = "discountTypeAsEnum")
-    val discountTypeAsEnum: VoucherDef.DiscountTypeAsEnum? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: VoucherDef.StateAsEnum? = null,
-
-    @Json(name = "expired")
-    val expired: kotlin.Boolean? = null
+    val createdAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,FLAT,PERCENTAGE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DiscountTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "FLAT") FLAT("FLAT"),
-        @Json(name = "PERCENTAGE") PERCENTAGE("PERCENTAGE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,ACTIVE,REDEEMED,CANCELED,EXPIRED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "REDEEMED") REDEEMED("REDEEMED"),
-        @Json(name = "CANCELED") CANCELED("CANCELED"),
-        @Json(name = "EXPIRED") EXPIRED("EXPIRED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

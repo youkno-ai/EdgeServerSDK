@@ -24,9 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param forced 
  * @param identityType 
- * @param identityTypeAsEnum 
- * @param enforced 
- * @param complete 
  */
 
 
@@ -36,30 +33,10 @@ data class IdentityMode (
     val forced: kotlin.Boolean? = null,
 
     @Json(name = "identityType")
-    val identityType: kotlin.String? = null,
-
-    @Json(name = "identityTypeAsEnum")
-    val identityTypeAsEnum: IdentityMode.IdentityTypeAsEnum? = null,
-
-    @Json(name = "enforced")
-    val enforced: kotlin.Boolean? = null,
-
-    @Json(name = "complete")
-    val complete: kotlin.Boolean? = null
+    val identityType: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: DEFAULT,REAL,ANON
-     */
-    @JsonClass(generateAdapter = false)
-    enum class IdentityTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "REAL") REAL("REAL"),
-        @Json(name = "ANON") ANON("ANON");
-    }
 
 }
 

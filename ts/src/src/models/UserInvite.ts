@@ -27,13 +27,6 @@ import {
     InviteStatsToJSON,
     InviteStatsToJSONTyped,
 } from './InviteStats';
-import type { Applicant } from './Applicant';
-import {
-    ApplicantFromJSON,
-    ApplicantFromJSONTyped,
-    ApplicantToJSON,
-    ApplicantToJSONTyped,
-} from './Applicant';
 
 /**
  * 
@@ -197,104 +190,7 @@ export interface UserInvite {
      * @memberof UserInvite
      */
     stats?: InviteStats;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserInvite
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserInvite
-     */
-    statusAsEnum?: UserInviteStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserInvite
-     */
-    channelAsEnum?: UserInviteChannelAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserInvite
-     */
-    targetAsEnum?: UserInviteTargetAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserInvite
-     */
-    contactDetail?: string;
-    /**
-     * 
-     * @type {Applicant}
-     * @memberof UserInvite
-     */
-    applicant?: Applicant;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserInvite
-     */
-    typeAsEnum?: UserInviteTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const UserInviteStatusAsEnumEnum = {
-    PENDING: 'PENDING',
-    CANCELED: 'CANCELED',
-    DELETED: 'DELETED',
-    VOIDED: 'VOIDED',
-    ACCEPTED: 'ACCEPTED',
-    DECLINED: 'DECLINED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserInviteStatusAsEnumEnum = typeof UserInviteStatusAsEnumEnum[keyof typeof UserInviteStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const UserInviteChannelAsEnumEnum = {
-    EMAIL: 'EMAIL',
-    SMS: 'SMS',
-    PN: 'PN',
-    ANY: 'ANY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserInviteChannelAsEnumEnum = typeof UserInviteChannelAsEnumEnum[keyof typeof UserInviteChannelAsEnumEnum];
-
-/**
- * @export
- */
-export const UserInviteTargetAsEnumEnum = {
-    CONSOLE: 'CONSOLE',
-    NATIVE_APP: 'NATIVE_APP',
-    NONE: 'NONE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserInviteTargetAsEnumEnum = typeof UserInviteTargetAsEnumEnum[keyof typeof UserInviteTargetAsEnumEnum];
-
-/**
- * @export
- */
-export const UserInviteTypeAsEnumEnum = {
-    NONE: 'NONE',
-    INVITE_TO_APP: 'INVITE_TO_APP',
-    INVITE_TO_COMPANY: 'INVITE_TO_COMPANY',
-    COMPANY_ASSIGN: 'COMPANY_ASSIGN',
-    INVITE_TO_BOUNTY: 'INVITE_TO_BOUNTY',
-    SHARE_BOUNTY: 'SHARE_BOUNTY',
-    SHARE_GROUP: 'SHARE_GROUP',
-    INVITE_TO_GROUP: 'INVITE_TO_GROUP',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type UserInviteTypeAsEnumEnum = typeof UserInviteTypeAsEnumEnum[keyof typeof UserInviteTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the UserInvite interface.
@@ -339,13 +235,6 @@ export function UserInviteFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'stats': json['stats'] == null ? undefined : InviteStatsFromJSON(json['stats']),
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'channelAsEnum': json['channelAsEnum'] == null ? undefined : json['channelAsEnum'],
-        'targetAsEnum': json['targetAsEnum'] == null ? undefined : json['targetAsEnum'],
-        'contactDetail': json['contactDetail'] == null ? undefined : json['contactDetail'],
-        'applicant': json['applicant'] == null ? undefined : ApplicantFromJSON(json['applicant']),
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -386,13 +275,6 @@ export function UserInviteToJSONTyped(value?: UserInvite | null, ignoreDiscrimin
         'updatedAt': value['updatedAt'],
         'createdAt': value['createdAt'],
         'stats': InviteStatsToJSON(value['stats']),
-        'valid': value['valid'],
-        'statusAsEnum': value['statusAsEnum'],
-        'channelAsEnum': value['channelAsEnum'],
-        'targetAsEnum': value['targetAsEnum'],
-        'contactDetail': value['contactDetail'],
-        'applicant': ApplicantToJSON(value['applicant']),
-        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

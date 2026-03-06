@@ -20,6 +20,13 @@ import {
     PaymentInfoToJSON,
     PaymentInfoToJSONTyped,
 } from './PaymentInfo';
+import type { DiscountRule } from './DiscountRule';
+import {
+    DiscountRuleFromJSON,
+    DiscountRuleFromJSONTyped,
+    DiscountRuleToJSON,
+    DiscountRuleToJSONTyped,
+} from './DiscountRule';
 import type { ProductInfo } from './ProductInfo';
 import {
     ProductInfoFromJSON,
@@ -41,41 +48,6 @@ import {
     DriverLicenseToJSON,
     DriverLicenseToJSONTyped,
 } from './DriverLicense';
-import type { MailingAddress } from './MailingAddress';
-import {
-    MailingAddressFromJSON,
-    MailingAddressFromJSONTyped,
-    MailingAddressToJSON,
-    MailingAddressToJSONTyped,
-} from './MailingAddress';
-import type { PaymentMethodInfo } from './PaymentMethodInfo';
-import {
-    PaymentMethodInfoFromJSON,
-    PaymentMethodInfoFromJSONTyped,
-    PaymentMethodInfoToJSON,
-    PaymentMethodInfoToJSONTyped,
-} from './PaymentMethodInfo';
-import type { Voucher } from './Voucher';
-import {
-    VoucherFromJSON,
-    VoucherFromJSONTyped,
-    VoucherToJSON,
-    VoucherToJSONTyped,
-} from './Voucher';
-import type { DiscountRule } from './DiscountRule';
-import {
-    DiscountRuleFromJSON,
-    DiscountRuleFromJSONTyped,
-    DiscountRuleToJSON,
-    DiscountRuleToJSONTyped,
-} from './DiscountRule';
-import type { ProductsInfo } from './ProductsInfo';
-import {
-    ProductsInfoFromJSON,
-    ProductsInfoFromJSONTyped,
-    ProductsInfoToJSON,
-    ProductsInfoToJSONTyped,
-} from './ProductsInfo';
 import type { Medical } from './Medical';
 import {
     MedicalFromJSON,
@@ -97,20 +69,20 @@ import {
     RedemptionInfoToJSON,
     RedemptionInfoToJSONTyped,
 } from './RedemptionInfo';
-import type { Reward } from './Reward';
+import type { PaymentMethodInfo } from './PaymentMethodInfo';
 import {
-    RewardFromJSON,
-    RewardFromJSONTyped,
-    RewardToJSON,
-    RewardToJSONTyped,
-} from './Reward';
-import type { CustomerInfo } from './CustomerInfo';
+    PaymentMethodInfoFromJSON,
+    PaymentMethodInfoFromJSONTyped,
+    PaymentMethodInfoToJSON,
+    PaymentMethodInfoToJSONTyped,
+} from './PaymentMethodInfo';
+import type { Voucher } from './Voucher';
 import {
-    CustomerInfoFromJSON,
-    CustomerInfoFromJSONTyped,
-    CustomerInfoToJSON,
-    CustomerInfoToJSONTyped,
-} from './CustomerInfo';
+    VoucherFromJSON,
+    VoucherFromJSONTyped,
+    VoucherToJSON,
+    VoucherToJSONTyped,
+} from './Voucher';
 
 /**
  * 
@@ -244,133 +216,7 @@ export interface ShoppingCart {
      * @memberof ShoppingCart
      */
     discounts?: Array<DiscountRule>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    printReceiptAsEnum?: ShoppingCartPrintReceiptAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    paymentTypeAsEnum?: ShoppingCartPaymentTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    shoppingCartHash?: string;
-    /**
-     * 
-     * @type {Reward}
-     * @memberof ShoppingCart
-     */
-    redemptionAmountAsReward?: Reward;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    deliveryMethodAsEnum?: ShoppingCartDeliveryMethodAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    statusAsEnum?: ShoppingCartStatusAsEnumEnum;
-    /**
-     * 
-     * @type {MailingAddress}
-     * @memberof ShoppingCart
-     */
-    deliveryAddress?: MailingAddress;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCart
-     */
-    useTypeAsEnum?: ShoppingCartUseTypeAsEnumEnum;
-    /**
-     * 
-     * @type {CustomerInfo}
-     * @memberof ShoppingCart
-     */
-    customerInfo?: CustomerInfo;
-    /**
-     * 
-     * @type {ProductsInfo}
-     * @memberof ShoppingCart
-     */
-    productsInfo?: ProductsInfo;
-    /**
-     * 
-     * @type {Set<string>}
-     * @memberof ShoppingCart
-     */
-    merchantIds?: Set<string>;
 }
-
-
-/**
- * @export
- */
-export const ShoppingCartPrintReceiptAsEnumEnum = {
-    NONE: 'NONE',
-    YES: 'YES',
-    NO: 'NO',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartPrintReceiptAsEnumEnum = typeof ShoppingCartPrintReceiptAsEnumEnum[keyof typeof ShoppingCartPrintReceiptAsEnumEnum];
-
-/**
- * @export
- */
-export const ShoppingCartPaymentTypeAsEnumEnum = {
-    NONE: 'NONE',
-    WITH_CC: 'WITH_CC',
-    AT_DELIVERY: 'AT_DELIVERY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartPaymentTypeAsEnumEnum = typeof ShoppingCartPaymentTypeAsEnumEnum[keyof typeof ShoppingCartPaymentTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ShoppingCartDeliveryMethodAsEnumEnum = {
-    NONE: 'NONE',
-    DELIVERY: 'DELIVERY',
-    PICKUP: 'PICKUP',
-    KIOSK: 'KIOSK',
-    CURBSIDE: 'CURBSIDE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartDeliveryMethodAsEnumEnum = typeof ShoppingCartDeliveryMethodAsEnumEnum[keyof typeof ShoppingCartDeliveryMethodAsEnumEnum];
-
-/**
- * @export
- */
-export const ShoppingCartStatusAsEnumEnum = {
-    NONE: 'NONE',
-    ACTIVE: 'ACTIVE',
-    ABANDONED: 'ABANDONED',
-    CLOSED: 'CLOSED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartStatusAsEnumEnum = typeof ShoppingCartStatusAsEnumEnum[keyof typeof ShoppingCartStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const ShoppingCartUseTypeAsEnumEnum = {
-    NONE: 'NONE',
-    ADULT: 'ADULT',
-    MEDICAL: 'MEDICAL',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartUseTypeAsEnumEnum = typeof ShoppingCartUseTypeAsEnumEnum[keyof typeof ShoppingCartUseTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the ShoppingCart interface.
@@ -410,17 +256,6 @@ export function ShoppingCartFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'kioskId': json['kioskId'] == null ? undefined : json['kioskId'],
         'printReceipt': json['printReceipt'] == null ? undefined : json['printReceipt'],
         'discounts': json['discounts'] == null ? undefined : ((json['discounts'] as Array<any>).map(DiscountRuleFromJSON)),
-        'printReceiptAsEnum': json['printReceiptAsEnum'] == null ? undefined : json['printReceiptAsEnum'],
-        'paymentTypeAsEnum': json['paymentTypeAsEnum'] == null ? undefined : json['paymentTypeAsEnum'],
-        'shoppingCartHash': json['shoppingCartHash'] == null ? undefined : json['shoppingCartHash'],
-        'redemptionAmountAsReward': json['redemptionAmountAsReward'] == null ? undefined : RewardFromJSON(json['redemptionAmountAsReward']),
-        'deliveryMethodAsEnum': json['deliveryMethodAsEnum'] == null ? undefined : json['deliveryMethodAsEnum'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'deliveryAddress': json['deliveryAddress'] == null ? undefined : MailingAddressFromJSON(json['deliveryAddress']),
-        'useTypeAsEnum': json['useTypeAsEnum'] == null ? undefined : json['useTypeAsEnum'],
-        'customerInfo': json['customerInfo'] == null ? undefined : CustomerInfoFromJSON(json['customerInfo']),
-        'productsInfo': json['productsInfo'] == null ? undefined : ProductsInfoFromJSON(json['productsInfo']),
-        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
     };
 }
 
@@ -456,17 +291,6 @@ export function ShoppingCartToJSONTyped(value?: ShoppingCart | null, ignoreDiscr
         'kioskId': value['kioskId'],
         'printReceipt': value['printReceipt'],
         'discounts': value['discounts'] == null ? undefined : ((value['discounts'] as Array<any>).map(DiscountRuleToJSON)),
-        'printReceiptAsEnum': value['printReceiptAsEnum'],
-        'paymentTypeAsEnum': value['paymentTypeAsEnum'],
-        'shoppingCartHash': value['shoppingCartHash'],
-        'redemptionAmountAsReward': RewardToJSON(value['redemptionAmountAsReward']),
-        'deliveryMethodAsEnum': value['deliveryMethodAsEnum'],
-        'statusAsEnum': value['statusAsEnum'],
-        'deliveryAddress': MailingAddressToJSON(value['deliveryAddress']),
-        'useTypeAsEnum': value['useTypeAsEnum'],
-        'customerInfo': CustomerInfoToJSON(value['customerInfo']),
-        'productsInfo': ProductsInfoToJSON(value['productsInfo']),
-        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
     };
 }
 

@@ -103,4 +103,3 @@ make release VERSION=1.20.2271
 - Java 21+ (managed via `jenv`; Makefile uses `jenv prefix 21`)
 - Gradle 8+
 - Swift 5.9+ (for local Swift validation)
-- `swift-openapi-generator` (official Swift SDK code generator, required for `make generate`)

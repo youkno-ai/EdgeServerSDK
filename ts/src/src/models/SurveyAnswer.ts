@@ -51,6 +51,12 @@ export interface SurveyAnswer {
     maxPoints?: number;
     /**
      * 
+     * @type {number}
+     * @memberof SurveyAnswer
+     */
+    score?: number;
+    /**
+     * 
      * @type {boolean}
      * @memberof SurveyAnswer
      */
@@ -67,12 +73,6 @@ export interface SurveyAnswer {
      * @memberof SurveyAnswer
      */
     wrongAnswer?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof SurveyAnswer
-     */
-    score?: number;
 }
 
 /**
@@ -97,10 +97,10 @@ export function SurveyAnswerFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'weight': json['weight'] == null ? undefined : json['weight'],
         'answerPoints': json['answerPoints'] == null ? undefined : json['answerPoints'],
         'maxPoints': json['maxPoints'] == null ? undefined : json['maxPoints'],
+        'score': json['score'] == null ? undefined : json['score'],
         'correctAnswer': json['correctAnswer'] == null ? undefined : json['correctAnswer'],
         'partialAnswer': json['partialAnswer'] == null ? undefined : json['partialAnswer'],
         'wrongAnswer': json['wrongAnswer'] == null ? undefined : json['wrongAnswer'],
-        'score': json['score'] == null ? undefined : json['score'],
     };
 }
 
@@ -120,10 +120,10 @@ export function SurveyAnswerToJSONTyped(value?: SurveyAnswer | null, ignoreDiscr
         'weight': value['weight'],
         'answerPoints': value['answerPoints'],
         'maxPoints': value['maxPoints'],
+        'score': value['score'],
         'correctAnswer': value['correctAnswer'],
         'partialAnswer': value['partialAnswer'],
         'wrongAnswer': value['wrongAnswer'],
-        'score': value['score'],
     };
 }
 

@@ -33,86 +33,7 @@ export interface PointCurrency {
      * @memberof PointCurrency
      */
     meta?: CurrencyMeta;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    state?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    scope?: PointCurrencyScopeEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PointCurrency
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    equivalentCurrency?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    issuerId?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PointCurrency
-     */
-    equivalentValue?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PointCurrency
-     */
-    effectiveName?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PointCurrency
-     */
-    custom?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof PointCurrency
-     */
-    expiresAt?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PointCurrency
-     */
-    expired?: boolean;
 }
-
-
-/**
- * @export
- */
-export const PointCurrencyScopeEnum = {
-    USER: 'USER',
-    COMPANY: 'COMPANY',
-    GLOBAL: 'GLOBAL',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type PointCurrencyScopeEnum = typeof PointCurrencyScopeEnum[keyof typeof PointCurrencyScopeEnum];
-
 
 /**
  * Check if a given object implements the PointCurrency interface.
@@ -132,17 +53,6 @@ export function PointCurrencyFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'meta': json['meta'] == null ? undefined : CurrencyMetaFromJSON(json['meta']),
-        'name': json['name'] == null ? undefined : json['name'],
-        'state': json['state'] == null ? undefined : json['state'],
-        'scope': json['scope'] == null ? undefined : json['scope'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'equivalentCurrency': json['equivalentCurrency'] == null ? undefined : json['equivalentCurrency'],
-        'issuerId': json['issuerId'] == null ? undefined : json['issuerId'],
-        'equivalentValue': json['equivalentValue'] == null ? undefined : json['equivalentValue'],
-        'effectiveName': json['effectiveName'] == null ? undefined : json['effectiveName'],
-        'custom': json['custom'] == null ? undefined : json['custom'],
-        'expiresAt': json['expiresAt'] == null ? undefined : json['expiresAt'],
-        'expired': json['expired'] == null ? undefined : json['expired'],
     };
 }
 
@@ -158,17 +68,6 @@ export function PointCurrencyToJSONTyped(value?: PointCurrency | null, ignoreDis
     return {
         
         'meta': CurrencyMetaToJSON(value['meta']),
-        'name': value['name'],
-        'state': value['state'],
-        'scope': value['scope'],
-        'valid': value['valid'],
-        'equivalentCurrency': value['equivalentCurrency'],
-        'issuerId': value['issuerId'],
-        'equivalentValue': value['equivalentValue'],
-        'effectiveName': value['effectiveName'],
-        'custom': value['custom'],
-        'expiresAt': value['expiresAt'],
-        'expired': value['expired'],
     };
 }
 

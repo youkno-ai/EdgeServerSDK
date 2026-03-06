@@ -23,7 +23,6 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
  * @param parentId 
  * @param user 
  * @param description 
@@ -34,16 +33,10 @@ import com.squareup.moshi.JsonClass
  * @param inheritRoles 
  * @param visibilityRoles 
  * @param createdAt 
- * @param visibilityRolesList 
- * @param joiningStrategyAsEnum 
- * @param groupTypeAsEnum 
  */
 
 
 data class Group (
-
-    @Json(name = "id")
-    val id: kotlin.String? = null,
 
     @Json(name = "parentId")
     val parentId: kotlin.String? = null,
@@ -73,50 +66,10 @@ data class Group (
     val visibilityRoles: kotlin.String? = null,
 
     @Json(name = "createdAt")
-    val createdAt: kotlin.Long? = null,
-
-    @Json(name = "visibilityRolesList")
-    val visibilityRolesList: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "joiningStrategyAsEnum")
-    val joiningStrategyAsEnum: Group.JoiningStrategyAsEnum? = null,
-
-    @Json(name = "groupTypeAsEnum")
-    val groupTypeAsEnum: Group.GroupTypeAsEnum? = null
+    val createdAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: INVITE_ONLY,NEEDS_APPROVAL,OPEN,CLOSED,GROUPS_ONLY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class JoiningStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "INVITE_ONLY") INVITE_ONLY("INVITE_ONLY"),
-        @Json(name = "NEEDS_APPROVAL") NEEDS_APPROVAL("NEEDS_APPROVAL"),
-        @Json(name = "OPEN") OPEN("OPEN"),
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "GROUPS_ONLY") GROUPS_ONLY("GROUPS_ONLY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: GENERIC,COMMUNITY,INFLUENCERS,SUPPORT,OPERATOR,PENDING_EMPLOYEES,MODERATORS,ORG_REPS,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class GroupTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "GENERIC") GENERIC("GENERIC"),
-        @Json(name = "COMMUNITY") COMMUNITY("COMMUNITY"),
-        @Json(name = "INFLUENCERS") INFLUENCERS("INFLUENCERS"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "OPERATOR") OPERATOR("OPERATOR"),
-        @Json(name = "PENDING_EMPLOYEES") PENDING_EMPLOYEES("PENDING_EMPLOYEES"),
-        @Json(name = "MODERATORS") MODERATORS("MODERATORS"),
-        @Json(name = "ORG_REPS") ORG_REPS("ORG_REPS"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

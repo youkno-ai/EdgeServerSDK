@@ -56,15 +56,26 @@ export interface ColorScheme {
      * @type {string}
      * @memberof ColorScheme
      */
-    patternTypeAsEnum?: ColorSchemePatternTypeAsEnumEnum;
+    displayModeAsEnum?: ColorSchemeDisplayModeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ColorScheme
      */
-    displayModeAsEnum?: ColorSchemeDisplayModeAsEnumEnum;
+    patternTypeAsEnum?: ColorSchemePatternTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const ColorSchemeDisplayModeAsEnumEnum = {
+    NONE: 'NONE',
+    RANDOM: 'RANDOM',
+    ORDERED: 'ORDERED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ColorSchemeDisplayModeAsEnumEnum = typeof ColorSchemeDisplayModeAsEnumEnum[keyof typeof ColorSchemeDisplayModeAsEnumEnum];
 
 /**
  * @export
@@ -80,17 +91,6 @@ export const ColorSchemePatternTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ColorSchemePatternTypeAsEnumEnum = typeof ColorSchemePatternTypeAsEnumEnum[keyof typeof ColorSchemePatternTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ColorSchemeDisplayModeAsEnumEnum = {
-    NONE: 'NONE',
-    RANDOM: 'RANDOM',
-    ORDERED: 'ORDERED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ColorSchemeDisplayModeAsEnumEnum = typeof ColorSchemeDisplayModeAsEnumEnum[keyof typeof ColorSchemeDisplayModeAsEnumEnum];
 
 
 /**
@@ -114,8 +114,8 @@ export function ColorSchemeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'colors': json['colors'] == null ? undefined : ((json['colors'] as Array<any>).map(ColorFromJSON)),
         'displayMode': json['displayMode'] == null ? undefined : json['displayMode'],
         'patternType': json['patternType'] == null ? undefined : json['patternType'],
-        'patternTypeAsEnum': json['patternTypeAsEnum'] == null ? undefined : json['patternTypeAsEnum'],
         'displayModeAsEnum': json['displayModeAsEnum'] == null ? undefined : json['displayModeAsEnum'],
+        'patternTypeAsEnum': json['patternTypeAsEnum'] == null ? undefined : json['patternTypeAsEnum'],
     };
 }
 
@@ -134,8 +134,8 @@ export function ColorSchemeToJSONTyped(value?: ColorScheme | null, ignoreDiscrim
         'colors': value['colors'] == null ? undefined : ((value['colors'] as Array<any>).map(ColorToJSON)),
         'displayMode': value['displayMode'],
         'patternType': value['patternType'],
-        'patternTypeAsEnum': value['patternTypeAsEnum'],
         'displayModeAsEnum': value['displayModeAsEnum'],
+        'patternTypeAsEnum': value['patternTypeAsEnum'],
     };
 }
 

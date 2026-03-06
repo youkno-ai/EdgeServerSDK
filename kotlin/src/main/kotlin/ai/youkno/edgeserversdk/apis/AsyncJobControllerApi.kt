@@ -23,13 +23,13 @@ interface AsyncJobControllerApi {
      *  - 200: OK
      *
      * @param jobId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}:cancel")
-    fun cancel(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Boolean>
+    fun cancel(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}
@@ -39,13 +39,13 @@ interface AsyncJobControllerApi {
      *  - 200: OK
      *
      * @param jobId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[AsyncJobJSONBJSONBJSONBJSONB]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}")
-    fun getJob(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<AsyncJobJSONBJSONBJSONBJSONB>
+    fun getJob(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AsyncJobJSONBJSONBJSONBJSONB>
 
     /**
      * GET api/v1/async-jobs/progress
@@ -57,13 +57,13 @@ interface AsyncJobControllerApi {
      * @param entityType 
      * @param entityId 
      * @param jobType 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[JobProgressResponse]>
      */
     @GET("api/v1/async-jobs/progress")
-    fun getJobProgress(@Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Query("jobType") jobType: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<JobProgressResponse>
+    fun getJobProgress(@Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Query("jobType") jobType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JobProgressResponse>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/progress
@@ -73,13 +73,13 @@ interface AsyncJobControllerApi {
      *  - 200: OK
      *
      * @param jobId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[JobProgressResponse]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/progress")
-    fun getJobProgress1(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<JobProgressResponse>
+    fun getJobProgress1(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JobProgressResponse>
 
     /**
      * GET api/v1/async-jobs/queues
@@ -92,13 +92,13 @@ interface AsyncJobControllerApi {
      * @param entityType  (optional)
      * @param entityId  (optional)
      * @param taskType  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<QueueStats>]>
      */
     @GET("api/v1/async-jobs/queues")
-    fun getQueues(@Query("jobId") jobId: java.util.UUID? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<QueueStats>>
+    fun getQueues(@Query("jobId") jobId: java.util.UUID? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<QueueStats>>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}
@@ -109,13 +109,13 @@ interface AsyncJobControllerApi {
      *
      * @param jobId 
      * @param taskId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[AsyncTaskJSONBJSONBJSONB]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}")
-    fun getTask(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<AsyncTaskJSONBJSONBJSONB>
+    fun getTask(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AsyncTaskJSONBJSONBJSONB>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/events
@@ -127,13 +127,13 @@ interface AsyncJobControllerApi {
      * @param jobId 
      * @param limit  (optional, default to 200)
      * @param afterCreatedAt  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<AsyncEventJSONB>]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/events")
-    fun listJobEvents(@Path("jobId") jobId: java.util.UUID, @Query("limit") limit: kotlin.Int? = 200, @Query("afterCreatedAt") afterCreatedAt: kotlin.Long? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<AsyncEventJSONB>>
+    fun listJobEvents(@Path("jobId") jobId: java.util.UUID, @Query("limit") limit: kotlin.Int? = 200, @Query("afterCreatedAt") afterCreatedAt: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncEventJSONB>>
 
     /**
      * GET api/v1/async-jobs/jobs
@@ -148,13 +148,13 @@ interface AsyncJobControllerApi {
      * @param entityId  (optional)
      * @param limit  (optional, default to 50)
      * @param offset  (optional, default to 0)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<AsyncJobJSONBJSONBJSONBJSONB>]>
      */
     @GET("api/v1/async-jobs/jobs")
-    fun listJobs(@Query("status") status: kotlin.String? = null, @Query("jobType") jobType: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<AsyncJobJSONBJSONBJSONBJSONB>>
+    fun listJobs(@Query("status") status: kotlin.String? = null, @Query("jobType") jobType: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncJobJSONBJSONBJSONBJSONB>>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/tasks
@@ -168,13 +168,13 @@ interface AsyncJobControllerApi {
      * @param taskType  (optional)
      * @param limit  (optional, default to 200)
      * @param offset  (optional, default to 0)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<AsyncTaskJSONBJSONBJSONB>]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/tasks")
-    fun listTasks(@Path("jobId") jobId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 200, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<AsyncTaskJSONBJSONBJSONB>>
+    fun listTasks(@Path("jobId") jobId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 200, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncTaskJSONBJSONBJSONB>>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}:pause
@@ -184,13 +184,13 @@ interface AsyncJobControllerApi {
      *  - 200: OK
      *
      * @param jobId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}:pause")
-    fun pause(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Boolean>
+    fun pause(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:release
@@ -202,13 +202,13 @@ interface AsyncJobControllerApi {
      * @param jobId 
      * @param taskId 
      * @param releaseRequest 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:release")
-    fun release(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body releaseRequest: ReleaseRequest, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Boolean>
+    fun release(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body releaseRequest: ReleaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:renew-lease
@@ -220,13 +220,13 @@ interface AsyncJobControllerApi {
      * @param jobId 
      * @param taskId 
      * @param renewLeaseRequest 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:renew-lease")
-    fun renewLease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body renewLeaseRequest: RenewLeaseRequest, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Boolean>
+    fun renewLease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body renewLeaseRequest: RenewLeaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}:start
@@ -236,12 +236,12 @@ interface AsyncJobControllerApi {
      *  - 200: OK
      *
      * @param jobId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}:start")
-    fun start(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Boolean>
+    fun start(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
 }

@@ -26,9 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param mainPrice 
  * @param altPrice1 
  * @param altPrice2 
- * @param firstNonEmptyPrice 
- * @param priceCount 
- * @param simplePrice 
  */
 
 
@@ -41,16 +38,7 @@ data class Price (
     val altPrice1: Reward? = null,
 
     @Json(name = "altPrice2")
-    val altPrice2: Reward? = null,
-
-    @Json(name = "firstNonEmptyPrice")
-    val firstNonEmptyPrice: Reward? = null,
-
-    @Json(name = "priceCount")
-    val priceCount: kotlin.Int? = null,
-
-    @Json(name = "simplePrice")
-    val simplePrice: kotlin.Boolean? = null
+    val altPrice2: Reward? = null
 
 ) {
 

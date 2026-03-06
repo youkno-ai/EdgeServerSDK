@@ -79,27 +79,7 @@ export interface Seat {
      * @memberof Seat
      */
     releasedAt?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Seat
-     */
-    seatStatusAsEnum?: SeatSeatStatusAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const SeatSeatStatusAsEnumEnum = {
-    NONE: 'NONE',
-    AVAILABLE: 'AVAILABLE',
-    RESERVED: 'RESERVED',
-    SOLD: 'SOLD',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type SeatSeatStatusAsEnumEnum = typeof SeatSeatStatusAsEnumEnum[keyof typeof SeatSeatStatusAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Seat interface.
@@ -128,7 +108,6 @@ export function SeatFromJSONTyped(json: any, ignoreDiscriminator: boolean): Seat
         'soldAt': json['soldAt'] == null ? undefined : json['soldAt'],
         'reservedAt': json['reservedAt'] == null ? undefined : json['reservedAt'],
         'releasedAt': json['releasedAt'] == null ? undefined : json['releasedAt'],
-        'seatStatusAsEnum': json['seatStatusAsEnum'] == null ? undefined : json['seatStatusAsEnum'],
     };
 }
 
@@ -153,7 +132,6 @@ export function SeatToJSONTyped(value?: Seat | null, ignoreDiscriminator: boolea
         'soldAt': value['soldAt'],
         'reservedAt': value['reservedAt'],
         'releasedAt': value['releasedAt'],
-        'seatStatusAsEnum': value['seatStatusAsEnum'],
     };
 }
 

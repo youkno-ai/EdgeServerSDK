@@ -31,12 +31,6 @@ export interface Money {
      * @memberof Money
      */
     currency?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Money
-     */
-    valid?: boolean;
 }
 
 /**
@@ -58,7 +52,6 @@ export function MoneyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Mon
         
         'amount': json['amount'] == null ? undefined : json['amount'],
         'currency': json['currency'] == null ? undefined : json['currency'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
     };
 }
 
@@ -75,7 +68,6 @@ export function MoneyToJSONTyped(value?: Money | null, ignoreDiscriminator: bool
         
         'amount': value['amount'],
         'currency': value['currency'],
-        'valid': value['valid'],
     };
 }
 

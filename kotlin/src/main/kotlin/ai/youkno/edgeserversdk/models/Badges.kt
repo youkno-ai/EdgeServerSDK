@@ -24,17 +24,13 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param stash 
- * @param badgesCount 
  */
 
 
 data class Badges (
 
     @Json(name = "stash")
-    val stash: kotlin.collections.Map<kotlin.String, BadgeStash>? = null,
-
-    @Json(name = "badgesCount")
-    val badgesCount: kotlin.Int? = null
+    val stash: kotlin.collections.Map<kotlin.String, BadgeStash>? = null
 
 ) {
 

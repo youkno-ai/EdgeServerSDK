@@ -37,25 +37,7 @@ export interface PhoneNumberData {
      * @memberof PhoneNumberData
      */
     phoneStatus?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PhoneNumberData
-     */
-    phoneStatusAsEnum?: PhoneNumberDataPhoneStatusAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const PhoneNumberDataPhoneStatusAsEnumEnum = {
-    UNVERIFIED: 'UNVERIFIED',
-    VERIFIED: 'VERIFIED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type PhoneNumberDataPhoneStatusAsEnumEnum = typeof PhoneNumberDataPhoneStatusAsEnumEnum[keyof typeof PhoneNumberDataPhoneStatusAsEnumEnum];
-
 
 /**
  * Check if a given object implements the PhoneNumberData interface.
@@ -77,7 +59,6 @@ export function PhoneNumberDataFromJSONTyped(json: any, ignoreDiscriminator: boo
         'countryCode': json['countryCode'] == null ? undefined : json['countryCode'],
         'phoneNumber': json['phoneNumber'] == null ? undefined : json['phoneNumber'],
         'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
-        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
     };
 }
 
@@ -95,7 +76,6 @@ export function PhoneNumberDataToJSONTyped(value?: PhoneNumberData | null, ignor
         'countryCode': value['countryCode'],
         'phoneNumber': value['phoneNumber'],
         'phoneStatus': value['phoneStatus'],
-        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
     };
 }
 

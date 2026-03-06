@@ -120,6 +120,12 @@ export interface Terms {
      * @type {string}
      * @memberof Terms
      */
+    receiverAsEnum?: TermsReceiverAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Terms
+     */
     admissionStrategyAsEnum?: TermsAdmissionStrategyAsEnumEnum;
     /**
      * 
@@ -127,14 +133,17 @@ export interface Terms {
      * @memberof Terms
      */
     distributionReward?: Reward;
-    /**
-     * 
-     * @type {string}
-     * @memberof Terms
-     */
-    receiverAsEnum?: TermsReceiverAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const TermsReceiverAsEnumEnum = {
+    PARTICIPANT: 'PARTICIPANT',
+    WINNER: 'WINNER'
+} as const;
+export type TermsReceiverAsEnumEnum = typeof TermsReceiverAsEnumEnum[keyof typeof TermsReceiverAsEnumEnum];
 
 /**
  * @export
@@ -146,15 +155,6 @@ export const TermsAdmissionStrategyAsEnumEnum = {
     RANDOM: 'RANDOM'
 } as const;
 export type TermsAdmissionStrategyAsEnumEnum = typeof TermsAdmissionStrategyAsEnumEnum[keyof typeof TermsAdmissionStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const TermsReceiverAsEnumEnum = {
-    PARTICIPANT: 'PARTICIPANT',
-    WINNER: 'WINNER'
-} as const;
-export type TermsReceiverAsEnumEnum = typeof TermsReceiverAsEnumEnum[keyof typeof TermsReceiverAsEnumEnum];
 
 
 /**
@@ -184,9 +184,9 @@ export function TermsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ter
         'goalReward': json['goalReward'] == null ? undefined : RewardFromJSON(json['goalReward']),
         'autoClose': json['autoClose'] == null ? undefined : json['autoClose'],
         'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], PromiseFromJSON)),
+        'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
         'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
         'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
-        'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
     };
 }
 
@@ -211,9 +211,9 @@ export function TermsToJSONTyped(value?: Terms | null, ignoreDiscriminator: bool
         'goalReward': RewardToJSON(value['goalReward']),
         'autoClose': value['autoClose'],
         'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], PromiseToJSON)),
+        'receiverAsEnum': value['receiverAsEnum'],
         'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],
         'distributionReward': RewardToJSON(value['distributionReward']),
-        'receiverAsEnum': value['receiverAsEnum'],
     };
 }
 

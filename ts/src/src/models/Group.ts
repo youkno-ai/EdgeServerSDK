@@ -32,12 +32,6 @@ export interface Group {
      * @type {string}
      * @memberof Group
      */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Group
-     */
     parentId?: string;
     /**
      * 
@@ -93,56 +87,7 @@ export interface Group {
      * @memberof Group
      */
     createdAt?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Group
-     */
-    visibilityRolesList?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof Group
-     */
-    joiningStrategyAsEnum?: GroupJoiningStrategyAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Group
-     */
-    groupTypeAsEnum?: GroupGroupTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const GroupJoiningStrategyAsEnumEnum = {
-    INVITE_ONLY: 'INVITE_ONLY',
-    NEEDS_APPROVAL: 'NEEDS_APPROVAL',
-    OPEN: 'OPEN',
-    CLOSED: 'CLOSED',
-    GROUPS_ONLY: 'GROUPS_ONLY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type GroupJoiningStrategyAsEnumEnum = typeof GroupJoiningStrategyAsEnumEnum[keyof typeof GroupJoiningStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const GroupGroupTypeAsEnumEnum = {
-    GENERIC: 'GENERIC',
-    COMMUNITY: 'COMMUNITY',
-    INFLUENCERS: 'INFLUENCERS',
-    SUPPORT: 'SUPPORT',
-    OPERATOR: 'OPERATOR',
-    PENDING_EMPLOYEES: 'PENDING_EMPLOYEES',
-    MODERATORS: 'MODERATORS',
-    ORG_REPS: 'ORG_REPS',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type GroupGroupTypeAsEnumEnum = typeof GroupGroupTypeAsEnumEnum[keyof typeof GroupGroupTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Group interface.
@@ -161,7 +106,6 @@ export function GroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Gro
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
         'parentId': json['parentId'] == null ? undefined : json['parentId'],
         'user': json['user'] == null ? undefined : UserFromJSON(json['user']),
         'description': json['description'] == null ? undefined : json['description'],
@@ -172,9 +116,6 @@ export function GroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Gro
         'inheritRoles': json['inheritRoles'] == null ? undefined : json['inheritRoles'],
         'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'visibilityRolesList': json['visibilityRolesList'] == null ? undefined : json['visibilityRolesList'],
-        'joiningStrategyAsEnum': json['joiningStrategyAsEnum'] == null ? undefined : json['joiningStrategyAsEnum'],
-        'groupTypeAsEnum': json['groupTypeAsEnum'] == null ? undefined : json['groupTypeAsEnum'],
     };
 }
 
@@ -189,7 +130,6 @@ export function GroupToJSONTyped(value?: Group | null, ignoreDiscriminator: bool
 
     return {
         
-        'id': value['id'],
         'parentId': value['parentId'],
         'user': UserToJSON(value['user']),
         'description': value['description'],
@@ -200,9 +140,6 @@ export function GroupToJSONTyped(value?: Group | null, ignoreDiscriminator: bool
         'inheritRoles': value['inheritRoles'],
         'visibilityRoles': value['visibilityRoles'],
         'createdAt': value['createdAt'],
-        'visibilityRolesList': value['visibilityRolesList'],
-        'joiningStrategyAsEnum': value['joiningStrategyAsEnum'],
-        'groupTypeAsEnum': value['groupTypeAsEnum'],
     };
 }
 

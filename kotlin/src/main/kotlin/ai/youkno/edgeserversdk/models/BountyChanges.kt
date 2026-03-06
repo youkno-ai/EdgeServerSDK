@@ -93,7 +93,6 @@ import com.squareup.moshi.JsonClass
  * @param updateCompanyId 
  * @param editedAt 
  * @param source 
- * @param empty 
  */
 
 
@@ -223,10 +222,7 @@ data class BountyChanges (
     val editedAt: kotlin.Long? = null,
 
     @Json(name = "source")
-    val source: ChangesString? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null
+    val source: ChangesString? = null
 
 ) {
 

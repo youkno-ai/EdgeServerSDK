@@ -48,13 +48,6 @@ import com.squareup.moshi.JsonClass
  * @param redeemedAt 
  * @param createdAt 
  * @param selfLink 
- * @param virtual 
- * @param valid 
- * @param discountTypeAsEnum 
- * @param selfLinkType 
- * @param negativeValue 
- * @param decimalValue 
- * @param stateAsEnum 
  */
 
 
@@ -121,69 +114,10 @@ data class Voucher (
     val createdAt: kotlin.Long? = null,
 
     @Json(name = "selfLink")
-    val selfLink: kotlin.String? = null,
-
-    @Json(name = "virtual")
-    val virtual: kotlin.Boolean? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "discountTypeAsEnum")
-    val discountTypeAsEnum: Voucher.DiscountTypeAsEnum? = null,
-
-    @Json(name = "selfLinkType")
-    val selfLinkType: Voucher.SelfLinkType? = null,
-
-    @Json(name = "negativeValue")
-    val negativeValue: kotlin.Boolean? = null,
-
-    @Json(name = "decimalValue")
-    val decimalValue: java.math.BigDecimal? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: Voucher.StateAsEnum? = null
+    val selfLink: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,FLAT,PERCENTAGE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DiscountTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "FLAT") FLAT("FLAT"),
-        @Json(name = "PERCENTAGE") PERCENTAGE("PERCENTAGE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,VOUCHER,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SelfLinkType(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "VOUCHER") VOUCHER("VOUCHER"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,ACTIVE,REDEEMED,CANCELED,EXPIRED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "REDEEMED") REDEEMED("REDEEMED"),
-        @Json(name = "CANCELED") CANCELED("CANCELED"),
-        @Json(name = "EXPIRED") EXPIRED("EXPIRED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

@@ -24,17 +24,13 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param dayPeriods 
- * @param valid 
  */
 
 
 data class WeekPeriod (
 
     @Json(name = "dayPeriods")
-    val dayPeriods: kotlin.collections.Map<kotlin.String, DayPeriod>? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null
+    val dayPeriods: kotlin.collections.Map<kotlin.String, DayPeriod>? = null
 
 ) {
 

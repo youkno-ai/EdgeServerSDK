@@ -31,12 +31,6 @@ export interface AccessReward {
      * @memberof AccessReward
      */
     duration?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AccessReward
-     */
-    negative?: boolean;
 }
 
 /**
@@ -58,7 +52,6 @@ export function AccessRewardFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'] == null ? undefined : json['id'],
         'duration': json['duration'] == null ? undefined : json['duration'],
-        'negative': json['negative'] == null ? undefined : json['negative'],
     };
 }
 
@@ -75,7 +68,6 @@ export function AccessRewardToJSONTyped(value?: AccessReward | null, ignoreDiscr
         
         'id': value['id'],
         'duration': value['duration'],
-        'negative': value['negative'],
     };
 }
 

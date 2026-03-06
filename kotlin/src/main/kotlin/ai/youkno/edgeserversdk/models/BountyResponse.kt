@@ -47,7 +47,6 @@ import com.squareup.moshi.JsonClass
  * @param state 
  * @param milestone 
  * @param refusalReason 
- * @param outbound 
  * @param snippets 
  * @param note 
  * @param surveyAnswers 
@@ -71,19 +70,6 @@ import com.squareup.moshi.JsonClass
  * @param choice 
  * @param timeSpentInMs 
  * @param choiceExtras 
- * @param valid 
- * @param effectiveSurveyCodes 
- * @param effectiveSurveyAnswers 
- * @param displayModeAsEnum 
- * @param refusalReasonAsEnum 
- * @param attachmentsAnchorType 
- * @param level1Id 
- * @param level2Id 
- * @param favorite 
- * @param liked 
- * @param stateAsEnum 
- * @param typeAsEnum 
- * @param expired 
  * @param entityId 
  */
 
@@ -125,9 +111,6 @@ data class BountyResponse (
 
     @Json(name = "refusalReason")
     val refusalReason: kotlin.String? = null,
-
-    @Json(name = "outbound")
-    val outbound: kotlin.Boolean? = null,
 
     @Json(name = "snippets")
     val snippets: Snippets? = null,
@@ -201,130 +184,11 @@ data class BountyResponse (
     @Deprecated(message = "This property is deprecated.")
     val choiceExtras: ChoiceExtras? = null,
 
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "effectiveSurveyCodes")
-    val effectiveSurveyCodes: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "effectiveSurveyAnswers")
-    val effectiveSurveyAnswers: SurveyAnswers? = null,
-
-    @Json(name = "displayModeAsEnum")
-    val displayModeAsEnum: BountyResponse.DisplayModeAsEnum? = null,
-
-    @Json(name = "refusalReasonAsEnum")
-    val refusalReasonAsEnum: BountyResponse.RefusalReasonAsEnum? = null,
-
-    @Json(name = "attachmentsAnchorType")
-    val attachmentsAnchorType: BountyResponse.AttachmentsAnchorType? = null,
-
-    @Json(name = "level1Id")
-    val level1Id: kotlin.String? = null,
-
-    @Json(name = "level2Id")
-    val level2Id: kotlin.String? = null,
-
-    @Json(name = "favorite")
-    val favorite: kotlin.Boolean? = null,
-
-    @Json(name = "liked")
-    val liked: kotlin.Boolean? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: BountyResponse.StateAsEnum? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: BountyResponse.TypeAsEnum? = null,
-
-    @Json(name = "expired")
-    val expired: kotlin.Boolean? = null,
-
     @Json(name = "entityId")
     val entityId: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,DEFAULT,HIGHLIGHTED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DisplayModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "HIGHLIGHTED") HIGHLIGHTED("HIGHLIGHTED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DUPLICATE,NOT_GOOD,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RefusalReasonAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DUPLICATE") DUPLICATE("DUPLICATE"),
-        @Json(name = "NOT_GOOD") NOT_GOOD("NOT_GOOD"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,USER,BOUNTY,RESPONSE,MESSAGE,VOUCHER,SETTINGS,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AttachmentsAnchorType(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "USER") USER("USER"),
-        @Json(name = "BOUNTY") BOUNTY("BOUNTY"),
-        @Json(name = "RESPONSE") RESPONSE("RESPONSE"),
-        @Json(name = "MESSAGE") MESSAGE("MESSAGE"),
-        @Json(name = "VOUCHER") VOUCHER("VOUCHER"),
-        @Json(name = "SETTINGS") SETTINGS("SETTINGS"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DRAFT,APPROVAL,PENDING,ACTIVE,ACKED,PROGRESSING,ACCEPTED,REFUSED,PAYING,PAID,RETRACTED,REJECTED,DELETED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DRAFT") DRAFT("DRAFT"),
-        @Json(name = "APPROVAL") APPROVAL("APPROVAL"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "ACKED") ACKED("ACKED"),
-        @Json(name = "PROGRESSING") PROGRESSING("PROGRESSING"),
-        @Json(name = "ACCEPTED") ACCEPTED("ACCEPTED"),
-        @Json(name = "REFUSED") REFUSED("REFUSED"),
-        @Json(name = "PAYING") PAYING("PAYING"),
-        @Json(name = "PAID") PAID("PAID"),
-        @Json(name = "RETRACTED") RETRACTED("RETRACTED"),
-        @Json(name = "REJECTED") REJECTED("REJECTED"),
-        @Json(name = "DELETED") DELETED("DELETED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,RECOMMENDATION,NOTE,CHOICE,ORDER,CLAIM,ACCESS_CONTENT,BID,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "RECOMMENDATION") RECOMMENDATION("RECOMMENDATION"),
-        @Json(name = "NOTE") NOTE("NOTE"),
-        @Json(name = "CHOICE") CHOICE("CHOICE"),
-        @Json(name = "ORDER") ORDER("ORDER"),
-        @Json(name = "CLAIM") CLAIM("CLAIM"),
-        @Json(name = "ACCESS_CONTENT") ACCESS_CONTENT("ACCESS_CONTENT"),
-        @Json(name = "BID") BID("BID"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

@@ -34,8 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param badges 
  * @param promotions 
  * @param accessKeys 
- * @param partCount 
- * @param simpleReward 
  */
 
 
@@ -57,13 +55,7 @@ data class Reward (
     val promotions: kotlin.collections.Map<kotlin.String, Promotion>? = null,
 
     @Json(name = "accessKeys")
-    val accessKeys: kotlin.collections.Map<kotlin.String, AccessReward>? = null,
-
-    @Json(name = "partCount")
-    val partCount: kotlin.Int? = null,
-
-    @Json(name = "simpleReward")
-    val simpleReward: kotlin.Boolean? = null
+    val accessKeys: kotlin.collections.Map<kotlin.String, AccessReward>? = null
 
 ) {
 

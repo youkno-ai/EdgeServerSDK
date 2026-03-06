@@ -194,13 +194,13 @@ export interface OrderSection {
      * @type {Reward}
      * @memberof OrderSection
      */
-    deliveryFeeToPay?: Reward;
+    itemsTotalToPay?: Reward;
     /**
      * 
      * @type {Reward}
      * @memberof OrderSection
      */
-    itemsTotalToPay?: Reward;
+    deliveryFeeToPay?: Reward;
 }
 
 /**
@@ -240,8 +240,8 @@ export function OrderSectionFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'balances': json['balances'] == null ? undefined : (mapValues(json['balances'], BalanceCategoryInfoFromJSON)),
         'products': json['products'] == null ? undefined : ((json['products'] as Array<any>).map(ProductInfoFromJSON)),
         'invalidProducts': json['invalidProducts'] == null ? undefined : ((json['invalidProducts'] as Array<any>).map(InvalidProductInfoFromJSON)),
-        'deliveryFeeToPay': json['deliveryFeeToPay'] == null ? undefined : RewardFromJSON(json['deliveryFeeToPay']),
         'itemsTotalToPay': json['itemsTotalToPay'] == null ? undefined : RewardFromJSON(json['itemsTotalToPay']),
+        'deliveryFeeToPay': json['deliveryFeeToPay'] == null ? undefined : RewardFromJSON(json['deliveryFeeToPay']),
     };
 }
 
@@ -276,8 +276,8 @@ export function OrderSectionToJSONTyped(value?: OrderSection | null, ignoreDiscr
         'balances': value['balances'] == null ? undefined : (mapValues(value['balances'], BalanceCategoryInfoToJSON)),
         'products': value['products'] == null ? undefined : ((value['products'] as Array<any>).map(ProductInfoToJSON)),
         'invalidProducts': value['invalidProducts'] == null ? undefined : ((value['invalidProducts'] as Array<any>).map(InvalidProductInfoToJSON)),
-        'deliveryFeeToPay': RewardToJSON(value['deliveryFeeToPay']),
         'itemsTotalToPay': RewardToJSON(value['itemsTotalToPay']),
+        'deliveryFeeToPay': RewardToJSON(value['deliveryFeeToPay']),
     };
 }
 

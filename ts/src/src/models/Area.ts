@@ -86,18 +86,6 @@ export interface Area {
      * @type {string}
      * @memberof Area
      */
-    radiusUnitAsEnum?: AreaRadiusUnitAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Area
-     */
-    referenceTypeAsEnum?: AreaReferenceTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Area
-     */
     areaTypeAsEnum?: AreaAreaTypeAsEnumEnum;
     /**
      * 
@@ -105,8 +93,32 @@ export interface Area {
      * @memberof Area
      */
     referenceArea?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Area
+     */
+    radiusUnitAsEnum?: AreaRadiusUnitAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Area
+     */
+    referenceTypeAsEnum?: AreaReferenceTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const AreaAreaTypeAsEnumEnum = {
+    NONE: 'NONE',
+    CIRCLE: 'CIRCLE',
+    SQUARE: 'SQUARE',
+    POLYGON: 'POLYGON',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type AreaAreaTypeAsEnumEnum = typeof AreaAreaTypeAsEnumEnum[keyof typeof AreaAreaTypeAsEnumEnum];
 
 /**
  * @export
@@ -130,18 +142,6 @@ export const AreaReferenceTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type AreaReferenceTypeAsEnumEnum = typeof AreaReferenceTypeAsEnumEnum[keyof typeof AreaReferenceTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const AreaAreaTypeAsEnumEnum = {
-    NONE: 'NONE',
-    CIRCLE: 'CIRCLE',
-    SQUARE: 'SQUARE',
-    POLYGON: 'POLYGON',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type AreaAreaTypeAsEnumEnum = typeof AreaAreaTypeAsEnumEnum[keyof typeof AreaAreaTypeAsEnumEnum];
 
 
 /**
@@ -170,10 +170,10 @@ export function AreaFromJSONTyped(json: any, ignoreDiscriminator: boolean): Area
         'displayRadiusUnit': json['displayRadiusUnit'] == null ? undefined : json['displayRadiusUnit'],
         'referenceType': json['referenceType'] == null ? undefined : json['referenceType'],
         'reference': json['reference'] == null ? undefined : json['reference'],
-        'radiusUnitAsEnum': json['radiusUnitAsEnum'] == null ? undefined : json['radiusUnitAsEnum'],
-        'referenceTypeAsEnum': json['referenceTypeAsEnum'] == null ? undefined : json['referenceTypeAsEnum'],
         'areaTypeAsEnum': json['areaTypeAsEnum'] == null ? undefined : json['areaTypeAsEnum'],
         'referenceArea': json['referenceArea'] == null ? undefined : json['referenceArea'],
+        'radiusUnitAsEnum': json['radiusUnitAsEnum'] == null ? undefined : json['radiusUnitAsEnum'],
+        'referenceTypeAsEnum': json['referenceTypeAsEnum'] == null ? undefined : json['referenceTypeAsEnum'],
     };
 }
 
@@ -197,10 +197,10 @@ export function AreaToJSONTyped(value?: Area | null, ignoreDiscriminator: boolea
         'displayRadiusUnit': value['displayRadiusUnit'],
         'referenceType': value['referenceType'],
         'reference': value['reference'],
-        'radiusUnitAsEnum': value['radiusUnitAsEnum'],
-        'referenceTypeAsEnum': value['referenceTypeAsEnum'],
         'areaTypeAsEnum': value['areaTypeAsEnum'],
         'referenceArea': value['referenceArea'],
+        'radiusUnitAsEnum': value['radiusUnitAsEnum'],
+        'referenceTypeAsEnum': value['referenceTypeAsEnum'],
     };
 }
 

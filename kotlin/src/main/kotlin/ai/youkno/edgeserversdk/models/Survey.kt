@@ -36,12 +36,6 @@ import com.squareup.moshi.JsonClass
  * @param question 
  * @param timeLimit 
  * @param options 
- * @param valid 
- * @param expectedNrOfResponses 
- * @param choiceTypeAsEnum 
- * @param rewardTypeAsEnum 
- * @param maxWeight 
- * @param typeAsEnum 
  */
 
 
@@ -75,62 +69,10 @@ data class Survey (
     val timeLimit: kotlin.Long? = null,
 
     @Json(name = "options")
-    val options: kotlin.collections.List<Option>? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "expectedNrOfResponses")
-    val expectedNrOfResponses: kotlin.Int? = null,
-
-    @Json(name = "choiceTypeAsEnum")
-    val choiceTypeAsEnum: Survey.ChoiceTypeAsEnum? = null,
-
-    @Json(name = "rewardTypeAsEnum")
-    val rewardTypeAsEnum: Survey.RewardTypeAsEnum? = null,
-
-    @Json(name = "maxWeight")
-    val maxWeight: kotlin.Int? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: Survey.TypeAsEnum? = null
+    val options: kotlin.collections.List<Option>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: SINGLE_CHOICE,MULTI_CHOICE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ChoiceTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "SINGLE_CHOICE") SINGLE_CHOICE("SINGLE_CHOICE"),
-        @Json(name = "MULTI_CHOICE") MULTI_CHOICE("MULTI_CHOICE");
-    }
-    /**
-     * 
-     *
-     * Values: DEFAULT,TIME_BASED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RewardTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "TIME_BASED") TIME_BASED("TIME_BASED");
-    }
-    /**
-     * 
-     *
-     * Values: POLL,MCQ,SCORE,CHECKLIST,FUNDING,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "POLL") POLL("POLL"),
-        @Json(name = "MCQ") MCQ("MCQ"),
-        @Json(name = "SCORE") SCORE("SCORE"),
-        @Json(name = "CHECKLIST") CHECKLIST("CHECKLIST"),
-        @Json(name = "FUNDING") FUNDING("FUNDING"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

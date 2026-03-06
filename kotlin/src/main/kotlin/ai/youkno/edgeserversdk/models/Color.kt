@@ -23,17 +23,13 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param `val` 
- * @param empty 
  */
 
 
 data class Color (
 
     @Json(name = "val")
-    val `val`: kotlin.String? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null
+    val `val`: kotlin.String? = null
 
 ) {
 

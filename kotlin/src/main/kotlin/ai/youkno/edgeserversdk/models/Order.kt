@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
- * @param vouchersToRedeem 
- * @param receiptStatusAsEnum 
- * @param paymentStatusAsEnum 
+ * @param imageUrl 
+ * @param merchantId 
+ * @param merchant 
  * @param statusAsEnum 
  * @param overallSection 
  * @param customerEmail 
- * @param merchant 
- * @param imageUrl 
- * @param merchantId 
+ * @param paymentStatusAsEnum 
+ * @param vouchersToRedeem 
+ * @param receiptStatusAsEnum 
  */
 
 
@@ -124,14 +124,14 @@ data class Order (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
-    @Json(name = "vouchersToRedeem")
-    val vouchersToRedeem: Reward? = null,
+    @Json(name = "imageUrl")
+    val imageUrl: kotlin.String? = null,
 
-    @Json(name = "receiptStatusAsEnum")
-    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null,
+    @Json(name = "merchantId")
+    val merchantId: kotlin.String? = null,
 
-    @Json(name = "paymentStatusAsEnum")
-    val paymentStatusAsEnum: Order.PaymentStatusAsEnum? = null,
+    @Json(name = "merchant")
+    val merchant: User? = null,
 
     @Json(name = "statusAsEnum")
     val statusAsEnum: Order.StatusAsEnum? = null,
@@ -142,42 +142,17 @@ data class Order (
     @Json(name = "customerEmail")
     val customerEmail: kotlin.String? = null,
 
-    @Json(name = "merchant")
-    val merchant: User? = null,
+    @Json(name = "paymentStatusAsEnum")
+    val paymentStatusAsEnum: Order.PaymentStatusAsEnum? = null,
 
-    @Json(name = "imageUrl")
-    val imageUrl: kotlin.String? = null,
+    @Json(name = "vouchersToRedeem")
+    val vouchersToRedeem: Reward? = null,
 
-    @Json(name = "merchantId")
-    val merchantId: kotlin.String? = null
+    @Json(name = "receiptStatusAsEnum")
+    val receiptStatusAsEnum: Order.ReceiptStatusAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: CREATED,SCANNED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "CREATED") CREATED("CREATED"),
-        @Json(name = "SCANNED") SCANNED("SCANNED");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING_PAYMENT,PROCESSING_PAYMENT,PENDING_CONFIRM,PAID,PAYMENT_FAILED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PaymentStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING_PAYMENT") PENDING_PAYMENT("PENDING_PAYMENT"),
-        @Json(name = "PROCESSING_PAYMENT") PROCESSING_PAYMENT("PROCESSING_PAYMENT"),
-        @Json(name = "PENDING_CONFIRM") PENDING_CONFIRM("PENDING_CONFIRM"),
-        @Json(name = "PAID") PAID("PAID"),
-        @Json(name = "PAYMENT_FAILED") PAYMENT_FAILED("PAYMENT_FAILED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -197,6 +172,31 @@ data class Order (
         @Json(name = "DECLINED") DECLINED("DECLINED"),
         @Json(name = "CANCELLED") CANCELLED("CANCELLED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,PENDING_PAYMENT,PROCESSING_PAYMENT,PENDING_CONFIRM,PAID,PAYMENT_FAILED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PaymentStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "PENDING_PAYMENT") PENDING_PAYMENT("PENDING_PAYMENT"),
+        @Json(name = "PROCESSING_PAYMENT") PROCESSING_PAYMENT("PROCESSING_PAYMENT"),
+        @Json(name = "PENDING_CONFIRM") PENDING_CONFIRM("PENDING_CONFIRM"),
+        @Json(name = "PAID") PAID("PAID"),
+        @Json(name = "PAYMENT_FAILED") PAYMENT_FAILED("PAYMENT_FAILED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: CREATED,SCANNED
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "CREATED") CREATED("CREATED"),
+        @Json(name = "SCANNED") SCANNED("SCANNED");
     }
 
 }

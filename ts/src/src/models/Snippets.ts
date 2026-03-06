@@ -61,16 +61,16 @@ export interface Snippets {
     reject?: RejectSnippet;
     /**
      * 
-     * @type {PaymentRecvSnippet}
-     * @memberof Snippets
-     */
-    firstPaymentRecv?: PaymentRecvSnippet;
-    /**
-     * 
      * @type {boolean}
      * @memberof Snippets
      */
     paymentReceived?: boolean;
+    /**
+     * 
+     * @type {PaymentRecvSnippet}
+     * @memberof Snippets
+     */
+    firstPaymentRecv?: PaymentRecvSnippet;
 }
 
 /**
@@ -93,8 +93,8 @@ export function SnippetsFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'paymentsRecv': json['paymentsRecv'] == null ? undefined : (mapValues(json['paymentsRecv'], PaymentRecvSnippetFromJSON)),
         'review': json['review'] == null ? undefined : ReviewSnippetFromJSON(json['review']),
         'reject': json['reject'] == null ? undefined : RejectSnippetFromJSON(json['reject']),
-        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : PaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
         'paymentReceived': json['paymentReceived'] == null ? undefined : json['paymentReceived'],
+        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : PaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
     };
 }
 
@@ -112,8 +112,8 @@ export function SnippetsToJSONTyped(value?: Snippets | null, ignoreDiscriminator
         'paymentsRecv': value['paymentsRecv'] == null ? undefined : (mapValues(value['paymentsRecv'], PaymentRecvSnippetToJSON)),
         'review': ReviewSnippetToJSON(value['review']),
         'reject': RejectSnippetToJSON(value['reject']),
-        'firstPaymentRecv': PaymentRecvSnippetToJSON(value['firstPaymentRecv']),
         'paymentReceived': value['paymentReceived'],
+        'firstPaymentRecv': PaymentRecvSnippetToJSON(value['firstPaymentRecv']),
     };
 }
 

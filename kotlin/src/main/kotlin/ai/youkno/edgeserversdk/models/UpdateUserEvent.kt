@@ -69,11 +69,11 @@ import com.squareup.moshi.JsonClass
  * @param validateUserMerge 
  * @param frontEnd 
  * @param empty 
- * @param phoneStatusAsEnum 
  * @param localeAsEnum 
  * @param explicitUpdate 
  * @param dobAsLocalDate 
  * @param device 
+ * @param phoneStatusAsEnum 
  * @param requesterId 
  */
 
@@ -203,9 +203,6 @@ data class UpdateUserEvent (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "phoneStatusAsEnum")
-    val phoneStatusAsEnum: UpdateUserEvent.PhoneStatusAsEnum? = null,
-
     @Json(name = "localeAsEnum")
     val localeAsEnum: kotlin.String? = null,
 
@@ -217,6 +214,9 @@ data class UpdateUserEvent (
 
     @Json(name = "device")
     val device: Device? = null,
+
+    @Json(name = "phoneStatusAsEnum")
+    val phoneStatusAsEnum: UpdateUserEvent.PhoneStatusAsEnum? = null,
 
     @Json(name = "requesterId")
     val requesterId: kotlin.String? = null

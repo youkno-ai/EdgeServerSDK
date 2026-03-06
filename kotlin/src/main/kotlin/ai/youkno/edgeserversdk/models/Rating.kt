@@ -28,7 +28,6 @@ import com.squareup.moshi.JsonClass
  * @param totalStars 
  * @param ratingCount 
  * @param starPointsValue 
- * @param avgStartRating 
  */
 
 
@@ -47,10 +46,7 @@ data class Rating (
     val ratingCount: kotlin.Int? = null,
 
     @Json(name = "starPointsValue")
-    val starPointsValue: kotlin.Int? = null,
-
-    @Json(name = "avgStartRating")
-    val avgStartRating: kotlin.Float? = null
+    val starPointsValue: kotlin.Int? = null
 
 ) {
 

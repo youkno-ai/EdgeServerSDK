@@ -185,12 +185,6 @@ export interface BountyResponse {
     refusalReason?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof BountyResponse
-     */
-    outbound?: boolean;
-    /**
-     * 
      * @type {Snippets}
      * @memberof BountyResponse
      */
@@ -332,166 +326,11 @@ export interface BountyResponse {
     choiceExtras?: ChoiceExtras;
     /**
      * 
-     * @type {boolean}
-     * @memberof BountyResponse
-     */
-    valid?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof BountyResponse
-     */
-    effectiveSurveyCodes?: Array<string>;
-    /**
-     * 
-     * @type {SurveyAnswers}
-     * @memberof BountyResponse
-     */
-    effectiveSurveyAnswers?: SurveyAnswers;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    displayModeAsEnum?: BountyResponseDisplayModeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    refusalReasonAsEnum?: BountyResponseRefusalReasonAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    attachmentsAnchorType?: BountyResponseAttachmentsAnchorTypeEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    level1Id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    level2Id?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyResponse
-     */
-    favorite?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyResponse
-     */
-    liked?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    stateAsEnum?: BountyResponseStateAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyResponse
-     */
-    typeAsEnum?: BountyResponseTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyResponse
-     */
-    expired?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof BountyResponse
      */
     entityId?: string;
 }
-
-
-/**
- * @export
- */
-export const BountyResponseDisplayModeAsEnumEnum = {
-    NONE: 'NONE',
-    DEFAULT: 'DEFAULT',
-    HIGHLIGHTED: 'HIGHLIGHTED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyResponseDisplayModeAsEnumEnum = typeof BountyResponseDisplayModeAsEnumEnum[keyof typeof BountyResponseDisplayModeAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyResponseRefusalReasonAsEnumEnum = {
-    NONE: 'NONE',
-    DUPLICATE: 'DUPLICATE',
-    NOT_GOOD: 'NOT_GOOD',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyResponseRefusalReasonAsEnumEnum = typeof BountyResponseRefusalReasonAsEnumEnum[keyof typeof BountyResponseRefusalReasonAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyResponseAttachmentsAnchorTypeEnum = {
-    NONE: 'NONE',
-    USER: 'USER',
-    BOUNTY: 'BOUNTY',
-    RESPONSE: 'RESPONSE',
-    MESSAGE: 'MESSAGE',
-    VOUCHER: 'VOUCHER',
-    SETTINGS: 'SETTINGS',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyResponseAttachmentsAnchorTypeEnum = typeof BountyResponseAttachmentsAnchorTypeEnum[keyof typeof BountyResponseAttachmentsAnchorTypeEnum];
-
-/**
- * @export
- */
-export const BountyResponseStateAsEnumEnum = {
-    NONE: 'NONE',
-    DRAFT: 'DRAFT',
-    APPROVAL: 'APPROVAL',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    ACKED: 'ACKED',
-    PROGRESSING: 'PROGRESSING',
-    ACCEPTED: 'ACCEPTED',
-    REFUSED: 'REFUSED',
-    PAYING: 'PAYING',
-    PAID: 'PAID',
-    RETRACTED: 'RETRACTED',
-    REJECTED: 'REJECTED',
-    DELETED: 'DELETED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyResponseStateAsEnumEnum = typeof BountyResponseStateAsEnumEnum[keyof typeof BountyResponseStateAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyResponseTypeAsEnumEnum = {
-    NONE: 'NONE',
-    RECOMMENDATION: 'RECOMMENDATION',
-    NOTE: 'NOTE',
-    CHOICE: 'CHOICE',
-    ORDER: 'ORDER',
-    CLAIM: 'CLAIM',
-    ACCESS_CONTENT: 'ACCESS_CONTENT',
-    BID: 'BID',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyResponseTypeAsEnumEnum = typeof BountyResponseTypeAsEnumEnum[keyof typeof BountyResponseTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the BountyResponse interface.
@@ -522,7 +361,6 @@ export function BountyResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
         'state': json['state'] == null ? undefined : json['state'],
         'milestone': json['milestone'] == null ? undefined : json['milestone'],
         'refusalReason': json['refusalReason'] == null ? undefined : json['refusalReason'],
-        'outbound': json['outbound'] == null ? undefined : json['outbound'],
         'snippets': json['snippets'] == null ? undefined : SnippetsFromJSON(json['snippets']),
         'note': json['note'] == null ? undefined : json['note'],
         'surveyAnswers': json['surveyAnswers'] == null ? undefined : SurveyAnswersFromJSON(json['surveyAnswers']),
@@ -546,19 +384,6 @@ export function BountyResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
         'choice': json['choice'] == null ? undefined : json['choice'],
         'timeSpentInMs': json['timeSpentInMs'] == null ? undefined : json['timeSpentInMs'],
         'choiceExtras': json['choiceExtras'] == null ? undefined : ChoiceExtrasFromJSON(json['choiceExtras']),
-        'valid': json['valid'] == null ? undefined : json['valid'],
-        'effectiveSurveyCodes': json['effectiveSurveyCodes'] == null ? undefined : json['effectiveSurveyCodes'],
-        'effectiveSurveyAnswers': json['effectiveSurveyAnswers'] == null ? undefined : SurveyAnswersFromJSON(json['effectiveSurveyAnswers']),
-        'displayModeAsEnum': json['displayModeAsEnum'] == null ? undefined : json['displayModeAsEnum'],
-        'refusalReasonAsEnum': json['refusalReasonAsEnum'] == null ? undefined : json['refusalReasonAsEnum'],
-        'attachmentsAnchorType': json['attachmentsAnchorType'] == null ? undefined : json['attachmentsAnchorType'],
-        'level1Id': json['level1Id'] == null ? undefined : json['level1Id'],
-        'level2Id': json['level2Id'] == null ? undefined : json['level2Id'],
-        'favorite': json['favorite'] == null ? undefined : json['favorite'],
-        'liked': json['liked'] == null ? undefined : json['liked'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
-        'expired': json['expired'] == null ? undefined : json['expired'],
         'entityId': json['entityId'] == null ? undefined : json['entityId'],
     };
 }
@@ -586,7 +411,6 @@ export function BountyResponseToJSONTyped(value?: BountyResponse | null, ignoreD
         'state': value['state'],
         'milestone': value['milestone'],
         'refusalReason': value['refusalReason'],
-        'outbound': value['outbound'],
         'snippets': SnippetsToJSON(value['snippets']),
         'note': value['note'],
         'surveyAnswers': SurveyAnswersToJSON(value['surveyAnswers']),
@@ -610,19 +434,6 @@ export function BountyResponseToJSONTyped(value?: BountyResponse | null, ignoreD
         'choice': value['choice'],
         'timeSpentInMs': value['timeSpentInMs'],
         'choiceExtras': ChoiceExtrasToJSON(value['choiceExtras']),
-        'valid': value['valid'],
-        'effectiveSurveyCodes': value['effectiveSurveyCodes'],
-        'effectiveSurveyAnswers': SurveyAnswersToJSON(value['effectiveSurveyAnswers']),
-        'displayModeAsEnum': value['displayModeAsEnum'],
-        'refusalReasonAsEnum': value['refusalReasonAsEnum'],
-        'attachmentsAnchorType': value['attachmentsAnchorType'],
-        'level1Id': value['level1Id'],
-        'level2Id': value['level2Id'],
-        'favorite': value['favorite'],
-        'liked': value['liked'],
-        'stateAsEnum': value['stateAsEnum'],
-        'typeAsEnum': value['typeAsEnum'],
-        'expired': value['expired'],
         'entityId': value['entityId'],
     };
 }

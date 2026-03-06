@@ -20,13 +20,6 @@ import {
     LossInfoToJSON,
     LossInfoToJSONTyped,
 } from './LossInfo';
-import type { User } from './User';
-import {
-    UserFromJSON,
-    UserFromJSONTyped,
-    UserToJSON,
-    UserToJSONTyped,
-} from './User';
 import type { UseInfo } from './UseInfo';
 import {
     UseInfoFromJSON,
@@ -168,80 +161,7 @@ export interface Device {
      * @memberof Device
      */
     lossInfo?: LossInfo;
-    /**
-     * 
-     * @type {string}
-     * @memberof Device
-     */
-    ownershipAsEnum?: DeviceOwnershipAsEnumEnum;
-    /**
-     * 
-     * @type {User}
-     * @memberof Device
-     */
-    admin?: User;
-    /**
-     * 
-     * @type {string}
-     * @memberof Device
-     */
-    statusAsEnum?: DeviceStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Device
-     */
-    platformAsEnum?: DevicePlatformAsEnumEnum;
-    /**
-     * 
-     * @type {User}
-     * @memberof Device
-     */
-    user?: User;
 }
-
-
-/**
- * @export
- */
-export const DeviceOwnershipAsEnumEnum = {
-    NONE: 'NONE',
-    COMPANY: 'COMPANY',
-    PERSONAL: 'PERSONAL',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type DeviceOwnershipAsEnumEnum = typeof DeviceOwnershipAsEnumEnum[keyof typeof DeviceOwnershipAsEnumEnum];
-
-/**
- * @export
- */
-export const DeviceStatusAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    NOT_COLLECTED: 'NOT_COLLECTED',
-    COLLECTED: 'COLLECTED',
-    LOST: 'LOST',
-    REJECTED: 'REJECTED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type DeviceStatusAsEnumEnum = typeof DeviceStatusAsEnumEnum[keyof typeof DeviceStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const DevicePlatformAsEnumEnum = {
-    NONE: 'NONE',
-    ANDROID: 'ANDROID',
-    IOS: 'IOS',
-    WINDOW: 'WINDOW',
-    MAC_OS: 'MAC_OS',
-    LINUX: 'LINUX',
-    WEB: 'WEB',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type DevicePlatformAsEnumEnum = typeof DevicePlatformAsEnumEnum[keyof typeof DevicePlatformAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Device interface.
@@ -280,11 +200,6 @@ export function DeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): De
         'useInfo': json['useInfo'] == null ? undefined : UseInfoFromJSON(json['useInfo']),
         'collectionInfo': json['collectionInfo'] == null ? undefined : CollectionInfoFromJSON(json['collectionInfo']),
         'lossInfo': json['lossInfo'] == null ? undefined : LossInfoFromJSON(json['lossInfo']),
-        'ownershipAsEnum': json['ownershipAsEnum'] == null ? undefined : json['ownershipAsEnum'],
-        'admin': json['admin'] == null ? undefined : UserFromJSON(json['admin']),
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'platformAsEnum': json['platformAsEnum'] == null ? undefined : json['platformAsEnum'],
-        'user': json['user'] == null ? undefined : UserFromJSON(json['user']),
     };
 }
 
@@ -319,11 +234,6 @@ export function DeviceToJSONTyped(value?: Device | null, ignoreDiscriminator: bo
         'useInfo': UseInfoToJSON(value['useInfo']),
         'collectionInfo': CollectionInfoToJSON(value['collectionInfo']),
         'lossInfo': LossInfoToJSON(value['lossInfo']),
-        'ownershipAsEnum': value['ownershipAsEnum'],
-        'admin': UserToJSON(value['admin']),
-        'statusAsEnum': value['statusAsEnum'],
-        'platformAsEnum': value['platformAsEnum'],
-        'user': UserToJSON(value['user']),
     };
 }
 

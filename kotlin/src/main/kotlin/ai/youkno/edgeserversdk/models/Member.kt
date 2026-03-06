@@ -35,12 +35,6 @@ import com.squareup.moshi.JsonClass
  * @param coverImageURL 
  * @param memberCount 
  * @param joinedAt 
- * @param visibilityRolesList 
- * @param joiningStrategyAsEnum 
- * @param rolesList 
- * @param memberRolesList 
- * @param groupAdmin 
- * @param stateAsEnum 
  */
 
 
@@ -80,55 +74,10 @@ data class Member (
     val memberCount: kotlin.Int? = null,
 
     @Json(name = "joinedAt")
-    val joinedAt: kotlin.Long? = null,
-
-    @Json(name = "visibilityRolesList")
-    val visibilityRolesList: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "joiningStrategyAsEnum")
-    val joiningStrategyAsEnum: Member.JoiningStrategyAsEnum? = null,
-
-    @Json(name = "rolesList")
-    val rolesList: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "memberRolesList")
-    val memberRolesList: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "groupAdmin")
-    val groupAdmin: kotlin.Boolean? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: Member.StateAsEnum? = null
+    val joinedAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: INVITE_ONLY,NEEDS_APPROVAL,OPEN,CLOSED,GROUPS_ONLY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class JoiningStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "INVITE_ONLY") INVITE_ONLY("INVITE_ONLY"),
-        @Json(name = "NEEDS_APPROVAL") NEEDS_APPROVAL("NEEDS_APPROVAL"),
-        @Json(name = "OPEN") OPEN("OPEN"),
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "GROUPS_ONLY") GROUPS_ONLY("GROUPS_ONLY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,ACTIVE,REJECTED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "REJECTED") REJECTED("REJECTED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

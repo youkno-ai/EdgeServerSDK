@@ -27,9 +27,9 @@ import {
 
 export interface DeleteCompanyRequest {
     companyId: string;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetCompanyEmployeesRequest {
@@ -41,9 +41,9 @@ export interface GetCompanyEmployeesRequest {
     length?: number;
     userStatus?: Array<GetCompanyEmployeesUserStatusEnum>;
     searchMode?: GetCompanyEmployeesSearchModeEnum;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetInvitersRequest {
@@ -51,9 +51,9 @@ export interface GetInvitersRequest {
     start?: number;
     limit?: number;
     searchMode?: GetInvitersSearchModeEnum;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 export interface GetUsersRegisteredByInviteCodeRequest {
@@ -67,9 +67,9 @@ export interface GetUsersRegisteredByInviteCodeRequest {
     blacklisted?: boolean;
     query?: string;
     searchFields?: Set<GetUsersRegisteredByInviteCodeSearchFieldsEnum>;
-    UNKNOWN_PARAMETER_NAME?: ;
-    UNKNOWN_PARAMETER_NAME2?: ;
-    UNKNOWN_PARAMETER_NAME3?: ;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
 }
 
 /**
@@ -82,18 +82,18 @@ export interface CompaniesControllerApiInterface {
     /**
      * 
      * @param {string} companyId 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
     /**
      * 
@@ -105,9 +105,9 @@ export interface CompaniesControllerApiInterface {
      * @param {number} [length] 
      * @param {Array<'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'BLACKLISTED' | 'TO_BE_DELETED' | 'DELETED' | 'UNKNOWN'>} [userStatus] 
      * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
@@ -124,9 +124,9 @@ export interface CompaniesControllerApiInterface {
      * @param {number} [start] 
      * @param {number} [limit] 
      * @param {'DEFAULT' | 'REGULAR' | 'TEST' | 'ALL'} [searchMode] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
@@ -149,18 +149,18 @@ export interface CompaniesControllerApiInterface {
      * @param {boolean} [blacklisted] 
      * @param {string} [query] 
      * @param {Set<'NONE' | 'USER_NAME' | 'USER_FIRST_NAME' | 'USER_LAST_NAME' | 'USER_LATINIZED_NAME' | 'USER_EMAIL' | 'USER_COUNTRY_CODE' | 'USER_CITY' | 'EMPLOYER_NAME' | 'BOUNTY_TITLE' | 'BOUNTY_DESCRIPTION' | 'BOUNTY_CREATOR_NAME' | 'APPLICANT_POSITION' | 'REFERRAL_CODE' | 'PIN' | 'COUNTRY' | 'COMPANY_NAME' | 'PHONE' | 'UNKNOWN'>} [searchFields] 
-     * @param {} [UNKNOWN_PARAMETER_NAME] 
-     * @param {} [UNKNOWN_PARAMETER_NAME2] 
-     * @param {} [UNKNOWN_PARAMETER_NAME3] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>>;
 
     /**
      */
-    getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }>;
 
 }
 
@@ -171,7 +171,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteCompanyRaw(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -183,16 +183,16 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -215,7 +215,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteCompany(requestParameters: DeleteCompanyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.deleteCompanyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -262,16 +262,16 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -325,16 +325,16 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -364,7 +364,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getUsersRegisteredByInviteCodeRaw(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -412,16 +412,16 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME'] != null) {
-            headerParameters['X-edge-agent'] = String(requestParameters['UNKNOWN_PARAMETER_NAME']);
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME2'] != null) {
-            headerParameters['X-edge-state'] = String(requestParameters['UNKNOWN_PARAMETER_NAME2']);
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
         }
 
-        if (requestParameters['UNKNOWN_PARAMETER_NAME3'] != null) {
-            headerParameters['X-edge-client-id'] = String(requestParameters['UNKNOWN_PARAMETER_NAME3']);
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
         }
 
         if (this.configuration && this.configuration.apiKey) {
@@ -444,7 +444,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getUsersRegisteredByInviteCode(requestParameters: GetUsersRegisteredByInviteCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
         const response = await this.getUsersRegisteredByInviteCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

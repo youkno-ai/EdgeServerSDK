@@ -91,55 +91,7 @@ export interface MailingAddress {
      * @memberof MailingAddress
      */
     instructions?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof MailingAddress
-     */
-    empty?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof MailingAddress
-     */
-    fullAddressAsText?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof MailingAddress
-     */
-    phoneStatusAsEnum?: MailingAddressPhoneStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof MailingAddress
-     */
-    typeAsEnum?: MailingAddressTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const MailingAddressPhoneStatusAsEnumEnum = {
-    UNVERIFIED: 'UNVERIFIED',
-    VERIFIED: 'VERIFIED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type MailingAddressPhoneStatusAsEnumEnum = typeof MailingAddressPhoneStatusAsEnumEnum[keyof typeof MailingAddressPhoneStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const MailingAddressTypeAsEnumEnum = {
-    NONE: 'NONE',
-    SHIPPING: 'SHIPPING',
-    BILLING: 'BILLING',
-    TAX: 'TAX',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type MailingAddressTypeAsEnumEnum = typeof MailingAddressTypeAsEnumEnum[keyof typeof MailingAddressTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the MailingAddress interface.
@@ -170,10 +122,6 @@ export function MailingAddressFromJSONTyped(json: any, ignoreDiscriminator: bool
         'phoneNumber': json['phoneNumber'] == null ? undefined : json['phoneNumber'],
         'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
         'instructions': json['instructions'] == null ? undefined : json['instructions'],
-        'empty': json['empty'] == null ? undefined : json['empty'],
-        'fullAddressAsText': json['fullAddressAsText'] == null ? undefined : json['fullAddressAsText'],
-        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -200,10 +148,6 @@ export function MailingAddressToJSONTyped(value?: MailingAddress | null, ignoreD
         'phoneNumber': value['phoneNumber'],
         'phoneStatus': value['phoneStatus'],
         'instructions': value['instructions'],
-        'empty': value['empty'],
-        'fullAddressAsText': value['fullAddressAsText'],
-        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
-        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

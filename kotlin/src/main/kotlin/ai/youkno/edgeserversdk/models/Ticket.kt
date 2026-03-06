@@ -28,7 +28,6 @@ import com.squareup.moshi.JsonClass
  * @param seatId 
  * @param type 
  * @param qrCodeInfoJson 
- * @param typeAsEnum 
  */
 
 
@@ -47,26 +46,10 @@ data class Ticket (
     val type: kotlin.String? = null,
 
     @Json(name = "qrCodeInfoJson")
-    val qrCodeInfoJson: TicketQrCodeInfo? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: Ticket.TypeAsEnum? = null
+    val qrCodeInfoJson: TicketQrCodeInfo? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,GENERAL,MULTI_USE,SINGLE_USE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "GENERAL") GENERAL("GENERAL"),
-        @Json(name = "MULTI_USE") MULTI_USE("MULTI_USE"),
-        @Json(name = "SINGLE_USE") SINGLE_USE("SINGLE_USE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

@@ -28,8 +28,8 @@ import com.squareup.moshi.JsonClass
  * @param paymentsRecv 
  * @param review 
  * @param reject 
- * @param firstPaymentRecv 
  * @param paymentReceived 
+ * @param firstPaymentRecv 
  */
 
 
@@ -44,11 +44,11 @@ data class Snippets (
     @Json(name = "reject")
     val reject: RejectSnippet? = null,
 
-    @Json(name = "firstPaymentRecv")
-    val firstPaymentRecv: PaymentRecvSnippet? = null,
-
     @Json(name = "paymentReceived")
-    val paymentReceived: kotlin.Boolean? = null
+    val paymentReceived: kotlin.Boolean? = null,
+
+    @Json(name = "firstPaymentRecv")
+    val firstPaymentRecv: PaymentRecvSnippet? = null
 
 ) {
 

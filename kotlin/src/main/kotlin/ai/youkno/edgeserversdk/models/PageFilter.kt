@@ -122,9 +122,6 @@ import com.squareup.moshi.JsonClass
  * @param ignoreCache 
  * @param start 
  * @param length 
- * @param marketModeAsEnum 
- * @param effectiveCategoryCodes 
- * @param sortTypeAsEnum 
  */
 
 
@@ -419,16 +416,7 @@ data class PageFilter (
     val start: kotlin.Int? = null,
 
     @Json(name = "length")
-    val length: kotlin.Int? = null,
-
-    @Json(name = "marketModeAsEnum")
-    val marketModeAsEnum: PageFilter.MarketModeAsEnum? = null,
-
-    @Json(name = "effectiveCategoryCodes")
-    val effectiveCategoryCodes: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "sortTypeAsEnum")
-    val sortTypeAsEnum: PageFilter.SortTypeAsEnum? = null
+    val length: kotlin.Int? = null
 
 ) {
 
@@ -716,45 +704,6 @@ data class PageFilter (
         @Json(name = "NORMAL") NORMAL("NORMAL"),
         @Json(name = "LOW") LOW("LOW"),
         @Json(name = "BACKGROUND") BACKGROUND("BACKGROUND");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DEFAULT,GLOBAL,FILTERED,SUPPLY,PRIVATE,INTERNAL,EXTERNAL,MIXED,USER_INTERNAL,ALL
-     */
-    @JsonClass(generateAdapter = false)
-    enum class MarketModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "GLOBAL") GLOBAL("GLOBAL"),
-        @Json(name = "FILTERED") FILTERED("FILTERED"),
-        @Json(name = "SUPPLY") SUPPLY("SUPPLY"),
-        @Json(name = "PRIVATE") PRIVATE("PRIVATE"),
-        @Json(name = "INTERNAL") INTERNAL("INTERNAL"),
-        @Json(name = "EXTERNAL") EXTERNAL("EXTERNAL"),
-        @Json(name = "MIXED") MIXED("MIXED"),
-        @Json(name = "USER_INTERNAL") USER_INTERNAL("USER_INTERNAL"),
-        @Json(name = "ALL") ALL("ALL");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,NOVELTY,POSTED_ASC,POSTED_DESC,RATING,PRICE_DESC,PRICE_ASC,SCHEDULED,PINNED_TO_TOP,DELIVERY_METHOD,THC_VALUE,RANDOM
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SortTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "NOVELTY") NOVELTY("NOVELTY"),
-        @Json(name = "POSTED_ASC") POSTED_ASC("POSTED_ASC"),
-        @Json(name = "POSTED_DESC") POSTED_DESC("POSTED_DESC"),
-        @Json(name = "RATING") RATING("RATING"),
-        @Json(name = "PRICE_DESC") PRICE_DESC("PRICE_DESC"),
-        @Json(name = "PRICE_ASC") PRICE_ASC("PRICE_ASC"),
-        @Json(name = "SCHEDULED") SCHEDULED("SCHEDULED"),
-        @Json(name = "PINNED_TO_TOP") PINNED_TO_TOP("PINNED_TO_TOP"),
-        @Json(name = "DELIVERY_METHOD") DELIVERY_METHOD("DELIVERY_METHOD"),
-        @Json(name = "THC_VALUE") THC_VALUE("THC_VALUE"),
-        @Json(name = "RANDOM") RANDOM("RANDOM");
     }
 
 }

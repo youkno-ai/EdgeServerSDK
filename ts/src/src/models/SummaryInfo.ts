@@ -37,24 +37,7 @@ export interface SummaryInfo {
      * @memberof SummaryInfo
      */
     errorMessage?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SummaryInfo
-     */
-    sourceAsEnum?: SummaryInfoSourceAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const SummaryInfoSourceAsEnumEnum = {
-    INTERNAL: 'INTERNAL',
-    POINT_OF_SALE: 'POINT_OF_SALE'
-} as const;
-export type SummaryInfoSourceAsEnumEnum = typeof SummaryInfoSourceAsEnumEnum[keyof typeof SummaryInfoSourceAsEnumEnum];
-
 
 /**
  * Check if a given object implements the SummaryInfo interface.
@@ -76,7 +59,6 @@ export function SummaryInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'source': json['source'] == null ? undefined : json['source'],
         'reason': json['reason'] == null ? undefined : json['reason'],
         'errorMessage': json['errorMessage'] == null ? undefined : json['errorMessage'],
-        'sourceAsEnum': json['sourceAsEnum'] == null ? undefined : json['sourceAsEnum'],
     };
 }
 
@@ -94,7 +76,6 @@ export function SummaryInfoToJSONTyped(value?: SummaryInfo | null, ignoreDiscrim
         'source': value['source'],
         'reason': value['reason'],
         'errorMessage': value['errorMessage'],
-        'sourceAsEnum': value['sourceAsEnum'],
     };
 }
 

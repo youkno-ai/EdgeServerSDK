@@ -24,7 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param duration 
- * @param negative 
  */
 
 
@@ -34,10 +33,7 @@ data class AccessReward (
     val id: kotlin.String? = null,
 
     @Json(name = "duration")
-    val duration: kotlin.Long? = null,
-
-    @Json(name = "negative")
-    val negative: kotlin.Boolean? = null
+    val duration: kotlin.Long? = null
 
 ) {
 

@@ -36,21 +36,12 @@ import com.squareup.moshi.JsonClass
  * @param collocutor 
  * @param realCollocutor 
  * @param state 
- * @param silent 
  * @param company 
  * @param group 
  * @param choice 
  * @param lastReadMsgAt 
  * @param lastSentMsgAt 
  * @param notifiedRecvMsgAt 
- * @param id 
- * @param effectiveRealCollocutor 
- * @param defaultRoomAvatar 
- * @param effectiveRoomAvatar 
- * @param roomTypeAsEnum 
- * @param roomStateAsEnum 
- * @param dismissed 
- * @param stateAsEnum 
  */
 
 
@@ -92,9 +83,6 @@ data class UserChat (
     @Json(name = "state")
     val state: kotlin.String? = null,
 
-    @Json(name = "silent")
-    val silent: kotlin.Boolean? = null,
-
     @Json(name = "company")
     val company: User? = null,
 
@@ -111,75 +99,10 @@ data class UserChat (
     val lastSentMsgAt: kotlin.Long? = null,
 
     @Json(name = "notifiedRecvMsgAt")
-    val notifiedRecvMsgAt: kotlin.Long? = null,
-
-    @Json(name = "id")
-    val id: kotlin.String? = null,
-
-    @Json(name = "effectiveRealCollocutor")
-    val effectiveRealCollocutor: User? = null,
-
-    @Json(name = "defaultRoomAvatar")
-    val defaultRoomAvatar: kotlin.String? = null,
-
-    @Json(name = "effectiveRoomAvatar")
-    val effectiveRoomAvatar: kotlin.String? = null,
-
-    @Json(name = "roomTypeAsEnum")
-    val roomTypeAsEnum: UserChat.RoomTypeAsEnum? = null,
-
-    @Json(name = "roomStateAsEnum")
-    val roomStateAsEnum: UserChat.RoomStateAsEnum? = null,
-
-    @Json(name = "dismissed")
-    val dismissed: kotlin.Boolean? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: UserChat.StateAsEnum? = null
+    val notifiedRecvMsgAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: PRIVATE,GROUP,RECIPIENTS,PARTICIPANTS,SURVEY_CHOICE,SUPPORT,PSG,AIB,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RoomTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "PRIVATE") PRIVATE("PRIVATE"),
-        @Json(name = "GROUP") GROUP("GROUP"),
-        @Json(name = "RECIPIENTS") RECIPIENTS("RECIPIENTS"),
-        @Json(name = "PARTICIPANTS") PARTICIPANTS("PARTICIPANTS"),
-        @Json(name = "SURVEY_CHOICE") SURVEY_CHOICE("SURVEY_CHOICE"),
-        @Json(name = "SUPPORT") SUPPORT("SUPPORT"),
-        @Json(name = "PSG") PSG("PSG"),
-        @Json(name = "AIB") AIB("AIB"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ACTIVE,ARCHIVED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class RoomStateAsEnum(val value: kotlin.String) {
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "ARCHIVED") ARCHIVED("ARCHIVED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ACTIVE,DISMISSED,BLOCKED,LEFT,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "DISMISSED") DISMISSED("DISMISSED"),
-        @Json(name = "BLOCKED") BLOCKED("BLOCKED"),
-        @Json(name = "LEFT") LEFT("LEFT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

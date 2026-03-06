@@ -41,9 +41,6 @@ import com.squareup.moshi.JsonClass
  * @param hasLocations 
  * @param parentSlug 
  * @param parentName 
- * @param emailValidationRequired 
- * @param statusAsEnum 
- * @param loginsAsEnum 
  */
 
 
@@ -98,47 +95,10 @@ data class ClientInfo (
     val parentSlug: kotlin.String? = null,
 
     @Json(name = "parentName")
-    val parentName: kotlin.String? = null,
-
-    @Json(name = "emailValidationRequired")
-    val emailValidationRequired: kotlin.Boolean? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: ClientInfo.StatusAsEnum? = null,
-
-    @Json(name = "loginsAsEnum")
-    val loginsAsEnum: kotlin.collections.List<ClientInfo.LoginsAsEnum>? = null
+    val parentName: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: ENABLED,DISABLED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "ENABLED") ENABLED("ENABLED"),
-        @Json(name = "DISABLED") DISABLED("DISABLED");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,SSO,GOOGLE,APPLE,MICROSOFT,EMAIL,PHONE,INTERNET,ANON,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class LoginsAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "SSO") SSO("SSO"),
-        @Json(name = "GOOGLE") GOOGLE("GOOGLE"),
-        @Json(name = "APPLE") APPLE("APPLE"),
-        @Json(name = "MICROSOFT") MICROSOFT("MICROSOFT"),
-        @Json(name = "EMAIL") EMAIL("EMAIL"),
-        @Json(name = "PHONE") PHONE("PHONE"),
-        @Json(name = "INTERNET") INTERNET("INTERNET"),
-        @Json(name = "ANON") ANON("ANON"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param propertySize 
  * @param imageSize 
  * @param cdnUrl 
- * @param storageTypeAsEnum 
  * @param effectiveUrl 
+ * @param storageTypeAsEnum 
  */
 
 
@@ -57,11 +57,11 @@ data class Cover (
     @Json(name = "cdnUrl")
     val cdnUrl: kotlin.String? = null,
 
-    @Json(name = "storageTypeAsEnum")
-    val storageTypeAsEnum: Cover.StorageTypeAsEnum? = null,
-
     @Json(name = "effectiveUrl")
-    val effectiveUrl: kotlin.String? = null
+    val effectiveUrl: kotlin.String? = null,
+
+    @Json(name = "storageTypeAsEnum")
+    val storageTypeAsEnum: Cover.StorageTypeAsEnum? = null
 
 ) {
 

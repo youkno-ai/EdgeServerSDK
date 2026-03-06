@@ -37,8 +37,8 @@ import com.squareup.moshi.JsonClass
  * @param userId 
  * @param bountyId 
  * @param responseId 
- * @param objectTypeAsEnum 
  * @param author 
+ * @param objectTypeAsEnum 
  */
 
 
@@ -86,11 +86,11 @@ data class Comment (
     @Json(name = "responseId")
     val responseId: kotlin.String? = null,
 
-    @Json(name = "objectTypeAsEnum")
-    val objectTypeAsEnum: Comment.ObjectTypeAsEnum? = null,
-
     @Json(name = "author")
-    val author: User? = null
+    val author: User? = null,
+
+    @Json(name = "objectTypeAsEnum")
+    val objectTypeAsEnum: Comment.ObjectTypeAsEnum? = null
 
 ) {
 

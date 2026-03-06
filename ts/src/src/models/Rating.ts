@@ -57,12 +57,6 @@ export interface Rating {
      * @memberof Rating
      */
     starPointsValue?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Rating
-     */
-    avgStartRating?: number;
 }
 
 /**
@@ -87,7 +81,6 @@ export function RatingFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ra
         'totalStars': json['totalStars'] == null ? undefined : json['totalStars'],
         'ratingCount': json['ratingCount'] == null ? undefined : json['ratingCount'],
         'starPointsValue': json['starPointsValue'] == null ? undefined : json['starPointsValue'],
-        'avgStartRating': json['avgStartRating'] == null ? undefined : json['avgStartRating'],
     };
 }
 
@@ -107,7 +100,6 @@ export function RatingToJSONTyped(value?: Rating | null, ignoreDiscriminator: bo
         'totalStars': value['totalStars'],
         'ratingCount': value['ratingCount'],
         'starPointsValue': value['starPointsValue'],
-        'avgStartRating': value['avgStartRating'],
     };
 }
 

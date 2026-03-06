@@ -119,16 +119,16 @@ export interface Response {
     responseType?: string;
     /**
      * 
-     * @type {string}
-     * @memberof Response
-     */
-    objectTypeAsEnum?: ResponseObjectTypeAsEnumEnum;
-    /**
-     * 
      * @type {User}
      * @memberof Response
      */
     author?: User;
+    /**
+     * 
+     * @type {string}
+     * @memberof Response
+     */
+    objectTypeAsEnum?: ResponseObjectTypeAsEnumEnum;
 }
 
 
@@ -176,8 +176,8 @@ export function ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
         'responseType': json['responseType'] == null ? undefined : json['responseType'],
-        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
+        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
     };
 }
 
@@ -207,8 +207,8 @@ export function ResponseToJSONTyped(value?: Response | null, ignoreDiscriminator
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
         'responseType': value['responseType'],
-        'objectTypeAsEnum': value['objectTypeAsEnum'],
         'author': UserToJSON(value['author']),
+        'objectTypeAsEnum': value['objectTypeAsEnum'],
     };
 }
 

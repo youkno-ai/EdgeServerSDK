@@ -106,27 +106,15 @@ export interface ApprovalInfo {
      * @type {string}
      * @memberof ApprovalInfo
      */
-    approvalStateAsEnum?: ApprovalInfoApprovalStateAsEnumEnum;
+    entityTypeAsEnum?: ApprovalInfoEntityTypeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ApprovalInfo
      */
-    entityTypeAsEnum?: ApprovalInfoEntityTypeAsEnumEnum;
+    approvalStateAsEnum?: ApprovalInfoApprovalStateAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const ApprovalInfoApprovalStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    APPROVED: 'APPROVED',
-    DECLINED: 'DECLINED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ApprovalInfoApprovalStateAsEnumEnum = typeof ApprovalInfoApprovalStateAsEnumEnum[keyof typeof ApprovalInfoApprovalStateAsEnumEnum];
 
 /**
  * @export
@@ -151,6 +139,18 @@ export const ApprovalInfoEntityTypeAsEnumEnum = {
     SYSTEM: 'SYSTEM'
 } as const;
 export type ApprovalInfoEntityTypeAsEnumEnum = typeof ApprovalInfoEntityTypeAsEnumEnum[keyof typeof ApprovalInfoEntityTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ApprovalInfoApprovalStateAsEnumEnum = {
+    NONE: 'NONE',
+    PENDING: 'PENDING',
+    APPROVED: 'APPROVED',
+    DECLINED: 'DECLINED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ApprovalInfoApprovalStateAsEnumEnum = typeof ApprovalInfoApprovalStateAsEnumEnum[keyof typeof ApprovalInfoApprovalStateAsEnumEnum];
 
 
 /**
@@ -180,8 +180,8 @@ export function ApprovalInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'comment': json['comment'] == null ? undefined : CommentFromJSON(json['comment']),
         'description': json['description'] == null ? undefined : json['description'],
         'moderationReason': json['moderationReason'] == null ? undefined : json['moderationReason'],
-        'approvalStateAsEnum': json['approvalStateAsEnum'] == null ? undefined : json['approvalStateAsEnum'],
         'entityTypeAsEnum': json['entityTypeAsEnum'] == null ? undefined : json['entityTypeAsEnum'],
+        'approvalStateAsEnum': json['approvalStateAsEnum'] == null ? undefined : json['approvalStateAsEnum'],
     };
 }
 
@@ -206,8 +206,8 @@ export function ApprovalInfoToJSONTyped(value?: ApprovalInfo | null, ignoreDiscr
         'comment': CommentToJSON(value['comment']),
         'description': value['description'],
         'moderationReason': value['moderationReason'],
-        'approvalStateAsEnum': value['approvalStateAsEnum'],
         'entityTypeAsEnum': value['entityTypeAsEnum'],
+        'approvalStateAsEnum': value['approvalStateAsEnum'],
     };
 }
 

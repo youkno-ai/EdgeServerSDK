@@ -24,9 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param forced 
  * @param visibilityType 
- * @param visibilityTypeAsEnum 
- * @param enforced 
- * @param complete 
  */
 
 
@@ -36,30 +33,10 @@ data class VisibilityMode (
     val forced: kotlin.Boolean? = null,
 
     @Json(name = "visibilityType")
-    val visibilityType: kotlin.String? = null,
-
-    @Json(name = "visibilityTypeAsEnum")
-    val visibilityTypeAsEnum: VisibilityMode.VisibilityTypeAsEnum? = null,
-
-    @Json(name = "enforced")
-    val enforced: kotlin.Boolean? = null,
-
-    @Json(name = "complete")
-    val complete: kotlin.Boolean? = null
+    val visibilityType: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: DEFAULT,VISIBLE,PRIVATE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class VisibilityTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "VISIBLE") VISIBLE("VISIBLE"),
-        @Json(name = "PRIVATE") PRIVATE("PRIVATE");
-    }
 
 }
 

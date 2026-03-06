@@ -15,8 +15,6 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.PersonalName
-import ai.youkno.edgeserversdk.models.Reputation
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -36,16 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param verified 
  * @param anon 
  * @param status 
- * @param valid 
- * @param reputationAsData 
- * @param statusAsEnum 
- * @param undercover 
- * @param kindAsEnum 
- * @param fakeAuthor 
- * @param subTypeAsEnum 
- * @param personalName 
- * @param typeAsEnum 
- * @param anonymous 
  */
 
 
@@ -85,100 +73,10 @@ data class User (
     val anon: kotlin.Boolean? = null,
 
     @Json(name = "status")
-    val status: kotlin.String? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "reputationAsData")
-    val reputationAsData: Reputation? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: User.StatusAsEnum? = null,
-
-    @Json(name = "undercover")
-    val undercover: kotlin.Boolean? = null,
-
-    @Json(name = "kindAsEnum")
-    val kindAsEnum: User.KindAsEnum? = null,
-
-    @Json(name = "fakeAuthor")
-    val fakeAuthor: kotlin.Boolean? = null,
-
-    @Json(name = "subTypeAsEnum")
-    val subTypeAsEnum: User.SubTypeAsEnum? = null,
-
-    @Json(name = "personalName")
-    val personalName: PersonalName? = null,
-
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: User.TypeAsEnum? = null,
-
-    @Json(name = "anonymous")
-    val anonymous: kotlin.Boolean? = null
+    val status: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: ACTIVE,INACTIVE,SUSPENDED,BLACKLISTED,TO_BE_DELETED,DELETED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "INACTIVE") INACTIVE("INACTIVE"),
-        @Json(name = "SUSPENDED") SUSPENDED("SUSPENDED"),
-        @Json(name = "BLACKLISTED") BLACKLISTED("BLACKLISTED"),
-        @Json(name = "TO_BE_DELETED") TO_BE_DELETED("TO_BE_DELETED"),
-        @Json(name = "DELETED") DELETED("DELETED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: USER,GROUP,COMPANY,AVATAR,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class KindAsEnum(val value: kotlin.String) {
-        @Json(name = "USER") USER("USER"),
-        @Json(name = "GROUP") GROUP("GROUP"),
-        @Json(name = "COMPANY") COMPANY("COMPANY"),
-        @Json(name = "AVATAR") AVATAR("AVATAR"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,BOT,GHOST,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SubTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "BOT") BOT("BOT"),
-        @Json(name = "GHOST") GHOST("GHOST"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,SYS_ROOT,INDIVIDUAL,EMPLOYEE,ANON,COMPANY,EMPLOYEES,APPLICANTS,INFLUENCERS,GROUP,GROUPS_ROOT,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "SYS_ROOT") SYS_ROOT("SYS_ROOT"),
-        @Json(name = "INDIVIDUAL") INDIVIDUAL("INDIVIDUAL"),
-        @Json(name = "EMPLOYEE") EMPLOYEE("EMPLOYEE"),
-        @Json(name = "ANON") ANON("ANON"),
-        @Json(name = "COMPANY") COMPANY("COMPANY"),
-        @Json(name = "EMPLOYEES") EMPLOYEES("EMPLOYEES"),
-        @Json(name = "APPLICANTS") APPLICANTS("APPLICANTS"),
-        @Json(name = "INFLUENCERS") INFLUENCERS("INFLUENCERS"),
-        @Json(name = "GROUP") GROUP("GROUP"),
-        @Json(name = "GROUPS_ROOT") GROUPS_ROOT("GROUPS_ROOT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

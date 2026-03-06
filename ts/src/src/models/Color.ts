@@ -25,12 +25,6 @@ export interface Color {
      * @memberof Color
      */
     val?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Color
-     */
-    empty?: boolean;
 }
 
 /**
@@ -51,7 +45,6 @@ export function ColorFromJSONTyped(json: any, ignoreDiscriminator: boolean): Col
     return {
         
         'val': json['val'] == null ? undefined : json['val'],
-        'empty': json['empty'] == null ? undefined : json['empty'],
     };
 }
 
@@ -67,7 +60,6 @@ export function ColorToJSONTyped(value?: Color | null, ignoreDiscriminator: bool
     return {
         
         'val': value['val'],
-        'empty': value['empty'],
     };
 }
 

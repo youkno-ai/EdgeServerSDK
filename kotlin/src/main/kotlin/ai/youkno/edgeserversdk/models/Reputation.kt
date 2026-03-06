@@ -27,9 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param text 
  * @param iconName 
  * @param color 
+ * @param none 
  * @param standardType 
  * @param iconic 
- * @param none 
  */
 
 
@@ -50,14 +50,14 @@ data class Reputation (
     @Json(name = "color")
     val color: kotlin.String? = null,
 
+    @Json(name = "none")
+    val none: kotlin.Boolean? = null,
+
     @Json(name = "standardType")
     val standardType: kotlin.Boolean? = null,
 
     @Json(name = "iconic")
-    val iconic: kotlin.Boolean? = null,
-
-    @Json(name = "none")
-    val none: kotlin.Boolean? = null
+    val iconic: kotlin.Boolean? = null
 
 ) {
 

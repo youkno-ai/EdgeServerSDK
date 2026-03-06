@@ -18,7 +18,6 @@ package ai.youkno.edgeserversdk.models
 import ai.youkno.edgeserversdk.models.CollectionInfo
 import ai.youkno.edgeserversdk.models.LossInfo
 import ai.youkno.edgeserversdk.models.UseInfo
-import ai.youkno.edgeserversdk.models.User
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -46,11 +45,6 @@ import com.squareup.moshi.JsonClass
  * @param useInfo 
  * @param collectionInfo 
  * @param lossInfo 
- * @param ownershipAsEnum 
- * @param admin 
- * @param statusAsEnum 
- * @param platformAsEnum 
- * @param user 
  */
 
 
@@ -114,69 +108,10 @@ data class Device (
     val collectionInfo: CollectionInfo? = null,
 
     @Json(name = "lossInfo")
-    val lossInfo: LossInfo? = null,
-
-    @Json(name = "ownershipAsEnum")
-    val ownershipAsEnum: Device.OwnershipAsEnum? = null,
-
-    @Json(name = "admin")
-    val admin: User? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: Device.StatusAsEnum? = null,
-
-    @Json(name = "platformAsEnum")
-    val platformAsEnum: Device.PlatformAsEnum? = null,
-
-    @Json(name = "user")
-    val user: User? = null
+    val lossInfo: LossInfo? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,COMPANY,PERSONAL,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class OwnershipAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "COMPANY") COMPANY("COMPANY"),
-        @Json(name = "PERSONAL") PERSONAL("PERSONAL"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,ACTIVE,NOT_COLLECTED,COLLECTED,LOST,REJECTED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "NOT_COLLECTED") NOT_COLLECTED("NOT_COLLECTED"),
-        @Json(name = "COLLECTED") COLLECTED("COLLECTED"),
-        @Json(name = "LOST") LOST("LOST"),
-        @Json(name = "REJECTED") REJECTED("REJECTED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,ANDROID,IOS,WINDOW,MAC_OS,LINUX,WEB,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PlatformAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ANDROID") ANDROID("ANDROID"),
-        @Json(name = "IOS") IOS("IOS"),
-        @Json(name = "WINDOW") WINDOW("WINDOW"),
-        @Json(name = "MAC_OS") MAC_OS("MAC_OS"),
-        @Json(name = "LINUX") LINUX("LINUX"),
-        @Json(name = "WEB") WEB("WEB"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

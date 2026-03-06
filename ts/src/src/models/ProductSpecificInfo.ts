@@ -275,10 +275,16 @@ export interface ProductSpecificInfo {
     chemicalCompositions?: { [key: string]: ChemicalInfo; };
     /**
      * 
+     * @type {Price}
+     * @memberof ProductSpecificInfo
+     */
+    effectivePrice?: Price;
+    /**
+     * 
      * @type {string}
      * @memberof ProductSpecificInfo
      */
-    inventoryPolicyAsEnum?: ProductSpecificInfoInventoryPolicyAsEnumEnum;
+    primaryAttachmentId?: string;
     /**
      * 
      * @type {Reward}
@@ -302,24 +308,9 @@ export interface ProductSpecificInfo {
      * @type {string}
      * @memberof ProductSpecificInfo
      */
-    primaryAttachmentId?: string;
-    /**
-     * 
-     * @type {Price}
-     * @memberof ProductSpecificInfo
-     */
-    effectivePrice?: Price;
+    inventoryPolicyAsEnum?: ProductSpecificInfoInventoryPolicyAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const ProductSpecificInfoInventoryPolicyAsEnumEnum = {
-    DENY: 'DENY',
-    CONTINUE: 'CONTINUE'
-} as const;
-export type ProductSpecificInfoInventoryPolicyAsEnumEnum = typeof ProductSpecificInfoInventoryPolicyAsEnumEnum[keyof typeof ProductSpecificInfoInventoryPolicyAsEnumEnum];
 
 /**
  * @export
@@ -336,6 +327,15 @@ export const ProductSpecificInfoWeightUnitAsEnumEnum = {
     FLWR_4: 'FLWR_4'
 } as const;
 export type ProductSpecificInfoWeightUnitAsEnumEnum = typeof ProductSpecificInfoWeightUnitAsEnumEnum[keyof typeof ProductSpecificInfoWeightUnitAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ProductSpecificInfoInventoryPolicyAsEnumEnum = {
+    DENY: 'DENY',
+    CONTINUE: 'CONTINUE'
+} as const;
+export type ProductSpecificInfoInventoryPolicyAsEnumEnum = typeof ProductSpecificInfoInventoryPolicyAsEnumEnum[keyof typeof ProductSpecificInfoInventoryPolicyAsEnumEnum];
 
 
 /**
@@ -389,12 +389,12 @@ export function ProductSpecificInfoFromJSONTyped(json: any, ignoreDiscriminator:
         'strain': json['strain'] == null ? undefined : StrainFromJSON(json['strain']),
         'certificateOfAuthenticityUrl': json['certificateOfAuthenticityUrl'] == null ? undefined : json['certificateOfAuthenticityUrl'],
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ChemicalInfoFromJSON)),
-        'inventoryPolicyAsEnum': json['inventoryPolicyAsEnum'] == null ? undefined : json['inventoryPolicyAsEnum'],
+        'effectivePrice': json['effectivePrice'] == null ? undefined : PriceFromJSON(json['effectivePrice']),
+        'primaryAttachmentId': json['primaryAttachmentId'] == null ? undefined : json['primaryAttachmentId'],
         'extraDeliveryFeeReward': json['extraDeliveryFeeReward'] == null ? undefined : RewardFromJSON(json['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': json['effectiveOriginalPrice'] == null ? undefined : PriceFromJSON(json['effectiveOriginalPrice']),
         'weightUnitAsEnum': json['weightUnitAsEnum'] == null ? undefined : json['weightUnitAsEnum'],
-        'primaryAttachmentId': json['primaryAttachmentId'] == null ? undefined : json['primaryAttachmentId'],
-        'effectivePrice': json['effectivePrice'] == null ? undefined : PriceFromJSON(json['effectivePrice']),
+        'inventoryPolicyAsEnum': json['inventoryPolicyAsEnum'] == null ? undefined : json['inventoryPolicyAsEnum'],
     };
 }
 
@@ -443,12 +443,12 @@ export function ProductSpecificInfoToJSONTyped(value?: ProductSpecificInfo | nul
         'strain': StrainToJSON(value['strain']),
         'certificateOfAuthenticityUrl': value['certificateOfAuthenticityUrl'],
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ChemicalInfoToJSON)),
-        'inventoryPolicyAsEnum': value['inventoryPolicyAsEnum'],
+        'effectivePrice': PriceToJSON(value['effectivePrice']),
+        'primaryAttachmentId': value['primaryAttachmentId'],
         'extraDeliveryFeeReward': RewardToJSON(value['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': PriceToJSON(value['effectiveOriginalPrice']),
         'weightUnitAsEnum': value['weightUnitAsEnum'],
-        'primaryAttachmentId': value['primaryAttachmentId'],
-        'effectivePrice': PriceToJSON(value['effectivePrice']),
+        'inventoryPolicyAsEnum': value['inventoryPolicyAsEnum'],
     };
 }
 

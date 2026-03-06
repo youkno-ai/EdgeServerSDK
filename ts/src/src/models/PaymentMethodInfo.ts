@@ -24,12 +24,6 @@ export interface PaymentMethodInfo {
      * @type {string}
      * @memberof PaymentMethodInfo
      */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
     providerType?: string;
     /**
      * 
@@ -73,85 +67,7 @@ export interface PaymentMethodInfo {
      * @memberof PaymentMethodInfo
      */
     paymentMethodId?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PaymentMethodInfo
-     */
-    defaultMethod?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PaymentMethodInfo
-     */
-    offSessionReady?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
-    providerTypeAsEnum?: PaymentMethodInfoProviderTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
-    lastFour?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
-    expDate?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
-    statusAsEnum?: PaymentMethodInfoStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaymentMethodInfo
-     */
-    cardTypeAsEnum?: PaymentMethodInfoCardTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const PaymentMethodInfoProviderTypeAsEnumEnum = {
-    STRIPE: 'STRIPE'
-} as const;
-export type PaymentMethodInfoProviderTypeAsEnumEnum = typeof PaymentMethodInfoProviderTypeAsEnumEnum[keyof typeof PaymentMethodInfoProviderTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const PaymentMethodInfoStatusAsEnumEnum = {
-    NONE: 'NONE',
-    ACTIVE: 'ACTIVE',
-    INACTIVE: 'INACTIVE',
-    PENDING_SETUP: 'PENDING_SETUP',
-    FAILED_SETUP: 'FAILED_SETUP',
-    DELETED: 'DELETED',
-    OTHER: 'OTHER'
-} as const;
-export type PaymentMethodInfoStatusAsEnumEnum = typeof PaymentMethodInfoStatusAsEnumEnum[keyof typeof PaymentMethodInfoStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const PaymentMethodInfoCardTypeAsEnumEnum = {
-    AMEX: 'AMEX',
-    MC: 'MC',
-    VISA: 'VISA',
-    GENERIC: 'GENERIC',
-    OTHER: 'OTHER'
-} as const;
-export type PaymentMethodInfoCardTypeAsEnumEnum = typeof PaymentMethodInfoCardTypeAsEnumEnum[keyof typeof PaymentMethodInfoCardTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the PaymentMethodInfo interface.
@@ -170,7 +86,6 @@ export function PaymentMethodInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
         'providerType': json['providerType'] == null ? undefined : json['providerType'],
         'cardType': json['cardType'] == null ? undefined : json['cardType'],
         'redactedNumber': json['redactedNumber'] == null ? undefined : json['redactedNumber'],
@@ -179,13 +94,6 @@ export function PaymentMethodInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'liveMode': json['liveMode'] == null ? undefined : json['liveMode'],
         'status': json['status'] == null ? undefined : json['status'],
         'paymentMethodId': json['paymentMethodId'] == null ? undefined : json['paymentMethodId'],
-        'defaultMethod': json['defaultMethod'] == null ? undefined : json['defaultMethod'],
-        'offSessionReady': json['offSessionReady'] == null ? undefined : json['offSessionReady'],
-        'providerTypeAsEnum': json['providerTypeAsEnum'] == null ? undefined : json['providerTypeAsEnum'],
-        'lastFour': json['lastFour'] == null ? undefined : json['lastFour'],
-        'expDate': json['expDate'] == null ? undefined : json['expDate'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'cardTypeAsEnum': json['cardTypeAsEnum'] == null ? undefined : json['cardTypeAsEnum'],
     };
 }
 
@@ -200,7 +108,6 @@ export function PaymentMethodInfoToJSONTyped(value?: PaymentMethodInfo | null, i
 
     return {
         
-        'id': value['id'],
         'providerType': value['providerType'],
         'cardType': value['cardType'],
         'redactedNumber': value['redactedNumber'],
@@ -209,13 +116,6 @@ export function PaymentMethodInfoToJSONTyped(value?: PaymentMethodInfo | null, i
         'liveMode': value['liveMode'],
         'status': value['status'],
         'paymentMethodId': value['paymentMethodId'],
-        'defaultMethod': value['defaultMethod'],
-        'offSessionReady': value['offSessionReady'],
-        'providerTypeAsEnum': value['providerTypeAsEnum'],
-        'lastFour': value['lastFour'],
-        'expDate': value['expDate'],
-        'statusAsEnum': value['statusAsEnum'],
-        'cardTypeAsEnum': value['cardTypeAsEnum'],
     };
 }
 

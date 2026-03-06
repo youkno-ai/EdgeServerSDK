@@ -52,12 +52,12 @@ import com.squareup.moshi.JsonClass
  * @param categoryOrder 
  * @param chemicalCompositions 
  * @param valid 
- * @param deliveryTypeAsEnum 
- * @param optionCount 
- * @param kindAsEnum 
- * @param fastDelivery 
- * @param totalQuantity 
  * @param topLevelVariant 
+ * @param totalQuantity 
+ * @param fastDelivery 
+ * @param kindAsEnum 
+ * @param optionCount 
+ * @param deliveryTypeAsEnum 
  */
 
 
@@ -138,38 +138,26 @@ data class Product (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
-    @Json(name = "deliveryTypeAsEnum")
-    val deliveryTypeAsEnum: Product.DeliveryTypeAsEnum? = null,
-
-    @Json(name = "optionCount")
-    val optionCount: kotlin.Int? = null,
-
-    @Json(name = "kindAsEnum")
-    val kindAsEnum: Product.KindAsEnum? = null,
-
-    @Json(name = "fastDelivery")
-    val fastDelivery: kotlin.Boolean? = null,
+    @Json(name = "topLevelVariant")
+    val topLevelVariant: ProductSpecificInfo? = null,
 
     @Json(name = "totalQuantity")
     val totalQuantity: kotlin.Double? = null,
 
-    @Json(name = "topLevelVariant")
-    val topLevelVariant: ProductSpecificInfo? = null
+    @Json(name = "fastDelivery")
+    val fastDelivery: kotlin.Boolean? = null,
+
+    @Json(name = "kindAsEnum")
+    val kindAsEnum: Product.KindAsEnum? = null,
+
+    @Json(name = "optionCount")
+    val optionCount: kotlin.Int? = null,
+
+    @Json(name = "deliveryTypeAsEnum")
+    val deliveryTypeAsEnum: Product.DeliveryTypeAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: STANDARD,DRIVER,NO_DELIVERY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DeliveryTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "STANDARD") STANDARD("STANDARD"),
-        @Json(name = "DRIVER") DRIVER("DRIVER"),
-        @Json(name = "NO_DELIVERY") NO_DELIVERY("NO_DELIVERY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -183,6 +171,18 @@ data class Product (
         @Json(name = "TICKET") TICKET("TICKET"),
         @Json(name = "TOKEN") TOKEN("TOKEN"),
         @Json(name = "VOUCHERS") VOUCHERS("VOUCHERS"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: STANDARD,DRIVER,NO_DELIVERY,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DeliveryTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "STANDARD") STANDARD("STANDARD"),
+        @Json(name = "DRIVER") DRIVER("DRIVER"),
+        @Json(name = "NO_DELIVERY") NO_DELIVERY("NO_DELIVERY"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

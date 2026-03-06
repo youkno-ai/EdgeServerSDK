@@ -33,9 +33,9 @@ import com.squareup.moshi.JsonClass
  * @param userAuthStatus 
  * @param priority 
  * @param weight 
- * @param userAuthStatusAsEnum 
- * @param bannerTypeAsEnum 
  * @param targetAppAsEnum 
+ * @param bannerTypeAsEnum 
+ * @param userAuthStatusAsEnum 
  */
 
 
@@ -65,27 +65,33 @@ data class Banner (
     @Json(name = "weight")
     val weight: kotlin.Int? = null,
 
-    @Json(name = "userAuthStatusAsEnum")
-    val userAuthStatusAsEnum: Banner.UserAuthStatusAsEnum? = null,
+    @Json(name = "targetAppAsEnum")
+    val targetAppAsEnum: Banner.TargetAppAsEnum? = null,
 
     @Json(name = "bannerTypeAsEnum")
     val bannerTypeAsEnum: Banner.BannerTypeAsEnum? = null,
 
-    @Json(name = "targetAppAsEnum")
-    val targetAppAsEnum: Banner.TargetAppAsEnum? = null
+    @Json(name = "userAuthStatusAsEnum")
+    val userAuthStatusAsEnum: Banner.UserAuthStatusAsEnum? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: ANY,AUTHED,ANON
+     * Values: NONE,ANDROID,IOS,WEB,JOIN_WEB,SERVER,SHOP,KIOSK,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class UserAuthStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "ANY") ANY("ANY"),
-        @Json(name = "AUTHED") AUTHED("AUTHED"),
-        @Json(name = "ANON") ANON("ANON");
+    enum class TargetAppAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "ANDROID") ANDROID("ANDROID"),
+        @Json(name = "IOS") IOS("IOS"),
+        @Json(name = "WEB") WEB("WEB"),
+        @Json(name = "JOIN_WEB") JOIN_WEB("JOIN_WEB"),
+        @Json(name = "SERVER") SERVER("SERVER"),
+        @Json(name = "SHOP") SHOP("SHOP"),
+        @Json(name = "KIOSK") KIOSK("KIOSK"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
@@ -104,19 +110,13 @@ data class Banner (
     /**
      * 
      *
-     * Values: NONE,ANDROID,IOS,WEB,JOIN_WEB,SERVER,SHOP,KIOSK,UNKNOWN
+     * Values: ANY,AUTHED,ANON
      */
     @JsonClass(generateAdapter = false)
-    enum class TargetAppAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ANDROID") ANDROID("ANDROID"),
-        @Json(name = "IOS") IOS("IOS"),
-        @Json(name = "WEB") WEB("WEB"),
-        @Json(name = "JOIN_WEB") JOIN_WEB("JOIN_WEB"),
-        @Json(name = "SERVER") SERVER("SERVER"),
-        @Json(name = "SHOP") SHOP("SHOP"),
-        @Json(name = "KIOSK") KIOSK("KIOSK"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    enum class UserAuthStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "ANY") ANY("ANY"),
+        @Json(name = "AUTHED") AUTHED("AUTHED"),
+        @Json(name = "ANON") ANON("ANON");
     }
 
 }

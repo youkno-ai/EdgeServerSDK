@@ -28,8 +28,6 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param meta 
  * @param createdAt 
- * @param valid 
- * @param stateAsEnum 
  */
 
 
@@ -48,28 +46,10 @@ data class AccessKeyDef (
     val meta: MetaData? = null,
 
     @Json(name = "createdAt")
-    val createdAt: kotlin.Long? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
-
-    @Json(name = "stateAsEnum")
-    val stateAsEnum: AccessKeyDef.StateAsEnum? = null
+    val createdAt: kotlin.Long? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,ACTIVE,INACTIVE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "INACTIVE") INACTIVE("INACTIVE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

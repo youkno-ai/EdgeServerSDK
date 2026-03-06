@@ -79,27 +79,7 @@ export interface TicketScan {
      * @memberof TicketScan
      */
     scanMode?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TicketScan
-     */
-    scanModeAsEnum?: TicketScanScanModeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const TicketScanScanModeAsEnumEnum = {
-    NONE: 'NONE',
-    ONLINE: 'ONLINE',
-    OFFLINE: 'OFFLINE',
-    MIXED: 'MIXED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type TicketScanScanModeAsEnumEnum = typeof TicketScanScanModeAsEnumEnum[keyof typeof TicketScanScanModeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the TicketScan interface.
@@ -128,7 +108,6 @@ export function TicketScanFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'scannedWithDeviceId': json['scannedWithDeviceId'] == null ? undefined : json['scannedWithDeviceId'],
         'scanMode': json['scanMode'] == null ? undefined : json['scanMode'],
-        'scanModeAsEnum': json['scanModeAsEnum'] == null ? undefined : json['scanModeAsEnum'],
     };
 }
 
@@ -153,7 +132,6 @@ export function TicketScanToJSONTyped(value?: TicketScan | null, ignoreDiscrimin
         'latitude': value['latitude'],
         'scannedWithDeviceId': value['scannedWithDeviceId'],
         'scanMode': value['scanMode'],
-        'scanModeAsEnum': value['scanModeAsEnum'],
     };
 }
 

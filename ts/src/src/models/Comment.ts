@@ -113,16 +113,16 @@ export interface Comment {
     responseId?: string;
     /**
      * 
-     * @type {string}
-     * @memberof Comment
-     */
-    objectTypeAsEnum?: CommentObjectTypeAsEnumEnum;
-    /**
-     * 
      * @type {User}
      * @memberof Comment
      */
     author?: User;
+    /**
+     * 
+     * @type {string}
+     * @memberof Comment
+     */
+    objectTypeAsEnum?: CommentObjectTypeAsEnumEnum;
 }
 
 
@@ -169,8 +169,8 @@ export function CommentFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
         'userId': json['userId'] == null ? undefined : json['userId'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
-        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
+        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
     };
 }
 
@@ -199,8 +199,8 @@ export function CommentToJSONTyped(value?: Comment | null, ignoreDiscriminator: 
         'userId': value['userId'],
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
-        'objectTypeAsEnum': value['objectTypeAsEnum'],
         'author': UserToJSON(value['author']),
+        'objectTypeAsEnum': value['objectTypeAsEnum'],
     };
 }
 

@@ -24,21 +24,13 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param tags 
- * @param empty 
- * @param tagIds 
  */
 
 
 data class Tags (
 
     @Json(name = "tags")
-    val tags: kotlin.collections.Map<kotlin.String, Tag>? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null,
-
-    @Json(name = "tagIds")
-    val tagIds: kotlin.collections.List<kotlin.String>? = null
+    val tags: kotlin.collections.Map<kotlin.String, Tag>? = null
 
 ) {
 

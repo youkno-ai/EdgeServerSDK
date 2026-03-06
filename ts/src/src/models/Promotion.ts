@@ -119,50 +119,7 @@ export interface Promotion {
      * @memberof Promotion
      */
     maxOverallUsageQty?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Promotion
-     */
-    negative?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Promotion
-     */
-    stateAsEnum?: PromotionStateAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof Promotion
-     */
-    typeAsEnum?: PromotionTypeAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const PromotionStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    CLOSED: 'CLOSED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type PromotionStateAsEnumEnum = typeof PromotionStateAsEnumEnum[keyof typeof PromotionStateAsEnumEnum];
-
-/**
- * @export
- */
-export const PromotionTypeAsEnumEnum = {
-    NONE: 'NONE',
-    SELECT_ONE: 'SELECT_ONE',
-    DISCOUNT: 'DISCOUNT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type PromotionTypeAsEnumEnum = typeof PromotionTypeAsEnumEnum[keyof typeof PromotionTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Promotion interface.
@@ -194,9 +151,6 @@ export function PromotionFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'deliveryFee': json['deliveryFee'] == null ? undefined : RewardFromJSON(json['deliveryFee']),
         'maxUsageQty': json['maxUsageQty'] == null ? undefined : json['maxUsageQty'],
         'maxOverallUsageQty': json['maxOverallUsageQty'] == null ? undefined : json['maxOverallUsageQty'],
-        'negative': json['negative'] == null ? undefined : json['negative'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -224,9 +178,6 @@ export function PromotionToJSONTyped(value?: Promotion | null, ignoreDiscriminat
         'deliveryFee': RewardToJSON(value['deliveryFee']),
         'maxUsageQty': value['maxUsageQty'],
         'maxOverallUsageQty': value['maxOverallUsageQty'],
-        'negative': value['negative'],
-        'stateAsEnum': value['stateAsEnum'],
-        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

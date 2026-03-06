@@ -37,12 +37,6 @@ export interface Applicant {
      * @memberof Applicant
      */
     phoneNumber?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Applicant
-     */
-    empty?: boolean;
 }
 
 /**
@@ -65,7 +59,6 @@ export function ApplicantFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'name': json['name'] == null ? undefined : json['name'],
         'email': json['email'] == null ? undefined : json['email'],
         'phoneNumber': json['phoneNumber'] == null ? undefined : json['phoneNumber'],
-        'empty': json['empty'] == null ? undefined : json['empty'],
     };
 }
 
@@ -83,7 +76,6 @@ export function ApplicantToJSONTyped(value?: Applicant | null, ignoreDiscriminat
         'name': value['name'],
         'email': value['email'],
         'phoneNumber': value['phoneNumber'],
-        'empty': value['empty'],
     };
 }
 

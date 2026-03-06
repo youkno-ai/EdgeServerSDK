@@ -25,9 +25,9 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param properties 
- * @param nextValidPropertyInfo 
  * @param propertyInfo 
  * @param dataStreamInfo 
+ * @param nextValidPropertyInfo 
  */
 
 
@@ -36,14 +36,14 @@ data class AnalyticsInfo (
     @Json(name = "properties")
     val properties: kotlin.collections.List<PropertyInfo>? = null,
 
-    @Json(name = "nextValidPropertyInfo")
-    val nextValidPropertyInfo: PropertyInfo? = null,
-
     @Json(name = "propertyInfo")
     val propertyInfo: PropertyInfo? = null,
 
     @Json(name = "dataStreamInfo")
-    val dataStreamInfo: DataStreamInfo? = null
+    val dataStreamInfo: DataStreamInfo? = null,
+
+    @Json(name = "nextValidPropertyInfo")
+    val nextValidPropertyInfo: PropertyInfo? = null
 
 ) {
 

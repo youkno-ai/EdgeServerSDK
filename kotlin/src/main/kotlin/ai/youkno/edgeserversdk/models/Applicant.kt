@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param email 
  * @param phoneNumber 
- * @param empty 
  */
 
 
@@ -38,10 +37,7 @@ data class Applicant (
     val email: kotlin.String? = null,
 
     @Json(name = "phoneNumber")
-    val phoneNumber: kotlin.String? = null,
-
-    @Json(name = "empty")
-    val empty: kotlin.Boolean? = null
+    val phoneNumber: kotlin.String? = null
 
 ) {
 

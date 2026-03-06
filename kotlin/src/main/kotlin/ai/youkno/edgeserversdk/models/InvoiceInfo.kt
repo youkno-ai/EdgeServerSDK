@@ -16,9 +16,7 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.ChargeInfo
-import ai.youkno.edgeserversdk.models.Money
 import ai.youkno.edgeserversdk.models.OrderSummary
-import ai.youkno.edgeserversdk.models.Reward
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,8 +29,6 @@ import com.squareup.moshi.JsonClass
  * @param cardCharges 
  * @param paymentType 
  * @param livePayment 
- * @param totalMoneyCharged 
- * @param deliveryFee 
  */
 
 
@@ -51,13 +47,7 @@ data class InvoiceInfo (
     val paymentType: InvoiceInfo.PaymentType? = null,
 
     @Json(name = "livePayment")
-    val livePayment: kotlin.Boolean? = null,
-
-    @Json(name = "totalMoneyCharged")
-    val totalMoneyCharged: Money? = null,
-
-    @Json(name = "deliveryFee")
-    val deliveryFee: Reward? = null
+    val livePayment: kotlin.Boolean? = null
 
 ) {
 

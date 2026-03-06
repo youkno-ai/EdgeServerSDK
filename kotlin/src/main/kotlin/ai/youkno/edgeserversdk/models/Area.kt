@@ -32,10 +32,10 @@ import com.squareup.moshi.JsonClass
  * @param displayRadiusUnit 
  * @param referenceType 
  * @param reference 
- * @param radiusUnitAsEnum 
- * @param referenceTypeAsEnum 
  * @param areaTypeAsEnum 
  * @param referenceArea 
+ * @param radiusUnitAsEnum 
+ * @param referenceTypeAsEnum 
  */
 
 
@@ -68,20 +68,33 @@ data class Area (
     @Json(name = "reference")
     val reference: kotlin.String? = null,
 
-    @Json(name = "radiusUnitAsEnum")
-    val radiusUnitAsEnum: Area.RadiusUnitAsEnum? = null,
-
-    @Json(name = "referenceTypeAsEnum")
-    val referenceTypeAsEnum: Area.ReferenceTypeAsEnum? = null,
-
     @Json(name = "areaTypeAsEnum")
     val areaTypeAsEnum: Area.AreaTypeAsEnum? = null,
 
     @Json(name = "referenceArea")
-    val referenceArea: kotlin.Boolean? = null
+    val referenceArea: kotlin.Boolean? = null,
+
+    @Json(name = "radiusUnitAsEnum")
+    val radiusUnitAsEnum: Area.RadiusUnitAsEnum? = null,
+
+    @Json(name = "referenceTypeAsEnum")
+    val referenceTypeAsEnum: Area.ReferenceTypeAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,CIRCLE,SQUARE,POLYGON,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class AreaTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "CIRCLE") CIRCLE("CIRCLE"),
+        @Json(name = "SQUARE") SQUARE("SQUARE"),
+        @Json(name = "POLYGON") POLYGON("POLYGON"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -105,19 +118,6 @@ data class Area (
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "MAP") MAP("MAP"),
         @Json(name = "BOUNTY") BOUNTY("BOUNTY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,CIRCLE,SQUARE,POLYGON,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AreaTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "CIRCLE") CIRCLE("CIRCLE"),
-        @Json(name = "SQUARE") SQUARE("SQUARE"),
-        @Json(name = "POLYGON") POLYGON("POLYGON"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

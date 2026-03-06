@@ -45,12 +45,6 @@ export interface AnalyticsInfo {
      * @type {PropertyInfo}
      * @memberof AnalyticsInfo
      */
-    nextValidPropertyInfo?: PropertyInfo;
-    /**
-     * 
-     * @type {PropertyInfo}
-     * @memberof AnalyticsInfo
-     */
     propertyInfo?: PropertyInfo;
     /**
      * 
@@ -58,6 +52,12 @@ export interface AnalyticsInfo {
      * @memberof AnalyticsInfo
      */
     dataStreamInfo?: DataStreamInfo;
+    /**
+     * 
+     * @type {PropertyInfo}
+     * @memberof AnalyticsInfo
+     */
+    nextValidPropertyInfo?: PropertyInfo;
 }
 
 /**
@@ -78,9 +78,9 @@ export function AnalyticsInfoFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'properties': json['properties'] == null ? undefined : ((json['properties'] as Array<any>).map(PropertyInfoFromJSON)),
-        'nextValidPropertyInfo': json['nextValidPropertyInfo'] == null ? undefined : PropertyInfoFromJSON(json['nextValidPropertyInfo']),
         'propertyInfo': json['propertyInfo'] == null ? undefined : PropertyInfoFromJSON(json['propertyInfo']),
         'dataStreamInfo': json['dataStreamInfo'] == null ? undefined : DataStreamInfoFromJSON(json['dataStreamInfo']),
+        'nextValidPropertyInfo': json['nextValidPropertyInfo'] == null ? undefined : PropertyInfoFromJSON(json['nextValidPropertyInfo']),
     };
 }
 
@@ -96,9 +96,9 @@ export function AnalyticsInfoToJSONTyped(value?: AnalyticsInfo | null, ignoreDis
     return {
         
         'properties': value['properties'] == null ? undefined : ((value['properties'] as Array<any>).map(PropertyInfoToJSON)),
-        'nextValidPropertyInfo': PropertyInfoToJSON(value['nextValidPropertyInfo']),
         'propertyInfo': PropertyInfoToJSON(value['propertyInfo']),
         'dataStreamInfo': DataStreamInfoToJSON(value['dataStreamInfo']),
+        'nextValidPropertyInfo': PropertyInfoToJSON(value['nextValidPropertyInfo']),
     };
 }
 

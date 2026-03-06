@@ -32,8 +32,8 @@ import com.squareup.moshi.JsonClass
  * @param invalidReasons 
  * @param summaryInfo 
  * @param empty 
- * @param posSource 
  * @param overallSection 
+ * @param posSource 
  */
 
 
@@ -57,11 +57,11 @@ data class OrderSummary (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "posSource")
-    val posSource: kotlin.Boolean? = null,
-
     @Json(name = "overallSection")
-    val overallSection: OrderSection? = null
+    val overallSection: OrderSection? = null,
+
+    @Json(name = "posSource")
+    val posSource: kotlin.Boolean? = null
 
 ) {
 

@@ -32,7 +32,6 @@ import com.squareup.moshi.JsonClass
  * @param latitude 
  * @param scannedWithDeviceId 
  * @param scanMode 
- * @param scanModeAsEnum 
  */
 
 
@@ -66,26 +65,10 @@ data class TicketScan (
     val scannedWithDeviceId: kotlin.String? = null,
 
     @Json(name = "scanMode")
-    val scanMode: kotlin.String? = null,
-
-    @Json(name = "scanModeAsEnum")
-    val scanModeAsEnum: TicketScan.ScanModeAsEnum? = null
+    val scanMode: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,ONLINE,OFFLINE,MIXED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ScanModeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ONLINE") ONLINE("ONLINE"),
-        @Json(name = "OFFLINE") OFFLINE("OFFLINE"),
-        @Json(name = "MIXED") MIXED("MIXED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

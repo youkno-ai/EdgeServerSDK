@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.BadgeInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,36 +23,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param budgetAmount 
- * @param budgetCurrency 
- * @param startAt 
- * @param label 
- * @param leaderboardStrategy 
- * @param notifyOnStart 
+ * @param badges 
  */
 
 
 data class MetaInfo (
 
-    @Json(name = "budgetAmount")
-    @Deprecated(message = "This property is deprecated.")
-    val budgetAmount: java.math.BigDecimal? = null,
-
-    @Json(name = "budgetCurrency")
-    @Deprecated(message = "This property is deprecated.")
-    val budgetCurrency: kotlin.String? = null,
-
-    @Json(name = "startAt")
-    val startAt: kotlin.Long? = null,
-
-    @Json(name = "label")
-    val label: kotlin.String? = null,
-
-    @Json(name = "leaderboardStrategy")
-    val leaderboardStrategy: kotlin.String? = null,
-
-    @Json(name = "notifyOnStart")
-    val notifyOnStart: kotlin.Boolean? = null
+    @Json(name = "badges")
+    val badges: kotlin.collections.Map<kotlin.String, BadgeInfo>? = null
 
 ) {
 

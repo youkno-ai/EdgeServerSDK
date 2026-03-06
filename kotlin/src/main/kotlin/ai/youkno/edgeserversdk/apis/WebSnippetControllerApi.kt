@@ -18,13 +18,13 @@ interface WebSnippetControllerApi {
      *  - 201: Created
      *
      * @param webSnippet 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[NewId]>
      */
     @POST("api/v1/web-snippets")
-    fun createSnippet(@Body webSnippet: WebSnippet, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<NewId>
+    fun createSnippet(@Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * DELETE api/v1/web-snippets/{id}
@@ -34,13 +34,13 @@ interface WebSnippetControllerApi {
      *  - 204: No Content
      *
      * @param id 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[Unit]>
      */
     @DELETE("api/v1/web-snippets/{id}")
-    fun delete(@Path("id") id: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<Unit>
+    fun delete(@Path("id") id: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
     /**
      * GET api/v1/web-snippets/{snippetId}/render
@@ -50,13 +50,13 @@ interface WebSnippetControllerApi {
      *  - 200: OK
      *
      * @param snippetId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.String]>
      */
     @GET("api/v1/web-snippets/{snippetId}/render")
-    fun getHtmlSnippetById(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.String>
+    fun getHtmlSnippetById(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.String>
 
     /**
      * GET api/v1/web-snippets/{snippetId}
@@ -66,13 +66,13 @@ interface WebSnippetControllerApi {
      *  - 200: OK
      *
      * @param snippetId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[WebSnippet]>
      */
     @GET("api/v1/web-snippets/{snippetId}")
-    fun getSnippetById(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<WebSnippet>
+    fun getSnippetById(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebSnippet>
 
     /**
      * GET api/v1/web-snippets
@@ -83,13 +83,13 @@ interface WebSnippetControllerApi {
      *
      * @param q  (optional)
      * @param slim  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.List<WebSnippet>]>
      */
     @GET("api/v1/web-snippets")
-    fun listSnippets(@Query("q") q: kotlin.String? = null, @Query("slim") slim: kotlin.Boolean? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<WebSnippet>>
+    fun listSnippets(@Query("q") q: kotlin.String? = null, @Query("slim") slim: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<WebSnippet>>
 
     /**
      * PUT api/v1/web-snippets/{id}
@@ -100,12 +100,12 @@ interface WebSnippetControllerApi {
      *
      * @param id 
      * @param webSnippet 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[WebSnippet]>
      */
     @PUT("api/v1/web-snippets/{id}")
-    fun updateSnippet(@Path("id") id: java.util.UUID, @Body webSnippet: WebSnippet, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<WebSnippet>
+    fun updateSnippet(@Path("id") id: java.util.UUID, @Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebSnippet>
 
 }

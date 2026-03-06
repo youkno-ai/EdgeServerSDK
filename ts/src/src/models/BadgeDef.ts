@@ -20,13 +20,6 @@ import {
     EntityInfoToJSON,
     EntityInfoToJSONTyped,
 } from './EntityInfo';
-import type { BadgeInfo } from './BadgeInfo';
-import {
-    BadgeInfoFromJSON,
-    BadgeInfoFromJSONTyped,
-    BadgeInfoToJSON,
-    BadgeInfoToJSONTyped,
-} from './BadgeInfo';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -118,50 +111,8 @@ export interface BadgeDef {
      * @type {string}
      * @memberof BadgeDef
      */
-    type?: BadgeDefTypeEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BadgeDef
-     */
-    badgeDefTypeAsEnum?: BadgeDefBadgeDefTypeAsEnumEnum;
-    /**
-     * 
-     * @type {BadgeInfo}
-     * @memberof BadgeDef
-     */
-    badgeInfo?: BadgeInfo;
-    /**
-     * 
-     * @type {string}
-     * @memberof BadgeDef
-     */
     uuid?: string;
 }
-
-
-/**
- * @export
- */
-export const BadgeDefTypeEnum = {
-    NONE: 'NONE',
-    OFFICIAL: 'OFFICIAL',
-    REQUEST_OFFICIAL_RESPONSE: 'REQUEST_OFFICIAL_RESPONSE',
-    CUSTOM: 'CUSTOM'
-} as const;
-export type BadgeDefTypeEnum = typeof BadgeDefTypeEnum[keyof typeof BadgeDefTypeEnum];
-
-/**
- * @export
- */
-export const BadgeDefBadgeDefTypeAsEnumEnum = {
-    STICKER: 'STICKER',
-    BADGE: 'BADGE',
-    UNKNOWN: 'UNKNOWN',
-    NONE: 'NONE'
-} as const;
-export type BadgeDefBadgeDefTypeAsEnumEnum = typeof BadgeDefBadgeDefTypeAsEnumEnum[keyof typeof BadgeDefBadgeDefTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the BadgeDef interface.
@@ -192,9 +143,6 @@ export function BadgeDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'maxQty': json['maxQty'] == null ? undefined : json['maxQty'],
         'createdQty': json['createdQty'] == null ? undefined : json['createdQty'],
         'badgeDefType': json['badgeDefType'] == null ? undefined : json['badgeDefType'],
-        'type': json['type'] == null ? undefined : json['type'],
-        'badgeDefTypeAsEnum': json['badgeDefTypeAsEnum'] == null ? undefined : json['badgeDefTypeAsEnum'],
-        'badgeInfo': json['badgeInfo'] == null ? undefined : BadgeInfoFromJSON(json['badgeInfo']),
         'uuid': json['uuid'] == null ? undefined : json['uuid'],
     };
 }
@@ -222,9 +170,6 @@ export function BadgeDefToJSONTyped(value?: BadgeDef | null, ignoreDiscriminator
         'maxQty': value['maxQty'],
         'createdQty': value['createdQty'],
         'badgeDefType': value['badgeDefType'],
-        'type': value['type'],
-        'badgeDefTypeAsEnum': value['badgeDefTypeAsEnum'],
-        'badgeInfo': BadgeInfoToJSON(value['badgeInfo']),
         'uuid': value['uuid'],
     };
 }

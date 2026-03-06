@@ -33,12 +33,6 @@ export interface Badges {
      * @memberof Badges
      */
     stash?: { [key: string]: BadgeStash; };
-    /**
-     * 
-     * @type {number}
-     * @memberof Badges
-     */
-    badgesCount?: number;
 }
 
 /**
@@ -59,7 +53,6 @@ export function BadgesFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ba
     return {
         
         'stash': json['stash'] == null ? undefined : (mapValues(json['stash'], BadgeStashFromJSON)),
-        'badgesCount': json['badgesCount'] == null ? undefined : json['badgesCount'],
     };
 }
 
@@ -75,7 +68,6 @@ export function BadgesToJSONTyped(value?: Badges | null, ignoreDiscriminator: bo
     return {
         
         'stash': value['stash'] == null ? undefined : (mapValues(value['stash'], BadgeStashToJSON)),
-        'badgesCount': value['badgesCount'],
     };
 }
 

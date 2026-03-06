@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param countryCode 
  * @param phoneNumber 
  * @param phoneStatus 
- * @param phoneStatusAsEnum 
  */
 
 
@@ -38,24 +37,10 @@ data class PhoneNumberData (
     val phoneNumber: kotlin.String? = null,
 
     @Json(name = "phoneStatus")
-    val phoneStatus: kotlin.String? = null,
-
-    @Json(name = "phoneStatusAsEnum")
-    val phoneStatusAsEnum: PhoneNumberData.PhoneStatusAsEnum? = null
+    val phoneStatus: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: UNVERIFIED,VERIFIED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PhoneStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "UNVERIFIED") UNVERIFIED("UNVERIFIED"),
-        @Json(name = "VERIFIED") VERIFIED("VERIFIED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

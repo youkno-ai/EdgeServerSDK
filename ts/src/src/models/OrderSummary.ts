@@ -86,16 +86,16 @@ export interface OrderSummary {
     empty?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof OrderSummary
-     */
-    posSource?: boolean;
-    /**
-     * 
      * @type {OrderSection}
      * @memberof OrderSummary
      */
     overallSection?: OrderSection;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrderSummary
+     */
+    posSource?: boolean;
 }
 
 
@@ -134,8 +134,8 @@ export function OrderSummaryFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'invalidReasons': json['invalidReasons'] == null ? undefined : json['invalidReasons'],
         'summaryInfo': json['summaryInfo'] == null ? undefined : SummaryInfoFromJSON(json['summaryInfo']),
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'posSource': json['posSource'] == null ? undefined : json['posSource'],
         'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
+        'posSource': json['posSource'] == null ? undefined : json['posSource'],
     };
 }
 
@@ -156,8 +156,8 @@ export function OrderSummaryToJSONTyped(value?: OrderSummary | null, ignoreDiscr
         'invalidReasons': value['invalidReasons'],
         'summaryInfo': SummaryInfoToJSON(value['summaryInfo']),
         'empty': value['empty'],
-        'posSource': value['posSource'],
         'overallSection': OrderSectionToJSON(value['overallSection']),
+        'posSource': value['posSource'],
     };
 }
 

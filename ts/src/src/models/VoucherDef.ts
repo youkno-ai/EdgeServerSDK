@@ -162,52 +162,7 @@ export interface VoucherDef {
      * @memberof VoucherDef
      */
     createdAt?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof VoucherDef
-     */
-    discountTypeAsEnum?: VoucherDefDiscountTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof VoucherDef
-     */
-    stateAsEnum?: VoucherDefStateAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof VoucherDef
-     */
-    expired?: boolean;
 }
-
-
-/**
- * @export
- */
-export const VoucherDefDiscountTypeAsEnumEnum = {
-    NONE: 'NONE',
-    FLAT: 'FLAT',
-    PERCENTAGE: 'PERCENTAGE',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type VoucherDefDiscountTypeAsEnumEnum = typeof VoucherDefDiscountTypeAsEnumEnum[keyof typeof VoucherDefDiscountTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const VoucherDefStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    REDEEMED: 'REDEEMED',
-    CANCELED: 'CANCELED',
-    EXPIRED: 'EXPIRED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type VoucherDefStateAsEnumEnum = typeof VoucherDefStateAsEnumEnum[keyof typeof VoucherDefStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the VoucherDef interface.
@@ -245,9 +200,6 @@ export function VoucherDefFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'lifespanMs': json['lifespanMs'] == null ? undefined : json['lifespanMs'],
         'expiresAt': json['expiresAt'] == null ? undefined : json['expiresAt'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'discountTypeAsEnum': json['discountTypeAsEnum'] == null ? undefined : json['discountTypeAsEnum'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
-        'expired': json['expired'] == null ? undefined : json['expired'],
     };
 }
 
@@ -281,9 +233,6 @@ export function VoucherDefToJSONTyped(value?: VoucherDef | null, ignoreDiscrimin
         'lifespanMs': value['lifespanMs'],
         'expiresAt': value['expiresAt'],
         'createdAt': value['createdAt'],
-        'discountTypeAsEnum': value['discountTypeAsEnum'],
-        'stateAsEnum': value['stateAsEnum'],
-        'expired': value['expired'],
     };
 }
 

@@ -56,20 +56,24 @@ if [[ -d "$TMP_DIR/kotlin/src/main/kotlin" ]]; then
   cp -R "$TMP_DIR/kotlin/src/main/kotlin/." kotlin/src/main/kotlin/
 fi
 
-# Swift generation (official Swift OpenAPI Generator)
+# Swift generation (OpenAPI Generator swift5)
 cp spec/openapi.json swift/openapi.json
 rm -rf swift/Sources/BelongSDK
 mkdir -p swift/Sources/BelongSDK
-if ! command -v swift-openapi-generator >/dev/null 2>&1; then
-  echo "swift-openapi-generator is required." >&2
-  echo "Install it with: brew install swift-openapi-generator" >&2
-  exit 1
-fi
+rm -rf "$TMP_DIR/swift"
+$GEN_CLI generate \
+  -g swift5 \
+  -i swift/openapi.json \
+  -o "$TMP_DIR/swift" \
+  --skip-validate-spec \
+  -c swift/openapi-generator-cli-config.yml
 
-swift-openapi-generator generate \
-  --input-path swift/openapi.json \
-  --output-path swift/Sources/BelongSDK \
-  --config swift/openapi-generator-config.yml
+if [[ -d "$TMP_DIR/swift/Sources/BelongSDK" ]]; then
+  cp -R "$TMP_DIR/swift/Sources/BelongSDK/." swift/Sources/BelongSDK/
+else
+  # Fallback for templates that emit top-level Swift files.
+  find "$TMP_DIR/swift" -maxdepth 1 -type f -name '*.swift' -exec cp {} swift/Sources/BelongSDK/ \;
+fi
 
 # Align package versions
 node -e "const fs=require('fs');const p='ts/package.json';const d=JSON.parse(fs.readFileSync(p));d.version=process.argv[1];fs.writeFileSync(p,JSON.stringify(d,null,2)+'\\n');" "$EFFECTIVE_VERSION"

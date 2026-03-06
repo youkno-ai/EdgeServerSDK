@@ -48,10 +48,10 @@ export interface SurveyResult {
     fundingResult?: FundingResult;
     /**
      * 
-     * @type {SurveyAnswer}
+     * @type {number}
      * @memberof SurveyResult
      */
-    leadingSurveyAnswer?: SurveyAnswer;
+    totalCount?: number;
     /**
      * 
      * @type {number}
@@ -66,10 +66,10 @@ export interface SurveyResult {
     averageScore?: number;
     /**
      * 
-     * @type {number}
+     * @type {SurveyAnswer}
      * @memberof SurveyResult
      */
-    totalCount?: number;
+    leadingSurveyAnswer?: SurveyAnswer;
 }
 
 /**
@@ -91,10 +91,10 @@ export function SurveyResultFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'answers': json['answers'] == null ? undefined : (mapValues(json['answers'], SurveyAnswerFromJSON)),
         'fundingResult': json['fundingResult'] == null ? undefined : FundingResultFromJSON(json['fundingResult']),
-        'leadingSurveyAnswer': json['leadingSurveyAnswer'] == null ? undefined : SurveyAnswerFromJSON(json['leadingSurveyAnswer']),
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
         'totalWeight': json['totalWeight'] == null ? undefined : json['totalWeight'],
         'averageScore': json['averageScore'] == null ? undefined : json['averageScore'],
-        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'leadingSurveyAnswer': json['leadingSurveyAnswer'] == null ? undefined : SurveyAnswerFromJSON(json['leadingSurveyAnswer']),
     };
 }
 
@@ -111,10 +111,10 @@ export function SurveyResultToJSONTyped(value?: SurveyResult | null, ignoreDiscr
         
         'answers': value['answers'] == null ? undefined : (mapValues(value['answers'], SurveyAnswerToJSON)),
         'fundingResult': FundingResultToJSON(value['fundingResult']),
-        'leadingSurveyAnswer': SurveyAnswerToJSON(value['leadingSurveyAnswer']),
+        'totalCount': value['totalCount'],
         'totalWeight': value['totalWeight'],
         'averageScore': value['averageScore'],
-        'totalCount': value['totalCount'],
+        'leadingSurveyAnswer': SurveyAnswerToJSON(value['leadingSurveyAnswer']),
     };
 }
 

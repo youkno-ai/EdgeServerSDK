@@ -25,13 +25,13 @@ interface ChatControllerApi {
      *  - 200: OK
      *
      * @param createChat 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[UserChat]>
      */
     @POST("api/v1/chats")
-    fun createChat(@Body createChat: CreateChat, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<UserChat>
+    fun createChat(@Body createChat: CreateChat, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserChat>
 
     /**
      * GET api/v1/chats/ai-bot
@@ -41,13 +41,13 @@ interface ChatControllerApi {
      *  - 200: OK
      *
      * @param botName  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SupportChartResult]>
      */
     @GET("api/v1/chats/ai-bot")
-    fun getAiBot(@Query("botName") botName: kotlin.String? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SupportChartResult>
+    fun getAiBot(@Query("botName") botName: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SupportChartResult>
 
     /**
      * GET api/v1/chats/support
@@ -63,13 +63,13 @@ interface ChatControllerApi {
      * @param orderId  (optional)
      * @param existingOnly  (optional)
      * @param autoJoin  (optional)
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SupportChartResult]>
      */
     @GET("api/v1/chats/support")
-    fun getSupport(@Query("companyId") companyId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("productId") productId: kotlin.String? = null, @Query("orderId") orderId: kotlin.String? = null, @Query("existingOnly") existingOnly: kotlin.Boolean? = null, @Query("autoJoin") autoJoin: kotlin.Boolean? = null, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SupportChartResult>
+    fun getSupport(@Query("companyId") companyId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("productId") productId: kotlin.String? = null, @Query("orderId") orderId: kotlin.String? = null, @Query("existingOnly") existingOnly: kotlin.Boolean? = null, @Query("autoJoin") autoJoin: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SupportChartResult>
 
 
     /**
@@ -91,13 +91,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param eventType 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
-     * @return [Call]<[kotlin.Any]>
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.Any>]>
      */
     @POST("api/v1/chats/{room_id}/support/{event_type}")
-    fun handlePsgEvent(@Path("room_id") roomId: kotlin.String, @Path("event_type") eventType: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+    fun handlePsgEvent(@Path("room_id") roomId: kotlin.String, @Path("event_type") eventType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.Any>>
 
     /**
      * POST api/v1/chats/{room_id}/messages/{msg_id}/handle_message
@@ -108,13 +108,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param msgId 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[SupportChartResult]>
      */
     @POST("api/v1/chats/{room_id}/messages/{msg_id}/handle_message")
-    fun handleSupportMessage(@Path("room_id") roomId: kotlin.String, @Path("msg_id") msgId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<SupportChartResult>
+    fun handleSupportMessage(@Path("room_id") roomId: kotlin.String, @Path("msg_id") msgId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SupportChartResult>
 
     /**
      * POST api/v1/chats/{room_id}/messages/read
@@ -125,13 +125,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param chatMessageRead 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[Unit]>
      */
     @POST("api/v1/chats/{room_id}/messages/read")
-    fun markAsRead(@Path("room_id") roomId: kotlin.String, @Body chatMessageRead: ChatMessageRead, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<Unit>
+    fun markAsRead(@Path("room_id") roomId: kotlin.String, @Body chatMessageRead: ChatMessageRead, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
     /**
      * POST api/v1/chats/{room_id}/oob/read
@@ -142,13 +142,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param chatMessageRead 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[Unit]>
      */
     @POST("api/v1/chats/{room_id}/oob/read")
-    fun oobMarkAsRead(@Path("room_id") roomId: kotlin.String, @Body chatMessageRead: ChatMessageRead, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<Unit>
+    fun oobMarkAsRead(@Path("room_id") roomId: kotlin.String, @Body chatMessageRead: ChatMessageRead, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
     /**
      * POST api/v1/chats/{room_id}/oob/watching
@@ -159,13 +159,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param chatOobWatching 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[NewId]>
      */
     @POST("api/v1/chats/{room_id}/oob/watching")
-    fun oobWatching(@Path("room_id") roomId: kotlin.String, @Body chatOobWatching: ChatOobWatching, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<NewId>
+    fun oobWatching(@Path("room_id") roomId: kotlin.String, @Body chatOobWatching: ChatOobWatching, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * POST api/v1/chats/{room_id}/messages
@@ -176,13 +176,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param chatMessage 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[NewId]>
      */
     @POST("api/v1/chats/{room_id}/messages")
-    fun postMessage(@Path("room_id") roomId: kotlin.String, @Body chatMessage: ChatMessage, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<NewId>
+    fun postMessage(@Path("room_id") roomId: kotlin.String, @Body chatMessage: ChatMessage, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * POST api/v1/chats/{room_id}/commands
@@ -193,13 +193,13 @@ interface ChatControllerApi {
      *
      * @param roomId 
      * @param chatCommand 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[ChatSlashResult]>
      */
     @POST("api/v1/chats/{room_id}/commands")
-    fun postMessage1(@Path("room_id") roomId: kotlin.String, @Body chatCommand: ChatCommand, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<ChatSlashResult>
+    fun postMessage1(@Path("room_id") roomId: kotlin.String, @Body chatCommand: ChatCommand, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ChatSlashResult>
 
     /**
      * POST api/v1/chats/{room_id}/messages/{msg_id}/reactions
@@ -211,12 +211,12 @@ interface ChatControllerApi {
      * @param roomId 
      * @param msgId 
      * @param chatOobWatching 
-     * @param UNKNOWN_PARAMETER_NAME  (optional)
-     * @param UNKNOWN_PARAMETER_NAME2  (optional)
-     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
      * @return [Call]<[Unit]>
      */
     @POST("api/v1/chats/{room_id}/messages/{msg_id}/reactions")
-    fun reaction(@Path("room_id") roomId: kotlin.String, @Path("msg_id") msgId: kotlin.String, @Body chatOobWatching: ChatOobWatching, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<Unit>
+    fun reaction(@Path("room_id") roomId: kotlin.String, @Path("msg_id") msgId: kotlin.String, @Body chatOobWatching: ChatOobWatching, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
 }

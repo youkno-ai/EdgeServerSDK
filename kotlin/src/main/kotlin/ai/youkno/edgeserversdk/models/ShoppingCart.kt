@@ -16,18 +16,14 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.Customer
-import ai.youkno.edgeserversdk.models.CustomerInfo
 import ai.youkno.edgeserversdk.models.Delivery
 import ai.youkno.edgeserversdk.models.DiscountRule
 import ai.youkno.edgeserversdk.models.DriverLicense
-import ai.youkno.edgeserversdk.models.MailingAddress
 import ai.youkno.edgeserversdk.models.Medical
 import ai.youkno.edgeserversdk.models.PaymentInfo
 import ai.youkno.edgeserversdk.models.PaymentMethodInfo
 import ai.youkno.edgeserversdk.models.ProductInfo
-import ai.youkno.edgeserversdk.models.ProductsInfo
 import ai.youkno.edgeserversdk.models.RedemptionInfo
-import ai.youkno.edgeserversdk.models.Reward
 import ai.youkno.edgeserversdk.models.Voucher
 
 import com.squareup.moshi.Json
@@ -57,17 +53,6 @@ import com.squareup.moshi.JsonClass
  * @param kioskId 
  * @param printReceipt 
  * @param discounts 
- * @param printReceiptAsEnum 
- * @param paymentTypeAsEnum 
- * @param shoppingCartHash 
- * @param redemptionAmountAsReward 
- * @param deliveryMethodAsEnum 
- * @param statusAsEnum 
- * @param deliveryAddress 
- * @param useTypeAsEnum 
- * @param customerInfo 
- * @param productsInfo 
- * @param merchantIds 
  */
 
 
@@ -134,106 +119,10 @@ data class ShoppingCart (
     val printReceipt: kotlin.String? = null,
 
     @Json(name = "discounts")
-    val discounts: kotlin.collections.List<DiscountRule>? = null,
-
-    @Json(name = "printReceiptAsEnum")
-    val printReceiptAsEnum: ShoppingCart.PrintReceiptAsEnum? = null,
-
-    @Json(name = "paymentTypeAsEnum")
-    val paymentTypeAsEnum: ShoppingCart.PaymentTypeAsEnum? = null,
-
-    @Json(name = "shoppingCartHash")
-    val shoppingCartHash: kotlin.String? = null,
-
-    @Json(name = "redemptionAmountAsReward")
-    val redemptionAmountAsReward: Reward? = null,
-
-    @Json(name = "deliveryMethodAsEnum")
-    val deliveryMethodAsEnum: ShoppingCart.DeliveryMethodAsEnum? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: ShoppingCart.StatusAsEnum? = null,
-
-    @Json(name = "deliveryAddress")
-    val deliveryAddress: MailingAddress? = null,
-
-    @Json(name = "useTypeAsEnum")
-    val useTypeAsEnum: ShoppingCart.UseTypeAsEnum? = null,
-
-    @Json(name = "customerInfo")
-    val customerInfo: CustomerInfo? = null,
-
-    @Json(name = "productsInfo")
-    val productsInfo: ProductsInfo? = null,
-
-    @Json(name = "merchantIds")
-    val merchantIds: kotlin.collections.Set<kotlin.String>? = null
+    val discounts: kotlin.collections.List<DiscountRule>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,YES,NO,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PrintReceiptAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "YES") YES("YES"),
-        @Json(name = "NO") NO("NO"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,WITH_CC,AT_DELIVERY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class PaymentTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "WITH_CC") WITH_CC("WITH_CC"),
-        @Json(name = "AT_DELIVERY") AT_DELIVERY("AT_DELIVERY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,DELIVERY,PICKUP,KIOSK,CURBSIDE,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DeliveryMethodAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "DELIVERY") DELIVERY("DELIVERY"),
-        @Json(name = "PICKUP") PICKUP("PICKUP"),
-        @Json(name = "KIOSK") KIOSK("KIOSK"),
-        @Json(name = "CURBSIDE") CURBSIDE("CURBSIDE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,ACTIVE,ABANDONED,CLOSED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "ABANDONED") ABANDONED("ABANDONED"),
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,ADULT,MEDICAL,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class UseTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ADULT") ADULT("ADULT"),
-        @Json(name = "MEDICAL") MEDICAL("MEDICAL"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

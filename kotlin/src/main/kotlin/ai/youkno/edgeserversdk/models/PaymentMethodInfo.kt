@@ -22,7 +22,6 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
  * @param providerType 
  * @param cardType 
  * @param redactedNumber 
@@ -31,20 +30,10 @@ import com.squareup.moshi.JsonClass
  * @param liveMode 
  * @param status 
  * @param paymentMethodId 
- * @param defaultMethod 
- * @param offSessionReady 
- * @param providerTypeAsEnum 
- * @param lastFour 
- * @param expDate 
- * @param statusAsEnum 
- * @param cardTypeAsEnum 
  */
 
 
 data class PaymentMethodInfo (
-
-    @Json(name = "id")
-    val id: kotlin.String? = null,
 
     @Json(name = "providerType")
     val providerType: kotlin.String? = null,
@@ -68,68 +57,10 @@ data class PaymentMethodInfo (
     val status: kotlin.String? = null,
 
     @Json(name = "paymentMethodId")
-    val paymentMethodId: kotlin.String? = null,
-
-    @Json(name = "defaultMethod")
-    val defaultMethod: kotlin.Boolean? = null,
-
-    @Json(name = "offSessionReady")
-    val offSessionReady: kotlin.Boolean? = null,
-
-    @Json(name = "providerTypeAsEnum")
-    val providerTypeAsEnum: PaymentMethodInfo.ProviderTypeAsEnum? = null,
-
-    @Json(name = "lastFour")
-    val lastFour: kotlin.String? = null,
-
-    @Json(name = "expDate")
-    val expDate: kotlin.String? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: PaymentMethodInfo.StatusAsEnum? = null,
-
-    @Json(name = "cardTypeAsEnum")
-    val cardTypeAsEnum: PaymentMethodInfo.CardTypeAsEnum? = null
+    val paymentMethodId: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: STRIPE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ProviderTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "STRIPE") STRIPE("STRIPE");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,ACTIVE,INACTIVE,PENDING_SETUP,FAILED_SETUP,DELETED,OTHER
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
-        @Json(name = "INACTIVE") INACTIVE("INACTIVE"),
-        @Json(name = "PENDING_SETUP") PENDING_SETUP("PENDING_SETUP"),
-        @Json(name = "FAILED_SETUP") FAILED_SETUP("FAILED_SETUP"),
-        @Json(name = "DELETED") DELETED("DELETED"),
-        @Json(name = "OTHER") OTHER("OTHER");
-    }
-    /**
-     * 
-     *
-     * Values: AMEX,MC,VISA,GENERIC,OTHER
-     */
-    @JsonClass(generateAdapter = false)
-    enum class CardTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "AMEX") AMEX("AMEX"),
-        @Json(name = "MC") MC("MC"),
-        @Json(name = "VISA") VISA("VISA"),
-        @Json(name = "GENERIC") GENERIC("GENERIC"),
-        @Json(name = "OTHER") OTHER("OTHER");
-    }
 
 }
 

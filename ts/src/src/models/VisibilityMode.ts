@@ -31,37 +31,7 @@ export interface VisibilityMode {
      * @memberof VisibilityMode
      */
     visibilityType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof VisibilityMode
-     */
-    visibilityTypeAsEnum?: VisibilityModeVisibilityTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof VisibilityMode
-     */
-    enforced?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof VisibilityMode
-     */
-    complete?: boolean;
 }
-
-
-/**
- * @export
- */
-export const VisibilityModeVisibilityTypeAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    VISIBLE: 'VISIBLE',
-    PRIVATE: 'PRIVATE'
-} as const;
-export type VisibilityModeVisibilityTypeAsEnumEnum = typeof VisibilityModeVisibilityTypeAsEnumEnum[keyof typeof VisibilityModeVisibilityTypeAsEnumEnum];
-
 
 /**
  * Check if a given object implements the VisibilityMode interface.
@@ -82,9 +52,6 @@ export function VisibilityModeFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'forced': json['forced'] == null ? undefined : json['forced'],
         'visibilityType': json['visibilityType'] == null ? undefined : json['visibilityType'],
-        'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
-        'enforced': json['enforced'] == null ? undefined : json['enforced'],
-        'complete': json['complete'] == null ? undefined : json['complete'],
     };
 }
 
@@ -101,9 +68,6 @@ export function VisibilityModeToJSONTyped(value?: VisibilityMode | null, ignoreD
         
         'forced': value['forced'],
         'visibilityType': value['visibilityType'],
-        'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
-        'enforced': value['enforced'],
-        'complete': value['complete'],
     };
 }
 

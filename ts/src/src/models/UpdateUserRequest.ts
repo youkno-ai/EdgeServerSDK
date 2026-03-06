@@ -67,16 +67,16 @@ export interface UpdateUserRequest {
     role?: UpdateRolesRequest;
     /**
      * 
-     * @type {UpdateUserRequestEmailInternetAddress}
-     * @memberof UpdateUserRequest
-     */
-    emailInternetAddress?: UpdateUserRequestEmailInternetAddress;
-    /**
-     * 
      * @type {PhoneNumber}
      * @memberof UpdateUserRequest
      */
     phoneNumber?: PhoneNumber;
+    /**
+     * 
+     * @type {UpdateUserRequestEmailInternetAddress}
+     * @memberof UpdateUserRequest
+     */
+    emailInternetAddress?: UpdateUserRequestEmailInternetAddress;
 }
 
 /**
@@ -100,8 +100,8 @@ export function UpdateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'role': json['role'] == null ? undefined : UpdateRolesRequestFromJSON(json['role']),
-        'emailInternetAddress': json['emailInternetAddress'] == null ? undefined : UpdateUserRequestEmailInternetAddressFromJSON(json['emailInternetAddress']),
         'phoneNumber': json['phoneNumber'] == null ? undefined : PhoneNumberFromJSON(json['phoneNumber']),
+        'emailInternetAddress': json['emailInternetAddress'] == null ? undefined : UpdateUserRequestEmailInternetAddressFromJSON(json['emailInternetAddress']),
     };
 }
 
@@ -120,8 +120,8 @@ export function UpdateUserRequestToJSONTyped(value?: UpdateUserRequest | null, i
         'email': value['email'],
         'phone': value['phone'],
         'role': UpdateRolesRequestToJSON(value['role']),
-        'emailInternetAddress': UpdateUserRequestEmailInternetAddressToJSON(value['emailInternetAddress']),
         'phoneNumber': PhoneNumberToJSON(value['phoneNumber']),
+        'emailInternetAddress': UpdateUserRequestEmailInternetAddressToJSON(value['emailInternetAddress']),
     };
 }
 

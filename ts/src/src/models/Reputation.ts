@@ -54,6 +54,12 @@ export interface Reputation {
      * @type {boolean}
      * @memberof Reputation
      */
+    none?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Reputation
+     */
     standardType?: boolean;
     /**
      * 
@@ -61,12 +67,6 @@ export interface Reputation {
      * @memberof Reputation
      */
     iconic?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Reputation
-     */
-    none?: boolean;
 }
 
 
@@ -106,9 +106,9 @@ export function ReputationFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'text': json['text'] == null ? undefined : json['text'],
         'iconName': json['iconName'] == null ? undefined : json['iconName'],
         'color': json['color'] == null ? undefined : json['color'],
+        'none': json['none'] == null ? undefined : json['none'],
         'standardType': json['standardType'] == null ? undefined : json['standardType'],
         'iconic': json['iconic'] == null ? undefined : json['iconic'],
-        'none': json['none'] == null ? undefined : json['none'],
     };
 }
 
@@ -128,9 +128,9 @@ export function ReputationToJSONTyped(value?: Reputation | null, ignoreDiscrimin
         'text': value['text'],
         'iconName': value['iconName'],
         'color': value['color'],
+        'none': value['none'],
         'standardType': value['standardType'],
         'iconic': value['iconic'],
-        'none': value['none'],
     };
 }
 

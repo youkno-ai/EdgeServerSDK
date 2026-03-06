@@ -24,7 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param amount 
  * @param currency 
- * @param valid 
  */
 
 
@@ -34,10 +33,7 @@ data class Money (
     val amount: kotlin.String? = null,
 
     @Json(name = "currency")
-    val currency: kotlin.String? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null
+    val currency: kotlin.String? = null
 
 ) {
 

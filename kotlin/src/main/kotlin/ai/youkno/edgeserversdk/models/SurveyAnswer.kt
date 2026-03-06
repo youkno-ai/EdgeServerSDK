@@ -27,10 +27,10 @@ import com.squareup.moshi.JsonClass
  * @param weight 
  * @param answerPoints 
  * @param maxPoints 
+ * @param score 
  * @param correctAnswer 
  * @param partialAnswer 
  * @param wrongAnswer 
- * @param score 
  */
 
 
@@ -51,6 +51,9 @@ data class SurveyAnswer (
     @Json(name = "maxPoints")
     val maxPoints: kotlin.Int? = null,
 
+    @Json(name = "score")
+    val score: kotlin.Int? = null,
+
     @Json(name = "correctAnswer")
     val correctAnswer: kotlin.Boolean? = null,
 
@@ -58,10 +61,7 @@ data class SurveyAnswer (
     val partialAnswer: kotlin.Boolean? = null,
 
     @Json(name = "wrongAnswer")
-    val wrongAnswer: kotlin.Boolean? = null,
-
-    @Json(name = "score")
-    val score: kotlin.Int? = null
+    val wrongAnswer: kotlin.Boolean? = null
 
 ) {
 

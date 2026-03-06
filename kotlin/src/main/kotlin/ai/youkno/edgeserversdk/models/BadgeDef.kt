@@ -15,7 +15,6 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BadgeInfo
 import ai.youkno.edgeserversdk.models.EntityInfo
 import ai.youkno.edgeserversdk.models.Reward
 
@@ -37,9 +36,6 @@ import com.squareup.moshi.JsonClass
  * @param maxQty 
  * @param createdQty 
  * @param badgeDefType 
- * @param type 
- * @param badgeDefTypeAsEnum 
- * @param badgeInfo 
  * @param uuid 
  */
 
@@ -82,44 +78,11 @@ data class BadgeDef (
     @Json(name = "badgeDefType")
     val badgeDefType: kotlin.String? = null,
 
-    @Json(name = "type")
-    val type: BadgeDef.Type? = null,
-
-    @Json(name = "badgeDefTypeAsEnum")
-    val badgeDefTypeAsEnum: BadgeDef.BadgeDefTypeAsEnum? = null,
-
-    @Json(name = "badgeInfo")
-    val badgeInfo: BadgeInfo? = null,
-
     @Json(name = "uuid")
     val uuid: java.util.UUID? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,OFFICIAL,REQUEST_OFFICIAL_RESPONSE,CUSTOM
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "OFFICIAL") OFFICIAL("OFFICIAL"),
-        @Json(name = "REQUEST_OFFICIAL_RESPONSE") REQUEST_OFFICIAL_RESPONSE("REQUEST_OFFICIAL_RESPONSE"),
-        @Json(name = "CUSTOM") CUSTOM("CUSTOM");
-    }
-    /**
-     * 
-     *
-     * Values: STICKER,BADGE,UNKNOWN,NONE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class BadgeDefTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "STICKER") STICKER("STICKER"),
-        @Json(name = "BADGE") BADGE("BADGE"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN"),
-        @Json(name = "NONE") NONE("NONE");
-    }
 
 }
 

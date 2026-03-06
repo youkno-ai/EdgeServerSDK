@@ -57,12 +57,6 @@ import com.squareup.moshi.JsonClass
  * @param selfOnboardingInfo 
  * @param livePaymentMode 
  * @param segment 
- * @param visibilityRolesList 
- * @param attachmentsAnchorType 
- * @param joiningStrategyAsEnum 
- * @param creator 
- * @param level1Id 
- * @param level2Id 
  * @param entityId 
  */
 
@@ -141,59 +135,11 @@ data class UserProfile (
     @Json(name = "segment")
     val segment: kotlin.String? = null,
 
-    @Json(name = "visibilityRolesList")
-    val visibilityRolesList: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "attachmentsAnchorType")
-    val attachmentsAnchorType: UserProfile.AttachmentsAnchorType? = null,
-
-    @Json(name = "joiningStrategyAsEnum")
-    val joiningStrategyAsEnum: UserProfile.JoiningStrategyAsEnum? = null,
-
-    @Json(name = "creator")
-    val creator: User? = null,
-
-    @Json(name = "level1Id")
-    val level1Id: kotlin.String? = null,
-
-    @Json(name = "level2Id")
-    val level2Id: kotlin.String? = null,
-
     @Json(name = "entityId")
     val entityId: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,USER,BOUNTY,RESPONSE,MESSAGE,VOUCHER,SETTINGS,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AttachmentsAnchorType(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "USER") USER("USER"),
-        @Json(name = "BOUNTY") BOUNTY("BOUNTY"),
-        @Json(name = "RESPONSE") RESPONSE("RESPONSE"),
-        @Json(name = "MESSAGE") MESSAGE("MESSAGE"),
-        @Json(name = "VOUCHER") VOUCHER("VOUCHER"),
-        @Json(name = "SETTINGS") SETTINGS("SETTINGS"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: INVITE_ONLY,NEEDS_APPROVAL,OPEN,CLOSED,GROUPS_ONLY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class JoiningStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "INVITE_ONLY") INVITE_ONLY("INVITE_ONLY"),
-        @Json(name = "NEEDS_APPROVAL") NEEDS_APPROVAL("NEEDS_APPROVAL"),
-        @Json(name = "OPEN") OPEN("OPEN"),
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "GROUPS_ONLY") GROUPS_ONLY("GROUPS_ONLY"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

@@ -99,70 +99,7 @@ export interface Member {
      * @memberof Member
      */
     joinedAt?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Member
-     */
-    visibilityRolesList?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof Member
-     */
-    joiningStrategyAsEnum?: MemberJoiningStrategyAsEnumEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Member
-     */
-    rolesList?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Member
-     */
-    memberRolesList?: Array<string>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Member
-     */
-    groupAdmin?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Member
-     */
-    stateAsEnum?: MemberStateAsEnumEnum;
 }
-
-
-/**
- * @export
- */
-export const MemberJoiningStrategyAsEnumEnum = {
-    INVITE_ONLY: 'INVITE_ONLY',
-    NEEDS_APPROVAL: 'NEEDS_APPROVAL',
-    OPEN: 'OPEN',
-    CLOSED: 'CLOSED',
-    GROUPS_ONLY: 'GROUPS_ONLY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type MemberJoiningStrategyAsEnumEnum = typeof MemberJoiningStrategyAsEnumEnum[keyof typeof MemberJoiningStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const MemberStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    ACTIVE: 'ACTIVE',
-    REJECTED: 'REJECTED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type MemberStateAsEnumEnum = typeof MemberStateAsEnumEnum[keyof typeof MemberStateAsEnumEnum];
-
 
 /**
  * Check if a given object implements the Member interface.
@@ -193,12 +130,6 @@ export function MemberFromJSONTyped(json: any, ignoreDiscriminator: boolean): Me
         'coverImageURL': json['coverImageURL'] == null ? undefined : json['coverImageURL'],
         'memberCount': json['memberCount'] == null ? undefined : json['memberCount'],
         'joinedAt': json['joinedAt'] == null ? undefined : json['joinedAt'],
-        'visibilityRolesList': json['visibilityRolesList'] == null ? undefined : json['visibilityRolesList'],
-        'joiningStrategyAsEnum': json['joiningStrategyAsEnum'] == null ? undefined : json['joiningStrategyAsEnum'],
-        'rolesList': json['rolesList'] == null ? undefined : json['rolesList'],
-        'memberRolesList': json['memberRolesList'] == null ? undefined : json['memberRolesList'],
-        'groupAdmin': json['groupAdmin'] == null ? undefined : json['groupAdmin'],
-        'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
     };
 }
 
@@ -225,12 +156,6 @@ export function MemberToJSONTyped(value?: Member | null, ignoreDiscriminator: bo
         'coverImageURL': value['coverImageURL'],
         'memberCount': value['memberCount'],
         'joinedAt': value['joinedAt'],
-        'visibilityRolesList': value['visibilityRolesList'],
-        'joiningStrategyAsEnum': value['joiningStrategyAsEnum'],
-        'rolesList': value['rolesList'],
-        'memberRolesList': value['memberRolesList'],
-        'groupAdmin': value['groupAdmin'],
-        'stateAsEnum': value['stateAsEnum'],
     };
 }
 
