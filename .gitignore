@@ -26,6 +26,7 @@ kotlin/build/
 
 # Swift
 .swiftpm/
+swift/.build/
 
 # OpenAPI generator temp output
 /tmp/edge-sdk-gen/
