@@ -34,7 +34,7 @@ You can override URLs via `VERSIONS_INDEX_URL` and `OPENAPI_SPEC_URL_TEMPLATE`.
 - `ts/`: TypeScript SDK package (`@youkno/sdk`)
 - `kotlin/`: Kotlin SDK and Maven Central publishing setup (`ai.youkno:edge-server-sdk`)
 - `swift/`: SwiftPM package (`BelongSDK`)
-- `bitbucket-pipelines.yml`: tag-triggered release pipeline (`sdk-*`)
+- `.github/workflows/release.yml`: tag-triggered release workflow (`sdk-*`)
 
 ## Local workflow
 
@@ -70,12 +70,12 @@ cp .env.local.example .env.local
 ```
 
 This creates two tags:
-- `sdk-1.20.2271` (Bitbucket pipeline trigger)
+- `sdk-1.20.2271` (GitHub Actions release trigger)
 - `1.20.2271` (SwiftPM-compatible semver tag)
 
 ## Publishing
 
-- npm: `@youkno/sdk` published by pipeline using `NPM_TOKEN`
+- npm: `@youkno/sdk` published by GitHub Actions using `NPM_TOKEN`
 - Maven Central: `ai.youkno:edge-server-sdk` published by Gradle (`SONATYPE_*`, `SIGNING_*`)
 - SwiftPM: distributed by semver tag `<VERSION>`
 
