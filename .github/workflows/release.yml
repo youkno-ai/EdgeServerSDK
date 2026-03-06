@@ -95,4 +95,12 @@ jobs:
           target_commitish: ${{ github.sha }}
           name: SDK ${{ steps.version.outputs.value }}
           generate_release_notes: true
+          append_body: true
+          body: |
+            ## Packages
+
+            - TypeScript (npm): https://www.npmjs.com/package/@youkno/sdk/v/${{ steps.version.outputs.value }}
+            - Kotlin (Maven Central): https://central.sonatype.com/artifact/ai.youkno/edge-server-sdk/${{ steps.version.outputs.value }}
+            - Swift (SwiftPM tag): https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.value }}
+
           make_latest: true
