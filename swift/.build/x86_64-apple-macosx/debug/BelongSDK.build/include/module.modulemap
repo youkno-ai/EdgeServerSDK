@@ -1,3 +1,0 @@
-module BelongSDK {
-    header "/Users/dimi/git.lattica/EdgeServerSDK/swift/.build/x86_64-apple-macosx/debug/BelongSDK.build/include/BelongSDK-Swift.h"
-}
