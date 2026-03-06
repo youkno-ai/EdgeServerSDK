@@ -25,8 +25,8 @@ You can override URLs via `VERSIONS_INDEX_URL` and `OPENAPI_SPEC_URL_TEMPLATE`.
 
 - `scripts/`: release automation (`fetch-openapi.sh`, `generate-all.sh`, `release.sh`)
 - `spec/openapi.json`: downloaded spec input (ignored by default)
-- `ts/`: TypeScript SDK package (`@belong/sdk`)
-- `kotlin/`: Kotlin SDK and Maven Central publishing setup (`is.belong:edge-server-sdk`)
+- `ts/`: TypeScript SDK package (`@youkno/sdk`)
+- `kotlin/`: Kotlin SDK and Maven Central publishing setup (`ai.youkno:edge-server-sdk`)
 - `swift/`: SwiftPM package (`BelongSDK`)
 - `bitbucket-pipelines.yml`: tag-triggered release pipeline (`sdk-*`)
 
@@ -69,8 +69,8 @@ This creates two tags:
 
 ## Publishing
 
-- npm: `@belong/sdk` published by pipeline using `NPM_TOKEN`
-- Maven Central: `is.belong:edge-server-sdk` published by Gradle (`SONATYPE_*`, `SIGNING_*`)
+- npm: `@youkno/sdk` published by pipeline using `NPM_TOKEN`
+- Maven Central: `ai.youkno:edge-server-sdk` published by Gradle (`SONATYPE_*`, `SIGNING_*`)
 - SwiftPM: distributed by semver tag `<VERSION>`
 
 ### CI secrets and local file alternatives

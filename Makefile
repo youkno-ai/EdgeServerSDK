@@ -21,7 +21,7 @@ help:
 	@echo "  build-ts       Build TypeScript SDK"
 	@echo "  build-kotlin   Build Kotlin SDK"
 	@echo "  build-swift    Build Swift SDK"
-	@echo "  publish-ts     Publish @belong/sdk to npm (needs NPM_TOKEN)"
+	@echo "  publish-ts     Publish @youkno/sdk to npm (needs NPM_TOKEN)"
 	@echo "  publish-kotlin Publish Kotlin SDK to Maven Central"
 	@echo "  deploy         Publish TS + Kotlin"
 	@echo "  release        Generate, commit, and tag release"

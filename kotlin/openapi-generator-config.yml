@@ -1,5 +1,5 @@
 additionalProperties:
-  packageName: "is.belong.edgeserversdk"
+  packageName: "ai.youkno.edgeserversdk"
   library: "jvm-retrofit2"
   serializationLibrary: "moshi"
   dateLibrary: "java8"

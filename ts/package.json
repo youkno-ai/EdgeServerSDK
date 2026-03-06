@@ -1,5 +1,5 @@
 {
-  "name": "@belong/sdk",
+  "name": "@youkno/sdk",
   "version": "0.0.0",
   "description": "Belong Edge Server TypeScript SDK",
   "type": "module",
