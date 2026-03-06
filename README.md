@@ -2,6 +2,12 @@
 
 Monorepo for generating, building, and publishing Edge Server SDKs from a versioned OpenAPI spec.
 
+## Quick SDK Guides
+
+- [TypeScript SDK quickstart](./ts/DEVELOPER_QUICKSTART.md)
+- [Kotlin SDK quickstart](./kotlin/DEVELOPER_QUICKSTART.md)
+- [Swift SDK quickstart](./swift/DEVELOPER_QUICKSTART.md)
+
 ## Versioning
 
 SDK version matches server version exactly (example: `1.20.2271`).
