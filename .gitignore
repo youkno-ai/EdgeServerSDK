@@ -29,6 +29,7 @@ kotlin/build/
 
 # OpenAPI generator temp output
 /tmp/edge-sdk-gen/
+openapitools.json
 
 # Logs
 *.log

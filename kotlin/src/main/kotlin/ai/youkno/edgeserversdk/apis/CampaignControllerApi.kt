@@ -1,0 +1,97 @@
+package ai.youkno.edgeserversdk.apis
+
+import ai.youkno.edgeserversdk.infrastructure.CollectionFormats.*
+import retrofit2.http.*
+import retrofit2.Call
+import okhttp3.RequestBody
+import com.squareup.moshi.Json
+
+import ai.youkno.edgeserversdk.models.JoinCampaign
+import ai.youkno.edgeserversdk.models.JoinCampaignRequest
+
+interface CampaignControllerApi {
+    /**
+     * POST api/v1/campaigns/{client}/join
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param joinCampaignRequest 
+     * @param UNKNOWN_PARAMETER_NAME  (optional)
+     * @param UNKNOWN_PARAMETER_NAME2  (optional)
+     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @return [Call]<[JoinCampaign]>
+     */
+    @POST("api/v1/campaigns/{client}/join")
+    fun createJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<JoinCampaign>
+
+    /**
+     * DELETE api/v1/campaigns/{client}/join
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param joinCampaignRequest 
+     * @param UNKNOWN_PARAMETER_NAME  (optional)
+     * @param UNKNOWN_PARAMETER_NAME2  (optional)
+     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @return [Call]<[kotlin.Any]>
+     */
+    @DELETE("api/v1/campaigns/{client}/join")
+    fun deleteJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.Any>
+
+    /**
+     * GET api/v1/campaigns/{client}/join/{campaignId}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param campaignId 
+     * @param UNKNOWN_PARAMETER_NAME  (optional)
+     * @param UNKNOWN_PARAMETER_NAME2  (optional)
+     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @return [Call]<[JoinCampaign]>
+     */
+    @GET("api/v1/campaigns/{client}/join/{campaignId}")
+    fun getJoinCampaign(@Path("client") client: kotlin.String, @Path("campaignId") campaignId: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<JoinCampaign>
+
+    /**
+     * GET api/v1/campaigns/{client}/join
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param UNKNOWN_PARAMETER_NAME  (optional)
+     * @param UNKNOWN_PARAMETER_NAME2  (optional)
+     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @return [Call]<[kotlin.collections.List<JoinCampaign>]>
+     */
+    @GET("api/v1/campaigns/{client}/join")
+    fun getJoinCampaigns(@Path("client") client: kotlin.String, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<kotlin.collections.List<JoinCampaign>>
+
+    /**
+     * PUT api/v1/campaigns/{client}/join
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param joinCampaignRequest 
+     * @param UNKNOWN_PARAMETER_NAME  (optional)
+     * @param UNKNOWN_PARAMETER_NAME2  (optional)
+     * @param UNKNOWN_PARAMETER_NAME3  (optional)
+     * @return [Call]<[JoinCampaign]>
+     */
+    @PUT("api/v1/campaigns/{client}/join")
+    fun updateJoinCampaign(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") UNKNOWN_PARAMETER_NAME: ? = null, @Header("X-edge-state") UNKNOWN_PARAMETER_NAME2: ? = null, @Header("X-edge-client-id") UNKNOWN_PARAMETER_NAME3: ? = null): Call<JoinCampaign>
+
+}

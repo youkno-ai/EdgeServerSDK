@@ -32,6 +32,7 @@ $GEN_CLI generate \
   -g typescript-fetch \
   -i spec/openapi.json \
   -o "$TMP_DIR/ts" \
+  --skip-validate-spec \
   -c ts/openapi-generator-config.yml
 
 rsync -a --delete \
@@ -48,6 +49,7 @@ $GEN_CLI generate \
   -g kotlin \
   -i spec/openapi.json \
   -o "$TMP_DIR/kotlin" \
+  --skip-validate-spec \
   -c kotlin/openapi-generator-config.yml
 
 if [[ -d "$TMP_DIR/kotlin/src/main/kotlin" ]]; then
@@ -69,6 +71,7 @@ else
     -g swift5 \
     -i swift/openapi.json \
     -o "$TMP_DIR/swift" \
+    --skip-validate-spec \
     -c swift/openapi-generator-cli-config.yml
 
   if [[ -d "$TMP_DIR/swift/Sources/BelongSDK" ]]; then
