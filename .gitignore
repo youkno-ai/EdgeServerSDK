@@ -32,3 +32,5 @@ kotlin/build/
 
 # Logs
 *.log
+
+.secrets
