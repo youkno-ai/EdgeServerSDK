@@ -5,6 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SWIFT_SRC_DIR="$ROOT_DIR/swift/Sources/BelongSDK"
 ANYCODABLE_FILE="$SWIFT_SRC_DIR/AnyCodable.swift"
 CREDENTIALS_FILE="$SWIFT_SRC_DIR/Models/Credentials.swift"
+CLIENT_HELPER_FILE="$SWIFT_SRC_DIR/EdgeSDKClient.swift"
 
 [[ -d "$SWIFT_SRC_DIR" ]] || { echo "Missing $SWIFT_SRC_DIR" >&2; exit 1; }
 
@@ -94,3 +95,54 @@ for model_file in "$SWIFT_SRC_DIR"/Models/*.swift; do
 done
 
 echo "Patched recursive self-referential Swift model fields"
+
+cat > "$CLIENT_HELPER_FILE" <<'EOF'
+import Foundation
+
+public struct EdgeSDKClientOptions {
+    public var basePath: String
+    public var bearerToken: String?
+    public var xEdgeAgent: String?
+    public var xEdgeState: String?
+    public var xEdgeClientId: String?
+    public var extraHeaders: [String: String]
+
+    public init(
+        basePath: String,
+        bearerToken: String? = nil,
+        xEdgeAgent: String? = nil,
+        xEdgeState: String? = nil,
+        xEdgeClientId: String? = nil,
+        extraHeaders: [String: String] = [:]
+    ) {
+        self.basePath = basePath
+        self.bearerToken = bearerToken
+        self.xEdgeAgent = xEdgeAgent
+        self.xEdgeState = xEdgeState
+        self.xEdgeClientId = xEdgeClientId
+        self.extraHeaders = extraHeaders
+    }
+}
+
+public enum EdgeSDKClient {
+    public static func configure(_ options: EdgeSDKClientOptions) {
+        BelongSDKAPI.basePath = options.basePath
+        var headers = options.extraHeaders
+        if let token = options.bearerToken {
+            headers["Authorization"] = "Bearer \(token)"
+        }
+        if let xEdgeAgent = options.xEdgeAgent {
+            headers["X-edge-agent"] = xEdgeAgent
+        }
+        if let xEdgeState = options.xEdgeState {
+            headers["X-edge-state"] = xEdgeState
+        }
+        if let xEdgeClientId = options.xEdgeClientId {
+            headers["X-edge-client-id"] = xEdgeClientId
+        }
+        BelongSDKAPI.customHeaders = headers
+    }
+}
+EOF
+
+echo "Created Swift SDK-level client helper"

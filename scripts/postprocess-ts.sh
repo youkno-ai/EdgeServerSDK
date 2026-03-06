@@ -8,6 +8,7 @@ USER_API_FILE="$TS_ROOT/apis/UserControllerApi.ts"
 TWILIO_API_FILE="$TS_ROOT/apis/TwilioControllerApi.ts"
 BUSINESS_TYPES_FILE="$TS_ROOT/models/BusinessTypesResp.ts"
 ENTRYPOINT_FILE="$TS_ROOT/index.ts"
+CLIENT_HELPER_FILE="$TS_ROOT/client.ts"
 
 [[ -f "$USER_API_FILE" ]] || { echo "Missing $USER_API_FILE" >&2; exit 1; }
 [[ -f "$TWILIO_API_FILE" ]] || { echo "Missing $TWILIO_API_FILE" >&2; exit 1; }
@@ -29,8 +30,42 @@ cat > "$ENTRYPOINT_FILE" <<'EOF'
 /* tslint:disable */
 /* eslint-disable */
 export * from './runtime';
+export * from './client';
 export * as apis from './apis/index';
 export * as models from './models/index';
+EOF
+
+# Create SDK-level client helper for shared defaults.
+cat > "$CLIENT_HELPER_FILE" <<'EOF'
+/* tslint:disable */
+/* eslint-disable */
+import { Configuration, type ConfigurationParameters, type HTTPHeaders } from './runtime';
+
+export interface EdgeSdkClientOptions {
+  basePath: string;
+  bearerToken?: string;
+  xEdgeAgent?: string;
+  xEdgeState?: string;
+  xEdgeClientId?: string;
+  headers?: HTTPHeaders;
+}
+
+export function createEdgeConfiguration(options: EdgeSdkClientOptions): Configuration {
+  const defaultHeaders: HTTPHeaders = {
+    ...(options.xEdgeAgent ? { 'X-edge-agent': options.xEdgeAgent } : {}),
+    ...(options.xEdgeState ? { 'X-edge-state': options.xEdgeState } : {}),
+    ...(options.xEdgeClientId ? { 'X-edge-client-id': options.xEdgeClientId } : {}),
+    ...(options.bearerToken ? { Authorization: `Bearer ${options.bearerToken}` } : {}),
+    ...(options.headers ?? {}),
+  };
+
+  const parameters: ConfigurationParameters = {
+    basePath: options.basePath,
+    headers: defaultHeaders,
+  };
+
+  return new Configuration(parameters);
+}
 EOF
 
 echo "Applied TypeScript post-generation patches"
