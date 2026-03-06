@@ -12,6 +12,8 @@ swift/openapi.json
 # Local secrets
 .env.local
 .secrets/
+.npmrc
+.npm-cache/
 
 # Node
 node_modules/
