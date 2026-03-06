@@ -15,41 +15,41 @@
 
 import * as runtime from '../runtime';
 import type {
-  AuditLogResult,
-  CountriesResponse,
-  CountryExtraInfo,
-  CurrenciesResponse,
-  DocSearchResult,
-  MxCheckResponse,
-  PageEventLogEntry,
-  PageFrontEndCount,
-  PageOrgTypeResp,
-  SaveCurrencyReq,
-  ShopMeta,
+  CoEdgeappServerModelEdgeApiDataAuditLogResult,
+  CoEdgeappServerModelEdgeApiDataCountriesResponse,
+  CoEdgeappServerModelEdgeApiDataCountryExtraInfo,
+  CoEdgeappServerModelEdgeApiDataCurrenciesResponse,
+  CoEdgeappServerModelEdgeApiDataDocSearchResult,
+  CoEdgeappServerModelEdgeApiDataMxCheckResponse,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount,
+  CoEdgeappServerModelEdgeApiDataSaveCurrencyReq,
+  CoEdgeappServerRestControllerSystemControllerShopMeta,
 } from '../models/index';
 import {
-    AuditLogResultFromJSON,
-    AuditLogResultToJSON,
-    CountriesResponseFromJSON,
-    CountriesResponseToJSON,
-    CountryExtraInfoFromJSON,
-    CountryExtraInfoToJSON,
-    CurrenciesResponseFromJSON,
-    CurrenciesResponseToJSON,
-    DocSearchResultFromJSON,
-    DocSearchResultToJSON,
-    MxCheckResponseFromJSON,
-    MxCheckResponseToJSON,
-    PageEventLogEntryFromJSON,
-    PageEventLogEntryToJSON,
-    PageFrontEndCountFromJSON,
-    PageFrontEndCountToJSON,
-    PageOrgTypeRespFromJSON,
-    PageOrgTypeRespToJSON,
-    SaveCurrencyReqFromJSON,
-    SaveCurrencyReqToJSON,
-    ShopMetaFromJSON,
-    ShopMetaToJSON,
+    CoEdgeappServerModelEdgeApiDataAuditLogResultFromJSON,
+    CoEdgeappServerModelEdgeApiDataAuditLogResultToJSON,
+    CoEdgeappServerModelEdgeApiDataCountriesResponseFromJSON,
+    CoEdgeappServerModelEdgeApiDataCountriesResponseToJSON,
+    CoEdgeappServerModelEdgeApiDataCountryExtraInfoFromJSON,
+    CoEdgeappServerModelEdgeApiDataCountryExtraInfoToJSON,
+    CoEdgeappServerModelEdgeApiDataCurrenciesResponseFromJSON,
+    CoEdgeappServerModelEdgeApiDataCurrenciesResponseToJSON,
+    CoEdgeappServerModelEdgeApiDataDocSearchResultFromJSON,
+    CoEdgeappServerModelEdgeApiDataDocSearchResultToJSON,
+    CoEdgeappServerModelEdgeApiDataMxCheckResponseFromJSON,
+    CoEdgeappServerModelEdgeApiDataMxCheckResponseToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeRespFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeRespToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntryFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntryToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountToJSON,
+    CoEdgeappServerModelEdgeApiDataSaveCurrencyReqFromJSON,
+    CoEdgeappServerModelEdgeApiDataSaveCurrencyReqToJSON,
+    CoEdgeappServerRestControllerSystemControllerShopMetaFromJSON,
+    CoEdgeappServerRestControllerSystemControllerShopMetaToJSON,
 } from '../models/index';
 
 export interface GetApiV1SystemAuditLogRequest {
@@ -136,7 +136,7 @@ export interface GetApiV1SystemShopsByShopidMetaRequest {
 }
 
 export interface PostApiV1SystemCurrenciesRequest {
-    saveCurrencyReq: SaveCurrencyReq;
+    coEdgeappServerModelEdgeApiDataSaveCurrencyReq: CoEdgeappServerModelEdgeApiDataSaveCurrencyReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -164,11 +164,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
+    getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAuditLogResult>>;
 
     /**
      */
-    getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
+    getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAuditLogResult>;
 
     /**
      * 
@@ -179,11 +179,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>>;
+    getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCountriesResponse>>;
 
     /**
      */
-    getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse>;
+    getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCountriesResponse>;
 
     /**
      * 
@@ -195,11 +195,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>>;
+    getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCountryExtraInfo>>;
 
     /**
      */
-    getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo>;
+    getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCountryExtraInfo>;
 
     /**
      * 
@@ -231,11 +231,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>>;
+    getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataDocSearchResult>>;
 
     /**
      */
-    getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult>;
+    getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataDocSearchResult>;
 
     /**
      * 
@@ -252,11 +252,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>>;
+    getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry>>;
 
     /**
      */
-    getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry>;
+    getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry>;
 
     /**
      * 
@@ -268,11 +268,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>>;
+    getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>>;
 
     /**
      */
-    getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount>;
+    getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>;
 
     /**
      * 
@@ -284,11 +284,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>>;
+    getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataMxCheckResponse>>;
 
     /**
      */
-    getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse>;
+    getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataMxCheckResponse>;
 
     /**
      * 
@@ -299,11 +299,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>>;
+    getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp>>;
 
     /**
      */
-    getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp>;
+    getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp>;
 
     /**
      * 
@@ -316,15 +316,15 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>>;
+    getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerSystemControllerShopMeta>>;
 
     /**
      */
-    getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta>;
+    getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerSystemControllerShopMeta>;
 
     /**
      * 
-     * @param {SaveCurrencyReq} saveCurrencyReq 
+     * @param {CoEdgeappServerModelEdgeApiDataSaveCurrencyReq} coEdgeappServerModelEdgeApiDataSaveCurrencyReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -332,11 +332,11 @@ export interface SystemControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SystemControllerApiInterface
      */
-    postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>>;
+    postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>>;
 
     /**
      */
-    postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse>;
+    postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>;
 
 }
 
@@ -347,7 +347,7 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
+    async getApiV1SystemAuditLogRaw(requestParameters: GetApiV1SystemAuditLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAuditLogResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['actorId'] != null) {
@@ -402,19 +402,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AuditLogResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAuditLogResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
+    async getApiV1SystemAuditLog(requestParameters: GetApiV1SystemAuditLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAuditLogResult> {
         const response = await this.getApiV1SystemAuditLogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesResponse>> {
+    async getApiV1SystemCountriesRaw(requestParameters: GetApiV1SystemCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCountriesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -445,19 +445,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CountriesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCountriesResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesResponse> {
+    async getApiV1SystemCountries(requestParameters: GetApiV1SystemCountriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCountriesResponse> {
         const response = await this.getApiV1SystemCountriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryExtraInfo>> {
+    async getApiV1SystemCountriesByCountrycodeRaw(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCountryExtraInfo>> {
         if (requestParameters['countryCode'] == null) {
             throw new runtime.RequiredError(
                 'countryCode',
@@ -496,12 +496,12 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CountryExtraInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCountryExtraInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountryExtraInfo> {
+    async getApiV1SystemCountriesByCountrycode(requestParameters: GetApiV1SystemCountriesByCountrycodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCountryExtraInfo> {
         const response = await this.getApiV1SystemCountriesByCountrycodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -562,7 +562,7 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
 
     /**
      */
-    async getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocSearchResult>> {
+    async getApiV1SystemDocSearchRaw(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataDocSearchResult>> {
         if (requestParameters['s'] == null) {
             throw new runtime.RequiredError(
                 's',
@@ -620,19 +620,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DocSearchResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataDocSearchResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocSearchResult> {
+    async getApiV1SystemDocSearch(requestParameters: GetApiV1SystemDocSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataDocSearchResult> {
         const response = await this.getApiV1SystemDocSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageEventLogEntry>> {
+    async getApiV1SystemEventLogRaw(requestParameters: GetApiV1SystemEventLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry>> {
         const queryParameters: any = {};
 
         if (requestParameters['actorId'] != null) {
@@ -687,19 +687,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageEventLogEntryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageEventLogEntry> {
+    async getApiV1SystemEventLog(requestParameters: GetApiV1SystemEventLogRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry> {
         const response = await this.getApiV1SystemEventLogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageFrontEndCount>> {
+    async getApiV1SystemFrontEndsStatsRaw(requestParameters: GetApiV1SystemFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>> {
         const queryParameters: any = {};
 
         if (requestParameters['latestOnly'] != null) {
@@ -734,19 +734,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageFrontEndCountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageFrontEndCount> {
+    async getApiV1SystemFrontEndsStats(requestParameters: GetApiV1SystemFrontEndsStatsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> {
         const response = await this.getApiV1SystemFrontEndsStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MxCheckResponse>> {
+    async getApiV1SystemMxCheckRaw(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataMxCheckResponse>> {
         if (requestParameters['email'] == null) {
             throw new runtime.RequiredError(
                 'email',
@@ -788,19 +788,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => MxCheckResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataMxCheckResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MxCheckResponse> {
+    async getApiV1SystemMxCheck(requestParameters: GetApiV1SystemMxCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataMxCheckResponse> {
         const response = await this.getApiV1SystemMxCheckRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageOrgTypeResp>> {
+    async getApiV1SystemOrganizationsRaw(requestParameters: GetApiV1SystemOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -831,19 +831,19 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageOrgTypeRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageOrgTypeResp> {
+    async getApiV1SystemOrganizations(requestParameters: GetApiV1SystemOrganizationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp> {
         const response = await this.getApiV1SystemOrganizationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopMeta>> {
+    async getApiV1SystemShopsByShopidMetaRaw(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerSystemControllerShopMeta>> {
         if (requestParameters['shopId'] == null) {
             throw new runtime.RequiredError(
                 'shopId',
@@ -886,23 +886,23 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShopMetaFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerSystemControllerShopMetaFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopMeta> {
+    async getApiV1SystemShopsByShopidMeta(requestParameters: GetApiV1SystemShopsByShopidMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerSystemControllerShopMeta> {
         const response = await this.getApiV1SystemShopsByShopidMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesResponse>> {
-        if (requestParameters['saveCurrencyReq'] == null) {
+    async postApiV1SystemCurrenciesRaw(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>> {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataSaveCurrencyReq'] == null) {
             throw new runtime.RequiredError(
-                'saveCurrencyReq',
-                'Required parameter "saveCurrencyReq" was null or undefined when calling postApiV1SystemCurrencies().'
+                'coEdgeappServerModelEdgeApiDataSaveCurrencyReq',
+                'Required parameter "coEdgeappServerModelEdgeApiDataSaveCurrencyReq" was null or undefined when calling postApiV1SystemCurrencies().'
             );
         }
 
@@ -936,15 +936,15 @@ export class SystemControllerApi extends runtime.BaseAPI implements SystemContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SaveCurrencyReqToJSON(requestParameters['saveCurrencyReq']),
+            body: CoEdgeappServerModelEdgeApiDataSaveCurrencyReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataSaveCurrencyReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CurrenciesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCurrenciesResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesResponse> {
+    async postApiV1SystemCurrencies(requestParameters: PostApiV1SystemCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCurrenciesResponse> {
         const response = await this.postApiV1SystemCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }

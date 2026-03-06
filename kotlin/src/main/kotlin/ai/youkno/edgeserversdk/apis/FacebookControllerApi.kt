@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.DeleteUserCallbackResp
+import ai.youkno.edgeserversdk.models.CoedgeappserverthirdpartiesFacebookDeleteUserCallbackResp
 
 interface FacebookControllerApi {
     /**
@@ -53,9 +53,9 @@ interface FacebookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[DeleteUserCallbackResp]>
+     * @return [Call]<[CoedgeappserverthirdpartiesFacebookDeleteUserCallbackResp]>
      */
     @POST("api/v1/facebook/callbacks/user-data-deletion/{state}")
-    fun postApiV1FacebookCallbacksUserDataDeletionByState(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DeleteUserCallbackResp>
+    fun postApiV1FacebookCallbacksUserDataDeletionByState(@Path("state") state: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverthirdpartiesFacebookDeleteUserCallbackResp>
 
 }

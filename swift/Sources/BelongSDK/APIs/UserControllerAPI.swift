@@ -165,10 +165,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserListResult
+     - returns: CoEdgeappServerModelEdgeApiDataUserListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Users(query: String? = nil, searchFields: [SearchFields_getApiV1Users]? = nil, companyId: String? = nil, email: [String]? = nil, country: [String]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, start: Int? = nil, limit: Int? = nil, order: String? = nil, searchMode: SearchMode_getApiV1Users? = nil, blacklisted: Bool? = nil, role: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserListResult {
+    open class func getApiV1Users(query: String? = nil, searchFields: [SearchFields_getApiV1Users]? = nil, companyId: String? = nil, email: [String]? = nil, country: [String]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, start: Int? = nil, limit: Int? = nil, order: String? = nil, searchMode: SearchMode_getApiV1Users? = nil, blacklisted: Bool? = nil, role: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserListResult {
         return try await getApiV1UsersWithRequestBuilder(query: query, searchFields: searchFields, companyId: companyId, email: email, country: country, referralCode: referralCode, pin: pin, provider: provider, start: start, limit: limit, order: order, searchMode: searchMode, blacklisted: blacklisted, role: role, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -194,9 +194,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserListResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserListResult> 
      */
-    open class func getApiV1UsersWithRequestBuilder(query: String? = nil, searchFields: [SearchFields_getApiV1Users]? = nil, companyId: String? = nil, email: [String]? = nil, country: [String]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, start: Int? = nil, limit: Int? = nil, order: String? = nil, searchMode: SearchMode_getApiV1Users? = nil, blacklisted: Bool? = nil, role: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserListResult> {
+    open class func getApiV1UsersWithRequestBuilder(query: String? = nil, searchFields: [SearchFields_getApiV1Users]? = nil, companyId: String? = nil, email: [String]? = nil, country: [String]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, start: Int? = nil, limit: Int? = nil, order: String? = nil, searchMode: SearchMode_getApiV1Users? = nil, blacklisted: Bool? = nil, role: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserListResult> {
         let localVariablePath = "/api/v1/users"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -227,7 +227,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -239,10 +239,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageFrontEndCount
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByCompanyidFrontEndsStats(companyId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageFrontEndCount {
+    open class func getApiV1UsersByCompanyidFrontEndsStats(companyId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount {
         return try await getApiV1UsersByCompanyidFrontEndsStatsWithRequestBuilder(companyId: companyId, latestOnly: latestOnly, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -256,9 +256,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageFrontEndCount> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> 
      */
-    open class func getApiV1UsersByCompanyidFrontEndsStatsWithRequestBuilder(companyId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageFrontEndCount> {
+    open class func getApiV1UsersByCompanyidFrontEndsStatsWithRequestBuilder(companyId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> {
         var localVariablePath = "/api/v1/users/{companyId}/front-ends-stats"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -279,7 +279,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageFrontEndCount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -292,10 +292,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ListResult
+     - returns: CoEdgeappServerServiceUserOpListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByMerchantidMerchantOrders(merchantId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
+    open class func getApiV1UsersByMerchantidMerchantOrders(merchantId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceUserOpListResult {
         return try await getApiV1UsersByMerchantidMerchantOrdersWithRequestBuilder(merchantId: merchantId, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -310,9 +310,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ListResult> 
+     - returns: RequestBuilder<CoEdgeappServerServiceUserOpListResult> 
      */
-    open class func getApiV1UsersByMerchantidMerchantOrdersWithRequestBuilder(merchantId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
+    open class func getApiV1UsersByMerchantidMerchantOrdersWithRequestBuilder(merchantId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceUserOpListResult> {
         var localVariablePath = "/api/v1/users/{merchantId}/merchant/orders"
         let merchantIdPreEscape = "\(APIHelper.mapValueToPathItem(merchantId))"
         let merchantIdPostEscape = merchantIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -334,7 +334,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -346,10 +346,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserProfileEx
+     - returns: CoEdgeappServerModelEdgeApiDataUserProfileEx
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUserIdProfile(userId: String, deleted: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfileEx {
+    open class func getApiV1UsersByUserIdProfile(userId: String, deleted: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserProfileEx {
         return try await getApiV1UsersByUserIdProfileWithRequestBuilder(userId: userId, deleted: deleted, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -363,9 +363,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserProfileEx> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserProfileEx> 
      */
-    open class func getApiV1UsersByUserIdProfileWithRequestBuilder(userId: String, deleted: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfileEx> {
+    open class func getApiV1UsersByUserIdProfileWithRequestBuilder(userId: String, deleted: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserProfileEx> {
         var localVariablePath = "/api/v1/users/{user_id}/profile"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -386,7 +386,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserProfileEx>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserProfileEx>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -397,10 +397,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Account
+     - returns: CoEdgeappServerModelAccount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridAccount(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Account {
+    open class func getApiV1UsersByUseridAccount(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAccount {
         return try await getApiV1UsersByUseridAccountWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -413,9 +413,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Account> 
+     - returns: RequestBuilder<CoEdgeappServerModelAccount> 
      */
-    open class func getApiV1UsersByUseridAccountWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Account> {
+    open class func getApiV1UsersByUseridAccountWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAccount> {
         var localVariablePath = "/api/v1/users/{userId}/account"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -433,7 +433,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Account>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAccount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -444,10 +444,109 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AnonAuthResp
+     - returns: [CoEdgeappServerModelMailingAddress]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridAnonToken(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AnonAuthResp {
+    open class func getApiV1UsersByUseridAddresses(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelMailingAddress] {
+        return try await getApiV1UsersByUseridAddressesWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/users/{userId}/addresses
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter userId: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<[CoEdgeappServerModelMailingAddress]> 
+     */
+    open class func getApiV1UsersByUseridAddressesWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelMailingAddress]> {
+        var localVariablePath = "/api/v1/users/{userId}/addresses"
+        let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
+        let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelMailingAddress]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter userId: (path)  
+     - parameter addressId: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: CoEdgeappServerModelMailingAddress
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1UsersByUseridAddressesByAddressid(userId: String, addressId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMailingAddress {
+        return try await getApiV1UsersByUseridAddressesByAddressidWithRequestBuilder(userId: userId, addressId: addressId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/users/{userId}/addresses/{addressId}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter userId: (path)  
+     - parameter addressId: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<CoEdgeappServerModelMailingAddress> 
+     */
+    open class func getApiV1UsersByUseridAddressesByAddressidWithRequestBuilder(userId: String, addressId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMailingAddress> {
+        var localVariablePath = "/api/v1/users/{userId}/addresses/{addressId}"
+        let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
+        let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
+        let addressIdPreEscape = "\(APIHelper.mapValueToPathItem(addressId))"
+        let addressIdPostEscape = addressIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{addressId}", with: addressIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMailingAddress>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter userId: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: CoEdgeappServerModelEdgeApiDataAnonAuthResp
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1UsersByUseridAnonToken(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataAnonAuthResp {
         return try await getApiV1UsersByUseridAnonTokenWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -460,9 +559,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AnonAuthResp> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataAnonAuthResp> 
      */
-    open class func getApiV1UsersByUseridAnonTokenWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AnonAuthResp> {
+    open class func getApiV1UsersByUseridAnonTokenWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataAnonAuthResp> {
         var localVariablePath = "/api/v1/users/{userId}/anon/token"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -480,7 +579,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AnonAuthResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataAnonAuthResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -493,10 +592,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ListResult
+     - returns: CoEdgeappServerServiceUserOpListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridApprovals(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
+    open class func getApiV1UsersByUseridApprovals(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceUserOpListResult {
         return try await getApiV1UsersByUseridApprovalsWithRequestBuilder(userId: userId, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -511,9 +610,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ListResult> 
+     - returns: RequestBuilder<CoEdgeappServerServiceUserOpListResult> 
      */
-    open class func getApiV1UsersByUseridApprovalsWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
+    open class func getApiV1UsersByUseridApprovalsWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceUserOpListResult> {
         var localVariablePath = "/api/v1/users/{userId}/approvals"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -535,7 +634,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -549,10 +648,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageBadgeStash
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridBadges(userId: String, badgeDefType: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageBadgeStash {
+    open class func getApiV1UsersByUseridBadges(userId: String, badgeDefType: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash {
         return try await getApiV1UsersByUseridBadgesWithRequestBuilder(userId: userId, badgeDefType: badgeDefType, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -568,9 +667,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageBadgeStash> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash> 
      */
-    open class func getApiV1UsersByUseridBadgesWithRequestBuilder(userId: String, badgeDefType: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageBadgeStash> {
+    open class func getApiV1UsersByUseridBadgesWithRequestBuilder(userId: String, badgeDefType: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash> {
         var localVariablePath = "/api/v1/users/{userId}/badges"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -593,7 +692,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageBadgeStash>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -663,10 +762,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserChatResult
+     - returns: CoEdgeappServerModelEdgeApiDataUserChatResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridChats(userId: String, type: String? = nil, state: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserChatResult {
+    open class func getApiV1UsersByUseridChats(userId: String, type: String? = nil, state: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserChatResult {
         return try await getApiV1UsersByUseridChatsWithRequestBuilder(userId: userId, type: type, state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -681,9 +780,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserChatResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserChatResult> 
      */
-    open class func getApiV1UsersByUseridChatsWithRequestBuilder(userId: String, type: String? = nil, state: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserChatResult> {
+    open class func getApiV1UsersByUseridChatsWithRequestBuilder(userId: String, type: String? = nil, state: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserChatResult> {
         var localVariablePath = "/api/v1/users/{userId}/chats"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -705,7 +804,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserChatResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserChatResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -716,10 +815,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [PointCurrencyStats]
+     - returns: [CoEdgeappServerModelEdgeApiDataPointCurrencyStats]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridCurrenciesStatistics(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [PointCurrencyStats] {
+    open class func getApiV1UsersByUseridCurrenciesStatistics(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelEdgeApiDataPointCurrencyStats] {
         return try await getApiV1UsersByUseridCurrenciesStatisticsWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -732,9 +831,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[PointCurrencyStats]> 
+     - returns: RequestBuilder<[CoEdgeappServerModelEdgeApiDataPointCurrencyStats]> 
      */
-    open class func getApiV1UsersByUseridCurrenciesStatisticsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[PointCurrencyStats]> {
+    open class func getApiV1UsersByUseridCurrenciesStatisticsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelEdgeApiDataPointCurrencyStats]> {
         var localVariablePath = "/api/v1/users/{userId}/currencies/statistics"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -752,7 +851,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[PointCurrencyStats]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelEdgeApiDataPointCurrencyStats]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -763,10 +862,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserData
+     - returns: CoEdgeappServerModelUserData
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserData {
+    open class func getApiV1UsersByUseridData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserData {
         return try await getApiV1UsersByUseridDataWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -779,9 +878,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserData> 
+     - returns: RequestBuilder<CoEdgeappServerModelUserData> 
      */
-    open class func getApiV1UsersByUseridDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserData> {
+    open class func getApiV1UsersByUseridDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserData> {
         var localVariablePath = "/api/v1/users/{userId}/data"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -799,7 +898,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -811,10 +910,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageFrontEndData
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridFrontEnds(userId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageFrontEndData {
+    open class func getApiV1UsersByUseridFrontEnds(userId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData {
         return try await getApiV1UsersByUseridFrontEndsWithRequestBuilder(userId: userId, latestOnly: latestOnly, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -828,9 +927,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageFrontEndData> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData> 
      */
-    open class func getApiV1UsersByUseridFrontEndsWithRequestBuilder(userId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageFrontEndData> {
+    open class func getApiV1UsersByUseridFrontEndsWithRequestBuilder(userId: String, latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData> {
         var localVariablePath = "/api/v1/users/{userId}/front-ends"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -851,7 +950,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageFrontEndData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -864,10 +963,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageGroupSearchResult
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridGroups(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageGroupSearchResult {
+    open class func getApiV1UsersByUseridGroups(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult {
         return try await getApiV1UsersByUseridGroupsWithRequestBuilder(userId: userId, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -882,9 +981,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageGroupSearchResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> 
      */
-    open class func getApiV1UsersByUseridGroupsWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageGroupSearchResult> {
+    open class func getApiV1UsersByUseridGroupsWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> {
         var localVariablePath = "/api/v1/users/{userId}/groups"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -906,7 +1005,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageGroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -917,10 +1016,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ManageUserData
+     - returns: CoEdgeappServerModelEdgeApiDataManageUserData
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridManageData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ManageUserData {
+    open class func getApiV1UsersByUseridManageData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataManageUserData {
         return try await getApiV1UsersByUseridManageDataWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -933,9 +1032,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ManageUserData> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataManageUserData> 
      */
-    open class func getApiV1UsersByUseridManageDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ManageUserData> {
+    open class func getApiV1UsersByUseridManageDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataManageUserData> {
         var localVariablePath = "/api/v1/users/{userId}/manage_data"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -953,7 +1052,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ManageUserData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataManageUserData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -964,10 +1063,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserMetaResult
+     - returns: CoEdgeappServerModelEdgeApiDataUserMetaResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridMeta(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserMetaResult {
+    open class func getApiV1UsersByUseridMeta(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserMetaResult {
         return try await getApiV1UsersByUseridMetaWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -980,9 +1079,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserMetaResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserMetaResult> 
      */
-    open class func getApiV1UsersByUseridMetaWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserMetaResult> {
+    open class func getApiV1UsersByUseridMetaWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserMetaResult> {
         var localVariablePath = "/api/v1/users/{userId}/meta"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1000,7 +1099,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserMetaResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserMetaResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1015,10 +1114,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ListResult
+     - returns: CoEdgeappServerServiceUserOpListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridOrders(userId: String, orderId: String? = nil, includeSubOrders: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
+    open class func getApiV1UsersByUseridOrders(userId: String, orderId: String? = nil, includeSubOrders: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceUserOpListResult {
         return try await getApiV1UsersByUseridOrdersWithRequestBuilder(userId: userId, orderId: orderId, includeSubOrders: includeSubOrders, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1035,9 +1134,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ListResult> 
+     - returns: RequestBuilder<CoEdgeappServerServiceUserOpListResult> 
      */
-    open class func getApiV1UsersByUseridOrdersWithRequestBuilder(userId: String, orderId: String? = nil, includeSubOrders: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
+    open class func getApiV1UsersByUseridOrdersWithRequestBuilder(userId: String, orderId: String? = nil, includeSubOrders: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceUserOpListResult> {
         var localVariablePath = "/api/v1/users/{userId}/orders"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1061,7 +1160,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1073,10 +1172,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Bounty
+     - returns: CoEdgeappServerModelBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridOrdersByOrderid(userId: String, orderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
+    open class func getApiV1UsersByUseridOrdersByOrderid(userId: String, orderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
         return try await getApiV1UsersByUseridOrdersByOrderidWithRequestBuilder(userId: userId, orderId: orderId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1090,9 +1189,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Bounty> 
+     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
      */
-    open class func getApiV1UsersByUseridOrdersByOrderidWithRequestBuilder(userId: String, orderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
+    open class func getApiV1UsersByUseridOrdersByOrderidWithRequestBuilder(userId: String, orderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
         var localVariablePath = "/api/v1/users/{userId}/orders/{orderId}"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1113,7 +1212,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1171,10 +1270,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CompanyPrivateData
+     - returns: CoEdgeappServerModelEdgeApiDataCompanyPrivateData
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridPrivateData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompanyPrivateData {
+    open class func getApiV1UsersByUseridPrivateData(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCompanyPrivateData {
         return try await getApiV1UsersByUseridPrivateDataWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1187,9 +1286,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CompanyPrivateData> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyPrivateData> 
      */
-    open class func getApiV1UsersByUseridPrivateDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompanyPrivateData> {
+    open class func getApiV1UsersByUseridPrivateDataWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyPrivateData> {
         var localVariablePath = "/api/v1/users/{userId}/private_data"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1207,7 +1306,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CompanyPrivateData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyPrivateData>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1218,10 +1317,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserAllowedRoles
+     - returns: CoEdgeappServerModelEdgeApiDataUserAllowedRoles
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridRolesAllowed(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserAllowedRoles {
+    open class func getApiV1UsersByUseridRolesAllowed(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserAllowedRoles {
         return try await getApiV1UsersByUseridRolesAllowedWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1234,9 +1333,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserAllowedRoles> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserAllowedRoles> 
      */
-    open class func getApiV1UsersByUseridRolesAllowedWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserAllowedRoles> {
+    open class func getApiV1UsersByUseridRolesAllowedWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserAllowedRoles> {
         var localVariablePath = "/api/v1/users/{userId}/roles/allowed"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1254,7 +1353,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserAllowedRoles>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserAllowedRoles>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1265,10 +1364,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserTicketResult
+     - returns: CoEdgeappServerModelEdgeApiDataUserTicketResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridTickets(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserTicketResult {
+    open class func getApiV1UsersByUseridTickets(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserTicketResult {
         return try await getApiV1UsersByUseridTicketsWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1281,9 +1380,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserTicketResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketResult> 
      */
-    open class func getApiV1UsersByUseridTicketsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserTicketResult> {
+    open class func getApiV1UsersByUseridTicketsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketResult> {
         var localVariablePath = "/api/v1/users/{userId}/tickets"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1301,7 +1400,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserTicketResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1313,10 +1412,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserTicketHistoryResult
+     - returns: CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridTicketsHistory(userId: String, ticketId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserTicketHistoryResult {
+    open class func getApiV1UsersByUseridTicketsHistory(userId: String, ticketId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult {
         return try await getApiV1UsersByUseridTicketsHistoryWithRequestBuilder(userId: userId, ticketId: ticketId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1330,9 +1429,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserTicketHistoryResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult> 
      */
-    open class func getApiV1UsersByUseridTicketsHistoryWithRequestBuilder(userId: String, ticketId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserTicketHistoryResult> {
+    open class func getApiV1UsersByUseridTicketsHistoryWithRequestBuilder(userId: String, ticketId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult> {
         var localVariablePath = "/api/v1/users/{userId}/tickets/history"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1353,7 +1452,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserTicketHistoryResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1367,10 +1466,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [Transaction]
+     - returns: [CoEdgeappServerModelTransaction]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridTransactions(userId: String, from: Int64? = nil, to: Int64? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [Transaction] {
+    open class func getApiV1UsersByUseridTransactions(userId: String, from: Int64? = nil, to: Int64? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelTransaction] {
         return try await getApiV1UsersByUseridTransactionsWithRequestBuilder(userId: userId, from: from, to: to, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1386,9 +1485,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[Transaction]> 
+     - returns: RequestBuilder<[CoEdgeappServerModelTransaction]> 
      */
-    open class func getApiV1UsersByUseridTransactionsWithRequestBuilder(userId: String, from: Int64? = nil, to: Int64? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[Transaction]> {
+    open class func getApiV1UsersByUseridTransactionsWithRequestBuilder(userId: String, from: Int64? = nil, to: Int64? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelTransaction]> {
         var localVariablePath = "/api/v1/users/{userId}/transactions"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1411,7 +1510,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Transaction]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelTransaction]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1424,10 +1523,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: SignInDecision
+     - returns: CoEdgeappServerModelSignInDecision
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersByUseridWhatNext(userId: String, currentStep: String? = nil, inviteCode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SignInDecision {
+    open class func getApiV1UsersByUseridWhatNext(userId: String, currentStep: String? = nil, inviteCode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelSignInDecision {
         return try await getApiV1UsersByUseridWhatNextWithRequestBuilder(userId: userId, currentStep: currentStep, inviteCode: inviteCode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1442,9 +1541,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<SignInDecision> 
+     - returns: RequestBuilder<CoEdgeappServerModelSignInDecision> 
      */
-    open class func getApiV1UsersByUseridWhatNextWithRequestBuilder(userId: String, currentStep: String? = nil, inviteCode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SignInDecision> {
+    open class func getApiV1UsersByUseridWhatNextWithRequestBuilder(userId: String, currentStep: String? = nil, inviteCode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelSignInDecision> {
         var localVariablePath = "/api/v1/users/{userId}/what_next"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1466,7 +1565,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SignInDecision>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelSignInDecision>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1476,11 +1575,11 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [UserInvite]
+     - returns: [CoEdgeappServerModelUserInvite]
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersInvitelinks(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [UserInvite] {
+    open class func getApiV1UsersInvitelinks(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelUserInvite] {
         return try await getApiV1UsersInvitelinksWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1492,10 +1591,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[UserInvite]> 
+     - returns: RequestBuilder<[CoEdgeappServerModelUserInvite]> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func getApiV1UsersInvitelinksWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[UserInvite]> {
+    open class func getApiV1UsersInvitelinksWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelUserInvite]> {
         let localVariablePath = "/api/v1/users/inviteLinks"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1510,7 +1609,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UserInvite]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelUserInvite]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1521,11 +1620,11 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserInvite
+     - returns: CoEdgeappServerModelUserInvite
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersInvitelinksByInvitecode(inviteCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+    open class func getApiV1UsersInvitelinksByInvitecode(inviteCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
         return try await getApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: inviteCode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1538,10 +1637,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserInvite> 
+     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func getApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
+    open class func getApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
         var localVariablePath = "/api/v1/users/inviteLinks/{inviteCode}"
         let inviteCodePreEscape = "\(APIHelper.mapValueToPathItem(inviteCode))"
         let inviteCodePostEscape = inviteCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1559,7 +1658,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1612,10 +1711,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PaymentAccountResult
+     - returns: CoEdgeappServerModelEdgeApiDataPaymentAccountResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1UsersPaymentaccount(merchantId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentAccountResult {
+    open class func getApiV1UsersPaymentaccount(merchantId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPaymentAccountResult {
         return try await getApiV1UsersPaymentaccountWithRequestBuilder(merchantId: merchantId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1628,9 +1727,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PaymentAccountResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPaymentAccountResult> 
      */
-    open class func getApiV1UsersPaymentaccountWithRequestBuilder(merchantId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentAccountResult> {
+    open class func getApiV1UsersPaymentaccountWithRequestBuilder(merchantId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPaymentAccountResult> {
         let localVariablePath = "/api/v1/users/paymentAccount"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1648,7 +1747,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaymentAccountResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPaymentAccountResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1656,36 +1755,36 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter agreement: (body)  
+     - parameter coEdgeappServerModelMailingAddress: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Account
+     - returns: CoEdgeappServerModelMailingAddress
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridAgreement(userId: String, agreement: Agreement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Account {
-        return try await postApiV1UsersByUseridAgreementWithRequestBuilder(userId: userId, agreement: agreement, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridAddresses(userId: String, coEdgeappServerModelMailingAddress: CoEdgeappServerModelMailingAddress, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMailingAddress {
+        return try await postApiV1UsersByUseridAddressesWithRequestBuilder(userId: userId, coEdgeappServerModelMailingAddress: coEdgeappServerModelMailingAddress, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
-     - POST /api/v1/users/{userId}/agreement
+     - POST /api/v1/users/{userId}/addresses
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter agreement: (body)  
+     - parameter coEdgeappServerModelMailingAddress: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Account> 
+     - returns: RequestBuilder<CoEdgeappServerModelMailingAddress> 
      */
-    open class func postApiV1UsersByUseridAgreementWithRequestBuilder(userId: String, agreement: Agreement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Account> {
-        var localVariablePath = "/api/v1/users/{userId}/agreement"
+    open class func postApiV1UsersByUseridAddressesWithRequestBuilder(userId: String, coEdgeappServerModelMailingAddress: CoEdgeappServerModelMailingAddress, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMailingAddress> {
+        var localVariablePath = "/api/v1/users/{userId}/addresses"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: agreement)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelMailingAddress)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1698,7 +1797,57 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Account>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMailingAddress>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter userId: (path)  
+     - parameter coEdgeappServerModelBaseSettingsAgreement: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: CoEdgeappServerModelAccount
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1UsersByUseridAgreement(userId: String, coEdgeappServerModelBaseSettingsAgreement: CoEdgeappServerModelBaseSettingsAgreement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAccount {
+        return try await postApiV1UsersByUseridAgreementWithRequestBuilder(userId: userId, coEdgeappServerModelBaseSettingsAgreement: coEdgeappServerModelBaseSettingsAgreement, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/users/{userId}/agreement
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter userId: (path)  
+     - parameter coEdgeappServerModelBaseSettingsAgreement: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<CoEdgeappServerModelAccount> 
+     */
+    open class func postApiV1UsersByUseridAgreementWithRequestBuilder(userId: String, coEdgeappServerModelBaseSettingsAgreement: CoEdgeappServerModelBaseSettingsAgreement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAccount> {
+        var localVariablePath = "/api/v1/users/{userId}/agreement"
+        let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
+        let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelBaseSettingsAgreement)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAccount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1709,10 +1858,10 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ApiSecret
+     - returns: CoEdgeappServerModelEdgeApiDataApiSecret
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridApiSecret(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ApiSecret {
+    open class func postApiV1UsersByUseridApiSecret(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataApiSecret {
         return try await postApiV1UsersByUseridApiSecretWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1725,9 +1874,9 @@ open class UserControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ApiSecret> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataApiSecret> 
      */
-    open class func postApiV1UsersByUseridApiSecretWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ApiSecret> {
+    open class func postApiV1UsersByUseridApiSecretWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataApiSecret> {
         var localVariablePath = "/api/v1/users/{userId}/api-secret"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1745,7 +1894,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ApiSecret>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataApiSecret>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1800,15 +1949,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter confirmation: (body)  
+     - parameter coEdgeappServerModelBaseSettingsConfirmation: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Account
+     - returns: CoEdgeappServerModelAccount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridConfirmation(userId: String, confirmation: Confirmation, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Account {
-        return try await postApiV1UsersByUseridConfirmationWithRequestBuilder(userId: userId, confirmation: confirmation, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridConfirmation(userId: String, coEdgeappServerModelBaseSettingsConfirmation: CoEdgeappServerModelBaseSettingsConfirmation, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAccount {
+        return try await postApiV1UsersByUseridConfirmationWithRequestBuilder(userId: userId, coEdgeappServerModelBaseSettingsConfirmation: coEdgeappServerModelBaseSettingsConfirmation, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1817,19 +1966,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter confirmation: (body)  
+     - parameter coEdgeappServerModelBaseSettingsConfirmation: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Account> 
+     - returns: RequestBuilder<CoEdgeappServerModelAccount> 
      */
-    open class func postApiV1UsersByUseridConfirmationWithRequestBuilder(userId: String, confirmation: Confirmation, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Account> {
+    open class func postApiV1UsersByUseridConfirmationWithRequestBuilder(userId: String, coEdgeappServerModelBaseSettingsConfirmation: CoEdgeappServerModelBaseSettingsConfirmation, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAccount> {
         var localVariablePath = "/api/v1/users/{userId}/confirmation"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: confirmation)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelBaseSettingsConfirmation)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1842,7 +1991,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Account>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAccount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1902,15 +2051,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter updateNotificationRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridNotification(userId: String, updateNotificationRequest: UpdateNotificationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersByUseridNotificationWithRequestBuilder(userId: userId, updateNotificationRequest: updateNotificationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridNotification(userId: String, coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: CoEdgeappServerModelEdgeApiDataUpdateNotificationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersByUseridNotificationWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: coEdgeappServerModelEdgeApiDataUpdateNotificationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1919,19 +2068,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter updateNotificationRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1UsersByUseridNotificationWithRequestBuilder(userId: String, updateNotificationRequest: UpdateNotificationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersByUseridNotificationWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: CoEdgeappServerModelEdgeApiDataUpdateNotificationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/notification"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateNotificationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataUpdateNotificationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2054,15 +2203,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter policy: (body)  
+     - parameter coEdgeappServerModelBaseSettingsPolicy: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Account
+     - returns: CoEdgeappServerModelAccount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridPolicy(userId: String, policy: Policy, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Account {
-        return try await postApiV1UsersByUseridPolicyWithRequestBuilder(userId: userId, policy: policy, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridPolicy(userId: String, coEdgeappServerModelBaseSettingsPolicy: CoEdgeappServerModelBaseSettingsPolicy, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAccount {
+        return try await postApiV1UsersByUseridPolicyWithRequestBuilder(userId: userId, coEdgeappServerModelBaseSettingsPolicy: coEdgeappServerModelBaseSettingsPolicy, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2071,19 +2220,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter policy: (body)  
+     - parameter coEdgeappServerModelBaseSettingsPolicy: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Account> 
+     - returns: RequestBuilder<CoEdgeappServerModelAccount> 
      */
-    open class func postApiV1UsersByUseridPolicyWithRequestBuilder(userId: String, policy: Policy, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Account> {
+    open class func postApiV1UsersByUseridPolicyWithRequestBuilder(userId: String, coEdgeappServerModelBaseSettingsPolicy: CoEdgeappServerModelBaseSettingsPolicy, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAccount> {
         var localVariablePath = "/api/v1/users/{userId}/policy"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policy)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelBaseSettingsPolicy)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2096,7 +2245,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Account>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAccount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2156,15 +2305,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter updateRolesRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateRolesRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridRoles(userId: String, updateRolesRequest: UpdateRolesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersByUseridRolesWithRequestBuilder(userId: userId, updateRolesRequest: updateRolesRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridRoles(userId: String, coEdgeappServerModelEdgeApiDataUpdateRolesRequest: CoEdgeappServerModelEdgeApiDataUpdateRolesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersByUseridRolesWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataUpdateRolesRequest: coEdgeappServerModelEdgeApiDataUpdateRolesRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2173,19 +2322,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter updateRolesRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateRolesRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1UsersByUseridRolesWithRequestBuilder(userId: String, updateRolesRequest: UpdateRolesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersByUseridRolesWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataUpdateRolesRequest: CoEdgeappServerModelEdgeApiDataUpdateRolesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/roles"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateRolesRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataUpdateRolesRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2313,15 +2462,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter useUserTicketRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUseUserTicketRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridTicketsUse(userId: String, useUserTicketRequest: UseUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersByUseridTicketsUseWithRequestBuilder(userId: userId, useUserTicketRequest: useUserTicketRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridTicketsUse(userId: String, coEdgeappServerModelEdgeApiDataUseUserTicketRequest: CoEdgeappServerModelEdgeApiDataUseUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersByUseridTicketsUseWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataUseUserTicketRequest: coEdgeappServerModelEdgeApiDataUseUserTicketRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2330,19 +2479,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter useUserTicketRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUseUserTicketRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1UsersByUseridTicketsUseWithRequestBuilder(userId: String, useUserTicketRequest: UseUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersByUseridTicketsUseWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataUseUserTicketRequest: CoEdgeappServerModelEdgeApiDataUseUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/tickets/use"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: useUserTicketRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataUseUserTicketRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2363,15 +2512,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter validateUserTicketRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridTicketsValidate(userId: String, validateUserTicketRequest: ValidateUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersByUseridTicketsValidateWithRequestBuilder(userId: userId, validateUserTicketRequest: validateUserTicketRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridTicketsValidate(userId: String, coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: CoEdgeappServerModelEdgeApiDataValidateUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersByUseridTicketsValidateWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: coEdgeappServerModelEdgeApiDataValidateUserTicketRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2380,19 +2529,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter validateUserTicketRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1UsersByUseridTicketsValidateWithRequestBuilder(userId: String, validateUserTicketRequest: ValidateUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersByUseridTicketsValidateWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: CoEdgeappServerModelEdgeApiDataValidateUserTicketRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/tickets/validate"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: validateUserTicketRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataValidateUserTicketRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2413,15 +2562,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter topupRewardReq: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataTopupRewardReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersByUseridTopup(userId: String, topupRewardReq: TopupRewardReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersByUseridTopupWithRequestBuilder(userId: userId, topupRewardReq: topupRewardReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersByUseridTopup(userId: String, coEdgeappServerModelEdgeApiDataTopupRewardReq: CoEdgeappServerModelEdgeApiDataTopupRewardReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersByUseridTopupWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataTopupRewardReq: coEdgeappServerModelEdgeApiDataTopupRewardReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2430,19 +2579,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter topupRewardReq: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataTopupRewardReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1UsersByUseridTopupWithRequestBuilder(userId: String, topupRewardReq: TopupRewardReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersByUseridTopupWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataTopupRewardReq: CoEdgeappServerModelEdgeApiDataTopupRewardReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/topup"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: topupRewardReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataTopupRewardReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2556,7 +2705,7 @@ open class UserControllerAPI {
 
     /**
 
-     - parameter userInvite: (body)  
+     - parameter coEdgeappServerModelUserInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
@@ -2564,8 +2713,8 @@ open class UserControllerAPI {
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersInvitelinks(userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1UsersInvitelinksWithRequestBuilder(userInvite: userInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersInvitelinks(coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1UsersInvitelinksWithRequestBuilder(coEdgeappServerModelUserInvite: coEdgeappServerModelUserInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2573,17 +2722,17 @@ open class UserControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter userInvite: (body)  
+     - parameter coEdgeappServerModelUserInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func postApiV1UsersInvitelinksWithRequestBuilder(userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1UsersInvitelinksWithRequestBuilder(coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         let localVariablePath = "/api/v1/users/inviteLinks"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userInvite)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelUserInvite)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2603,15 +2752,15 @@ open class UserControllerAPI {
 
     /**
 
-     - parameter reservationInfo: (body)  
+     - parameter coEdgeappServerModelBountyReservationInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Bounty
+     - returns: CoEdgeappServerModelBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1UsersReservations(reservationInfo: ReservationInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
-        return try await postApiV1UsersReservationsWithRequestBuilder(reservationInfo: reservationInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1UsersReservations(coEdgeappServerModelBountyReservationInfo: CoEdgeappServerModelBountyReservationInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
+        return try await postApiV1UsersReservationsWithRequestBuilder(coEdgeappServerModelBountyReservationInfo: coEdgeappServerModelBountyReservationInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2619,16 +2768,16 @@ open class UserControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter reservationInfo: (body)  
+     - parameter coEdgeappServerModelBountyReservationInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Bounty> 
+     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
      */
-    open class func postApiV1UsersReservationsWithRequestBuilder(reservationInfo: ReservationInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
+    open class func postApiV1UsersReservationsWithRequestBuilder(coEdgeappServerModelBountyReservationInfo: CoEdgeappServerModelBountyReservationInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
         let localVariablePath = "/api/v1/users/reservations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reservationInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelBountyReservationInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2641,7 +2790,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2649,7 +2798,7 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter updateUserRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateUserRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
@@ -2657,8 +2806,8 @@ open class UserControllerAPI {
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1UsersByUseridUpdate(userId: String, updateUserRequest: UpdateUserRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1UsersByUseridUpdateWithRequestBuilder(userId: userId, updateUserRequest: updateUserRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1UsersByUseridUpdate(userId: String, coEdgeappServerModelEdgeApiDataUpdateUserRequest: CoEdgeappServerModelEdgeApiDataUpdateUserRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1UsersByUseridUpdateWithRequestBuilder(userId: userId, coEdgeappServerModelEdgeApiDataUpdateUserRequest: coEdgeappServerModelEdgeApiDataUpdateUserRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2667,20 +2816,20 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter updateUserRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataUpdateUserRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func putApiV1UsersByUseridUpdateWithRequestBuilder(userId: String, updateUserRequest: UpdateUserRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1UsersByUseridUpdateWithRequestBuilder(userId: String, coEdgeappServerModelEdgeApiDataUpdateUserRequest: CoEdgeappServerModelEdgeApiDataUpdateUserRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/{userId}/update"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUserRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataUpdateUserRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2701,15 +2850,15 @@ open class UserControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter updateUserEvent: (body)  
+     - parameter coEdgeappServerQueueEventsUpdateUserEvent: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UpdateUserResult
+     - returns: CoEdgeappServerModelUpdateUserResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1UsersByUseridUpdateUser(userId: String, updateUserEvent: UpdateUserEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UpdateUserResult {
-        return try await putApiV1UsersByUseridUpdateUserWithRequestBuilder(userId: userId, updateUserEvent: updateUserEvent, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1UsersByUseridUpdateUser(userId: String, coEdgeappServerQueueEventsUpdateUserEvent: CoEdgeappServerQueueEventsUpdateUserEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUpdateUserResult {
+        return try await putApiV1UsersByUseridUpdateUserWithRequestBuilder(userId: userId, coEdgeappServerQueueEventsUpdateUserEvent: coEdgeappServerQueueEventsUpdateUserEvent, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2718,19 +2867,19 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter updateUserEvent: (body)  
+     - parameter coEdgeappServerQueueEventsUpdateUserEvent: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UpdateUserResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelUpdateUserResult> 
      */
-    open class func putApiV1UsersByUseridUpdateUserWithRequestBuilder(userId: String, updateUserEvent: UpdateUserEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UpdateUserResult> {
+    open class func putApiV1UsersByUseridUpdateUserWithRequestBuilder(userId: String, coEdgeappServerQueueEventsUpdateUserEvent: CoEdgeappServerQueueEventsUpdateUserEvent, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUpdateUserResult> {
         var localVariablePath = "/api/v1/users/{userId}/update_user"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUserEvent)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerQueueEventsUpdateUserEvent)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2743,7 +2892,7 @@ open class UserControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UpdateUserResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUpdateUserResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2751,7 +2900,7 @@ open class UserControllerAPI {
     /**
 
      - parameter inviteCode: (path)  
-     - parameter userInvite: (body)  
+     - parameter coEdgeappServerModelUserInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
@@ -2759,8 +2908,8 @@ open class UserControllerAPI {
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1UsersInvitelinksByInvitecode(inviteCode: String, userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: inviteCode, userInvite: userInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1UsersInvitelinksByInvitecode(inviteCode: String, coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: inviteCode, coEdgeappServerModelUserInvite: coEdgeappServerModelUserInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2769,20 +2918,20 @@ open class UserControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter inviteCode: (path)  
-     - parameter userInvite: (body)  
+     - parameter coEdgeappServerModelUserInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func putApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: String, userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1UsersInvitelinksByInvitecodeWithRequestBuilder(inviteCode: String, coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/users/inviteLinks/{inviteCode}"
         let inviteCodePreEscape = "\(APIHelper.mapValueToPathItem(inviteCode))"
         let inviteCodePostEscape = inviteCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{inviteCode}", with: inviteCodePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userInvite)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelUserInvite)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

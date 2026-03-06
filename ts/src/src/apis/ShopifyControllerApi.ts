@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  ShopifyConnectResponse,
-  ShopifyShopInfo,
+  CoEdgeappServerModelEdgeApiDataShopifyConnectResponse,
+  CoEdgeappServerModelEdgeApiDataShopifyShopInfo,
 } from '../models/index';
 import {
-    ShopifyConnectResponseFromJSON,
-    ShopifyConnectResponseToJSON,
-    ShopifyShopInfoFromJSON,
-    ShopifyShopInfoToJSON,
+    CoEdgeappServerModelEdgeApiDataShopifyConnectResponseFromJSON,
+    CoEdgeappServerModelEdgeApiDataShopifyConnectResponseToJSON,
+    CoEdgeappServerModelEdgeApiDataShopifyShopInfoFromJSON,
+    CoEdgeappServerModelEdgeApiDataShopifyShopInfoToJSON,
 } from '../models/index';
 
 export interface GetApiV1ShopifyAppInfoRequest {
@@ -106,11 +106,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>>;
+    getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>>;
 
     /**
      */
-    getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse>;
+    getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>;
 
     /**
      * 
@@ -140,11 +140,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>>;
+    getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>>;
 
     /**
      */
-    getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>>;
+    getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>;
 
     /**
      * 
@@ -234,7 +234,7 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShopifyConnectResponse>> {
+    async getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>> {
         if (requestParameters['shop'] == null) {
             throw new runtime.RequiredError(
                 'shop',
@@ -287,12 +287,12 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShopifyConnectResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataShopifyConnectResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShopifyConnectResponse> {
+    async getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse> {
         const response = await this.getApiV1ShopifyConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -358,7 +358,7 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ShopifyShopInfo>>> {
+    async getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -389,12 +389,12 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ShopifyShopInfoFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEdgeApiDataShopifyShopInfoFromJSON));
     }
 
     /**
      */
-    async getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ShopifyShopInfo>> {
+    async getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>> {
         const response = await this.getApiV1ShopifyInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }

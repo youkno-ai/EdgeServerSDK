@@ -6,12 +6,12 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.PageVoucher
-import ai.youkno.edgeserversdk.models.PageVoucherDef
-import ai.youkno.edgeserversdk.models.RedeemVoucherReq
-import ai.youkno.edgeserversdk.models.Voucher
-import ai.youkno.edgeserversdk.models.VoucherDef
-import ai.youkno.edgeserversdk.models.VoucherHolder
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucher
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucherDef
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataRedeemVoucherReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataVoucherHolder
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelVoucher
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelVoucherDef
 
 interface VoucherControllerApi {
     /**
@@ -61,10 +61,10 @@ interface VoucherControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageVoucher]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucher]>
      */
     @GET("api/v1/vouchers")
-    fun getApiV1Vouchers(@Query("state") state: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("order") order: kotlin.String? = null, @Query("bountyId") bountyId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageVoucher>
+    fun getApiV1Vouchers(@Query("state") state: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("order") order: kotlin.String? = null, @Query("bountyId") bountyId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucher>
 
     /**
      * GET api/v1/vouchers/{voucherId}
@@ -77,10 +77,10 @@ interface VoucherControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Voucher]>
+     * @return [Call]<[CoedgeappservermodelVoucher]>
      */
     @GET("api/v1/vouchers/{voucherId}")
-    fun getApiV1VouchersByVoucherid(@Path("voucherId") voucherId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Voucher>
+    fun getApiV1VouchersByVoucherid(@Path("voucherId") voucherId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVoucher>
 
 
     /**
@@ -112,10 +112,10 @@ interface VoucherControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageVoucherDef]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucherDef]>
      */
     @GET("api/v1/vouchers/defs")
-    fun getApiV1VouchersDefs(@Query("state") state: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("order") order: kotlin.String? = null, @Query("voucherIds") voucherIds: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageVoucherDef>
+    fun getApiV1VouchersDefs(@Query("state") state: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("order") order: kotlin.String? = null, @Query("voucherIds") voucherIds: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucherDef>
 
     /**
      * GET api/v1/vouchers/defs/{voucherDefId}
@@ -128,10 +128,10 @@ interface VoucherControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[VoucherDef]>
+     * @return [Call]<[CoedgeappservermodelVoucherDef]>
      */
     @GET("api/v1/vouchers/defs/{voucherDefId}")
-    fun getApiV1VouchersDefsByVoucherdefid(@Path("voucherDefId") voucherDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<VoucherDef>
+    fun getApiV1VouchersDefsByVoucherdefid(@Path("voucherDefId") voucherDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVoucherDef>
 
     /**
      * GET api/v1/vouchers/scanned
@@ -146,10 +146,10 @@ interface VoucherControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageVoucher]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucher]>
      */
     @GET("api/v1/vouchers/scanned")
-    fun getApiV1VouchersScanned(@Query("order") order: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageVoucher>
+    fun getApiV1VouchersScanned(@Query("order") order: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelVoucher>
 
     /**
      * POST api/v1/vouchers/{voucherDefId}
@@ -159,14 +159,14 @@ interface VoucherControllerApi {
      *  - 200: OK
      *
      * @param voucherDefId 
-     * @param voucherHolder 
+     * @param coedgeappservermodelEdgeApiDataVoucherHolder 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Voucher]>
+     * @return [Call]<[CoedgeappservermodelVoucher]>
      */
     @POST("api/v1/vouchers/{voucherDefId}")
-    fun postApiV1VouchersByVoucherdefid(@Path("voucherDefId") voucherDefId: kotlin.String, @Body voucherHolder: VoucherHolder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Voucher>
+    fun postApiV1VouchersByVoucherdefid(@Path("voucherDefId") voucherDefId: kotlin.String, @Body coedgeappservermodelEdgeApiDataVoucherHolder: CoedgeappservermodelEdgeApiDataVoucherHolder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVoucher>
 
     /**
      * POST api/v1/vouchers/{voucherId}/redeem
@@ -176,14 +176,14 @@ interface VoucherControllerApi {
      *  - 200: OK
      *
      * @param voucherId 
-     * @param redeemVoucherReq 
+     * @param coedgeappservermodelEdgeApiDataRedeemVoucherReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Voucher]>
+     * @return [Call]<[CoedgeappservermodelVoucher]>
      */
     @POST("api/v1/vouchers/{voucherId}/redeem")
-    fun postApiV1VouchersByVoucheridRedeem(@Path("voucherId") voucherId: kotlin.String, @Body redeemVoucherReq: RedeemVoucherReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Voucher>
+    fun postApiV1VouchersByVoucheridRedeem(@Path("voucherId") voucherId: kotlin.String, @Body coedgeappservermodelEdgeApiDataRedeemVoucherReq: CoedgeappservermodelEdgeApiDataRedeemVoucherReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVoucher>
 
     /**
      * POST api/v1/vouchers/defs
@@ -192,13 +192,13 @@ interface VoucherControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param voucherDef 
+     * @param coedgeappservermodelVoucherDef 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[VoucherDef]>
+     * @return [Call]<[CoedgeappservermodelVoucherDef]>
      */
     @POST("api/v1/vouchers/defs")
-    fun postApiV1VouchersDefs(@Body voucherDef: VoucherDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<VoucherDef>
+    fun postApiV1VouchersDefs(@Body coedgeappservermodelVoucherDef: CoedgeappservermodelVoucherDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVoucherDef>
 
 }

@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.Category
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCategory
 
 interface CategoryControllerApi {
     /**
@@ -44,6 +44,7 @@ interface CategoryControllerApi {
         @Json(name = "SURVEY") SURVEY("SURVEY"),
         @Json(name = "CLASSIFIED") CLASSIFIED("CLASSIFIED"),
         @Json(name = "PRODUCT") PRODUCT("PRODUCT"),
+        @Json(name = "MENU") MENU("MENU"),
         @Json(name = "BUNDLE") BUNDLE("BUNDLE"),
         @Json(name = "STORY") STORY("STORY"),
         @Json(name = "SCORE") SCORE("SCORE"),
@@ -91,13 +92,14 @@ interface CategoryControllerApi {
      *
      * @param categoryType 
      * @param clientId  (optional)
+     * @param zone  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Category]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCategory]>
      */
     @GET("api/v1/categories")
-    fun getApiV1Categories(@Query("categoryType") categoryType: CategoryTypeGetApiV1Categories, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun getApiV1Categories(@Query("categoryType") categoryType: CategoryTypeGetApiV1Categories, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zone: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCategory>
 
     /**
      * GET api/v1/categories/{categoryId}
@@ -111,10 +113,10 @@ interface CategoryControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Category]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCategory]>
      */
     @GET("api/v1/categories/{categoryId}")
-    fun getApiV1CategoriesByCategoryid(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun getApiV1CategoriesByCategoryid(@Path("categoryId") categoryId: kotlin.Int, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCategory>
 
     /**
      * POST api/v1/categories
@@ -123,15 +125,16 @@ interface CategoryControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param category 
+     * @param coedgeappservermodelEdgeApiDataCategory 
      * @param clientId  (optional)
+     * @param zone  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Category]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCategory]>
      */
     @POST("api/v1/categories")
-    fun postApiV1Categories(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun postApiV1Categories(@Body coedgeappservermodelEdgeApiDataCategory: CoedgeappservermodelEdgeApiDataCategory, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zone: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCategory>
 
     /**
      * PUT api/v1/categories
@@ -140,14 +143,14 @@ interface CategoryControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param category 
+     * @param coedgeappservermodelEdgeApiDataCategory 
      * @param clientId  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Category]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCategory]>
      */
     @PUT("api/v1/categories")
-    fun putApiV1Categories(@Body category: Category, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Category>
+    fun putApiV1Categories(@Body coedgeappservermodelEdgeApiDataCategory: CoedgeappservermodelEdgeApiDataCategory, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCategory>
 
 }

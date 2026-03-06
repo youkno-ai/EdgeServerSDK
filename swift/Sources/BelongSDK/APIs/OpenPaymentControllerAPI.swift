@@ -19,10 +19,10 @@ open class OpenPaymentControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PaymentSummaryResp
+     - returns: CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenPaymentsByPaymentidPay(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentSummaryResp {
+    open class func postApiV1OpenPaymentsByPaymentidPay(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp {
         return try await postApiV1OpenPaymentsByPaymentidPayWithRequestBuilder(paymentId: paymentId, body: body, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -36,9 +36,9 @@ open class OpenPaymentControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PaymentSummaryResp> 
+     - returns: RequestBuilder<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp> 
      */
-    open class func postApiV1OpenPaymentsByPaymentidPayWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentSummaryResp> {
+    open class func postApiV1OpenPaymentsByPaymentidPayWithRequestBuilder(paymentId: String, body: AnyCodable, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp> {
         var localVariablePath = "/api/v1/open/payments/{paymentId}/pay"
         let paymentIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentId))"
         let paymentIdPostEscape = paymentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -57,7 +57,7 @@ open class OpenPaymentControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaymentSummaryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -17,10 +17,10 @@ open class TwilioControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserAuth
+     - returns: CoEdgeappServerRestModelUserAuth
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1TwilioAccessToken(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserAuth {
+    open class func getApiV1TwilioAccessToken(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestModelUserAuth {
         return try await getApiV1TwilioAccessTokenWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -32,9 +32,9 @@ open class TwilioControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserAuth> 
+     - returns: RequestBuilder<CoEdgeappServerRestModelUserAuth> 
      */
-    open class func getApiV1TwilioAccessTokenWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserAuth> {
+    open class func getApiV1TwilioAccessTokenWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestModelUserAuth> {
         let localVariablePath = "/api/v1/twilio/access_token"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -49,7 +49,7 @@ open class TwilioControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserAuth>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestModelUserAuth>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -101,15 +101,15 @@ open class TwilioControllerAPI {
 
     /**
 
-     - parameter smsVerification: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataSmsVerification: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: String
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1TwilioPhoneVerifyToken(smsVerification: SmsVerification, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> String {
-        return try await postApiV1TwilioPhoneVerifyTokenWithRequestBuilder(smsVerification: smsVerification, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1TwilioPhoneVerifyToken(coEdgeappServerModelEdgeApiDataSmsVerification: CoEdgeappServerModelEdgeApiDataSmsVerification, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> String {
+        return try await postApiV1TwilioPhoneVerifyTokenWithRequestBuilder(coEdgeappServerModelEdgeApiDataSmsVerification: coEdgeappServerModelEdgeApiDataSmsVerification, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -117,16 +117,16 @@ open class TwilioControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter smsVerification: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataSmsVerification: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<String> 
      */
-    open class func postApiV1TwilioPhoneVerifyTokenWithRequestBuilder(smsVerification: SmsVerification, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<String> {
+    open class func postApiV1TwilioPhoneVerifyTokenWithRequestBuilder(coEdgeappServerModelEdgeApiDataSmsVerification: CoEdgeappServerModelEdgeApiDataSmsVerification, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<String> {
         let localVariablePath = "/api/v1/twilio/phone/verify_token"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: smsVerification)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataSmsVerification)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

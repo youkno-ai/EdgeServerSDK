@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.NewId
-import ai.youkno.edgeserversdk.models.Seat
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSeat
 
 interface SeatControllerApi {
     /**
@@ -37,10 +37,10 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Seat]>
+     * @return [Call]<[CoedgeappservermodelSeat]>
      */
     @GET("api/v1/seats/{seatId}")
-    fun getApiV1SeatsBySeatid(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Seat>
+    fun getApiV1SeatsBySeatid(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelSeat>
 
     /**
      * GET api/v1/seats/byEventId/{eventId}
@@ -53,10 +53,10 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<Seat>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelSeat>]>
      */
     @GET("api/v1/seats/byEventId/{eventId}")
-    fun getApiV1SeatsByeventidByEventid(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Seat>>
+    fun getApiV1SeatsByeventidByEventid(@Path("eventId") eventId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelSeat>>
 
     /**
      * GET api/v1/seats/byUserId/{userId}
@@ -69,10 +69,10 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<Seat>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelSeat>]>
      */
     @GET("api/v1/seats/byUserId/{userId}")
-    fun getApiV1SeatsByuseridByUserid(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Seat>>
+    fun getApiV1SeatsByuseridByUserid(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelSeat>>
 
     /**
      * PATCH api/v1/seats/{seatId}/reserve
@@ -97,14 +97,14 @@ interface SeatControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param seat 
+     * @param coedgeappservermodelSeat 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[NewId]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataNewId]>
      */
     @POST("api/v1/seats")
-    fun postApiV1Seats(@Body seat: Seat, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
+    fun postApiV1Seats(@Body coedgeappservermodelSeat: CoedgeappservermodelSeat, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataNewId>
 
     /**
      * POST api/v1/seats/{seatId}/buy
@@ -117,9 +117,9 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[NewId]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataNewId]>
      */
     @POST("api/v1/seats/{seatId}/buy")
-    fun postApiV1SeatsBySeatidBuy(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
+    fun postApiV1SeatsBySeatidBuy(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataNewId>
 
 }

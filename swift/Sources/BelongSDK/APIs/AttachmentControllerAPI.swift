@@ -34,10 +34,10 @@ open class AttachmentControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: StorageRefResponse
+     - returns: CoEdgeappServerModelStorageRefResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StorageRefResponse {
+    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelStorageRefResponse {
         return try await getApiV1AttachmentsByAnchortypeByAnchoridStorageRefWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachmentType: attachmentType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -52,9 +52,9 @@ open class AttachmentControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<StorageRefResponse> 
+     - returns: RequestBuilder<CoEdgeappServerModelStorageRefResponse> 
      */
-    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRefWithRequestBuilder(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StorageRefResponse> {
+    open class func getApiV1AttachmentsByAnchortypeByAnchoridStorageRefWithRequestBuilder(anchorType: AnchorType_getApiV1AttachmentsByAnchortypeByAnchoridStorageRef, anchorId: String, attachmentType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelStorageRefResponse> {
         var localVariablePath = "/api/v1/attachments/{anchorType}/{anchorId}/storage/ref"
         let anchorTypePreEscape = "\(anchorType.rawValue)"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -78,7 +78,7 @@ open class AttachmentControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<StorageRefResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelStorageRefResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -101,15 +101,15 @@ open class AttachmentControllerAPI {
 
      - parameter anchorType: (path)  
      - parameter anchorId: (path)  
-     - parameter attachment: (body)  
+     - parameter coEdgeappServerModelAttachmentsAttachment: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Attachment
+     - returns: CoEdgeappServerModelAttachmentsAttachment
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AttachmentsByAnchortypeByAnchorid(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Attachment {
-        return try await postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachment: attachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AttachmentsByAnchortypeByAnchorid(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, coEdgeappServerModelAttachmentsAttachment: CoEdgeappServerModelAttachmentsAttachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAttachmentsAttachment {
+        return try await postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, coEdgeappServerModelAttachmentsAttachment: coEdgeappServerModelAttachmentsAttachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -119,13 +119,13 @@ open class AttachmentControllerAPI {
        - name: JWT
      - parameter anchorType: (path)  
      - parameter anchorId: (path)  
-     - parameter attachment: (body)  
+     - parameter coEdgeappServerModelAttachmentsAttachment: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Attachment> 
+     - returns: RequestBuilder<CoEdgeappServerModelAttachmentsAttachment> 
      */
-    open class func postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Attachment> {
+    open class func postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, coEdgeappServerModelAttachmentsAttachment: CoEdgeappServerModelAttachmentsAttachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAttachmentsAttachment> {
         var localVariablePath = "/api/v1/attachments/{anchorType}/{anchorId}"
         let anchorTypePreEscape = "\(anchorType.rawValue)"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -134,7 +134,7 @@ open class AttachmentControllerAPI {
         let anchorIdPostEscape = anchorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{anchorId}", with: anchorIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachment)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelAttachmentsAttachment)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -147,7 +147,7 @@ open class AttachmentControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Attachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAttachmentsAttachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -15,19 +15,19 @@
 
 import * as runtime from '../runtime';
 import type {
-  JoinCampaign,
-  JoinCampaignRequest,
+  CoEdgeappServerModelEdgeApiDataJoinCampaignRequest,
+  CoEdgeappServerServiceModelJoinCampaign,
 } from '../models/index';
 import {
-    JoinCampaignFromJSON,
-    JoinCampaignToJSON,
-    JoinCampaignRequestFromJSON,
-    JoinCampaignRequestToJSON,
+    CoEdgeappServerModelEdgeApiDataJoinCampaignRequestFromJSON,
+    CoEdgeappServerModelEdgeApiDataJoinCampaignRequestToJSON,
+    CoEdgeappServerServiceModelJoinCampaignFromJSON,
+    CoEdgeappServerServiceModelJoinCampaignToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1CampaignsByClientJoinRequest {
     client: string;
-    joinCampaignRequest: JoinCampaignRequest;
+    coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -50,7 +50,7 @@ export interface GetApiV1CampaignsByClientJoinByCampaignidRequest {
 
 export interface PostApiV1CampaignsByClientJoinRequest {
     client: string;
-    joinCampaignRequest: JoinCampaignRequest;
+    coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -58,7 +58,7 @@ export interface PostApiV1CampaignsByClientJoinRequest {
 
 export interface PutApiV1CampaignsByClientJoinRequest {
     client: string;
-    joinCampaignRequest: JoinCampaignRequest;
+    coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -74,7 +74,7 @@ export interface CampaignControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {JoinCampaignRequest} joinCampaignRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataJoinCampaignRequest} coEdgeappServerModelEdgeApiDataJoinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -98,11 +98,11 @@ export interface CampaignControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CampaignControllerApiInterface
      */
-    getApiV1CampaignsByClientJoinRaw(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JoinCampaign>>>;
+    getApiV1CampaignsByClientJoinRaw(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerServiceModelJoinCampaign>>>;
 
     /**
      */
-    getApiV1CampaignsByClientJoin(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JoinCampaign>>;
+    getApiV1CampaignsByClientJoin(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerServiceModelJoinCampaign>>;
 
     /**
      * 
@@ -115,16 +115,16 @@ export interface CampaignControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CampaignControllerApiInterface
      */
-    getApiV1CampaignsByClientJoinByCampaignidRaw(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>>;
+    getApiV1CampaignsByClientJoinByCampaignidRaw(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>>;
 
     /**
      */
-    getApiV1CampaignsByClientJoinByCampaignid(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign>;
+    getApiV1CampaignsByClientJoinByCampaignid(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign>;
 
     /**
      * 
      * @param {string} client 
-     * @param {JoinCampaignRequest} joinCampaignRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataJoinCampaignRequest} coEdgeappServerModelEdgeApiDataJoinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -132,16 +132,16 @@ export interface CampaignControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CampaignControllerApiInterface
      */
-    postApiV1CampaignsByClientJoinRaw(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>>;
+    postApiV1CampaignsByClientJoinRaw(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>>;
 
     /**
      */
-    postApiV1CampaignsByClientJoin(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign>;
+    postApiV1CampaignsByClientJoin(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign>;
 
     /**
      * 
      * @param {string} client 
-     * @param {JoinCampaignRequest} joinCampaignRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataJoinCampaignRequest} coEdgeappServerModelEdgeApiDataJoinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -149,11 +149,11 @@ export interface CampaignControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CampaignControllerApiInterface
      */
-    putApiV1CampaignsByClientJoinRaw(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>>;
+    putApiV1CampaignsByClientJoinRaw(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>>;
 
     /**
      */
-    putApiV1CampaignsByClientJoin(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign>;
+    putApiV1CampaignsByClientJoin(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign>;
 
 }
 
@@ -172,10 +172,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['joinCampaignRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'joinCampaignRequest',
-                'Required parameter "joinCampaignRequest" was null or undefined when calling deleteApiV1CampaignsByClientJoin().'
+                'coEdgeappServerModelEdgeApiDataJoinCampaignRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataJoinCampaignRequest" was null or undefined when calling deleteApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -210,7 +210,7 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
+            body: CoEdgeappServerModelEdgeApiDataJoinCampaignRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -225,7 +225,7 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
 
     /**
      */
-    async getApiV1CampaignsByClientJoinRaw(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JoinCampaign>>> {
+    async getApiV1CampaignsByClientJoinRaw(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerServiceModelJoinCampaign>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -264,19 +264,19 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(JoinCampaignFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerServiceModelJoinCampaignFromJSON));
     }
 
     /**
      */
-    async getApiV1CampaignsByClientJoin(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JoinCampaign>> {
+    async getApiV1CampaignsByClientJoin(requestParameters: GetApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerServiceModelJoinCampaign>> {
         const response = await this.getApiV1CampaignsByClientJoinRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1CampaignsByClientJoinByCampaignidRaw(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>> {
+    async getApiV1CampaignsByClientJoinByCampaignidRaw(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -323,19 +323,19 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => JoinCampaignFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceModelJoinCampaignFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1CampaignsByClientJoinByCampaignid(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign> {
+    async getApiV1CampaignsByClientJoinByCampaignid(requestParameters: GetApiV1CampaignsByClientJoinByCampaignidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign> {
         const response = await this.getApiV1CampaignsByClientJoinByCampaignidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1CampaignsByClientJoinRaw(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>> {
+    async postApiV1CampaignsByClientJoinRaw(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -343,10 +343,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['joinCampaignRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'joinCampaignRequest',
-                'Required parameter "joinCampaignRequest" was null or undefined when calling postApiV1CampaignsByClientJoin().'
+                'coEdgeappServerModelEdgeApiDataJoinCampaignRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataJoinCampaignRequest" was null or undefined when calling postApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -381,22 +381,22 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
+            body: CoEdgeappServerModelEdgeApiDataJoinCampaignRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => JoinCampaignFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceModelJoinCampaignFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1CampaignsByClientJoin(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign> {
+    async postApiV1CampaignsByClientJoin(requestParameters: PostApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign> {
         const response = await this.postApiV1CampaignsByClientJoinRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1CampaignsByClientJoinRaw(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JoinCampaign>> {
+    async putApiV1CampaignsByClientJoinRaw(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceModelJoinCampaign>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -404,10 +404,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['joinCampaignRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'joinCampaignRequest',
-                'Required parameter "joinCampaignRequest" was null or undefined when calling putApiV1CampaignsByClientJoin().'
+                'coEdgeappServerModelEdgeApiDataJoinCampaignRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataJoinCampaignRequest" was null or undefined when calling putApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -442,15 +442,15 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
+            body: CoEdgeappServerModelEdgeApiDataJoinCampaignRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataJoinCampaignRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => JoinCampaignFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceModelJoinCampaignFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1CampaignsByClientJoin(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JoinCampaign> {
+    async putApiV1CampaignsByClientJoin(requestParameters: PutApiV1CampaignsByClientJoinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceModelJoinCampaign> {
         const response = await this.putApiV1CampaignsByClientJoinRaw(requestParameters, initOverrides);
         return await response.value();
     }

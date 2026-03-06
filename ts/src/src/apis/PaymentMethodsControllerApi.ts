@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  PagePaymentMethodInfo,
-  PaymentMethodInfo,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo,
+  CoEdgeappServerModelPaymentMethodInfo,
 } from '../models/index';
 import {
-    PagePaymentMethodInfoFromJSON,
-    PagePaymentMethodInfoToJSON,
-    PaymentMethodInfoFromJSON,
-    PaymentMethodInfoToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfoFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfoToJSON,
+    CoEdgeappServerModelPaymentMethodInfoFromJSON,
+    CoEdgeappServerModelPaymentMethodInfoToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1PaymentsMethodsByPaymentmethodidRequest {
@@ -103,11 +103,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>>;
+    getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo>>;
 
     /**
      */
-    getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo>;
+    getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo>;
 
     /**
      * 
@@ -120,11 +120,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+    getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>>;
 
     /**
      */
-    getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
+    getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo>;
 
     /**
      * 
@@ -138,11 +138,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+    getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>>;
 
     /**
      */
-    getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
+    getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo>;
 
     /**
      * 
@@ -155,11 +155,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>>;
+    postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>>;
 
     /**
      */
-    postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo>;
+    postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo>;
 
 }
 
@@ -228,7 +228,7 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PagePaymentMethodInfo>> {
+    async getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -267,19 +267,19 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PagePaymentMethodInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PagePaymentMethodInfo> {
+    async getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo> {
         const response = await this.getApiV1PaymentsMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+    async getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>> {
         if (requestParameters['paymentMethodId'] == null) {
             throw new runtime.RequiredError(
                 'paymentMethodId',
@@ -322,19 +322,19 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentMethodInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPaymentMethodInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+    async getApiV1PaymentsMethodsByPaymentmethodid(requestParameters: GetApiV1PaymentsMethodsByPaymentmethodidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo> {
         const response = await this.getApiV1PaymentsMethodsByPaymentmethodidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+    async getApiV1PaymentsMethodsDefaultRaw(requestParameters: GetApiV1PaymentsMethodsDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -377,19 +377,19 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentMethodInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPaymentMethodInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+    async getApiV1PaymentsMethodsDefault(requestParameters: GetApiV1PaymentsMethodsDefaultRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo> {
         const response = await this.getApiV1PaymentsMethodsDefaultRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentMethodInfo>> {
+    async postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPaymentMethodInfo>> {
         if (requestParameters['paymentMethodId'] == null) {
             throw new runtime.RequiredError(
                 'paymentMethodId',
@@ -432,12 +432,12 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentMethodInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPaymentMethodInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentMethodInfo> {
+    async postApiV1PaymentsMethodsByPaymentmethodidDefault(requestParameters: PostApiV1PaymentsMethodsByPaymentmethodidDefaultRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPaymentMethodInfo> {
         const response = await this.postApiV1PaymentsMethodsByPaymentmethodidDefaultRaw(requestParameters, initOverrides);
         return await response.value();
     }

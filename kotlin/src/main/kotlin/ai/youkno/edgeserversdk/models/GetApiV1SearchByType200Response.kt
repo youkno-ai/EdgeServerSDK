@@ -15,14 +15,14 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.Bounty
-import ai.youkno.edgeserversdk.models.Comment
-import ai.youkno.edgeserversdk.models.Response
-import ai.youkno.edgeserversdk.models.SearchBountyResults
-import ai.youkno.edgeserversdk.models.SearchCommentResults
-import ai.youkno.edgeserversdk.models.SearchResponseResults
-import ai.youkno.edgeserversdk.models.SearchUserResults
-import ai.youkno.edgeserversdk.models.User
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchBounty
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchBountyResults
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchComment
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchCommentResults
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchResponse
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchResponseResults
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchUser
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchUserResults
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -41,19 +41,19 @@ import com.squareup.moshi.JsonClass
 data class GetApiV1SearchByType200Response (
 
     @Json(name = "users")
-    val users: kotlin.collections.List<User>? = null,
+    val users: kotlin.collections.List<CoedgeappservermodelSearchUser>? = null,
 
     @Json(name = "dummy")
     val dummy: kotlin.Int? = null,
 
     @Json(name = "bounties")
-    val bounties: kotlin.collections.List<Bounty>? = null,
+    val bounties: kotlin.collections.List<CoedgeappservermodelSearchBounty>? = null,
 
     @Json(name = "responses")
-    val responses: kotlin.collections.List<Response>? = null,
+    val responses: kotlin.collections.List<CoedgeappservermodelSearchResponse>? = null,
 
     @Json(name = "comments")
-    val comments: kotlin.collections.List<Comment>? = null
+    val comments: kotlin.collections.List<CoedgeappservermodelSearchComment>? = null
 
 ) {
 

@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CreatePosCustomerRequest,
-  Customer,
+  CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequest,
+  CoEdgeappServerThirdpartiesPosPointOfSaleCustomer,
 } from '../models/index';
 import {
-    CreatePosCustomerRequestFromJSON,
-    CreatePosCustomerRequestToJSON,
-    CustomerFromJSON,
-    CustomerToJSON,
+    CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequestFromJSON,
+    CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequestToJSON,
+    CoEdgeappServerThirdpartiesPosPointOfSaleCustomerFromJSON,
+    CoEdgeappServerThirdpartiesPosPointOfSaleCustomerToJSON,
 } from '../models/index';
 
 export interface GetApiV1PointofsaleCustomerByCustomeridRequest {
@@ -36,7 +36,7 @@ export interface GetApiV1PointofsaleCustomerByCustomeridRequest {
 export interface PostApiV1PointofsaleCustomerByCustomeridRequest {
     customerId: string;
     merchantId: string;
-    createPosCustomerRequest: CreatePosCustomerRequest;
+    coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest: CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -60,17 +60,17 @@ export interface PointOfSaleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PointOfSaleControllerApiInterface
      */
-    getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>>;
+    getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesPosPointOfSaleCustomer>>;
 
     /**
      */
-    getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer>;
+    getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesPosPointOfSaleCustomer>;
 
     /**
      * 
      * @param {string} customerId 
      * @param {string} merchantId 
-     * @param {CreatePosCustomerRequest} createPosCustomerRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequest} coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -93,7 +93,7 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
 
     /**
      */
-    async getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Customer>> {
+    async getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesPosPointOfSaleCustomer>> {
         if (requestParameters['customerId'] == null) {
             throw new runtime.RequiredError(
                 'customerId',
@@ -143,12 +143,12 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerThirdpartiesPosPointOfSaleCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Customer> {
+    async getApiV1PointofsaleCustomerByCustomerid(requestParameters: GetApiV1PointofsaleCustomerByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesPosPointOfSaleCustomer> {
         const response = await this.getApiV1PointofsaleCustomerByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -170,10 +170,10 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
             );
         }
 
-        if (requestParameters['createPosCustomerRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest'] == null) {
             throw new runtime.RequiredError(
-                'createPosCustomerRequest',
-                'Required parameter "createPosCustomerRequest" was null or undefined when calling postApiV1PointofsaleCustomerByCustomerid().'
+                'coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest" was null or undefined when calling postApiV1PointofsaleCustomerByCustomerid().'
             );
         }
 
@@ -212,7 +212,7 @@ export class PointOfSaleControllerApi extends runtime.BaseAPI implements PointOf
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreatePosCustomerRequestToJSON(requestParameters['createPosCustomerRequest']),
+            body: CoEdgeappServerModelEdgeApiDataCreatePosCustomerRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataCreatePosCustomerRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

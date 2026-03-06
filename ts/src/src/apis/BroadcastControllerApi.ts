@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  BroadcastToken,
+  CoEdgeappServerServiceAntMediaServiceBroadcastToken,
 } from '../models/index';
 import {
-    BroadcastTokenFromJSON,
-    BroadcastTokenToJSON,
+    CoEdgeappServerServiceAntMediaServiceBroadcastTokenFromJSON,
+    CoEdgeappServerServiceAntMediaServiceBroadcastTokenToJSON,
 } from '../models/index';
 
 export interface GetApiV1BroadcastByStreamIdTokenRequest {
@@ -50,11 +50,11 @@ export interface BroadcastControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BroadcastControllerApiInterface
      */
-    getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>>;
+    getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceAntMediaServiceBroadcastToken>>;
 
     /**
      */
-    getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken>;
+    getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceAntMediaServiceBroadcastToken>;
 
 }
 
@@ -65,7 +65,7 @@ export class BroadcastControllerApi extends runtime.BaseAPI implements Broadcast
 
     /**
      */
-    async getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BroadcastToken>> {
+    async getApiV1BroadcastByStreamIdTokenRaw(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceAntMediaServiceBroadcastToken>> {
         if (requestParameters['streamId'] == null) {
             throw new runtime.RequiredError(
                 'streamId',
@@ -119,12 +119,12 @@ export class BroadcastControllerApi extends runtime.BaseAPI implements Broadcast
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BroadcastTokenFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceAntMediaServiceBroadcastTokenFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BroadcastToken> {
+    async getApiV1BroadcastByStreamIdToken(requestParameters: GetApiV1BroadcastByStreamIdTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceAntMediaServiceBroadcastToken> {
         const response = await this.getApiV1BroadcastByStreamIdTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }

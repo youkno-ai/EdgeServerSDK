@@ -15,23 +15,41 @@
 
 import * as runtime from '../runtime';
 import type {
-  AccessKey,
-  AccessKeyDef,
-  MetaData,
-  PageAccessKey,
-  PageAccessKeyDef,
+  CoEdgeappServerModelAccessKey,
+  CoEdgeappServerModelAccessKeyApiAccessKeyRequirement,
+  CoEdgeappServerModelAccessKeyApiKeychainAcquireRequest,
+  CoEdgeappServerModelAccessKeyApiKeychainUseRequest,
+  CoEdgeappServerModelAccessKeyApiKeychainUseResponse,
+  CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponse,
+  CoEdgeappServerModelAccessKeyDef,
+  CoEdgeappServerModelAccessKeyDefMetaData,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDef,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope,
 } from '../models/index';
 import {
-    AccessKeyFromJSON,
-    AccessKeyToJSON,
-    AccessKeyDefFromJSON,
-    AccessKeyDefToJSON,
-    MetaDataFromJSON,
-    MetaDataToJSON,
-    PageAccessKeyFromJSON,
-    PageAccessKeyToJSON,
-    PageAccessKeyDefFromJSON,
-    PageAccessKeyDefToJSON,
+    CoEdgeappServerModelAccessKeyFromJSON,
+    CoEdgeappServerModelAccessKeyToJSON,
+    CoEdgeappServerModelAccessKeyApiAccessKeyRequirementFromJSON,
+    CoEdgeappServerModelAccessKeyApiAccessKeyRequirementToJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainAcquireRequestFromJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainAcquireRequestToJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainUseRequestFromJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainUseRequestToJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainUseResponseFromJSON,
+    CoEdgeappServerModelAccessKeyApiKeychainUseResponseToJSON,
+    CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponseFromJSON,
+    CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponseToJSON,
+    CoEdgeappServerModelAccessKeyDefFromJSON,
+    CoEdgeappServerModelAccessKeyDefToJSON,
+    CoEdgeappServerModelAccessKeyDefMetaDataFromJSON,
+    CoEdgeappServerModelAccessKeyDefMetaDataToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDefFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDefToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest {
@@ -42,8 +60,26 @@ export interface DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest {
     xEdgeClientId?: string;
 }
 
-export interface DeleteApiV1AccesskeysDefsByAccesskeydefidRequest {
+export interface DeleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest {
     accessKeyDefId: string;
+    scopeName: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface DeleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRequest {
+    userId: string;
+    virtualUserId: string;
+    acquisitionId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface DeleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest {
+    objectType: string;
+    objectId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -66,7 +102,8 @@ export interface GetApiV1AccesskeysByUseridByAccesskeydefidRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetApiV1AccesskeysDefsRequest {
+export interface GetApiV1AccesskeysDefsByScopenameRequest {
+    scopeName: string;
     start?: number;
     length?: number;
     xEdgeAgent?: string;
@@ -74,8 +111,32 @@ export interface GetApiV1AccesskeysDefsRequest {
     xEdgeClientId?: string;
 }
 
-export interface GetApiV1AccesskeysDefsByAccesskeydefidRequest {
+export interface GetApiV1AccesskeysDefsIdByAccesskeydefidRequest {
     accessKeyDefId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccesskeysDefsScopesRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest {
+    objectType: string;
+    objectId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest {
+    objectType: string;
+    objectId: string;
+    userId: string;
+    virtualUserId: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -84,14 +145,57 @@ export interface GetApiV1AccesskeysDefsByAccesskeydefidRequest {
 export interface PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest {
     userId: string;
     accessKeyDefId: string;
-    metaData: MetaData;
+    coEdgeappServerModelAccessKeyDefMetaData: CoEdgeappServerModelAccessKeyDefMetaData;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
-export interface PostApiV1AccesskeysDefsRequest {
-    accessKeyDef: AccessKeyDef;
+export interface PostApiV1AccesskeysDefsByScopenameRequest {
+    scopeName: string;
+    coEdgeappServerModelAccessKeyDef: CoEdgeappServerModelAccessKeyDef;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AccesskeysDefsStandardSyncRequest {
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest {
+    userId: string;
+    virtualUserId: string;
+    coEdgeappServerModelAccessKeyApiKeychainAcquireRequest: CoEdgeappServerModelAccessKeyApiKeychainAcquireRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest {
+    userId: string;
+    virtualUserId: string;
+    coEdgeappServerModelAccessKeyApiKeychainUseRequest: CoEdgeappServerModelAccessKeyApiKeychainUseRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest {
+    accessKeyDefId: string;
+    scopeName: string;
+    coEdgeappServerModelAccessKeyDef: CoEdgeappServerModelAccessKeyDef;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest {
+    objectType: string;
+    objectId: string;
+    coEdgeappServerModelAccessKeyApiAccessKeyRequirement: CoEdgeappServerModelAccessKeyApiAccessKeyRequirement;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -124,6 +228,7 @@ export interface AccessKeyControllerApiInterface {
     /**
      * 
      * @param {string} accessKeyDefId 
+     * @param {string} scopeName 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -131,11 +236,46 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+    deleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
 
     /**
      */
-    deleteApiV1AccesskeysDefsByAccesskeydefid(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+    deleteApiV1AccesskeysDefsByAccesskeydefidByScopename(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} virtualUserId 
+     * @param {string} acquisitionId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRaw(requestParameters: DeleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionid(requestParameters: DeleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} objectType 
+     * @param {string} objectId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    deleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: DeleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    deleteApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: DeleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -149,11 +289,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
+    getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>>;
 
     /**
      */
-    getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+    getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>;
 
     /**
      * 
@@ -166,14 +306,15 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>>;
+    getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>>;
 
     /**
      */
-    getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey>;
+    getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>;
 
     /**
      * 
+     * @param {string} scopeName 
      * @param {number} [start] 
      * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
@@ -183,11 +324,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysDefsRaw(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>>;
+    getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDef>>;
 
     /**
      */
-    getApiV1AccesskeysDefs(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef>;
+    getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDef>;
 
     /**
      * 
@@ -199,17 +340,68 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
+    getApiV1AccesskeysDefsIdByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsIdByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>>;
 
     /**
      */
-    getApiV1AccesskeysDefsByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
+    getApiV1AccesskeysDefsIdByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsIdByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>>;
+
+    /**
+     */
+    getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>;
+
+    /**
+     * 
+     * @param {string} objectType 
+     * @param {string} objectId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>>;
+
+    /**
+     */
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>;
+
+    /**
+     * 
+     * @param {string} objectType 
+     * @param {string} objectId 
+     * @param {string} userId 
+     * @param {string} virtualUserId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponse>>;
+
+    /**
+     */
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponse>;
 
     /**
      * 
      * @param {string} userId 
      * @param {string} accessKeyDefId 
-     * @param {MetaData} metaData 
+     * @param {CoEdgeappServerModelAccessKeyDefMetaData} coEdgeappServerModelAccessKeyDefMetaData 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -217,15 +409,16 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>>;
+    postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKey>>;
 
     /**
      */
-    postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey>;
+    postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKey>;
 
     /**
      * 
-     * @param {AccessKeyDef} accessKeyDef 
+     * @param {string} scopeName 
+     * @param {CoEdgeappServerModelAccessKeyDef} coEdgeappServerModelAccessKeyDef 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -233,11 +426,98 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    postApiV1AccesskeysDefsRaw(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>>;
+    postApiV1AccesskeysDefsByScopenameRaw(requestParameters: PostApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>>;
 
     /**
      */
-    postApiV1AccesskeysDefs(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef>;
+    postApiV1AccesskeysDefsByScopename(requestParameters: PostApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    postApiV1AccesskeysDefsStandardSyncRaw(requestParameters: PostApiV1AccesskeysDefsStandardSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1AccesskeysDefsStandardSync(requestParameters: PostApiV1AccesskeysDefsStandardSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} virtualUserId 
+     * @param {CoEdgeappServerModelAccessKeyApiKeychainAcquireRequest} coEdgeappServerModelAccessKeyApiKeychainAcquireRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKey>>;
+
+    /**
+     */
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKey>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} virtualUserId 
+     * @param {CoEdgeappServerModelAccessKeyApiKeychainUseRequest} coEdgeappServerModelAccessKeyApiKeychainUseRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiKeychainUseResponse>>;
+
+    /**
+     */
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiKeychainUseResponse>;
+
+    /**
+     * 
+     * @param {string} accessKeyDefId 
+     * @param {string} scopeName 
+     * @param {CoEdgeappServerModelAccessKeyDef} coEdgeappServerModelAccessKeyDef 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    putApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters: PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>>;
+
+    /**
+     */
+    putApiV1AccesskeysDefsByAccesskeydefidByScopename(requestParameters: PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef>;
+
+    /**
+     * 
+     * @param {string} objectType 
+     * @param {string} objectId 
+     * @param {CoEdgeappServerModelAccessKeyApiAccessKeyRequirement} coEdgeappServerModelAccessKeyApiAccessKeyRequirement 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessKeyControllerApiInterface
+     */
+    putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>>;
+
+    /**
+     */
+    putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>;
 
 }
 
@@ -307,11 +587,18 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+    async deleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
         if (requestParameters['accessKeyDefId'] == null) {
             throw new runtime.RequiredError(
                 'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling deleteApiV1AccesskeysDefsByAccesskeydefid().'
+                'Required parameter "accessKeyDefId" was null or undefined when calling deleteApiV1AccesskeysDefsByAccesskeydefidByScopename().'
+            );
+        }
+
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling deleteApiV1AccesskeysDefsByAccesskeydefidByScopename().'
             );
         }
 
@@ -336,8 +623,9 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
         }
 
 
-        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}`;
+        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}/{scopeName}`;
         urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
 
         const response = await this.request({
             path: urlPath,
@@ -351,14 +639,140 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async deleteApiV1AccesskeysDefsByAccesskeydefid(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
-        const response = await this.deleteApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters, initOverrides);
+    async deleteApiV1AccesskeysDefsByAccesskeydefidByScopename(requestParameters: DeleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
+    async deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRaw(requestParameters: DeleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionid().'
+            );
+        }
+
+        if (requestParameters['virtualUserId'] == null) {
+            throw new runtime.RequiredError(
+                'virtualUserId',
+                'Required parameter "virtualUserId" was null or undefined when calling deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionid().'
+            );
+        }
+
+        if (requestParameters['acquisitionId'] == null) {
+            throw new runtime.RequiredError(
+                'acquisitionId',
+                'Required parameter "acquisitionId" was null or undefined when calling deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/keychain/{userId}/{virtualUserId}/{acquisitionId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"virtualUserId"}}`, encodeURIComponent(String(requestParameters['virtualUserId'])));
+        urlPath = urlPath.replace(`{${"acquisitionId"}}`, encodeURIComponent(String(requestParameters['acquisitionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionid(requestParameters: DeleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AccesskeysKeychainByUseridByVirtualuseridByAcquisitionidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async deleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: DeleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['objectType'] == null) {
+            throw new runtime.RequiredError(
+                'objectType',
+                'Required parameter "objectType" was null or undefined when calling deleteApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        if (requestParameters['objectId'] == null) {
+            throw new runtime.RequiredError(
+                'objectId',
+                'Required parameter "objectId" was null or undefined when calling deleteApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/requirements/{objectType}/{objectId}`;
+        urlPath = urlPath.replace(`{${"objectType"}}`, encodeURIComponent(String(requestParameters['objectType'])));
+        urlPath = urlPath.replace(`{${"objectId"}}`, encodeURIComponent(String(requestParameters['objectId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async deleteApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: DeleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.deleteApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -405,19 +819,19 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
+    async getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey> {
         const response = await this.getApiV1AccesskeysByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKey>> {
+    async getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -464,19 +878,26 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKey> {
+    async getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKey> {
         const response = await this.getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsRaw(requestParameters: GetApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageAccessKeyDef>> {
+    async getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDef>> {
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling getApiV1AccesskeysDefsByScopename().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -506,7 +927,8 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
         }
 
 
-        let urlPath = `/api/v1/accessKeys/defs`;
+        let urlPath = `/api/v1/accessKeys/defs/{scopeName}`;
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
 
         const response = await this.request({
             path: urlPath,
@@ -515,23 +937,23 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageAccessKeyDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysDefs(requestParameters: GetApiV1AccesskeysDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageAccessKeyDef> {
-        const response = await this.getApiV1AccesskeysDefsRaw(requestParameters, initOverrides);
+    async getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessKeyDef> {
+        const response = await this.getApiV1AccesskeysDefsByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
+    async getApiV1AccesskeysDefsIdByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysDefsIdByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>> {
         if (requestParameters['accessKeyDefId'] == null) {
             throw new runtime.RequiredError(
                 'accessKeyDefId',
-                'Required parameter "accessKeyDefId" was null or undefined when calling getApiV1AccesskeysDefsByAccesskeydefid().'
+                'Required parameter "accessKeyDefId" was null or undefined when calling getApiV1AccesskeysDefsIdByAccesskeydefid().'
             );
         }
 
@@ -556,7 +978,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
         }
 
 
-        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}`;
+        let urlPath = `/api/v1/accessKeys/defs/id/{accessKeyDefId}`;
         urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
 
         const response = await this.request({
@@ -566,19 +988,196 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
-        const response = await this.getApiV1AccesskeysDefsByAccesskeydefidRaw(requestParameters, initOverrides);
+    async getApiV1AccesskeysDefsIdByAccesskeydefid(requestParameters: GetApiV1AccesskeysDefsIdByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef> {
+        const response = await this.getApiV1AccesskeysDefsIdByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKey>> {
+    async getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/defs/scopes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope> {
+        const response = await this.getApiV1AccesskeysDefsScopesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>> {
+        if (requestParameters['objectType'] == null) {
+            throw new runtime.RequiredError(
+                'objectType',
+                'Required parameter "objectType" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        if (requestParameters['objectId'] == null) {
+            throw new runtime.RequiredError(
+                'objectId',
+                'Required parameter "objectId" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/requirements/{objectType}/{objectId}`;
+        urlPath = urlPath.replace(`{${"objectType"}}`, encodeURIComponent(String(requestParameters['objectType'])));
+        urlPath = urlPath.replace(`{${"objectId"}}`, encodeURIComponent(String(requestParameters['objectId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyApiAccessKeyRequirementFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement> {
+        const response = await this.getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponse>> {
+        if (requestParameters['objectType'] == null) {
+            throw new runtime.RequiredError(
+                'objectType',
+                'Required parameter "objectType" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid().'
+            );
+        }
+
+        if (requestParameters['objectId'] == null) {
+            throw new runtime.RequiredError(
+                'objectId',
+                'Required parameter "objectId" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid().'
+            );
+        }
+
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid().'
+            );
+        }
+
+        if (requestParameters['virtualUserId'] == null) {
+            throw new runtime.RequiredError(
+                'virtualUserId',
+                'Required parameter "virtualUserId" was null or undefined when calling getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/requirements/{objectType}/{objectId}/evaluate/{userId}/{virtualUserId}`;
+        urlPath = urlPath.replace(`{${"objectType"}}`, encodeURIComponent(String(requestParameters['objectType'])));
+        urlPath = urlPath.replace(`{${"objectId"}}`, encodeURIComponent(String(requestParameters['objectId'])));
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"virtualUserId"}}`, encodeURIComponent(String(requestParameters['virtualUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiRequirementEvaluationResponse> {
+        const response = await this.getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -593,10 +1192,10 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             );
         }
 
-        if (requestParameters['metaData'] == null) {
+        if (requestParameters['coEdgeappServerModelAccessKeyDefMetaData'] == null) {
             throw new runtime.RequiredError(
-                'metaData',
-                'Required parameter "metaData" was null or undefined when calling postApiV1AccesskeysByUseridGrantByAccesskeydefid().'
+                'coEdgeappServerModelAccessKeyDefMetaData',
+                'Required parameter "coEdgeappServerModelAccessKeyDefMetaData" was null or undefined when calling postApiV1AccesskeysByUseridGrantByAccesskeydefid().'
             );
         }
 
@@ -632,26 +1231,33 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: MetaDataToJSON(requestParameters['metaData']),
+            body: CoEdgeappServerModelAccessKeyDefMetaDataToJSON(requestParameters['coEdgeappServerModelAccessKeyDefMetaData']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKey> {
+    async postApiV1AccesskeysByUseridGrantByAccesskeydefid(requestParameters: PostApiV1AccesskeysByUseridGrantByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKey> {
         const response = await this.postApiV1AccesskeysByUseridGrantByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AccesskeysDefsRaw(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyDef>> {
-        if (requestParameters['accessKeyDef'] == null) {
+    async postApiV1AccesskeysDefsByScopenameRaw(requestParameters: PostApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>> {
+        if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
-                'accessKeyDef',
-                'Required parameter "accessKeyDef" was null or undefined when calling postApiV1AccesskeysDefs().'
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling postApiV1AccesskeysDefsByScopename().'
+            );
+        }
+
+        if (requestParameters['coEdgeappServerModelAccessKeyDef'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerModelAccessKeyDef',
+                'Required parameter "coEdgeappServerModelAccessKeyDef" was null or undefined when calling postApiV1AccesskeysDefsByScopename().'
             );
         }
 
@@ -678,23 +1284,343 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
         }
 
 
-        let urlPath = `/api/v1/accessKeys/defs`;
+        let urlPath = `/api/v1/accessKeys/defs/{scopeName}`;
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AccessKeyDefToJSON(requestParameters['accessKeyDef']),
+            body: CoEdgeappServerModelAccessKeyDefToJSON(requestParameters['coEdgeappServerModelAccessKeyDef']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AccesskeysDefs(requestParameters: PostApiV1AccesskeysDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyDef> {
-        const response = await this.postApiV1AccesskeysDefsRaw(requestParameters, initOverrides);
+    async postApiV1AccesskeysDefsByScopename(requestParameters: PostApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef> {
+        const response = await this.postApiV1AccesskeysDefsByScopenameRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysDefsStandardSyncRaw(requestParameters: PostApiV1AccesskeysDefsStandardSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/defs/standard/sync`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysDefsStandardSync(requestParameters: PostApiV1AccesskeysDefsStandardSyncRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1AccesskeysDefsStandardSyncRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKey>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire().'
+            );
+        }
+
+        if (requestParameters['virtualUserId'] == null) {
+            throw new runtime.RequiredError(
+                'virtualUserId',
+                'Required parameter "virtualUserId" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire().'
+            );
+        }
+
+        if (requestParameters['coEdgeappServerModelAccessKeyApiKeychainAcquireRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerModelAccessKeyApiKeychainAcquireRequest',
+                'Required parameter "coEdgeappServerModelAccessKeyApiKeychainAcquireRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/keychain/{userId}/{virtualUserId}/acquire`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"virtualUserId"}}`, encodeURIComponent(String(requestParameters['virtualUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerModelAccessKeyApiKeychainAcquireRequestToJSON(requestParameters['coEdgeappServerModelAccessKeyApiKeychainAcquireRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKey> {
+        const response = await this.postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiKeychainUseResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridUse().'
+            );
+        }
+
+        if (requestParameters['virtualUserId'] == null) {
+            throw new runtime.RequiredError(
+                'virtualUserId',
+                'Required parameter "virtualUserId" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridUse().'
+            );
+        }
+
+        if (requestParameters['coEdgeappServerModelAccessKeyApiKeychainUseRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerModelAccessKeyApiKeychainUseRequest',
+                'Required parameter "coEdgeappServerModelAccessKeyApiKeychainUseRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridUse().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/keychain/{userId}/{virtualUserId}/use`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(`{${"virtualUserId"}}`, encodeURIComponent(String(requestParameters['virtualUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerModelAccessKeyApiKeychainUseRequestToJSON(requestParameters['coEdgeappServerModelAccessKeyApiKeychainUseRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyApiKeychainUseResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiKeychainUseResponse> {
+        const response = await this.postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters: PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyDef>> {
+        if (requestParameters['accessKeyDefId'] == null) {
+            throw new runtime.RequiredError(
+                'accessKeyDefId',
+                'Required parameter "accessKeyDefId" was null or undefined when calling putApiV1AccesskeysDefsByAccesskeydefidByScopename().'
+            );
+        }
+
+        if (requestParameters['scopeName'] == null) {
+            throw new runtime.RequiredError(
+                'scopeName',
+                'Required parameter "scopeName" was null or undefined when calling putApiV1AccesskeysDefsByAccesskeydefidByScopename().'
+            );
+        }
+
+        if (requestParameters['coEdgeappServerModelAccessKeyDef'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerModelAccessKeyDef',
+                'Required parameter "coEdgeappServerModelAccessKeyDef" was null or undefined when calling putApiV1AccesskeysDefsByAccesskeydefidByScopename().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/defs/{accessKeyDefId}/{scopeName}`;
+        urlPath = urlPath.replace(`{${"accessKeyDefId"}}`, encodeURIComponent(String(requestParameters['accessKeyDefId'])));
+        urlPath = urlPath.replace(`{${"scopeName"}}`, encodeURIComponent(String(requestParameters['scopeName'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerModelAccessKeyDefToJSON(requestParameters['coEdgeappServerModelAccessKeyDef']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyDefFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1AccesskeysDefsByAccesskeydefidByScopename(requestParameters: PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyDef> {
+        const response = await this.putApiV1AccesskeysDefsByAccesskeydefidByScopenameRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement>> {
+        if (requestParameters['objectType'] == null) {
+            throw new runtime.RequiredError(
+                'objectType',
+                'Required parameter "objectType" was null or undefined when calling putApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        if (requestParameters['objectId'] == null) {
+            throw new runtime.RequiredError(
+                'objectId',
+                'Required parameter "objectId" was null or undefined when calling putApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        if (requestParameters['coEdgeappServerModelAccessKeyApiAccessKeyRequirement'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerModelAccessKeyApiAccessKeyRequirement',
+                'Required parameter "coEdgeappServerModelAccessKeyApiAccessKeyRequirement" was null or undefined when calling putApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/accessKeys/requirements/{objectType}/{objectId}`;
+        urlPath = urlPath.replace(`{${"objectType"}}`, encodeURIComponent(String(requestParameters['objectType'])));
+        urlPath = urlPath.replace(`{${"objectId"}}`, encodeURIComponent(String(requestParameters['objectId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerModelAccessKeyApiAccessKeyRequirementToJSON(requestParameters['coEdgeappServerModelAccessKeyApiAccessKeyRequirement']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessKeyApiAccessKeyRequirementFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessKeyApiAccessKeyRequirement> {
+        const response = await this.putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.Attachment
-import ai.youkno.edgeserversdk.models.StorageRefResponse
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelAttachmentsAttachment
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelStorageRefResponse
 
 interface AttachmentControllerApi {
 
@@ -38,10 +38,10 @@ interface AttachmentControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[StorageRefResponse]>
+     * @return [Call]<[CoedgeappservermodelStorageRefResponse]>
      */
     @GET("api/v1/attachments/{anchorType}/{anchorId}/storage/ref")
-    fun getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Query("attachmentType") attachmentType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StorageRefResponse>
+    fun getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Query("attachmentType") attachmentType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelStorageRefResponse>
 
 
     /**
@@ -67,13 +67,13 @@ interface AttachmentControllerApi {
      *
      * @param anchorType 
      * @param anchorId 
-     * @param attachment 
+     * @param coedgeappservermodelAttachmentsAttachment 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Attachment]>
+     * @return [Call]<[CoedgeappservermodelAttachmentsAttachment]>
      */
     @POST("api/v1/attachments/{anchorType}/{anchorId}")
-    fun postApiV1AttachmentsByAnchortypeByAnchorid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body attachment: Attachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Attachment>
+    fun postApiV1AttachmentsByAnchortypeByAnchorid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body coedgeappservermodelAttachmentsAttachment: CoedgeappservermodelAttachmentsAttachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelAttachmentsAttachment>
 
 }

@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  NewId,
-  WebSnippet,
+  CoEdgeappServerModelEdgeApiDataNewId,
+  CoEdgeappServerModelWebSnippet,
 } from '../models/index';
 import {
-    NewIdFromJSON,
-    NewIdToJSON,
-    WebSnippetFromJSON,
-    WebSnippetToJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdFromJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdToJSON,
+    CoEdgeappServerModelWebSnippetFromJSON,
+    CoEdgeappServerModelWebSnippetToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1WebSnippetsByIdRequest {
@@ -55,7 +55,7 @@ export interface GetApiV1WebSnippetsBySnippetidRenderRequest {
 }
 
 export interface PostApiV1WebSnippetsRequest {
-    webSnippet: WebSnippet;
+    coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -63,7 +63,7 @@ export interface PostApiV1WebSnippetsRequest {
 
 export interface PutApiV1WebSnippetsByIdRequest {
     id: string;
-    webSnippet: WebSnippet;
+    coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -103,11 +103,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>>;
+    getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelWebSnippet>>>;
 
     /**
      */
-    getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>>;
+    getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelWebSnippet>>;
 
     /**
      * 
@@ -119,11 +119,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
+    getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelWebSnippet>>;
 
     /**
      */
-    getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
+    getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelWebSnippet>;
 
     /**
      * 
@@ -143,7 +143,7 @@ export interface WebSnippetControllerApiInterface {
 
     /**
      * 
-     * @param {WebSnippet} webSnippet 
+     * @param {CoEdgeappServerModelWebSnippet} coEdgeappServerModelWebSnippet 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -151,16 +151,16 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
 
     /**
      * 
      * @param {string} id 
-     * @param {WebSnippet} webSnippet 
+     * @param {CoEdgeappServerModelWebSnippet} coEdgeappServerModelWebSnippet 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -168,11 +168,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>>;
+    putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelWebSnippet>>;
 
     /**
      */
-    putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet>;
+    putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelWebSnippet>;
 
 }
 
@@ -233,7 +233,7 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WebSnippet>>> {
+    async getApiV1WebSnippetsRaw(requestParameters: GetApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelWebSnippet>>> {
         const queryParameters: any = {};
 
         if (requestParameters['q'] != null) {
@@ -272,19 +272,19 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(WebSnippetFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelWebSnippetFromJSON));
     }
 
     /**
      */
-    async getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WebSnippet>> {
+    async getApiV1WebSnippets(requestParameters: GetApiV1WebSnippetsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelWebSnippet>> {
         const response = await this.getApiV1WebSnippetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
+    async getApiV1WebSnippetsBySnippetidRaw(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelWebSnippet>> {
         if (requestParameters['snippetId'] == null) {
             throw new runtime.RequiredError(
                 'snippetId',
@@ -323,12 +323,12 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebSnippetFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelWebSnippetFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
+    async getApiV1WebSnippetsBySnippetid(requestParameters: GetApiV1WebSnippetsBySnippetidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelWebSnippet> {
         const response = await this.getApiV1WebSnippetsBySnippetidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -390,11 +390,11 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['webSnippet'] == null) {
+    async postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
+        if (requestParameters['coEdgeappServerModelWebSnippet'] == null) {
             throw new runtime.RequiredError(
-                'webSnippet',
-                'Required parameter "webSnippet" was null or undefined when calling postApiV1WebSnippets().'
+                'coEdgeappServerModelWebSnippet',
+                'Required parameter "coEdgeappServerModelWebSnippet" was null or undefined when calling postApiV1WebSnippets().'
             );
         }
 
@@ -428,22 +428,22 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: WebSnippetToJSON(requestParameters['webSnippet']),
+            body: CoEdgeappServerModelWebSnippetToJSON(requestParameters['coEdgeappServerModelWebSnippet']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+    async postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
         const response = await this.postApiV1WebSnippetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebSnippet>> {
+    async putApiV1WebSnippetsByIdRaw(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelWebSnippet>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -451,10 +451,10 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             );
         }
 
-        if (requestParameters['webSnippet'] == null) {
+        if (requestParameters['coEdgeappServerModelWebSnippet'] == null) {
             throw new runtime.RequiredError(
-                'webSnippet',
-                'Required parameter "webSnippet" was null or undefined when calling putApiV1WebSnippetsById().'
+                'coEdgeappServerModelWebSnippet',
+                'Required parameter "coEdgeappServerModelWebSnippet" was null or undefined when calling putApiV1WebSnippetsById().'
             );
         }
 
@@ -489,15 +489,15 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: WebSnippetToJSON(requestParameters['webSnippet']),
+            body: CoEdgeappServerModelWebSnippetToJSON(requestParameters['coEdgeappServerModelWebSnippet']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebSnippetFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelWebSnippetFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebSnippet> {
+    async putApiV1WebSnippetsById(requestParameters: PutApiV1WebSnippetsByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelWebSnippet> {
         const response = await this.putApiV1WebSnippetsByIdRaw(requestParameters, initOverrides);
         return await response.value();
     }

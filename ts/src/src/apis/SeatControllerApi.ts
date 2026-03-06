@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  NewId,
-  Seat,
+  CoEdgeappServerModelEdgeApiDataNewId,
+  CoEdgeappServerModelSeat,
 } from '../models/index';
 import {
-    NewIdFromJSON,
-    NewIdToJSON,
-    SeatFromJSON,
-    SeatToJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdFromJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdToJSON,
+    CoEdgeappServerModelSeatFromJSON,
+    CoEdgeappServerModelSeatToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1SeatsBySeatidRequest {
@@ -61,7 +61,7 @@ export interface PatchApiV1SeatsBySeatidReserveRequest {
 }
 
 export interface PostApiV1SeatsRequest {
-    seat: Seat;
+    coEdgeappServerModelSeat: CoEdgeappServerModelSeat;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -107,11 +107,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>>;
+    getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelSeat>>;
 
     /**
      */
-    getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat>;
+    getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelSeat>;
 
     /**
      * 
@@ -123,11 +123,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
+    getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelSeat>>>;
 
     /**
      */
-    getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
+    getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelSeat>>;
 
     /**
      * 
@@ -139,11 +139,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>>;
+    getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelSeat>>>;
 
     /**
      */
-    getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>>;
+    getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelSeat>>;
 
     /**
      * 
@@ -163,7 +163,7 @@ export interface SeatControllerApiInterface {
 
     /**
      * 
-     * @param {Seat} seat 
+     * @param {CoEdgeappServerModelSeat} coEdgeappServerModelSeat 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -171,11 +171,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
 
     /**
      * 
@@ -187,11 +187,11 @@ export interface SeatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SeatControllerApiInterface
      */
-    postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
 
 }
 
@@ -253,7 +253,7 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
 
     /**
      */
-    async getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Seat>> {
+    async getApiV1SeatsBySeatidRaw(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelSeat>> {
         if (requestParameters['seatId'] == null) {
             throw new runtime.RequiredError(
                 'seatId',
@@ -292,19 +292,19 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SeatFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelSeatFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Seat> {
+    async getApiV1SeatsBySeatid(requestParameters: GetApiV1SeatsBySeatidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelSeat> {
         const response = await this.getApiV1SeatsBySeatidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
+    async getApiV1SeatsByeventidByEventidRaw(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelSeat>>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
@@ -343,19 +343,19 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelSeatFromJSON));
     }
 
     /**
      */
-    async getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
+    async getApiV1SeatsByeventidByEventid(requestParameters: GetApiV1SeatsByeventidByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelSeat>> {
         const response = await this.getApiV1SeatsByeventidByEventidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Seat>>> {
+    async getApiV1SeatsByuseridByUseridRaw(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelSeat>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -394,12 +394,12 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SeatFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelSeatFromJSON));
     }
 
     /**
      */
-    async getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Seat>> {
+    async getApiV1SeatsByuseridByUserid(requestParameters: GetApiV1SeatsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelSeat>> {
         const response = await this.getApiV1SeatsByuseridByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -457,11 +457,11 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
 
     /**
      */
-    async postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['seat'] == null) {
+    async postApiV1SeatsRaw(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
+        if (requestParameters['coEdgeappServerModelSeat'] == null) {
             throw new runtime.RequiredError(
-                'seat',
-                'Required parameter "seat" was null or undefined when calling postApiV1Seats().'
+                'coEdgeappServerModelSeat',
+                'Required parameter "coEdgeappServerModelSeat" was null or undefined when calling postApiV1Seats().'
             );
         }
 
@@ -495,22 +495,22 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SeatToJSON(requestParameters['seat']),
+            body: CoEdgeappServerModelSeatToJSON(requestParameters['coEdgeappServerModelSeat']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+    async postApiV1Seats(requestParameters: PostApiV1SeatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
         const response = await this.postApiV1SeatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
+    async postApiV1SeatsBySeatidBuyRaw(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
         if (requestParameters['seatId'] == null) {
             throw new runtime.RequiredError(
                 'seatId',
@@ -549,12 +549,12 @@ export class SeatControllerApi extends runtime.BaseAPI implements SeatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+    async postApiV1SeatsBySeatidBuy(requestParameters: PostApiV1SeatsBySeatidBuyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
         const response = await this.postApiV1SeatsBySeatidBuyRaw(requestParameters, initOverrides);
         return await response.value();
     }

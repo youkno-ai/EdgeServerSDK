@@ -1,7 +1,7 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let sdkVersion = "1.20.2271"
+let sdkVersion = "1.20.2314"
 
 let package = Package(
     name: "BelongSDK",

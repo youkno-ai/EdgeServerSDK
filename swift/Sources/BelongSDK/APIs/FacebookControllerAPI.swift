@@ -117,10 +117,10 @@ open class FacebookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: DeleteUserCallbackResp
+     - returns: CoEdgeappServerThirdpartiesFacebookDeleteUserCallbackResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1FacebookCallbacksUserDataDeletionByState(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> DeleteUserCallbackResp {
+    open class func postApiV1FacebookCallbacksUserDataDeletionByState(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerThirdpartiesFacebookDeleteUserCallbackResp {
         return try await postApiV1FacebookCallbacksUserDataDeletionByStateWithRequestBuilder(state: state, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -133,9 +133,9 @@ open class FacebookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<DeleteUserCallbackResp> 
+     - returns: RequestBuilder<CoEdgeappServerThirdpartiesFacebookDeleteUserCallbackResp> 
      */
-    open class func postApiV1FacebookCallbacksUserDataDeletionByStateWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<DeleteUserCallbackResp> {
+    open class func postApiV1FacebookCallbacksUserDataDeletionByStateWithRequestBuilder(state: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerThirdpartiesFacebookDeleteUserCallbackResp> {
         var localVariablePath = "/api/v1/facebook/callbacks/user-data-deletion/{state}"
         let statePreEscape = "\(APIHelper.mapValueToPathItem(state))"
         let statePostEscape = statePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -153,7 +153,7 @@ open class FacebookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DeleteUserCallbackResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerThirdpartiesFacebookDeleteUserCallbackResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

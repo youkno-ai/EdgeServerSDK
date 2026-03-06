@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  Avatar,
-  CreateAvatarRequest,
+  CoEdgeappServerModelAvatar,
+  CoEdgeappServerModelEdgeApiDataCreateAvatarRequest,
 } from '../models/index';
 import {
-    AvatarFromJSON,
-    AvatarToJSON,
-    CreateAvatarRequestFromJSON,
-    CreateAvatarRequestToJSON,
+    CoEdgeappServerModelAvatarFromJSON,
+    CoEdgeappServerModelAvatarToJSON,
+    CoEdgeappServerModelEdgeApiDataCreateAvatarRequestFromJSON,
+    CoEdgeappServerModelEdgeApiDataCreateAvatarRequestToJSON,
 } from '../models/index';
 
 export interface GetApiV1AvatarsRequest {
@@ -41,7 +41,7 @@ export interface GetApiV1AvatarsByAvataridRequest {
 }
 
 export interface PostApiV1AvatarsRequest {
-    createAvatarRequest: CreateAvatarRequest;
+    coEdgeappServerModelEdgeApiDataCreateAvatarRequest: CoEdgeappServerModelEdgeApiDataCreateAvatarRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -65,11 +65,11 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>>;
+    getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelAvatar>>>;
 
     /**
      */
-    getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>>;
+    getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelAvatar>>;
 
     /**
      * 
@@ -81,15 +81,15 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
+    getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAvatar>>;
 
     /**
      */
-    getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
+    getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAvatar>;
 
     /**
      * 
-     * @param {CreateAvatarRequest} createAvatarRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataCreateAvatarRequest} coEdgeappServerModelEdgeApiDataCreateAvatarRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -97,11 +97,11 @@ export interface AvatarControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AvatarControllerApiInterface
      */
-    postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>>;
+    postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAvatar>>;
 
     /**
      */
-    postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar>;
+    postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAvatar>;
 
 }
 
@@ -112,7 +112,7 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
 
     /**
      */
-    async getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Avatar>>> {
+    async getApiV1AvatarsRaw(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelAvatar>>> {
         if (requestParameters['name'] == null) {
             throw new runtime.RequiredError(
                 'name',
@@ -158,19 +158,19 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AvatarFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelAvatarFromJSON));
     }
 
     /**
      */
-    async getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Avatar>> {
+    async getApiV1Avatars(requestParameters: GetApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelAvatar>> {
         const response = await this.getApiV1AvatarsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
+    async getApiV1AvatarsByAvataridRaw(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAvatar>> {
         if (requestParameters['avatarId'] == null) {
             throw new runtime.RequiredError(
                 'avatarId',
@@ -209,23 +209,23 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAvatarFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
+    async getApiV1AvatarsByAvatarid(requestParameters: GetApiV1AvatarsByAvataridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAvatar> {
         const response = await this.getApiV1AvatarsByAvataridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
-        if (requestParameters['createAvatarRequest'] == null) {
+    async postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAvatar>> {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataCreateAvatarRequest'] == null) {
             throw new runtime.RequiredError(
-                'createAvatarRequest',
-                'Required parameter "createAvatarRequest" was null or undefined when calling postApiV1Avatars().'
+                'coEdgeappServerModelEdgeApiDataCreateAvatarRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataCreateAvatarRequest" was null or undefined when calling postApiV1Avatars().'
             );
         }
 
@@ -259,15 +259,15 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAvatarRequestToJSON(requestParameters['createAvatarRequest']),
+            body: CoEdgeappServerModelEdgeApiDataCreateAvatarRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataCreateAvatarRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAvatarFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Avatar> {
+    async postApiV1Avatars(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAvatar> {
         const response = await this.postApiV1AvatarsRaw(requestParameters, initOverrides);
         return await response.value();
     }

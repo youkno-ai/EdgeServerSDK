@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  PaymentSummaryResp,
+  CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp,
 } from '../models/index';
 import {
-    PaymentSummaryRespFromJSON,
-    PaymentSummaryRespToJSON,
+    CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryRespFromJSON,
+    CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryRespToJSON,
 } from '../models/index';
 
 export interface PostApiV1OpenPaymentsByPaymentidPayRequest {
@@ -48,11 +48,11 @@ export interface OpenPaymentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenPaymentControllerApiInterface
      */
-    postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>>;
+    postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp>>;
 
     /**
      */
-    postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp>;
+    postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp>;
 
 }
 
@@ -63,7 +63,7 @@ export class OpenPaymentControllerApi extends runtime.BaseAPI implements OpenPay
 
     /**
      */
-    async postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaymentSummaryResp>> {
+    async postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp>> {
         if (requestParameters['paymentId'] == null) {
             throw new runtime.RequiredError(
                 'paymentId',
@@ -112,12 +112,12 @@ export class OpenPaymentControllerApi extends runtime.BaseAPI implements OpenPay
             body: requestParameters['body'] as any,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaymentSummaryRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaymentSummaryResp> {
+    async postApiV1OpenPaymentsByPaymentidPay(requestParameters: PostApiV1OpenPaymentsByPaymentidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenPaymentControllerPaymentSummaryResp> {
         const response = await this.postApiV1OpenPaymentsByPaymentidPayRaw(requestParameters, initOverrides);
         return await response.value();
     }

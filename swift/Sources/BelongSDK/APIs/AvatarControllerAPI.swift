@@ -19,10 +19,10 @@ open class AvatarControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [Avatar]
+     - returns: [CoEdgeappServerModelAvatar]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Avatars(name: String, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [Avatar] {
+    open class func getApiV1Avatars(name: String, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelAvatar] {
         return try await getApiV1AvatarsWithRequestBuilder(name: name, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -36,9 +36,9 @@ open class AvatarControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[Avatar]> 
+     - returns: RequestBuilder<[CoEdgeappServerModelAvatar]> 
      */
-    open class func getApiV1AvatarsWithRequestBuilder(name: String, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[Avatar]> {
+    open class func getApiV1AvatarsWithRequestBuilder(name: String, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelAvatar]> {
         let localVariablePath = "/api/v1/avatars"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -57,7 +57,7 @@ open class AvatarControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Avatar]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelAvatar]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -68,10 +68,10 @@ open class AvatarControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Avatar
+     - returns: CoEdgeappServerModelAvatar
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AvatarsByAvatarid(avatarId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Avatar {
+    open class func getApiV1AvatarsByAvatarid(avatarId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAvatar {
         return try await getApiV1AvatarsByAvataridWithRequestBuilder(avatarId: avatarId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -84,9 +84,9 @@ open class AvatarControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Avatar> 
+     - returns: RequestBuilder<CoEdgeappServerModelAvatar> 
      */
-    open class func getApiV1AvatarsByAvataridWithRequestBuilder(avatarId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Avatar> {
+    open class func getApiV1AvatarsByAvataridWithRequestBuilder(avatarId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAvatar> {
         var localVariablePath = "/api/v1/avatars/{avatarId}"
         let avatarIdPreEscape = "\(APIHelper.mapValueToPathItem(avatarId))"
         let avatarIdPostEscape = avatarIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,22 +104,22 @@ open class AvatarControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Avatar>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAvatar>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter createAvatarRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCreateAvatarRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Avatar
+     - returns: CoEdgeappServerModelAvatar
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Avatars(createAvatarRequest: CreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Avatar {
-        return try await postApiV1AvatarsWithRequestBuilder(createAvatarRequest: createAvatarRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Avatars(coEdgeappServerModelEdgeApiDataCreateAvatarRequest: CoEdgeappServerModelEdgeApiDataCreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelAvatar {
+        return try await postApiV1AvatarsWithRequestBuilder(coEdgeappServerModelEdgeApiDataCreateAvatarRequest: coEdgeappServerModelEdgeApiDataCreateAvatarRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -127,16 +127,16 @@ open class AvatarControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter createAvatarRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCreateAvatarRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Avatar> 
+     - returns: RequestBuilder<CoEdgeappServerModelAvatar> 
      */
-    open class func postApiV1AvatarsWithRequestBuilder(createAvatarRequest: CreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Avatar> {
+    open class func postApiV1AvatarsWithRequestBuilder(coEdgeappServerModelEdgeApiDataCreateAvatarRequest: CoEdgeappServerModelEdgeApiDataCreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelAvatar> {
         let localVariablePath = "/api/v1/avatars"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createAvatarRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataCreateAvatarRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -149,7 +149,7 @@ open class AvatarControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Avatar>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelAvatar>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

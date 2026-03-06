@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.SignedPayload
+import ai.youkno.edgeserversdk.models.CoedgeappserverthirdpartiesBillMyBankAPISignedPayload
 
 interface BillMyBankControllerApi {
     /**
@@ -16,13 +16,13 @@ interface BillMyBankControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param signedPayload 
+     * @param coedgeappserverthirdpartiesBillMyBankAPISignedPayload 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/bmb/payments/webhook")
-    fun postApiV1BmbPaymentsWebhook(@Body signedPayload: SignedPayload, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1BmbPaymentsWebhook(@Body coedgeappserverthirdpartiesBillMyBankAPISignedPayload: CoedgeappserverthirdpartiesBillMyBankAPISignedPayload, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

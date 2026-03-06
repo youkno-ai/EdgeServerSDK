@@ -15,26 +15,26 @@
 
 import * as runtime from '../runtime';
 import type {
-  PageVoucher,
-  PageVoucherDef,
-  RedeemVoucherReq,
-  Voucher,
-  VoucherDef,
-  VoucherHolder,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef,
+  CoEdgeappServerModelEdgeApiDataRedeemVoucherReq,
+  CoEdgeappServerModelEdgeApiDataVoucherHolder,
+  CoEdgeappServerModelVoucher,
+  CoEdgeappServerModelVoucherDef,
 } from '../models/index';
 import {
-    PageVoucherFromJSON,
-    PageVoucherToJSON,
-    PageVoucherDefFromJSON,
-    PageVoucherDefToJSON,
-    RedeemVoucherReqFromJSON,
-    RedeemVoucherReqToJSON,
-    VoucherFromJSON,
-    VoucherToJSON,
-    VoucherDefFromJSON,
-    VoucherDefToJSON,
-    VoucherHolderFromJSON,
-    VoucherHolderToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDefFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDefToJSON,
+    CoEdgeappServerModelEdgeApiDataRedeemVoucherReqFromJSON,
+    CoEdgeappServerModelEdgeApiDataRedeemVoucherReqToJSON,
+    CoEdgeappServerModelEdgeApiDataVoucherHolderFromJSON,
+    CoEdgeappServerModelEdgeApiDataVoucherHolderToJSON,
+    CoEdgeappServerModelVoucherFromJSON,
+    CoEdgeappServerModelVoucherToJSON,
+    CoEdgeappServerModelVoucherDefFromJSON,
+    CoEdgeappServerModelVoucherDefToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1VouchersDefsByVoucherdefidRequest {
@@ -94,7 +94,7 @@ export interface GetApiV1VouchersScannedRequest {
 
 export interface PostApiV1VouchersByVoucherdefidRequest {
     voucherDefId: string;
-    voucherHolder: VoucherHolder;
+    coEdgeappServerModelEdgeApiDataVoucherHolder: CoEdgeappServerModelEdgeApiDataVoucherHolder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -102,14 +102,14 @@ export interface PostApiV1VouchersByVoucherdefidRequest {
 
 export interface PostApiV1VouchersByVoucheridRedeemRequest {
     voucherId: string;
-    redeemVoucherReq: RedeemVoucherReq;
+    coEdgeappServerModelEdgeApiDataRedeemVoucherReq: CoEdgeappServerModelEdgeApiDataRedeemVoucherReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1VouchersDefsRequest {
-    voucherDef: VoucherDef;
+    coEdgeappServerModelVoucherDef: CoEdgeappServerModelVoucherDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -154,11 +154,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucher>>;
+    getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>>;
 
     /**
      */
-    getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucher>;
+    getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>;
 
     /**
      * 
@@ -170,11 +170,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersByVoucheridRaw(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>>;
+    getApiV1VouchersByVoucheridRaw(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>>;
 
     /**
      */
-    getApiV1VouchersByVoucherid(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher>;
+    getApiV1VouchersByVoucherid(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher>;
 
     /**
      * 
@@ -191,11 +191,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucherDef>>;
+    getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef>>;
 
     /**
      */
-    getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucherDef>;
+    getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef>;
 
     /**
      * 
@@ -207,11 +207,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersDefsByVoucherdefidRaw(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoucherDef>>;
+    getApiV1VouchersDefsByVoucherdefidRaw(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucherDef>>;
 
     /**
      */
-    getApiV1VouchersDefsByVoucherdefid(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoucherDef>;
+    getApiV1VouchersDefsByVoucherdefid(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucherDef>;
 
     /**
      * 
@@ -225,16 +225,16 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucher>>;
+    getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>>;
 
     /**
      */
-    getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucher>;
+    getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>;
 
     /**
      * 
      * @param {string} voucherDefId 
-     * @param {VoucherHolder} voucherHolder 
+     * @param {CoEdgeappServerModelEdgeApiDataVoucherHolder} coEdgeappServerModelEdgeApiDataVoucherHolder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -242,16 +242,16 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    postApiV1VouchersByVoucherdefidRaw(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>>;
+    postApiV1VouchersByVoucherdefidRaw(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>>;
 
     /**
      */
-    postApiV1VouchersByVoucherdefid(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher>;
+    postApiV1VouchersByVoucherdefid(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher>;
 
     /**
      * 
      * @param {string} voucherId 
-     * @param {RedeemVoucherReq} redeemVoucherReq 
+     * @param {CoEdgeappServerModelEdgeApiDataRedeemVoucherReq} coEdgeappServerModelEdgeApiDataRedeemVoucherReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -259,15 +259,15 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    postApiV1VouchersByVoucheridRedeemRaw(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>>;
+    postApiV1VouchersByVoucheridRedeemRaw(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>>;
 
     /**
      */
-    postApiV1VouchersByVoucheridRedeem(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher>;
+    postApiV1VouchersByVoucheridRedeem(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher>;
 
     /**
      * 
-     * @param {VoucherDef} voucherDef 
+     * @param {CoEdgeappServerModelVoucherDef} coEdgeappServerModelVoucherDef 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -275,11 +275,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    postApiV1VouchersDefsRaw(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoucherDef>>;
+    postApiV1VouchersDefsRaw(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucherDef>>;
 
     /**
      */
-    postApiV1VouchersDefs(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoucherDef>;
+    postApiV1VouchersDefs(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucherDef>;
 
 }
 
@@ -341,7 +341,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucher>> {
+    async getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -400,19 +400,19 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageVoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucher> {
+    async getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> {
         const response = await this.getApiV1VouchersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VouchersByVoucheridRaw(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>> {
+    async getApiV1VouchersByVoucheridRaw(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>> {
         if (requestParameters['voucherId'] == null) {
             throw new runtime.RequiredError(
                 'voucherId',
@@ -451,19 +451,19 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersByVoucherid(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher> {
+    async getApiV1VouchersByVoucherid(requestParameters: GetApiV1VouchersByVoucheridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher> {
         const response = await this.getApiV1VouchersByVoucheridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucherDef>> {
+    async getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -518,19 +518,19 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageVoucherDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucherDef> {
+    async getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef> {
         const response = await this.getApiV1VouchersDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VouchersDefsByVoucherdefidRaw(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoucherDef>> {
+    async getApiV1VouchersDefsByVoucherdefidRaw(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucherDef>> {
         if (requestParameters['voucherDefId'] == null) {
             throw new runtime.RequiredError(
                 'voucherDefId',
@@ -569,19 +569,19 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VoucherDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVoucherDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersDefsByVoucherdefid(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoucherDef> {
+    async getApiV1VouchersDefsByVoucherdefid(requestParameters: GetApiV1VouchersDefsByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucherDef> {
         const response = await this.getApiV1VouchersDefsByVoucherdefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageVoucher>> {
+    async getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>> {
         const queryParameters: any = {};
 
         if (requestParameters['order'] != null) {
@@ -624,19 +624,19 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageVoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageVoucher> {
+    async getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> {
         const response = await this.getApiV1VouchersScannedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1VouchersByVoucherdefidRaw(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>> {
+    async postApiV1VouchersByVoucherdefidRaw(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>> {
         if (requestParameters['voucherDefId'] == null) {
             throw new runtime.RequiredError(
                 'voucherDefId',
@@ -644,10 +644,10 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             );
         }
 
-        if (requestParameters['voucherHolder'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataVoucherHolder'] == null) {
             throw new runtime.RequiredError(
-                'voucherHolder',
-                'Required parameter "voucherHolder" was null or undefined when calling postApiV1VouchersByVoucherdefid().'
+                'coEdgeappServerModelEdgeApiDataVoucherHolder',
+                'Required parameter "coEdgeappServerModelEdgeApiDataVoucherHolder" was null or undefined when calling postApiV1VouchersByVoucherdefid().'
             );
         }
 
@@ -682,22 +682,22 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: VoucherHolderToJSON(requestParameters['voucherHolder']),
+            body: CoEdgeappServerModelEdgeApiDataVoucherHolderToJSON(requestParameters['coEdgeappServerModelEdgeApiDataVoucherHolder']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1VouchersByVoucherdefid(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher> {
+    async postApiV1VouchersByVoucherdefid(requestParameters: PostApiV1VouchersByVoucherdefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher> {
         const response = await this.postApiV1VouchersByVoucherdefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1VouchersByVoucheridRedeemRaw(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Voucher>> {
+    async postApiV1VouchersByVoucheridRedeemRaw(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucher>> {
         if (requestParameters['voucherId'] == null) {
             throw new runtime.RequiredError(
                 'voucherId',
@@ -705,10 +705,10 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             );
         }
 
-        if (requestParameters['redeemVoucherReq'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataRedeemVoucherReq'] == null) {
             throw new runtime.RequiredError(
-                'redeemVoucherReq',
-                'Required parameter "redeemVoucherReq" was null or undefined when calling postApiV1VouchersByVoucheridRedeem().'
+                'coEdgeappServerModelEdgeApiDataRedeemVoucherReq',
+                'Required parameter "coEdgeappServerModelEdgeApiDataRedeemVoucherReq" was null or undefined when calling postApiV1VouchersByVoucheridRedeem().'
             );
         }
 
@@ -743,26 +743,26 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RedeemVoucherReqToJSON(requestParameters['redeemVoucherReq']),
+            body: CoEdgeappServerModelEdgeApiDataRedeemVoucherReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataRedeemVoucherReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1VouchersByVoucheridRedeem(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Voucher> {
+    async postApiV1VouchersByVoucheridRedeem(requestParameters: PostApiV1VouchersByVoucheridRedeemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucher> {
         const response = await this.postApiV1VouchersByVoucheridRedeemRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1VouchersDefsRaw(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoucherDef>> {
-        if (requestParameters['voucherDef'] == null) {
+    async postApiV1VouchersDefsRaw(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVoucherDef>> {
+        if (requestParameters['coEdgeappServerModelVoucherDef'] == null) {
             throw new runtime.RequiredError(
-                'voucherDef',
-                'Required parameter "voucherDef" was null or undefined when calling postApiV1VouchersDefs().'
+                'coEdgeappServerModelVoucherDef',
+                'Required parameter "coEdgeappServerModelVoucherDef" was null or undefined when calling postApiV1VouchersDefs().'
             );
         }
 
@@ -796,15 +796,15 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: VoucherDefToJSON(requestParameters['voucherDef']),
+            body: CoEdgeappServerModelVoucherDefToJSON(requestParameters['coEdgeappServerModelVoucherDef']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VoucherDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVoucherDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1VouchersDefs(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoucherDef> {
+    async postApiV1VouchersDefs(requestParameters: PostApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVoucherDef> {
         const response = await this.postApiV1VouchersDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }

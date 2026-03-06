@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  CompleteSelfOnboardingResponse,
-  SelfOnboardingInfo,
-  ShippingFee,
+  CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponse,
+  CoEdgeappServerModelShippingFee,
+  CoEdgeappServerModelUserProfileSelfOnboardingInfo,
 } from '../models/index';
 import {
-    CompleteSelfOnboardingResponseFromJSON,
-    CompleteSelfOnboardingResponseToJSON,
-    SelfOnboardingInfoFromJSON,
-    SelfOnboardingInfoToJSON,
-    ShippingFeeFromJSON,
-    ShippingFeeToJSON,
+    CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponseFromJSON,
+    CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponseToJSON,
+    CoEdgeappServerModelShippingFeeFromJSON,
+    CoEdgeappServerModelShippingFeeToJSON,
+    CoEdgeappServerModelUserProfileSelfOnboardingInfoFromJSON,
+    CoEdgeappServerModelUserProfileSelfOnboardingInfoToJSON,
 } from '../models/index';
 
 export interface GetApiV1MerchantByUseridSelfonboardingRequest {
@@ -44,7 +44,7 @@ export interface GetApiV1MerchantByUseridShippingfeeRequest {
 
 export interface PatchApiV1MerchantByUseridSelfonboardingRequest {
     userId: string;
-    selfOnboardingInfo: SelfOnboardingInfo;
+    coEdgeappServerModelUserProfileSelfOnboardingInfo: CoEdgeappServerModelUserProfileSelfOnboardingInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -52,7 +52,7 @@ export interface PatchApiV1MerchantByUseridSelfonboardingRequest {
 
 export interface PostApiV1MerchantByUseridSelfonboardingRequest {
     userId: string;
-    selfOnboardingInfo: SelfOnboardingInfo;
+    coEdgeappServerModelUserProfileSelfOnboardingInfo: CoEdgeappServerModelUserProfileSelfOnboardingInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -60,7 +60,7 @@ export interface PostApiV1MerchantByUseridSelfonboardingRequest {
 
 export interface PostApiV1MerchantByUseridSelfonboardingCompleteRequest {
     userId: string;
-    selfOnboardingInfo: SelfOnboardingInfo;
+    coEdgeappServerModelUserProfileSelfOnboardingInfo: CoEdgeappServerModelUserProfileSelfOnboardingInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -68,7 +68,7 @@ export interface PostApiV1MerchantByUseridSelfonboardingCompleteRequest {
 
 export interface PostApiV1MerchantByUseridShippingfeeRequest {
     userId: string;
-    shippingFee: ShippingFee;
+    coEdgeappServerModelShippingFee: CoEdgeappServerModelShippingFee;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -91,11 +91,11 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+    getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>>;
 
     /**
      */
-    getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+    getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo>;
 
     /**
      * 
@@ -107,16 +107,16 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>>;
+    getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShippingFee>>;
 
     /**
      */
-    getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee>;
+    getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShippingFee>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {SelfOnboardingInfo} selfOnboardingInfo 
+     * @param {CoEdgeappServerModelUserProfileSelfOnboardingInfo} coEdgeappServerModelUserProfileSelfOnboardingInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -124,16 +124,16 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+    patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>>;
 
     /**
      */
-    patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+    patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {SelfOnboardingInfo} selfOnboardingInfo 
+     * @param {CoEdgeappServerModelUserProfileSelfOnboardingInfo} coEdgeappServerModelUserProfileSelfOnboardingInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -141,16 +141,16 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>>;
+    postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>>;
 
     /**
      */
-    postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo>;
+    postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {SelfOnboardingInfo} selfOnboardingInfo 
+     * @param {CoEdgeappServerModelUserProfileSelfOnboardingInfo} coEdgeappServerModelUserProfileSelfOnboardingInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -158,16 +158,16 @@ export interface MerchantControllerApiInterface {
      * @throws {RequiredError}
      * @memberof MerchantControllerApiInterface
      */
-    postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>>;
+    postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponse>>;
 
     /**
      */
-    postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse>;
+    postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponse>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {ShippingFee} shippingFee 
+     * @param {CoEdgeappServerModelShippingFee} coEdgeappServerModelShippingFee 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -190,7 +190,7 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
 
     /**
      */
-    async getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
+    async getApiV1MerchantByUseridSelfonboardingRaw(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -229,19 +229,19 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SelfOnboardingInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileSelfOnboardingInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+    async getApiV1MerchantByUseridSelfonboarding(requestParameters: GetApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo> {
         const response = await this.getApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingFee>> {
+    async getApiV1MerchantByUseridShippingfeeRaw(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShippingFee>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -280,19 +280,19 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShippingFeeFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShippingFeeFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingFee> {
+    async getApiV1MerchantByUseridShippingfee(requestParameters: GetApiV1MerchantByUseridShippingfeeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShippingFee> {
         const response = await this.getApiV1MerchantByUseridShippingfeeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
+    async patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -300,10 +300,10 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             );
         }
 
-        if (requestParameters['selfOnboardingInfo'] == null) {
+        if (requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo'] == null) {
             throw new runtime.RequiredError(
-                'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling patchApiV1MerchantByUseridSelfonboarding().'
+                'coEdgeappServerModelUserProfileSelfOnboardingInfo',
+                'Required parameter "coEdgeappServerModelUserProfileSelfOnboardingInfo" was null or undefined when calling patchApiV1MerchantByUseridSelfonboarding().'
             );
         }
 
@@ -338,22 +338,22 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
+            body: CoEdgeappServerModelUserProfileSelfOnboardingInfoToJSON(requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SelfOnboardingInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileSelfOnboardingInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+    async patchApiV1MerchantByUseridSelfonboarding(requestParameters: PatchApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo> {
         const response = await this.patchApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SelfOnboardingInfo>> {
+    async postApiV1MerchantByUseridSelfonboardingRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfileSelfOnboardingInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -361,10 +361,10 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             );
         }
 
-        if (requestParameters['selfOnboardingInfo'] == null) {
+        if (requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo'] == null) {
             throw new runtime.RequiredError(
-                'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboarding().'
+                'coEdgeappServerModelUserProfileSelfOnboardingInfo',
+                'Required parameter "coEdgeappServerModelUserProfileSelfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboarding().'
             );
         }
 
@@ -399,22 +399,22 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
+            body: CoEdgeappServerModelUserProfileSelfOnboardingInfoToJSON(requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SelfOnboardingInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileSelfOnboardingInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SelfOnboardingInfo> {
+    async postApiV1MerchantByUseridSelfonboarding(requestParameters: PostApiV1MerchantByUseridSelfonboardingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfileSelfOnboardingInfo> {
         const response = await this.postApiV1MerchantByUseridSelfonboardingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteSelfOnboardingResponse>> {
+    async postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponse>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -422,10 +422,10 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             );
         }
 
-        if (requestParameters['selfOnboardingInfo'] == null) {
+        if (requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo'] == null) {
             throw new runtime.RequiredError(
-                'selfOnboardingInfo',
-                'Required parameter "selfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboardingComplete().'
+                'coEdgeappServerModelUserProfileSelfOnboardingInfo',
+                'Required parameter "coEdgeappServerModelUserProfileSelfOnboardingInfo" was null or undefined when calling postApiV1MerchantByUseridSelfonboardingComplete().'
             );
         }
 
@@ -460,15 +460,15 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SelfOnboardingInfoToJSON(requestParameters['selfOnboardingInfo']),
+            body: CoEdgeappServerModelUserProfileSelfOnboardingInfoToJSON(requestParameters['coEdgeappServerModelUserProfileSelfOnboardingInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CompleteSelfOnboardingResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompleteSelfOnboardingResponse> {
+    async postApiV1MerchantByUseridSelfonboardingComplete(requestParameters: PostApiV1MerchantByUseridSelfonboardingCompleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCompleteSelfOnboardingResponse> {
         const response = await this.postApiV1MerchantByUseridSelfonboardingCompleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -483,10 +483,10 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             );
         }
 
-        if (requestParameters['shippingFee'] == null) {
+        if (requestParameters['coEdgeappServerModelShippingFee'] == null) {
             throw new runtime.RequiredError(
-                'shippingFee',
-                'Required parameter "shippingFee" was null or undefined when calling postApiV1MerchantByUseridShippingfee().'
+                'coEdgeappServerModelShippingFee',
+                'Required parameter "coEdgeappServerModelShippingFee" was null or undefined when calling postApiV1MerchantByUseridShippingfee().'
             );
         }
 
@@ -521,7 +521,7 @@ export class MerchantControllerApi extends runtime.BaseAPI implements MerchantCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ShippingFeeToJSON(requestParameters['shippingFee']),
+            body: CoEdgeappServerModelShippingFeeToJSON(requestParameters['coEdgeappServerModelShippingFee']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

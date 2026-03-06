@@ -15,21 +15,241 @@
 
 import * as runtime from '../runtime';
 import type {
-  Input,
-  StartStickerGenerationResponse,
-  StickerCollectionGeneratorStatus,
-  StickerGeneratorMeta,
+  CoEdgeappServerAiBadgeBadgeGeneratorInput,
+  CoEdgeappServerAiStickersStickerCollectionGeneratorInput,
+  CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus,
+  CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerBountyGenerationStatus,
+  CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerChatSimulationStatus,
+  CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus,
+  CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus,
+  CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerProductGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest,
+  CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse,
+  CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest,
+  CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse,
+  CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest,
+  CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse,
+  CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus,
+  CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta,
+  CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus,
+  CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus,
+  CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse,
+  CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus,
 } from '../models/index';
 import {
-    InputFromJSON,
-    InputToJSON,
-    StartStickerGenerationResponseFromJSON,
-    StartStickerGenerationResponseToJSON,
-    StickerCollectionGeneratorStatusFromJSON,
-    StickerCollectionGeneratorStatusToJSON,
-    StickerGeneratorMetaFromJSON,
-    StickerGeneratorMetaToJSON,
+    CoEdgeappServerAiBadgeBadgeGeneratorInputFromJSON,
+    CoEdgeappServerAiBadgeBadgeGeneratorInputToJSON,
+    CoEdgeappServerAiStickersStickerCollectionGeneratorInputFromJSON,
+    CoEdgeappServerAiStickersStickerCollectionGeneratorInputToJSON,
+    CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerBountyGenerationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerBountyGenerationStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerChatSimulationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerChatSimulationStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerProductGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerProductGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestToJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaFromJSON,
+    CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaToJSON,
+    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusToJSON,
+    CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseToJSON,
+    CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusFromJSON,
+    CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusToJSON,
 } from '../models/index';
+
+export interface GetApiV1AiGenerateBadgeByCompanyidRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateBountyByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateCategoriesByCompanyidRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateCategoryTreeByCompanyidRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateChatSimulateByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateCompaniesBatchByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateDemoFeedByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateMenuByCompanyidRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateProductsByCompanyidRequest {
+    companyId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateProvenanceByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
 
 export interface GetApiV1AiGenerateStickersByBountyidRequest {
     bountyId: string;
@@ -44,8 +264,206 @@ export interface GetApiV1AiGenerateStickersMetaRequest {
     xEdgeClientId?: string;
 }
 
+export interface GetApiV1AiGenerateUserAvatarByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateUserCoverByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1AiGenerateUsersBatchByJobidRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateBadgeRequest {
+    coEdgeappServerAiBadgeBadgeGeneratorInput: CoEdgeappServerAiBadgeBadgeGeneratorInput;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateBountyRequest {
+    coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateBountyByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCatalogRequest {
+    coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCategoriesRequest {
+    coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCategoriesByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCategoryTreeRequest {
+    coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateChatSimulateRequest {
+    coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateChatSimulateByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCompaniesBatchRequest {
+    coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateDemoFeedRequest {
+    coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateDemoFeedByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateMenuRequest {
+    coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateMenuByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateProductsRequest {
+    coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateProductsByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
 export interface PostApiV1AiGenerateStickersRequest {
-    input: Input;
+    coEdgeappServerAiStickersStickerCollectionGeneratorInput: CoEdgeappServerAiStickersStickerCollectionGeneratorInput;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUserAvatarRequest {
+    coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUserAvatarByJobidCleanupRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUserCoverRequest {
+    coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUserCoverByJobidCleanupRequest {
+    jobId: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUsersBatchRequest {
+    coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1AiGenerateUsersBatchByJobidCleanupRequest {
+    jobId: string;
+    force?: boolean;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -60,6 +478,166 @@ export interface PostApiV1AiGenerateStickersRequest {
 export interface AiControllerApiInterface {
     /**
      * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>;
+
+    /**
+     * 
      * @param {string} bountyId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -68,11 +646,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>>;
+    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus>;
+    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>;
 
     /**
      * 
@@ -83,15 +661,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>>;
+    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>>;
 
     /**
      */
-    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta>;
+    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>;
 
     /**
      * 
-     * @param {Input} input 
+     * @param {string} jobId 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -99,11 +677,452 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>>;
+    getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>>;
 
     /**
      */
-    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse>;
+    getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerAiBadgeBadgeGeneratorInput} coEdgeappServerAiBadgeBadgeGeneratorInput 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest} coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest} coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest} coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest} coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest} coEdgeappServerRestControllerAIControllerStartChatSimulationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest} coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest} coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest} coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest} coEdgeappServerRestControllerAIControllerStartProductGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerAiStickersStickerCollectionGeneratorInput} coEdgeappServerAiStickersStickerCollectionGeneratorInput 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>;
 
 }
 
@@ -114,7 +1133,517 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>> {
+    async getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AiGenerateBadgeByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/badge/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateBountyByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/bounty/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBountyGenerationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus> {
+        const response = await this.getApiV1AiGenerateBountyByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AiGenerateCategoriesByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/categories/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AiGenerateCategoryTreeByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/category-tree/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateChatSimulateByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/chat/simulate/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerChatSimulationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationStatus> {
+        const response = await this.getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateCompaniesBatchByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/companies/batch/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus> {
+        const response = await this.getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateDemoFeedByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/demo-feed/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus> {
+        const response = await this.getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AiGenerateMenuByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/menu/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateMenuByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>> {
+        if (requestParameters['companyId'] == null) {
+            throw new runtime.RequiredError(
+                'companyId',
+                'Required parameter "companyId" was null or undefined when calling getApiV1AiGenerateProductsByCompanyid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/products/{companyId}`;
+        urlPath = urlPath.replace(`{${"companyId"}}`, encodeURIComponent(String(requestParameters['companyId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerProductGeneratorStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus> {
+        const response = await this.getApiV1AiGenerateProductsByCompanyidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateProvenanceByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/provenance/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus> {
+        const response = await this.getApiV1AiGenerateProvenanceByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -153,19 +1682,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StickerCollectionGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus> {
+    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus> {
         const response = await this.getApiV1AiGenerateStickersByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>> {
+    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -196,23 +1725,1146 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StickerGeneratorMetaFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta> {
+    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta> {
         const response = await this.getApiV1AiGenerateStickersMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>> {
-        if (requestParameters['input'] == null) {
+    async getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>> {
+        if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
-                'input',
-                'Required parameter "input" was null or undefined when calling postApiV1AiGenerateStickers().'
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateUserAvatarByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-avatar/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus> {
+        const response = await this.getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateUserCoverByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-cover/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus> {
+        const response = await this.getApiV1AiGenerateUserCoverByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling getApiV1AiGenerateUsersBatchByJobid().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/users/batch/{jobId}`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus> {
+        const response = await this.getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>> {
+        if (requestParameters['coEdgeappServerAiBadgeBadgeGeneratorInput'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerAiBadgeBadgeGeneratorInput',
+                'Required parameter "coEdgeappServerAiBadgeBadgeGeneratorInput" was null or undefined when calling postApiV1AiGenerateBadge().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/badge`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerAiBadgeBadgeGeneratorInputToJSON(requestParameters['coEdgeappServerAiBadgeBadgeGeneratorInput']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse> {
+        const response = await this.postApiV1AiGenerateBadgeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest" was null or undefined when calling postApiV1AiGenerateBounty().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/bounty`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse> {
+        const response = await this.postApiV1AiGenerateBountyRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateBountyByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/bounty/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest" was null or undefined when calling postApiV1AiGenerateCatalog().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/catalog`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse> {
+        const response = await this.postApiV1AiGenerateCatalogRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategories().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/categories`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse> {
+        const response = await this.postApiV1AiGenerateCategoriesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateCategoriesByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/categories/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategoryTree().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/category-tree`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse> {
+        const response = await this.postApiV1AiGenerateCategoryTreeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateCategoryTreeByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/category-tree/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartChatSimulationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartChatSimulationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartChatSimulationRequest" was null or undefined when calling postApiV1AiGenerateChatSimulate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/chat/simulate`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartChatSimulationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse> {
+        const response = await this.postApiV1AiGenerateChatSimulateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateChatSimulateByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/chat/simulate/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateCompaniesBatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/companies/batch`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse> {
+        const response = await this.postApiV1AiGenerateCompaniesBatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateCompaniesBatchByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/companies/batch/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest" was null or undefined when calling postApiV1AiGenerateDemoFeed().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/demo-feed`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse> {
+        const response = await this.postApiV1AiGenerateDemoFeedRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateDemoFeedByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/demo-feed/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse> {
+        const response = await this.postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest" was null or undefined when calling postApiV1AiGenerateMenu().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/menu`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse> {
+        const response = await this.postApiV1AiGenerateMenuRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateMenuByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/menu/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartProductGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartProductGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartProductGenerationRequest" was null or undefined when calling postApiV1AiGenerateProducts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/products`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartProductGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse> {
+        const response = await this.postApiV1AiGenerateProductsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateProductsByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/products/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>> {
+        if (requestParameters['coEdgeappServerAiStickersStickerCollectionGeneratorInput'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerAiStickersStickerCollectionGeneratorInput',
+                'Required parameter "coEdgeappServerAiStickersStickerCollectionGeneratorInput" was null or undefined when calling postApiV1AiGenerateStickers().'
             );
         }
 
@@ -246,16 +2898,332 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: InputToJSON(requestParameters['input']),
+            body: CoEdgeappServerAiStickersStickerCollectionGeneratorInputToJSON(requestParameters['coEdgeappServerAiStickersStickerCollectionGeneratorInput']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StartStickerGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse> {
+    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse> {
         const response = await this.postApiV1AiGenerateStickersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserAvatar().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-avatar`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse> {
+        const response = await this.postApiV1AiGenerateUserAvatarRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateUserAvatarByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-avatar/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserCover().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-cover`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse> {
+        const response = await this.postApiV1AiGenerateUserCoverRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateUserCoverByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/user-cover/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>> {
+        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest',
+                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateUsersBatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/users/batch`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse> {
+        const response = await this.postApiV1AiGenerateUsersBatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>> {
+        if (requestParameters['jobId'] == null) {
+            throw new runtime.RequiredError(
+                'jobId',
+                'Required parameter "jobId" was null or undefined when calling postApiV1AiGenerateUsersBatchByJobidCleanup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['force'] != null) {
+            queryParameters['force'] = requestParameters['force'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/ai/generate/users/batch/{jobId}/cleanup`;
+        urlPath = urlPath.replace(`{${"jobId"}}`, encodeURIComponent(String(requestParameters['jobId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse> {
+        const response = await this.postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

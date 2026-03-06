@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CreateAlleavesCustomerRequest,
-  Terminal,
+  CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest,
+  CoEdgeappServerThirdpartiesPosPointOfSaleTerminal,
 } from '../models/index';
 import {
-    CreateAlleavesCustomerRequestFromJSON,
-    CreateAlleavesCustomerRequestToJSON,
-    TerminalFromJSON,
-    TerminalToJSON,
+    CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequestFromJSON,
+    CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequestToJSON,
+    CoEdgeappServerThirdpartiesPosPointOfSaleTerminalFromJSON,
+    CoEdgeappServerThirdpartiesPosPointOfSaleTerminalToJSON,
 } from '../models/index';
 
 export interface GetApiV1AlleavesByClientTerminalsRequest {
@@ -34,7 +34,7 @@ export interface GetApiV1AlleavesByClientTerminalsRequest {
 
 export interface PostApiV1AlleavesCustomerCreateRequest {
     merchantId: string;
-    createAlleavesCustomerRequest: CreateAlleavesCustomerRequest;
+    coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest: CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -57,16 +57,16 @@ export interface AlleavesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlleavesControllerApiInterface
      */
-    getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>>;
+    getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerThirdpartiesPosPointOfSaleTerminal>>>;
 
     /**
      */
-    getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>>;
+    getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerThirdpartiesPosPointOfSaleTerminal>>;
 
     /**
      * 
      * @param {string} merchantId 
-     * @param {CreateAlleavesCustomerRequest} createAlleavesCustomerRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest} coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -89,7 +89,7 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
 
     /**
      */
-    async getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Terminal>>> {
+    async getApiV1AlleavesByClientTerminalsRaw(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerThirdpartiesPosPointOfSaleTerminal>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -128,12 +128,12 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TerminalFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerThirdpartiesPosPointOfSaleTerminalFromJSON));
     }
 
     /**
      */
-    async getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Terminal>> {
+    async getApiV1AlleavesByClientTerminals(requestParameters: GetApiV1AlleavesByClientTerminalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerThirdpartiesPosPointOfSaleTerminal>> {
         const response = await this.getApiV1AlleavesByClientTerminalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -148,10 +148,10 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
             );
         }
 
-        if (requestParameters['createAlleavesCustomerRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest'] == null) {
             throw new runtime.RequiredError(
-                'createAlleavesCustomerRequest',
-                'Required parameter "createAlleavesCustomerRequest" was null or undefined when calling postApiV1AlleavesCustomerCreate().'
+                'coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest" was null or undefined when calling postApiV1AlleavesCustomerCreate().'
             );
         }
 
@@ -189,7 +189,7 @@ export class AlleavesControllerApi extends runtime.BaseAPI implements AlleavesCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAlleavesCustomerRequestToJSON(requestParameters['createAlleavesCustomerRequest']),
+            body: CoEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataCreateAlleavesCustomerRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

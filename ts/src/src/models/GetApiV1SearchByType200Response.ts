@@ -12,41 +12,41 @@
  * Do not edit the class manually.
  */
 
-import type { SearchBountyResults } from './SearchBountyResults';
+import type { CoEdgeappServerModelSearchBountyResults } from './CoEdgeappServerModelSearchBountyResults';
 import {
-    instanceOfSearchBountyResults,
-    SearchBountyResultsFromJSON,
-    SearchBountyResultsFromJSONTyped,
-    SearchBountyResultsToJSON,
-} from './SearchBountyResults';
-import type { SearchCommentResults } from './SearchCommentResults';
+    instanceOfCoEdgeappServerModelSearchBountyResults,
+    CoEdgeappServerModelSearchBountyResultsFromJSON,
+    CoEdgeappServerModelSearchBountyResultsFromJSONTyped,
+    CoEdgeappServerModelSearchBountyResultsToJSON,
+} from './CoEdgeappServerModelSearchBountyResults';
+import type { CoEdgeappServerModelSearchCommentResults } from './CoEdgeappServerModelSearchCommentResults';
 import {
-    instanceOfSearchCommentResults,
-    SearchCommentResultsFromJSON,
-    SearchCommentResultsFromJSONTyped,
-    SearchCommentResultsToJSON,
-} from './SearchCommentResults';
-import type { SearchResponseResults } from './SearchResponseResults';
+    instanceOfCoEdgeappServerModelSearchCommentResults,
+    CoEdgeappServerModelSearchCommentResultsFromJSON,
+    CoEdgeappServerModelSearchCommentResultsFromJSONTyped,
+    CoEdgeappServerModelSearchCommentResultsToJSON,
+} from './CoEdgeappServerModelSearchCommentResults';
+import type { CoEdgeappServerModelSearchResponseResults } from './CoEdgeappServerModelSearchResponseResults';
 import {
-    instanceOfSearchResponseResults,
-    SearchResponseResultsFromJSON,
-    SearchResponseResultsFromJSONTyped,
-    SearchResponseResultsToJSON,
-} from './SearchResponseResults';
-import type { SearchUserResults } from './SearchUserResults';
+    instanceOfCoEdgeappServerModelSearchResponseResults,
+    CoEdgeappServerModelSearchResponseResultsFromJSON,
+    CoEdgeappServerModelSearchResponseResultsFromJSONTyped,
+    CoEdgeappServerModelSearchResponseResultsToJSON,
+} from './CoEdgeappServerModelSearchResponseResults';
+import type { CoEdgeappServerModelSearchUserResults } from './CoEdgeappServerModelSearchUserResults';
 import {
-    instanceOfSearchUserResults,
-    SearchUserResultsFromJSON,
-    SearchUserResultsFromJSONTyped,
-    SearchUserResultsToJSON,
-} from './SearchUserResults';
+    instanceOfCoEdgeappServerModelSearchUserResults,
+    CoEdgeappServerModelSearchUserResultsFromJSON,
+    CoEdgeappServerModelSearchUserResultsFromJSONTyped,
+    CoEdgeappServerModelSearchUserResultsToJSON,
+} from './CoEdgeappServerModelSearchUserResults';
 
 /**
  * @type GetApiV1SearchByType200Response
  * 
  * @export
  */
-export type GetApiV1SearchByType200Response = SearchBountyResults | SearchCommentResults | SearchResponseResults | SearchUserResults;
+export type GetApiV1SearchByType200Response = CoEdgeappServerModelSearchBountyResults | CoEdgeappServerModelSearchCommentResults | CoEdgeappServerModelSearchResponseResults | CoEdgeappServerModelSearchUserResults;
 
 export function GetApiV1SearchByType200ResponseFromJSON(json: any): GetApiV1SearchByType200Response {
     return GetApiV1SearchByType200ResponseFromJSONTyped(json, false);
@@ -59,17 +59,17 @@ export function GetApiV1SearchByType200ResponseFromJSONTyped(json: any, ignoreDi
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfSearchBountyResults(json)) {
-        return SearchBountyResultsFromJSONTyped(json, true);
+    if (instanceOfCoEdgeappServerModelSearchBountyResults(json)) {
+        return CoEdgeappServerModelSearchBountyResultsFromJSONTyped(json, true);
     }
-    if (instanceOfSearchCommentResults(json)) {
-        return SearchCommentResultsFromJSONTyped(json, true);
+    if (instanceOfCoEdgeappServerModelSearchCommentResults(json)) {
+        return CoEdgeappServerModelSearchCommentResultsFromJSONTyped(json, true);
     }
-    if (instanceOfSearchResponseResults(json)) {
-        return SearchResponseResultsFromJSONTyped(json, true);
+    if (instanceOfCoEdgeappServerModelSearchResponseResults(json)) {
+        return CoEdgeappServerModelSearchResponseResultsFromJSONTyped(json, true);
     }
-    if (instanceOfSearchUserResults(json)) {
-        return SearchUserResultsFromJSONTyped(json, true);
+    if (instanceOfCoEdgeappServerModelSearchUserResults(json)) {
+        return CoEdgeappServerModelSearchUserResultsFromJSONTyped(json, true);
     }
 
     return {} as any;
@@ -86,17 +86,17 @@ export function GetApiV1SearchByType200ResponseToJSONTyped(value?: GetApiV1Searc
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfSearchBountyResults(value)) {
-        return SearchBountyResultsToJSON(value as SearchBountyResults);
+    if (instanceOfCoEdgeappServerModelSearchBountyResults(value)) {
+        return CoEdgeappServerModelSearchBountyResultsToJSON(value as CoEdgeappServerModelSearchBountyResults);
     }
-    if (instanceOfSearchCommentResults(value)) {
-        return SearchCommentResultsToJSON(value as SearchCommentResults);
+    if (instanceOfCoEdgeappServerModelSearchCommentResults(value)) {
+        return CoEdgeappServerModelSearchCommentResultsToJSON(value as CoEdgeappServerModelSearchCommentResults);
     }
-    if (instanceOfSearchResponseResults(value)) {
-        return SearchResponseResultsToJSON(value as SearchResponseResults);
+    if (instanceOfCoEdgeappServerModelSearchResponseResults(value)) {
+        return CoEdgeappServerModelSearchResponseResultsToJSON(value as CoEdgeappServerModelSearchResponseResults);
     }
-    if (instanceOfSearchUserResults(value)) {
-        return SearchUserResultsToJSON(value as SearchUserResults);
+    if (instanceOfCoEdgeappServerModelSearchUserResults(value)) {
+        return CoEdgeappServerModelSearchUserResultsToJSON(value as CoEdgeappServerModelSearchUserResults);
     }
 
     return {};

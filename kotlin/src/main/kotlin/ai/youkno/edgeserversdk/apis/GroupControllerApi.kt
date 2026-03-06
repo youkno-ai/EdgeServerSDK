@@ -6,13 +6,13 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.Group
-import ai.youkno.edgeserversdk.models.GroupSearchResult
-import ai.youkno.edgeserversdk.models.Member
-import ai.youkno.edgeserversdk.models.PageGroupSearchResult
-import ai.youkno.edgeserversdk.models.PageMember
-import ai.youkno.edgeserversdk.models.PageUser
-import ai.youkno.edgeserversdk.models.UpdateMemberRolesReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelGroupSearchResult
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelMember
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelGroup
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelGroupSearchResult
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelMember
+import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerGroupControllerUpdateMemberRolesReq
 
 interface GroupControllerApi {
     /**
@@ -77,10 +77,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageGroupSearchResult]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelGroupSearchResult]>
      */
     @GET("api/v1/groups")
-    fun getApiV1Groups(@Query("clientId") clientId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageGroupSearchResult>
+    fun getApiV1Groups(@Query("clientId") clientId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelGroupSearchResult>
 
     /**
      * GET api/v1/groups/{groupId}
@@ -93,10 +93,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[GroupSearchResult]>
+     * @return [Call]<[CoedgeappservermodelGroupSearchResult]>
      */
     @GET("api/v1/groups/{groupId}")
-    fun getApiV1GroupsByGroupid(@Path("groupId") groupId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GroupSearchResult>
+    fun getApiV1GroupsByGroupid(@Path("groupId") groupId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelGroupSearchResult>
 
     /**
      * GET api/v1/groups/{groupId}/candidates
@@ -112,10 +112,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageUser]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser]>
      */
     @GET("api/v1/groups/{groupId}/candidates")
-    fun getApiV1GroupsByGroupidCandidates(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUser>
+    fun getApiV1GroupsByGroupidCandidates(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser>
 
 
     /**
@@ -144,10 +144,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageMember]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelMember]>
      */
     @GET("api/v1/groups/{groupId}/members")
-    fun getApiV1GroupsByGroupidMembers(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("state") state: StateGetApiV1GroupsByGroupidMembers? = StateGetApiV1GroupsByGroupidMembers.ACTIVE, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageMember>
+    fun getApiV1GroupsByGroupidMembers(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("state") state: StateGetApiV1GroupsByGroupidMembers? = StateGetApiV1GroupsByGroupidMembers.ACTIVE, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelMember>
 
     /**
      * GET api/v1/groups/{groupId}/members/{memberId}
@@ -161,10 +161,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Member]>
+     * @return [Call]<[CoedgeappservermodelMember]>
      */
     @GET("api/v1/groups/{groupId}/members/{memberId}")
-    fun getApiV1GroupsByGroupidMembersByMemberid(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
+    fun getApiV1GroupsByGroupidMembersByMemberid(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelMember>
 
     /**
      * POST api/v1/groups
@@ -173,14 +173,14 @@ interface GroupControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param group 
+     * @param coedgeappservermodelGroup 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Group]>
+     * @return [Call]<[CoedgeappservermodelGroup]>
      */
     @POST("api/v1/groups")
-    fun postApiV1Groups(@Body group: Group, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Group>
+    fun postApiV1Groups(@Body coedgeappservermodelGroup: CoedgeappservermodelGroup, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelGroup>
 
     /**
      * POST api/v1/groups/{groupId}/members/{memberId}/accept
@@ -225,14 +225,14 @@ interface GroupControllerApi {
      *
      * @param groupId 
      * @param memberId 
-     * @param updateMemberRolesReq 
+     * @param coedgeappserverrestcontrollerGroupControllerUpdateMemberRolesReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Member]>
+     * @return [Call]<[CoedgeappservermodelMember]>
      */
     @POST("api/v1/groups/{groupId}/members/{memberId}/roles")
-    fun postApiV1GroupsByGroupidMembersByMemberidRoles(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Body updateMemberRolesReq: UpdateMemberRolesReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
+    fun postApiV1GroupsByGroupidMembersByMemberidRoles(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Body coedgeappserverrestcontrollerGroupControllerUpdateMemberRolesReq: CoedgeappserverrestcontrollerGroupControllerUpdateMemberRolesReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelMember>
 
     /**
      * PUT api/v1/groups/{groupId}
@@ -242,14 +242,14 @@ interface GroupControllerApi {
      *  - 200: OK
      *
      * @param groupId 
-     * @param group 
+     * @param coedgeappservermodelGroup 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Group]>
+     * @return [Call]<[CoedgeappservermodelGroup]>
      */
     @PUT("api/v1/groups/{groupId}")
-    fun putApiV1GroupsByGroupid(@Path("groupId") groupId: kotlin.String, @Body group: Group, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Group>
+    fun putApiV1GroupsByGroupid(@Path("groupId") groupId: kotlin.String, @Body coedgeappservermodelGroup: CoedgeappservermodelGroup, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelGroup>
 
     /**
      * PUT api/v1/groups/{groupId}/members/{memberId}
@@ -263,10 +263,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Member]>
+     * @return [Call]<[CoedgeappservermodelMember]>
      */
     @PUT("api/v1/groups/{groupId}/members/{memberId}")
-    fun putApiV1GroupsByGroupidMembersByMemberid(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
+    fun putApiV1GroupsByGroupidMembersByMemberid(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelMember>
 
     /**
      * PUT api/v1/groups/support/members/{memberId}
@@ -279,9 +279,9 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Member]>
+     * @return [Call]<[CoedgeappservermodelMember]>
      */
     @PUT("api/v1/groups/support/members/{memberId}")
-    fun putApiV1GroupsSupportMembersByMemberid(@Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
+    fun putApiV1GroupsSupportMembersByMemberid(@Path("memberId") memberId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelMember>
 
 }

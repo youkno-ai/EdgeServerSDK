@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  AnalyticsInfoResult,
+  CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResult,
 } from '../models/index';
 import {
-    AnalyticsInfoResultFromJSON,
-    AnalyticsInfoResultToJSON,
+    CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResultFromJSON,
+    CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResultToJSON,
 } from '../models/index';
 
 export interface GetApiV1GoogleByCompanyidAnalyticsInfoRequest {
@@ -46,11 +46,11 @@ export interface GoogleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GoogleControllerApiInterface
      */
-    getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>>;
+    getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResult>>;
 
     /**
      */
-    getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult>;
+    getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResult>;
 
 }
 
@@ -61,7 +61,7 @@ export class GoogleControllerApi extends runtime.BaseAPI implements GoogleContro
 
     /**
      */
-    async getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AnalyticsInfoResult>> {
+    async getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResult>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -100,12 +100,12 @@ export class GoogleControllerApi extends runtime.BaseAPI implements GoogleContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AnalyticsInfoResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AnalyticsInfoResult> {
+    async getApiV1GoogleByCompanyidAnalyticsInfo(requestParameters: GetApiV1GoogleByCompanyidAnalyticsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerGoogleControllerAnalyticsInfoResult> {
         const response = await this.getApiV1GoogleByCompanyidAnalyticsInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }

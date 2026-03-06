@@ -6,14 +6,14 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.ISportsApiResultListEventsInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListInjuryInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListLineupInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListLiveTextInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListMatchInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListStatsInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultListTeamInfo
-import ai.youkno.edgeserversdk.models.ISportsApiResultStandingsInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultCoedgeappserverthirdpartiesISportsAPIAPIStandingsInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIEventsInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIInjuryInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILineupInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILiveTextInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIMatchInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIStatsInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPITeamInfo
 
 interface ISportsApiControllerApi {
     /**
@@ -27,10 +27,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListEventsInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIEventsInfo]>
      */
     @GET("api/v1/isports/football/events")
-    fun getApiV1IsportsFootballEvents(@Query("date") date: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListEventsInfo>
+    fun getApiV1IsportsFootballEvents(@Query("date") date: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIEventsInfo>
 
     /**
      * GET api/v1/isports/football/injury
@@ -43,10 +43,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListInjuryInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIInjuryInfo]>
      */
     @GET("api/v1/isports/football/injury")
-    fun getApiV1IsportsFootballInjury(@Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListInjuryInfo>
+    fun getApiV1IsportsFootballInjury(@Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIInjuryInfo>
 
     /**
      * GET api/v1/isports/football/lineups
@@ -59,10 +59,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListLineupInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILineupInfo]>
      */
     @GET("api/v1/isports/football/lineups")
-    fun getApiV1IsportsFootballLineups(@Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListLineupInfo>
+    fun getApiV1IsportsFootballLineups(@Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILineupInfo>
 
     /**
      * GET api/v1/isports/football/livescores
@@ -74,10 +74,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListMatchInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIMatchInfo]>
      */
     @GET("api/v1/isports/football/livescores")
-    fun getApiV1IsportsFootballLivescores(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListMatchInfo>
+    fun getApiV1IsportsFootballLivescores(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIMatchInfo>
 
     /**
      * GET api/v1/isports/football/livetext
@@ -90,10 +90,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListLiveTextInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILiveTextInfo]>
      */
     @GET("api/v1/isports/football/livetext")
-    fun getApiV1IsportsFootballLivetext(@Query("matchId") matchId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListLiveTextInfo>
+    fun getApiV1IsportsFootballLivetext(@Query("matchId") matchId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPILiveTextInfo>
 
     /**
      * GET api/v1/isports/football/schedule
@@ -111,10 +111,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListMatchInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIMatchInfo]>
      */
     @GET("api/v1/isports/football/schedule")
-    fun getApiV1IsportsFootballSchedule(@Query("date") date: kotlin.Long? = null, @Query("leagueId") leagueId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("season") season: kotlin.String? = null, @Query("subLeagueId") subLeagueId: kotlin.String? = null, @Query("stageId") stageId: kotlin.String? = null, @Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListMatchInfo>
+    fun getApiV1IsportsFootballSchedule(@Query("date") date: kotlin.Long? = null, @Query("leagueId") leagueId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("season") season: kotlin.String? = null, @Query("subLeagueId") subLeagueId: kotlin.String? = null, @Query("stageId") stageId: kotlin.String? = null, @Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIMatchInfo>
 
     /**
      * GET api/v1/isports/football/standing/league
@@ -128,10 +128,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultStandingsInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultCoedgeappserverthirdpartiesISportsAPIAPIStandingsInfo]>
      */
     @GET("api/v1/isports/football/standing/league")
-    fun getApiV1IsportsFootballStandingLeague(@Query("leagueId") leagueId: kotlin.String, @Query("subLeagueId") subLeagueId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultStandingsInfo>
+    fun getApiV1IsportsFootballStandingLeague(@Query("leagueId") leagueId: kotlin.String, @Query("subLeagueId") subLeagueId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultCoedgeappserverthirdpartiesISportsAPIAPIStandingsInfo>
 
     /**
      * GET api/v1/isports/football/stats
@@ -145,10 +145,10 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListStatsInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIStatsInfo]>
      */
     @GET("api/v1/isports/football/stats")
-    fun getApiV1IsportsFootballStats(@Query("date") date: kotlin.Long? = null, @Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListStatsInfo>
+    fun getApiV1IsportsFootballStats(@Query("date") date: kotlin.Long? = null, @Query("matchId") matchId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPIStatsInfo>
 
     /**
      * GET api/v1/isports/football/team
@@ -162,9 +162,9 @@ interface ISportsApiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ISportsApiResultListTeamInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPITeamInfo]>
      */
     @GET("api/v1/isports/football/team")
-    fun getApiV1IsportsFootballTeam(@Query("leagueId") leagueId: kotlin.String? = null, @Query("teamId") teamId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ISportsApiResultListTeamInfo>
+    fun getApiV1IsportsFootballTeam(@Query("leagueId") leagueId: kotlin.String? = null, @Query("teamId") teamId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataISportsApiResultJavautilListCoedgeappserverthirdpartiesISportsAPIAPITeamInfo>
 
 }

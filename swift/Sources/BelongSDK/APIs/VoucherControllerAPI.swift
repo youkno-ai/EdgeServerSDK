@@ -84,10 +84,10 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageVoucher
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Vouchers(state: [State_getApiV1Vouchers]? = nil, order: String? = nil, bountyId: [String]? = nil, tag: [String]? = nil, category: [String]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageVoucher {
+    open class func getApiV1Vouchers(state: [State_getApiV1Vouchers]? = nil, order: String? = nil, bountyId: [String]? = nil, tag: [String]? = nil, category: [String]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher {
         return try await getApiV1VouchersWithRequestBuilder(state: state, order: order, bountyId: bountyId, tag: tag, category: category, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -106,9 +106,9 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageVoucher> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> 
      */
-    open class func getApiV1VouchersWithRequestBuilder(state: [State_getApiV1Vouchers]? = nil, order: String? = nil, bountyId: [String]? = nil, tag: [String]? = nil, category: [String]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageVoucher> {
+    open class func getApiV1VouchersWithRequestBuilder(state: [State_getApiV1Vouchers]? = nil, order: String? = nil, bountyId: [String]? = nil, tag: [String]? = nil, category: [String]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> {
         let localVariablePath = "/api/v1/vouchers"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -132,7 +132,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -143,10 +143,10 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Voucher
+     - returns: CoEdgeappServerModelVoucher
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1VouchersByVoucherid(voucherId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Voucher {
+    open class func getApiV1VouchersByVoucherid(voucherId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelVoucher {
         return try await getApiV1VouchersByVoucheridWithRequestBuilder(voucherId: voucherId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -159,9 +159,9 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Voucher> 
+     - returns: RequestBuilder<CoEdgeappServerModelVoucher> 
      */
-    open class func getApiV1VouchersByVoucheridWithRequestBuilder(voucherId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Voucher> {
+    open class func getApiV1VouchersByVoucheridWithRequestBuilder(voucherId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelVoucher> {
         var localVariablePath = "/api/v1/vouchers/{voucherId}"
         let voucherIdPreEscape = "\(APIHelper.mapValueToPathItem(voucherId))"
         let voucherIdPostEscape = voucherIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -179,7 +179,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Voucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -208,10 +208,10 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageVoucherDef
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1VouchersDefs(state: [State_getApiV1VouchersDefs]? = nil, order: String? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageVoucherDef {
+    open class func getApiV1VouchersDefs(state: [State_getApiV1VouchersDefs]? = nil, order: String? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef {
         return try await getApiV1VouchersDefsWithRequestBuilder(state: state, order: order, voucherIds: voucherIds, excludeWithExpDate: excludeWithExpDate, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -229,9 +229,9 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageVoucherDef> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef> 
      */
-    open class func getApiV1VouchersDefsWithRequestBuilder(state: [State_getApiV1VouchersDefs]? = nil, order: String? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageVoucherDef> {
+    open class func getApiV1VouchersDefsWithRequestBuilder(state: [State_getApiV1VouchersDefs]? = nil, order: String? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef> {
         let localVariablePath = "/api/v1/vouchers/defs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -254,7 +254,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageVoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -265,10 +265,10 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: VoucherDef
+     - returns: CoEdgeappServerModelVoucherDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1VouchersDefsByVoucherdefid(voucherDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> VoucherDef {
+    open class func getApiV1VouchersDefsByVoucherdefid(voucherDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelVoucherDef {
         return try await getApiV1VouchersDefsByVoucherdefidWithRequestBuilder(voucherDefId: voucherDefId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -281,9 +281,9 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<VoucherDef> 
+     - returns: RequestBuilder<CoEdgeappServerModelVoucherDef> 
      */
-    open class func getApiV1VouchersDefsByVoucherdefidWithRequestBuilder(voucherDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<VoucherDef> {
+    open class func getApiV1VouchersDefsByVoucherdefidWithRequestBuilder(voucherDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelVoucherDef> {
         var localVariablePath = "/api/v1/vouchers/defs/{voucherDefId}"
         let voucherDefIdPreEscape = "\(APIHelper.mapValueToPathItem(voucherDefId))"
         let voucherDefIdPostEscape = voucherDefIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -301,7 +301,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<VoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelVoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -314,10 +314,10 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageVoucher
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1VouchersScanned(order: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageVoucher {
+    open class func getApiV1VouchersScanned(order: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher {
         return try await getApiV1VouchersScannedWithRequestBuilder(order: order, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -332,9 +332,9 @@ open class VoucherControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageVoucher> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> 
      */
-    open class func getApiV1VouchersScannedWithRequestBuilder(order: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageVoucher> {
+    open class func getApiV1VouchersScannedWithRequestBuilder(order: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher> {
         let localVariablePath = "/api/v1/vouchers/scanned"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -354,7 +354,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -362,15 +362,15 @@ open class VoucherControllerAPI {
     /**
 
      - parameter voucherDefId: (path)  
-     - parameter voucherHolder: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataVoucherHolder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Voucher
+     - returns: CoEdgeappServerModelVoucher
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1VouchersByVoucherdefid(voucherDefId: String, voucherHolder: VoucherHolder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Voucher {
-        return try await postApiV1VouchersByVoucherdefidWithRequestBuilder(voucherDefId: voucherDefId, voucherHolder: voucherHolder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1VouchersByVoucherdefid(voucherDefId: String, coEdgeappServerModelEdgeApiDataVoucherHolder: CoEdgeappServerModelEdgeApiDataVoucherHolder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelVoucher {
+        return try await postApiV1VouchersByVoucherdefidWithRequestBuilder(voucherDefId: voucherDefId, coEdgeappServerModelEdgeApiDataVoucherHolder: coEdgeappServerModelEdgeApiDataVoucherHolder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -379,19 +379,19 @@ open class VoucherControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter voucherDefId: (path)  
-     - parameter voucherHolder: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataVoucherHolder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Voucher> 
+     - returns: RequestBuilder<CoEdgeappServerModelVoucher> 
      */
-    open class func postApiV1VouchersByVoucherdefidWithRequestBuilder(voucherDefId: String, voucherHolder: VoucherHolder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Voucher> {
+    open class func postApiV1VouchersByVoucherdefidWithRequestBuilder(voucherDefId: String, coEdgeappServerModelEdgeApiDataVoucherHolder: CoEdgeappServerModelEdgeApiDataVoucherHolder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelVoucher> {
         var localVariablePath = "/api/v1/vouchers/{voucherDefId}"
         let voucherDefIdPreEscape = "\(APIHelper.mapValueToPathItem(voucherDefId))"
         let voucherDefIdPostEscape = voucherDefIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{voucherDefId}", with: voucherDefIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: voucherHolder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataVoucherHolder)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -404,7 +404,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Voucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -412,15 +412,15 @@ open class VoucherControllerAPI {
     /**
 
      - parameter voucherId: (path)  
-     - parameter redeemVoucherReq: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataRedeemVoucherReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Voucher
+     - returns: CoEdgeappServerModelVoucher
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1VouchersByVoucheridRedeem(voucherId: String, redeemVoucherReq: RedeemVoucherReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Voucher {
-        return try await postApiV1VouchersByVoucheridRedeemWithRequestBuilder(voucherId: voucherId, redeemVoucherReq: redeemVoucherReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1VouchersByVoucheridRedeem(voucherId: String, coEdgeappServerModelEdgeApiDataRedeemVoucherReq: CoEdgeappServerModelEdgeApiDataRedeemVoucherReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelVoucher {
+        return try await postApiV1VouchersByVoucheridRedeemWithRequestBuilder(voucherId: voucherId, coEdgeappServerModelEdgeApiDataRedeemVoucherReq: coEdgeappServerModelEdgeApiDataRedeemVoucherReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -429,19 +429,19 @@ open class VoucherControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter voucherId: (path)  
-     - parameter redeemVoucherReq: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataRedeemVoucherReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Voucher> 
+     - returns: RequestBuilder<CoEdgeappServerModelVoucher> 
      */
-    open class func postApiV1VouchersByVoucheridRedeemWithRequestBuilder(voucherId: String, redeemVoucherReq: RedeemVoucherReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Voucher> {
+    open class func postApiV1VouchersByVoucheridRedeemWithRequestBuilder(voucherId: String, coEdgeappServerModelEdgeApiDataRedeemVoucherReq: CoEdgeappServerModelEdgeApiDataRedeemVoucherReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelVoucher> {
         var localVariablePath = "/api/v1/vouchers/{voucherId}/redeem"
         let voucherIdPreEscape = "\(APIHelper.mapValueToPathItem(voucherId))"
         let voucherIdPostEscape = voucherIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{voucherId}", with: voucherIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: redeemVoucherReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataRedeemVoucherReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -454,22 +454,22 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Voucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelVoucher>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter voucherDef: (body)  
+     - parameter coEdgeappServerModelVoucherDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: VoucherDef
+     - returns: CoEdgeappServerModelVoucherDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1VouchersDefs(voucherDef: VoucherDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> VoucherDef {
-        return try await postApiV1VouchersDefsWithRequestBuilder(voucherDef: voucherDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1VouchersDefs(coEdgeappServerModelVoucherDef: CoEdgeappServerModelVoucherDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelVoucherDef {
+        return try await postApiV1VouchersDefsWithRequestBuilder(coEdgeappServerModelVoucherDef: coEdgeappServerModelVoucherDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -477,16 +477,16 @@ open class VoucherControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter voucherDef: (body)  
+     - parameter coEdgeappServerModelVoucherDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<VoucherDef> 
+     - returns: RequestBuilder<CoEdgeappServerModelVoucherDef> 
      */
-    open class func postApiV1VouchersDefsWithRequestBuilder(voucherDef: VoucherDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<VoucherDef> {
+    open class func postApiV1VouchersDefsWithRequestBuilder(coEdgeappServerModelVoucherDef: CoEdgeappServerModelVoucherDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelVoucherDef> {
         let localVariablePath = "/api/v1/vouchers/defs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: voucherDef)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelVoucherDef)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -499,7 +499,7 @@ open class VoucherControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<VoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelVoucherDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

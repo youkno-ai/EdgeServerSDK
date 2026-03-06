@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.JoinCampaign
-import ai.youkno.edgeserversdk.models.JoinCampaignRequest
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataJoinCampaignRequest
+import ai.youkno.edgeserversdk.models.CoedgeappserverservicemodelJoinCampaign
 
 interface CampaignControllerApi {
     /**
@@ -18,14 +18,14 @@ interface CampaignControllerApi {
      *  - 200: OK
      *
      * @param client 
-     * @param joinCampaignRequest 
+     * @param coedgeappservermodelEdgeApiDataJoinCampaignRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @DELETE("api/v1/campaigns/{client}/join")
-    fun deleteApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun deleteApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body coedgeappservermodelEdgeApiDataJoinCampaignRequest: CoedgeappservermodelEdgeApiDataJoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * GET api/v1/campaigns/{client}/join
@@ -38,10 +38,10 @@ interface CampaignControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<JoinCampaign>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappserverservicemodelJoinCampaign>]>
      */
     @GET("api/v1/campaigns/{client}/join")
-    fun getApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JoinCampaign>>
+    fun getApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappserverservicemodelJoinCampaign>>
 
     /**
      * GET api/v1/campaigns/{client}/join/{campaignId}
@@ -55,10 +55,10 @@ interface CampaignControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[JoinCampaign]>
+     * @return [Call]<[CoedgeappserverservicemodelJoinCampaign]>
      */
     @GET("api/v1/campaigns/{client}/join/{campaignId}")
-    fun getApiV1CampaignsByClientJoinByCampaignid(@Path("client") client: kotlin.String, @Path("campaignId") campaignId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
+    fun getApiV1CampaignsByClientJoinByCampaignid(@Path("client") client: kotlin.String, @Path("campaignId") campaignId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverservicemodelJoinCampaign>
 
     /**
      * POST api/v1/campaigns/{client}/join
@@ -68,14 +68,14 @@ interface CampaignControllerApi {
      *  - 200: OK
      *
      * @param client 
-     * @param joinCampaignRequest 
+     * @param coedgeappservermodelEdgeApiDataJoinCampaignRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[JoinCampaign]>
+     * @return [Call]<[CoedgeappserverservicemodelJoinCampaign]>
      */
     @POST("api/v1/campaigns/{client}/join")
-    fun postApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
+    fun postApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body coedgeappservermodelEdgeApiDataJoinCampaignRequest: CoedgeappservermodelEdgeApiDataJoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverservicemodelJoinCampaign>
 
     /**
      * PUT api/v1/campaigns/{client}/join
@@ -85,13 +85,13 @@ interface CampaignControllerApi {
      *  - 200: OK
      *
      * @param client 
-     * @param joinCampaignRequest 
+     * @param coedgeappservermodelEdgeApiDataJoinCampaignRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[JoinCampaign]>
+     * @return [Call]<[CoedgeappserverservicemodelJoinCampaign]>
      */
     @PUT("api/v1/campaigns/{client}/join")
-    fun putApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body joinCampaignRequest: JoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JoinCampaign>
+    fun putApiV1CampaignsByClientJoin(@Path("client") client: kotlin.String, @Body coedgeappservermodelEdgeApiDataJoinCampaignRequest: CoedgeappservermodelEdgeApiDataJoinCampaignRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverservicemodelJoinCampaign>
 
 }

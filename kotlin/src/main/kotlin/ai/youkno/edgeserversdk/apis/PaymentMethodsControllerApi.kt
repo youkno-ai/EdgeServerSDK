@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.PagePaymentMethodInfo
-import ai.youkno.edgeserversdk.models.PaymentMethodInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPaymentMethodInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPaymentMethodInfo
 
 interface PaymentMethodsControllerApi {
     /**
@@ -26,7 +26,7 @@ interface PaymentMethodsControllerApi {
      * @return [Call]<[Unit]>
      */
     @DELETE("api/v1/payments/methods/{paymentMethodId}")
-    fun deleteApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+    fun deleteApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: kotlin.String, @Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
     /**
      * GET api/v1/payments/methods
@@ -40,10 +40,10 @@ interface PaymentMethodsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PagePaymentMethodInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPaymentMethodInfo]>
      */
     @GET("api/v1/payments/methods")
-    fun getApiV1PaymentsMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PagePaymentMethodInfo>
+    fun getApiV1PaymentsMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPaymentMethodInfo>
 
     /**
      * GET api/v1/payments/methods/{paymentMethodId}
@@ -57,10 +57,10 @@ interface PaymentMethodsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PaymentMethodInfo]>
+     * @return [Call]<[CoedgeappservermodelPaymentMethodInfo]>
      */
     @GET("api/v1/payments/methods/{paymentMethodId}")
-    fun getApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
+    fun getApiV1PaymentsMethodsByPaymentmethodid(@Path("paymentMethodId") paymentMethodId: kotlin.String, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPaymentMethodInfo>
 
     /**
      * GET api/v1/payments/methods/default
@@ -75,10 +75,10 @@ interface PaymentMethodsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PaymentMethodInfo]>
+     * @return [Call]<[CoedgeappservermodelPaymentMethodInfo]>
      */
     @GET("api/v1/payments/methods/default")
-    fun getApiV1PaymentsMethodsDefault(@Query("companyId") companyId: kotlin.String? = null, @Query("offSession") offSession: kotlin.Boolean? = false, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
+    fun getApiV1PaymentsMethodsDefault(@Query("companyId") companyId: kotlin.String? = null, @Query("offSession") offSession: kotlin.Boolean? = false, @Query("liveMode") liveMode: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPaymentMethodInfo>
 
     /**
      * POST api/v1/payments/methods/{paymentMethodId}/default
@@ -92,9 +92,9 @@ interface PaymentMethodsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PaymentMethodInfo]>
+     * @return [Call]<[CoedgeappservermodelPaymentMethodInfo]>
      */
     @POST("api/v1/payments/methods/{paymentMethodId}/default")
-    fun postApiV1PaymentsMethodsByPaymentmethodidDefault(@Path("paymentMethodId") paymentMethodId: java.util.UUID, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentMethodInfo>
+    fun postApiV1PaymentsMethodsByPaymentmethodidDefault(@Path("paymentMethodId") paymentMethodId: kotlin.String, @Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPaymentMethodInfo>
 
 }

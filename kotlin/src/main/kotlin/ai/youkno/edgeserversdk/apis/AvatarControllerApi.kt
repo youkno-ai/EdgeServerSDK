@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.Avatar
-import ai.youkno.edgeserversdk.models.CreateAvatarRequest
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelAvatar
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCreateAvatarRequest
 
 interface AvatarControllerApi {
     /**
@@ -22,10 +22,10 @@ interface AvatarControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<Avatar>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelAvatar>]>
      */
     @GET("api/v1/avatars")
-    fun getApiV1Avatars(@Query("name") name: kotlin.String, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Avatar>>
+    fun getApiV1Avatars(@Query("name") name: kotlin.String, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelAvatar>>
 
     /**
      * GET api/v1/avatars/{avatarId}
@@ -38,10 +38,10 @@ interface AvatarControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Avatar]>
+     * @return [Call]<[CoedgeappservermodelAvatar]>
      */
     @GET("api/v1/avatars/{avatarId}")
-    fun getApiV1AvatarsByAvatarid(@Path("avatarId") avatarId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Avatar>
+    fun getApiV1AvatarsByAvatarid(@Path("avatarId") avatarId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelAvatar>
 
     /**
      * POST api/v1/avatars
@@ -50,13 +50,13 @@ interface AvatarControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param createAvatarRequest 
+     * @param coedgeappservermodelEdgeApiDataCreateAvatarRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Avatar]>
+     * @return [Call]<[CoedgeappservermodelAvatar]>
      */
     @POST("api/v1/avatars")
-    fun postApiV1Avatars(@Body createAvatarRequest: CreateAvatarRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Avatar>
+    fun postApiV1Avatars(@Body coedgeappservermodelEdgeApiDataCreateAvatarRequest: CoedgeappservermodelEdgeApiDataCreateAvatarRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelAvatar>
 
 }

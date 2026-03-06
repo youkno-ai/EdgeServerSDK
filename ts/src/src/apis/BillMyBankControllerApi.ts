@@ -15,15 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
-  SignedPayload,
+  CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload,
 } from '../models/index';
 import {
-    SignedPayloadFromJSON,
-    SignedPayloadToJSON,
+    CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadFromJSON,
+    CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadToJSON,
 } from '../models/index';
 
 export interface PostApiV1BmbPaymentsWebhookRequest {
-    signedPayload: SignedPayload;
+    coEdgeappServerThirdpartiesBillMyBankAPISignedPayload: CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -38,7 +38,7 @@ export interface PostApiV1BmbPaymentsWebhookRequest {
 export interface BillMyBankControllerApiInterface {
     /**
      * 
-     * @param {SignedPayload} signedPayload 
+     * @param {CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload} coEdgeappServerThirdpartiesBillMyBankAPISignedPayload 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -62,10 +62,10 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
     /**
      */
     async postApiV1BmbPaymentsWebhookRaw(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['signedPayload'] == null) {
+        if (requestParameters['coEdgeappServerThirdpartiesBillMyBankAPISignedPayload'] == null) {
             throw new runtime.RequiredError(
-                'signedPayload',
-                'Required parameter "signedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
+                'coEdgeappServerThirdpartiesBillMyBankAPISignedPayload',
+                'Required parameter "coEdgeappServerThirdpartiesBillMyBankAPISignedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
             );
         }
 
@@ -99,7 +99,7 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SignedPayloadToJSON(requestParameters['signedPayload']),
+            body: CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadToJSON(requestParameters['coEdgeappServerThirdpartiesBillMyBankAPISignedPayload']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

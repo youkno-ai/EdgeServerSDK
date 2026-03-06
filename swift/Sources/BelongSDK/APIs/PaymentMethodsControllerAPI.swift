@@ -23,7 +23,7 @@ open class PaymentMethodsControllerAPI {
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteApiV1PaymentsMethodsByPaymentmethodid(paymentMethodId: UUID, companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+    open class func deleteApiV1PaymentsMethodsByPaymentmethodid(paymentMethodId: String, companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
         return try await deleteApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: paymentMethodId, companyId: companyId, liveMode: liveMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -40,7 +40,7 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: UUID, companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+    open class func deleteApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: String, companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
         var localVariablePath = "/api/v1/payments/methods/{paymentMethodId}"
         let paymentMethodIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentMethodId))"
         let paymentMethodIdPostEscape = paymentMethodIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -74,10 +74,10 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PagePaymentMethodInfo
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PaymentsMethods(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PagePaymentMethodInfo {
+    open class func getApiV1PaymentsMethods(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo {
         return try await getApiV1PaymentsMethodsWithRequestBuilder(companyId: companyId, liveMode: liveMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -91,9 +91,9 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PagePaymentMethodInfo> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo> 
      */
-    open class func getApiV1PaymentsMethodsWithRequestBuilder(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PagePaymentMethodInfo> {
+    open class func getApiV1PaymentsMethodsWithRequestBuilder(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo> {
         let localVariablePath = "/api/v1/payments/methods"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -112,7 +112,7 @@ open class PaymentMethodsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PagePaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -124,10 +124,10 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PaymentMethodInfo
+     - returns: CoEdgeappServerModelPaymentMethodInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PaymentsMethodsByPaymentmethodid(paymentMethodId: UUID, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentMethodInfo {
+    open class func getApiV1PaymentsMethodsByPaymentmethodid(paymentMethodId: String, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPaymentMethodInfo {
         return try await getApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: paymentMethodId, companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -141,9 +141,9 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PaymentMethodInfo> 
+     - returns: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> 
      */
-    open class func getApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: UUID, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentMethodInfo> {
+    open class func getApiV1PaymentsMethodsByPaymentmethodidWithRequestBuilder(paymentMethodId: String, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> {
         var localVariablePath = "/api/v1/payments/methods/{paymentMethodId}"
         let paymentMethodIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentMethodId))"
         let paymentMethodIdPostEscape = paymentMethodIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -164,7 +164,7 @@ open class PaymentMethodsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -177,10 +177,10 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PaymentMethodInfo
+     - returns: CoEdgeappServerModelPaymentMethodInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PaymentsMethodsDefault(companyId: String? = nil, offSession: Bool? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentMethodInfo {
+    open class func getApiV1PaymentsMethodsDefault(companyId: String? = nil, offSession: Bool? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPaymentMethodInfo {
         return try await getApiV1PaymentsMethodsDefaultWithRequestBuilder(companyId: companyId, offSession: offSession, liveMode: liveMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -195,9 +195,9 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PaymentMethodInfo> 
+     - returns: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> 
      */
-    open class func getApiV1PaymentsMethodsDefaultWithRequestBuilder(companyId: String? = nil, offSession: Bool? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentMethodInfo> {
+    open class func getApiV1PaymentsMethodsDefaultWithRequestBuilder(companyId: String? = nil, offSession: Bool? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> {
         let localVariablePath = "/api/v1/payments/methods/default"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -217,7 +217,7 @@ open class PaymentMethodsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -229,10 +229,10 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PaymentMethodInfo
+     - returns: CoEdgeappServerModelPaymentMethodInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PaymentsMethodsByPaymentmethodidDefault(paymentMethodId: UUID, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PaymentMethodInfo {
+    open class func postApiV1PaymentsMethodsByPaymentmethodidDefault(paymentMethodId: String, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPaymentMethodInfo {
         return try await postApiV1PaymentsMethodsByPaymentmethodidDefaultWithRequestBuilder(paymentMethodId: paymentMethodId, companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -246,9 +246,9 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PaymentMethodInfo> 
+     - returns: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> 
      */
-    open class func postApiV1PaymentsMethodsByPaymentmethodidDefaultWithRequestBuilder(paymentMethodId: UUID, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PaymentMethodInfo> {
+    open class func postApiV1PaymentsMethodsByPaymentmethodidDefaultWithRequestBuilder(paymentMethodId: String, companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPaymentMethodInfo> {
         var localVariablePath = "/api/v1/payments/methods/{paymentMethodId}/default"
         let paymentMethodIdPreEscape = "\(APIHelper.mapValueToPathItem(paymentMethodId))"
         let paymentMethodIdPostEscape = paymentMethodIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -269,7 +269,7 @@ open class PaymentMethodsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

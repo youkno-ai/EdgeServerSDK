@@ -81,6 +81,7 @@ open class CategoryControllerAPI {
         case survey = "SURVEY"
         case classified = "CLASSIFIED"
         case product = "PRODUCT"
+        case menu = "MENU"
         case bundle = "BUNDLE"
         case story = "STORY"
         case score = "SCORE"
@@ -123,14 +124,15 @@ open class CategoryControllerAPI {
 
      - parameter categoryType: (query)  
      - parameter clientId: (query)  (optional)
+     - parameter zone: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Category
+     - returns: CoEdgeappServerModelEdgeApiDataCategory
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Categories(categoryType: CategoryType_getApiV1Categories, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Category {
-        return try await getApiV1CategoriesWithRequestBuilder(categoryType: categoryType, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func getApiV1Categories(categoryType: CategoryType_getApiV1Categories, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCategory {
+        return try await getApiV1CategoriesWithRequestBuilder(categoryType: categoryType, clientId: clientId, zone: zone, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -140,12 +142,13 @@ open class CategoryControllerAPI {
        - name: JWT
      - parameter categoryType: (query)  
      - parameter clientId: (query)  (optional)
+     - parameter zone: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Category> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> 
      */
-    open class func getApiV1CategoriesWithRequestBuilder(categoryType: CategoryType_getApiV1Categories, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Category> {
+    open class func getApiV1CategoriesWithRequestBuilder(categoryType: CategoryType_getApiV1Categories, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> {
         let localVariablePath = "/api/v1/categories"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -154,6 +157,7 @@ open class CategoryControllerAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "clientId": (wrappedValue: clientId?.encodeToJSON(), isExplode: true),
             "categoryType": (wrappedValue: categoryType.encodeToJSON(), isExplode: true),
+            "zone": (wrappedValue: zone?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -164,7 +168,7 @@ open class CategoryControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Category>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -176,10 +180,10 @@ open class CategoryControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Category
+     - returns: CoEdgeappServerModelEdgeApiDataCategory
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CategoriesByCategoryid(categoryId: Int, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Category {
+    open class func getApiV1CategoriesByCategoryid(categoryId: Int, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCategory {
         return try await getApiV1CategoriesByCategoryidWithRequestBuilder(categoryId: categoryId, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -193,9 +197,9 @@ open class CategoryControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Category> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> 
      */
-    open class func getApiV1CategoriesByCategoryidWithRequestBuilder(categoryId: Int, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Category> {
+    open class func getApiV1CategoriesByCategoryidWithRequestBuilder(categoryId: Int, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> {
         var localVariablePath = "/api/v1/categories/{categoryId}"
         let categoryIdPreEscape = "\(APIHelper.mapValueToPathItem(categoryId))"
         let categoryIdPostEscape = categoryIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -216,23 +220,24 @@ open class CategoryControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Category>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter category: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCategory: (body)  
      - parameter clientId: (query)  (optional)
+     - parameter zone: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Category
+     - returns: CoEdgeappServerModelEdgeApiDataCategory
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Categories(category: Category, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Category {
-        return try await postApiV1CategoriesWithRequestBuilder(category: category, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Categories(coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCategory {
+        return try await postApiV1CategoriesWithRequestBuilder(coEdgeappServerModelEdgeApiDataCategory: coEdgeappServerModelEdgeApiDataCategory, clientId: clientId, zone: zone, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -240,21 +245,23 @@ open class CategoryControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter category: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCategory: (body)  
      - parameter clientId: (query)  (optional)
+     - parameter zone: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Category> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> 
      */
-    open class func postApiV1CategoriesWithRequestBuilder(category: Category, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Category> {
+    open class func postApiV1CategoriesWithRequestBuilder(coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> {
         let localVariablePath = "/api/v1/categories"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: category)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataCategory)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "clientId": (wrappedValue: clientId?.encodeToJSON(), isExplode: true),
+            "zone": (wrappedValue: zone?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -266,23 +273,23 @@ open class CategoryControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Category>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter category: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCategory: (body)  
      - parameter clientId: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Category
+     - returns: CoEdgeappServerModelEdgeApiDataCategory
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1Categories(category: Category, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Category {
-        return try await putApiV1CategoriesWithRequestBuilder(category: category, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1Categories(coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCategory {
+        return try await putApiV1CategoriesWithRequestBuilder(coEdgeappServerModelEdgeApiDataCategory: coEdgeappServerModelEdgeApiDataCategory, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -290,17 +297,17 @@ open class CategoryControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter category: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataCategory: (body)  
      - parameter clientId: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Category> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> 
      */
-    open class func putApiV1CategoriesWithRequestBuilder(category: Category, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Category> {
+    open class func putApiV1CategoriesWithRequestBuilder(coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory> {
         let localVariablePath = "/api/v1/categories"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: category)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataCategory)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -316,7 +323,7 @@ open class CategoryControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Category>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

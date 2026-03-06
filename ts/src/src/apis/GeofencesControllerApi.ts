@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  Geofences,
-  GeofencesResp,
-  PageGeofencesResp,
+  CoEdgeappServerModelEdgeApiDataGeofencesResp,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp,
+  CoEdgeappServerModelGeofences,
 } from '../models/index';
 import {
-    GeofencesFromJSON,
-    GeofencesToJSON,
-    GeofencesRespFromJSON,
-    GeofencesRespToJSON,
-    PageGeofencesRespFromJSON,
-    PageGeofencesRespToJSON,
+    CoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON,
+    CoEdgeappServerModelEdgeApiDataGeofencesRespToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesRespToJSON,
+    CoEdgeappServerModelGeofencesFromJSON,
+    CoEdgeappServerModelGeofencesToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1GeofencesByBountyidRequest {
@@ -52,7 +52,7 @@ export interface GetApiV1GeofencesByBountyidRequest {
 }
 
 export interface PostApiV1GeofencesRequest {
-    geofences: Geofences;
+    coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -60,7 +60,7 @@ export interface PostApiV1GeofencesRequest {
 
 export interface PutApiV1GeofencesByBountyidRequest {
     bountyId: string;
-    geofences: Geofences;
+    coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -101,48 +101,15 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>>;
+    getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp>>;
 
     /**
      */
-    getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GeofencesControllerApiInterface
-     */
-    getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
-
-    /**
-     */
-    getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
-
-    /**
-     * 
-     * @param {Geofences} geofences 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GeofencesControllerApiInterface
-     */
-    postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
-
-    /**
-     */
-    postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
+    getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {Geofences} geofences 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -150,11 +117,44 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>>;
+    getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>>;
 
     /**
      */
-    putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp>;
+    getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerModelGeofences} coEdgeappServerModelGeofences 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GeofencesControllerApiInterface
+     */
+    postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>>;
+
+    /**
+     */
+    postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {CoEdgeappServerModelGeofences} coEdgeappServerModelGeofences 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GeofencesControllerApiInterface
+     */
+    putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>>;
+
+    /**
+     */
+    putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp>;
 
 }
 
@@ -216,7 +216,7 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageGeofencesResp>> {
+    async getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp>> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -259,19 +259,19 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageGeofencesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageGeofencesResp> {
+    async getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp> {
         const response = await this.getApiV1GeofencesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
+    async getApiV1GeofencesByBountyidRaw(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -310,23 +310,23 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GeofencesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+    async getApiV1GeofencesByBountyid(requestParameters: GetApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
         const response = await this.getApiV1GeofencesByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
-        if (requestParameters['geofences'] == null) {
+    async postApiV1GeofencesRaw(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>> {
+        if (requestParameters['coEdgeappServerModelGeofences'] == null) {
             throw new runtime.RequiredError(
-                'geofences',
-                'Required parameter "geofences" was null or undefined when calling postApiV1Geofences().'
+                'coEdgeappServerModelGeofences',
+                'Required parameter "coEdgeappServerModelGeofences" was null or undefined when calling postApiV1Geofences().'
             );
         }
 
@@ -360,22 +360,22 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GeofencesToJSON(requestParameters['geofences']),
+            body: CoEdgeappServerModelGeofencesToJSON(requestParameters['coEdgeappServerModelGeofences']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GeofencesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+    async postApiV1Geofences(requestParameters: PostApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
         const response = await this.postApiV1GeofencesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeofencesResp>> {
+    async putApiV1GeofencesByBountyidRaw(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGeofencesResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -383,10 +383,10 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             );
         }
 
-        if (requestParameters['geofences'] == null) {
+        if (requestParameters['coEdgeappServerModelGeofences'] == null) {
             throw new runtime.RequiredError(
-                'geofences',
-                'Required parameter "geofences" was null or undefined when calling putApiV1GeofencesByBountyid().'
+                'coEdgeappServerModelGeofences',
+                'Required parameter "coEdgeappServerModelGeofences" was null or undefined when calling putApiV1GeofencesByBountyid().'
             );
         }
 
@@ -421,15 +421,15 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: GeofencesToJSON(requestParameters['geofences']),
+            body: CoEdgeappServerModelGeofencesToJSON(requestParameters['coEdgeappServerModelGeofences']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GeofencesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataGeofencesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeofencesResp> {
+    async putApiV1GeofencesByBountyid(requestParameters: PutApiV1GeofencesByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
         const response = await this.putApiV1GeofencesByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }

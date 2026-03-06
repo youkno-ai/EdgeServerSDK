@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  NewId,
-  Venue,
+  CoEdgeappServerModelEdgeApiDataNewId,
+  CoEdgeappServerModelVenue,
 } from '../models/index';
 import {
-    NewIdFromJSON,
-    NewIdToJSON,
-    VenueFromJSON,
-    VenueToJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdFromJSON,
+    CoEdgeappServerModelEdgeApiDataNewIdToJSON,
+    CoEdgeappServerModelVenueFromJSON,
+    CoEdgeappServerModelVenueToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1VenuesByVenueidRequest {
@@ -54,14 +54,14 @@ export interface GetApiV1VenuesBycompanyByCompanyidRequest {
 
 export interface PatchApiV1VenuesByVenueidRequest {
     venueId: string;
-    venue: Venue;
+    coEdgeappServerModelVenue: CoEdgeappServerModelVenue;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1VenuesRequest {
-    venue: Venue;
+    coEdgeappServerModelVenue: CoEdgeappServerModelVenue;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -99,11 +99,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
+    getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelVenue>>>;
 
     /**
      */
-    getApiV1Venues(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
+    getApiV1Venues(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelVenue>>;
 
     /**
      * 
@@ -115,11 +115,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
+    getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVenue>>;
 
     /**
      */
-    getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
+    getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVenue>;
 
     /**
      * 
@@ -131,16 +131,16 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>>;
+    getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelVenue>>>;
 
     /**
      */
-    getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>>;
+    getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelVenue>>;
 
     /**
      * 
      * @param {string} venueId 
-     * @param {Venue} venue 
+     * @param {CoEdgeappServerModelVenue} coEdgeappServerModelVenue 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -148,15 +148,15 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
+    patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVenue>>;
 
     /**
      */
-    patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
+    patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVenue>;
 
     /**
      * 
-     * @param {Venue} venue 
+     * @param {CoEdgeappServerModelVenue} coEdgeappServerModelVenue 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -164,11 +164,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
+    postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
+    postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
 
 }
 
@@ -230,7 +230,7 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
+    async getApiV1VenuesRaw(requestParameters: GetApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelVenue>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -261,19 +261,19 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(VenueFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelVenueFromJSON));
     }
 
     /**
      */
-    async getApiV1Venues(requestParameters: GetApiV1VenuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
+    async getApiV1Venues(requestParameters: GetApiV1VenuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelVenue>> {
         const response = await this.getApiV1VenuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
+    async getApiV1VenuesByVenueidRaw(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVenue>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
@@ -312,19 +312,19 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVenueFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
+    async getApiV1VenuesByVenueid(requestParameters: GetApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVenue> {
         const response = await this.getApiV1VenuesByVenueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Venue>>> {
+    async getApiV1VenuesBycompanyByCompanyidRaw(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelVenue>>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -363,19 +363,19 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(VenueFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelVenueFromJSON));
     }
 
     /**
      */
-    async getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Venue>> {
+    async getApiV1VenuesBycompanyByCompanyid(requestParameters: GetApiV1VenuesBycompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelVenue>> {
         const response = await this.getApiV1VenuesBycompanyByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
+    async patchApiV1VenuesByVenueidRaw(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelVenue>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
@@ -383,10 +383,10 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             );
         }
 
-        if (requestParameters['venue'] == null) {
+        if (requestParameters['coEdgeappServerModelVenue'] == null) {
             throw new runtime.RequiredError(
-                'venue',
-                'Required parameter "venue" was null or undefined when calling patchApiV1VenuesByVenueid().'
+                'coEdgeappServerModelVenue',
+                'Required parameter "coEdgeappServerModelVenue" was null or undefined when calling patchApiV1VenuesByVenueid().'
             );
         }
 
@@ -421,26 +421,26 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: VenueToJSON(requestParameters['venue']),
+            body: CoEdgeappServerModelVenueToJSON(requestParameters['coEdgeappServerModelVenue']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelVenueFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
+    async patchApiV1VenuesByVenueid(requestParameters: PatchApiV1VenuesByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelVenue> {
         const response = await this.patchApiV1VenuesByVenueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
-        if (requestParameters['venue'] == null) {
+    async postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
+        if (requestParameters['coEdgeappServerModelVenue'] == null) {
             throw new runtime.RequiredError(
-                'venue',
-                'Required parameter "venue" was null or undefined when calling postApiV1Venues().'
+                'coEdgeappServerModelVenue',
+                'Required parameter "coEdgeappServerModelVenue" was null or undefined when calling postApiV1Venues().'
             );
         }
 
@@ -474,15 +474,15 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: VenueToJSON(requestParameters['venue']),
+            body: CoEdgeappServerModelVenueToJSON(requestParameters['coEdgeappServerModelVenue']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
+    async postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
         const response = await this.postApiV1VenuesRaw(requestParameters, initOverrides);
         return await response.value();
     }

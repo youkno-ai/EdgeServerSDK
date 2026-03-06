@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.PageCurrencyReportRecord
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataCurrencyReportRecord
 
 interface CurrencyControllerApi {
     /**
@@ -23,10 +23,10 @@ interface CurrencyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCurrencyReportRecord]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataCurrencyReportRecord]>
      */
     @GET("api/v1/currencies/{code}/report")
-    fun getApiV1CurrenciesByCodeReport(@Path("code") code: kotlin.String, @Query("order") order: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCurrencyReportRecord>
+    fun getApiV1CurrenciesByCodeReport(@Path("code") code: kotlin.String, @Query("order") order: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataCurrencyReportRecord>
 
     /**
      * PUT api/v1/currencies/{code}/cancel

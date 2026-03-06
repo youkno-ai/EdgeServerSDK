@@ -6,17 +6,17 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AuditLogResult
-import ai.youkno.edgeserversdk.models.CountriesResponse
-import ai.youkno.edgeserversdk.models.CountryExtraInfo
-import ai.youkno.edgeserversdk.models.CurrenciesResponse
-import ai.youkno.edgeserversdk.models.DocSearchResult
-import ai.youkno.edgeserversdk.models.MxCheckResponse
-import ai.youkno.edgeserversdk.models.PageEventLogEntry
-import ai.youkno.edgeserversdk.models.PageFrontEndCount
-import ai.youkno.edgeserversdk.models.PageOrgTypeResp
-import ai.youkno.edgeserversdk.models.SaveCurrencyReq
-import ai.youkno.edgeserversdk.models.ShopMeta
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataAuditLogResult
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCountriesResponse
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCountryExtraInfo
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCurrenciesResponse
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataDocSearchResult
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataMxCheckResponse
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappserverrestcontrollerSystemControllerOrgTypeResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappserverserviceUserHandleFrontEndCount
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelEventLogEntry
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataSaveCurrencyReq
+import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerSystemControllerShopMeta
 
 interface SystemControllerApi {
 
@@ -55,10 +55,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AuditLogResult]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataAuditLogResult]>
      */
     @GET("api/v1/system/audit/log")
-    fun getApiV1SystemAuditLog(@Query("actor_id") actorId: kotlin.String? = null, @Query("object_type") objectType: kotlin.String? = null, @Query("object_id") objectId: kotlin.String? = null, @Query("verbs") verbs: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AuditLogResult>
+    fun getApiV1SystemAuditLog(@Query("actor_id") actorId: kotlin.String? = null, @Query("object_type") objectType: kotlin.String? = null, @Query("object_id") objectId: kotlin.String? = null, @Query("verbs") verbs: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataAuditLogResult>
 
     /**
      * GET api/v1/system/countries
@@ -70,10 +70,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CountriesResponse]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCountriesResponse]>
      */
     @GET("api/v1/system/countries")
-    fun getApiV1SystemCountries(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CountriesResponse>
+    fun getApiV1SystemCountries(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCountriesResponse>
 
     /**
      * GET api/v1/system/countries/{countryCode}
@@ -86,10 +86,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CountryExtraInfo]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCountryExtraInfo]>
      */
     @GET("api/v1/system/countries/{countryCode}")
-    fun getApiV1SystemCountriesByCountrycode(@Path("countryCode") countryCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CountryExtraInfo>
+    fun getApiV1SystemCountriesByCountrycode(@Path("countryCode") countryCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCountryExtraInfo>
 
     /**
      * GET api/v1/system/doc-get
@@ -122,10 +122,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[DocSearchResult]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataDocSearchResult]>
      */
     @GET("api/v1/system/doc-search")
-    fun getApiV1SystemDocSearch(@Query("s") s: kotlin.String, @Query("index") index: kotlin.String? = null, @Query("start") start: kotlin.String? = null, @Query("length") length: kotlin.Int? = 10, @Query("type") type: kotlin.String? = "ELASTICSEARCH", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DocSearchResult>
+    fun getApiV1SystemDocSearch(@Query("s") s: kotlin.String, @Query("index") index: kotlin.String? = null, @Query("start") start: kotlin.String? = null, @Query("length") length: kotlin.Int? = 10, @Query("type") type: kotlin.String? = "ELASTICSEARCH", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataDocSearchResult>
 
 
     /**
@@ -153,10 +153,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageEventLogEntry]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelEventLogEntry]>
      */
     @GET("api/v1/system/event/log")
-    fun getApiV1SystemEventLog(@Query("actor_id") actorId: kotlin.String? = null, @Query("object_type") objectType: kotlin.String? = null, @Query("object_id") objectId: kotlin.String? = null, @Query("verb") verb: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("startAt") startAt: kotlin.String? = "0", @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageEventLogEntry>
+    fun getApiV1SystemEventLog(@Query("actor_id") actorId: kotlin.String? = null, @Query("object_type") objectType: kotlin.String? = null, @Query("object_id") objectId: kotlin.String? = null, @Query("verb") verb: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("startAt") startAt: kotlin.String? = "0", @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelEventLogEntry>
 
     /**
      * GET api/v1/system/front-ends-stats
@@ -169,10 +169,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageFrontEndCount]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappserverserviceUserHandleFrontEndCount]>
      */
     @GET("api/v1/system/front-ends-stats")
-    fun getApiV1SystemFrontEndsStats(@Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageFrontEndCount>
+    fun getApiV1SystemFrontEndsStats(@Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappserverserviceUserHandleFrontEndCount>
 
     /**
      * GET api/v1/system/mx-check
@@ -185,10 +185,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[MxCheckResponse]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataMxCheckResponse]>
      */
     @GET("api/v1/system/mx-check")
-    fun getApiV1SystemMxCheck(@Query("email") email: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<MxCheckResponse>
+    fun getApiV1SystemMxCheck(@Query("email") email: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataMxCheckResponse>
 
     /**
      * GET api/v1/system/organizations
@@ -200,10 +200,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageOrgTypeResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappserverrestcontrollerSystemControllerOrgTypeResp]>
      */
     @GET("api/v1/system/organizations")
-    fun getApiV1SystemOrganizations(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageOrgTypeResp>
+    fun getApiV1SystemOrganizations(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappserverrestcontrollerSystemControllerOrgTypeResp>
 
     /**
      * GET api/v1/system/shops/{shopId}/meta
@@ -217,10 +217,10 @@ interface SystemControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ShopMeta]>
+     * @return [Call]<[CoedgeappserverrestcontrollerSystemControllerShopMeta]>
      */
     @GET("api/v1/system/shops/{shopId}/meta")
-    fun getApiV1SystemShopsByShopidMeta(@Path("shopId") shopId: kotlin.String, @Query("locationId") locationId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShopMeta>
+    fun getApiV1SystemShopsByShopidMeta(@Path("shopId") shopId: kotlin.String, @Query("locationId") locationId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestcontrollerSystemControllerShopMeta>
 
     /**
      * POST api/v1/system/currencies
@@ -229,13 +229,13 @@ interface SystemControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param saveCurrencyReq 
+     * @param coedgeappservermodelEdgeApiDataSaveCurrencyReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CurrenciesResponse]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCurrenciesResponse]>
      */
     @POST("api/v1/system/currencies")
-    fun postApiV1SystemCurrencies(@Body saveCurrencyReq: SaveCurrencyReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CurrenciesResponse>
+    fun postApiV1SystemCurrencies(@Body coedgeappservermodelEdgeApiDataSaveCurrencyReq: CoedgeappservermodelEdgeApiDataSaveCurrencyReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCurrenciesResponse>
 
 }

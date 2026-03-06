@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CompanyEmployeesResult
-import ai.youkno.edgeserversdk.models.PageUser
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCompanyEmployeesResult
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser
 
 interface CompaniesControllerApi {
     /**
@@ -69,10 +69,10 @@ interface CompaniesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CompanyEmployeesResult]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataCompanyEmployeesResult]>
      */
     @GET("api/v1/companies/{company_id}/employees")
-    fun getApiV1CompaniesByCompanyIdEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdEmployees? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyEmployeesResult>
+    fun getApiV1CompaniesByCompanyIdEmployees(@Path("company_id") companyId: kotlin.String, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("gender") gender: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Query("userStatus") userStatus: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdEmployees? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCompanyEmployeesResult>
 
 
     /**
@@ -161,9 +161,9 @@ interface CompaniesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageUser]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser]>
      */
     @GET("api/v1/companies/{company_id}/inviters")
-    fun getApiV1CompaniesByCompanyIdInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdInviters? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUser>
+    fun getApiV1CompaniesByCompanyIdInviters(@Path("company_id") companyId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("searchMode") searchMode: SearchModeGetApiV1CompaniesByCompanyIdInviters? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUser>
 
 }

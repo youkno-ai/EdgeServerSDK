@@ -11,6 +11,10 @@ CLIENT_HELPER_FILE="$ROOT_DIR/kotlin/src/main/kotlin/ai/youkno/edgeserversdk/Edg
 [[ -f "$CLIENT_API_FILE" ]] || { echo "Missing $CLIENT_API_FILE" >&2; exit 1; }
 [[ -f "$OPEN_API_FILE" ]] || { echo "Missing $OPEN_API_FILE" >&2; exit 1; }
 
+# Fix duplicate zone query parameter names emitted in OpenController long signatures.
+perl -0pi -e 's/(\@Query\("clientId"\)\s+clientId:\s+[^,]+,\s+\@Query\("zone"\)\s+)zone:/$1zoneClient:/g' "$OPEN_API_FILE"
+perl -0pi -e 's/(\@Query\("tag"\)\s+tag:\s+[^,]+,\s+\@Query\("zone"\)\s+)zone:/$1zoneSearch:/g' "$OPEN_API_FILE"
+
 # Create SDK-level client helper for shared defaults.
 cat > "$CLIENT_HELPER_FILE" <<'EOF'
 package ai.youkno.edgeserversdk

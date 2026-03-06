@@ -15,15 +15,15 @@ open class CampaignControllerAPI {
     /**
 
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteApiV1CampaignsByClientJoin(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await deleteApiV1CampaignsByClientJoinWithRequestBuilder(client: client, joinCampaignRequest: joinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func deleteApiV1CampaignsByClientJoin(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await deleteApiV1CampaignsByClientJoinWithRequestBuilder(client: client, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: coEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -32,19 +32,19 @@ open class CampaignControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func deleteApiV1CampaignsByClientJoinWithRequestBuilder(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func deleteApiV1CampaignsByClientJoinWithRequestBuilder(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/campaigns/{client}/join"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{client}", with: clientPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: joinCampaignRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataJoinCampaignRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -68,10 +68,10 @@ open class CampaignControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [JoinCampaign]
+     - returns: [CoEdgeappServerServiceModelJoinCampaign]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CampaignsByClientJoin(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [JoinCampaign] {
+    open class func getApiV1CampaignsByClientJoin(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerServiceModelJoinCampaign] {
         return try await getApiV1CampaignsByClientJoinWithRequestBuilder(client: client, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -84,9 +84,9 @@ open class CampaignControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[JoinCampaign]> 
+     - returns: RequestBuilder<[CoEdgeappServerServiceModelJoinCampaign]> 
      */
-    open class func getApiV1CampaignsByClientJoinWithRequestBuilder(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[JoinCampaign]> {
+    open class func getApiV1CampaignsByClientJoinWithRequestBuilder(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerServiceModelJoinCampaign]> {
         var localVariablePath = "/api/v1/campaigns/{client}/join"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class CampaignControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[JoinCampaign]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerServiceModelJoinCampaign]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -116,10 +116,10 @@ open class CampaignControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: JoinCampaign
+     - returns: CoEdgeappServerServiceModelJoinCampaign
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CampaignsByClientJoinByCampaignid(client: String, campaignId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> JoinCampaign {
+    open class func getApiV1CampaignsByClientJoinByCampaignid(client: String, campaignId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceModelJoinCampaign {
         return try await getApiV1CampaignsByClientJoinByCampaignidWithRequestBuilder(client: client, campaignId: campaignId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -133,9 +133,9 @@ open class CampaignControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<JoinCampaign> 
+     - returns: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> 
      */
-    open class func getApiV1CampaignsByClientJoinByCampaignidWithRequestBuilder(client: String, campaignId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<JoinCampaign> {
+    open class func getApiV1CampaignsByClientJoinByCampaignidWithRequestBuilder(client: String, campaignId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> {
         var localVariablePath = "/api/v1/campaigns/{client}/join/{campaignId}"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class CampaignControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<JoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -164,15 +164,15 @@ open class CampaignControllerAPI {
     /**
 
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: JoinCampaign
+     - returns: CoEdgeappServerServiceModelJoinCampaign
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1CampaignsByClientJoin(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> JoinCampaign {
-        return try await postApiV1CampaignsByClientJoinWithRequestBuilder(client: client, joinCampaignRequest: joinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1CampaignsByClientJoin(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceModelJoinCampaign {
+        return try await postApiV1CampaignsByClientJoinWithRequestBuilder(client: client, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: coEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -181,19 +181,19 @@ open class CampaignControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<JoinCampaign> 
+     - returns: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> 
      */
-    open class func postApiV1CampaignsByClientJoinWithRequestBuilder(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<JoinCampaign> {
+    open class func postApiV1CampaignsByClientJoinWithRequestBuilder(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> {
         var localVariablePath = "/api/v1/campaigns/{client}/join"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{client}", with: clientPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: joinCampaignRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataJoinCampaignRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -206,7 +206,7 @@ open class CampaignControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<JoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -214,15 +214,15 @@ open class CampaignControllerAPI {
     /**
 
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: JoinCampaign
+     - returns: CoEdgeappServerServiceModelJoinCampaign
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1CampaignsByClientJoin(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> JoinCampaign {
-        return try await putApiV1CampaignsByClientJoinWithRequestBuilder(client: client, joinCampaignRequest: joinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1CampaignsByClientJoin(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceModelJoinCampaign {
+        return try await putApiV1CampaignsByClientJoinWithRequestBuilder(client: client, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: coEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -231,19 +231,19 @@ open class CampaignControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter client: (path)  
-     - parameter joinCampaignRequest: (body)  
+     - parameter coEdgeappServerModelEdgeApiDataJoinCampaignRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<JoinCampaign> 
+     - returns: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> 
      */
-    open class func putApiV1CampaignsByClientJoinWithRequestBuilder(client: String, joinCampaignRequest: JoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<JoinCampaign> {
+    open class func putApiV1CampaignsByClientJoinWithRequestBuilder(client: String, coEdgeappServerModelEdgeApiDataJoinCampaignRequest: CoEdgeappServerModelEdgeApiDataJoinCampaignRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceModelJoinCampaign> {
         var localVariablePath = "/api/v1/campaigns/{client}/join"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{client}", with: clientPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: joinCampaignRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataJoinCampaignRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -256,7 +256,7 @@ open class CampaignControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<JoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceModelJoinCampaign>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

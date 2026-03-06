@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  DownloadReportRequest,
-  ReportsMetadata,
+  CoEdgeappServerModelEdgeApiDataDownloadReportRequest,
+  CoEdgeappServerServiceReportsServiceReportsMetadata,
 } from '../models/index';
 import {
-    DownloadReportRequestFromJSON,
-    DownloadReportRequestToJSON,
-    ReportsMetadataFromJSON,
-    ReportsMetadataToJSON,
+    CoEdgeappServerModelEdgeApiDataDownloadReportRequestFromJSON,
+    CoEdgeappServerModelEdgeApiDataDownloadReportRequestToJSON,
+    CoEdgeappServerServiceReportsServiceReportsMetadataFromJSON,
+    CoEdgeappServerServiceReportsServiceReportsMetadataToJSON,
 } from '../models/index';
 
 export interface GetApiV1ReportsMetaRequest {
@@ -33,7 +33,7 @@ export interface GetApiV1ReportsMetaRequest {
 }
 
 export interface PostApiV1ReportsDownloadRequest {
-    downloadReportRequest: DownloadReportRequest;
+    coEdgeappServerModelEdgeApiDataDownloadReportRequest: CoEdgeappServerModelEdgeApiDataDownloadReportRequest;
     authorization?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -57,15 +57,15 @@ export interface ReportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReportControllerApiInterface
      */
-    getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>>;
+    getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceReportsServiceReportsMetadata>>;
 
     /**
      */
-    getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata>;
+    getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceReportsServiceReportsMetadata>;
 
     /**
      * 
-     * @param {DownloadReportRequest} downloadReportRequest 
+     * @param {CoEdgeappServerModelEdgeApiDataDownloadReportRequest} coEdgeappServerModelEdgeApiDataDownloadReportRequest 
      * @param {string} [authorization] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -89,7 +89,7 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
 
     /**
      */
-    async getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportsMetadata>> {
+    async getApiV1ReportsMetaRaw(requestParameters: GetApiV1ReportsMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceReportsServiceReportsMetadata>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -124,12 +124,12 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ReportsMetadataFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceReportsServiceReportsMetadataFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportsMetadata> {
+    async getApiV1ReportsMeta(requestParameters: GetApiV1ReportsMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceReportsServiceReportsMetadata> {
         const response = await this.getApiV1ReportsMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -137,10 +137,10 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
     /**
      */
     async postApiV1ReportsDownloadRaw(requestParameters: PostApiV1ReportsDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['downloadReportRequest'] == null) {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataDownloadReportRequest'] == null) {
             throw new runtime.RequiredError(
-                'downloadReportRequest',
-                'Required parameter "downloadReportRequest" was null or undefined when calling postApiV1ReportsDownload().'
+                'coEdgeappServerModelEdgeApiDataDownloadReportRequest',
+                'Required parameter "coEdgeappServerModelEdgeApiDataDownloadReportRequest" was null or undefined when calling postApiV1ReportsDownload().'
             );
         }
 
@@ -178,7 +178,7 @@ export class ReportControllerApi extends runtime.BaseAPI implements ReportContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: DownloadReportRequestToJSON(requestParameters['downloadReportRequest']),
+            body: CoEdgeappServerModelEdgeApiDataDownloadReportRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataDownloadReportRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

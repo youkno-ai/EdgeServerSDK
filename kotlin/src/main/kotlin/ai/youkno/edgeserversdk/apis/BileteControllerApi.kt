@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.BiletePage
-import ai.youkno.edgeserversdk.models.TicketDetails
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataBiletePage
+import ai.youkno.edgeserversdk.models.CoedgeappserverthirdpartiesBileteRoTicketDetails
 
 interface BileteControllerApi {
     /**
@@ -21,10 +21,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[BiletePage]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataBiletePage]>
      */
     @GET("api/v1/bilete")
-    fun getApiV1Bilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BiletePage>
+    fun getApiV1Bilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataBiletePage>
 
     /**
      * GET api/v1/bilete/callbacks/buy
@@ -55,10 +55,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[TicketDetails]>
+     * @return [Call]<[CoedgeappserverthirdpartiesBileteRoTicketDetails]>
      */
     @GET("api/v1/bilete/details")
-    fun getApiV1BileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TicketDetails>
+    fun getApiV1BileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverthirdpartiesBileteRoTicketDetails>
 
     /**
      * GET api/v1/tmp/bilete
@@ -71,10 +71,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[BiletePage]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataBiletePage]>
      */
     @GET("api/v1/tmp/bilete")
-    fun getApiV1TmpBilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BiletePage>
+    fun getApiV1TmpBilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataBiletePage>
 
     /**
      * GET api/v1/tmp/bilete/callbacks/buy
@@ -105,9 +105,9 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[TicketDetails]>
+     * @return [Call]<[CoedgeappserverthirdpartiesBileteRoTicketDetails]>
      */
     @GET("api/v1/tmp/bilete/details")
-    fun getApiV1TmpBileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TicketDetails>
+    fun getApiV1TmpBileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverthirdpartiesBileteRoTicketDetails>
 
 }

@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  Category,
+  CoEdgeappServerModelEdgeApiDataCategory,
 } from '../models/index';
 import {
-    CategoryFromJSON,
-    CategoryToJSON,
+    CoEdgeappServerModelEdgeApiDataCategoryFromJSON,
+    CoEdgeappServerModelEdgeApiDataCategoryToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1CategoriesByCategoryidRequest {
@@ -33,6 +33,7 @@ export interface DeleteApiV1CategoriesByCategoryidRequest {
 export interface GetApiV1CategoriesRequest {
     categoryType: GetApiV1CategoriesCategoryTypeEnum;
     clientId?: string;
+    zone?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -47,15 +48,16 @@ export interface GetApiV1CategoriesByCategoryidRequest {
 }
 
 export interface PostApiV1CategoriesRequest {
-    category: Category;
+    coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory;
     clientId?: string;
+    zone?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PutApiV1CategoriesRequest {
-    category: Category;
+    coEdgeappServerModelEdgeApiDataCategory: CoEdgeappServerModelEdgeApiDataCategory;
     clientId?: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -88,8 +90,9 @@ export interface CategoryControllerApiInterface {
 
     /**
      * 
-     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'UNKNOWN'} categoryType 
+     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'MENU' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'UNKNOWN'} categoryType 
      * @param {string} [clientId] 
+     * @param {string} [zone] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -97,11 +100,11 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>>;
 
     /**
      */
-    getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory>;
 
     /**
      * 
@@ -114,15 +117,33 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>>;
 
     /**
      */
-    getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory>;
 
     /**
      * 
-     * @param {Category} category 
+     * @param {CoEdgeappServerModelEdgeApiDataCategory} coEdgeappServerModelEdgeApiDataCategory 
+     * @param {string} [clientId] 
+     * @param {string} [zone] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryControllerApiInterface
+     */
+    postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>>;
+
+    /**
+     */
+    postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory>;
+
+    /**
+     * 
+     * @param {CoEdgeappServerModelEdgeApiDataCategory} coEdgeappServerModelEdgeApiDataCategory 
      * @param {string} [clientId] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -131,28 +152,11 @@ export interface CategoryControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CategoryControllerApiInterface
      */
-    postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
+    putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>>;
 
     /**
      */
-    postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
-
-    /**
-     * 
-     * @param {Category} category 
-     * @param {string} [clientId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CategoryControllerApiInterface
-     */
-    putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>>;
-
-    /**
-     */
-    putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category>;
+    putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory>;
 
 }
 
@@ -218,7 +222,7 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
     /**
      */
-    async getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+    async getApiV1CategoriesRaw(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>> {
         if (requestParameters['categoryType'] == null) {
             throw new runtime.RequiredError(
                 'categoryType',
@@ -234,6 +238,10 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
         if (requestParameters['categoryType'] != null) {
             queryParameters['categoryType'] = requestParameters['categoryType'];
+        }
+
+        if (requestParameters['zone'] != null) {
+            queryParameters['zone'] = requestParameters['zone'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -264,19 +272,19 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+    async getApiV1Categories(requestParameters: GetApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory> {
         const response = await this.getApiV1CategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
+    async getApiV1CategoriesByCategoryidRaw(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>> {
         if (requestParameters['categoryId'] == null) {
             throw new runtime.RequiredError(
                 'categoryId',
@@ -319,23 +327,23 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+    async getApiV1CategoriesByCategoryid(requestParameters: GetApiV1CategoriesByCategoryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory> {
         const response = await this.getApiV1CategoriesByCategoryidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
-        if (requestParameters['category'] == null) {
+    async postApiV1CategoriesRaw(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>> {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataCategory'] == null) {
             throw new runtime.RequiredError(
-                'category',
-                'Required parameter "category" was null or undefined when calling postApiV1Categories().'
+                'coEdgeappServerModelEdgeApiDataCategory',
+                'Required parameter "coEdgeappServerModelEdgeApiDataCategory" was null or undefined when calling postApiV1Categories().'
             );
         }
 
@@ -343,6 +351,10 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
 
         if (requestParameters['clientId'] != null) {
             queryParameters['clientId'] = requestParameters['clientId'];
+        }
+
+        if (requestParameters['zone'] != null) {
+            queryParameters['zone'] = requestParameters['zone'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -373,26 +385,26 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CategoryToJSON(requestParameters['category']),
+            body: CoEdgeappServerModelEdgeApiDataCategoryToJSON(requestParameters['coEdgeappServerModelEdgeApiDataCategory']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+    async postApiV1Categories(requestParameters: PostApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory> {
         const response = await this.postApiV1CategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Category>> {
-        if (requestParameters['category'] == null) {
+    async putApiV1CategoriesRaw(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>> {
+        if (requestParameters['coEdgeappServerModelEdgeApiDataCategory'] == null) {
             throw new runtime.RequiredError(
-                'category',
-                'Required parameter "category" was null or undefined when calling putApiV1Categories().'
+                'coEdgeappServerModelEdgeApiDataCategory',
+                'Required parameter "coEdgeappServerModelEdgeApiDataCategory" was null or undefined when calling putApiV1Categories().'
             );
         }
 
@@ -430,15 +442,15 @@ export class CategoryControllerApi extends runtime.BaseAPI implements CategoryCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CategoryToJSON(requestParameters['category']),
+            body: CoEdgeappServerModelEdgeApiDataCategoryToJSON(requestParameters['coEdgeappServerModelEdgeApiDataCategory']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Category> {
+    async putApiV1Categories(requestParameters: PutApiV1CategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory> {
         const response = await this.putApiV1CategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -462,6 +474,7 @@ export const GetApiV1CategoriesCategoryTypeEnum = {
     SURVEY: 'SURVEY',
     CLASSIFIED: 'CLASSIFIED',
     PRODUCT: 'PRODUCT',
+    MENU: 'MENU',
     BUNDLE: 'BUNDLE',
     STORY: 'STORY',
     SCORE: 'SCORE',

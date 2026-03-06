@@ -15,26 +15,26 @@
 
 import * as runtime from '../runtime';
 import type {
-  CreatePaymentIntentResponse,
-  CreateSetupIntentRequest,
-  CreateSetupIntentResponse,
-  StripeAccountResponse,
-  StripeConfigResponse,
-  StripeConnectResponse,
+  CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest,
+  CoEdgeappServerRestControllerStripeControllerStripeAccountResponse,
+  CoEdgeappServerRestControllerStripeControllerStripeConfigResponse,
+  CoEdgeappServerRestControllerStripeControllerStripeConnectResponse,
+  CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponse,
+  CoEdgeappServerServiceStripeServiceCreateSetupIntentResponse,
 } from '../models/index';
 import {
-    CreatePaymentIntentResponseFromJSON,
-    CreatePaymentIntentResponseToJSON,
-    CreateSetupIntentRequestFromJSON,
-    CreateSetupIntentRequestToJSON,
-    CreateSetupIntentResponseFromJSON,
-    CreateSetupIntentResponseToJSON,
-    StripeAccountResponseFromJSON,
-    StripeAccountResponseToJSON,
-    StripeConfigResponseFromJSON,
-    StripeConfigResponseToJSON,
-    StripeConnectResponseFromJSON,
-    StripeConnectResponseToJSON,
+    CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequestFromJSON,
+    CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequestToJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeAccountResponseFromJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeAccountResponseToJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeConfigResponseFromJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeConfigResponseToJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeConnectResponseFromJSON,
+    CoEdgeappServerRestControllerStripeControllerStripeConnectResponseToJSON,
+    CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponseFromJSON,
+    CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponseToJSON,
+    CoEdgeappServerServiceStripeServiceCreateSetupIntentResponseFromJSON,
+    CoEdgeappServerServiceStripeServiceCreateSetupIntentResponseToJSON,
 } from '../models/index';
 
 export interface GetApiV1StripeAccountRequest {
@@ -68,7 +68,7 @@ export interface PostApiV1StripeSetupIntentRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    createSetupIntentRequest?: CreateSetupIntentRequest;
+    coEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest?: CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest;
 }
 
 export interface PostApiV1StripeWebhookCallbackRequest {
@@ -95,11 +95,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>>;
+    getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeAccountResponse>>;
 
     /**
      */
-    getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse>;
+    getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeAccountResponse>;
 
     /**
      * 
@@ -110,11 +110,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>>;
+    getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeConfigResponse>>;
 
     /**
      */
-    getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse>;
+    getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeConfigResponse>;
 
     /**
      * 
@@ -126,11 +126,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>>;
+    getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeConnectResponse>>;
 
     /**
      */
-    getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse>;
+    getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeConnectResponse>;
 
     /**
      * 
@@ -143,27 +143,27 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>>;
+    postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponse>>;
 
     /**
      */
-    postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse>;
+    postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponse>;
 
     /**
      * 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {CreateSetupIntentRequest} [createSetupIntentRequest] 
+     * @param {CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest} [coEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>>;
+    postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceStripeServiceCreateSetupIntentResponse>>;
 
     /**
      */
-    postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse>;
+    postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceStripeServiceCreateSetupIntentResponse>;
 
     /**
      * 
@@ -191,7 +191,7 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>> {
+    async getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeAccountResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -222,19 +222,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StripeAccountResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerStripeControllerStripeAccountResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse> {
+    async getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeAccountResponse> {
         const response = await this.getApiV1StripeAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>> {
+    async getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeConfigResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -265,19 +265,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StripeConfigResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerStripeControllerStripeConfigResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse> {
+    async getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeConfigResponse> {
         const response = await this.getApiV1StripeConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>> {
+    async getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerStripeControllerStripeConnectResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['redirectUrl'] != null) {
@@ -312,19 +312,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => StripeConnectResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerStripeControllerStripeConnectResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse> {
+    async getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerStripeControllerStripeConnectResponse> {
         const response = await this.getApiV1StripeConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>> {
+    async postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponse>> {
         if (requestParameters['paymentId'] == null) {
             throw new runtime.RequiredError(
                 'paymentId',
@@ -373,19 +373,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             body: requestParameters['body'] as any,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreatePaymentIntentResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse> {
+    async postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceStripeServiceCreatePaymentIntentResponse> {
         const response = await this.postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>> {
+    async postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceStripeServiceCreateSetupIntentResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -416,15 +416,15 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateSetupIntentRequestToJSON(requestParameters['createSetupIntentRequest']),
+            body: CoEdgeappServerRestControllerStripeControllerCreateSetupIntentRequestToJSON(requestParameters['coEdgeappServerRestControllerStripeControllerCreateSetupIntentRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateSetupIntentResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceStripeServiceCreateSetupIntentResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse> {
+    async postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceStripeServiceCreateSetupIntentResponse> {
         const response = await this.postApiV1StripeSetupIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }

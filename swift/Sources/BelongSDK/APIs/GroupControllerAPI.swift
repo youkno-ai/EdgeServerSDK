@@ -166,10 +166,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageGroupSearchResult
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Groups(clientId: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageGroupSearchResult {
+    open class func getApiV1Groups(clientId: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult {
         return try await getApiV1GroupsWithRequestBuilder(clientId: clientId, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -184,9 +184,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageGroupSearchResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> 
      */
-    open class func getApiV1GroupsWithRequestBuilder(clientId: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageGroupSearchResult> {
+    open class func getApiV1GroupsWithRequestBuilder(clientId: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> {
         let localVariablePath = "/api/v1/groups"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -206,7 +206,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageGroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -217,10 +217,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: GroupSearchResult
+     - returns: CoEdgeappServerModelGroupSearchResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1GroupsByGroupid(groupId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> GroupSearchResult {
+    open class func getApiV1GroupsByGroupid(groupId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelGroupSearchResult {
         return try await getApiV1GroupsByGroupidWithRequestBuilder(groupId: groupId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -233,9 +233,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<GroupSearchResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelGroupSearchResult> 
      */
-    open class func getApiV1GroupsByGroupidWithRequestBuilder(groupId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<GroupSearchResult> {
+    open class func getApiV1GroupsByGroupidWithRequestBuilder(groupId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelGroupSearchResult> {
         var localVariablePath = "/api/v1/groups/{groupId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -253,7 +253,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<GroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelGroupSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -267,10 +267,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageUser
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1GroupsByGroupidCandidates(groupId: String, query: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageUser {
+    open class func getApiV1GroupsByGroupidCandidates(groupId: String, query: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser {
         return try await getApiV1GroupsByGroupidCandidatesWithRequestBuilder(groupId: groupId, query: query, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -286,9 +286,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageUser> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser> 
      */
-    open class func getApiV1GroupsByGroupidCandidatesWithRequestBuilder(groupId: String, query: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageUser> {
+    open class func getApiV1GroupsByGroupidCandidatesWithRequestBuilder(groupId: String, query: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser> {
         var localVariablePath = "/api/v1/groups/{groupId}/candidates"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -311,7 +311,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -337,10 +337,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageMember
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1GroupsByGroupidMembers(groupId: String, query: String? = nil, state: State_getApiV1GroupsByGroupidMembers? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageMember {
+    open class func getApiV1GroupsByGroupidMembers(groupId: String, query: String? = nil, state: State_getApiV1GroupsByGroupidMembers? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember {
         return try await getApiV1GroupsByGroupidMembersWithRequestBuilder(groupId: groupId, query: query, state: state, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -357,9 +357,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageMember> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember> 
      */
-    open class func getApiV1GroupsByGroupidMembersWithRequestBuilder(groupId: String, query: String? = nil, state: State_getApiV1GroupsByGroupidMembers? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageMember> {
+    open class func getApiV1GroupsByGroupidMembersWithRequestBuilder(groupId: String, query: String? = nil, state: State_getApiV1GroupsByGroupidMembers? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember> {
         var localVariablePath = "/api/v1/groups/{groupId}/members"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -383,7 +383,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -395,10 +395,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Member
+     - returns: CoEdgeappServerModelMember
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1GroupsByGroupidMembersByMemberid(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Member {
+    open class func getApiV1GroupsByGroupidMembersByMemberid(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMember {
         return try await getApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: groupId, memberId: memberId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -412,9 +412,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Member> 
+     - returns: RequestBuilder<CoEdgeappServerModelMember> 
      */
-    open class func getApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Member> {
+    open class func getApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMember> {
         var localVariablePath = "/api/v1/groups/{groupId}/members/{memberId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -435,22 +435,22 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Member>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter group: (body)  
+     - parameter coEdgeappServerModelGroup: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Group
+     - returns: CoEdgeappServerModelGroup
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Groups(group: Group, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Group {
-        return try await postApiV1GroupsWithRequestBuilder(group: group, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Groups(coEdgeappServerModelGroup: CoEdgeappServerModelGroup, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelGroup {
+        return try await postApiV1GroupsWithRequestBuilder(coEdgeappServerModelGroup: coEdgeappServerModelGroup, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -458,16 +458,16 @@ open class GroupControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter group: (body)  
+     - parameter coEdgeappServerModelGroup: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Group> 
+     - returns: RequestBuilder<CoEdgeappServerModelGroup> 
      */
-    open class func postApiV1GroupsWithRequestBuilder(group: Group, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Group> {
+    open class func postApiV1GroupsWithRequestBuilder(coEdgeappServerModelGroup: CoEdgeappServerModelGroup, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelGroup> {
         let localVariablePath = "/api/v1/groups"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: group)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelGroup)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -480,7 +480,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelGroup>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -593,15 +593,15 @@ open class GroupControllerAPI {
 
      - parameter groupId: (path)  
      - parameter memberId: (path)  
-     - parameter updateMemberRolesReq: (body)  
+     - parameter coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Member
+     - returns: CoEdgeappServerModelMember
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1GroupsByGroupidMembersByMemberidRoles(groupId: String, memberId: String, updateMemberRolesReq: UpdateMemberRolesReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Member {
-        return try await postApiV1GroupsByGroupidMembersByMemberidRolesWithRequestBuilder(groupId: groupId, memberId: memberId, updateMemberRolesReq: updateMemberRolesReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1GroupsByGroupidMembersByMemberidRoles(groupId: String, memberId: String, coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMember {
+        return try await postApiV1GroupsByGroupidMembersByMemberidRolesWithRequestBuilder(groupId: groupId, memberId: memberId, coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -611,13 +611,13 @@ open class GroupControllerAPI {
        - name: JWT
      - parameter groupId: (path)  
      - parameter memberId: (path)  
-     - parameter updateMemberRolesReq: (body)  
+     - parameter coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Member> 
+     - returns: RequestBuilder<CoEdgeappServerModelMember> 
      */
-    open class func postApiV1GroupsByGroupidMembersByMemberidRolesWithRequestBuilder(groupId: String, memberId: String, updateMemberRolesReq: UpdateMemberRolesReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Member> {
+    open class func postApiV1GroupsByGroupidMembersByMemberidRolesWithRequestBuilder(groupId: String, memberId: String, coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMember> {
         var localVariablePath = "/api/v1/groups/{groupId}/members/{memberId}/roles"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -626,7 +626,7 @@ open class GroupControllerAPI {
         let memberIdPostEscape = memberIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{memberId}", with: memberIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateMemberRolesReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -639,7 +639,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Member>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -647,15 +647,15 @@ open class GroupControllerAPI {
     /**
 
      - parameter groupId: (path)  
-     - parameter group: (body)  
+     - parameter coEdgeappServerModelGroup: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Group
+     - returns: CoEdgeappServerModelGroup
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1GroupsByGroupid(groupId: String, group: Group, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Group {
-        return try await putApiV1GroupsByGroupidWithRequestBuilder(groupId: groupId, group: group, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1GroupsByGroupid(groupId: String, coEdgeappServerModelGroup: CoEdgeappServerModelGroup, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelGroup {
+        return try await putApiV1GroupsByGroupidWithRequestBuilder(groupId: groupId, coEdgeappServerModelGroup: coEdgeappServerModelGroup, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -664,19 +664,19 @@ open class GroupControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter groupId: (path)  
-     - parameter group: (body)  
+     - parameter coEdgeappServerModelGroup: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Group> 
+     - returns: RequestBuilder<CoEdgeappServerModelGroup> 
      */
-    open class func putApiV1GroupsByGroupidWithRequestBuilder(groupId: String, group: Group, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Group> {
+    open class func putApiV1GroupsByGroupidWithRequestBuilder(groupId: String, coEdgeappServerModelGroup: CoEdgeappServerModelGroup, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelGroup> {
         var localVariablePath = "/api/v1/groups/{groupId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{groupId}", with: groupIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: group)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelGroup)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -689,7 +689,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelGroup>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -701,10 +701,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Member
+     - returns: CoEdgeappServerModelMember
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1GroupsByGroupidMembersByMemberid(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Member {
+    open class func putApiV1GroupsByGroupidMembersByMemberid(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMember {
         return try await putApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: groupId, memberId: memberId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -718,9 +718,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Member> 
+     - returns: RequestBuilder<CoEdgeappServerModelMember> 
      */
-    open class func putApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Member> {
+    open class func putApiV1GroupsByGroupidMembersByMemberidWithRequestBuilder(groupId: String, memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMember> {
         var localVariablePath = "/api/v1/groups/{groupId}/members/{memberId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -741,7 +741,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Member>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -752,10 +752,10 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: Member
+     - returns: CoEdgeappServerModelMember
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1GroupsSupportMembersByMemberid(memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Member {
+    open class func putApiV1GroupsSupportMembersByMemberid(memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelMember {
         return try await putApiV1GroupsSupportMembersByMemberidWithRequestBuilder(memberId: memberId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -768,9 +768,9 @@ open class GroupControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<Member> 
+     - returns: RequestBuilder<CoEdgeappServerModelMember> 
      */
-    open class func putApiV1GroupsSupportMembersByMemberidWithRequestBuilder(memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Member> {
+    open class func putApiV1GroupsSupportMembersByMemberidWithRequestBuilder(memberId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelMember> {
         var localVariablePath = "/api/v1/groups/support/members/{memberId}"
         let memberIdPreEscape = "\(APIHelper.mapValueToPathItem(memberId))"
         let memberIdPostEscape = memberIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -788,7 +788,7 @@ open class GroupControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Member>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelMember>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

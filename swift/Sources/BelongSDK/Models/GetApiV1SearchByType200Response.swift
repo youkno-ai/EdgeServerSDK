@@ -11,35 +11,35 @@ import AnyCodable
 #endif
 
 public enum GetApiV1SearchByType200Response: Codable, JSONEncodable, Hashable {
-    case typeSearchBountyResults(SearchBountyResults)
-    case typeSearchCommentResults(SearchCommentResults)
-    case typeSearchResponseResults(SearchResponseResults)
-    case typeSearchUserResults(SearchUserResults)
+    case typeCoEdgeappServerModelSearchBountyResults(CoEdgeappServerModelSearchBountyResults)
+    case typeCoEdgeappServerModelSearchCommentResults(CoEdgeappServerModelSearchCommentResults)
+    case typeCoEdgeappServerModelSearchResponseResults(CoEdgeappServerModelSearchResponseResults)
+    case typeCoEdgeappServerModelSearchUserResults(CoEdgeappServerModelSearchUserResults)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeSearchBountyResults(let value):
+        case .typeCoEdgeappServerModelSearchBountyResults(let value):
             try container.encode(value)
-        case .typeSearchCommentResults(let value):
+        case .typeCoEdgeappServerModelSearchCommentResults(let value):
             try container.encode(value)
-        case .typeSearchResponseResults(let value):
+        case .typeCoEdgeappServerModelSearchResponseResults(let value):
             try container.encode(value)
-        case .typeSearchUserResults(let value):
+        case .typeCoEdgeappServerModelSearchUserResults(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(SearchBountyResults.self) {
-            self = .typeSearchBountyResults(value)
-        } else if let value = try? container.decode(SearchCommentResults.self) {
-            self = .typeSearchCommentResults(value)
-        } else if let value = try? container.decode(SearchResponseResults.self) {
-            self = .typeSearchResponseResults(value)
-        } else if let value = try? container.decode(SearchUserResults.self) {
-            self = .typeSearchUserResults(value)
+        if let value = try? container.decode(CoEdgeappServerModelSearchBountyResults.self) {
+            self = .typeCoEdgeappServerModelSearchBountyResults(value)
+        } else if let value = try? container.decode(CoEdgeappServerModelSearchCommentResults.self) {
+            self = .typeCoEdgeappServerModelSearchCommentResults(value)
+        } else if let value = try? container.decode(CoEdgeappServerModelSearchResponseResults.self) {
+            self = .typeCoEdgeappServerModelSearchResponseResults(value)
+        } else if let value = try? container.decode(CoEdgeappServerModelSearchUserResults.self) {
+            self = .typeCoEdgeappServerModelSearchUserResults(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of GetApiV1SearchByType200Response"))
         }

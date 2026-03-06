@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.NewId
-import ai.youkno.edgeserversdk.models.WebSnippet
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelWebSnippet
 
 interface WebSnippetControllerApi {
     /**
@@ -38,10 +38,10 @@ interface WebSnippetControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<WebSnippet>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelWebSnippet>]>
      */
     @GET("api/v1/web-snippets")
-    fun getApiV1WebSnippets(@Query("q") q: kotlin.String? = null, @Query("slim") slim: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<WebSnippet>>
+    fun getApiV1WebSnippets(@Query("q") q: kotlin.String? = null, @Query("slim") slim: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelWebSnippet>>
 
     /**
      * GET api/v1/web-snippets/{snippetId}
@@ -54,10 +54,10 @@ interface WebSnippetControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebSnippet]>
+     * @return [Call]<[CoedgeappservermodelWebSnippet]>
      */
     @GET("api/v1/web-snippets/{snippetId}")
-    fun getApiV1WebSnippetsBySnippetid(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebSnippet>
+    fun getApiV1WebSnippetsBySnippetid(@Path("snippetId") snippetId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelWebSnippet>
 
     /**
      * GET api/v1/web-snippets/{snippetId}/render
@@ -82,14 +82,14 @@ interface WebSnippetControllerApi {
      * Responses:
      *  - 201: Created
      *
-     * @param webSnippet 
+     * @param coedgeappservermodelWebSnippet 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[NewId]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataNewId]>
      */
     @POST("api/v1/web-snippets")
-    fun postApiV1WebSnippets(@Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
+    fun postApiV1WebSnippets(@Body coedgeappservermodelWebSnippet: CoedgeappservermodelWebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataNewId>
 
     /**
      * PUT api/v1/web-snippets/{id}
@@ -99,13 +99,13 @@ interface WebSnippetControllerApi {
      *  - 200: OK
      *
      * @param id 
-     * @param webSnippet 
+     * @param coedgeappservermodelWebSnippet 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebSnippet]>
+     * @return [Call]<[CoedgeappservermodelWebSnippet]>
      */
     @PUT("api/v1/web-snippets/{id}")
-    fun putApiV1WebSnippetsById(@Path("id") id: java.util.UUID, @Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebSnippet>
+    fun putApiV1WebSnippetsById(@Path("id") id: java.util.UUID, @Body coedgeappservermodelWebSnippet: CoedgeappservermodelWebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelWebSnippet>
 
 }

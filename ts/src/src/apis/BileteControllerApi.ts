@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  BiletePage,
-  TicketDetails,
+  CoEdgeappServerModelEdgeApiDataBiletePage,
+  CoEdgeappServerThirdpartiesBileteRoTicketDetails,
 } from '../models/index';
 import {
-    BiletePageFromJSON,
-    BiletePageToJSON,
-    TicketDetailsFromJSON,
-    TicketDetailsToJSON,
+    CoEdgeappServerModelEdgeApiDataBiletePageFromJSON,
+    CoEdgeappServerModelEdgeApiDataBiletePageToJSON,
+    CoEdgeappServerThirdpartiesBileteRoTicketDetailsFromJSON,
+    CoEdgeappServerThirdpartiesBileteRoTicketDetailsToJSON,
 } from '../models/index';
 
 export interface GetApiV1BileteRequest {
@@ -88,11 +88,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
+    getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBiletePage>>;
 
     /**
      */
-    getApiV1Bilete(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
+    getApiV1Bilete(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBiletePage>;
 
     /**
      * 
@@ -122,11 +122,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
+    getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesBileteRoTicketDetails>>;
 
     /**
      */
-    getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
+    getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesBileteRoTicketDetails>;
 
     /**
      * 
@@ -138,11 +138,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>>;
+    getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBiletePage>>;
 
     /**
      */
-    getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage>;
+    getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBiletePage>;
 
     /**
      * 
@@ -172,11 +172,11 @@ export interface BileteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BileteControllerApiInterface
      */
-    getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>>;
+    getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesBileteRoTicketDetails>>;
 
     /**
      */
-    getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails>;
+    getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesBileteRoTicketDetails>;
 
 }
 
@@ -187,7 +187,7 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
+    async getApiV1BileteRaw(requestParameters: GetApiV1BileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBiletePage>> {
         const queryParameters: any = {};
 
         if (requestParameters['email'] != null) {
@@ -222,12 +222,12 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BiletePageFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBiletePageFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Bilete(requestParameters: GetApiV1BileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
+    async getApiV1Bilete(requestParameters: GetApiV1BileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBiletePage> {
         const response = await this.getApiV1BileteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -288,7 +288,7 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
+    async getApiV1BileteDetailsRaw(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesBileteRoTicketDetails>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -330,19 +330,19 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TicketDetailsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerThirdpartiesBileteRoTicketDetailsFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
+    async getApiV1BileteDetails(requestParameters: GetApiV1BileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesBileteRoTicketDetails> {
         const response = await this.getApiV1BileteDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BiletePage>> {
+    async getApiV1TmpBileteRaw(requestParameters: GetApiV1TmpBileteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBiletePage>> {
         const queryParameters: any = {};
 
         if (requestParameters['email'] != null) {
@@ -377,12 +377,12 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BiletePageFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBiletePageFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BiletePage> {
+    async getApiV1TmpBilete(requestParameters: GetApiV1TmpBileteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBiletePage> {
         const response = await this.getApiV1TmpBileteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -443,7 +443,7 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
 
     /**
      */
-    async getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketDetails>> {
+    async getApiV1TmpBileteDetailsRaw(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesBileteRoTicketDetails>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -485,12 +485,12 @@ export class BileteControllerApi extends runtime.BaseAPI implements BileteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TicketDetailsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerThirdpartiesBileteRoTicketDetailsFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketDetails> {
+    async getApiV1TmpBileteDetails(requestParameters: GetApiV1TmpBileteDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesBileteRoTicketDetails> {
         const response = await this.getApiV1TmpBileteDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }

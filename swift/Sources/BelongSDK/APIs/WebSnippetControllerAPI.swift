@@ -66,10 +66,10 @@ open class WebSnippetControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [WebSnippet]
+     - returns: [CoEdgeappServerModelWebSnippet]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebSnippets(q: String? = nil, slim: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [WebSnippet] {
+    open class func getApiV1WebSnippets(q: String? = nil, slim: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelWebSnippet] {
         return try await getApiV1WebSnippetsWithRequestBuilder(q: q, slim: slim, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -83,9 +83,9 @@ open class WebSnippetControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[WebSnippet]> 
+     - returns: RequestBuilder<[CoEdgeappServerModelWebSnippet]> 
      */
-    open class func getApiV1WebSnippetsWithRequestBuilder(q: String? = nil, slim: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[WebSnippet]> {
+    open class func getApiV1WebSnippetsWithRequestBuilder(q: String? = nil, slim: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelWebSnippet]> {
         let localVariablePath = "/api/v1/web-snippets"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -104,7 +104,7 @@ open class WebSnippetControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[WebSnippet]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelWebSnippet]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -115,10 +115,10 @@ open class WebSnippetControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebSnippet
+     - returns: CoEdgeappServerModelWebSnippet
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebSnippetsBySnippetid(snippetId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebSnippet {
+    open class func getApiV1WebSnippetsBySnippetid(snippetId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelWebSnippet {
         return try await getApiV1WebSnippetsBySnippetidWithRequestBuilder(snippetId: snippetId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -131,9 +131,9 @@ open class WebSnippetControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebSnippet> 
+     - returns: RequestBuilder<CoEdgeappServerModelWebSnippet> 
      */
-    open class func getApiV1WebSnippetsBySnippetidWithRequestBuilder(snippetId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebSnippet> {
+    open class func getApiV1WebSnippetsBySnippetidWithRequestBuilder(snippetId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelWebSnippet> {
         var localVariablePath = "/api/v1/web-snippets/{snippetId}"
         let snippetIdPreEscape = "\(APIHelper.mapValueToPathItem(snippetId))"
         let snippetIdPostEscape = snippetIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -151,7 +151,7 @@ open class WebSnippetControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebSnippet>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelWebSnippet>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -205,15 +205,15 @@ open class WebSnippetControllerAPI {
 
     /**
 
-     - parameter webSnippet: (body)  
+     - parameter coEdgeappServerModelWebSnippet: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: NewId
+     - returns: CoEdgeappServerModelEdgeApiDataNewId
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebSnippets(webSnippet: WebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> NewId {
-        return try await postApiV1WebSnippetsWithRequestBuilder(webSnippet: webSnippet, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1WebSnippets(coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataNewId {
+        return try await postApiV1WebSnippetsWithRequestBuilder(coEdgeappServerModelWebSnippet: coEdgeappServerModelWebSnippet, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -221,16 +221,16 @@ open class WebSnippetControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter webSnippet: (body)  
+     - parameter coEdgeappServerModelWebSnippet: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<NewId> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataNewId> 
      */
-    open class func postApiV1WebSnippetsWithRequestBuilder(webSnippet: WebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<NewId> {
+    open class func postApiV1WebSnippetsWithRequestBuilder(coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataNewId> {
         let localVariablePath = "/api/v1/web-snippets"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webSnippet)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelWebSnippet)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -243,7 +243,7 @@ open class WebSnippetControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NewId>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataNewId>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -251,15 +251,15 @@ open class WebSnippetControllerAPI {
     /**
 
      - parameter id: (path)  
-     - parameter webSnippet: (body)  
+     - parameter coEdgeappServerModelWebSnippet: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebSnippet
+     - returns: CoEdgeappServerModelWebSnippet
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1WebSnippetsById(id: UUID, webSnippet: WebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebSnippet {
-        return try await putApiV1WebSnippetsByIdWithRequestBuilder(id: id, webSnippet: webSnippet, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1WebSnippetsById(id: UUID, coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelWebSnippet {
+        return try await putApiV1WebSnippetsByIdWithRequestBuilder(id: id, coEdgeappServerModelWebSnippet: coEdgeappServerModelWebSnippet, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -268,19 +268,19 @@ open class WebSnippetControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter id: (path)  
-     - parameter webSnippet: (body)  
+     - parameter coEdgeappServerModelWebSnippet: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebSnippet> 
+     - returns: RequestBuilder<CoEdgeappServerModelWebSnippet> 
      */
-    open class func putApiV1WebSnippetsByIdWithRequestBuilder(id: UUID, webSnippet: WebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebSnippet> {
+    open class func putApiV1WebSnippetsByIdWithRequestBuilder(id: UUID, coEdgeappServerModelWebSnippet: CoEdgeappServerModelWebSnippet, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelWebSnippet> {
         var localVariablePath = "/api/v1/web-snippets/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webSnippet)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelWebSnippet)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -293,7 +293,7 @@ open class WebSnippetControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebSnippet>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelWebSnippet>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

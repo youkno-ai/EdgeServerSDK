@@ -1,6 +1,6 @@
 {
   "name": "@youkno/sdk",
-  "version": "1.20.2271",
+  "version": "1.20.2314",
   "description": "Belong Edge Server TypeScript SDK",
   "type": "module",
   "main": "dist/index.js",

@@ -6,38 +6,38 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AddOrderItemDto
-import ai.youkno.edgeserversdk.models.Bounty
-import ai.youkno.edgeserversdk.models.Customer
-import ai.youkno.edgeserversdk.models.CycleCountReq
-import ai.youkno.edgeserversdk.models.CycleCountResp
-import ai.youkno.edgeserversdk.models.DiscountResp
-import ai.youkno.edgeserversdk.models.ManageInventoryAdjustReq
-import ai.youkno.edgeserversdk.models.ManageInventoryReq
-import ai.youkno.edgeserversdk.models.MergeOrdersRequest
-import ai.youkno.edgeserversdk.models.Order
-import ai.youkno.edgeserversdk.models.PageAdjustReasonResp
-import ai.youkno.edgeserversdk.models.PageAreaResp
-import ai.youkno.edgeserversdk.models.PageBounty
-import ai.youkno.edgeserversdk.models.PageBrandResp
-import ai.youkno.edgeserversdk.models.PageCategory
-import ai.youkno.edgeserversdk.models.PageCategoryResp
-import ai.youkno.edgeserversdk.models.PageCustomer
-import ai.youkno.edgeserversdk.models.PageCycleCountResp
-import ai.youkno.edgeserversdk.models.PageDeliveryRouteResp
-import ai.youkno.edgeserversdk.models.PageInventoryItemResp
-import ai.youkno.edgeserversdk.models.PageInventoryResp
-import ai.youkno.edgeserversdk.models.PageOrder
-import ai.youkno.edgeserversdk.models.PageSearchCycleCountResp
-import ai.youkno.edgeserversdk.models.PageStrainResp
-import ai.youkno.edgeserversdk.models.PageUomResp
-import ai.youkno.edgeserversdk.models.PageUserProfile
-import ai.youkno.edgeserversdk.models.PageVendorResp
-import ai.youkno.edgeserversdk.models.QueueItemResp
-import ai.youkno.edgeserversdk.models.SearchReq
-import ai.youkno.edgeserversdk.models.ShoppingCart
-import ai.youkno.edgeserversdk.models.TerminalLabelResp
-import ai.youkno.edgeserversdk.models.UserProfile
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelBounty
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBounty
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAdjustReasonResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAreaResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataBrandResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCategoryResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCustomer
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCycleCountResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataDeliveryRouteResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryItemResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataOrder
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataSearchCycleCountResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataStrainResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataUomResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataVendorResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserProfile
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelCategory
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataAddOrderItemDto
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataCustomer
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataCycleCountReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataCycleCountResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataDiscountResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataManageInventoryAdjustReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataManageInventoryReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataMergeOrdersRequest
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataOrder
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataQueueItemResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataSearchReq
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelPosApiDataTerminalLabelResp
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelShoppingCart
+import ai.youkno.edgeserversdk.models.CoedgeappservermodelUserProfile
 
 interface PosProxyControllerApi {
     /**
@@ -70,10 +70,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @DELETE("api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}")
-    fun deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("discountId") discountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("discountId") discountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * DELETE api/v1/pos/clients/{clientId}/orders/{posOrderId}/items/{itemId}
@@ -88,10 +88,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @DELETE("api/v1/pos/clients/{clientId}/orders/{posOrderId}/items/{itemId}")
-    fun deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * DELETE api/v1/pos/clients/{clientId}/queue/{queueId}
@@ -122,10 +122,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @GET("api/v1/pos/clients/{clientId}/customers/{customerId}")
-    fun getApiV1PosClientsByClientidCustomersByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun getApiV1PosClientsByClientidCustomersByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * GET api/v1/pos/clients/{clientId}/customers_new/{customerId}
@@ -139,10 +139,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserProfile]>
+     * @return [Call]<[CoedgeappservermodelUserProfile]>
      */
     @GET("api/v1/pos/clients/{clientId}/customers_new/{customerId}")
-    fun getApiV1PosClientsByClientidCustomersNewByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfile>
+    fun getApiV1PosClientsByClientidCustomersNewByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfile>
 
     /**
      * GET api/v1/pos/clients/{clientId}/customers_old/{customerId}
@@ -156,10 +156,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @GET("api/v1/pos/clients/{clientId}/customers_old/{customerId}")
-    fun getApiV1PosClientsByClientidCustomersOldByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun getApiV1PosClientsByClientidCustomersOldByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * GET api/v1/pos/clients/{clientId}/discounts
@@ -175,10 +175,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<DiscountResp>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelPosApiDataDiscountResp>]>
      */
     @GET("api/v1/pos/clients/{clientId}/discounts")
-    fun getApiV1PosClientsByClientidDiscounts(@Path("clientId") clientId: kotlin.String, @Query("customerId") customerId: kotlin.String? = null, @Query("promotionCode") promotionCode: kotlin.Int? = null, @Query("enabledOnly") enabledOnly: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<DiscountResp>>
+    fun getApiV1PosClientsByClientidDiscounts(@Path("clientId") clientId: kotlin.String, @Query("customerId") customerId: kotlin.String? = null, @Query("promotionCode") promotionCode: kotlin.Int? = null, @Query("enabledOnly") enabledOnly: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelPosApiDataDiscountResp>>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/adjust_reason
@@ -191,10 +191,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageAdjustReasonResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAdjustReasonResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/adjust_reason")
-    fun getApiV1PosClientsByClientidInventoryAdjustReason(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageAdjustReasonResp>
+    fun getApiV1PosClientsByClientidInventoryAdjustReason(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAdjustReasonResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/area
@@ -207,10 +207,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageAreaResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAreaResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/area")
-    fun getApiV1PosClientsByClientidInventoryArea(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageAreaResp>
+    fun getApiV1PosClientsByClientidInventoryArea(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataAreaResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/brand
@@ -223,10 +223,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageBrandResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataBrandResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/brand")
-    fun getApiV1PosClientsByClientidInventoryBrand(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageBrandResp>
+    fun getApiV1PosClientsByClientidInventoryBrand(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataBrandResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/category
@@ -239,10 +239,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCategoryResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCategoryResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/category")
-    fun getApiV1PosClientsByClientidInventoryCategory(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCategoryResp>
+    fun getApiV1PosClientsByClientidInventoryCategory(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCategoryResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/category_new
@@ -255,10 +255,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCategory]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelCategory]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/category_new")
-    fun getApiV1PosClientsByClientidInventoryCategoryNew(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCategory>
+    fun getApiV1PosClientsByClientidInventoryCategoryNew(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappserverservicemodelCategory>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/category_old
@@ -271,10 +271,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCategoryResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCategoryResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/category_old")
-    fun getApiV1PosClientsByClientidInventoryCategoryOld(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCategoryResp>
+    fun getApiV1PosClientsByClientidInventoryCategoryOld(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCategoryResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/cycle_count
@@ -287,10 +287,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCycleCountResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCycleCountResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/cycle_count")
-    fun getApiV1PosClientsByClientidInventoryCycleCount(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCycleCountResp>
+    fun getApiV1PosClientsByClientidInventoryCycleCount(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCycleCountResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}
@@ -304,10 +304,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CycleCountResp]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCycleCountResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}")
-    fun getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(@Path("clientId") clientId: kotlin.String, @Path("cycle_count_id") cycleCountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CycleCountResp>
+    fun getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(@Path("clientId") clientId: kotlin.String, @Path("cycle_count_id") cycleCountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCycleCountResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/delivery_route
@@ -320,10 +320,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageDeliveryRouteResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataDeliveryRouteResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/delivery_route")
-    fun getApiV1PosClientsByClientidInventoryDeliveryRoute(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageDeliveryRouteResp>
+    fun getApiV1PosClientsByClientidInventoryDeliveryRoute(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataDeliveryRouteResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/strain
@@ -336,10 +336,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageStrainResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataStrainResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/strain")
-    fun getApiV1PosClientsByClientidInventoryStrain(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageStrainResp>
+    fun getApiV1PosClientsByClientidInventoryStrain(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataStrainResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/uom
@@ -352,10 +352,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageUomResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataUomResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/uom")
-    fun getApiV1PosClientsByClientidInventoryUom(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUomResp>
+    fun getApiV1PosClientsByClientidInventoryUom(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataUomResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/inventory/vendor
@@ -368,10 +368,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageVendorResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataVendorResp]>
      */
     @GET("api/v1/pos/clients/{clientId}/inventory/vendor")
-    fun getApiV1PosClientsByClientidInventoryVendor(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageVendorResp>
+    fun getApiV1PosClientsByClientidInventoryVendor(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataVendorResp>
 
     /**
      * GET api/v1/pos/clients/{clientId}/orders/{posOrderId}
@@ -385,10 +385,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @GET("api/v1/pos/clients/{clientId}/orders/{posOrderId}")
-    fun getApiV1PosClientsByClientidOrdersByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun getApiV1PosClientsByClientidOrdersByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * GET api/v1/pos/clients/{clientId}/orders_new/{posOrderId}
@@ -402,10 +402,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Bounty]>
+     * @return [Call]<[CoedgeappservermodelBounty]>
      */
     @GET("api/v1/pos/clients/{clientId}/orders_new/{posOrderId}")
-    fun getApiV1PosClientsByClientidOrdersNewByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Bounty>
+    fun getApiV1PosClientsByClientidOrdersNewByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBounty>
 
     /**
      * GET api/v1/pos/clients/{clientId}/orders_old/{posOrderId}
@@ -419,10 +419,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @GET("api/v1/pos/clients/{clientId}/orders_old/{posOrderId}")
-    fun getApiV1PosClientsByClientidOrdersOldByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun getApiV1PosClientsByClientidOrdersOldByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * GET api/v1/pos/clients/{clientId}/queue
@@ -435,10 +435,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<QueueItemResp>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelPosApiDataQueueItemResp>]>
      */
     @GET("api/v1/pos/clients/{clientId}/queue")
-    fun getApiV1PosClientsByClientidQueue(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<QueueItemResp>>
+    fun getApiV1PosClientsByClientidQueue(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelPosApiDataQueueItemResp>>
 
     /**
      * GET api/v1/pos/clients/{clientId}/terminals/labels
@@ -451,10 +451,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<TerminalLabelResp>]>
+     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelPosApiDataTerminalLabelResp>]>
      */
     @GET("api/v1/pos/clients/{clientId}/terminals/labels")
-    fun getApiV1PosClientsByClientidTerminalsLabels(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<TerminalLabelResp>>
+    fun getApiV1PosClientsByClientidTerminalsLabels(@Path("clientId") clientId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelPosApiDataTerminalLabelResp>>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers
@@ -464,14 +464,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers")
-    fun postApiV1PosClientsByClientidCustomers(@Path("clientId") clientId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun postApiV1PosClientsByClientidCustomers(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers/{customerId}/orders
@@ -482,16 +482,16 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param completed  (optional)
      * @param paidInFull  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageOrder]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers/{customerId}/orders")
-    fun postApiV1PosClientsByClientidCustomersByCustomeridOrders(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body searchReq: SearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageOrder>
+    fun postApiV1PosClientsByClientidCustomersByCustomeridOrders(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers/{customerId}/orders_new
@@ -502,16 +502,16 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param completed  (optional)
      * @param paidInFull  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageBounty]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBounty]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers/{customerId}/orders_new")
-    fun postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body searchReq: SearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageBounty>
+    fun postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBounty>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers/{customerId}/orders_old
@@ -522,16 +522,16 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param completed  (optional)
      * @param paidInFull  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageOrder]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers/{customerId}/orders_old")
-    fun postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body searchReq: SearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageOrder>
+    fun postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Query("completed") completed: kotlin.Boolean? = null, @Query("paidInFull") paidInFull: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers_new
@@ -541,14 +541,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserProfile]>
+     * @return [Call]<[CoedgeappservermodelUserProfile]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers_new")
-    fun postApiV1PosClientsByClientidCustomersNew(@Path("clientId") clientId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfile>
+    fun postApiV1PosClientsByClientidCustomersNew(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfile>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers_new/search
@@ -558,14 +558,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageUserProfile]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserProfile]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers_new/search")
-    fun postApiV1PosClientsByClientidCustomersNewSearch(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageUserProfile>
+    fun postApiV1PosClientsByClientidCustomersNewSearch(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserProfile>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers_old
@@ -575,14 +575,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers_old")
-    fun postApiV1PosClientsByClientidCustomersOld(@Path("clientId") clientId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun postApiV1PosClientsByClientidCustomersOld(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers_old/search
@@ -592,14 +592,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCustomer]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCustomer]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers_old/search")
-    fun postApiV1PosClientsByClientidCustomersOldSearch(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCustomer>
+    fun postApiV1PosClientsByClientidCustomersOldSearch(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCustomer>
 
     /**
      * POST api/v1/pos/clients/{clientId}/customers/search
@@ -609,14 +609,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageCustomer]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCustomer]>
      */
     @POST("api/v1/pos/clients/{clientId}/customers/search")
-    fun postApiV1PosClientsByClientidCustomersSearch(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageCustomer>
+    fun postApiV1PosClientsByClientidCustomersSearch(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataCustomer>
 
     /**
      * POST api/v1/pos/clients/{clientId}/inventory/cycle_count
@@ -626,14 +626,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param cycleCountReq 
+     * @param coedgeappservermodelPosApiDataCycleCountReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/pos/clients/{clientId}/inventory/cycle_count")
-    fun postApiV1PosClientsByClientidInventoryCycleCount(@Path("clientId") clientId: kotlin.String, @Body cycleCountReq: CycleCountReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1PosClientsByClientidInventoryCycleCount(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataCycleCountReq: CoedgeappservermodelPosApiDataCycleCountReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/pos/clients/{clientId}/inventory/item/search
@@ -643,14 +643,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageInventoryItemResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryItemResp]>
      */
     @POST("api/v1/pos/clients/{clientId}/inventory/item/search")
-    fun postApiV1PosClientsByClientidInventoryItemSearch(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageInventoryItemResp>
+    fun postApiV1PosClientsByClientidInventoryItemSearch(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryItemResp>
 
     /**
      * POST api/v1/pos/clients/{clientId}/inventory/search
@@ -660,14 +660,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageInventoryResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryResp]>
      */
     @POST("api/v1/pos/clients/{clientId}/inventory/search")
-    fun postApiV1PosClientsByClientidInventorySearch(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageInventoryResp>
+    fun postApiV1PosClientsByClientidInventorySearch(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataInventoryResp>
 
     /**
      * POST api/v1/pos/clients/{clientId}/inventory/search/cycle_count
@@ -677,14 +677,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param searchReq 
+     * @param coedgeappservermodelPosApiDataSearchReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[PageSearchCycleCountResp]>
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataSearchCycleCountResp]>
      */
     @POST("api/v1/pos/clients/{clientId}/inventory/search/cycle_count")
-    fun postApiV1PosClientsByClientidInventorySearchCycleCount(@Path("clientId") clientId: kotlin.String, @Body searchReq: SearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PageSearchCycleCountResp>
+    fun postApiV1PosClientsByClientidInventorySearchCycleCount(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataSearchReq: CoedgeappservermodelPosApiDataSearchReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelPosApiDataSearchCycleCountResp>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders
@@ -694,14 +694,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param order 
+     * @param coedgeappservermodelPosApiDataOrder 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders")
-    fun postApiV1PosClientsByClientidOrders(@Path("clientId") clientId: kotlin.String, @Body order: Order, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun postApiV1PosClientsByClientidOrders(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataOrder: CoedgeappservermodelPosApiDataOrder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders/bounty
@@ -715,11 +715,11 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param order  (optional)
-     * @return [Call]<[PageBounty]>
+     * @param coedgeappservermodelPosApiDataOrder  (optional)
+     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBounty]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders/bounty")
-    fun postApiV1PosClientsByClientidOrdersBounty(@Path("clientId") clientId: kotlin.String, @Query("posOrderIds") posOrderIds: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body order: kotlin.collections.List<Order>? = null): Call<PageBounty>
+    fun postApiV1PosClientsByClientidOrdersBounty(@Path("clientId") clientId: kotlin.String, @Query("posOrderIds") posOrderIds: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body coedgeappservermodelPosApiDataOrder: kotlin.collections.List<CoedgeappservermodelPosApiDataOrder>? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBounty>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}
@@ -734,10 +734,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}")
-    fun postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("discountId") discountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Path("discountId") discountId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders/{posOrderId}/items
@@ -748,14 +748,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param addOrderItemDto 
+     * @param coedgeappservermodelPosApiDataAddOrderItemDto 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders/{posOrderId}/items")
-    fun postApiV1PosClientsByClientidOrdersByPosorderidItems(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body addOrderItemDto: AddOrderItemDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun postApiV1PosClientsByClientidOrdersByPosorderidItems(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body coedgeappservermodelPosApiDataAddOrderItemDto: CoedgeappservermodelPosApiDataAddOrderItemDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders_new
@@ -765,14 +765,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param shoppingCart 
+     * @param coedgeappservermodelShoppingCart 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Bounty]>
+     * @return [Call]<[CoedgeappservermodelBounty]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders_new")
-    fun postApiV1PosClientsByClientidOrdersNew(@Path("clientId") clientId: kotlin.String, @Body shoppingCart: ShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Bounty>
+    fun postApiV1PosClientsByClientidOrdersNew(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelShoppingCart: CoedgeappservermodelShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBounty>
 
     /**
      * POST api/v1/pos/clients/{clientId}/orders_old
@@ -782,14 +782,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param order 
+     * @param coedgeappservermodelPosApiDataOrder 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @POST("api/v1/pos/clients/{clientId}/orders_old")
-    fun postApiV1PosClientsByClientidOrdersOld(@Path("clientId") clientId: kotlin.String, @Body order: Order, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun postApiV1PosClientsByClientidOrdersOld(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataOrder: CoedgeappservermodelPosApiDataOrder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * POST api/v1/pos/clients/{clientId}/queue
@@ -803,10 +803,10 @@ interface PosProxyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[QueueItemResp]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataQueueItemResp]>
      */
     @POST("api/v1/pos/clients/{clientId}/queue")
-    fun postApiV1PosClientsByClientidQueue(@Path("clientId") clientId: kotlin.String, @Query("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<QueueItemResp>
+    fun postApiV1PosClientsByClientidQueue(@Path("clientId") clientId: kotlin.String, @Query("customerId") customerId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataQueueItemResp>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/customers/{customerId}
@@ -817,14 +817,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @PUT("api/v1/pos/clients/{clientId}/customers/{customerId}")
-    fun putApiV1PosClientsByClientidCustomersByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun putApiV1PosClientsByClientidCustomersByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/customers_new/{customerId}
@@ -835,14 +835,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserProfile]>
+     * @return [Call]<[CoedgeappservermodelUserProfile]>
      */
     @PUT("api/v1/pos/clients/{clientId}/customers_new/{customerId}")
-    fun putApiV1PosClientsByClientidCustomersNewByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfile>
+    fun putApiV1PosClientsByClientidCustomersNewByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfile>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/customers_old/{customerId}
@@ -853,14 +853,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param customerId 
-     * @param customer 
+     * @param coedgeappservermodelPosApiDataCustomer 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Customer]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataCustomer]>
      */
     @PUT("api/v1/pos/clients/{clientId}/customers_old/{customerId}")
-    fun putApiV1PosClientsByClientidCustomersOldByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body customer: Customer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Customer>
+    fun putApiV1PosClientsByClientidCustomersOldByCustomerid(@Path("clientId") clientId: kotlin.String, @Path("customerId") customerId: kotlin.String, @Body coedgeappservermodelPosApiDataCustomer: CoedgeappservermodelPosApiDataCustomer, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataCustomer>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/inventory/adjust
@@ -870,14 +870,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param manageInventoryAdjustReq 
+     * @param coedgeappservermodelPosApiDataManageInventoryAdjustReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @PUT("api/v1/pos/clients/{clientId}/inventory/adjust")
-    fun putApiV1PosClientsByClientidInventoryAdjust(@Path("clientId") clientId: kotlin.String, @Body manageInventoryAdjustReq: ManageInventoryAdjustReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1PosClientsByClientidInventoryAdjust(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataManageInventoryAdjustReq: CoedgeappservermodelPosApiDataManageInventoryAdjustReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}
@@ -888,14 +888,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param cycleCountId 
-     * @param cycleCountReq 
+     * @param coedgeappservermodelPosApiDataCycleCountReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @PUT("api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}")
-    fun putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(@Path("clientId") clientId: kotlin.String, @Path("cycle_count_id") cycleCountId: kotlin.String, @Body cycleCountReq: CycleCountReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(@Path("clientId") clientId: kotlin.String, @Path("cycle_count_id") cycleCountId: kotlin.String, @Body coedgeappservermodelPosApiDataCycleCountReq: CoedgeappservermodelPosApiDataCycleCountReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/inventory/move
@@ -905,14 +905,14 @@ interface PosProxyControllerApi {
      *  - 200: OK
      *
      * @param clientId 
-     * @param manageInventoryReq 
+     * @param coedgeappservermodelPosApiDataManageInventoryReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @PUT("api/v1/pos/clients/{clientId}/inventory/move")
-    fun putApiV1PosClientsByClientidInventoryMove(@Path("clientId") clientId: kotlin.String, @Body manageInventoryReq: ManageInventoryReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1PosClientsByClientidInventoryMove(@Path("clientId") clientId: kotlin.String, @Body coedgeappservermodelPosApiDataManageInventoryReq: CoedgeappservermodelPosApiDataManageInventoryReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders/{posOrderId}
@@ -923,14 +923,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param order 
+     * @param coedgeappservermodelPosApiDataOrder 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders/{posOrderId}")
-    fun putApiV1PosClientsByClientidOrdersByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.Int, @Body order: Order, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun putApiV1PosClientsByClientidOrdersByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.Int, @Body coedgeappservermodelPosApiDataOrder: CoedgeappservermodelPosApiDataOrder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge
@@ -941,14 +941,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param mergeOrdersRequest 
+     * @param coedgeappservermodelPosApiDataMergeOrdersRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge")
-    fun putApiV1PosClientsByClientidOrdersByPosorderidMerge(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body mergeOrdersRequest: MergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun putApiV1PosClientsByClientidOrdersByPosorderidMerge(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body coedgeappservermodelPosApiDataMergeOrdersRequest: CoedgeappservermodelPosApiDataMergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_new
@@ -959,14 +959,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param mergeOrdersRequest 
+     * @param coedgeappservermodelPosApiDataMergeOrdersRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Bounty]>
+     * @return [Call]<[CoedgeappservermodelBounty]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_new")
-    fun putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body mergeOrdersRequest: MergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Bounty>
+    fun putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body coedgeappservermodelPosApiDataMergeOrdersRequest: CoedgeappservermodelPosApiDataMergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBounty>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_old
@@ -977,14 +977,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param mergeOrdersRequest 
+     * @param coedgeappservermodelPosApiDataMergeOrdersRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_old")
-    fun putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body mergeOrdersRequest: MergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body coedgeappservermodelPosApiDataMergeOrdersRequest: CoedgeappservermodelPosApiDataMergeOrdersRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders_new/{posOrderId}
@@ -995,14 +995,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param shoppingCart 
+     * @param coedgeappservermodelShoppingCart 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Bounty]>
+     * @return [Call]<[CoedgeappservermodelBounty]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders_new/{posOrderId}")
-    fun putApiV1PosClientsByClientidOrdersNewByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body shoppingCart: ShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Bounty>
+    fun putApiV1PosClientsByClientidOrdersNewByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.String, @Body coedgeappservermodelShoppingCart: CoedgeappservermodelShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBounty>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/orders_old/{posOrderId}
@@ -1013,14 +1013,14 @@ interface PosProxyControllerApi {
      *
      * @param clientId 
      * @param posOrderId 
-     * @param order 
+     * @param coedgeappservermodelPosApiDataOrder 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[Order]>
+     * @return [Call]<[CoedgeappservermodelPosApiDataOrder]>
      */
     @PUT("api/v1/pos/clients/{clientId}/orders_old/{posOrderId}")
-    fun putApiV1PosClientsByClientidOrdersOldByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.Int, @Body order: Order, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Order>
+    fun putApiV1PosClientsByClientidOrdersOldByPosorderid(@Path("clientId") clientId: kotlin.String, @Path("posOrderId") posOrderId: kotlin.Int, @Body coedgeappservermodelPosApiDataOrder: CoedgeappservermodelPosApiDataOrder, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelPosApiDataOrder>
 
     /**
      * PUT api/v1/pos/clients/{clientId}/queue/{queueId}

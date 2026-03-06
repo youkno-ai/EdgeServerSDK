@@ -95,10 +95,10 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CompanyEmployeesResult
+     - returns: CoEdgeappServerModelEdgeApiDataCompanyEmployeesResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CompaniesByCompanyIdEmployees(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompanyEmployeesResult {
+    open class func getApiV1CompaniesByCompanyIdEmployees(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCompanyEmployeesResult {
         return try await getApiV1CompaniesByCompanyIdEmployeesWithRequestBuilder(companyId: companyId, searchCriteria: searchCriteria, country: country, gender: gender, start: start, length: length, userStatus: userStatus, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -118,9 +118,9 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CompanyEmployeesResult> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyEmployeesResult> 
      */
-    open class func getApiV1CompaniesByCompanyIdEmployeesWithRequestBuilder(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompanyEmployeesResult> {
+    open class func getApiV1CompaniesByCompanyIdEmployeesWithRequestBuilder(companyId: String, searchCriteria: String? = nil, country: [String]? = nil, gender: [String]? = nil, start: Int? = nil, length: Int? = nil, userStatus: [UserStatus_getApiV1CompaniesByCompanyIdEmployees]? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdEmployees? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyEmployeesResult> {
         var localVariablePath = "/api/v1/companies/{company_id}/employees"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -147,7 +147,7 @@ open class CompaniesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CompanyEmployeesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCompanyEmployeesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -282,10 +282,10 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: PageUser
+     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CompaniesByCompanyIdInviters(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PageUser {
+    open class func getApiV1CompaniesByCompanyIdInviters(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser {
         return try await getApiV1CompaniesByCompanyIdInvitersWithRequestBuilder(companyId: companyId, start: start, limit: limit, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -301,9 +301,9 @@ open class CompaniesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<PageUser> 
+     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser> 
      */
-    open class func getApiV1CompaniesByCompanyIdInvitersWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PageUser> {
+    open class func getApiV1CompaniesByCompanyIdInvitersWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, searchMode: SearchMode_getApiV1CompaniesByCompanyIdInviters? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser> {
         var localVariablePath = "/api/v1/companies/{company_id}/inviters"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -326,7 +326,7 @@ open class CompaniesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PageUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

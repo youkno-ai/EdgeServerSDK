@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  PageUserNotificationConfig,
-  UserNotificationConfig,
+  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfig,
+  CoEdgeappServerModelUserNotificationConfig,
 } from '../models/index';
 import {
-    PageUserNotificationConfigFromJSON,
-    PageUserNotificationConfigToJSON,
-    UserNotificationConfigFromJSON,
-    UserNotificationConfigToJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfigFromJSON,
+    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfigToJSON,
+    CoEdgeappServerModelUserNotificationConfigFromJSON,
+    CoEdgeappServerModelUserNotificationConfigToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1UserByUseridNotificationRequest {
@@ -54,7 +54,7 @@ export interface GetApiV1UserByUseridNotificationsRequest {
 
 export interface PutApiV1UserByUseridNotificationRequest {
     userId: string;
-    userNotificationConfig: UserNotificationConfig;
+    coEdgeappServerModelUserNotificationConfig: CoEdgeappServerModelUserNotificationConfig;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -97,11 +97,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>>;
+    getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserNotificationConfig>>;
 
     /**
      */
-    getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig>;
+    getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserNotificationConfig>;
 
     /**
      * 
@@ -115,16 +115,16 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>>;
+    getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfig>>;
 
     /**
      */
-    getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig>;
+    getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfig>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {UserNotificationConfig} userNotificationConfig 
+     * @param {CoEdgeappServerModelUserNotificationConfig} coEdgeappServerModelUserNotificationConfig 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -220,7 +220,7 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserNotificationConfig>> {
+    async getApiV1UserByUseridNotificationRaw(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserNotificationConfig>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -281,19 +281,19 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserNotificationConfigFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserNotificationConfigFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserNotificationConfig> {
+    async getApiV1UserByUseridNotification(requestParameters: GetApiV1UserByUseridNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserNotificationConfig> {
         const response = await this.getApiV1UserByUseridNotificationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageUserNotificationConfig>> {
+    async getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfig>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -340,12 +340,12 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PageUserNotificationConfigFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfigFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageUserNotificationConfig> {
+    async getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserNotificationConfig> {
         const response = await this.getApiV1UserByUseridNotificationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -360,10 +360,10 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
             );
         }
 
-        if (requestParameters['userNotificationConfig'] == null) {
+        if (requestParameters['coEdgeappServerModelUserNotificationConfig'] == null) {
             throw new runtime.RequiredError(
-                'userNotificationConfig',
-                'Required parameter "userNotificationConfig" was null or undefined when calling putApiV1UserByUseridNotification().'
+                'coEdgeappServerModelUserNotificationConfig',
+                'Required parameter "coEdgeappServerModelUserNotificationConfig" was null or undefined when calling putApiV1UserByUseridNotification().'
             );
         }
 
@@ -398,7 +398,7 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UserNotificationConfigToJSON(requestParameters['userNotificationConfig']),
+            body: CoEdgeappServerModelUserNotificationConfigToJSON(requestParameters['coEdgeappServerModelUserNotificationConfig']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
