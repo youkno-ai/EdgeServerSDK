@@ -29,6 +29,8 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
     public var roles: String?
     public var bountyId: String?
     public var responseId: String?
+    public var badgeDefId: String?
+    public var badgeCode: String?
     public var companyId: String?
     public var dealBountyId: String?
     public var linkUrl: String?
@@ -39,7 +41,7 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
     public var createdAt: Int64?
     public var stats: UserInviteInviteStats?
 
-    public init(id: String? = nil, code: String? = nil, creator: User? = nil, invitee: User? = nil, group: User? = nil, type: String? = nil, status: String? = nil, channel: String? = nil, target: String? = nil, name: String? = nil, email: String? = nil, phone: String? = nil, note: String? = nil, description: String? = nil, roles: String? = nil, bountyId: String? = nil, responseId: String? = nil, companyId: String? = nil, dealBountyId: String? = nil, linkUrl: String? = nil, maxInvitees: Int? = nil, expiresAt: Int64? = nil, lastSentAt: Int64? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, stats: UserInviteInviteStats? = nil) {
+    public init(id: String? = nil, code: String? = nil, creator: User? = nil, invitee: User? = nil, group: User? = nil, type: String? = nil, status: String? = nil, channel: String? = nil, target: String? = nil, name: String? = nil, email: String? = nil, phone: String? = nil, note: String? = nil, description: String? = nil, roles: String? = nil, bountyId: String? = nil, responseId: String? = nil, badgeDefId: String? = nil, badgeCode: String? = nil, companyId: String? = nil, dealBountyId: String? = nil, linkUrl: String? = nil, maxInvitees: Int? = nil, expiresAt: Int64? = nil, lastSentAt: Int64? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, stats: UserInviteInviteStats? = nil) {
         self.id = id
         self.code = code
         self.creator = creator
@@ -57,6 +59,8 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
         self.roles = roles
         self.bountyId = bountyId
         self.responseId = responseId
+        self.badgeDefId = badgeDefId
+        self.badgeCode = badgeCode
         self.companyId = companyId
         self.dealBountyId = dealBountyId
         self.linkUrl = linkUrl
@@ -86,6 +90,8 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
         case roles
         case bountyId
         case responseId
+        case badgeDefId
+        case badgeCode
         case companyId
         case dealBountyId
         case linkUrl
@@ -118,6 +124,8 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(roles, forKey: .roles)
         try container.encodeIfPresent(bountyId, forKey: .bountyId)
         try container.encodeIfPresent(responseId, forKey: .responseId)
+        try container.encodeIfPresent(badgeDefId, forKey: .badgeDefId)
+        try container.encodeIfPresent(badgeCode, forKey: .badgeCode)
         try container.encodeIfPresent(companyId, forKey: .companyId)
         try container.encodeIfPresent(dealBountyId, forKey: .dealBountyId)
         try container.encodeIfPresent(linkUrl, forKey: .linkUrl)

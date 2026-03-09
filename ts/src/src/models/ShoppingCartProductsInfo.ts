@@ -61,16 +61,10 @@ export interface ShoppingCartProductsInfo {
     empty?: boolean;
     /**
      * 
-     * @type {Set<string>}
+     * @type {User}
      * @memberof ShoppingCartProductsInfo
      */
-    merchantIds?: Set<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCartProductsInfo
-     */
-    merchantId?: string;
+    merchant?: User;
     /**
      * 
      * @type {Rewards}
@@ -79,10 +73,10 @@ export interface ShoppingCartProductsInfo {
     totalPrice?: Rewards;
     /**
      * 
-     * @type {User}
+     * @type {boolean}
      * @memberof ShoppingCartProductsInfo
      */
-    merchant?: User;
+    freeShipping?: boolean;
     /**
      * 
      * @type {boolean}
@@ -97,10 +91,16 @@ export interface ShoppingCartProductsInfo {
     noDelivery?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof ShoppingCartProductsInfo
      */
-    freeShipping?: boolean;
+    merchantId?: string;
+    /**
+     * 
+     * @type {Set<string>}
+     * @memberof ShoppingCartProductsInfo
+     */
+    merchantIds?: Set<string>;
 }
 
 /**
@@ -123,13 +123,13 @@ export function ShoppingCartProductsInfoFromJSONTyped(json: any, ignoreDiscrimin
         'products': json['products'] == null ? undefined : (mapValues(json['products'], ShoppingCartProductInfoFromJSON)),
         'useType': json['useType'] == null ? undefined : json['useType'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
-        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
-        'totalPrice': json['totalPrice'] == null ? undefined : RewardsFromJSON(json['totalPrice']),
         'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
+        'totalPrice': json['totalPrice'] == null ? undefined : RewardsFromJSON(json['totalPrice']),
+        'freeShipping': json['freeShipping'] == null ? undefined : json['freeShipping'],
         'onlineProducts': json['onlineProducts'] == null ? undefined : json['onlineProducts'],
         'noDelivery': json['noDelivery'] == null ? undefined : json['noDelivery'],
-        'freeShipping': json['freeShipping'] == null ? undefined : json['freeShipping'],
+        'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
     };
 }
 
@@ -147,13 +147,13 @@ export function ShoppingCartProductsInfoToJSONTyped(value?: ShoppingCartProducts
         'products': value['products'] == null ? undefined : (mapValues(value['products'], ShoppingCartProductInfoToJSON)),
         'useType': value['useType'],
         'empty': value['empty'],
-        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
-        'merchantId': value['merchantId'],
-        'totalPrice': RewardsToJSON(value['totalPrice']),
         'merchant': UserToJSON(value['merchant']),
+        'totalPrice': RewardsToJSON(value['totalPrice']),
+        'freeShipping': value['freeShipping'],
         'onlineProducts': value['onlineProducts'],
         'noDelivery': value['noDelivery'],
-        'freeShipping': value['freeShipping'],
+        'merchantId': value['merchantId'],
+        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
     };
 }
 

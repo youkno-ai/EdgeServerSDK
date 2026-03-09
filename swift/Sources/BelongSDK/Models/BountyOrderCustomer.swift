@@ -18,22 +18,22 @@ public struct BountyOrderCustomer: Codable, JSONEncodable, Hashable {
     public var email: String?
     public var dob: String?
     public var address: MailingAddress?
+    public var phoneRawNumber: String?
+    public var effectiveState: String?
     public var phoneStatus: String?
     public var personalName: UtilPersonalName?
-    public var effectiveState: String?
-    public var phoneRawNumber: String?
 
-    public init(posCustomerId: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, dob: String? = nil, address: MailingAddress? = nil, phoneStatus: String? = nil, personalName: UtilPersonalName? = nil, effectiveState: String? = nil, phoneRawNumber: String? = nil) {
+    public init(posCustomerId: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, dob: String? = nil, address: MailingAddress? = nil, phoneRawNumber: String? = nil, effectiveState: String? = nil, phoneStatus: String? = nil, personalName: UtilPersonalName? = nil) {
         self.posCustomerId = posCustomerId
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.dob = dob
         self.address = address
+        self.phoneRawNumber = phoneRawNumber
+        self.effectiveState = effectiveState
         self.phoneStatus = phoneStatus
         self.personalName = personalName
-        self.effectiveState = effectiveState
-        self.phoneRawNumber = phoneRawNumber
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -43,10 +43,10 @@ public struct BountyOrderCustomer: Codable, JSONEncodable, Hashable {
         case email
         case dob
         case address
+        case phoneRawNumber
+        case effectiveState
         case phoneStatus
         case personalName
-        case effectiveState
-        case phoneRawNumber
     }
 
     // Encodable protocol methods
@@ -59,10 +59,10 @@ public struct BountyOrderCustomer: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(dob, forKey: .dob)
         try container.encodeIfPresent(address, forKey: .address)
+        try container.encodeIfPresent(phoneRawNumber, forKey: .phoneRawNumber)
+        try container.encodeIfPresent(effectiveState, forKey: .effectiveState)
         try container.encodeIfPresent(phoneStatus, forKey: .phoneStatus)
         try container.encodeIfPresent(personalName, forKey: .personalName)
-        try container.encodeIfPresent(effectiveState, forKey: .effectiveState)
-        try container.encodeIfPresent(phoneRawNumber, forKey: .phoneRawNumber)
     }
 }
 

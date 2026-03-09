@@ -248,26 +248,15 @@ export interface ThirdpartiesISportsAPIAPIMatchInfo {
      * @type {string}
      * @memberof ThirdpartiesISportsAPIAPIMatchInfo
      */
-    leagueTypeAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum;
+    statusAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ThirdpartiesISportsAPIAPIMatchInfo
      */
-    statusAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum;
+    leagueTypeAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum = {
-    NONE: 'NONE',
-    LEAGUE: 'LEAGUE',
-    CUP: 'CUP',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum];
 
 /**
  * @export
@@ -289,6 +278,17 @@ export const ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum = {
+    NONE: 'NONE',
+    LEAGUE: 'LEAGUE',
+    CUP: 'CUP',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoLeagueTypeAsEnumEnum];
 
 
 /**
@@ -344,8 +344,8 @@ export function ThirdpartiesISportsAPIAPIMatchInfoFromJSONTyped(json: any, ignor
         'explain': json['explain'] == null ? undefined : json['explain'],
         'extraExplain': json['extraExplain'] == null ? undefined : ThirdpartiesISportsAPIAPIMatchInfoExtraExplainFromJSON(json['extraExplain']),
         'neutral': json['neutral'] == null ? undefined : json['neutral'],
-        'leagueTypeAsEnum': json['leagueTypeAsEnum'] == null ? undefined : json['leagueTypeAsEnum'],
         'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
+        'leagueTypeAsEnum': json['leagueTypeAsEnum'] == null ? undefined : json['leagueTypeAsEnum'],
     };
 }
 
@@ -396,8 +396,8 @@ export function ThirdpartiesISportsAPIAPIMatchInfoToJSONTyped(value?: Thirdparti
         'explain': value['explain'],
         'extraExplain': ThirdpartiesISportsAPIAPIMatchInfoExtraExplainToJSON(value['extraExplain']),
         'neutral': value['neutral'],
-        'leagueTypeAsEnum': value['leagueTypeAsEnum'],
         'statusAsEnum': value['statusAsEnum'],
+        'leagueTypeAsEnum': value['leagueTypeAsEnum'],
     };
 }
 

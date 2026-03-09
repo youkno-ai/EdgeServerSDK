@@ -18,22 +18,22 @@ public struct SystemInfoAppInfo: Codable, JSONEncodable, Hashable {
     public var enforceAt: Int64?
     public var notifyDelayInHours: Int64?
     public var enforceDelayInHours: Int64?
-    public var notificationStartingAt: Int64?
-    public var enforcementStartingAt: Int64?
     public var curVersionAsObj: ComLatticaVernumVersionNumber?
     public var minVersionAsObj: ComLatticaVernumVersionNumber?
+    public var notificationStartingAt: Int64?
+    public var enforcementStartingAt: Int64?
 
-    public init(minVersion: String? = nil, curVersion: String? = nil, curReleasedAt: Int64? = nil, enforceAt: Int64? = nil, notifyDelayInHours: Int64? = nil, enforceDelayInHours: Int64? = nil, notificationStartingAt: Int64? = nil, enforcementStartingAt: Int64? = nil, curVersionAsObj: ComLatticaVernumVersionNumber? = nil, minVersionAsObj: ComLatticaVernumVersionNumber? = nil) {
+    public init(minVersion: String? = nil, curVersion: String? = nil, curReleasedAt: Int64? = nil, enforceAt: Int64? = nil, notifyDelayInHours: Int64? = nil, enforceDelayInHours: Int64? = nil, curVersionAsObj: ComLatticaVernumVersionNumber? = nil, minVersionAsObj: ComLatticaVernumVersionNumber? = nil, notificationStartingAt: Int64? = nil, enforcementStartingAt: Int64? = nil) {
         self.minVersion = minVersion
         self.curVersion = curVersion
         self.curReleasedAt = curReleasedAt
         self.enforceAt = enforceAt
         self.notifyDelayInHours = notifyDelayInHours
         self.enforceDelayInHours = enforceDelayInHours
-        self.notificationStartingAt = notificationStartingAt
-        self.enforcementStartingAt = enforcementStartingAt
         self.curVersionAsObj = curVersionAsObj
         self.minVersionAsObj = minVersionAsObj
+        self.notificationStartingAt = notificationStartingAt
+        self.enforcementStartingAt = enforcementStartingAt
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -43,10 +43,10 @@ public struct SystemInfoAppInfo: Codable, JSONEncodable, Hashable {
         case enforceAt
         case notifyDelayInHours
         case enforceDelayInHours
-        case notificationStartingAt
-        case enforcementStartingAt
         case curVersionAsObj
         case minVersionAsObj
+        case notificationStartingAt
+        case enforcementStartingAt
     }
 
     // Encodable protocol methods
@@ -59,10 +59,10 @@ public struct SystemInfoAppInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(enforceAt, forKey: .enforceAt)
         try container.encodeIfPresent(notifyDelayInHours, forKey: .notifyDelayInHours)
         try container.encodeIfPresent(enforceDelayInHours, forKey: .enforceDelayInHours)
-        try container.encodeIfPresent(notificationStartingAt, forKey: .notificationStartingAt)
-        try container.encodeIfPresent(enforcementStartingAt, forKey: .enforcementStartingAt)
         try container.encodeIfPresent(curVersionAsObj, forKey: .curVersionAsObj)
         try container.encodeIfPresent(minVersionAsObj, forKey: .minVersionAsObj)
+        try container.encodeIfPresent(notificationStartingAt, forKey: .notificationStartingAt)
+        try container.encodeIfPresent(enforcementStartingAt, forKey: .enforcementStartingAt)
     }
 }
 

@@ -61,14 +61,14 @@ public struct BountyProductProductSpecificInfo: Codable, JSONEncodable, Hashable
     public var strain: BountyProductProductSpecificInfoStrain?
     public var certificateOfAuthenticityUrl: String?
     public var chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]?
+    public var effectivePrice: Price?
     public var primaryAttachmentId: String?
     public var inventoryPolicyAsEnum: InventoryPolicyAsEnum?
     public var extraDeliveryFeeReward: Reward?
     public var effectiveOriginalPrice: Price?
     public var weightUnitAsEnum: WeightUnitAsEnum?
-    public var effectivePrice: Price?
 
-    public init(sku: String? = nil, shopifyStoreName: String? = nil, shopifyVariantId: String? = nil, name: String? = nil, optionKey1: String? = nil, optionKey2: String? = nil, optionKey3: String? = nil, manufacturer: String? = nil, model: String? = nil, weight: Double? = nil, weightUnit: String? = nil, quantity: Double? = nil, maxAllowedQty: Double? = nil, inventoryPolicy: String? = nil, price: Price? = nil, originalPrice: Price? = nil, resellerPrice: Price? = nil, priceType: String? = nil, msrp: Price? = nil, costPerItem: Price? = nil, otdPrice: Price? = nil, altPrices: BountyProductProductSpecificInfoPrices? = nil, extraDeliveryFee: ShippingFee? = nil, barcode: String? = nil, attachmentIds: String? = nil, requiresShipping: Bool? = nil, taxable: Bool? = nil, taxCode: String? = nil, onlineProductInfo: BountyProductOnlineProductInfo? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, strain: BountyProductProductSpecificInfoStrain? = nil, certificateOfAuthenticityUrl: String? = nil, chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]? = nil, primaryAttachmentId: String? = nil, inventoryPolicyAsEnum: InventoryPolicyAsEnum? = nil, extraDeliveryFeeReward: Reward? = nil, effectiveOriginalPrice: Price? = nil, weightUnitAsEnum: WeightUnitAsEnum? = nil, effectivePrice: Price? = nil) {
+    public init(sku: String? = nil, shopifyStoreName: String? = nil, shopifyVariantId: String? = nil, name: String? = nil, optionKey1: String? = nil, optionKey2: String? = nil, optionKey3: String? = nil, manufacturer: String? = nil, model: String? = nil, weight: Double? = nil, weightUnit: String? = nil, quantity: Double? = nil, maxAllowedQty: Double? = nil, inventoryPolicy: String? = nil, price: Price? = nil, originalPrice: Price? = nil, resellerPrice: Price? = nil, priceType: String? = nil, msrp: Price? = nil, costPerItem: Price? = nil, otdPrice: Price? = nil, altPrices: BountyProductProductSpecificInfoPrices? = nil, extraDeliveryFee: ShippingFee? = nil, barcode: String? = nil, attachmentIds: String? = nil, requiresShipping: Bool? = nil, taxable: Bool? = nil, taxCode: String? = nil, onlineProductInfo: BountyProductOnlineProductInfo? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, strain: BountyProductProductSpecificInfoStrain? = nil, certificateOfAuthenticityUrl: String? = nil, chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]? = nil, effectivePrice: Price? = nil, primaryAttachmentId: String? = nil, inventoryPolicyAsEnum: InventoryPolicyAsEnum? = nil, extraDeliveryFeeReward: Reward? = nil, effectiveOriginalPrice: Price? = nil, weightUnitAsEnum: WeightUnitAsEnum? = nil) {
         self.sku = sku
         self.shopifyStoreName = shopifyStoreName
         self.shopifyVariantId = shopifyVariantId
@@ -103,12 +103,12 @@ public struct BountyProductProductSpecificInfo: Codable, JSONEncodable, Hashable
         self.strain = strain
         self.certificateOfAuthenticityUrl = certificateOfAuthenticityUrl
         self.chemicalCompositions = chemicalCompositions
+        self.effectivePrice = effectivePrice
         self.primaryAttachmentId = primaryAttachmentId
         self.inventoryPolicyAsEnum = inventoryPolicyAsEnum
         self.extraDeliveryFeeReward = extraDeliveryFeeReward
         self.effectiveOriginalPrice = effectiveOriginalPrice
         self.weightUnitAsEnum = weightUnitAsEnum
-        self.effectivePrice = effectivePrice
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -146,12 +146,12 @@ public struct BountyProductProductSpecificInfo: Codable, JSONEncodable, Hashable
         case strain
         case certificateOfAuthenticityUrl
         case chemicalCompositions
+        case effectivePrice
         case primaryAttachmentId
         case inventoryPolicyAsEnum
         case extraDeliveryFeeReward
         case effectiveOriginalPrice
         case weightUnitAsEnum
-        case effectivePrice
     }
 
     // Encodable protocol methods
@@ -192,12 +192,12 @@ public struct BountyProductProductSpecificInfo: Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(strain, forKey: .strain)
         try container.encodeIfPresent(certificateOfAuthenticityUrl, forKey: .certificateOfAuthenticityUrl)
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
+        try container.encodeIfPresent(effectivePrice, forKey: .effectivePrice)
         try container.encodeIfPresent(primaryAttachmentId, forKey: .primaryAttachmentId)
         try container.encodeIfPresent(inventoryPolicyAsEnum, forKey: .inventoryPolicyAsEnum)
         try container.encodeIfPresent(extraDeliveryFeeReward, forKey: .extraDeliveryFeeReward)
         try container.encodeIfPresent(effectiveOriginalPrice, forKey: .effectiveOriginalPrice)
         try container.encodeIfPresent(weightUnitAsEnum, forKey: .weightUnitAsEnum)
-        try container.encodeIfPresent(effectivePrice, forKey: .effectivePrice)
     }
 }
 

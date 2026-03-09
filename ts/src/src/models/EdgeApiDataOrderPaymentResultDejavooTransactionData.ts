@@ -239,6 +239,12 @@ export interface EdgeApiDataOrderPaymentResultDejavooTransactionData {
     transId?: string;
     /**
      * 
+     * @type {EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData}
+     * @memberof EdgeApiDataOrderPaymentResultDejavooTransactionData
+     */
+    extDataAsObj?: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData;
+    /**
+     * 
      * @type {string}
      * @memberof EdgeApiDataOrderPaymentResultDejavooTransactionData
      */
@@ -255,12 +261,6 @@ export interface EdgeApiDataOrderPaymentResultDejavooTransactionData {
      * @memberof EdgeApiDataOrderPaymentResultDejavooTransactionData
      */
     reimburseApplicable?: boolean;
-    /**
-     * 
-     * @type {EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData}
-     * @memberof EdgeApiDataOrderPaymentResultDejavooTransactionData
-     */
-    extDataAsObj?: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData;
     /**
      * 
      * @type {string}
@@ -381,10 +381,10 @@ export function EdgeApiDataOrderPaymentResultDejavooTransactionDataFromJSONTyped
         'tipLine': json['tipLine'] == null ? undefined : json['tipLine'],
         'totalAmount': json['totalAmount'] == null ? undefined : json['totalAmount'],
         'transId': json['transId'] == null ? undefined : json['transId'],
+        'extDataAsObj': json['extDataAsObj'] == null ? undefined : EdgeApiDataOrderPaymentResultDejavooTransactionDataExtDataFromJSON(json['extDataAsObj']),
         'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'completedByWalletBmb': json['completedByWalletBmb'] == null ? undefined : json['completedByWalletBmb'],
         'reimburseApplicable': json['reimburseApplicable'] == null ? undefined : json['reimburseApplicable'],
-        'extDataAsObj': json['extDataAsObj'] == null ? undefined : EdgeApiDataOrderPaymentResultDejavooTransactionDataExtDataFromJSON(json['extDataAsObj']),
         'amount_paid': json['amount_paid'] == null ? undefined : json['amount_paid'],
         'card_type': json['card_type'] == null ? undefined : json['card_type'],
         'invoice_no': json['invoice_no'] == null ? undefined : json['invoice_no'],
@@ -443,10 +443,10 @@ export function EdgeApiDataOrderPaymentResultDejavooTransactionDataToJSONTyped(v
         'tipLine': value['tipLine'],
         'totalAmount': value['totalAmount'],
         'transId': value['transId'],
+        'extDataAsObj': EdgeApiDataOrderPaymentResultDejavooTransactionDataExtDataToJSON(value['extDataAsObj']),
         'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'completedByWalletBmb': value['completedByWalletBmb'],
         'reimburseApplicable': value['reimburseApplicable'],
-        'extDataAsObj': EdgeApiDataOrderPaymentResultDejavooTransactionDataExtDataToJSON(value['extDataAsObj']),
         'amount_paid': value['amount_paid'],
         'card_type': value['card_type'],
         'invoice_no': value['invoice_no'],

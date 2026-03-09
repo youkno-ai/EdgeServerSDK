@@ -12,17 +12,17 @@ import AnyCodable
 
 public struct ThirdpartiesISportsAPIAPIMatchInfoExtraExplain: Codable, JSONEncodable, Hashable {
 
+    public enum WinnerAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case home = "HOME"
+        case away = "AWAY"
+        case unknown = "UNKNOWN"
+    }
     public enum ExtraTimeStatusAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case normalEnds = "NORMAL_ENDS"
         case specialEnds = "SPECIAL_ENDS"
         case extraTime = "EXTRA_TIME"
-        case unknown = "UNKNOWN"
-    }
-    public enum WinnerAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case home = "HOME"
-        case away = "AWAY"
         case unknown = "UNKNOWN"
     }
     public var kickOff: Int?
@@ -37,10 +37,10 @@ public struct ThirdpartiesISportsAPIAPIMatchInfoExtraExplain: Codable, JSONEncod
     public var twoRoundsHomeScore: Int?
     public var twoRoundsAwayScore: Int?
     public var winner: Int?
-    public var extraTimeStatusAsEnum: ExtraTimeStatusAsEnum?
     public var winnerAsEnum: WinnerAsEnum?
+    public var extraTimeStatusAsEnum: ExtraTimeStatusAsEnum?
 
-    public init(kickOff: Int? = nil, minute: Int? = nil, homeScore: Int? = nil, awayScore: Int? = nil, extraTimeStatus: Int? = nil, extraHomeScore: Int? = nil, extraAwayScore: Int? = nil, penHomeScore: Int? = nil, penAwayScore: Int? = nil, twoRoundsHomeScore: Int? = nil, twoRoundsAwayScore: Int? = nil, winner: Int? = nil, extraTimeStatusAsEnum: ExtraTimeStatusAsEnum? = nil, winnerAsEnum: WinnerAsEnum? = nil) {
+    public init(kickOff: Int? = nil, minute: Int? = nil, homeScore: Int? = nil, awayScore: Int? = nil, extraTimeStatus: Int? = nil, extraHomeScore: Int? = nil, extraAwayScore: Int? = nil, penHomeScore: Int? = nil, penAwayScore: Int? = nil, twoRoundsHomeScore: Int? = nil, twoRoundsAwayScore: Int? = nil, winner: Int? = nil, winnerAsEnum: WinnerAsEnum? = nil, extraTimeStatusAsEnum: ExtraTimeStatusAsEnum? = nil) {
         self.kickOff = kickOff
         self.minute = minute
         self.homeScore = homeScore
@@ -53,8 +53,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfoExtraExplain: Codable, JSONEncod
         self.twoRoundsHomeScore = twoRoundsHomeScore
         self.twoRoundsAwayScore = twoRoundsAwayScore
         self.winner = winner
-        self.extraTimeStatusAsEnum = extraTimeStatusAsEnum
         self.winnerAsEnum = winnerAsEnum
+        self.extraTimeStatusAsEnum = extraTimeStatusAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -70,8 +70,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfoExtraExplain: Codable, JSONEncod
         case twoRoundsHomeScore
         case twoRoundsAwayScore
         case winner
-        case extraTimeStatusAsEnum
         case winnerAsEnum
+        case extraTimeStatusAsEnum
     }
 
     // Encodable protocol methods
@@ -90,8 +90,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfoExtraExplain: Codable, JSONEncod
         try container.encodeIfPresent(twoRoundsHomeScore, forKey: .twoRoundsHomeScore)
         try container.encodeIfPresent(twoRoundsAwayScore, forKey: .twoRoundsAwayScore)
         try container.encodeIfPresent(winner, forKey: .winner)
-        try container.encodeIfPresent(extraTimeStatusAsEnum, forKey: .extraTimeStatusAsEnum)
         try container.encodeIfPresent(winnerAsEnum, forKey: .winnerAsEnum)
+        try container.encodeIfPresent(extraTimeStatusAsEnum, forKey: .extraTimeStatusAsEnum)
     }
 }
 

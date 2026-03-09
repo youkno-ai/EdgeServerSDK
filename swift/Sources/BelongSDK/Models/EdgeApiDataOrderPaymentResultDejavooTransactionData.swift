@@ -52,10 +52,10 @@ public struct EdgeApiDataOrderPaymentResultDejavooTransactionData: Codable, JSON
     public var tipLine: String?
     public var totalAmount: String?
     public var transId: String?
+    public var extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData?
     public var paymentStatusAsEnum: PaymentStatusAsEnum?
     public var completedByWalletBmb: Bool?
     public var reimburseApplicable: Bool?
-    public var extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData?
     public var amountPaid: String?
     public var cardType: String?
     public var invoiceNo: String?
@@ -66,7 +66,7 @@ public struct EdgeApiDataOrderPaymentResultDejavooTransactionData: Codable, JSON
     public var transactionTitle: String?
     public var transactionType: Int?
 
-    public init(ltaxAmount: String? = nil, staxAmount: String? = nil, authCode: String? = nil, batchNo: String? = nil, bmbMsg: String? = nil, bmbQrMsg: String? = nil, bmbQrUrl: String? = nil, bmbRefId: String? = nil, bmbStatus: String? = nil, cardHolderName: String? = nil, customer: String? = nil, date: String? = nil, disclaimer: String? = nil, emvAID: String? = nil, emvAppName: String? = nil, emvTC: String? = nil, emvTSI: String? = nil, emvTVR: String? = nil, expDate: String? = nil, extData: String? = nil, fee: String? = nil, merchant: String? = nil, pinMode: String? = nil, refId: String? = nil, reimburseMode: Int? = nil, reimburseModeName: String? = nil, respCode: String? = nil, rrn: String? = nil, sign: String? = nil, status: String? = nil, time: String? = nil, tipAmount: String? = nil, tipLine: String? = nil, totalAmount: String? = nil, transId: String? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, completedByWalletBmb: Bool? = nil, reimburseApplicable: Bool? = nil, extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData? = nil, amountPaid: String? = nil, cardType: String? = nil, invoiceNo: String? = nil, last4Digits: String? = nil, maskPan: String? = nil, transactionId: String? = nil, transactionMode: String? = nil, transactionTitle: String? = nil, transactionType: Int? = nil) {
+    public init(ltaxAmount: String? = nil, staxAmount: String? = nil, authCode: String? = nil, batchNo: String? = nil, bmbMsg: String? = nil, bmbQrMsg: String? = nil, bmbQrUrl: String? = nil, bmbRefId: String? = nil, bmbStatus: String? = nil, cardHolderName: String? = nil, customer: String? = nil, date: String? = nil, disclaimer: String? = nil, emvAID: String? = nil, emvAppName: String? = nil, emvTC: String? = nil, emvTSI: String? = nil, emvTVR: String? = nil, expDate: String? = nil, extData: String? = nil, fee: String? = nil, merchant: String? = nil, pinMode: String? = nil, refId: String? = nil, reimburseMode: Int? = nil, reimburseModeName: String? = nil, respCode: String? = nil, rrn: String? = nil, sign: String? = nil, status: String? = nil, time: String? = nil, tipAmount: String? = nil, tipLine: String? = nil, totalAmount: String? = nil, transId: String? = nil, extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, completedByWalletBmb: Bool? = nil, reimburseApplicable: Bool? = nil, amountPaid: String? = nil, cardType: String? = nil, invoiceNo: String? = nil, last4Digits: String? = nil, maskPan: String? = nil, transactionId: String? = nil, transactionMode: String? = nil, transactionTitle: String? = nil, transactionType: Int? = nil) {
         self.ltaxAmount = ltaxAmount
         self.staxAmount = staxAmount
         self.authCode = authCode
@@ -102,10 +102,10 @@ public struct EdgeApiDataOrderPaymentResultDejavooTransactionData: Codable, JSON
         self.tipLine = tipLine
         self.totalAmount = totalAmount
         self.transId = transId
+        self.extDataAsObj = extDataAsObj
         self.paymentStatusAsEnum = paymentStatusAsEnum
         self.completedByWalletBmb = completedByWalletBmb
         self.reimburseApplicable = reimburseApplicable
-        self.extDataAsObj = extDataAsObj
         self.amountPaid = amountPaid
         self.cardType = cardType
         self.invoiceNo = invoiceNo
@@ -153,10 +153,10 @@ public struct EdgeApiDataOrderPaymentResultDejavooTransactionData: Codable, JSON
         case tipLine
         case totalAmount
         case transId
+        case extDataAsObj
         case paymentStatusAsEnum
         case completedByWalletBmb
         case reimburseApplicable
-        case extDataAsObj
         case amountPaid = "amount_paid"
         case cardType = "card_type"
         case invoiceNo = "invoice_no"
@@ -207,10 +207,10 @@ public struct EdgeApiDataOrderPaymentResultDejavooTransactionData: Codable, JSON
         try container.encodeIfPresent(tipLine, forKey: .tipLine)
         try container.encodeIfPresent(totalAmount, forKey: .totalAmount)
         try container.encodeIfPresent(transId, forKey: .transId)
+        try container.encodeIfPresent(extDataAsObj, forKey: .extDataAsObj)
         try container.encodeIfPresent(paymentStatusAsEnum, forKey: .paymentStatusAsEnum)
         try container.encodeIfPresent(completedByWalletBmb, forKey: .completedByWalletBmb)
         try container.encodeIfPresent(reimburseApplicable, forKey: .reimburseApplicable)
-        try container.encodeIfPresent(extDataAsObj, forKey: .extDataAsObj)
         try container.encodeIfPresent(amountPaid, forKey: .amountPaid)
         try container.encodeIfPresent(cardType, forKey: .cardType)
         try container.encodeIfPresent(invoiceNo, forKey: .invoiceNo)

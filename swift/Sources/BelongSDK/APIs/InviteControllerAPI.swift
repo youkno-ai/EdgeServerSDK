@@ -130,6 +130,61 @@ open class InviteControllerAPI {
 
     /**
 
+     - parameter badgeCode: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: EdgeApiDataPageUserInvite
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1InvitesBadgeByBadgecode(badgeCode: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
+        return try await getApiV1InvitesBadgeByBadgecodeWithRequestBuilder(badgeCode: badgeCode, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/invites/badge/{badgeCode}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter badgeCode: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
+     */
+    open class func getApiV1InvitesBadgeByBadgecodeWithRequestBuilder(badgeCode: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
+        var localVariablePath = "/api/v1/invites/badge/{badgeCode}"
+        let badgeCodePreEscape = "\(APIHelper.mapValueToPathItem(badgeCode))"
+        let badgeCodePostEscape = badgeCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{badgeCode}", with: badgeCodePostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(), isExplode: true),
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter bountyId: (path)  
      - parameter start: (query)  (optional, default to 0)
      - parameter limit: (query)  (optional, default to 50)
@@ -486,6 +541,61 @@ open class InviteControllerAPI {
 
     /**
 
+     - parameter badgeCode: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: EdgeApiDataPageUserInvite
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1InvitesStickerByBadgecode(badgeCode: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
+        return try await getApiV1InvitesStickerByBadgecodeWithRequestBuilder(badgeCode: badgeCode, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/invites/sticker/{badgeCode}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter badgeCode: (path)  
+     - parameter start: (query)  (optional, default to 0)
+     - parameter limit: (query)  (optional, default to 50)
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
+     */
+    open class func getApiV1InvitesStickerByBadgecodeWithRequestBuilder(badgeCode: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
+        var localVariablePath = "/api/v1/invites/sticker/{badgeCode}"
+        let badgeCodePreEscape = "\(APIHelper.mapValueToPathItem(badgeCode))"
+        let badgeCodePostEscape = badgeCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{badgeCode}", with: badgeCodePostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(), isExplode: true),
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter restControllerInviteControllerSendInvitesRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
@@ -527,6 +637,56 @@ open class InviteControllerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<RestControllerInviteControllerSendInvitesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter badgeCode: (path)  
+     - parameter restControllerInviteControllerCreateBadgeInviteRequest: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: UserInvite
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1InvitesBadgeByBadgecode(badgeCode: String, restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesBadgeByBadgecodeWithRequestBuilder(badgeCode: badgeCode, restControllerInviteControllerCreateBadgeInviteRequest: restControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/invites/badge/{badgeCode}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter badgeCode: (path)  
+     - parameter restControllerInviteControllerCreateBadgeInviteRequest: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<UserInvite> 
+     */
+    open class func postApiV1InvitesBadgeByBadgecodeWithRequestBuilder(badgeCode: String, restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
+        var localVariablePath = "/api/v1/invites/badge/{badgeCode}"
+        let badgeCodePreEscape = "\(APIHelper.mapValueToPathItem(badgeCode))"
+        let badgeCodePostEscape = badgeCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{badgeCode}", with: badgeCodePostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreateBadgeInviteRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -801,6 +961,56 @@ open class InviteControllerAPI {
         let localVariablePath = "/api/v1/invites/platform"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreatePlatformInviteRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter badgeCode: (path)  
+     - parameter restControllerInviteControllerCreateBadgeInviteRequest: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: UserInvite
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1InvitesStickerByBadgecode(badgeCode: String, restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesStickerByBadgecodeWithRequestBuilder(badgeCode: badgeCode, restControllerInviteControllerCreateBadgeInviteRequest: restControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/invites/sticker/{badgeCode}
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter badgeCode: (path)  
+     - parameter restControllerInviteControllerCreateBadgeInviteRequest: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<UserInvite> 
+     */
+    open class func postApiV1InvitesStickerByBadgecodeWithRequestBuilder(badgeCode: String, restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
+        var localVariablePath = "/api/v1/invites/sticker/{badgeCode}"
+        let badgeCodePreEscape = "\(APIHelper.mapValueToPathItem(badgeCode))"
+        let badgeCodePostEscape = badgeCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{badgeCode}", with: badgeCodePostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreateBadgeInviteRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

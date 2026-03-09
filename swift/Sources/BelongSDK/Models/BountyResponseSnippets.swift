@@ -15,23 +15,23 @@ public struct BountyResponseSnippets: Codable, JSONEncodable, Hashable {
     public var paymentsRecv: [String: BountyResponsePaymentRecvSnippet]?
     public var review: BountyResponseReviewSnippet?
     public var reject: BountyResponseRejectSnippet?
-    public var firstPaymentRecv: BountyResponsePaymentRecvSnippet?
     public var paymentReceived: Bool?
+    public var firstPaymentRecv: BountyResponsePaymentRecvSnippet?
 
-    public init(paymentsRecv: [String: BountyResponsePaymentRecvSnippet]? = nil, review: BountyResponseReviewSnippet? = nil, reject: BountyResponseRejectSnippet? = nil, firstPaymentRecv: BountyResponsePaymentRecvSnippet? = nil, paymentReceived: Bool? = nil) {
+    public init(paymentsRecv: [String: BountyResponsePaymentRecvSnippet]? = nil, review: BountyResponseReviewSnippet? = nil, reject: BountyResponseRejectSnippet? = nil, paymentReceived: Bool? = nil, firstPaymentRecv: BountyResponsePaymentRecvSnippet? = nil) {
         self.paymentsRecv = paymentsRecv
         self.review = review
         self.reject = reject
-        self.firstPaymentRecv = firstPaymentRecv
         self.paymentReceived = paymentReceived
+        self.firstPaymentRecv = firstPaymentRecv
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case paymentsRecv
         case review
         case reject
-        case firstPaymentRecv
         case paymentReceived
+        case firstPaymentRecv
     }
 
     // Encodable protocol methods
@@ -41,8 +41,8 @@ public struct BountyResponseSnippets: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(paymentsRecv, forKey: .paymentsRecv)
         try container.encodeIfPresent(review, forKey: .review)
         try container.encodeIfPresent(reject, forKey: .reject)
-        try container.encodeIfPresent(firstPaymentRecv, forKey: .firstPaymentRecv)
         try container.encodeIfPresent(paymentReceived, forKey: .paymentReceived)
+        try container.encodeIfPresent(firstPaymentRecv, forKey: .firstPaymentRecv)
     }
 }
 

@@ -7,6 +7,7 @@ import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
 import ai.youkno.edgeserversdk.models.EdgeApiDataPageUserInvite
+import ai.youkno.edgeserversdk.models.RestControllerInviteControllerCreateBadgeInviteRequest
 import ai.youkno.edgeserversdk.models.RestControllerInviteControllerCreateBountyInviteRequest
 import ai.youkno.edgeserversdk.models.RestControllerInviteControllerCreateCompanyInviteRequest
 import ai.youkno.edgeserversdk.models.RestControllerInviteControllerCreateGroupInviteRequest
@@ -66,6 +67,24 @@ interface InviteControllerApi {
      */
     @GET("api/v1/invites")
     fun getApiV1Invites(@Query("companyId") companyId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("statuses") statuses: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUserInvite>
+
+    /**
+     * GET api/v1/invites/badge/{badgeCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param badgeCode 
+     * @param start  (optional, default to 0)
+     * @param limit  (optional, default to 50)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[EdgeApiDataPageUserInvite]>
+     */
+    @GET("api/v1/invites/badge/{badgeCode}")
+    fun getApiV1InvitesBadgeByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUserInvite>
 
     /**
      * GET api/v1/invites/bounty/{bountyId}
@@ -187,6 +206,24 @@ interface InviteControllerApi {
     fun getApiV1InvitesRoles(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerInviteControllerInvitesRolesResult>
 
     /**
+     * GET api/v1/invites/sticker/{badgeCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param badgeCode 
+     * @param start  (optional, default to 0)
+     * @param limit  (optional, default to 50)
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[EdgeApiDataPageUserInvite]>
+     */
+    @GET("api/v1/invites/sticker/{badgeCode}")
+    fun getApiV1InvitesStickerByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUserInvite>
+
+    /**
      * POST api/v1/invites
      * 
      * 
@@ -202,6 +239,23 @@ interface InviteControllerApi {
     @Deprecated("This api was deprecated")
     @POST("api/v1/invites")
     fun postApiV1Invites(@Body restControllerInviteControllerSendInvitesRequest: RestControllerInviteControllerSendInvitesRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerInviteControllerSendInvitesResponse>
+
+    /**
+     * POST api/v1/invites/badge/{badgeCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param badgeCode 
+     * @param restControllerInviteControllerCreateBadgeInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/badge/{badgeCode}")
+    fun postApiV1InvitesBadgeByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Body restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
 
     /**
      * POST api/v1/invites/bounty/{bountyId}
@@ -301,6 +355,23 @@ interface InviteControllerApi {
      */
     @POST("api/v1/invites/platform")
     fun postApiV1InvitesPlatform(@Body restControllerInviteControllerCreatePlatformInviteRequest: RestControllerInviteControllerCreatePlatformInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
+
+    /**
+     * POST api/v1/invites/sticker/{badgeCode}
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param badgeCode 
+     * @param restControllerInviteControllerCreateBadgeInviteRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[UserInvite]>
+     */
+    @POST("api/v1/invites/sticker/{badgeCode}")
+    fun postApiV1InvitesStickerByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Body restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserInvite>
 
     /**
      * PUT api/v1/invites/{inviteId}

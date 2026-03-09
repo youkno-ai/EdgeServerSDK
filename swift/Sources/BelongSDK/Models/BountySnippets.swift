@@ -17,19 +17,19 @@ public struct BountySnippets: Codable, JSONEncodable, Hashable {
     public var paymentsRecv: [String: BountyPaymentRecvSnippet]?
     public var review: BountyReviewSnippet?
     public var reject: BountyRejectSnippet?
-    public var firstPaymentRecv: BountyPaymentRecvSnippet?
     public var paymentReceived: Bool?
     public var lastChatSnippet: BountyChatSnippet?
+    public var firstPaymentRecv: BountyPaymentRecvSnippet?
 
-    public init(chats: [String: BountyChatSnippet]? = nil, claims: [String: BountyClaimSnippet]? = nil, paymentsRecv: [String: BountyPaymentRecvSnippet]? = nil, review: BountyReviewSnippet? = nil, reject: BountyRejectSnippet? = nil, firstPaymentRecv: BountyPaymentRecvSnippet? = nil, paymentReceived: Bool? = nil, lastChatSnippet: BountyChatSnippet? = nil) {
+    public init(chats: [String: BountyChatSnippet]? = nil, claims: [String: BountyClaimSnippet]? = nil, paymentsRecv: [String: BountyPaymentRecvSnippet]? = nil, review: BountyReviewSnippet? = nil, reject: BountyRejectSnippet? = nil, paymentReceived: Bool? = nil, lastChatSnippet: BountyChatSnippet? = nil, firstPaymentRecv: BountyPaymentRecvSnippet? = nil) {
         self.chats = chats
         self.claims = claims
         self.paymentsRecv = paymentsRecv
         self.review = review
         self.reject = reject
-        self.firstPaymentRecv = firstPaymentRecv
         self.paymentReceived = paymentReceived
         self.lastChatSnippet = lastChatSnippet
+        self.firstPaymentRecv = firstPaymentRecv
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -38,9 +38,9 @@ public struct BountySnippets: Codable, JSONEncodable, Hashable {
         case paymentsRecv
         case review
         case reject
-        case firstPaymentRecv
         case paymentReceived
         case lastChatSnippet
+        case firstPaymentRecv
     }
 
     // Encodable protocol methods
@@ -52,9 +52,9 @@ public struct BountySnippets: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(paymentsRecv, forKey: .paymentsRecv)
         try container.encodeIfPresent(review, forKey: .review)
         try container.encodeIfPresent(reject, forKey: .reject)
-        try container.encodeIfPresent(firstPaymentRecv, forKey: .firstPaymentRecv)
         try container.encodeIfPresent(paymentReceived, forKey: .paymentReceived)
         try container.encodeIfPresent(lastChatSnippet, forKey: .lastChatSnippet)
+        try container.encodeIfPresent(firstPaymentRecv, forKey: .firstPaymentRecv)
     }
 }
 

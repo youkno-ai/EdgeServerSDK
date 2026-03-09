@@ -113,16 +113,16 @@ export interface SearchComment {
     responseId?: string;
     /**
      * 
-     * @type {string}
-     * @memberof SearchComment
-     */
-    objectTypeAsEnum?: SearchCommentObjectTypeAsEnumEnum;
-    /**
-     * 
      * @type {User}
      * @memberof SearchComment
      */
     author?: User;
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchComment
+     */
+    objectTypeAsEnum?: SearchCommentObjectTypeAsEnumEnum;
 }
 
 
@@ -169,8 +169,8 @@ export function SearchCommentFromJSONTyped(json: any, ignoreDiscriminator: boole
         'userId': json['userId'] == null ? undefined : json['userId'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
-        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
+        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
     };
 }
 
@@ -199,8 +199,8 @@ export function SearchCommentToJSONTyped(value?: SearchComment | null, ignoreDis
         'userId': value['userId'],
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
-        'objectTypeAsEnum': value['objectTypeAsEnum'],
         'author': UserToJSON(value['author']),
+        'objectTypeAsEnum': value['objectTypeAsEnum'],
     };
 }
 

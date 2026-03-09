@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   EdgeApiDataPageUserInvite,
+  RestControllerInviteControllerCreateBadgeInviteRequest,
   RestControllerInviteControllerCreateBountyInviteRequest,
   RestControllerInviteControllerCreateCompanyInviteRequest,
   RestControllerInviteControllerCreateGroupInviteRequest,
@@ -29,6 +30,8 @@ import type {
 import {
     EdgeApiDataPageUserInviteFromJSON,
     EdgeApiDataPageUserInviteToJSON,
+    RestControllerInviteControllerCreateBadgeInviteRequestFromJSON,
+    RestControllerInviteControllerCreateBadgeInviteRequestToJSON,
     RestControllerInviteControllerCreateBountyInviteRequestFromJSON,
     RestControllerInviteControllerCreateBountyInviteRequestToJSON,
     RestControllerInviteControllerCreateCompanyInviteRequestFromJSON,
@@ -61,6 +64,15 @@ export interface GetApiV1InvitesRequest {
     start?: number;
     limit?: number;
     statuses?: Array<GetApiV1InvitesStatusesEnum>;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1InvitesBadgeByBadgecodeRequest {
+    badgeCode: string;
+    start?: number;
+    limit?: number;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -122,8 +134,25 @@ export interface GetApiV1InvitesRolesRequest {
     xEdgeClientId?: string;
 }
 
+export interface GetApiV1InvitesStickerByBadgecodeRequest {
+    badgeCode: string;
+    start?: number;
+    limit?: number;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
 export interface PostApiV1InvitesRequest {
     restControllerInviteControllerSendInvitesRequest: RestControllerInviteControllerSendInvitesRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesBadgeByBadgecodeRequest {
+    badgeCode: string;
+    restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -169,6 +198,14 @@ export interface PostApiV1InvitesLinkRequest {
 
 export interface PostApiV1InvitesPlatformRequest {
     restControllerInviteControllerCreatePlatformInviteRequest: RestControllerInviteControllerCreatePlatformInviteRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1InvitesStickerByBadgecodeRequest {
+    badgeCode: string;
+    restControllerInviteControllerCreateBadgeInviteRequest: RestControllerInviteControllerCreateBadgeInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -223,6 +260,24 @@ export interface InviteControllerApiInterface {
     /**
      */
     getApiV1Invites(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
+
+    /**
+     * 
+     * @param {string} badgeCode 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    getApiV1InvitesBadgeByBadgecodeRaw(requestParameters: GetApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
+
+    /**
+     */
+    getApiV1InvitesBadgeByBadgecode(requestParameters: GetApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -345,6 +400,24 @@ export interface InviteControllerApiInterface {
 
     /**
      * 
+     * @param {string} badgeCode 
+     * @param {number} [start] 
+     * @param {number} [limit] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    getApiV1InvitesStickerByBadgecodeRaw(requestParameters: GetApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
+
+    /**
+     */
+    getApiV1InvitesStickerByBadgecode(requestParameters: GetApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
+
+    /**
+     * 
      * @param {RestControllerInviteControllerSendInvitesRequest} restControllerInviteControllerSendInvitesRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -360,6 +433,23 @@ export interface InviteControllerApiInterface {
      * @deprecated
      */
     postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerSendInvitesResponse>;
+
+    /**
+     * 
+     * @param {string} badgeCode 
+     * @param {RestControllerInviteControllerCreateBadgeInviteRequest} restControllerInviteControllerCreateBadgeInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesBadgeByBadgecodeRaw(requestParameters: PostApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesBadgeByBadgecode(requestParameters: PostApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -459,6 +549,23 @@ export interface InviteControllerApiInterface {
     /**
      */
     postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
+
+    /**
+     * 
+     * @param {string} badgeCode 
+     * @param {RestControllerInviteControllerCreateBadgeInviteRequest} restControllerInviteControllerCreateBadgeInviteRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InviteControllerApiInterface
+     */
+    postApiV1InvitesStickerByBadgecodeRaw(requestParameters: PostApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
+
+    /**
+     */
+    postApiV1InvitesStickerByBadgecode(requestParameters: PostApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -590,6 +697,65 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
      */
     async getApiV1Invites(requestParameters: GetApiV1InvitesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1InvitesBadgeByBadgecodeRaw(requestParameters: GetApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling getApiV1InvitesBadgeByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/badge/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1InvitesBadgeByBadgecode(requestParameters: GetApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
+        const response = await this.getApiV1InvitesBadgeByBadgecodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -975,6 +1141,65 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
     }
 
     /**
+     */
+    async getApiV1InvitesStickerByBadgecodeRaw(requestParameters: GetApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling getApiV1InvitesStickerByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/sticker/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1InvitesStickerByBadgecode(requestParameters: GetApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
+        const response = await this.getApiV1InvitesStickerByBadgecodeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * @deprecated
      */
     async postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerInviteControllerSendInvitesResponse>> {
@@ -1026,6 +1251,67 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
      */
     async postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerSendInvitesResponse> {
         const response = await this.postApiV1InvitesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesBadgeByBadgecodeRaw(requestParameters: PostApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling postApiV1InvitesBadgeByBadgecode().'
+            );
+        }
+
+        if (requestParameters['restControllerInviteControllerCreateBadgeInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'restControllerInviteControllerCreateBadgeInviteRequest',
+                'Required parameter "restControllerInviteControllerCreateBadgeInviteRequest" was null or undefined when calling postApiV1InvitesBadgeByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/badge/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RestControllerInviteControllerCreateBadgeInviteRequestToJSON(requestParameters['restControllerInviteControllerCreateBadgeInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesBadgeByBadgecode(requestParameters: PostApiV1InvitesBadgeByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesBadgeByBadgecodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1365,6 +1651,67 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
      */
     async postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesPlatformRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1InvitesStickerByBadgecodeRaw(requestParameters: PostApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['badgeCode'] == null) {
+            throw new runtime.RequiredError(
+                'badgeCode',
+                'Required parameter "badgeCode" was null or undefined when calling postApiV1InvitesStickerByBadgecode().'
+            );
+        }
+
+        if (requestParameters['restControllerInviteControllerCreateBadgeInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'restControllerInviteControllerCreateBadgeInviteRequest',
+                'Required parameter "restControllerInviteControllerCreateBadgeInviteRequest" was null or undefined when calling postApiV1InvitesStickerByBadgecode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/invites/sticker/{badgeCode}`;
+        urlPath = urlPath.replace(`{${"badgeCode"}}`, encodeURIComponent(String(requestParameters['badgeCode'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RestControllerInviteControllerCreateBadgeInviteRequestToJSON(requestParameters['restControllerInviteControllerCreateBadgeInviteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async postApiV1InvitesStickerByBadgecode(requestParameters: PostApiV1InvitesStickerByBadgecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
+        const response = await this.postApiV1InvitesStickerByBadgecodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

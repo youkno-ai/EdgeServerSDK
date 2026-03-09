@@ -28,13 +28,13 @@ import com.squareup.moshi.JsonClass
  * @param products 
  * @param useType 
  * @param empty 
- * @param merchantIds 
- * @param merchantId 
- * @param totalPrice 
  * @param merchant 
+ * @param totalPrice 
+ * @param freeShipping 
  * @param onlineProducts 
  * @param noDelivery 
- * @param freeShipping 
+ * @param merchantId 
+ * @param merchantIds 
  */
 
 
@@ -49,17 +49,14 @@ data class ShoppingCartProductsInfo (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "merchantIds")
-    val merchantIds: kotlin.collections.Set<kotlin.String>? = null,
-
-    @Json(name = "merchantId")
-    val merchantId: kotlin.String? = null,
+    @Json(name = "merchant")
+    val merchant: User? = null,
 
     @Json(name = "totalPrice")
     val totalPrice: Rewards? = null,
 
-    @Json(name = "merchant")
-    val merchant: User? = null,
+    @Json(name = "freeShipping")
+    val freeShipping: kotlin.Boolean? = null,
 
     @Json(name = "onlineProducts")
     val onlineProducts: kotlin.Boolean? = null,
@@ -67,8 +64,11 @@ data class ShoppingCartProductsInfo (
     @Json(name = "noDelivery")
     val noDelivery: kotlin.Boolean? = null,
 
-    @Json(name = "freeShipping")
-    val freeShipping: kotlin.Boolean? = null
+    @Json(name = "merchantId")
+    val merchantId: kotlin.String? = null,
+
+    @Json(name = "merchantIds")
+    val merchantIds: kotlin.collections.Set<kotlin.String>? = null
 
 ) {
 

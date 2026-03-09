@@ -310,18 +310,6 @@ export interface QueueEventsUpdateUserEvent {
     empty?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof QueueEventsUpdateUserEvent
-     */
-    phoneStatusAsEnum?: QueueEventsUpdateUserEventPhoneStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof QueueEventsUpdateUserEvent
-     */
-    localeAsEnum?: string;
-    /**
-     * 
      * @type {boolean}
      * @memberof QueueEventsUpdateUserEvent
      */
@@ -334,10 +322,22 @@ export interface QueueEventsUpdateUserEvent {
     dobAsLocalDate?: Date;
     /**
      * 
+     * @type {string}
+     * @memberof QueueEventsUpdateUserEvent
+     */
+    localeAsEnum?: string;
+    /**
+     * 
      * @type {Device}
      * @memberof QueueEventsUpdateUserEvent
      */
     device?: Device;
+    /**
+     * 
+     * @type {string}
+     * @memberof QueueEventsUpdateUserEvent
+     */
+    phoneStatusAsEnum?: QueueEventsUpdateUserEventPhoneStatusAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -464,11 +464,11 @@ export function QueueEventsUpdateUserEventFromJSONTyped(json: any, ignoreDiscrim
         'validateUserMerge': json['validateUserMerge'] == null ? undefined : json['validateUserMerge'],
         'frontEnd': json['frontEnd'] == null ? undefined : json['frontEnd'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
-        'localeAsEnum': json['localeAsEnum'] == null ? undefined : json['localeAsEnum'],
         'explicitUpdate': json['explicitUpdate'] == null ? undefined : json['explicitUpdate'],
         'dobAsLocalDate': json['dobAsLocalDate'] == null ? undefined : (new Date(json['dobAsLocalDate'])),
+        'localeAsEnum': json['localeAsEnum'] == null ? undefined : json['localeAsEnum'],
         'device': json['device'] == null ? undefined : DeviceFromJSON(json['device']),
+        'phoneStatusAsEnum': json['phoneStatusAsEnum'] == null ? undefined : json['phoneStatusAsEnum'],
         'requesterId': json['requesterId'] == null ? undefined : json['requesterId'],
     };
 }
@@ -525,11 +525,11 @@ export function QueueEventsUpdateUserEventToJSONTyped(value?: QueueEventsUpdateU
         'validateUserMerge': value['validateUserMerge'],
         'frontEnd': value['frontEnd'],
         'empty': value['empty'],
-        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
-        'localeAsEnum': value['localeAsEnum'],
         'explicitUpdate': value['explicitUpdate'],
         'dobAsLocalDate': value['dobAsLocalDate'] == null ? undefined : ((value['dobAsLocalDate']).toISOString().substring(0,10)),
+        'localeAsEnum': value['localeAsEnum'],
         'device': DeviceToJSON(value['device']),
+        'phoneStatusAsEnum': value['phoneStatusAsEnum'],
         'requesterId': value['requesterId'],
     };
 }

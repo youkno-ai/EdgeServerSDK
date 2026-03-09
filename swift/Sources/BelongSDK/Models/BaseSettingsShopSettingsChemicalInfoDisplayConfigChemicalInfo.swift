@@ -12,18 +12,18 @@ import AnyCodable
 
 public struct BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo: Codable, JSONEncodable, Hashable {
 
+    public enum ViewModeAsEnum: String, Codable, CaseIterable {
+        case hidden = "HIDDEN"
+        case tile = "TILE"
+        case details = "DETAILS"
+        case tileDetails = "TILE_DETAILS"
+    }
     public enum KindAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case cannabinoid = "CANNABINOID"
         case terpene = "TERPENE"
         case other = "OTHER"
         case unknown = "UNKNOWN"
-    }
-    public enum ViewModeAsEnum: String, Codable, CaseIterable {
-        case hidden = "HIDDEN"
-        case tile = "TILE"
-        case details = "DETAILS"
-        case tileDetails = "TILE_DETAILS"
     }
     public var name: String?
     public var kind: String?
@@ -34,11 +34,11 @@ public struct BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo: Cod
     public var value: Double?
     public var uom: String?
     public var categoryInfo: [String: BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfo]?
-    public var kindAsEnum: KindAsEnum?
     public var effectiveName: String?
     public var viewModeAsEnum: ViewModeAsEnum?
+    public var kindAsEnum: KindAsEnum?
 
-    public init(name: String? = nil, kind: String? = nil, viewMode: String? = nil, displayName: String? = nil, iconName: String? = nil, usageCount: Int? = nil, value: Double? = nil, uom: String? = nil, categoryInfo: [String: BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfo]? = nil, kindAsEnum: KindAsEnum? = nil, effectiveName: String? = nil, viewModeAsEnum: ViewModeAsEnum? = nil) {
+    public init(name: String? = nil, kind: String? = nil, viewMode: String? = nil, displayName: String? = nil, iconName: String? = nil, usageCount: Int? = nil, value: Double? = nil, uom: String? = nil, categoryInfo: [String: BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfo]? = nil, effectiveName: String? = nil, viewModeAsEnum: ViewModeAsEnum? = nil, kindAsEnum: KindAsEnum? = nil) {
         self.name = name
         self.kind = kind
         self.viewMode = viewMode
@@ -48,9 +48,9 @@ public struct BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo: Cod
         self.value = value
         self.uom = uom
         self.categoryInfo = categoryInfo
-        self.kindAsEnum = kindAsEnum
         self.effectiveName = effectiveName
         self.viewModeAsEnum = viewModeAsEnum
+        self.kindAsEnum = kindAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -63,9 +63,9 @@ public struct BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo: Cod
         case value
         case uom
         case categoryInfo
-        case kindAsEnum
         case effectiveName
         case viewModeAsEnum
+        case kindAsEnum
     }
 
     // Encodable protocol methods
@@ -81,9 +81,9 @@ public struct BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo: Cod
         try container.encodeIfPresent(value, forKey: .value)
         try container.encodeIfPresent(uom, forKey: .uom)
         try container.encodeIfPresent(categoryInfo, forKey: .categoryInfo)
-        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
         try container.encodeIfPresent(effectiveName, forKey: .effectiveName)
         try container.encodeIfPresent(viewModeAsEnum, forKey: .viewModeAsEnum)
+        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
     }
 }
 

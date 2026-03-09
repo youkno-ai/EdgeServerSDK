@@ -66,16 +66,16 @@ export interface BountyClaimSnippet {
     status?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof BountyClaimSnippet
-     */
-    rejected?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof BountyClaimSnippet
      */
     statusAsEnum?: BountyClaimSnippetStatusAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof BountyClaimSnippet
+     */
+    rejected?: boolean;
 }
 
 
@@ -112,8 +112,8 @@ export function BountyClaimSnippetFromJSONTyped(json: any, ignoreDiscriminator: 
         'rejection': json['rejection'] == null ? undefined : BountyClaimSnippetRejectionFromJSON(json['rejection']),
         'claimedAt': json['claimedAt'] == null ? undefined : json['claimedAt'],
         'status': json['status'] == null ? undefined : json['status'],
-        'rejected': json['rejected'] == null ? undefined : json['rejected'],
         'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
+        'rejected': json['rejected'] == null ? undefined : json['rejected'],
     };
 }
 
@@ -133,8 +133,8 @@ export function BountyClaimSnippetToJSONTyped(value?: BountyClaimSnippet | null,
         'rejection': BountyClaimSnippetRejectionToJSON(value['rejection']),
         'claimedAt': value['claimedAt'],
         'status': value['status'],
-        'rejected': value['rejected'],
         'statusAsEnum': value['statusAsEnum'],
+        'rejected': value['rejected'],
     };
 }
 

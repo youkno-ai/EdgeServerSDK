@@ -48,16 +48,10 @@ export interface SurveySurveyResult {
     fundingResult?: SurveyFundingResult;
     /**
      * 
-     * @type {SurveySurveyAnswer}
-     * @memberof SurveySurveyResult
-     */
-    leadingSurveyAnswer?: SurveySurveyAnswer;
-    /**
-     * 
      * @type {number}
      * @memberof SurveySurveyResult
      */
-    totalCount?: number;
+    averageScore?: number;
     /**
      * 
      * @type {number}
@@ -69,7 +63,13 @@ export interface SurveySurveyResult {
      * @type {number}
      * @memberof SurveySurveyResult
      */
-    averageScore?: number;
+    totalCount?: number;
+    /**
+     * 
+     * @type {SurveySurveyAnswer}
+     * @memberof SurveySurveyResult
+     */
+    leadingSurveyAnswer?: SurveySurveyAnswer;
 }
 
 /**
@@ -91,10 +91,10 @@ export function SurveySurveyResultFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'answers': json['answers'] == null ? undefined : (mapValues(json['answers'], SurveySurveyAnswerFromJSON)),
         'fundingResult': json['fundingResult'] == null ? undefined : SurveyFundingResultFromJSON(json['fundingResult']),
-        'leadingSurveyAnswer': json['leadingSurveyAnswer'] == null ? undefined : SurveySurveyAnswerFromJSON(json['leadingSurveyAnswer']),
-        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
-        'totalWeight': json['totalWeight'] == null ? undefined : json['totalWeight'],
         'averageScore': json['averageScore'] == null ? undefined : json['averageScore'],
+        'totalWeight': json['totalWeight'] == null ? undefined : json['totalWeight'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'leadingSurveyAnswer': json['leadingSurveyAnswer'] == null ? undefined : SurveySurveyAnswerFromJSON(json['leadingSurveyAnswer']),
     };
 }
 
@@ -111,10 +111,10 @@ export function SurveySurveyResultToJSONTyped(value?: SurveySurveyResult | null,
         
         'answers': value['answers'] == null ? undefined : (mapValues(value['answers'], SurveySurveyAnswerToJSON)),
         'fundingResult': SurveyFundingResultToJSON(value['fundingResult']),
-        'leadingSurveyAnswer': SurveySurveyAnswerToJSON(value['leadingSurveyAnswer']),
-        'totalCount': value['totalCount'],
-        'totalWeight': value['totalWeight'],
         'averageScore': value['averageScore'],
+        'totalWeight': value['totalWeight'],
+        'totalCount': value['totalCount'],
+        'leadingSurveyAnswer': SurveySurveyAnswerToJSON(value['leadingSurveyAnswer']),
     };
 }
 

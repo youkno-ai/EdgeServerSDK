@@ -12,15 +12,9 @@ import AnyCodable
 
 public struct BountyProduct: Codable, JSONEncodable, Hashable {
 
-    public enum EffectiveZoneAsEnum: String, Codable, CaseIterable {
+    public enum ZoneAsEnum: String, Codable, CaseIterable {
         case shop = "SHOP"
         case fnb = "FNB"
-        case unknown = "UNKNOWN"
-    }
-    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
-        case standard = "STANDARD"
-        case driver = "DRIVER"
-        case noDelivery = "NO_DELIVERY"
         case unknown = "UNKNOWN"
     }
     public enum KindAsEnum: String, Codable, CaseIterable {
@@ -32,9 +26,15 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         case vouchers = "VOUCHERS"
         case unknown = "UNKNOWN"
     }
-    public enum ZoneAsEnum: String, Codable, CaseIterable {
+    public enum EffectiveZoneAsEnum: String, Codable, CaseIterable {
         case shop = "SHOP"
         case fnb = "FNB"
+        case unknown = "UNKNOWN"
+    }
+    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
+        case standard = "STANDARD"
+        case driver = "DRIVER"
+        case noDelivery = "NO_DELIVERY"
         case unknown = "UNKNOWN"
     }
     public var merchant: User?
@@ -63,17 +63,17 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
     public var categoryOrder: Int?
     public var chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]?
     public var valid: Bool?
-    public var effectiveZoneAsEnum: EffectiveZoneAsEnum?
-    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
-    public var kindAsEnum: KindAsEnum?
-    public var topLevelVariant: BountyProductProductSpecificInfo?
-    public var effectiveZone: String?
-    public var fastDelivery: Bool?
     public var zoneAsEnum: ZoneAsEnum?
+    public var fastDelivery: Bool?
     public var totalQuantity: Double?
     public var optionCount: Int?
+    public var topLevelVariant: BountyProductProductSpecificInfo?
+    public var effectiveZone: String?
+    public var kindAsEnum: KindAsEnum?
+    public var effectiveZoneAsEnum: EffectiveZoneAsEnum?
+    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
 
-    public init(merchant: User? = nil, zone: String? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingPrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: BountyProductOptions? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: BountyProductProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]? = nil, valid: Bool? = nil, effectiveZoneAsEnum: EffectiveZoneAsEnum? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, kindAsEnum: KindAsEnum? = nil, topLevelVariant: BountyProductProductSpecificInfo? = nil, effectiveZone: String? = nil, fastDelivery: Bool? = nil, zoneAsEnum: ZoneAsEnum? = nil, totalQuantity: Double? = nil, optionCount: Int? = nil) {
+    public init(merchant: User? = nil, zone: String? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingPrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: BountyProductOptions? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: BountyProductProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: BountyProductProductSpecificInfoChemicalInfo]? = nil, valid: Bool? = nil, zoneAsEnum: ZoneAsEnum? = nil, fastDelivery: Bool? = nil, totalQuantity: Double? = nil, optionCount: Int? = nil, topLevelVariant: BountyProductProductSpecificInfo? = nil, effectiveZone: String? = nil, kindAsEnum: KindAsEnum? = nil, effectiveZoneAsEnum: EffectiveZoneAsEnum? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil) {
         self.merchant = merchant
         self.zone = zone
         self.merchantId = merchantId
@@ -100,15 +100,15 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         self.categoryOrder = categoryOrder
         self.chemicalCompositions = chemicalCompositions
         self.valid = valid
-        self.effectiveZoneAsEnum = effectiveZoneAsEnum
-        self.deliveryTypeAsEnum = deliveryTypeAsEnum
-        self.kindAsEnum = kindAsEnum
-        self.topLevelVariant = topLevelVariant
-        self.effectiveZone = effectiveZone
-        self.fastDelivery = fastDelivery
         self.zoneAsEnum = zoneAsEnum
+        self.fastDelivery = fastDelivery
         self.totalQuantity = totalQuantity
         self.optionCount = optionCount
+        self.topLevelVariant = topLevelVariant
+        self.effectiveZone = effectiveZone
+        self.kindAsEnum = kindAsEnum
+        self.effectiveZoneAsEnum = effectiveZoneAsEnum
+        self.deliveryTypeAsEnum = deliveryTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -138,15 +138,15 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         case categoryOrder
         case chemicalCompositions
         case valid
-        case effectiveZoneAsEnum
-        case deliveryTypeAsEnum
-        case kindAsEnum
-        case topLevelVariant
-        case effectiveZone
-        case fastDelivery
         case zoneAsEnum
+        case fastDelivery
         case totalQuantity
         case optionCount
+        case topLevelVariant
+        case effectiveZone
+        case kindAsEnum
+        case effectiveZoneAsEnum
+        case deliveryTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -179,15 +179,15 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(categoryOrder, forKey: .categoryOrder)
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(effectiveZoneAsEnum, forKey: .effectiveZoneAsEnum)
-        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
-        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
-        try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
-        try container.encodeIfPresent(effectiveZone, forKey: .effectiveZone)
-        try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
         try container.encodeIfPresent(zoneAsEnum, forKey: .zoneAsEnum)
+        try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
         try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
         try container.encodeIfPresent(optionCount, forKey: .optionCount)
+        try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
+        try container.encodeIfPresent(effectiveZone, forKey: .effectiveZone)
+        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
+        try container.encodeIfPresent(effectiveZoneAsEnum, forKey: .effectiveZoneAsEnum)
+        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
     }
 }
 

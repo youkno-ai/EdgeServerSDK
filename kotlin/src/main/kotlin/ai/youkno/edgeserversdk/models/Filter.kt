@@ -33,6 +33,7 @@ import com.squareup.moshi.JsonClass
  * @param calendarEventDateTo 
  * @param marketMode 
  * @param merchantId 
+ * @param merchantIds 
  * @param zone 
  * @param companyId 
  * @param ownerId 
@@ -149,6 +150,9 @@ data class Filter (
 
     @Json(name = "merchantId")
     val merchantId: kotlin.String? = null,
+
+    @Json(name = "merchantIds")
+    val merchantIds: kotlin.collections.Set<kotlin.String>? = null,
 
     @Json(name = "zone")
     val zone: kotlin.String? = null,

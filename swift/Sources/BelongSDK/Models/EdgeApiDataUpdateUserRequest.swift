@@ -16,16 +16,16 @@ public struct EdgeApiDataUpdateUserRequest: Codable, JSONEncodable, Hashable {
     public var email: String?
     public var phone: String?
     public var role: EdgeApiDataUpdateRolesRequest?
-    public var emailInternetAddress: EdgeApiDataUpdateUserRequestEmailInternetAddress?
     public var phoneNumber: PhoneNumber?
+    public var emailInternetAddress: EdgeApiDataUpdateUserRequestEmailInternetAddress?
 
-    public init(name: String? = nil, email: String? = nil, phone: String? = nil, role: EdgeApiDataUpdateRolesRequest? = nil, emailInternetAddress: EdgeApiDataUpdateUserRequestEmailInternetAddress? = nil, phoneNumber: PhoneNumber? = nil) {
+    public init(name: String? = nil, email: String? = nil, phone: String? = nil, role: EdgeApiDataUpdateRolesRequest? = nil, phoneNumber: PhoneNumber? = nil, emailInternetAddress: EdgeApiDataUpdateUserRequestEmailInternetAddress? = nil) {
         self.name = name
         self.email = email
         self.phone = phone
         self.role = role
-        self.emailInternetAddress = emailInternetAddress
         self.phoneNumber = phoneNumber
+        self.emailInternetAddress = emailInternetAddress
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,8 +33,8 @@ public struct EdgeApiDataUpdateUserRequest: Codable, JSONEncodable, Hashable {
         case email
         case phone
         case role
-        case emailInternetAddress
         case phoneNumber
+        case emailInternetAddress
     }
 
     // Encodable protocol methods
@@ -45,8 +45,8 @@ public struct EdgeApiDataUpdateUserRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(phone, forKey: .phone)
         try container.encodeIfPresent(role, forKey: .role)
-        try container.encodeIfPresent(emailInternetAddress, forKey: .emailInternetAddress)
         try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
+        try container.encodeIfPresent(emailInternetAddress, forKey: .emailInternetAddress)
     }
 }
 

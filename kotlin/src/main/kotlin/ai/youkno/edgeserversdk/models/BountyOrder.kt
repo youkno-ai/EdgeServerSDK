@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
+ * @param statusAsEnum 
+ * @param customerEmail 
+ * @param merchant 
+ * @param overallSection 
+ * @param merchantId 
+ * @param imageUrl 
  * @param paymentStatusAsEnum 
  * @param receiptStatusAsEnum 
  * @param vouchersToRedeem 
- * @param merchantId 
- * @param overallSection 
- * @param imageUrl 
- * @param customerEmail 
- * @param statusAsEnum 
- * @param merchant 
  */
 
 
@@ -124,6 +124,24 @@ data class BountyOrder (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
+
+    @Json(name = "customerEmail")
+    val customerEmail: kotlin.String? = null,
+
+    @Json(name = "merchant")
+    val merchant: User? = null,
+
+    @Json(name = "overallSection")
+    val overallSection: ShoppingCartOrderSummaryOrderSection? = null,
+
+    @Json(name = "merchantId")
+    val merchantId: kotlin.String? = null,
+
+    @Json(name = "imageUrl")
+    val imageUrl: kotlin.String? = null,
+
     @Json(name = "paymentStatusAsEnum")
     val paymentStatusAsEnum: BountyOrder.PaymentStatusAsEnum? = null,
 
@@ -131,28 +149,30 @@ data class BountyOrder (
     val receiptStatusAsEnum: BountyOrder.ReceiptStatusAsEnum? = null,
 
     @Json(name = "vouchersToRedeem")
-    val vouchersToRedeem: Reward? = null,
-
-    @Json(name = "merchantId")
-    val merchantId: kotlin.String? = null,
-
-    @Json(name = "overallSection")
-    val overallSection: ShoppingCartOrderSummaryOrderSection? = null,
-
-    @Json(name = "imageUrl")
-    val imageUrl: kotlin.String? = null,
-
-    @Json(name = "customerEmail")
-    val customerEmail: kotlin.String? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
-
-    @Json(name = "merchant")
-    val merchant: User? = null
+    val vouchersToRedeem: Reward? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,NEW,PROCESSING,READY_FOR_PICKUP,SHIPPED,SETTLED,CHARGEBACK,DISPUTED,COMPLETED,DECLINED,CANCELLED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class StatusAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "NEW") NEW("NEW"),
+        @Json(name = "PROCESSING") PROCESSING("PROCESSING"),
+        @Json(name = "READY_FOR_PICKUP") READY_FOR_PICKUP("READY_FOR_PICKUP"),
+        @Json(name = "SHIPPED") SHIPPED("SHIPPED"),
+        @Json(name = "SETTLED") SETTLED("SETTLED"),
+        @Json(name = "CHARGEBACK") CHARGEBACK("CHARGEBACK"),
+        @Json(name = "DISPUTED") DISPUTED("DISPUTED"),
+        @Json(name = "COMPLETED") COMPLETED("COMPLETED"),
+        @Json(name = "DECLINED") DECLINED("DECLINED"),
+        @Json(name = "CANCELLED") CANCELLED("CANCELLED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -177,26 +197,6 @@ data class BountyOrder (
     enum class ReceiptStatusAsEnum(val value: kotlin.String) {
         @Json(name = "CREATED") CREATED("CREATED"),
         @Json(name = "SCANNED") SCANNED("SCANNED");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,NEW,PROCESSING,READY_FOR_PICKUP,SHIPPED,SETTLED,CHARGEBACK,DISPUTED,COMPLETED,DECLINED,CANCELLED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "NEW") NEW("NEW"),
-        @Json(name = "PROCESSING") PROCESSING("PROCESSING"),
-        @Json(name = "READY_FOR_PICKUP") READY_FOR_PICKUP("READY_FOR_PICKUP"),
-        @Json(name = "SHIPPED") SHIPPED("SHIPPED"),
-        @Json(name = "SETTLED") SETTLED("SETTLED"),
-        @Json(name = "CHARGEBACK") CHARGEBACK("CHARGEBACK"),
-        @Json(name = "DISPUTED") DISPUTED("DISPUTED"),
-        @Json(name = "COMPLETED") COMPLETED("COMPLETED"),
-        @Json(name = "DECLINED") DECLINED("DECLINED"),
-        @Json(name = "CANCELLED") CANCELLED("CANCELLED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

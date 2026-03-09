@@ -58,10 +58,10 @@ import com.squareup.moshi.JsonClass
  * @param tipLine 
  * @param totalAmount 
  * @param transId 
+ * @param extDataAsObj 
  * @param paymentStatusAsEnum 
  * @param completedByWalletBmb 
  * @param reimburseApplicable 
- * @param extDataAsObj 
  * @param amountPaid 
  * @param cardType 
  * @param invoiceNo 
@@ -181,6 +181,9 @@ data class EdgeApiDataOrderPaymentResultDejavooTransactionData (
     @Json(name = "transId")
     val transId: kotlin.String? = null,
 
+    @Json(name = "extDataAsObj")
+    val extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData? = null,
+
     @Json(name = "paymentStatusAsEnum")
     val paymentStatusAsEnum: EdgeApiDataOrderPaymentResultDejavooTransactionData.PaymentStatusAsEnum? = null,
 
@@ -189,9 +192,6 @@ data class EdgeApiDataOrderPaymentResultDejavooTransactionData (
 
     @Json(name = "reimburseApplicable")
     val reimburseApplicable: kotlin.Boolean? = null,
-
-    @Json(name = "extDataAsObj")
-    val extDataAsObj: EdgeApiDataOrderPaymentResultDejavooTransactionDataExtData? = null,
 
     @Json(name = "amount_paid")
     val amountPaid: kotlin.String? = null,

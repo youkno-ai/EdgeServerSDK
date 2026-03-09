@@ -120,7 +120,7 @@ export interface BountyTerms {
      * @type {string}
      * @memberof BountyTerms
      */
-    admissionStrategyAsEnum?: BountyTermsAdmissionStrategyAsEnumEnum;
+    receiverAsEnum?: BountyTermsReceiverAsEnumEnum;
     /**
      * 
      * @type {Reward}
@@ -132,9 +132,18 @@ export interface BountyTerms {
      * @type {string}
      * @memberof BountyTerms
      */
-    receiverAsEnum?: BountyTermsReceiverAsEnumEnum;
+    admissionStrategyAsEnum?: BountyTermsAdmissionStrategyAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const BountyTermsReceiverAsEnumEnum = {
+    PARTICIPANT: 'PARTICIPANT',
+    WINNER: 'WINNER'
+} as const;
+export type BountyTermsReceiverAsEnumEnum = typeof BountyTermsReceiverAsEnumEnum[keyof typeof BountyTermsReceiverAsEnumEnum];
 
 /**
  * @export
@@ -146,15 +155,6 @@ export const BountyTermsAdmissionStrategyAsEnumEnum = {
     RANDOM: 'RANDOM'
 } as const;
 export type BountyTermsAdmissionStrategyAsEnumEnum = typeof BountyTermsAdmissionStrategyAsEnumEnum[keyof typeof BountyTermsAdmissionStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyTermsReceiverAsEnumEnum = {
-    PARTICIPANT: 'PARTICIPANT',
-    WINNER: 'WINNER'
-} as const;
-export type BountyTermsReceiverAsEnumEnum = typeof BountyTermsReceiverAsEnumEnum[keyof typeof BountyTermsReceiverAsEnumEnum];
 
 
 /**
@@ -184,9 +184,9 @@ export function BountyTermsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'goalReward': json['goalReward'] == null ? undefined : RewardFromJSON(json['goalReward']),
         'autoClose': json['autoClose'] == null ? undefined : json['autoClose'],
         'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], BountyPromiseFromJSON)),
-        'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
-        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
         'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
+        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
+        'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
     };
 }
 
@@ -211,9 +211,9 @@ export function BountyTermsToJSONTyped(value?: BountyTerms | null, ignoreDiscrim
         'goalReward': RewardToJSON(value['goalReward']),
         'autoClose': value['autoClose'],
         'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], BountyPromiseToJSON)),
-        'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],
-        'distributionReward': RewardToJSON(value['distributionReward']),
         'receiverAsEnum': value['receiverAsEnum'],
+        'distributionReward': RewardToJSON(value['distributionReward']),
+        'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],
     };
 }
 

@@ -32,10 +32,10 @@ public struct ShoppingCartOrderSummaryOrderSection: Codable, JSONEncodable, Hash
     public var balances: [String: ShoppingCartBalanceCategoryInfo]?
     public var products: [ShoppingCartProductInfo]?
     public var invalidProducts: [ShoppingCartInvalidProductInfo]?
-    public var deliveryFeeToPay: Reward?
     public var itemsTotalToPay: Reward?
+    public var deliveryFeeToPay: Reward?
 
-    public init(message: String? = nil, itemsTotal: Reward? = nil, deliveryFee: Reward? = nil, total: Reward? = nil, merchantTotal: Reward? = nil, sectionTotal: Reward? = nil, totalRedeemed: Reward? = nil, totalExchanged: Reward? = nil, onItemsExchanged: Reward? = nil, onDeliveryExchanged: Reward? = nil, discounts: [ShoppingCartOrderSummaryDiscountInfo]? = nil, taxes: [ShoppingCartOrderSummaryTaxInfo]? = nil, redemptionInfo: ShoppingCartRedemptionInfo? = nil, subTotal: Reward? = nil, roundingAmount: Reward? = nil, totalPaid: Reward? = nil, change: Reward? = nil, balances: [String: ShoppingCartBalanceCategoryInfo]? = nil, products: [ShoppingCartProductInfo]? = nil, invalidProducts: [ShoppingCartInvalidProductInfo]? = nil, deliveryFeeToPay: Reward? = nil, itemsTotalToPay: Reward? = nil) {
+    public init(message: String? = nil, itemsTotal: Reward? = nil, deliveryFee: Reward? = nil, total: Reward? = nil, merchantTotal: Reward? = nil, sectionTotal: Reward? = nil, totalRedeemed: Reward? = nil, totalExchanged: Reward? = nil, onItemsExchanged: Reward? = nil, onDeliveryExchanged: Reward? = nil, discounts: [ShoppingCartOrderSummaryDiscountInfo]? = nil, taxes: [ShoppingCartOrderSummaryTaxInfo]? = nil, redemptionInfo: ShoppingCartRedemptionInfo? = nil, subTotal: Reward? = nil, roundingAmount: Reward? = nil, totalPaid: Reward? = nil, change: Reward? = nil, balances: [String: ShoppingCartBalanceCategoryInfo]? = nil, products: [ShoppingCartProductInfo]? = nil, invalidProducts: [ShoppingCartInvalidProductInfo]? = nil, itemsTotalToPay: Reward? = nil, deliveryFeeToPay: Reward? = nil) {
         self.message = message
         self.itemsTotal = itemsTotal
         self.deliveryFee = deliveryFee
@@ -56,8 +56,8 @@ public struct ShoppingCartOrderSummaryOrderSection: Codable, JSONEncodable, Hash
         self.balances = balances
         self.products = products
         self.invalidProducts = invalidProducts
-        self.deliveryFeeToPay = deliveryFeeToPay
         self.itemsTotalToPay = itemsTotalToPay
+        self.deliveryFeeToPay = deliveryFeeToPay
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -81,8 +81,8 @@ public struct ShoppingCartOrderSummaryOrderSection: Codable, JSONEncodable, Hash
         case balances
         case products
         case invalidProducts
-        case deliveryFeeToPay
         case itemsTotalToPay
+        case deliveryFeeToPay
     }
 
     // Encodable protocol methods
@@ -109,8 +109,8 @@ public struct ShoppingCartOrderSummaryOrderSection: Codable, JSONEncodable, Hash
         try container.encodeIfPresent(balances, forKey: .balances)
         try container.encodeIfPresent(products, forKey: .products)
         try container.encodeIfPresent(invalidProducts, forKey: .invalidProducts)
-        try container.encodeIfPresent(deliveryFeeToPay, forKey: .deliveryFeeToPay)
         try container.encodeIfPresent(itemsTotalToPay, forKey: .itemsTotalToPay)
+        try container.encodeIfPresent(deliveryFeeToPay, forKey: .deliveryFeeToPay)
     }
 }
 

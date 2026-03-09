@@ -275,6 +275,12 @@ export interface BountyProductProductSpecificInfo {
     chemicalCompositions?: { [key: string]: BountyProductProductSpecificInfoChemicalInfo; };
     /**
      * 
+     * @type {Price}
+     * @memberof BountyProductProductSpecificInfo
+     */
+    effectivePrice?: Price;
+    /**
+     * 
      * @type {string}
      * @memberof BountyProductProductSpecificInfo
      */
@@ -303,12 +309,6 @@ export interface BountyProductProductSpecificInfo {
      * @memberof BountyProductProductSpecificInfo
      */
     weightUnitAsEnum?: BountyProductProductSpecificInfoWeightUnitAsEnumEnum;
-    /**
-     * 
-     * @type {Price}
-     * @memberof BountyProductProductSpecificInfo
-     */
-    effectivePrice?: Price;
 }
 
 
@@ -389,12 +389,12 @@ export function BountyProductProductSpecificInfoFromJSONTyped(json: any, ignoreD
         'strain': json['strain'] == null ? undefined : BountyProductProductSpecificInfoStrainFromJSON(json['strain']),
         'certificateOfAuthenticityUrl': json['certificateOfAuthenticityUrl'] == null ? undefined : json['certificateOfAuthenticityUrl'],
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], BountyProductProductSpecificInfoChemicalInfoFromJSON)),
+        'effectivePrice': json['effectivePrice'] == null ? undefined : PriceFromJSON(json['effectivePrice']),
         'primaryAttachmentId': json['primaryAttachmentId'] == null ? undefined : json['primaryAttachmentId'],
         'inventoryPolicyAsEnum': json['inventoryPolicyAsEnum'] == null ? undefined : json['inventoryPolicyAsEnum'],
         'extraDeliveryFeeReward': json['extraDeliveryFeeReward'] == null ? undefined : RewardFromJSON(json['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': json['effectiveOriginalPrice'] == null ? undefined : PriceFromJSON(json['effectiveOriginalPrice']),
         'weightUnitAsEnum': json['weightUnitAsEnum'] == null ? undefined : json['weightUnitAsEnum'],
-        'effectivePrice': json['effectivePrice'] == null ? undefined : PriceFromJSON(json['effectivePrice']),
     };
 }
 
@@ -443,12 +443,12 @@ export function BountyProductProductSpecificInfoToJSONTyped(value?: BountyProduc
         'strain': BountyProductProductSpecificInfoStrainToJSON(value['strain']),
         'certificateOfAuthenticityUrl': value['certificateOfAuthenticityUrl'],
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], BountyProductProductSpecificInfoChemicalInfoToJSON)),
+        'effectivePrice': PriceToJSON(value['effectivePrice']),
         'primaryAttachmentId': value['primaryAttachmentId'],
         'inventoryPolicyAsEnum': value['inventoryPolicyAsEnum'],
         'extraDeliveryFeeReward': RewardToJSON(value['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': PriceToJSON(value['effectiveOriginalPrice']),
         'weightUnitAsEnum': value['weightUnitAsEnum'],
-        'effectivePrice': PriceToJSON(value['effectivePrice']),
     };
 }
 

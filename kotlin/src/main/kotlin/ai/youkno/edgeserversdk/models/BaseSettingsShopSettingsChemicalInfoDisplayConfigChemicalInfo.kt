@@ -32,9 +32,9 @@ import com.squareup.moshi.JsonClass
  * @param `value` 
  * @param uom 
  * @param categoryInfo 
- * @param kindAsEnum 
  * @param effectiveName 
  * @param viewModeAsEnum 
+ * @param kindAsEnum 
  */
 
 
@@ -67,17 +67,29 @@ data class BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo (
     @Json(name = "categoryInfo")
     val categoryInfo: kotlin.collections.Map<kotlin.String, BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfo>? = null,
 
-    @Json(name = "kindAsEnum")
-    val kindAsEnum: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo.KindAsEnum? = null,
-
     @Json(name = "effectiveName")
     val effectiveName: kotlin.String? = null,
 
     @Json(name = "viewModeAsEnum")
-    val viewModeAsEnum: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo.ViewModeAsEnum? = null
+    val viewModeAsEnum: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo.ViewModeAsEnum? = null,
+
+    @Json(name = "kindAsEnum")
+    val kindAsEnum: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo.KindAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: HIDDEN,TILE,DETAILS,TILE_DETAILS
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ViewModeAsEnum(val value: kotlin.String) {
+        @Json(name = "HIDDEN") HIDDEN("HIDDEN"),
+        @Json(name = "TILE") TILE("TILE"),
+        @Json(name = "DETAILS") DETAILS("DETAILS"),
+        @Json(name = "TILE_DETAILS") TILE_DETAILS("TILE_DETAILS");
+    }
     /**
      * 
      *
@@ -90,18 +102,6 @@ data class BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo (
         @Json(name = "TERPENE") TERPENE("TERPENE"),
         @Json(name = "OTHER") OTHER("OTHER"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: HIDDEN,TILE,DETAILS,TILE_DETAILS
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ViewModeAsEnum(val value: kotlin.String) {
-        @Json(name = "HIDDEN") HIDDEN("HIDDEN"),
-        @Json(name = "TILE") TILE("TILE"),
-        @Json(name = "DETAILS") DETAILS("DETAILS"),
-        @Json(name = "TILE_DETAILS") TILE_DETAILS("TILE_DETAILS");
     }
 
 }

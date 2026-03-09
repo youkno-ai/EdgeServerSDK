@@ -67,16 +67,16 @@ export interface EdgeApiDataUpdateUserRequest {
     role?: EdgeApiDataUpdateRolesRequest;
     /**
      * 
-     * @type {EdgeApiDataUpdateUserRequestEmailInternetAddress}
-     * @memberof EdgeApiDataUpdateUserRequest
-     */
-    emailInternetAddress?: EdgeApiDataUpdateUserRequestEmailInternetAddress;
-    /**
-     * 
      * @type {PhoneNumber}
      * @memberof EdgeApiDataUpdateUserRequest
      */
     phoneNumber?: PhoneNumber;
+    /**
+     * 
+     * @type {EdgeApiDataUpdateUserRequestEmailInternetAddress}
+     * @memberof EdgeApiDataUpdateUserRequest
+     */
+    emailInternetAddress?: EdgeApiDataUpdateUserRequestEmailInternetAddress;
 }
 
 /**
@@ -100,8 +100,8 @@ export function EdgeApiDataUpdateUserRequestFromJSONTyped(json: any, ignoreDiscr
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'role': json['role'] == null ? undefined : EdgeApiDataUpdateRolesRequestFromJSON(json['role']),
-        'emailInternetAddress': json['emailInternetAddress'] == null ? undefined : EdgeApiDataUpdateUserRequestEmailInternetAddressFromJSON(json['emailInternetAddress']),
         'phoneNumber': json['phoneNumber'] == null ? undefined : PhoneNumberFromJSON(json['phoneNumber']),
+        'emailInternetAddress': json['emailInternetAddress'] == null ? undefined : EdgeApiDataUpdateUserRequestEmailInternetAddressFromJSON(json['emailInternetAddress']),
     };
 }
 
@@ -120,8 +120,8 @@ export function EdgeApiDataUpdateUserRequestToJSONTyped(value?: EdgeApiDataUpdat
         'email': value['email'],
         'phone': value['phone'],
         'role': EdgeApiDataUpdateRolesRequestToJSON(value['role']),
-        'emailInternetAddress': EdgeApiDataUpdateUserRequestEmailInternetAddressToJSON(value['emailInternetAddress']),
         'phoneNumber': PhoneNumberToJSON(value['phoneNumber']),
+        'emailInternetAddress': EdgeApiDataUpdateUserRequestEmailInternetAddressToJSON(value['emailInternetAddress']),
     };
 }
 

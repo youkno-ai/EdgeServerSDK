@@ -250,18 +250,6 @@ export interface ShoppingCartProductInfo {
     recommendationToken?: string;
     /**
      * 
-     * @type {number}
-     * @memberof ShoppingCartProductInfo
-     */
-    effectiveQuantity?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ShoppingCartProductInfo
-     */
-    deliveryTypeAsEnum?: ShoppingCartProductInfoDeliveryTypeAsEnumEnum;
-    /**
-     * 
      * @type {boolean}
      * @memberof ShoppingCartProductInfo
      */
@@ -278,19 +266,20 @@ export interface ShoppingCartProductInfo {
      * @memberof ShoppingCartProductInfo
      */
     totalPice?: Reward;
+    /**
+     * 
+     * @type {number}
+     * @memberof ShoppingCartProductInfo
+     */
+    effectiveQuantity?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ShoppingCartProductInfo
+     */
+    deliveryTypeAsEnum?: ShoppingCartProductInfoDeliveryTypeAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const ShoppingCartProductInfoDeliveryTypeAsEnumEnum = {
-    STANDARD: 'STANDARD',
-    DRIVER: 'DRIVER',
-    NO_DELIVERY: 'NO_DELIVERY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ShoppingCartProductInfoDeliveryTypeAsEnumEnum = typeof ShoppingCartProductInfoDeliveryTypeAsEnumEnum[keyof typeof ShoppingCartProductInfoDeliveryTypeAsEnumEnum];
 
 /**
  * @export
@@ -303,6 +292,17 @@ export const ShoppingCartProductInfoPriceTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ShoppingCartProductInfoPriceTypeAsEnumEnum = typeof ShoppingCartProductInfoPriceTypeAsEnumEnum[keyof typeof ShoppingCartProductInfoPriceTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShoppingCartProductInfoDeliveryTypeAsEnumEnum = {
+    STANDARD: 'STANDARD',
+    DRIVER: 'DRIVER',
+    NO_DELIVERY: 'NO_DELIVERY',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ShoppingCartProductInfoDeliveryTypeAsEnumEnum = typeof ShoppingCartProductInfoDeliveryTypeAsEnumEnum[keyof typeof ShoppingCartProductInfoDeliveryTypeAsEnumEnum];
 
 
 /**
@@ -353,11 +353,11 @@ export function ShoppingCartProductInfoFromJSONTyped(json: any, ignoreDiscrimina
         'addedAt': json['addedAt'] == null ? undefined : json['addedAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'recommendationToken': json['recommendationToken'] == null ? undefined : json['recommendationToken'],
-        'effectiveQuantity': json['effectiveQuantity'] == null ? undefined : json['effectiveQuantity'],
-        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
         'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
         'priceTypeAsEnum': json['priceTypeAsEnum'] == null ? undefined : json['priceTypeAsEnum'],
         'totalPice': json['totalPice'] == null ? undefined : RewardFromJSON(json['totalPice']),
+        'effectiveQuantity': json['effectiveQuantity'] == null ? undefined : json['effectiveQuantity'],
+        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
     };
 }
 
@@ -403,11 +403,11 @@ export function ShoppingCartProductInfoToJSONTyped(value?: ShoppingCartProductIn
         'addedAt': value['addedAt'],
         'updatedAt': value['updatedAt'],
         'recommendationToken': value['recommendationToken'],
-        'effectiveQuantity': value['effectiveQuantity'],
-        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
         'fastDelivery': value['fastDelivery'],
         'priceTypeAsEnum': value['priceTypeAsEnum'],
         'totalPice': RewardToJSON(value['totalPice']),
+        'effectiveQuantity': value['effectiveQuantity'],
+        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
     };
 }
 

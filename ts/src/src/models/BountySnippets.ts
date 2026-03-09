@@ -87,12 +87,6 @@ export interface BountySnippets {
     reject?: BountyRejectSnippet;
     /**
      * 
-     * @type {BountyPaymentRecvSnippet}
-     * @memberof BountySnippets
-     */
-    firstPaymentRecv?: BountyPaymentRecvSnippet;
-    /**
-     * 
      * @type {boolean}
      * @memberof BountySnippets
      */
@@ -103,6 +97,12 @@ export interface BountySnippets {
      * @memberof BountySnippets
      */
     lastChatSnippet?: BountyChatSnippet;
+    /**
+     * 
+     * @type {BountyPaymentRecvSnippet}
+     * @memberof BountySnippets
+     */
+    firstPaymentRecv?: BountyPaymentRecvSnippet;
 }
 
 /**
@@ -127,9 +127,9 @@ export function BountySnippetsFromJSONTyped(json: any, ignoreDiscriminator: bool
         'paymentsRecv': json['paymentsRecv'] == null ? undefined : (mapValues(json['paymentsRecv'], BountyPaymentRecvSnippetFromJSON)),
         'review': json['review'] == null ? undefined : BountyReviewSnippetFromJSON(json['review']),
         'reject': json['reject'] == null ? undefined : BountyRejectSnippetFromJSON(json['reject']),
-        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyPaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
         'paymentReceived': json['paymentReceived'] == null ? undefined : json['paymentReceived'],
         'lastChatSnippet': json['lastChatSnippet'] == null ? undefined : BountyChatSnippetFromJSON(json['lastChatSnippet']),
+        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyPaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
     };
 }
 
@@ -149,9 +149,9 @@ export function BountySnippetsToJSONTyped(value?: BountySnippets | null, ignoreD
         'paymentsRecv': value['paymentsRecv'] == null ? undefined : (mapValues(value['paymentsRecv'], BountyPaymentRecvSnippetToJSON)),
         'review': BountyReviewSnippetToJSON(value['review']),
         'reject': BountyRejectSnippetToJSON(value['reject']),
-        'firstPaymentRecv': BountyPaymentRecvSnippetToJSON(value['firstPaymentRecv']),
         'paymentReceived': value['paymentReceived'],
         'lastChatSnippet': BountyChatSnippetToJSON(value['lastChatSnippet']),
+        'firstPaymentRecv': BountyPaymentRecvSnippetToJSON(value['firstPaymentRecv']),
     };
 }
 

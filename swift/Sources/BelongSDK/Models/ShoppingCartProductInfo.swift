@@ -12,17 +12,17 @@ import AnyCodable
 
 public struct ShoppingCartProductInfo: Codable, JSONEncodable, Hashable {
 
-    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
-        case standard = "STANDARD"
-        case driver = "DRIVER"
-        case noDelivery = "NO_DELIVERY"
-        case unknown = "UNKNOWN"
-    }
     public enum PriceTypeAsEnum: String, Codable, CaseIterable {
         case original = "ORIGINAL"
         case _private = "PRIVATE"
         case promotion = "PROMOTION"
         case privatePromotion = "PRIVATE_PROMOTION"
+        case unknown = "UNKNOWN"
+    }
+    public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
+        case standard = "STANDARD"
+        case driver = "DRIVER"
+        case noDelivery = "NO_DELIVERY"
         case unknown = "UNKNOWN"
     }
     public var id: String?
@@ -56,13 +56,13 @@ public struct ShoppingCartProductInfo: Codable, JSONEncodable, Hashable {
     public var addedAt: Int64?
     public var updatedAt: Int64?
     public var recommendationToken: String?
-    public var effectiveQuantity: Double?
-    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
     public var fastDelivery: Bool?
     public var priceTypeAsEnum: PriceTypeAsEnum?
     public var totalPice: Reward?
+    public var effectiveQuantity: Double?
+    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
 
-    public init(id: String? = nil, zone: String? = nil, kind: String? = nil, bountyId: String? = nil, handle: String? = nil, merchant: User? = nil, merchantId: String? = nil, productSku: String? = nil, opt1Name: String? = nil, opt2Name: String? = nil, opt3Name: String? = nil, promotionId: String? = nil, name: String? = nil, description: String? = nil, attachment: AttachmentsAttachment? = nil, price: Reward? = nil, tierPrices: [BountyProductProductSpecificInfoPricesTierPrice]? = nil, priceType: String? = nil, msrp: Price? = nil, deliveryType: String? = nil, quantity: Double? = nil, weight: Double? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, maxAllowedQty: Double? = nil, availableQuantity: Double? = nil, weightUnit: String? = nil, balances: [String: ShoppingCartBalanceCategoryInfo]? = nil, addedAt: Int64? = nil, updatedAt: Int64? = nil, recommendationToken: String? = nil, effectiveQuantity: Double? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, fastDelivery: Bool? = nil, priceTypeAsEnum: PriceTypeAsEnum? = nil, totalPice: Reward? = nil) {
+    public init(id: String? = nil, zone: String? = nil, kind: String? = nil, bountyId: String? = nil, handle: String? = nil, merchant: User? = nil, merchantId: String? = nil, productSku: String? = nil, opt1Name: String? = nil, opt2Name: String? = nil, opt3Name: String? = nil, promotionId: String? = nil, name: String? = nil, description: String? = nil, attachment: AttachmentsAttachment? = nil, price: Reward? = nil, tierPrices: [BountyProductProductSpecificInfoPricesTierPrice]? = nil, priceType: String? = nil, msrp: Price? = nil, deliveryType: String? = nil, quantity: Double? = nil, weight: Double? = nil, sortWeight: Double? = nil, sortUnit: String? = nil, maxAllowedQty: Double? = nil, availableQuantity: Double? = nil, weightUnit: String? = nil, balances: [String: ShoppingCartBalanceCategoryInfo]? = nil, addedAt: Int64? = nil, updatedAt: Int64? = nil, recommendationToken: String? = nil, fastDelivery: Bool? = nil, priceTypeAsEnum: PriceTypeAsEnum? = nil, totalPice: Reward? = nil, effectiveQuantity: Double? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil) {
         self.id = id
         self.zone = zone
         self.kind = kind
@@ -94,11 +94,11 @@ public struct ShoppingCartProductInfo: Codable, JSONEncodable, Hashable {
         self.addedAt = addedAt
         self.updatedAt = updatedAt
         self.recommendationToken = recommendationToken
-        self.effectiveQuantity = effectiveQuantity
-        self.deliveryTypeAsEnum = deliveryTypeAsEnum
         self.fastDelivery = fastDelivery
         self.priceTypeAsEnum = priceTypeAsEnum
         self.totalPice = totalPice
+        self.effectiveQuantity = effectiveQuantity
+        self.deliveryTypeAsEnum = deliveryTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -133,11 +133,11 @@ public struct ShoppingCartProductInfo: Codable, JSONEncodable, Hashable {
         case addedAt
         case updatedAt
         case recommendationToken
-        case effectiveQuantity
-        case deliveryTypeAsEnum
         case fastDelivery
         case priceTypeAsEnum
         case totalPice
+        case effectiveQuantity
+        case deliveryTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -175,11 +175,11 @@ public struct ShoppingCartProductInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(addedAt, forKey: .addedAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
         try container.encodeIfPresent(recommendationToken, forKey: .recommendationToken)
-        try container.encodeIfPresent(effectiveQuantity, forKey: .effectiveQuantity)
-        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
         try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
         try container.encodeIfPresent(priceTypeAsEnum, forKey: .priceTypeAsEnum)
         try container.encodeIfPresent(totalPice, forKey: .totalPice)
+        try container.encodeIfPresent(effectiveQuantity, forKey: .effectiveQuantity)
+        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
     }
 }
 

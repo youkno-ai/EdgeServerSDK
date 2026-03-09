@@ -50,13 +50,13 @@ export interface BountyActivities {
      * @type {string}
      * @memberof BountyActivities
      */
-    previousBountyId?: string;
+    nextBountyId?: string;
     /**
      * 
      * @type {string}
      * @memberof BountyActivities
      */
-    nextBountyId?: string;
+    previousBountyId?: string;
 }
 
 /**
@@ -79,8 +79,8 @@ export function BountyActivitiesFromJSONTyped(json: any, ignoreDiscriminator: bo
         'nextActivity': json['nextActivity'] == null ? undefined : BountyActivitiesActivityFromJSON(json['nextActivity']),
         'previousActivity': json['previousActivity'] == null ? undefined : BountyActivitiesActivityFromJSON(json['previousActivity']),
         'highlightedActivities': json['highlightedActivities'] == null ? undefined : (mapValues(json['highlightedActivities'], BountyActivitiesActivityFromJSON)),
-        'previousBountyId': json['previousBountyId'] == null ? undefined : json['previousBountyId'],
         'nextBountyId': json['nextBountyId'] == null ? undefined : json['nextBountyId'],
+        'previousBountyId': json['previousBountyId'] == null ? undefined : json['previousBountyId'],
     };
 }
 
@@ -98,8 +98,8 @@ export function BountyActivitiesToJSONTyped(value?: BountyActivities | null, ign
         'nextActivity': BountyActivitiesActivityToJSON(value['nextActivity']),
         'previousActivity': BountyActivitiesActivityToJSON(value['previousActivity']),
         'highlightedActivities': value['highlightedActivities'] == null ? undefined : (mapValues(value['highlightedActivities'], BountyActivitiesActivityToJSON)),
-        'previousBountyId': value['previousBountyId'],
         'nextBountyId': value['nextBountyId'],
+        'previousBountyId': value['previousBountyId'],
     };
 }
 

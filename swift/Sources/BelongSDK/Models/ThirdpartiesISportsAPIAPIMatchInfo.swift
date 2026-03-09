@@ -12,12 +12,6 @@ import AnyCodable
 
 public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashable {
 
-    public enum LeagueTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case league = "LEAGUE"
-        case cup = "CUP"
-        case unknown = "UNKNOWN"
-    }
     public enum StatusAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case notStarted = "NOT_STARTED"
@@ -32,6 +26,12 @@ public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashab
         case terminated = "TERMINATED"
         case interrupted = "INTERRUPTED"
         case postponed = "POSTPONED"
+        case unknown = "UNKNOWN"
+    }
+    public enum LeagueTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case league = "LEAGUE"
+        case cup = "CUP"
         case unknown = "UNKNOWN"
     }
     public var matchId: String?
@@ -70,10 +70,10 @@ public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashab
     public var explain: String?
     public var extraExplain: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain?
     public var neutral: Bool?
-    public var leagueTypeAsEnum: LeagueTypeAsEnum?
     public var statusAsEnum: StatusAsEnum?
+    public var leagueTypeAsEnum: LeagueTypeAsEnum?
 
-    public init(matchId: String? = nil, leagueId: String? = nil, leagueType: Int? = nil, leagueName: String? = nil, leagueShortName: String? = nil, subLeagueId: String? = nil, subLeagueName: String? = nil, matchTime: Int64? = nil, halfStartTime: Int64? = nil, status: Int? = nil, homeId: String? = nil, homeName: String? = nil, awayId: String? = nil, awayName: String? = nil, homeScore: Int? = nil, awayScore: Int? = nil, homeHalfScore: Int? = nil, awayHalfScore: Int? = nil, homeRed: Int? = nil, awayRed: Int? = nil, homeYellow: Int? = nil, awayYellow: Int? = nil, homeCorner: Int? = nil, awayCorner: Int? = nil, homeRank: String? = nil, awayRank: String? = nil, season: String? = nil, stageId: String? = nil, round: String? = nil, group: String? = nil, location: String? = nil, weather: String? = nil, temperature: String? = nil, explain: String? = nil, extraExplain: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain? = nil, neutral: Bool? = nil, leagueTypeAsEnum: LeagueTypeAsEnum? = nil, statusAsEnum: StatusAsEnum? = nil) {
+    public init(matchId: String? = nil, leagueId: String? = nil, leagueType: Int? = nil, leagueName: String? = nil, leagueShortName: String? = nil, subLeagueId: String? = nil, subLeagueName: String? = nil, matchTime: Int64? = nil, halfStartTime: Int64? = nil, status: Int? = nil, homeId: String? = nil, homeName: String? = nil, awayId: String? = nil, awayName: String? = nil, homeScore: Int? = nil, awayScore: Int? = nil, homeHalfScore: Int? = nil, awayHalfScore: Int? = nil, homeRed: Int? = nil, awayRed: Int? = nil, homeYellow: Int? = nil, awayYellow: Int? = nil, homeCorner: Int? = nil, awayCorner: Int? = nil, homeRank: String? = nil, awayRank: String? = nil, season: String? = nil, stageId: String? = nil, round: String? = nil, group: String? = nil, location: String? = nil, weather: String? = nil, temperature: String? = nil, explain: String? = nil, extraExplain: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain? = nil, neutral: Bool? = nil, statusAsEnum: StatusAsEnum? = nil, leagueTypeAsEnum: LeagueTypeAsEnum? = nil) {
         self.matchId = matchId
         self.leagueId = leagueId
         self.leagueType = leagueType
@@ -110,8 +110,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashab
         self.explain = explain
         self.extraExplain = extraExplain
         self.neutral = neutral
-        self.leagueTypeAsEnum = leagueTypeAsEnum
         self.statusAsEnum = statusAsEnum
+        self.leagueTypeAsEnum = leagueTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -151,8 +151,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashab
         case explain
         case extraExplain
         case neutral
-        case leagueTypeAsEnum
         case statusAsEnum
+        case leagueTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -195,8 +195,8 @@ public struct ThirdpartiesISportsAPIAPIMatchInfo: Codable, JSONEncodable, Hashab
         try container.encodeIfPresent(explain, forKey: .explain)
         try container.encodeIfPresent(extraExplain, forKey: .extraExplain)
         try container.encodeIfPresent(neutral, forKey: .neutral)
-        try container.encodeIfPresent(leagueTypeAsEnum, forKey: .leagueTypeAsEnum)
         try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
+        try container.encodeIfPresent(leagueTypeAsEnum, forKey: .leagueTypeAsEnum)
     }
 }
 

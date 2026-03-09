@@ -63,12 +63,12 @@ import com.squareup.moshi.JsonClass
  * @param strain 
  * @param certificateOfAuthenticityUrl 
  * @param chemicalCompositions 
+ * @param effectivePrice 
  * @param primaryAttachmentId 
  * @param inventoryPolicyAsEnum 
  * @param extraDeliveryFeeReward 
  * @param effectiveOriginalPrice 
  * @param weightUnitAsEnum 
- * @param effectivePrice 
  */
 
 
@@ -176,6 +176,9 @@ data class BountyProductProductSpecificInfo (
     @Json(name = "chemicalCompositions")
     val chemicalCompositions: kotlin.collections.Map<kotlin.String, BountyProductProductSpecificInfoChemicalInfo>? = null,
 
+    @Json(name = "effectivePrice")
+    val effectivePrice: Price? = null,
+
     @Json(name = "primaryAttachmentId")
     val primaryAttachmentId: kotlin.String? = null,
 
@@ -189,10 +192,7 @@ data class BountyProductProductSpecificInfo (
     val effectiveOriginalPrice: Price? = null,
 
     @Json(name = "weightUnitAsEnum")
-    val weightUnitAsEnum: BountyProductProductSpecificInfo.WeightUnitAsEnum? = null,
-
-    @Json(name = "effectivePrice")
-    val effectivePrice: Price? = null
+    val weightUnitAsEnum: BountyProductProductSpecificInfo.WeightUnitAsEnum? = null
 
 ) {
 

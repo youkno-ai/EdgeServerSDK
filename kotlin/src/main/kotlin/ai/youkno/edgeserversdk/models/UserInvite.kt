@@ -41,6 +41,8 @@ import com.squareup.moshi.JsonClass
  * @param roles 
  * @param bountyId 
  * @param responseId 
+ * @param badgeDefId 
+ * @param badgeCode 
  * @param companyId 
  * @param dealBountyId 
  * @param linkUrl 
@@ -105,6 +107,12 @@ data class UserInvite (
 
     @Json(name = "responseId")
     val responseId: kotlin.String? = null,
+
+    @Json(name = "badgeDefId")
+    val badgeDefId: kotlin.String? = null,
+
+    @Json(name = "badgeCode")
+    val badgeCode: kotlin.String? = null,
 
     @Json(name = "companyId")
     val companyId: kotlin.String? = null,

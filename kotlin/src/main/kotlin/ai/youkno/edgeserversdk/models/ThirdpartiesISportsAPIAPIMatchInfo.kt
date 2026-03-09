@@ -59,8 +59,8 @@ import com.squareup.moshi.JsonClass
  * @param explain 
  * @param extraExplain 
  * @param neutral 
- * @param leagueTypeAsEnum 
  * @param statusAsEnum 
+ * @param leagueTypeAsEnum 
  */
 
 
@@ -174,26 +174,14 @@ data class ThirdpartiesISportsAPIAPIMatchInfo (
     @Json(name = "neutral")
     val neutral: kotlin.Boolean? = null,
 
-    @Json(name = "leagueTypeAsEnum")
-    val leagueTypeAsEnum: ThirdpartiesISportsAPIAPIMatchInfo.LeagueTypeAsEnum? = null,
-
     @Json(name = "statusAsEnum")
-    val statusAsEnum: ThirdpartiesISportsAPIAPIMatchInfo.StatusAsEnum? = null
+    val statusAsEnum: ThirdpartiesISportsAPIAPIMatchInfo.StatusAsEnum? = null,
+
+    @Json(name = "leagueTypeAsEnum")
+    val leagueTypeAsEnum: ThirdpartiesISportsAPIAPIMatchInfo.LeagueTypeAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: NONE,LEAGUE,CUP,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class LeagueTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "LEAGUE") LEAGUE("LEAGUE"),
-        @Json(name = "CUP") CUP("CUP"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -214,6 +202,18 @@ data class ThirdpartiesISportsAPIAPIMatchInfo (
         @Json(name = "TERMINATED") TERMINATED("TERMINATED"),
         @Json(name = "INTERRUPTED") INTERRUPTED("INTERRUPTED"),
         @Json(name = "POSTPONED") POSTPONED("POSTPONED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,LEAGUE,CUP,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class LeagueTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "LEAGUE") LEAGUE("LEAGUE"),
+        @Json(name = "CUP") CUP("CUP"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

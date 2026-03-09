@@ -12,22 +12,21 @@ import AnyCodable
 
 public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
 
-    public enum StorageTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case gs = "GS"
-        case s3 = "S3"
-        case ext = "EXT"
-        case unknown = "UNKNOWN"
-    }
-    public enum DisplayStyleAsEnum: String, Codable, CaseIterable {
-        case inline = "INLINE"
-        case attach = "ATTACH"
-    }
-    public enum VisibilityAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case creator = "CREATOR"
-        case participants = "PARTICIPANTS"
-        case all = "ALL"
+    public enum MeaningAsEnum: String, Codable, CaseIterable {
+        case teamLogo = "TEAM_LOGO"
+        case resume = "RESUME"
+        case product = "PRODUCT"
+        case promotion = "PROMOTION"
+        case otherDoc = "OTHER_DOC"
+        case welcomeTemplate = "WELCOME_TEMPLATE"
+        case orderConfirmationPickupTemplate = "ORDER_CONFIRMATION_PICKUP_TEMPLATE"
+        case orderConfirmationDeliveryTemplate = "ORDER_CONFIRMATION_DELIVERY_TEMPLATE"
+        case orderConfirmationKioskTemplate = "ORDER_CONFIRMATION_KIOSK_TEMPLATE"
+        case orderProcessedConfirmationTemplate = "ORDER_PROCESSED_CONFIRMATION_TEMPLATE"
+        case shopLogo = "SHOP_LOGO"
+        case shopBackground = "SHOP_BACKGROUND"
+        case userAvatar = "USER_AVATAR"
+        case other = "OTHER"
     }
     public enum TypeAsEnum: String, Codable, CaseIterable {
         case image = "IMAGE"
@@ -49,21 +48,22 @@ public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
         case msg = "MSG"
         case notFile = "NOT_FILE"
     }
-    public enum MeaningAsEnum: String, Codable, CaseIterable {
-        case teamLogo = "TEAM_LOGO"
-        case resume = "RESUME"
-        case product = "PRODUCT"
-        case promotion = "PROMOTION"
-        case otherDoc = "OTHER_DOC"
-        case welcomeTemplate = "WELCOME_TEMPLATE"
-        case orderConfirmationPickupTemplate = "ORDER_CONFIRMATION_PICKUP_TEMPLATE"
-        case orderConfirmationDeliveryTemplate = "ORDER_CONFIRMATION_DELIVERY_TEMPLATE"
-        case orderConfirmationKioskTemplate = "ORDER_CONFIRMATION_KIOSK_TEMPLATE"
-        case orderProcessedConfirmationTemplate = "ORDER_PROCESSED_CONFIRMATION_TEMPLATE"
-        case shopLogo = "SHOP_LOGO"
-        case shopBackground = "SHOP_BACKGROUND"
-        case userAvatar = "USER_AVATAR"
-        case other = "OTHER"
+    public enum DisplayStyleAsEnum: String, Codable, CaseIterable {
+        case inline = "INLINE"
+        case attach = "ATTACH"
+    }
+    public enum VisibilityAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case creator = "CREATOR"
+        case participants = "PARTICIPANTS"
+        case all = "ALL"
+    }
+    public enum StorageTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case gs = "GS"
+        case s3 = "S3"
+        case ext = "EXT"
+        case unknown = "UNKNOWN"
     }
     public enum AccessKeyEnforcementAsEnum: String, Codable, CaseIterable {
         case hide = "HIDE"
@@ -105,19 +105,19 @@ public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
     public var cdnDisplayUrl: String?
     public var attUrl: String?
     public var valid: Bool?
-    public var storageTypeAsEnum: StorageTypeAsEnum?
+    public var meaningAsEnum: MeaningAsEnum?
+    public var fileNameFromUrl: String?
+    public var youTubeVideoId: String?
+    public var typeAsEnum: TypeAsEnum?
+    public var effectiveActionUrl: String?
     public var displayStyleAsEnum: DisplayStyleAsEnum?
     public var visibilityAsEnum: VisibilityAsEnum?
     public var youTubeCoverImage: String?
-    public var effectiveActionUrl: String?
-    public var typeAsEnum: TypeAsEnum?
-    public var fileNameFromUrl: String?
-    public var youTubeVideoId: String?
-    public var meaningAsEnum: MeaningAsEnum?
+    public var storageTypeAsEnum: StorageTypeAsEnum?
     public var accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum?
     public var accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum?
 
-    public init(id: String? = nil, url: String? = nil, displayUrl: String? = nil, localUri: String? = nil, title: String? = nil, filename: String? = nil, action: AttachmentsAttachmentAction? = nil, background: AttachmentsAttachmentBackground? = nil, overlay: AttachmentsAttachmentOverlay? = nil, headline1: AttachmentsAttachmentTextLine? = nil, headline2: AttachmentsAttachmentTextLine? = nil, mimeType: String? = nil, coverList: [AttachmentsAttachmentCover]? = nil, transcodingInfo: AttachmentsAttachmentTranscodingInfo? = nil, displayStyle: String? = nil, visibility: String? = nil, type: String? = nil, meaning: String? = nil, note: String? = nil, order: String? = nil, storageType: String? = nil, size: Int? = nil, altText: String? = nil, etag: String? = nil, uploadId: String? = nil, accessKeys: HasAccessKeysAccessKeys? = nil, cdnUrl: String? = nil, cdnDisplayUrl: String? = nil, attUrl: String? = nil, valid: Bool? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil, displayStyleAsEnum: DisplayStyleAsEnum? = nil, visibilityAsEnum: VisibilityAsEnum? = nil, youTubeCoverImage: String? = nil, effectiveActionUrl: String? = nil, typeAsEnum: TypeAsEnum? = nil, fileNameFromUrl: String? = nil, youTubeVideoId: String? = nil, meaningAsEnum: MeaningAsEnum? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
+    public init(id: String? = nil, url: String? = nil, displayUrl: String? = nil, localUri: String? = nil, title: String? = nil, filename: String? = nil, action: AttachmentsAttachmentAction? = nil, background: AttachmentsAttachmentBackground? = nil, overlay: AttachmentsAttachmentOverlay? = nil, headline1: AttachmentsAttachmentTextLine? = nil, headline2: AttachmentsAttachmentTextLine? = nil, mimeType: String? = nil, coverList: [AttachmentsAttachmentCover]? = nil, transcodingInfo: AttachmentsAttachmentTranscodingInfo? = nil, displayStyle: String? = nil, visibility: String? = nil, type: String? = nil, meaning: String? = nil, note: String? = nil, order: String? = nil, storageType: String? = nil, size: Int? = nil, altText: String? = nil, etag: String? = nil, uploadId: String? = nil, accessKeys: HasAccessKeysAccessKeys? = nil, cdnUrl: String? = nil, cdnDisplayUrl: String? = nil, attUrl: String? = nil, valid: Bool? = nil, meaningAsEnum: MeaningAsEnum? = nil, fileNameFromUrl: String? = nil, youTubeVideoId: String? = nil, typeAsEnum: TypeAsEnum? = nil, effectiveActionUrl: String? = nil, displayStyleAsEnum: DisplayStyleAsEnum? = nil, visibilityAsEnum: VisibilityAsEnum? = nil, youTubeCoverImage: String? = nil, storageTypeAsEnum: StorageTypeAsEnum? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
         self.id = id
         self.url = url
         self.displayUrl = displayUrl
@@ -148,15 +148,15 @@ public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
         self.cdnDisplayUrl = cdnDisplayUrl
         self.attUrl = attUrl
         self.valid = valid
-        self.storageTypeAsEnum = storageTypeAsEnum
+        self.meaningAsEnum = meaningAsEnum
+        self.fileNameFromUrl = fileNameFromUrl
+        self.youTubeVideoId = youTubeVideoId
+        self.typeAsEnum = typeAsEnum
+        self.effectiveActionUrl = effectiveActionUrl
         self.displayStyleAsEnum = displayStyleAsEnum
         self.visibilityAsEnum = visibilityAsEnum
         self.youTubeCoverImage = youTubeCoverImage
-        self.effectiveActionUrl = effectiveActionUrl
-        self.typeAsEnum = typeAsEnum
-        self.fileNameFromUrl = fileNameFromUrl
-        self.youTubeVideoId = youTubeVideoId
-        self.meaningAsEnum = meaningAsEnum
+        self.storageTypeAsEnum = storageTypeAsEnum
         self.accessKeyEnforcementAsEnum = accessKeyEnforcementAsEnum
         self.accessKeyCtaModeAsEnum = accessKeyCtaModeAsEnum
     }
@@ -192,15 +192,15 @@ public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
         case cdnDisplayUrl
         case attUrl
         case valid
-        case storageTypeAsEnum
+        case meaningAsEnum
+        case fileNameFromUrl
+        case youTubeVideoId
+        case typeAsEnum
+        case effectiveActionUrl
         case displayStyleAsEnum
         case visibilityAsEnum
         case youTubeCoverImage
-        case effectiveActionUrl
-        case typeAsEnum
-        case fileNameFromUrl
-        case youTubeVideoId
-        case meaningAsEnum
+        case storageTypeAsEnum
         case accessKeyEnforcementAsEnum
         case accessKeyCtaModeAsEnum
     }
@@ -239,15 +239,15 @@ public struct AttachmentsAttachment: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(cdnDisplayUrl, forKey: .cdnDisplayUrl)
         try container.encodeIfPresent(attUrl, forKey: .attUrl)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(storageTypeAsEnum, forKey: .storageTypeAsEnum)
+        try container.encodeIfPresent(meaningAsEnum, forKey: .meaningAsEnum)
+        try container.encodeIfPresent(fileNameFromUrl, forKey: .fileNameFromUrl)
+        try container.encodeIfPresent(youTubeVideoId, forKey: .youTubeVideoId)
+        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
+        try container.encodeIfPresent(effectiveActionUrl, forKey: .effectiveActionUrl)
         try container.encodeIfPresent(displayStyleAsEnum, forKey: .displayStyleAsEnum)
         try container.encodeIfPresent(visibilityAsEnum, forKey: .visibilityAsEnum)
         try container.encodeIfPresent(youTubeCoverImage, forKey: .youTubeCoverImage)
-        try container.encodeIfPresent(effectiveActionUrl, forKey: .effectiveActionUrl)
-        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
-        try container.encodeIfPresent(fileNameFromUrl, forKey: .fileNameFromUrl)
-        try container.encodeIfPresent(youTubeVideoId, forKey: .youTubeVideoId)
-        try container.encodeIfPresent(meaningAsEnum, forKey: .meaningAsEnum)
+        try container.encodeIfPresent(storageTypeAsEnum, forKey: .storageTypeAsEnum)
         try container.encodeIfPresent(accessKeyEnforcementAsEnum, forKey: .accessKeyEnforcementAsEnum)
         try container.encodeIfPresent(accessKeyCtaModeAsEnum, forKey: .accessKeyCtaModeAsEnum)
     }

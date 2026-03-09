@@ -501,13 +501,55 @@ export interface BaseSettingsShopSettings {
      * @type {string}
      * @memberof BaseSettingsShopSettings
      */
-    settingsTypeAsEnum?: BaseSettingsShopSettingsSettingsTypeAsEnumEnum;
+    shopTypeAsEnum?: BaseSettingsShopSettingsShopTypeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BaseSettingsShopSettings
      */
-    locationBrandingAsEnum?: BaseSettingsShopSettingsLocationBrandingAsEnumEnum;
+    anonUsersAsEnum?: BaseSettingsShopSettingsAnonUsersAsEnumEnum;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof BaseSettingsShopSettings
+     */
+    loginsAsEnum?: Array<BaseSettingsShopSettingsLoginsAsEnumEnum>;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    embeddedShopUrlAsURI?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    settingsStrategyAsEnum?: BaseSettingsShopSettingsSettingsStrategyAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    settingsWriteModeAsEnum?: BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    shopStatusAsEnum?: BaseSettingsShopSettingsShopStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    landingPageAsEnum?: BaseSettingsShopSettingsLandingPageAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettings
+     */
+    medicalIdPromptAsEnum?: BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -561,55 +603,13 @@ export interface BaseSettingsShopSettings {
      * @type {string}
      * @memberof BaseSettingsShopSettings
      */
-    medicalIdPromptAsEnum?: BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum;
+    settingsTypeAsEnum?: BaseSettingsShopSettingsSettingsTypeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BaseSettingsShopSettings
      */
-    settingsStrategyAsEnum?: BaseSettingsShopSettingsSettingsStrategyAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    settingsWriteModeAsEnum?: BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    shopStatusAsEnum?: BaseSettingsShopSettingsShopStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    embeddedShopUrlAsURI?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    landingPageAsEnum?: BaseSettingsShopSettingsLandingPageAsEnumEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof BaseSettingsShopSettings
-     */
-    loginsAsEnum?: Array<BaseSettingsShopSettingsLoginsAsEnumEnum>;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    shopTypeAsEnum?: BaseSettingsShopSettingsShopTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettings
-     */
-    anonUsersAsEnum?: BaseSettingsShopSettingsAnonUsersAsEnumEnum;
+    locationBrandingAsEnum?: BaseSettingsShopSettingsLocationBrandingAsEnumEnum;
 }
 
 
@@ -636,22 +636,88 @@ export type BaseSettingsShopSettingsPosTypeEnum = typeof BaseSettingsShopSetting
 /**
  * @export
  */
-export const BaseSettingsShopSettingsSettingsTypeAsEnumEnum = {
-    NONE: 'NONE',
-    CORP: 'CORP',
-    LOCATION: 'LOCATION',
-    UNKNOWN: 'UNKNOWN'
+export const BaseSettingsShopSettingsShopTypeAsEnumEnum = {
+    POS: 'POS',
+    SHOP: 'SHOP',
+    MARKET: 'MARKET'
 } as const;
-export type BaseSettingsShopSettingsSettingsTypeAsEnumEnum = typeof BaseSettingsShopSettingsSettingsTypeAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsTypeAsEnumEnum];
+export type BaseSettingsShopSettingsShopTypeAsEnumEnum = typeof BaseSettingsShopSettingsShopTypeAsEnumEnum[keyof typeof BaseSettingsShopSettingsShopTypeAsEnumEnum];
 
 /**
  * @export
  */
-export const BaseSettingsShopSettingsLocationBrandingAsEnumEnum = {
-    DISABLED: 'DISABLED',
-    ENABLED: 'ENABLED'
+export const BaseSettingsShopSettingsAnonUsersAsEnumEnum = {
+    AUTH_AT_START: 'AUTH_AT_START',
+    AUTH_AT_ORDER: 'AUTH_AT_ORDER',
+    ALLOW_PURCHASE: 'ALLOW_PURCHASE'
 } as const;
-export type BaseSettingsShopSettingsLocationBrandingAsEnumEnum = typeof BaseSettingsShopSettingsLocationBrandingAsEnumEnum[keyof typeof BaseSettingsShopSettingsLocationBrandingAsEnumEnum];
+export type BaseSettingsShopSettingsAnonUsersAsEnumEnum = typeof BaseSettingsShopSettingsAnonUsersAsEnumEnum[keyof typeof BaseSettingsShopSettingsAnonUsersAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsLoginsAsEnumEnum = {
+    NONE: 'NONE',
+    SSO: 'SSO',
+    GOOGLE: 'GOOGLE',
+    APPLE: 'APPLE',
+    MICROSOFT: 'MICROSOFT',
+    EMAIL: 'EMAIL',
+    PHONE: 'PHONE',
+    INTERNET: 'INTERNET',
+    ANON: 'ANON',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BaseSettingsShopSettingsLoginsAsEnumEnum = typeof BaseSettingsShopSettingsLoginsAsEnumEnum[keyof typeof BaseSettingsShopSettingsLoginsAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsSettingsStrategyAsEnumEnum = {
+    CORP_ONLY: 'CORP_ONLY',
+    LOCATION_ONLY: 'LOCATION_ONLY',
+    INHERIT: 'INHERIT'
+} as const;
+export type BaseSettingsShopSettingsSettingsStrategyAsEnumEnum = typeof BaseSettingsShopSettingsSettingsStrategyAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsStrategyAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum = {
+    LOCATION: 'LOCATION',
+    CORPORATE: 'CORPORATE',
+    SYSTEM: 'SYSTEM'
+} as const;
+export type BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum = typeof BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsShopStatusAsEnumEnum = {
+    AUTO: 'AUTO',
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BaseSettingsShopSettingsShopStatusAsEnumEnum = typeof BaseSettingsShopSettingsShopStatusAsEnumEnum[keyof typeof BaseSettingsShopSettingsShopStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsLandingPageAsEnumEnum = {
+    DEFAULT: 'DEFAULT',
+    ALL_PRODUCTS: 'ALL_PRODUCTS'
+} as const;
+export type BaseSettingsShopSettingsLandingPageAsEnumEnum = typeof BaseSettingsShopSettingsLandingPageAsEnumEnum[keyof typeof BaseSettingsShopSettingsLandingPageAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum = {
+    AT_START: 'AT_START',
+    AT_ORDER: 'AT_ORDER'
+} as const;
+export type BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum = typeof BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum[keyof typeof BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum];
 
 /**
  * @export
@@ -717,88 +783,22 @@ export type BaseSettingsShopSettingsFlwrInferenceStrategyAsEnumEnum = typeof Bas
 /**
  * @export
  */
-export const BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum = {
-    AT_START: 'AT_START',
-    AT_ORDER: 'AT_ORDER'
-} as const;
-export type BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum = typeof BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum[keyof typeof BaseSettingsShopSettingsMedicalIdPromptAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsSettingsStrategyAsEnumEnum = {
-    CORP_ONLY: 'CORP_ONLY',
-    LOCATION_ONLY: 'LOCATION_ONLY',
-    INHERIT: 'INHERIT'
-} as const;
-export type BaseSettingsShopSettingsSettingsStrategyAsEnumEnum = typeof BaseSettingsShopSettingsSettingsStrategyAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum = {
-    LOCATION: 'LOCATION',
-    CORPORATE: 'CORPORATE',
-    SYSTEM: 'SYSTEM'
-} as const;
-export type BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum = typeof BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsWriteModeAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsShopStatusAsEnumEnum = {
-    AUTO: 'AUTO',
-    ENABLED: 'ENABLED',
-    DISABLED: 'DISABLED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BaseSettingsShopSettingsShopStatusAsEnumEnum = typeof BaseSettingsShopSettingsShopStatusAsEnumEnum[keyof typeof BaseSettingsShopSettingsShopStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsLandingPageAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    ALL_PRODUCTS: 'ALL_PRODUCTS'
-} as const;
-export type BaseSettingsShopSettingsLandingPageAsEnumEnum = typeof BaseSettingsShopSettingsLandingPageAsEnumEnum[keyof typeof BaseSettingsShopSettingsLandingPageAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsLoginsAsEnumEnum = {
+export const BaseSettingsShopSettingsSettingsTypeAsEnumEnum = {
     NONE: 'NONE',
-    SSO: 'SSO',
-    GOOGLE: 'GOOGLE',
-    APPLE: 'APPLE',
-    MICROSOFT: 'MICROSOFT',
-    EMAIL: 'EMAIL',
-    PHONE: 'PHONE',
-    INTERNET: 'INTERNET',
-    ANON: 'ANON',
+    CORP: 'CORP',
+    LOCATION: 'LOCATION',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type BaseSettingsShopSettingsLoginsAsEnumEnum = typeof BaseSettingsShopSettingsLoginsAsEnumEnum[keyof typeof BaseSettingsShopSettingsLoginsAsEnumEnum];
+export type BaseSettingsShopSettingsSettingsTypeAsEnumEnum = typeof BaseSettingsShopSettingsSettingsTypeAsEnumEnum[keyof typeof BaseSettingsShopSettingsSettingsTypeAsEnumEnum];
 
 /**
  * @export
  */
-export const BaseSettingsShopSettingsShopTypeAsEnumEnum = {
-    POS: 'POS',
-    SHOP: 'SHOP',
-    MARKET: 'MARKET'
+export const BaseSettingsShopSettingsLocationBrandingAsEnumEnum = {
+    DISABLED: 'DISABLED',
+    ENABLED: 'ENABLED'
 } as const;
-export type BaseSettingsShopSettingsShopTypeAsEnumEnum = typeof BaseSettingsShopSettingsShopTypeAsEnumEnum[keyof typeof BaseSettingsShopSettingsShopTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsAnonUsersAsEnumEnum = {
-    AUTH_AT_START: 'AUTH_AT_START',
-    AUTH_AT_ORDER: 'AUTH_AT_ORDER',
-    ALLOW_PURCHASE: 'ALLOW_PURCHASE'
-} as const;
-export type BaseSettingsShopSettingsAnonUsersAsEnumEnum = typeof BaseSettingsShopSettingsAnonUsersAsEnumEnum[keyof typeof BaseSettingsShopSettingsAnonUsersAsEnumEnum];
+export type BaseSettingsShopSettingsLocationBrandingAsEnumEnum = typeof BaseSettingsShopSettingsLocationBrandingAsEnumEnum[keyof typeof BaseSettingsShopSettingsLocationBrandingAsEnumEnum];
 
 
 /**
@@ -874,8 +874,15 @@ export function BaseSettingsShopSettingsFromJSONTyped(json: any, ignoreDiscrimin
         'billMyBankInfo': json['billMyBankInfo'] == null ? undefined : PrivateCompanySettingsBillMyBankInfoFromJSON(json['billMyBankInfo']),
         'chargeeInfo': json['chargeeInfo'] == null ? undefined : PrivateCompanySettingsChargeeInfoFromJSON(json['chargeeInfo']),
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'settingsTypeAsEnum': json['settingsTypeAsEnum'] == null ? undefined : json['settingsTypeAsEnum'],
-        'locationBrandingAsEnum': json['locationBrandingAsEnum'] == null ? undefined : json['locationBrandingAsEnum'],
+        'shopTypeAsEnum': json['shopTypeAsEnum'] == null ? undefined : json['shopTypeAsEnum'],
+        'anonUsersAsEnum': json['anonUsersAsEnum'] == null ? undefined : json['anonUsersAsEnum'],
+        'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
+        'embeddedShopUrlAsURI': json['embeddedShopUrlAsURI'] == null ? undefined : json['embeddedShopUrlAsURI'],
+        'settingsStrategyAsEnum': json['settingsStrategyAsEnum'] == null ? undefined : json['settingsStrategyAsEnum'],
+        'settingsWriteModeAsEnum': json['settingsWriteModeAsEnum'] == null ? undefined : json['settingsWriteModeAsEnum'],
+        'shopStatusAsEnum': json['shopStatusAsEnum'] == null ? undefined : json['shopStatusAsEnum'],
+        'landingPageAsEnum': json['landingPageAsEnum'] == null ? undefined : json['landingPageAsEnum'],
+        'medicalIdPromptAsEnum': json['medicalIdPromptAsEnum'] == null ? undefined : json['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': json['productBalanceAsEnum'] == null ? undefined : json['productBalanceAsEnum'],
         'paymentMethodsAsEnums': json['paymentMethodsAsEnums'] == null ? undefined : new Set(json['paymentMethodsAsEnums']),
         'deliveryMethodsAsEnum': json['deliveryMethodsAsEnum'] == null ? undefined : json['deliveryMethodsAsEnum'],
@@ -884,15 +891,8 @@ export function BaseSettingsShopSettingsFromJSONTyped(json: any, ignoreDiscrimin
         'inventoryAreaIds': json['inventoryAreaIds'] == null ? undefined : json['inventoryAreaIds'],
         'syncProductStrategyAsEnum': json['syncProductStrategyAsEnum'] == null ? undefined : json['syncProductStrategyAsEnum'],
         'flwrInferenceStrategyAsEnum': json['flwrInferenceStrategyAsEnum'] == null ? undefined : json['flwrInferenceStrategyAsEnum'],
-        'medicalIdPromptAsEnum': json['medicalIdPromptAsEnum'] == null ? undefined : json['medicalIdPromptAsEnum'],
-        'settingsStrategyAsEnum': json['settingsStrategyAsEnum'] == null ? undefined : json['settingsStrategyAsEnum'],
-        'settingsWriteModeAsEnum': json['settingsWriteModeAsEnum'] == null ? undefined : json['settingsWriteModeAsEnum'],
-        'shopStatusAsEnum': json['shopStatusAsEnum'] == null ? undefined : json['shopStatusAsEnum'],
-        'embeddedShopUrlAsURI': json['embeddedShopUrlAsURI'] == null ? undefined : json['embeddedShopUrlAsURI'],
-        'landingPageAsEnum': json['landingPageAsEnum'] == null ? undefined : json['landingPageAsEnum'],
-        'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
-        'shopTypeAsEnum': json['shopTypeAsEnum'] == null ? undefined : json['shopTypeAsEnum'],
-        'anonUsersAsEnum': json['anonUsersAsEnum'] == null ? undefined : json['anonUsersAsEnum'],
+        'settingsTypeAsEnum': json['settingsTypeAsEnum'] == null ? undefined : json['settingsTypeAsEnum'],
+        'locationBrandingAsEnum': json['locationBrandingAsEnum'] == null ? undefined : json['locationBrandingAsEnum'],
     };
 }
 
@@ -963,8 +963,15 @@ export function BaseSettingsShopSettingsToJSONTyped(value?: BaseSettingsShopSett
         'billMyBankInfo': PrivateCompanySettingsBillMyBankInfoToJSON(value['billMyBankInfo']),
         'chargeeInfo': PrivateCompanySettingsChargeeInfoToJSON(value['chargeeInfo']),
         'empty': value['empty'],
-        'settingsTypeAsEnum': value['settingsTypeAsEnum'],
-        'locationBrandingAsEnum': value['locationBrandingAsEnum'],
+        'shopTypeAsEnum': value['shopTypeAsEnum'],
+        'anonUsersAsEnum': value['anonUsersAsEnum'],
+        'loginsAsEnum': value['loginsAsEnum'],
+        'embeddedShopUrlAsURI': value['embeddedShopUrlAsURI'],
+        'settingsStrategyAsEnum': value['settingsStrategyAsEnum'],
+        'settingsWriteModeAsEnum': value['settingsWriteModeAsEnum'],
+        'shopStatusAsEnum': value['shopStatusAsEnum'],
+        'landingPageAsEnum': value['landingPageAsEnum'],
+        'medicalIdPromptAsEnum': value['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': value['productBalanceAsEnum'],
         'paymentMethodsAsEnums': value['paymentMethodsAsEnums'] == null ? undefined : Array.from(value['paymentMethodsAsEnums'] as Set<any>),
         'deliveryMethodsAsEnum': value['deliveryMethodsAsEnum'],
@@ -973,15 +980,8 @@ export function BaseSettingsShopSettingsToJSONTyped(value?: BaseSettingsShopSett
         'inventoryAreaIds': value['inventoryAreaIds'],
         'syncProductStrategyAsEnum': value['syncProductStrategyAsEnum'],
         'flwrInferenceStrategyAsEnum': value['flwrInferenceStrategyAsEnum'],
-        'medicalIdPromptAsEnum': value['medicalIdPromptAsEnum'],
-        'settingsStrategyAsEnum': value['settingsStrategyAsEnum'],
-        'settingsWriteModeAsEnum': value['settingsWriteModeAsEnum'],
-        'shopStatusAsEnum': value['shopStatusAsEnum'],
-        'embeddedShopUrlAsURI': value['embeddedShopUrlAsURI'],
-        'landingPageAsEnum': value['landingPageAsEnum'],
-        'loginsAsEnum': value['loginsAsEnum'],
-        'shopTypeAsEnum': value['shopTypeAsEnum'],
-        'anonUsersAsEnum': value['anonUsersAsEnum'],
+        'settingsTypeAsEnum': value['settingsTypeAsEnum'],
+        'locationBrandingAsEnum': value['locationBrandingAsEnum'],
     };
 }
 

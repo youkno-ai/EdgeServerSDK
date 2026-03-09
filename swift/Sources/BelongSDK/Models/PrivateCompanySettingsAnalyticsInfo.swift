@@ -13,22 +13,22 @@ import AnyCodable
 public struct PrivateCompanySettingsAnalyticsInfo: Codable, JSONEncodable, Hashable {
 
     public var properties: [PrivateCompanySettingsAnalyticsInfoPropertyInfo]?
-    public var nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo?
     public var propertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo?
     public var dataStreamInfo: PrivateCompanySettingsAnalyticsInfoDataStreamInfo?
+    public var nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo?
 
-    public init(properties: [PrivateCompanySettingsAnalyticsInfoPropertyInfo]? = nil, nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = nil, propertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = nil, dataStreamInfo: PrivateCompanySettingsAnalyticsInfoDataStreamInfo? = nil) {
+    public init(properties: [PrivateCompanySettingsAnalyticsInfoPropertyInfo]? = nil, propertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = nil, dataStreamInfo: PrivateCompanySettingsAnalyticsInfoDataStreamInfo? = nil, nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = nil) {
         self.properties = properties
-        self.nextValidPropertyInfo = nextValidPropertyInfo
         self.propertyInfo = propertyInfo
         self.dataStreamInfo = dataStreamInfo
+        self.nextValidPropertyInfo = nextValidPropertyInfo
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case properties
-        case nextValidPropertyInfo
         case propertyInfo
         case dataStreamInfo
+        case nextValidPropertyInfo
     }
 
     // Encodable protocol methods
@@ -36,9 +36,9 @@ public struct PrivateCompanySettingsAnalyticsInfo: Codable, JSONEncodable, Hasha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(properties, forKey: .properties)
-        try container.encodeIfPresent(nextValidPropertyInfo, forKey: .nextValidPropertyInfo)
         try container.encodeIfPresent(propertyInfo, forKey: .propertyInfo)
         try container.encodeIfPresent(dataStreamInfo, forKey: .dataStreamInfo)
+        try container.encodeIfPresent(nextValidPropertyInfo, forKey: .nextValidPropertyInfo)
     }
 }
 

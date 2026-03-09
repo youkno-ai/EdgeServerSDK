@@ -141,6 +141,18 @@ export interface UserInvite {
      * @type {string}
      * @memberof UserInvite
      */
+    badgeDefId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserInvite
+     */
+    badgeCode?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserInvite
+     */
     companyId?: string;
     /**
      * 
@@ -226,6 +238,8 @@ export function UserInviteFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'roles': json['roles'] == null ? undefined : json['roles'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
+        'badgeDefId': json['badgeDefId'] == null ? undefined : json['badgeDefId'],
+        'badgeCode': json['badgeCode'] == null ? undefined : json['badgeCode'],
         'companyId': json['companyId'] == null ? undefined : json['companyId'],
         'dealBountyId': json['dealBountyId'] == null ? undefined : json['dealBountyId'],
         'linkUrl': json['linkUrl'] == null ? undefined : json['linkUrl'],
@@ -266,6 +280,8 @@ export function UserInviteToJSONTyped(value?: UserInvite | null, ignoreDiscrimin
         'roles': value['roles'],
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
+        'badgeDefId': value['badgeDefId'],
+        'badgeCode': value['badgeCode'],
         'companyId': value['companyId'],
         'dealBountyId': value['dealBountyId'],
         'linkUrl': value['linkUrl'],

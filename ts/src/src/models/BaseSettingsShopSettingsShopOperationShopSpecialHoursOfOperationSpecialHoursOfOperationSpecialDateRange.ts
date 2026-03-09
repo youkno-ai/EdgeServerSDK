@@ -65,18 +65,6 @@ export interface BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperatio
     valid?: boolean;
     /**
      * 
-     * @type {Date}
-     * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
-     */
-    fromDateAsLocalDate?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
-     */
-    toDateAsLocalDate?: Date;
-    /**
-     * 
      * @type {boolean}
      * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
      */
@@ -87,6 +75,18 @@ export interface BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperatio
      * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
      */
     singleDate?: boolean;
+    /**
+     * 
+     * @type {Date}
+     * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
+     */
+    fromDateAsLocalDate?: Date;
+    /**
+     * 
+     * @type {Date}
+     * @memberof BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperationSpecialHoursOfOperationSpecialDateRange
+     */
+    toDateAsLocalDate?: Date;
 }
 
 /**
@@ -112,10 +112,10 @@ export function BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperation
         'hoursOfOperation': json['hoursOfOperation'] == null ? undefined : BaseSettingsShopSettingsShopOperationShopHoursOfOperationWeeklyHoursOfOperationDailyHoursOfOperationFromJSON(json['hoursOfOperation']),
         'empty': json['empty'] == null ? undefined : json['empty'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'fromDateAsLocalDate': json['fromDateAsLocalDate'] == null ? undefined : (new Date(json['fromDateAsLocalDate'])),
-        'toDateAsLocalDate': json['toDateAsLocalDate'] == null ? undefined : (new Date(json['toDateAsLocalDate'])),
         'emptyDateRange': json['emptyDateRange'] == null ? undefined : json['emptyDateRange'],
         'singleDate': json['singleDate'] == null ? undefined : json['singleDate'],
+        'fromDateAsLocalDate': json['fromDateAsLocalDate'] == null ? undefined : (new Date(json['fromDateAsLocalDate'])),
+        'toDateAsLocalDate': json['toDateAsLocalDate'] == null ? undefined : (new Date(json['toDateAsLocalDate'])),
     };
 }
 
@@ -136,10 +136,10 @@ export function BaseSettingsShopSettingsShopOperationShopSpecialHoursOfOperation
         'hoursOfOperation': BaseSettingsShopSettingsShopOperationShopHoursOfOperationWeeklyHoursOfOperationDailyHoursOfOperationToJSON(value['hoursOfOperation']),
         'empty': value['empty'],
         'valid': value['valid'],
-        'fromDateAsLocalDate': value['fromDateAsLocalDate'] == null ? undefined : ((value['fromDateAsLocalDate']).toISOString().substring(0,10)),
-        'toDateAsLocalDate': value['toDateAsLocalDate'] == null ? undefined : ((value['toDateAsLocalDate']).toISOString().substring(0,10)),
         'emptyDateRange': value['emptyDateRange'],
         'singleDate': value['singleDate'],
+        'fromDateAsLocalDate': value['fromDateAsLocalDate'] == null ? undefined : ((value['fromDateAsLocalDate']).toISOString().substring(0,10)),
+        'toDateAsLocalDate': value['toDateAsLocalDate'] == null ? undefined : ((value['toDateAsLocalDate']).toISOString().substring(0,10)),
     };
 }
 

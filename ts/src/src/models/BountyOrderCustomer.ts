@@ -75,13 +75,7 @@ export interface BountyOrderCustomer {
      * @type {string}
      * @memberof BountyOrderCustomer
      */
-    phoneStatus?: string;
-    /**
-     * 
-     * @type {UtilPersonalName}
-     * @memberof BountyOrderCustomer
-     */
-    personalName?: UtilPersonalName;
+    phoneRawNumber?: string;
     /**
      * 
      * @type {string}
@@ -93,7 +87,13 @@ export interface BountyOrderCustomer {
      * @type {string}
      * @memberof BountyOrderCustomer
      */
-    phoneRawNumber?: string;
+    phoneStatus?: string;
+    /**
+     * 
+     * @type {UtilPersonalName}
+     * @memberof BountyOrderCustomer
+     */
+    personalName?: UtilPersonalName;
 }
 
 /**
@@ -119,10 +119,10 @@ export function BountyOrderCustomerFromJSONTyped(json: any, ignoreDiscriminator:
         'email': json['email'] == null ? undefined : json['email'],
         'dob': json['dob'] == null ? undefined : json['dob'],
         'address': json['address'] == null ? undefined : MailingAddressFromJSON(json['address']),
+        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
+        'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
         'phoneStatus': json['phoneStatus'] == null ? undefined : json['phoneStatus'],
         'personalName': json['personalName'] == null ? undefined : UtilPersonalNameFromJSON(json['personalName']),
-        'effectiveState': json['effectiveState'] == null ? undefined : json['effectiveState'],
-        'phoneRawNumber': json['phoneRawNumber'] == null ? undefined : json['phoneRawNumber'],
     };
 }
 
@@ -143,10 +143,10 @@ export function BountyOrderCustomerToJSONTyped(value?: BountyOrderCustomer | nul
         'email': value['email'],
         'dob': value['dob'],
         'address': MailingAddressToJSON(value['address']),
+        'phoneRawNumber': value['phoneRawNumber'],
+        'effectiveState': value['effectiveState'],
         'phoneStatus': value['phoneStatus'],
         'personalName': UtilPersonalNameToJSON(value['personalName']),
-        'effectiveState': value['effectiveState'],
-        'phoneRawNumber': value['phoneRawNumber'],
     };
 }
 

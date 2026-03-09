@@ -36,6 +36,12 @@ export interface UtilPersonalName {
      * @type {string}
      * @memberof UtilPersonalName
      */
+    middleName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UtilPersonalName
+     */
     firstName?: string;
     /**
      * 
@@ -43,12 +49,6 @@ export interface UtilPersonalName {
      * @memberof UtilPersonalName
      */
     lastName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UtilPersonalName
-     */
-    middleName?: string;
     /**
      * 
      * @type {string}
@@ -76,9 +76,9 @@ export function UtilPersonalNameFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'fullName': json['fullName'] == null ? undefined : json['fullName'],
         'empty': json['empty'] == null ? undefined : json['empty'],
+        'middleName': json['middleName'] == null ? undefined : json['middleName'],
         'firstName': json['firstName'] == null ? undefined : json['firstName'],
         'lastName': json['lastName'] == null ? undefined : json['lastName'],
-        'middleName': json['middleName'] == null ? undefined : json['middleName'],
         'initials': json['initials'] == null ? undefined : json['initials'],
     };
 }
@@ -96,9 +96,9 @@ export function UtilPersonalNameToJSONTyped(value?: UtilPersonalName | null, ign
         
         'fullName': value['fullName'],
         'empty': value['empty'],
+        'middleName': value['middleName'],
         'firstName': value['firstName'],
         'lastName': value['lastName'],
-        'middleName': value['middleName'],
         'initials': value['initials'],
     };
 }

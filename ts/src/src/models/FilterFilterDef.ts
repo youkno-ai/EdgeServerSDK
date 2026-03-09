@@ -68,15 +68,25 @@ export interface FilterFilterDef {
      * @type {string}
      * @memberof FilterFilterDef
      */
-    criteriaTypeAsEnum?: FilterFilterDefCriteriaTypeAsEnumEnum;
+    filterTypeAsEnum?: FilterFilterDefFilterTypeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof FilterFilterDef
      */
-    filterTypeAsEnum?: FilterFilterDefFilterTypeAsEnumEnum;
+    criteriaTypeAsEnum?: FilterFilterDefCriteriaTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const FilterFilterDefFilterTypeAsEnumEnum = {
+    SELECT: 'SELECT',
+    MULTI_SELECT: 'MULTI_SELECT',
+    RANGE: 'RANGE'
+} as const;
+export type FilterFilterDefFilterTypeAsEnumEnum = typeof FilterFilterDefFilterTypeAsEnumEnum[keyof typeof FilterFilterDefFilterTypeAsEnumEnum];
 
 /**
  * @export
@@ -94,16 +104,6 @@ export const FilterFilterDefCriteriaTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type FilterFilterDefCriteriaTypeAsEnumEnum = typeof FilterFilterDefCriteriaTypeAsEnumEnum[keyof typeof FilterFilterDefCriteriaTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const FilterFilterDefFilterTypeAsEnumEnum = {
-    SELECT: 'SELECT',
-    MULTI_SELECT: 'MULTI_SELECT',
-    RANGE: 'RANGE'
-} as const;
-export type FilterFilterDefFilterTypeAsEnumEnum = typeof FilterFilterDefFilterTypeAsEnumEnum[keyof typeof FilterFilterDefFilterTypeAsEnumEnum];
 
 
 /**
@@ -129,8 +129,8 @@ export function FilterFilterDefFromJSONTyped(json: any, ignoreDiscriminator: boo
         'type': json['type'] == null ? undefined : json['type'],
         'criteriaType': json['criteriaType'] == null ? undefined : json['criteriaType'],
         'options': json['options'] == null ? undefined : ((json['options'] as Array<any>).map(FilterFilterDefFilterOptionFromJSON)),
-        'criteriaTypeAsEnum': json['criteriaTypeAsEnum'] == null ? undefined : json['criteriaTypeAsEnum'],
         'filterTypeAsEnum': json['filterTypeAsEnum'] == null ? undefined : json['filterTypeAsEnum'],
+        'criteriaTypeAsEnum': json['criteriaTypeAsEnum'] == null ? undefined : json['criteriaTypeAsEnum'],
     };
 }
 
@@ -151,8 +151,8 @@ export function FilterFilterDefToJSONTyped(value?: FilterFilterDef | null, ignor
         'type': value['type'],
         'criteriaType': value['criteriaType'],
         'options': value['options'] == null ? undefined : ((value['options'] as Array<any>).map(FilterFilterDefFilterOptionToJSON)),
-        'criteriaTypeAsEnum': value['criteriaTypeAsEnum'],
         'filterTypeAsEnum': value['filterTypeAsEnum'],
+        'criteriaTypeAsEnum': value['criteriaTypeAsEnum'],
     };
 }
 

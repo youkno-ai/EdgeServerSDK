@@ -94,7 +94,7 @@ export interface BountyBanner {
      * @type {string}
      * @memberof BountyBanner
      */
-    userAuthStatusAsEnum?: BountyBannerUserAuthStatusAsEnumEnum;
+    targetAppAsEnum?: BountyBannerTargetAppAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -106,19 +106,25 @@ export interface BountyBanner {
      * @type {string}
      * @memberof BountyBanner
      */
-    targetAppAsEnum?: BountyBannerTargetAppAsEnumEnum;
+    userAuthStatusAsEnum?: BountyBannerUserAuthStatusAsEnumEnum;
 }
 
 
 /**
  * @export
  */
-export const BountyBannerUserAuthStatusAsEnumEnum = {
-    ANY: 'ANY',
-    AUTHED: 'AUTHED',
-    ANON: 'ANON'
+export const BountyBannerTargetAppAsEnumEnum = {
+    NONE: 'NONE',
+    ANDROID: 'ANDROID',
+    IOS: 'IOS',
+    WEB: 'WEB',
+    JOIN_WEB: 'JOIN_WEB',
+    SERVER: 'SERVER',
+    SHOP: 'SHOP',
+    KIOSK: 'KIOSK',
+    UNKNOWN: 'UNKNOWN'
 } as const;
-export type BountyBannerUserAuthStatusAsEnumEnum = typeof BountyBannerUserAuthStatusAsEnumEnum[keyof typeof BountyBannerUserAuthStatusAsEnumEnum];
+export type BountyBannerTargetAppAsEnumEnum = typeof BountyBannerTargetAppAsEnumEnum[keyof typeof BountyBannerTargetAppAsEnumEnum];
 
 /**
  * @export
@@ -136,18 +142,12 @@ export type BountyBannerBannerTypeAsEnumEnum = typeof BountyBannerBannerTypeAsEn
 /**
  * @export
  */
-export const BountyBannerTargetAppAsEnumEnum = {
-    NONE: 'NONE',
-    ANDROID: 'ANDROID',
-    IOS: 'IOS',
-    WEB: 'WEB',
-    JOIN_WEB: 'JOIN_WEB',
-    SERVER: 'SERVER',
-    SHOP: 'SHOP',
-    KIOSK: 'KIOSK',
-    UNKNOWN: 'UNKNOWN'
+export const BountyBannerUserAuthStatusAsEnumEnum = {
+    ANY: 'ANY',
+    AUTHED: 'AUTHED',
+    ANON: 'ANON'
 } as const;
-export type BountyBannerTargetAppAsEnumEnum = typeof BountyBannerTargetAppAsEnumEnum[keyof typeof BountyBannerTargetAppAsEnumEnum];
+export type BountyBannerUserAuthStatusAsEnumEnum = typeof BountyBannerUserAuthStatusAsEnumEnum[keyof typeof BountyBannerUserAuthStatusAsEnumEnum];
 
 
 /**
@@ -175,9 +175,9 @@ export function BountyBannerFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'userAuthStatus': json['userAuthStatus'] == null ? undefined : json['userAuthStatus'],
         'priority': json['priority'] == null ? undefined : json['priority'],
         'weight': json['weight'] == null ? undefined : json['weight'],
-        'userAuthStatusAsEnum': json['userAuthStatusAsEnum'] == null ? undefined : json['userAuthStatusAsEnum'],
-        'bannerTypeAsEnum': json['bannerTypeAsEnum'] == null ? undefined : json['bannerTypeAsEnum'],
         'targetAppAsEnum': json['targetAppAsEnum'] == null ? undefined : json['targetAppAsEnum'],
+        'bannerTypeAsEnum': json['bannerTypeAsEnum'] == null ? undefined : json['bannerTypeAsEnum'],
+        'userAuthStatusAsEnum': json['userAuthStatusAsEnum'] == null ? undefined : json['userAuthStatusAsEnum'],
     };
 }
 
@@ -200,9 +200,9 @@ export function BountyBannerToJSONTyped(value?: BountyBanner | null, ignoreDiscr
         'userAuthStatus': value['userAuthStatus'],
         'priority': value['priority'],
         'weight': value['weight'],
-        'userAuthStatusAsEnum': value['userAuthStatusAsEnum'],
-        'bannerTypeAsEnum': value['bannerTypeAsEnum'],
         'targetAppAsEnum': value['targetAppAsEnum'],
+        'bannerTypeAsEnum': value['bannerTypeAsEnum'],
+        'userAuthStatusAsEnum': value['userAuthStatusAsEnum'],
     };
 }
 

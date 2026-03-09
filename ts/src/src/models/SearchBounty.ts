@@ -119,16 +119,16 @@ export interface SearchBounty {
     bountyType?: string;
     /**
      * 
-     * @type {string}
-     * @memberof SearchBounty
-     */
-    objectTypeAsEnum?: SearchBountyObjectTypeAsEnumEnum;
-    /**
-     * 
      * @type {User}
      * @memberof SearchBounty
      */
     author?: User;
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchBounty
+     */
+    objectTypeAsEnum?: SearchBountyObjectTypeAsEnumEnum;
 }
 
 
@@ -176,8 +176,8 @@ export function SearchBountyFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
         'bountyType': json['bountyType'] == null ? undefined : json['bountyType'],
-        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
+        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
     };
 }
 
@@ -207,8 +207,8 @@ export function SearchBountyToJSONTyped(value?: SearchBounty | null, ignoreDiscr
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
         'bountyType': value['bountyType'],
-        'objectTypeAsEnum': value['objectTypeAsEnum'],
         'author': UserToJSON(value['author']),
+        'objectTypeAsEnum': value['objectTypeAsEnum'],
     };
 }
 

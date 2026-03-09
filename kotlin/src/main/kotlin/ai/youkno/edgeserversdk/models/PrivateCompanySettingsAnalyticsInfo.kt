@@ -25,9 +25,9 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param properties 
- * @param nextValidPropertyInfo 
  * @param propertyInfo 
  * @param dataStreamInfo 
+ * @param nextValidPropertyInfo 
  */
 
 
@@ -36,14 +36,14 @@ data class PrivateCompanySettingsAnalyticsInfo (
     @Json(name = "properties")
     val properties: kotlin.collections.List<PrivateCompanySettingsAnalyticsInfoPropertyInfo>? = null,
 
-    @Json(name = "nextValidPropertyInfo")
-    val nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = null,
-
     @Json(name = "propertyInfo")
     val propertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = null,
 
     @Json(name = "dataStreamInfo")
-    val dataStreamInfo: PrivateCompanySettingsAnalyticsInfoDataStreamInfo? = null
+    val dataStreamInfo: PrivateCompanySettingsAnalyticsInfoDataStreamInfo? = null,
+
+    @Json(name = "nextValidPropertyInfo")
+    val nextValidPropertyInfo: PrivateCompanySettingsAnalyticsInfoPropertyInfo? = null
 
 ) {
 

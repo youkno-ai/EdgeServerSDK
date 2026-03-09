@@ -254,7 +254,31 @@ export interface AttachmentsAttachment {
      * @type {string}
      * @memberof AttachmentsAttachment
      */
-    storageTypeAsEnum?: AttachmentsAttachmentStorageTypeAsEnumEnum;
+    meaningAsEnum?: AttachmentsAttachmentMeaningAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof AttachmentsAttachment
+     */
+    fileNameFromUrl?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AttachmentsAttachment
+     */
+    youTubeVideoId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AttachmentsAttachment
+     */
+    typeAsEnum?: AttachmentsAttachmentTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof AttachmentsAttachment
+     */
+    effectiveActionUrl?: string;
     /**
      * 
      * @type {string}
@@ -278,31 +302,7 @@ export interface AttachmentsAttachment {
      * @type {string}
      * @memberof AttachmentsAttachment
      */
-    effectiveActionUrl?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsAttachment
-     */
-    typeAsEnum?: AttachmentsAttachmentTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsAttachment
-     */
-    fileNameFromUrl?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsAttachment
-     */
-    youTubeVideoId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsAttachment
-     */
-    meaningAsEnum?: AttachmentsAttachmentMeaningAsEnumEnum;
+    storageTypeAsEnum?: AttachmentsAttachmentStorageTypeAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -321,34 +321,23 @@ export interface AttachmentsAttachment {
 /**
  * @export
  */
-export const AttachmentsAttachmentStorageTypeAsEnumEnum = {
-    NONE: 'NONE',
-    GS: 'GS',
-    S3: 'S3',
-    EXT: 'EXT',
-    UNKNOWN: 'UNKNOWN'
+export const AttachmentsAttachmentMeaningAsEnumEnum = {
+    TEAM_LOGO: 'TEAM_LOGO',
+    RESUME: 'RESUME',
+    PRODUCT: 'PRODUCT',
+    PROMOTION: 'PROMOTION',
+    OTHER_DOC: 'OTHER_DOC',
+    WELCOME_TEMPLATE: 'WELCOME_TEMPLATE',
+    ORDER_CONFIRMATION_PICKUP_TEMPLATE: 'ORDER_CONFIRMATION_PICKUP_TEMPLATE',
+    ORDER_CONFIRMATION_DELIVERY_TEMPLATE: 'ORDER_CONFIRMATION_DELIVERY_TEMPLATE',
+    ORDER_CONFIRMATION_KIOSK_TEMPLATE: 'ORDER_CONFIRMATION_KIOSK_TEMPLATE',
+    ORDER_PROCESSED_CONFIRMATION_TEMPLATE: 'ORDER_PROCESSED_CONFIRMATION_TEMPLATE',
+    SHOP_LOGO: 'SHOP_LOGO',
+    SHOP_BACKGROUND: 'SHOP_BACKGROUND',
+    USER_AVATAR: 'USER_AVATAR',
+    OTHER: 'OTHER'
 } as const;
-export type AttachmentsAttachmentStorageTypeAsEnumEnum = typeof AttachmentsAttachmentStorageTypeAsEnumEnum[keyof typeof AttachmentsAttachmentStorageTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const AttachmentsAttachmentDisplayStyleAsEnumEnum = {
-    INLINE: 'INLINE',
-    ATTACH: 'ATTACH'
-} as const;
-export type AttachmentsAttachmentDisplayStyleAsEnumEnum = typeof AttachmentsAttachmentDisplayStyleAsEnumEnum[keyof typeof AttachmentsAttachmentDisplayStyleAsEnumEnum];
-
-/**
- * @export
- */
-export const AttachmentsAttachmentVisibilityAsEnumEnum = {
-    NONE: 'NONE',
-    CREATOR: 'CREATOR',
-    PARTICIPANTS: 'PARTICIPANTS',
-    ALL: 'ALL'
-} as const;
-export type AttachmentsAttachmentVisibilityAsEnumEnum = typeof AttachmentsAttachmentVisibilityAsEnumEnum[keyof typeof AttachmentsAttachmentVisibilityAsEnumEnum];
+export type AttachmentsAttachmentMeaningAsEnumEnum = typeof AttachmentsAttachmentMeaningAsEnumEnum[keyof typeof AttachmentsAttachmentMeaningAsEnumEnum];
 
 /**
  * @export
@@ -378,23 +367,34 @@ export type AttachmentsAttachmentTypeAsEnumEnum = typeof AttachmentsAttachmentTy
 /**
  * @export
  */
-export const AttachmentsAttachmentMeaningAsEnumEnum = {
-    TEAM_LOGO: 'TEAM_LOGO',
-    RESUME: 'RESUME',
-    PRODUCT: 'PRODUCT',
-    PROMOTION: 'PROMOTION',
-    OTHER_DOC: 'OTHER_DOC',
-    WELCOME_TEMPLATE: 'WELCOME_TEMPLATE',
-    ORDER_CONFIRMATION_PICKUP_TEMPLATE: 'ORDER_CONFIRMATION_PICKUP_TEMPLATE',
-    ORDER_CONFIRMATION_DELIVERY_TEMPLATE: 'ORDER_CONFIRMATION_DELIVERY_TEMPLATE',
-    ORDER_CONFIRMATION_KIOSK_TEMPLATE: 'ORDER_CONFIRMATION_KIOSK_TEMPLATE',
-    ORDER_PROCESSED_CONFIRMATION_TEMPLATE: 'ORDER_PROCESSED_CONFIRMATION_TEMPLATE',
-    SHOP_LOGO: 'SHOP_LOGO',
-    SHOP_BACKGROUND: 'SHOP_BACKGROUND',
-    USER_AVATAR: 'USER_AVATAR',
-    OTHER: 'OTHER'
+export const AttachmentsAttachmentDisplayStyleAsEnumEnum = {
+    INLINE: 'INLINE',
+    ATTACH: 'ATTACH'
 } as const;
-export type AttachmentsAttachmentMeaningAsEnumEnum = typeof AttachmentsAttachmentMeaningAsEnumEnum[keyof typeof AttachmentsAttachmentMeaningAsEnumEnum];
+export type AttachmentsAttachmentDisplayStyleAsEnumEnum = typeof AttachmentsAttachmentDisplayStyleAsEnumEnum[keyof typeof AttachmentsAttachmentDisplayStyleAsEnumEnum];
+
+/**
+ * @export
+ */
+export const AttachmentsAttachmentVisibilityAsEnumEnum = {
+    NONE: 'NONE',
+    CREATOR: 'CREATOR',
+    PARTICIPANTS: 'PARTICIPANTS',
+    ALL: 'ALL'
+} as const;
+export type AttachmentsAttachmentVisibilityAsEnumEnum = typeof AttachmentsAttachmentVisibilityAsEnumEnum[keyof typeof AttachmentsAttachmentVisibilityAsEnumEnum];
+
+/**
+ * @export
+ */
+export const AttachmentsAttachmentStorageTypeAsEnumEnum = {
+    NONE: 'NONE',
+    GS: 'GS',
+    S3: 'S3',
+    EXT: 'EXT',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type AttachmentsAttachmentStorageTypeAsEnumEnum = typeof AttachmentsAttachmentStorageTypeAsEnumEnum[keyof typeof AttachmentsAttachmentStorageTypeAsEnumEnum];
 
 /**
  * @export
@@ -464,15 +464,15 @@ export function AttachmentsAttachmentFromJSONTyped(json: any, ignoreDiscriminato
         'cdnDisplayUrl': json['cdnDisplayUrl'] == null ? undefined : json['cdnDisplayUrl'],
         'attUrl': json['attUrl'] == null ? undefined : json['attUrl'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
+        'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
+        'fileNameFromUrl': json['fileNameFromUrl'] == null ? undefined : json['fileNameFromUrl'],
+        'youTubeVideoId': json['youTubeVideoId'] == null ? undefined : json['youTubeVideoId'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
         'displayStyleAsEnum': json['displayStyleAsEnum'] == null ? undefined : json['displayStyleAsEnum'],
         'visibilityAsEnum': json['visibilityAsEnum'] == null ? undefined : json['visibilityAsEnum'],
         'youTubeCoverImage': json['youTubeCoverImage'] == null ? undefined : json['youTubeCoverImage'],
-        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
-        'fileNameFromUrl': json['fileNameFromUrl'] == null ? undefined : json['fileNameFromUrl'],
-        'youTubeVideoId': json['youTubeVideoId'] == null ? undefined : json['youTubeVideoId'],
-        'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
+        'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
         'accessKeyEnforcementAsEnum': json['accessKeyEnforcementAsEnum'] == null ? undefined : json['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': json['accessKeyCtaModeAsEnum'] == null ? undefined : json['accessKeyCtaModeAsEnum'],
     };
@@ -519,15 +519,15 @@ export function AttachmentsAttachmentToJSONTyped(value?: AttachmentsAttachment |
         'cdnDisplayUrl': value['cdnDisplayUrl'],
         'attUrl': value['attUrl'],
         'valid': value['valid'],
-        'storageTypeAsEnum': value['storageTypeAsEnum'],
+        'meaningAsEnum': value['meaningAsEnum'],
+        'fileNameFromUrl': value['fileNameFromUrl'],
+        'youTubeVideoId': value['youTubeVideoId'],
+        'typeAsEnum': value['typeAsEnum'],
+        'effectiveActionUrl': value['effectiveActionUrl'],
         'displayStyleAsEnum': value['displayStyleAsEnum'],
         'visibilityAsEnum': value['visibilityAsEnum'],
         'youTubeCoverImage': value['youTubeCoverImage'],
-        'effectiveActionUrl': value['effectiveActionUrl'],
-        'typeAsEnum': value['typeAsEnum'],
-        'fileNameFromUrl': value['fileNameFromUrl'],
-        'youTubeVideoId': value['youTubeVideoId'],
-        'meaningAsEnum': value['meaningAsEnum'],
+        'storageTypeAsEnum': value['storageTypeAsEnum'],
         'accessKeyEnforcementAsEnum': value['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': value['accessKeyCtaModeAsEnum'],
     };

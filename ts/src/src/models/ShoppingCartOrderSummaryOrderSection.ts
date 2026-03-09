@@ -194,13 +194,13 @@ export interface ShoppingCartOrderSummaryOrderSection {
      * @type {Reward}
      * @memberof ShoppingCartOrderSummaryOrderSection
      */
-    deliveryFeeToPay?: Reward;
+    itemsTotalToPay?: Reward;
     /**
      * 
      * @type {Reward}
      * @memberof ShoppingCartOrderSummaryOrderSection
      */
-    itemsTotalToPay?: Reward;
+    deliveryFeeToPay?: Reward;
 }
 
 /**
@@ -240,8 +240,8 @@ export function ShoppingCartOrderSummaryOrderSectionFromJSONTyped(json: any, ign
         'balances': json['balances'] == null ? undefined : (mapValues(json['balances'], ShoppingCartBalanceCategoryInfoFromJSON)),
         'products': json['products'] == null ? undefined : ((json['products'] as Array<any>).map(ShoppingCartProductInfoFromJSON)),
         'invalidProducts': json['invalidProducts'] == null ? undefined : ((json['invalidProducts'] as Array<any>).map(ShoppingCartInvalidProductInfoFromJSON)),
-        'deliveryFeeToPay': json['deliveryFeeToPay'] == null ? undefined : RewardFromJSON(json['deliveryFeeToPay']),
         'itemsTotalToPay': json['itemsTotalToPay'] == null ? undefined : RewardFromJSON(json['itemsTotalToPay']),
+        'deliveryFeeToPay': json['deliveryFeeToPay'] == null ? undefined : RewardFromJSON(json['deliveryFeeToPay']),
     };
 }
 
@@ -276,8 +276,8 @@ export function ShoppingCartOrderSummaryOrderSectionToJSONTyped(value?: Shopping
         'balances': value['balances'] == null ? undefined : (mapValues(value['balances'], ShoppingCartBalanceCategoryInfoToJSON)),
         'products': value['products'] == null ? undefined : ((value['products'] as Array<any>).map(ShoppingCartProductInfoToJSON)),
         'invalidProducts': value['invalidProducts'] == null ? undefined : ((value['invalidProducts'] as Array<any>).map(ShoppingCartInvalidProductInfoToJSON)),
-        'deliveryFeeToPay': RewardToJSON(value['deliveryFeeToPay']),
         'itemsTotalToPay': RewardToJSON(value['itemsTotalToPay']),
+        'deliveryFeeToPay': RewardToJSON(value['deliveryFeeToPay']),
     };
 }
 

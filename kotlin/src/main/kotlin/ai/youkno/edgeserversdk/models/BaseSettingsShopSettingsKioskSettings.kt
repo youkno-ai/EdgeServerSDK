@@ -30,9 +30,9 @@ import com.squareup.moshi.JsonClass
  * @param printReceipt 
  * @param status 
  * @param valid 
+ * @param statusAsEnum 
  * @param printReceiptAsEnum 
  * @param terminalPositionAsEnum 
- * @param statusAsEnum 
  */
 
 
@@ -62,17 +62,29 @@ data class BaseSettingsShopSettingsKioskSettings (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: BaseSettingsShopSettingsKioskSettings.StatusAsEnum? = null,
+
     @Json(name = "printReceiptAsEnum")
     val printReceiptAsEnum: BaseSettingsShopSettingsKioskSettings.PrintReceiptAsEnum? = null,
 
     @Json(name = "terminalPositionAsEnum")
-    val terminalPositionAsEnum: BaseSettingsShopSettingsKioskSettings.TerminalPositionAsEnum? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: BaseSettingsShopSettingsKioskSettings.StatusAsEnum? = null
+    val terminalPositionAsEnum: BaseSettingsShopSettingsKioskSettings.TerminalPositionAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class StatusAsEnum(val value: kotlin.String) {
+        @Json(name = "AUTO") AUTO("AUTO"),
+        @Json(name = "ENABLED") ENABLED("ENABLED"),
+        @Json(name = "DISABLED") DISABLED("DISABLED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -103,18 +115,6 @@ data class BaseSettingsShopSettingsKioskSettings (
         @Json(name = "DOWN") DOWN("DOWN"),
         @Json(name = "DOWN_RIGHT") DOWN_RIGHT("DOWN_RIGHT"),
         @Json(name = "BUILT_IN") BUILT_IN("BUILT_IN"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StatusAsEnum(val value: kotlin.String) {
-        @Json(name = "AUTO") AUTO("AUTO"),
-        @Json(name = "ENABLED") ENABLED("ENABLED"),
-        @Json(name = "DISABLED") DISABLED("DISABLED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

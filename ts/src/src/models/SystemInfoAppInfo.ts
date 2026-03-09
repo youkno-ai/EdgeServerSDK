@@ -65,18 +65,6 @@ export interface SystemInfoAppInfo {
     enforceDelayInHours?: number;
     /**
      * 
-     * @type {number}
-     * @memberof SystemInfoAppInfo
-     */
-    notificationStartingAt?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof SystemInfoAppInfo
-     */
-    enforcementStartingAt?: number;
-    /**
-     * 
      * @type {ComLatticaVernumVersionNumber}
      * @memberof SystemInfoAppInfo
      */
@@ -87,6 +75,18 @@ export interface SystemInfoAppInfo {
      * @memberof SystemInfoAppInfo
      */
     minVersionAsObj?: ComLatticaVernumVersionNumber;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemInfoAppInfo
+     */
+    notificationStartingAt?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemInfoAppInfo
+     */
+    enforcementStartingAt?: number;
 }
 
 /**
@@ -112,10 +112,10 @@ export function SystemInfoAppInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'enforceAt': json['enforceAt'] == null ? undefined : json['enforceAt'],
         'notifyDelayInHours': json['notifyDelayInHours'] == null ? undefined : json['notifyDelayInHours'],
         'enforceDelayInHours': json['enforceDelayInHours'] == null ? undefined : json['enforceDelayInHours'],
-        'notificationStartingAt': json['notificationStartingAt'] == null ? undefined : json['notificationStartingAt'],
-        'enforcementStartingAt': json['enforcementStartingAt'] == null ? undefined : json['enforcementStartingAt'],
         'curVersionAsObj': json['curVersionAsObj'] == null ? undefined : ComLatticaVernumVersionNumberFromJSON(json['curVersionAsObj']),
         'minVersionAsObj': json['minVersionAsObj'] == null ? undefined : ComLatticaVernumVersionNumberFromJSON(json['minVersionAsObj']),
+        'notificationStartingAt': json['notificationStartingAt'] == null ? undefined : json['notificationStartingAt'],
+        'enforcementStartingAt': json['enforcementStartingAt'] == null ? undefined : json['enforcementStartingAt'],
     };
 }
 
@@ -136,10 +136,10 @@ export function SystemInfoAppInfoToJSONTyped(value?: SystemInfoAppInfo | null, i
         'enforceAt': value['enforceAt'],
         'notifyDelayInHours': value['notifyDelayInHours'],
         'enforceDelayInHours': value['enforceDelayInHours'],
-        'notificationStartingAt': value['notificationStartingAt'],
-        'enforcementStartingAt': value['enforcementStartingAt'],
         'curVersionAsObj': ComLatticaVernumVersionNumberToJSON(value['curVersionAsObj']),
         'minVersionAsObj': ComLatticaVernumVersionNumberToJSON(value['minVersionAsObj']),
+        'notificationStartingAt': value['notificationStartingAt'],
+        'enforcementStartingAt': value['enforcementStartingAt'],
     };
 }
 

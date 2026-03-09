@@ -14,27 +14,27 @@ public struct SurveySurveyResult: Codable, JSONEncodable, Hashable {
 
     public var answers: [String: SurveySurveyAnswer]?
     public var fundingResult: SurveyFundingResult?
-    public var leadingSurveyAnswer: SurveySurveyAnswer?
-    public var totalCount: Int?
-    public var totalWeight: Int?
     public var averageScore: Double?
+    public var totalWeight: Int?
+    public var totalCount: Int?
+    public var leadingSurveyAnswer: SurveySurveyAnswer?
 
-    public init(answers: [String: SurveySurveyAnswer]? = nil, fundingResult: SurveyFundingResult? = nil, leadingSurveyAnswer: SurveySurveyAnswer? = nil, totalCount: Int? = nil, totalWeight: Int? = nil, averageScore: Double? = nil) {
+    public init(answers: [String: SurveySurveyAnswer]? = nil, fundingResult: SurveyFundingResult? = nil, averageScore: Double? = nil, totalWeight: Int? = nil, totalCount: Int? = nil, leadingSurveyAnswer: SurveySurveyAnswer? = nil) {
         self.answers = answers
         self.fundingResult = fundingResult
-        self.leadingSurveyAnswer = leadingSurveyAnswer
-        self.totalCount = totalCount
-        self.totalWeight = totalWeight
         self.averageScore = averageScore
+        self.totalWeight = totalWeight
+        self.totalCount = totalCount
+        self.leadingSurveyAnswer = leadingSurveyAnswer
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case answers
         case fundingResult
-        case leadingSurveyAnswer
-        case totalCount
-        case totalWeight
         case averageScore
+        case totalWeight
+        case totalCount
+        case leadingSurveyAnswer
     }
 
     // Encodable protocol methods
@@ -43,10 +43,10 @@ public struct SurveySurveyResult: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(answers, forKey: .answers)
         try container.encodeIfPresent(fundingResult, forKey: .fundingResult)
-        try container.encodeIfPresent(leadingSurveyAnswer, forKey: .leadingSurveyAnswer)
-        try container.encodeIfPresent(totalCount, forKey: .totalCount)
-        try container.encodeIfPresent(totalWeight, forKey: .totalWeight)
         try container.encodeIfPresent(averageScore, forKey: .averageScore)
+        try container.encodeIfPresent(totalWeight, forKey: .totalWeight)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(leadingSurveyAnswer, forKey: .leadingSurveyAnswer)
     }
 }
 

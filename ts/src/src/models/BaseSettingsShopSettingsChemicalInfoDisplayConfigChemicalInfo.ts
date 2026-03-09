@@ -86,12 +86,6 @@ export interface BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo {
      * @type {string}
      * @memberof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo
      */
-    kindAsEnum?: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo
-     */
     effectiveName?: string;
     /**
      * 
@@ -99,8 +93,25 @@ export interface BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo {
      * @memberof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo
      */
     viewModeAsEnum?: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfo
+     */
+    kindAsEnum?: BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum = {
+    HIDDEN: 'HIDDEN',
+    TILE: 'TILE',
+    DETAILS: 'DETAILS',
+    TILE_DETAILS: 'TILE_DETAILS'
+} as const;
+export type BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum = typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum[keyof typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum];
 
 /**
  * @export
@@ -113,17 +124,6 @@ export const BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAs
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAsEnumEnum = typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAsEnumEnum[keyof typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoKindAsEnumEnum];
-
-/**
- * @export
- */
-export const BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum = {
-    HIDDEN: 'HIDDEN',
-    TILE: 'TILE',
-    DETAILS: 'DETAILS',
-    TILE_DETAILS: 'TILE_DETAILS'
-} as const;
-export type BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum = typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum[keyof typeof BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum];
 
 
 /**
@@ -152,9 +152,9 @@ export function BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoFro
         'value': json['value'] == null ? undefined : json['value'],
         'uom': json['uom'] == null ? undefined : json['uom'],
         'categoryInfo': json['categoryInfo'] == null ? undefined : (mapValues(json['categoryInfo'], BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfoFromJSON)),
-        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
         'effectiveName': json['effectiveName'] == null ? undefined : json['effectiveName'],
         'viewModeAsEnum': json['viewModeAsEnum'] == null ? undefined : json['viewModeAsEnum'],
+        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
     };
 }
 
@@ -178,9 +178,9 @@ export function BaseSettingsShopSettingsChemicalInfoDisplayConfigChemicalInfoToJ
         'value': value['value'],
         'uom': value['uom'],
         'categoryInfo': value['categoryInfo'] == null ? undefined : (mapValues(value['categoryInfo'], BaseSettingsShopSettingsChemicalInfoDisplayConfigCategoryChemicalInfoToJSON)),
-        'kindAsEnum': value['kindAsEnum'],
         'effectiveName': value['effectiveName'],
         'viewModeAsEnum': value['viewModeAsEnum'],
+        'kindAsEnum': value['kindAsEnum'],
     };
 }
 

@@ -34,8 +34,8 @@ import com.squareup.moshi.JsonClass
  * @param twoRoundsHomeScore 
  * @param twoRoundsAwayScore 
  * @param winner 
- * @param extraTimeStatusAsEnum 
  * @param winnerAsEnum 
+ * @param extraTimeStatusAsEnum 
  */
 
 
@@ -77,14 +77,26 @@ data class ThirdpartiesISportsAPIAPIMatchInfoExtraExplain (
     @Json(name = "winner")
     val winner: kotlin.Int? = null,
 
-    @Json(name = "extraTimeStatusAsEnum")
-    val extraTimeStatusAsEnum: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain.ExtraTimeStatusAsEnum? = null,
-
     @Json(name = "winnerAsEnum")
-    val winnerAsEnum: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain.WinnerAsEnum? = null
+    val winnerAsEnum: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain.WinnerAsEnum? = null,
+
+    @Json(name = "extraTimeStatusAsEnum")
+    val extraTimeStatusAsEnum: ThirdpartiesISportsAPIAPIMatchInfoExtraExplain.ExtraTimeStatusAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,HOME,AWAY,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class WinnerAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "HOME") HOME("HOME"),
+        @Json(name = "AWAY") AWAY("AWAY"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -96,18 +108,6 @@ data class ThirdpartiesISportsAPIAPIMatchInfoExtraExplain (
         @Json(name = "NORMAL_ENDS") NORMAL_ENDS("NORMAL_ENDS"),
         @Json(name = "SPECIAL_ENDS") SPECIAL_ENDS("SPECIAL_ENDS"),
         @Json(name = "EXTRA_TIME") EXTRA_TIME("EXTRA_TIME"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,HOME,AWAY,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class WinnerAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "HOME") HOME("HOME"),
-        @Json(name = "AWAY") AWAY("AWAY"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

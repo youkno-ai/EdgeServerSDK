@@ -51,13 +51,13 @@ export interface ShoppingCartRedemptionInfoRedemptionData {
      * @type {Reward}
      * @memberof ShoppingCartRedemptionInfoRedemptionData
      */
-    redemptionReward?: Reward;
+    exchangedReward?: Reward;
     /**
      * 
      * @type {Reward}
      * @memberof ShoppingCartRedemptionInfoRedemptionData
      */
-    exchangedReward?: Reward;
+    redemptionReward?: Reward;
 }
 
 /**
@@ -79,8 +79,8 @@ export function ShoppingCartRedemptionInfoRedemptionDataFromJSONTyped(json: any,
         
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'redemptionCurrencies': json['redemptionCurrencies'] == null ? undefined : (mapValues(json['redemptionCurrencies'], ShoppingCartRedemptionInfoExchangeCurrencyFromJSON)),
-        'redemptionReward': json['redemptionReward'] == null ? undefined : RewardFromJSON(json['redemptionReward']),
         'exchangedReward': json['exchangedReward'] == null ? undefined : RewardFromJSON(json['exchangedReward']),
+        'redemptionReward': json['redemptionReward'] == null ? undefined : RewardFromJSON(json['redemptionReward']),
     };
 }
 
@@ -97,8 +97,8 @@ export function ShoppingCartRedemptionInfoRedemptionDataToJSONTyped(value?: Shop
         
         'merchantId': value['merchantId'],
         'redemptionCurrencies': value['redemptionCurrencies'] == null ? undefined : (mapValues(value['redemptionCurrencies'], ShoppingCartRedemptionInfoExchangeCurrencyToJSON)),
-        'redemptionReward': RewardToJSON(value['redemptionReward']),
         'exchangedReward': RewardToJSON(value['exchangedReward']),
+        'redemptionReward': RewardToJSON(value['redemptionReward']),
     };
 }
 

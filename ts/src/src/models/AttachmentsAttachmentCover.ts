@@ -66,13 +66,13 @@ export interface AttachmentsAttachmentCover {
      * @type {string}
      * @memberof AttachmentsAttachmentCover
      */
-    storageTypeAsEnum?: AttachmentsAttachmentCoverStorageTypeAsEnumEnum;
+    effectiveUrl?: string;
     /**
      * 
      * @type {string}
      * @memberof AttachmentsAttachmentCover
      */
-    effectiveUrl?: string;
+    storageTypeAsEnum?: AttachmentsAttachmentCoverStorageTypeAsEnumEnum;
 }
 
 
@@ -113,8 +113,8 @@ export function AttachmentsAttachmentCoverFromJSONTyped(json: any, ignoreDiscrim
         'size': json['size'] == null ? undefined : json['size'],
         'imageSize': json['imageSize'] == null ? undefined : json['imageSize'],
         'cdnUrl': json['cdnUrl'] == null ? undefined : json['cdnUrl'],
-        'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
         'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
+        'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
     };
 }
 
@@ -136,8 +136,8 @@ export function AttachmentsAttachmentCoverToJSONTyped(value?: AttachmentsAttachm
         'size': value['size'],
         'imageSize': value['imageSize'],
         'cdnUrl': value['cdnUrl'],
-        'storageTypeAsEnum': value['storageTypeAsEnum'],
         'effectiveUrl': value['effectiveUrl'],
+        'storageTypeAsEnum': value['storageTypeAsEnum'],
     };
 }
 

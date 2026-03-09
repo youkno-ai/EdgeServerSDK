@@ -86,18 +86,6 @@ export interface GeofencesArea {
      * @type {string}
      * @memberof GeofencesArea
      */
-    radiusUnitAsEnum?: GeofencesAreaRadiusUnitAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof GeofencesArea
-     */
-    referenceTypeAsEnum?: GeofencesAreaReferenceTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof GeofencesArea
-     */
     areaTypeAsEnum?: GeofencesAreaAreaTypeAsEnumEnum;
     /**
      * 
@@ -105,8 +93,32 @@ export interface GeofencesArea {
      * @memberof GeofencesArea
      */
     referenceArea?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GeofencesArea
+     */
+    radiusUnitAsEnum?: GeofencesAreaRadiusUnitAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof GeofencesArea
+     */
+    referenceTypeAsEnum?: GeofencesAreaReferenceTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const GeofencesAreaAreaTypeAsEnumEnum = {
+    NONE: 'NONE',
+    CIRCLE: 'CIRCLE',
+    SQUARE: 'SQUARE',
+    POLYGON: 'POLYGON',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type GeofencesAreaAreaTypeAsEnumEnum = typeof GeofencesAreaAreaTypeAsEnumEnum[keyof typeof GeofencesAreaAreaTypeAsEnumEnum];
 
 /**
  * @export
@@ -130,18 +142,6 @@ export const GeofencesAreaReferenceTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type GeofencesAreaReferenceTypeAsEnumEnum = typeof GeofencesAreaReferenceTypeAsEnumEnum[keyof typeof GeofencesAreaReferenceTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const GeofencesAreaAreaTypeAsEnumEnum = {
-    NONE: 'NONE',
-    CIRCLE: 'CIRCLE',
-    SQUARE: 'SQUARE',
-    POLYGON: 'POLYGON',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type GeofencesAreaAreaTypeAsEnumEnum = typeof GeofencesAreaAreaTypeAsEnumEnum[keyof typeof GeofencesAreaAreaTypeAsEnumEnum];
 
 
 /**
@@ -170,10 +170,10 @@ export function GeofencesAreaFromJSONTyped(json: any, ignoreDiscriminator: boole
         'displayRadiusUnit': json['displayRadiusUnit'] == null ? undefined : json['displayRadiusUnit'],
         'referenceType': json['referenceType'] == null ? undefined : json['referenceType'],
         'reference': json['reference'] == null ? undefined : json['reference'],
-        'radiusUnitAsEnum': json['radiusUnitAsEnum'] == null ? undefined : json['radiusUnitAsEnum'],
-        'referenceTypeAsEnum': json['referenceTypeAsEnum'] == null ? undefined : json['referenceTypeAsEnum'],
         'areaTypeAsEnum': json['areaTypeAsEnum'] == null ? undefined : json['areaTypeAsEnum'],
         'referenceArea': json['referenceArea'] == null ? undefined : json['referenceArea'],
+        'radiusUnitAsEnum': json['radiusUnitAsEnum'] == null ? undefined : json['radiusUnitAsEnum'],
+        'referenceTypeAsEnum': json['referenceTypeAsEnum'] == null ? undefined : json['referenceTypeAsEnum'],
     };
 }
 
@@ -197,10 +197,10 @@ export function GeofencesAreaToJSONTyped(value?: GeofencesArea | null, ignoreDis
         'displayRadiusUnit': value['displayRadiusUnit'],
         'referenceType': value['referenceType'],
         'reference': value['reference'],
-        'radiusUnitAsEnum': value['radiusUnitAsEnum'],
-        'referenceTypeAsEnum': value['referenceTypeAsEnum'],
         'areaTypeAsEnum': value['areaTypeAsEnum'],
         'referenceArea': value['referenceArea'],
+        'radiusUnitAsEnum': value['radiusUnitAsEnum'],
+        'referenceTypeAsEnum': value['referenceTypeAsEnum'],
     };
 }
 

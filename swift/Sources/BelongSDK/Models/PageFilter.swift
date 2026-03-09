@@ -217,6 +217,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
         case low = "LOW"
         case background = "BACKGROUND"
     }
+    public static let merchantIdsRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
     public static let searchFieldsRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
     public var order: String?
     public var orderPickupDateFrom: Int64?
@@ -226,6 +227,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
     public var calendarEventDateTo: Int64?
     public var marketMode: String?
     public var merchantId: String?
+    public var merchantIds: Set<String>?
     public var zone: String?
     public var companyId: String?
     public var ownerId: String?
@@ -317,7 +319,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
     public var start: Int?
     public var length: Int?
 
-    public init(order: String? = nil, orderPickupDateFrom: Int64? = nil, orderPickupDateTo: Int64? = nil, orderDeliveryMethods: [String]? = nil, calendarEventDateFrom: Int64? = nil, calendarEventDateTo: Int64? = nil, marketMode: String? = nil, merchantId: String? = nil, zone: String? = nil, companyId: String? = nil, ownerId: String? = nil, creatorId: String? = nil, bountyCreatorId: String? = nil, userId: String? = nil, displayScreen: String? = nil, minQuantity: Double? = nil, userStatuses: [UserStatuses]? = nil, bountyIds: [String]? = nil, inviterIds: [String]? = nil, productId: String? = nil, applicantId: String? = nil, bountyResponseId: String? = nil, withPriceTag: Bool? = nil, minPrice: Double? = nil, maxPrice: Double? = nil, minThc: Int? = nil, maxThc: Int? = nil, withFreeDelivery: Bool? = nil, responseState: ResponseState? = nil, countries: [String]? = nil, genders: [String]? = nil, age: Int? = nil, languages: [String]? = nil, withCertificates: Bool? = nil, responseStates: [ResponseStates]? = nil, categories: [BountyBountyCategory]? = nil, categoryCodes: [String]? = nil, tags: [String]? = nil, trustedTags: [String]? = nil, extras: [FilterFilterVal]? = nil, lookups: [String: [String]]? = nil, listId: String? = nil, groupId: String? = nil, loadStrategy: LoadStrategy? = nil, loadDirection: LoadDirection? = nil, postedAt: Int64? = nil, sublistIds: [String]? = nil, searchCriteria: String? = nil, searchFields: Set<SearchFields>? = nil, skipAgeFilter: Bool? = nil, skipCountryFilter: Bool? = nil, shared: Bool? = nil, searchMode: SearchMode? = nil, bountyStates: [BountyStates]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, email: [String]? = nil, roles: [String]? = nil, includeAllUsers: Bool? = nil, profiled: Bool? = nil, payPeriod: String? = nil, includeBlacklisted: Bool? = nil, inviteCodes: [String]? = nil, defaultApp: Bool? = nil, locations: [String]? = nil, rewardCurrency: String? = nil, hasPointsReward: Bool? = nil, scheduledRange: FilterDateRange? = nil, expiresRange: FilterDateRange? = nil, scheme: [String]? = nil, showByLinkVisibility: Bool? = nil, section: Section? = nil, bountyTypes: [BountyTypes]? = nil, reservationCreatedFrom: Int64? = nil, reservationCreatedTo: Int64? = nil, restaurantId: [String]? = nil, reservationStatus: [String]? = nil, creatorIds: [String]? = nil, partySizeFrom: Int? = nil, partySizeTo: Int? = nil, ghostEmail: String? = nil, ghostPhone: String? = nil, supportGroupId: String? = nil, entityOwnerId: [String]? = nil, publisherText: String? = nil, publisherName: String? = nil, publisherId: String? = nil, bountyId: String? = nil, entityType: EntityType? = nil, visibility: Visibility? = nil, voucherStates: [VoucherStates]? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, newsPriority: NewsPriority? = nil, ignoreCache: Bool? = nil, start: Int? = nil, length: Int? = nil) {
+    public init(order: String? = nil, orderPickupDateFrom: Int64? = nil, orderPickupDateTo: Int64? = nil, orderDeliveryMethods: [String]? = nil, calendarEventDateFrom: Int64? = nil, calendarEventDateTo: Int64? = nil, marketMode: String? = nil, merchantId: String? = nil, merchantIds: Set<String>? = nil, zone: String? = nil, companyId: String? = nil, ownerId: String? = nil, creatorId: String? = nil, bountyCreatorId: String? = nil, userId: String? = nil, displayScreen: String? = nil, minQuantity: Double? = nil, userStatuses: [UserStatuses]? = nil, bountyIds: [String]? = nil, inviterIds: [String]? = nil, productId: String? = nil, applicantId: String? = nil, bountyResponseId: String? = nil, withPriceTag: Bool? = nil, minPrice: Double? = nil, maxPrice: Double? = nil, minThc: Int? = nil, maxThc: Int? = nil, withFreeDelivery: Bool? = nil, responseState: ResponseState? = nil, countries: [String]? = nil, genders: [String]? = nil, age: Int? = nil, languages: [String]? = nil, withCertificates: Bool? = nil, responseStates: [ResponseStates]? = nil, categories: [BountyBountyCategory]? = nil, categoryCodes: [String]? = nil, tags: [String]? = nil, trustedTags: [String]? = nil, extras: [FilterFilterVal]? = nil, lookups: [String: [String]]? = nil, listId: String? = nil, groupId: String? = nil, loadStrategy: LoadStrategy? = nil, loadDirection: LoadDirection? = nil, postedAt: Int64? = nil, sublistIds: [String]? = nil, searchCriteria: String? = nil, searchFields: Set<SearchFields>? = nil, skipAgeFilter: Bool? = nil, skipCountryFilter: Bool? = nil, shared: Bool? = nil, searchMode: SearchMode? = nil, bountyStates: [BountyStates]? = nil, referralCode: [String]? = nil, pin: [String]? = nil, provider: [String]? = nil, email: [String]? = nil, roles: [String]? = nil, includeAllUsers: Bool? = nil, profiled: Bool? = nil, payPeriod: String? = nil, includeBlacklisted: Bool? = nil, inviteCodes: [String]? = nil, defaultApp: Bool? = nil, locations: [String]? = nil, rewardCurrency: String? = nil, hasPointsReward: Bool? = nil, scheduledRange: FilterDateRange? = nil, expiresRange: FilterDateRange? = nil, scheme: [String]? = nil, showByLinkVisibility: Bool? = nil, section: Section? = nil, bountyTypes: [BountyTypes]? = nil, reservationCreatedFrom: Int64? = nil, reservationCreatedTo: Int64? = nil, restaurantId: [String]? = nil, reservationStatus: [String]? = nil, creatorIds: [String]? = nil, partySizeFrom: Int? = nil, partySizeTo: Int? = nil, ghostEmail: String? = nil, ghostPhone: String? = nil, supportGroupId: String? = nil, entityOwnerId: [String]? = nil, publisherText: String? = nil, publisherName: String? = nil, publisherId: String? = nil, bountyId: String? = nil, entityType: EntityType? = nil, visibility: Visibility? = nil, voucherStates: [VoucherStates]? = nil, voucherIds: [String]? = nil, excludeWithExpDate: Bool? = nil, newsPriority: NewsPriority? = nil, ignoreCache: Bool? = nil, start: Int? = nil, length: Int? = nil) {
         self.order = order
         self.orderPickupDateFrom = orderPickupDateFrom
         self.orderPickupDateTo = orderPickupDateTo
@@ -326,6 +328,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
         self.calendarEventDateTo = calendarEventDateTo
         self.marketMode = marketMode
         self.merchantId = merchantId
+        self.merchantIds = merchantIds
         self.zone = zone
         self.companyId = companyId
         self.ownerId = ownerId
@@ -427,6 +430,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
         case calendarEventDateTo
         case marketMode
         case merchantId
+        case merchantIds
         case zone
         case companyId
         case ownerId
@@ -531,6 +535,7 @@ public struct PageFilter: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(calendarEventDateTo, forKey: .calendarEventDateTo)
         try container.encodeIfPresent(marketMode, forKey: .marketMode)
         try container.encodeIfPresent(merchantId, forKey: .merchantId)
+        try container.encodeIfPresent(merchantIds, forKey: .merchantIds)
         try container.encodeIfPresent(zone, forKey: .zone)
         try container.encodeIfPresent(companyId, forKey: .companyId)
         try container.encodeIfPresent(ownerId, forKey: .ownerId)

@@ -61,16 +61,16 @@ export interface BountyResponseSnippets {
     reject?: BountyResponseRejectSnippet;
     /**
      * 
-     * @type {BountyResponsePaymentRecvSnippet}
-     * @memberof BountyResponseSnippets
-     */
-    firstPaymentRecv?: BountyResponsePaymentRecvSnippet;
-    /**
-     * 
      * @type {boolean}
      * @memberof BountyResponseSnippets
      */
     paymentReceived?: boolean;
+    /**
+     * 
+     * @type {BountyResponsePaymentRecvSnippet}
+     * @memberof BountyResponseSnippets
+     */
+    firstPaymentRecv?: BountyResponsePaymentRecvSnippet;
 }
 
 /**
@@ -93,8 +93,8 @@ export function BountyResponseSnippetsFromJSONTyped(json: any, ignoreDiscriminat
         'paymentsRecv': json['paymentsRecv'] == null ? undefined : (mapValues(json['paymentsRecv'], BountyResponsePaymentRecvSnippetFromJSON)),
         'review': json['review'] == null ? undefined : BountyResponseReviewSnippetFromJSON(json['review']),
         'reject': json['reject'] == null ? undefined : BountyResponseRejectSnippetFromJSON(json['reject']),
-        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyResponsePaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
         'paymentReceived': json['paymentReceived'] == null ? undefined : json['paymentReceived'],
+        'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyResponsePaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
     };
 }
 
@@ -112,8 +112,8 @@ export function BountyResponseSnippetsToJSONTyped(value?: BountyResponseSnippets
         'paymentsRecv': value['paymentsRecv'] == null ? undefined : (mapValues(value['paymentsRecv'], BountyResponsePaymentRecvSnippetToJSON)),
         'review': BountyResponseReviewSnippetToJSON(value['review']),
         'reject': BountyResponseRejectSnippetToJSON(value['reject']),
-        'firstPaymentRecv': BountyResponsePaymentRecvSnippetToJSON(value['firstPaymentRecv']),
         'paymentReceived': value['paymentReceived'],
+        'firstPaymentRecv': BountyResponsePaymentRecvSnippetToJSON(value['firstPaymentRecv']),
     };
 }
 

@@ -192,7 +192,91 @@ export interface ListsListDef {
      * @type {string}
      * @memberof ListsListDef
      */
-    notificationModeAsEnum?: ListsListDefNotificationModeAsEnumEnum;
+    effectiveCode?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    viewable?: boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ListsListDef
+     */
+    visibilityRoles?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef
+     */
+    effectiveUrl?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    postable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    favorites?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    stream?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    webview?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef
+     */
+    effectiveOp?: ListsListDefEffectiveOpEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef
+     */
+    shownInAsEnum?: ListsListDefShownInAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    filterable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    special?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef
+     */
+    typeAsEnum?: ListsListDefTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef
+     */
+    kindAsEnum?: ListsListDefKindAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef
+     */
+    multi?: boolean;
     /**
      * 
      * @type {string}
@@ -261,94 +345,10 @@ export interface ListsListDef {
     effectiveDisplayModeAsEnum?: ListsListDefEffectiveDisplayModeAsEnumEnum;
     /**
      * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    multi?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof ListsListDef
      */
-    kindAsEnum?: ListsListDefKindAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef
-     */
-    typeAsEnum?: ListsListDefTypeAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    special?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef
-     */
-    effectiveUrl?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    viewable?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ListsListDef
-     */
-    visibilityRoles?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef
-     */
-    effectiveCode?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    postable?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    favorites?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    stream?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    webview?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef
-     */
-    effectiveOp?: ListsListDefEffectiveOpEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef
-     */
-    shownInAsEnum?: ListsListDefShownInAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef
-     */
-    filterable?: boolean;
+    notificationModeAsEnum?: ListsListDefNotificationModeAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -367,11 +367,279 @@ export interface ListsListDef {
 /**
  * @export
  */
-export const ListsListDefNotificationModeAsEnumEnum = {
-    MUTE: 'MUTE',
-    DEFAULT: 'DEFAULT'
+export const ListsListDefEffectiveOpEnum = {
+    NONE: 'NONE',
+    SYSADMIN: 'SYSADMIN',
+    CREATE_COMPANY: 'CREATE_COMPANY',
+    CREATE_COMMENT: 'CREATE_COMMENT',
+    CREATE_MATCH_COMMENT: 'CREATE_MATCH_COMMENT',
+    EDIT_COMMENT: 'EDIT_COMMENT',
+    REJECT_CONTENT: 'REJECT_CONTENT',
+    PROMOTE_COMMENT_AS_REPLY: 'PROMOTE_COMMENT_AS_REPLY',
+    CAN_PROMOTE_COMMENT_AS_REPLY: 'CAN_PROMOTE_COMMENT_AS_REPLY',
+    CREATE_BOUNTY: 'CREATE_BOUNTY',
+    DISMISS_BOUNTY: 'DISMISS_BOUNTY',
+    CONTROL_BOUNTY_DISTRIBUTION: 'CONTROL_BOUNTY_DISTRIBUTION',
+    CHANGE_RATING_VALUE: 'CHANGE_RATING_VALUE',
+    CHANGE_BOUNTY_LIST: 'CHANGE_BOUNTY_LIST',
+    VOUCHERS: 'VOUCHERS',
+    BADGES: 'BADGES',
+    CAN_REWARD_MONEY: 'CAN_REWARD_MONEY',
+    CAN_REWARD_PROMOTION: 'CAN_REWARD_PROMOTION',
+    CREATE_BADGE: 'CREATE_BADGE',
+    ASSIGN_BADGE: 'ASSIGN_BADGE',
+    CREATE_VOUCHER: 'CREATE_VOUCHER',
+    CREATE_PROMOTION: 'CREATE_PROMOTION',
+    DISTRIBUTE_CONTENT: 'DISTRIBUTE_CONTENT',
+    PROFILE_RATINGS: 'PROFILE_RATINGS',
+    CREATE_RESPONSE: 'CREATE_RESPONSE',
+    CREATE_ATTACHMENTS: 'CREATE_ATTACHMENTS',
+    ATTACH_REWARD: 'ATTACH_REWARD',
+    SEE_SHOP_SETTINGS: 'SEE_SHOP_SETTINGS',
+    MANAGE_USERS: 'MANAGE_USERS',
+    DEMO: 'DEMO',
+    EDIT_CAPS: 'EDIT_CAPS',
+    EDIT_USER_PROFILE: 'EDIT_USER_PROFILE',
+    UPDATE_ACCOUNT: 'UPDATE_ACCOUNT',
+    SEE_REAL_IDENTITY: 'SEE_REAL_IDENTITY',
+    CTRL_IDENTITY: 'CTRL_IDENTITY',
+    PIN_CONTENT: 'PIN_CONTENT',
+    EDIT_BADGES: 'EDIT_BADGES',
+    EDIT_ANY_BOUNTY: 'EDIT_ANY_BOUNTY',
+    UNASSIGN_EMPLOYEE: 'UNASSIGN_EMPLOYEE',
+    SEE_GROUPS: 'SEE_GROUPS',
+    CREATE_GROUP: 'CREATE_GROUP',
+    EDIT_GROUPS: 'EDIT_GROUPS',
+    ADMIN_TEAM: 'ADMIN_TEAM',
+    MANAGE_DEVICES: 'MANAGE_DEVICES',
+    SEE_ACCOUNT: 'SEE_ACCOUNT',
+    SEE_DASHBOARD: 'SEE_DASHBOARD',
+    SEE_MARKET: 'SEE_MARKET',
+    SEE_DEALS: 'SEE_DEALS',
+    SEE_BUY_SELL: 'SEE_BUY_SELL',
+    REQUEST_ROR: 'REQUEST_ROR',
+    CANCEL_ROR: 'CANCEL_ROR',
+    SEE_LIKE: 'SEE_LIKE',
+    SEE_FAVORITES: 'SEE_FAVORITES',
+    SEE_ADDRESSES: 'SEE_ADDRESSES',
+    SEE_LEADERBOARD: 'SEE_LEADERBOARD',
+    SEE_WALLET_IN_STORE: 'SEE_WALLET_IN_STORE',
+    SEE_REPORTS: 'SEE_REPORTS',
+    SEE_USER_MANAGEMENT: 'SEE_USER_MANAGEMENT',
+    CAN_REPORT_USER: 'CAN_REPORT_USER',
+    SEE_RECV_ORDERS: 'SEE_RECV_ORDERS',
+    EDIT_PRIVATE_MARKETPLACE: 'EDIT_PRIVATE_MARKETPLACE',
+    CAN_TOUCH: 'CAN_TOUCH',
+    CAN_BLOCK_USER: 'CAN_BLOCK_USER',
+    SEE_GROUP_EVERYBODY: 'SEE_GROUP_EVERYBODY',
+    SEE_LICENCES: 'SEE_LICENCES',
+    NEEDS_SIGNUP: 'NEEDS_SIGNUP',
+    CAN_BLACKLIST: 'CAN_BLACKLIST',
+    NEEDS_SIGNUP_DOB: 'NEEDS_SIGNUP_DOB',
+    NEEDS_SIGNUP_CITY: 'NEEDS_SIGNUP_CITY',
+    NEEDS_SIGNUP_INFO: 'NEEDS_SIGNUP_INFO',
+    NEEDS_SIGNUP_GENDER: 'NEEDS_SIGNUP_GENDER',
+    NEEDS_SIGNUP_AGE_RANGE: 'NEEDS_SIGNUP_AGE_RANGE',
+    NEEDS_SIGNUP_INTEREST: 'NEEDS_SIGNUP_INTEREST',
+    NEEDS_EXPLICIT_TOS: 'NEEDS_EXPLICIT_TOS',
+    CAN_FOLLOW: 'CAN_FOLLOW',
+    CAN_SOCIAL_POST: 'CAN_SOCIAL_POST',
+    SEE_UNREAD_INDICATOR: 'SEE_UNREAD_INDICATOR',
+    CAN_ATTACH_BY_URL: 'CAN_ATTACH_BY_URL',
+    CAN_SORT_REPLIES: 'CAN_SORT_REPLIES',
+    SEE_SUPPLY_MARKET: 'SEE_SUPPLY_MARKET',
+    SEE_WORK_PROFILE: 'SEE_WORK_PROFILE',
+    SEE_STARTUP_APP_VERSION: 'SEE_STARTUP_APP_VERSION',
+    SEE_FOLLOWERS: 'SEE_FOLLOWERS',
+    SEE_FOLLOWING: 'SEE_FOLLOWING',
+    CAN_GHOSTWRITE: 'CAN_GHOSTWRITE',
+    SEE_ACROSS_COMPANIES: 'SEE_ACROSS_COMPANIES',
+    SEE_APPLICANTS: 'SEE_APPLICANTS',
+    SEE_ANALYTICS: 'SEE_ANALYTICS',
+    SEE_PRIVATE_INFO: 'SEE_PRIVATE_INFO',
+    SEE_RESPONSES: 'SEE_RESPONSES',
+    SEE_GLOBAL_REPORTS: 'SEE_GLOBAL_REPORTS',
+    SEE_COMPANY_REPORTS: 'SEE_COMPANY_REPORTS',
+    SEE_ONLY_INVITEES_REPORTS: 'SEE_ONLY_INVITEES_REPORTS',
+    CONTROL_RESPONSES: 'CONTROL_RESPONSES',
+    SEE_EMPLOYEES: 'SEE_EMPLOYEES',
+    CAN_ATTACH_PRODUCT: 'CAN_ATTACH_PRODUCT',
+    CAN_VALIDATE_TICKET: 'CAN_VALIDATE_TICKET',
+    MANAGE_CAMPAIGN: 'MANAGE_CAMPAIGN',
+    SEE_SEARCH_MODE_FILTER: 'SEE_SEARCH_MODE_FILTER',
+    CAN_HIGHLIGHT_RESPONSE: 'CAN_HIGHLIGHT_RESPONSE',
+    CAN_ARCHIVE_CHAT: 'CAN_ARCHIVE_CHAT',
+    CAN_RETRACT_SHARED: 'CAN_RETRACT_SHARED',
+    CAN_SEND_MESSAGES: 'CAN_SEND_MESSAGES',
+    CAN_RESYNC_PRODUCTS: 'CAN_RESYNC_PRODUCTS',
+    UPDATE_EMAIL_TEMPLATE: 'UPDATE_EMAIL_TEMPLATE',
+    CREATE_CURRENCY: 'CREATE_CURRENCY',
+    MANAGE_SENTIMENT: 'MANAGE_SENTIMENT',
+    SEE_COMPANIES: 'SEE_COMPANIES',
+    EDIT_COMPANIES: 'EDIT_COMPANIES',
+    SEE_COMPANY: 'SEE_COMPANY',
+    EDIT_COMPANY: 'EDIT_COMPANY',
+    DELETE_COMPANIES: 'DELETE_COMPANIES',
+    SEE_COMPANY_ACCOUNT: 'SEE_COMPANY_ACCOUNT',
+    CAN_CALL_OUT: 'CAN_CALL_OUT',
+    SEE_USERS: 'SEE_USERS',
+    SEE_USER_DATA: 'SEE_USER_DATA',
+    SEND_NOTIFICATIONS: 'SEND_NOTIFICATIONS',
+    SEND_INVITES: 'SEND_INVITES',
+    CAN_HAVE_MANY_INVITE_LINKS: 'CAN_HAVE_MANY_INVITE_LINKS',
+    SEE_REFERRAL_CODE: 'SEE_REFERRAL_CODE',
+    ASSIGN_ROLES: 'ASSIGN_ROLES',
+    CAN_EDIT_ROLES: 'CAN_EDIT_ROLES',
+    ALLOW_COUPONS: 'ALLOW_COUPONS',
+    SEE_ORGANIZATIONS: 'SEE_ORGANIZATIONS',
+    CREATE_ORGANIZATION: 'CREATE_ORGANIZATION',
+    CONTROL_PIN: 'CONTROL_PIN',
+    CONTROL_REFERRAL_CODE: 'CONTROL_REFERRAL_CODE',
+    PAYMENT: 'PAYMENT',
+    SEARCH: 'SEARCH',
+    SETTINGS: 'SETTINGS',
+    CAN_NOTIFY: 'CAN_NOTIFY',
+    CAN_FORCE_SIGN_OUT: 'CAN_FORCE_SIGN_OUT',
+    UPLOAD_FILES: 'UPLOAD_FILES',
+    SHELL_ACCESS: 'SHELL_ACCESS',
+    MANAGE_ASYNC_JOBS: 'MANAGE_ASYNC_JOBS',
+    ALERT_ON_BOUNTY_EDITS: 'ALERT_ON_BOUNTY_EDITS',
+    ALERT_ON_REPLY_EDITS: 'ALERT_ON_REPLY_EDITS',
+    ALERT_ON_COMMENT_EDITS: 'ALERT_ON_COMMENT_EDITS',
+    SEND_WEEKLY_USER_REPORT: 'SEND_WEEKLY_USER_REPORT',
+    SEND_WEEKLY_USER_SUMMARY: 'SEND_WEEKLY_USER_SUMMARY',
+    CAN_GENERATE_AI_CONTENT: 'CAN_GENERATE_AI_CONTENT',
+    CREATE_VENUE: 'CREATE_VENUE',
+    SEE_VENUE: 'SEE_VENUE',
+    UPDATE_VENUE: 'UPDATE_VENUE',
+    DELETE_VENUE: 'DELETE_VENUE',
+    CREATE_EVENT: 'CREATE_EVENT',
+    SEE_EVENT: 'SEE_EVENT',
+    UPDATE_EVENT: 'UPDATE_EVENT',
+    DELETE_EVENT: 'DELETE_EVENT',
+    CREATE_SEAT: 'CREATE_SEAT',
+    SEE_SEAT: 'SEE_SEAT',
+    UPDATE_SEAT: 'UPDATE_SEAT',
+    DELETE_SEAT: 'DELETE_SEAT',
+    CREATE_TICKET: 'CREATE_TICKET',
+    SEE_TICKET: 'SEE_TICKET',
+    UPDATE_TICKET: 'UPDATE_TICKET',
+    DELETE_TICKET: 'DELETE_TICKET',
+    CREATE_TOKEN_PACK: 'CREATE_TOKEN_PACK',
+    SEE_AI_BOT: 'SEE_AI_BOT',
+    SEE_DOC_SEARCH: 'SEE_DOC_SEARCH',
+    CAN_SCREENSHOT: 'CAN_SCREENSHOT',
+    CAN_NOT_SCREENSHOT: 'CAN_NOT_SCREENSHOT',
+    CREATE_AUTH_TOKEN: 'CREATE_AUTH_TOKEN',
+    ASSIGN_REPUTATION: 'ASSIGN_REPUTATION',
+    CREATE_REPUTATION: 'CREATE_REPUTATION',
+    EDIT_REPUTATION: 'EDIT_REPUTATION',
+    SEE_EVENT_LOG: 'SEE_EVENT_LOG',
+    CAN_MANAGE_PLATFORM: 'CAN_MANAGE_PLATFORM',
+    SHARE_LINKS_CONTENT: 'SHARE_LINKS_CONTENT',
+    BOUNTY_CREATE_QUESTION: 'BOUNTY_CREATE_QUESTION',
+    BOUNTY_CREATE_THREAD: 'BOUNTY_CREATE_THREAD',
+    BOUNTY_CREATE_TALENT_SEARCH: 'BOUNTY_CREATE_TALENT_SEARCH',
+    BOUNTY_CREATE_TALENT_RECOMMENDATION: 'BOUNTY_CREATE_TALENT_RECOMMENDATION',
+    BOUNTY_CREATE_TMOB_CHALLENGE: 'BOUNTY_CREATE_TMOB_CHALLENGE',
+    BOUNTY_CREATE_TMOB_COACHING: 'BOUNTY_CREATE_TMOB_COACHING',
+    BOUNTY_CREATE_ORDER: 'BOUNTY_CREATE_ORDER',
+    BOUNTY_CREATE_REALESTATE_CUSTOMER: 'BOUNTY_CREATE_REALESTATE_CUSTOMER',
+    BOUNTY_CREATE_REALESTATE_RECOMMENDATION: 'BOUNTY_CREATE_REALESTATE_RECOMMENDATION',
+    BOUNTY_CREATE_SURVEY: 'BOUNTY_CREATE_SURVEY',
+    BOUNTY_CREATE_CLASSIFIED: 'BOUNTY_CREATE_CLASSIFIED',
+    BOUNTY_CREATE_PRODUCT: 'BOUNTY_CREATE_PRODUCT',
+    BOUNTY_CREATE_BUNDLE: 'BOUNTY_CREATE_BUNDLE',
+    BOUNTY_CREATE_STORY: 'BOUNTY_CREATE_STORY',
+    BOUNTY_CREATE_SCORE: 'BOUNTY_CREATE_SCORE',
+    BOUNTY_CREATE_SERIES: 'BOUNTY_CREATE_SERIES',
+    BOUNTY_CREATE_CHECKLIST: 'BOUNTY_CREATE_CHECKLIST',
+    BOUNTY_CREATE_SUPPORT: 'BOUNTY_CREATE_SUPPORT',
+    BOUNTY_CREATE_AI_BOT: 'BOUNTY_CREATE_AI_BOT',
+    BOUNTY_CREATE_DEAL: 'BOUNTY_CREATE_DEAL',
+    BOUNTY_CREATE_PROMOTION: 'BOUNTY_CREATE_PROMOTION',
+    BOUNTY_CREATE_AUTOSUGGESTION: 'BOUNTY_CREATE_AUTOSUGGESTION',
+    BOUNTY_CREATE_APPROVAL: 'BOUNTY_CREATE_APPROVAL',
+    BOUNTY_CREATE_MCQ: 'BOUNTY_CREATE_MCQ',
+    BOUNTY_CREATE_FUNDING: 'BOUNTY_CREATE_FUNDING',
+    BOUNTY_CREATE_AUCTION: 'BOUNTY_CREATE_AUCTION',
+    BOUNTY_CREATE_ROLEPLAY: 'BOUNTY_CREATE_ROLEPLAY',
+    BOUNTY_CREATE_PRIVATE_LISTING: 'BOUNTY_CREATE_PRIVATE_LISTING',
+    BOUNTY_CREATE_QUEST: 'BOUNTY_CREATE_QUEST',
+    BOUNTY_CREATE_LIVE_STREAM: 'BOUNTY_CREATE_LIVE_STREAM',
+    BOUNTY_CREATE_ALBUM: 'BOUNTY_CREATE_ALBUM',
+    BOUNTY_CREATE_NEWS: 'BOUNTY_CREATE_NEWS',
+    BOUNTY_CREATE_BANNER: 'BOUNTY_CREATE_BANNER',
+    BOUNTY_CREATE_MATCH: 'BOUNTY_CREATE_MATCH',
+    BOUNTY_CREATE_CONTEST: 'BOUNTY_CREATE_CONTEST',
+    BOUNTY_CREATE_TRIVIA: 'BOUNTY_CREATE_TRIVIA',
+    BOUNTY_CREATE_LOTTERY: 'BOUNTY_CREATE_LOTTERY',
+    BOUNTY_CREATE_BADGE_COLLECTION: 'BOUNTY_CREATE_BADGE_COLLECTION',
+    BOUNTY_CREATE_RAFFLE: 'BOUNTY_CREATE_RAFFLE',
+    BOUNTY_CREATE_CALENDAR_EVENT: 'BOUNTY_CREATE_CALENDAR_EVENT',
+    BOUNTY_CREATE_CURRENCY: 'BOUNTY_CREATE_CURRENCY',
+    BOUNTY_CREATE_RESERVATION: 'BOUNTY_CREATE_RESERVATION',
+    BOUNTY_CREATE_QUICK_CLAIM: 'BOUNTY_CREATE_QUICK_CLAIM',
+    BOUNTY_CREATE_CAMPAIGN: 'BOUNTY_CREATE_CAMPAIGN',
+    BOUNTY_CREATE_EXPRESS_CAMPAIGN: 'BOUNTY_CREATE_EXPRESS_CAMPAIGN',
+    BOUNTY_CREATE_GEO_LOCATION: 'BOUNTY_CREATE_GEO_LOCATION',
+    BOUNTY_CREATE_FEEDBACK: 'BOUNTY_CREATE_FEEDBACK',
+    BOUNTY_CREATE_SUBSCRIPTION: 'BOUNTY_CREATE_SUBSCRIPTION',
+    BOUNTY_CREATE_SUBSCRIPTION_TIER: 'BOUNTY_CREATE_SUBSCRIPTION_TIER'
 } as const;
-export type ListsListDefNotificationModeAsEnumEnum = typeof ListsListDefNotificationModeAsEnumEnum[keyof typeof ListsListDefNotificationModeAsEnumEnum];
+export type ListsListDefEffectiveOpEnum = typeof ListsListDefEffectiveOpEnum[keyof typeof ListsListDefEffectiveOpEnum];
+
+/**
+ * @export
+ */
+export const ListsListDefShownInAsEnumEnum = {
+    HOME: 'HOME',
+    EXPLICIT: 'EXPLICIT',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListsListDefShownInAsEnumEnum = typeof ListsListDefShownInAsEnumEnum[keyof typeof ListsListDefShownInAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListsListDefTypeAsEnumEnum = {
+    NONE: 'NONE',
+    STREAM: 'STREAM',
+    EDGE_COACHINGS: 'EDGE_COACHINGS',
+    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
+    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
+    BUY_SELL: 'BUY_SELL',
+    MARKET: 'MARKET',
+    SUPPLY_MARKET: 'SUPPLY_MARKET',
+    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
+    NEWS: 'NEWS',
+    WEBVIEW: 'WEBVIEW',
+    CUSTOM: 'CUSTOM',
+    FAVORITES: 'FAVORITES'
+} as const;
+export type ListsListDefTypeAsEnumEnum = typeof ListsListDefTypeAsEnumEnum[keyof typeof ListsListDefTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListsListDefKindAsEnumEnum = {
+    INBOX: 'INBOX',
+    REFS: 'REFS',
+    BUCKET: 'BUCKET',
+    FILTER_BY_BOUNTY_TYPE: 'FILTER_BY_BOUNTY_TYPE',
+    REST_CALL: 'REST_CALL',
+    SPECIAL: 'SPECIAL',
+    WEBVIEW: 'WEBVIEW',
+    TARGET: 'TARGET',
+    MULTI: 'MULTI',
+    STATS: 'STATS',
+    NEWS: 'NEWS',
+    HUB: 'HUB',
+    LIST_STREAM: 'LIST_STREAM',
+    UNION: 'UNION',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListsListDefKindAsEnumEnum = typeof ListsListDefKindAsEnumEnum[keyof typeof ListsListDefKindAsEnumEnum];
 
 /**
  * @export
@@ -613,279 +881,11 @@ export type ListsListDefEffectiveDisplayModeAsEnumEnum = typeof ListsListDefEffe
 /**
  * @export
  */
-export const ListsListDefKindAsEnumEnum = {
-    INBOX: 'INBOX',
-    REFS: 'REFS',
-    BUCKET: 'BUCKET',
-    FILTER_BY_BOUNTY_TYPE: 'FILTER_BY_BOUNTY_TYPE',
-    REST_CALL: 'REST_CALL',
-    SPECIAL: 'SPECIAL',
-    WEBVIEW: 'WEBVIEW',
-    TARGET: 'TARGET',
-    MULTI: 'MULTI',
-    STATS: 'STATS',
-    NEWS: 'NEWS',
-    HUB: 'HUB',
-    LIST_STREAM: 'LIST_STREAM',
-    UNION: 'UNION',
-    UNKNOWN: 'UNKNOWN'
+export const ListsListDefNotificationModeAsEnumEnum = {
+    MUTE: 'MUTE',
+    DEFAULT: 'DEFAULT'
 } as const;
-export type ListsListDefKindAsEnumEnum = typeof ListsListDefKindAsEnumEnum[keyof typeof ListsListDefKindAsEnumEnum];
-
-/**
- * @export
- */
-export const ListsListDefTypeAsEnumEnum = {
-    NONE: 'NONE',
-    STREAM: 'STREAM',
-    EDGE_COACHINGS: 'EDGE_COACHINGS',
-    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
-    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
-    BUY_SELL: 'BUY_SELL',
-    MARKET: 'MARKET',
-    SUPPLY_MARKET: 'SUPPLY_MARKET',
-    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
-    NEWS: 'NEWS',
-    WEBVIEW: 'WEBVIEW',
-    CUSTOM: 'CUSTOM',
-    FAVORITES: 'FAVORITES'
-} as const;
-export type ListsListDefTypeAsEnumEnum = typeof ListsListDefTypeAsEnumEnum[keyof typeof ListsListDefTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ListsListDefEffectiveOpEnum = {
-    NONE: 'NONE',
-    SYSADMIN: 'SYSADMIN',
-    CREATE_COMPANY: 'CREATE_COMPANY',
-    CREATE_COMMENT: 'CREATE_COMMENT',
-    CREATE_MATCH_COMMENT: 'CREATE_MATCH_COMMENT',
-    EDIT_COMMENT: 'EDIT_COMMENT',
-    REJECT_CONTENT: 'REJECT_CONTENT',
-    PROMOTE_COMMENT_AS_REPLY: 'PROMOTE_COMMENT_AS_REPLY',
-    CAN_PROMOTE_COMMENT_AS_REPLY: 'CAN_PROMOTE_COMMENT_AS_REPLY',
-    CREATE_BOUNTY: 'CREATE_BOUNTY',
-    DISMISS_BOUNTY: 'DISMISS_BOUNTY',
-    CONTROL_BOUNTY_DISTRIBUTION: 'CONTROL_BOUNTY_DISTRIBUTION',
-    CHANGE_RATING_VALUE: 'CHANGE_RATING_VALUE',
-    CHANGE_BOUNTY_LIST: 'CHANGE_BOUNTY_LIST',
-    VOUCHERS: 'VOUCHERS',
-    BADGES: 'BADGES',
-    CAN_REWARD_MONEY: 'CAN_REWARD_MONEY',
-    CAN_REWARD_PROMOTION: 'CAN_REWARD_PROMOTION',
-    CREATE_BADGE: 'CREATE_BADGE',
-    ASSIGN_BADGE: 'ASSIGN_BADGE',
-    CREATE_VOUCHER: 'CREATE_VOUCHER',
-    CREATE_PROMOTION: 'CREATE_PROMOTION',
-    DISTRIBUTE_CONTENT: 'DISTRIBUTE_CONTENT',
-    PROFILE_RATINGS: 'PROFILE_RATINGS',
-    CREATE_RESPONSE: 'CREATE_RESPONSE',
-    CREATE_ATTACHMENTS: 'CREATE_ATTACHMENTS',
-    ATTACH_REWARD: 'ATTACH_REWARD',
-    SEE_SHOP_SETTINGS: 'SEE_SHOP_SETTINGS',
-    MANAGE_USERS: 'MANAGE_USERS',
-    DEMO: 'DEMO',
-    EDIT_CAPS: 'EDIT_CAPS',
-    EDIT_USER_PROFILE: 'EDIT_USER_PROFILE',
-    UPDATE_ACCOUNT: 'UPDATE_ACCOUNT',
-    SEE_REAL_IDENTITY: 'SEE_REAL_IDENTITY',
-    CTRL_IDENTITY: 'CTRL_IDENTITY',
-    PIN_CONTENT: 'PIN_CONTENT',
-    EDIT_BADGES: 'EDIT_BADGES',
-    EDIT_ANY_BOUNTY: 'EDIT_ANY_BOUNTY',
-    UNASSIGN_EMPLOYEE: 'UNASSIGN_EMPLOYEE',
-    SEE_GROUPS: 'SEE_GROUPS',
-    CREATE_GROUP: 'CREATE_GROUP',
-    EDIT_GROUPS: 'EDIT_GROUPS',
-    ADMIN_TEAM: 'ADMIN_TEAM',
-    MANAGE_DEVICES: 'MANAGE_DEVICES',
-    SEE_ACCOUNT: 'SEE_ACCOUNT',
-    SEE_DASHBOARD: 'SEE_DASHBOARD',
-    SEE_MARKET: 'SEE_MARKET',
-    SEE_DEALS: 'SEE_DEALS',
-    SEE_BUY_SELL: 'SEE_BUY_SELL',
-    REQUEST_ROR: 'REQUEST_ROR',
-    CANCEL_ROR: 'CANCEL_ROR',
-    SEE_LIKE: 'SEE_LIKE',
-    SEE_FAVORITES: 'SEE_FAVORITES',
-    SEE_ADDRESSES: 'SEE_ADDRESSES',
-    SEE_LEADERBOARD: 'SEE_LEADERBOARD',
-    SEE_WALLET_IN_STORE: 'SEE_WALLET_IN_STORE',
-    SEE_REPORTS: 'SEE_REPORTS',
-    SEE_USER_MANAGEMENT: 'SEE_USER_MANAGEMENT',
-    CAN_REPORT_USER: 'CAN_REPORT_USER',
-    SEE_RECV_ORDERS: 'SEE_RECV_ORDERS',
-    EDIT_PRIVATE_MARKETPLACE: 'EDIT_PRIVATE_MARKETPLACE',
-    CAN_TOUCH: 'CAN_TOUCH',
-    CAN_BLOCK_USER: 'CAN_BLOCK_USER',
-    SEE_GROUP_EVERYBODY: 'SEE_GROUP_EVERYBODY',
-    SEE_LICENCES: 'SEE_LICENCES',
-    NEEDS_SIGNUP: 'NEEDS_SIGNUP',
-    CAN_BLACKLIST: 'CAN_BLACKLIST',
-    NEEDS_SIGNUP_DOB: 'NEEDS_SIGNUP_DOB',
-    NEEDS_SIGNUP_CITY: 'NEEDS_SIGNUP_CITY',
-    NEEDS_SIGNUP_INFO: 'NEEDS_SIGNUP_INFO',
-    NEEDS_SIGNUP_GENDER: 'NEEDS_SIGNUP_GENDER',
-    NEEDS_SIGNUP_AGE_RANGE: 'NEEDS_SIGNUP_AGE_RANGE',
-    NEEDS_SIGNUP_INTEREST: 'NEEDS_SIGNUP_INTEREST',
-    NEEDS_EXPLICIT_TOS: 'NEEDS_EXPLICIT_TOS',
-    CAN_FOLLOW: 'CAN_FOLLOW',
-    CAN_SOCIAL_POST: 'CAN_SOCIAL_POST',
-    SEE_UNREAD_INDICATOR: 'SEE_UNREAD_INDICATOR',
-    CAN_ATTACH_BY_URL: 'CAN_ATTACH_BY_URL',
-    CAN_SORT_REPLIES: 'CAN_SORT_REPLIES',
-    SEE_SUPPLY_MARKET: 'SEE_SUPPLY_MARKET',
-    SEE_WORK_PROFILE: 'SEE_WORK_PROFILE',
-    SEE_STARTUP_APP_VERSION: 'SEE_STARTUP_APP_VERSION',
-    SEE_FOLLOWERS: 'SEE_FOLLOWERS',
-    SEE_FOLLOWING: 'SEE_FOLLOWING',
-    CAN_GHOSTWRITE: 'CAN_GHOSTWRITE',
-    SEE_ACROSS_COMPANIES: 'SEE_ACROSS_COMPANIES',
-    SEE_APPLICANTS: 'SEE_APPLICANTS',
-    SEE_ANALYTICS: 'SEE_ANALYTICS',
-    SEE_PRIVATE_INFO: 'SEE_PRIVATE_INFO',
-    SEE_RESPONSES: 'SEE_RESPONSES',
-    SEE_GLOBAL_REPORTS: 'SEE_GLOBAL_REPORTS',
-    SEE_COMPANY_REPORTS: 'SEE_COMPANY_REPORTS',
-    SEE_ONLY_INVITEES_REPORTS: 'SEE_ONLY_INVITEES_REPORTS',
-    CONTROL_RESPONSES: 'CONTROL_RESPONSES',
-    SEE_EMPLOYEES: 'SEE_EMPLOYEES',
-    CAN_ATTACH_PRODUCT: 'CAN_ATTACH_PRODUCT',
-    CAN_VALIDATE_TICKET: 'CAN_VALIDATE_TICKET',
-    MANAGE_CAMPAIGN: 'MANAGE_CAMPAIGN',
-    SEE_SEARCH_MODE_FILTER: 'SEE_SEARCH_MODE_FILTER',
-    CAN_HIGHLIGHT_RESPONSE: 'CAN_HIGHLIGHT_RESPONSE',
-    CAN_ARCHIVE_CHAT: 'CAN_ARCHIVE_CHAT',
-    CAN_RETRACT_SHARED: 'CAN_RETRACT_SHARED',
-    CAN_SEND_MESSAGES: 'CAN_SEND_MESSAGES',
-    CAN_RESYNC_PRODUCTS: 'CAN_RESYNC_PRODUCTS',
-    UPDATE_EMAIL_TEMPLATE: 'UPDATE_EMAIL_TEMPLATE',
-    CREATE_CURRENCY: 'CREATE_CURRENCY',
-    MANAGE_SENTIMENT: 'MANAGE_SENTIMENT',
-    SEE_COMPANIES: 'SEE_COMPANIES',
-    EDIT_COMPANIES: 'EDIT_COMPANIES',
-    SEE_COMPANY: 'SEE_COMPANY',
-    EDIT_COMPANY: 'EDIT_COMPANY',
-    DELETE_COMPANIES: 'DELETE_COMPANIES',
-    SEE_COMPANY_ACCOUNT: 'SEE_COMPANY_ACCOUNT',
-    CAN_CALL_OUT: 'CAN_CALL_OUT',
-    SEE_USERS: 'SEE_USERS',
-    SEE_USER_DATA: 'SEE_USER_DATA',
-    SEND_NOTIFICATIONS: 'SEND_NOTIFICATIONS',
-    SEND_INVITES: 'SEND_INVITES',
-    CAN_HAVE_MANY_INVITE_LINKS: 'CAN_HAVE_MANY_INVITE_LINKS',
-    SEE_REFERRAL_CODE: 'SEE_REFERRAL_CODE',
-    ASSIGN_ROLES: 'ASSIGN_ROLES',
-    CAN_EDIT_ROLES: 'CAN_EDIT_ROLES',
-    ALLOW_COUPONS: 'ALLOW_COUPONS',
-    SEE_ORGANIZATIONS: 'SEE_ORGANIZATIONS',
-    CREATE_ORGANIZATION: 'CREATE_ORGANIZATION',
-    CONTROL_PIN: 'CONTROL_PIN',
-    CONTROL_REFERRAL_CODE: 'CONTROL_REFERRAL_CODE',
-    PAYMENT: 'PAYMENT',
-    SEARCH: 'SEARCH',
-    SETTINGS: 'SETTINGS',
-    CAN_NOTIFY: 'CAN_NOTIFY',
-    CAN_FORCE_SIGN_OUT: 'CAN_FORCE_SIGN_OUT',
-    UPLOAD_FILES: 'UPLOAD_FILES',
-    SHELL_ACCESS: 'SHELL_ACCESS',
-    MANAGE_ASYNC_JOBS: 'MANAGE_ASYNC_JOBS',
-    ALERT_ON_BOUNTY_EDITS: 'ALERT_ON_BOUNTY_EDITS',
-    ALERT_ON_REPLY_EDITS: 'ALERT_ON_REPLY_EDITS',
-    ALERT_ON_COMMENT_EDITS: 'ALERT_ON_COMMENT_EDITS',
-    SEND_WEEKLY_USER_REPORT: 'SEND_WEEKLY_USER_REPORT',
-    SEND_WEEKLY_USER_SUMMARY: 'SEND_WEEKLY_USER_SUMMARY',
-    CAN_GENERATE_AI_CONTENT: 'CAN_GENERATE_AI_CONTENT',
-    CREATE_VENUE: 'CREATE_VENUE',
-    SEE_VENUE: 'SEE_VENUE',
-    UPDATE_VENUE: 'UPDATE_VENUE',
-    DELETE_VENUE: 'DELETE_VENUE',
-    CREATE_EVENT: 'CREATE_EVENT',
-    SEE_EVENT: 'SEE_EVENT',
-    UPDATE_EVENT: 'UPDATE_EVENT',
-    DELETE_EVENT: 'DELETE_EVENT',
-    CREATE_SEAT: 'CREATE_SEAT',
-    SEE_SEAT: 'SEE_SEAT',
-    UPDATE_SEAT: 'UPDATE_SEAT',
-    DELETE_SEAT: 'DELETE_SEAT',
-    CREATE_TICKET: 'CREATE_TICKET',
-    SEE_TICKET: 'SEE_TICKET',
-    UPDATE_TICKET: 'UPDATE_TICKET',
-    DELETE_TICKET: 'DELETE_TICKET',
-    CREATE_TOKEN_PACK: 'CREATE_TOKEN_PACK',
-    SEE_AI_BOT: 'SEE_AI_BOT',
-    SEE_DOC_SEARCH: 'SEE_DOC_SEARCH',
-    CAN_SCREENSHOT: 'CAN_SCREENSHOT',
-    CAN_NOT_SCREENSHOT: 'CAN_NOT_SCREENSHOT',
-    CREATE_AUTH_TOKEN: 'CREATE_AUTH_TOKEN',
-    ASSIGN_REPUTATION: 'ASSIGN_REPUTATION',
-    CREATE_REPUTATION: 'CREATE_REPUTATION',
-    EDIT_REPUTATION: 'EDIT_REPUTATION',
-    SEE_EVENT_LOG: 'SEE_EVENT_LOG',
-    CAN_MANAGE_PLATFORM: 'CAN_MANAGE_PLATFORM',
-    SHARE_LINKS_CONTENT: 'SHARE_LINKS_CONTENT',
-    BOUNTY_CREATE_QUESTION: 'BOUNTY_CREATE_QUESTION',
-    BOUNTY_CREATE_THREAD: 'BOUNTY_CREATE_THREAD',
-    BOUNTY_CREATE_TALENT_SEARCH: 'BOUNTY_CREATE_TALENT_SEARCH',
-    BOUNTY_CREATE_TALENT_RECOMMENDATION: 'BOUNTY_CREATE_TALENT_RECOMMENDATION',
-    BOUNTY_CREATE_TMOB_CHALLENGE: 'BOUNTY_CREATE_TMOB_CHALLENGE',
-    BOUNTY_CREATE_TMOB_COACHING: 'BOUNTY_CREATE_TMOB_COACHING',
-    BOUNTY_CREATE_ORDER: 'BOUNTY_CREATE_ORDER',
-    BOUNTY_CREATE_REALESTATE_CUSTOMER: 'BOUNTY_CREATE_REALESTATE_CUSTOMER',
-    BOUNTY_CREATE_REALESTATE_RECOMMENDATION: 'BOUNTY_CREATE_REALESTATE_RECOMMENDATION',
-    BOUNTY_CREATE_SURVEY: 'BOUNTY_CREATE_SURVEY',
-    BOUNTY_CREATE_CLASSIFIED: 'BOUNTY_CREATE_CLASSIFIED',
-    BOUNTY_CREATE_PRODUCT: 'BOUNTY_CREATE_PRODUCT',
-    BOUNTY_CREATE_BUNDLE: 'BOUNTY_CREATE_BUNDLE',
-    BOUNTY_CREATE_STORY: 'BOUNTY_CREATE_STORY',
-    BOUNTY_CREATE_SCORE: 'BOUNTY_CREATE_SCORE',
-    BOUNTY_CREATE_SERIES: 'BOUNTY_CREATE_SERIES',
-    BOUNTY_CREATE_CHECKLIST: 'BOUNTY_CREATE_CHECKLIST',
-    BOUNTY_CREATE_SUPPORT: 'BOUNTY_CREATE_SUPPORT',
-    BOUNTY_CREATE_AI_BOT: 'BOUNTY_CREATE_AI_BOT',
-    BOUNTY_CREATE_DEAL: 'BOUNTY_CREATE_DEAL',
-    BOUNTY_CREATE_PROMOTION: 'BOUNTY_CREATE_PROMOTION',
-    BOUNTY_CREATE_AUTOSUGGESTION: 'BOUNTY_CREATE_AUTOSUGGESTION',
-    BOUNTY_CREATE_APPROVAL: 'BOUNTY_CREATE_APPROVAL',
-    BOUNTY_CREATE_MCQ: 'BOUNTY_CREATE_MCQ',
-    BOUNTY_CREATE_FUNDING: 'BOUNTY_CREATE_FUNDING',
-    BOUNTY_CREATE_AUCTION: 'BOUNTY_CREATE_AUCTION',
-    BOUNTY_CREATE_ROLEPLAY: 'BOUNTY_CREATE_ROLEPLAY',
-    BOUNTY_CREATE_PRIVATE_LISTING: 'BOUNTY_CREATE_PRIVATE_LISTING',
-    BOUNTY_CREATE_QUEST: 'BOUNTY_CREATE_QUEST',
-    BOUNTY_CREATE_LIVE_STREAM: 'BOUNTY_CREATE_LIVE_STREAM',
-    BOUNTY_CREATE_ALBUM: 'BOUNTY_CREATE_ALBUM',
-    BOUNTY_CREATE_NEWS: 'BOUNTY_CREATE_NEWS',
-    BOUNTY_CREATE_BANNER: 'BOUNTY_CREATE_BANNER',
-    BOUNTY_CREATE_MATCH: 'BOUNTY_CREATE_MATCH',
-    BOUNTY_CREATE_CONTEST: 'BOUNTY_CREATE_CONTEST',
-    BOUNTY_CREATE_TRIVIA: 'BOUNTY_CREATE_TRIVIA',
-    BOUNTY_CREATE_LOTTERY: 'BOUNTY_CREATE_LOTTERY',
-    BOUNTY_CREATE_BADGE_COLLECTION: 'BOUNTY_CREATE_BADGE_COLLECTION',
-    BOUNTY_CREATE_RAFFLE: 'BOUNTY_CREATE_RAFFLE',
-    BOUNTY_CREATE_CALENDAR_EVENT: 'BOUNTY_CREATE_CALENDAR_EVENT',
-    BOUNTY_CREATE_CURRENCY: 'BOUNTY_CREATE_CURRENCY',
-    BOUNTY_CREATE_RESERVATION: 'BOUNTY_CREATE_RESERVATION',
-    BOUNTY_CREATE_QUICK_CLAIM: 'BOUNTY_CREATE_QUICK_CLAIM',
-    BOUNTY_CREATE_CAMPAIGN: 'BOUNTY_CREATE_CAMPAIGN',
-    BOUNTY_CREATE_EXPRESS_CAMPAIGN: 'BOUNTY_CREATE_EXPRESS_CAMPAIGN',
-    BOUNTY_CREATE_GEO_LOCATION: 'BOUNTY_CREATE_GEO_LOCATION',
-    BOUNTY_CREATE_FEEDBACK: 'BOUNTY_CREATE_FEEDBACK',
-    BOUNTY_CREATE_SUBSCRIPTION: 'BOUNTY_CREATE_SUBSCRIPTION',
-    BOUNTY_CREATE_SUBSCRIPTION_TIER: 'BOUNTY_CREATE_SUBSCRIPTION_TIER'
-} as const;
-export type ListsListDefEffectiveOpEnum = typeof ListsListDefEffectiveOpEnum[keyof typeof ListsListDefEffectiveOpEnum];
-
-/**
- * @export
- */
-export const ListsListDefShownInAsEnumEnum = {
-    HOME: 'HOME',
-    EXPLICIT: 'EXPLICIT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ListsListDefShownInAsEnumEnum = typeof ListsListDefShownInAsEnumEnum[keyof typeof ListsListDefShownInAsEnumEnum];
+export type ListsListDefNotificationModeAsEnumEnum = typeof ListsListDefNotificationModeAsEnumEnum[keyof typeof ListsListDefNotificationModeAsEnumEnum];
 
 /**
  * @export
@@ -947,7 +947,21 @@ export function ListsListDefFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'notificationMode': json['notificationMode'] == null ? undefined : json['notificationMode'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeysFromJSON(json['accessKeys']),
-        'notificationModeAsEnum': json['notificationModeAsEnum'] == null ? undefined : json['notificationModeAsEnum'],
+        'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
+        'viewable': json['viewable'] == null ? undefined : json['viewable'],
+        'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
+        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
+        'postable': json['postable'] == null ? undefined : json['postable'],
+        'favorites': json['favorites'] == null ? undefined : json['favorites'],
+        'stream': json['stream'] == null ? undefined : json['stream'],
+        'webview': json['webview'] == null ? undefined : json['webview'],
+        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
+        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
+        'filterable': json['filterable'] == null ? undefined : json['filterable'],
+        'special': json['special'] == null ? undefined : json['special'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
+        'multi': json['multi'] == null ? undefined : json['multi'],
         'effectiveUserSpecial': json['effectiveUserSpecial'] == null ? undefined : json['effectiveUserSpecial'],
         'effectiveCompanySpecial': json['effectiveCompanySpecial'] == null ? undefined : json['effectiveCompanySpecial'],
         'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
@@ -959,21 +973,7 @@ export function ListsListDefFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'effectiveMainBountyType': json['effectiveMainBountyType'] == null ? undefined : json['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': json['filterBountyTypeAsEnum'] == null ? undefined : json['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': json['effectiveDisplayModeAsEnum'] == null ? undefined : json['effectiveDisplayModeAsEnum'],
-        'multi': json['multi'] == null ? undefined : json['multi'],
-        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
-        'special': json['special'] == null ? undefined : json['special'],
-        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
-        'viewable': json['viewable'] == null ? undefined : json['viewable'],
-        'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
-        'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
-        'postable': json['postable'] == null ? undefined : json['postable'],
-        'favorites': json['favorites'] == null ? undefined : json['favorites'],
-        'stream': json['stream'] == null ? undefined : json['stream'],
-        'webview': json['webview'] == null ? undefined : json['webview'],
-        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
-        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
-        'filterable': json['filterable'] == null ? undefined : json['filterable'],
+        'notificationModeAsEnum': json['notificationModeAsEnum'] == null ? undefined : json['notificationModeAsEnum'],
         'accessKeyEnforcementAsEnum': json['accessKeyEnforcementAsEnum'] == null ? undefined : json['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': json['accessKeyCtaModeAsEnum'] == null ? undefined : json['accessKeyCtaModeAsEnum'],
     };
@@ -1012,7 +1012,21 @@ export function ListsListDefToJSONTyped(value?: ListsListDef | null, ignoreDiscr
         'notificationMode': value['notificationMode'],
         'tags': value['tags'],
         'accessKeys': HasAccessKeysAccessKeysToJSON(value['accessKeys']),
-        'notificationModeAsEnum': value['notificationModeAsEnum'],
+        'effectiveCode': value['effectiveCode'],
+        'viewable': value['viewable'],
+        'visibilityRoles': value['visibilityRoles'],
+        'effectiveUrl': value['effectiveUrl'],
+        'postable': value['postable'],
+        'favorites': value['favorites'],
+        'stream': value['stream'],
+        'webview': value['webview'],
+        'effectiveOp': value['effectiveOp'],
+        'shownInAsEnum': value['shownInAsEnum'],
+        'filterable': value['filterable'],
+        'special': value['special'],
+        'typeAsEnum': value['typeAsEnum'],
+        'kindAsEnum': value['kindAsEnum'],
+        'multi': value['multi'],
         'effectiveUserSpecial': value['effectiveUserSpecial'],
         'effectiveCompanySpecial': value['effectiveCompanySpecial'],
         'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
@@ -1024,21 +1038,7 @@ export function ListsListDefToJSONTyped(value?: ListsListDef | null, ignoreDiscr
         'effectiveMainBountyType': value['effectiveMainBountyType'],
         'filterBountyTypeAsEnum': value['filterBountyTypeAsEnum'],
         'effectiveDisplayModeAsEnum': value['effectiveDisplayModeAsEnum'],
-        'multi': value['multi'],
-        'kindAsEnum': value['kindAsEnum'],
-        'typeAsEnum': value['typeAsEnum'],
-        'special': value['special'],
-        'effectiveUrl': value['effectiveUrl'],
-        'viewable': value['viewable'],
-        'visibilityRoles': value['visibilityRoles'],
-        'effectiveCode': value['effectiveCode'],
-        'postable': value['postable'],
-        'favorites': value['favorites'],
-        'stream': value['stream'],
-        'webview': value['webview'],
-        'effectiveOp': value['effectiveOp'],
-        'shownInAsEnum': value['shownInAsEnum'],
-        'filterable': value['filterable'],
+        'notificationModeAsEnum': value['notificationModeAsEnum'],
         'accessKeyEnforcementAsEnum': value['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': value['accessKeyCtaModeAsEnum'],
     };

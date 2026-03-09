@@ -30,10 +30,10 @@ import com.squareup.moshi.JsonClass
  * @param email 
  * @param dob 
  * @param address 
+ * @param phoneRawNumber 
+ * @param effectiveState 
  * @param phoneStatus 
  * @param personalName 
- * @param effectiveState 
- * @param phoneRawNumber 
  */
 
 
@@ -57,17 +57,17 @@ data class BountyOrderCustomer (
     @Json(name = "address")
     val address: MailingAddress? = null,
 
-    @Json(name = "phoneStatus")
-    val phoneStatus: kotlin.String? = null,
-
-    @Json(name = "personalName")
-    val personalName: UtilPersonalName? = null,
+    @Json(name = "phoneRawNumber")
+    val phoneRawNumber: kotlin.String? = null,
 
     @Json(name = "effectiveState")
     val effectiveState: kotlin.String? = null,
 
-    @Json(name = "phoneRawNumber")
-    val phoneRawNumber: kotlin.String? = null
+    @Json(name = "phoneStatus")
+    val phoneStatus: kotlin.String? = null,
+
+    @Json(name = "personalName")
+    val personalName: UtilPersonalName? = null
 
 ) {
 

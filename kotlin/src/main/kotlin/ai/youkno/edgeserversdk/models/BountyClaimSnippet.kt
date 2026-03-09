@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param rejection 
  * @param claimedAt 
  * @param status 
- * @param rejected 
  * @param statusAsEnum 
+ * @param rejected 
  */
 
 
@@ -51,11 +51,11 @@ data class BountyClaimSnippet (
     @Json(name = "status")
     val status: kotlin.String? = null,
 
-    @Json(name = "rejected")
-    val rejected: kotlin.Boolean? = null,
-
     @Json(name = "statusAsEnum")
-    val statusAsEnum: BountyClaimSnippet.StatusAsEnum? = null
+    val statusAsEnum: BountyClaimSnippet.StatusAsEnum? = null,
+
+    @Json(name = "rejected")
+    val rejected: kotlin.Boolean? = null
 
 ) {
 

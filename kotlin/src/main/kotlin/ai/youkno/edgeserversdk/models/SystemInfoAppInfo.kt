@@ -29,10 +29,10 @@ import com.squareup.moshi.JsonClass
  * @param enforceAt 
  * @param notifyDelayInHours 
  * @param enforceDelayInHours 
- * @param notificationStartingAt 
- * @param enforcementStartingAt 
  * @param curVersionAsObj 
  * @param minVersionAsObj 
+ * @param notificationStartingAt 
+ * @param enforcementStartingAt 
  */
 
 
@@ -56,17 +56,17 @@ data class SystemInfoAppInfo (
     @Json(name = "enforceDelayInHours")
     val enforceDelayInHours: kotlin.Long? = null,
 
-    @Json(name = "notificationStartingAt")
-    val notificationStartingAt: kotlin.Long? = null,
-
-    @Json(name = "enforcementStartingAt")
-    val enforcementStartingAt: kotlin.Long? = null,
-
     @Json(name = "curVersionAsObj")
     val curVersionAsObj: ComLatticaVernumVersionNumber? = null,
 
     @Json(name = "minVersionAsObj")
-    val minVersionAsObj: ComLatticaVernumVersionNumber? = null
+    val minVersionAsObj: ComLatticaVernumVersionNumber? = null,
+
+    @Json(name = "notificationStartingAt")
+    val notificationStartingAt: kotlin.Long? = null,
+
+    @Json(name = "enforcementStartingAt")
+    val enforcementStartingAt: kotlin.Long? = null
 
 ) {
 

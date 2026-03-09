@@ -131,10 +131,10 @@ export interface PrivateCompanySettingsPointOfSaleInfoLocationInfo {
     onlineShop?: string;
     /**
      * 
-     * @type {boolean}
+     * @type {Set<string>}
      * @memberof PrivateCompanySettingsPointOfSaleInfoLocationInfo
      */
-    onlinePresenceJustified?: boolean;
+    deliveryMethods?: Set<PrivateCompanySettingsPointOfSaleInfoLocationInfoDeliveryMethodsEnum>;
     /**
      * 
      * @type {boolean}
@@ -143,10 +143,10 @@ export interface PrivateCompanySettingsPointOfSaleInfoLocationInfo {
     shopOnline?: boolean;
     /**
      * 
-     * @type {Set<string>}
+     * @type {boolean}
      * @memberof PrivateCompanySettingsPointOfSaleInfoLocationInfo
      */
-    deliveryMethods?: Set<PrivateCompanySettingsPointOfSaleInfoLocationInfoDeliveryMethodsEnum>;
+    onlinePresenceJustified?: boolean;
 }
 
 
@@ -198,9 +198,9 @@ export function PrivateCompanySettingsPointOfSaleInfoLocationInfoFromJSONTyped(j
         'medicalUse': json['medicalUse'] == null ? undefined : json['medicalUse'],
         'isMetrc': json['isMetrc'] == null ? undefined : json['isMetrc'],
         'onlineShop': json['onlineShop'] == null ? undefined : json['onlineShop'],
-        'onlinePresenceJustified': json['onlinePresenceJustified'] == null ? undefined : json['onlinePresenceJustified'],
-        'shopOnline': json['shopOnline'] == null ? undefined : json['shopOnline'],
         'deliveryMethods': json['deliveryMethods'] == null ? undefined : new Set(json['deliveryMethods']),
+        'shopOnline': json['shopOnline'] == null ? undefined : json['shopOnline'],
+        'onlinePresenceJustified': json['onlinePresenceJustified'] == null ? undefined : json['onlinePresenceJustified'],
     };
 }
 
@@ -232,9 +232,9 @@ export function PrivateCompanySettingsPointOfSaleInfoLocationInfoToJSONTyped(val
         'medicalUse': value['medicalUse'],
         'isMetrc': value['isMetrc'],
         'onlineShop': value['onlineShop'],
-        'onlinePresenceJustified': value['onlinePresenceJustified'],
-        'shopOnline': value['shopOnline'],
         'deliveryMethods': value['deliveryMethods'] == null ? undefined : Array.from(value['deliveryMethods'] as Set<any>),
+        'shopOnline': value['shopOnline'],
+        'onlinePresenceJustified': value['onlinePresenceJustified'],
     };
 }
 

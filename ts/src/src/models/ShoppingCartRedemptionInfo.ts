@@ -48,6 +48,12 @@ export interface ShoppingCartRedemptionInfo {
     empty?: boolean;
     /**
      * 
+     * @type {Reward}
+     * @memberof ShoppingCartRedemptionInfo
+     */
+    exchangedReward?: Reward;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof ShoppingCartRedemptionInfo
      */
@@ -58,12 +64,6 @@ export interface ShoppingCartRedemptionInfo {
      * @memberof ShoppingCartRedemptionInfo
      */
     redemptionReward?: Reward;
-    /**
-     * 
-     * @type {Reward}
-     * @memberof ShoppingCartRedemptionInfo
-     */
-    exchangedReward?: Reward;
 }
 
 /**
@@ -85,9 +85,9 @@ export function ShoppingCartRedemptionInfoFromJSONTyped(json: any, ignoreDiscrim
         
         'redemptionDataByMerchantId': json['redemptionDataByMerchantId'] == null ? undefined : (mapValues(json['redemptionDataByMerchantId'], ShoppingCartRedemptionInfoRedemptionDataFromJSON)),
         'empty': json['empty'] == null ? undefined : json['empty'],
+        'exchangedReward': json['exchangedReward'] == null ? undefined : RewardFromJSON(json['exchangedReward']),
         'redemptionCurrencies': json['redemptionCurrencies'] == null ? undefined : json['redemptionCurrencies'],
         'redemptionReward': json['redemptionReward'] == null ? undefined : RewardFromJSON(json['redemptionReward']),
-        'exchangedReward': json['exchangedReward'] == null ? undefined : RewardFromJSON(json['exchangedReward']),
     };
 }
 
@@ -104,9 +104,9 @@ export function ShoppingCartRedemptionInfoToJSONTyped(value?: ShoppingCartRedemp
         
         'redemptionDataByMerchantId': value['redemptionDataByMerchantId'] == null ? undefined : (mapValues(value['redemptionDataByMerchantId'], ShoppingCartRedemptionInfoRedemptionDataToJSON)),
         'empty': value['empty'],
+        'exchangedReward': RewardToJSON(value['exchangedReward']),
         'redemptionCurrencies': value['redemptionCurrencies'],
         'redemptionReward': RewardToJSON(value['redemptionReward']),
-        'exchangedReward': RewardToJSON(value['exchangedReward']),
     };
 }
 

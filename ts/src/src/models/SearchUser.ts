@@ -113,16 +113,16 @@ export interface SearchUser {
     responseId?: string;
     /**
      * 
-     * @type {string}
-     * @memberof SearchUser
-     */
-    objectTypeAsEnum?: SearchUserObjectTypeAsEnumEnum;
-    /**
-     * 
      * @type {User}
      * @memberof SearchUser
      */
     author?: User;
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchUser
+     */
+    objectTypeAsEnum?: SearchUserObjectTypeAsEnumEnum;
 }
 
 
@@ -169,8 +169,8 @@ export function SearchUserFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'userId': json['userId'] == null ? undefined : json['userId'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
         'responseId': json['responseId'] == null ? undefined : json['responseId'],
-        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
+        'objectTypeAsEnum': json['objectTypeAsEnum'] == null ? undefined : json['objectTypeAsEnum'],
     };
 }
 
@@ -199,8 +199,8 @@ export function SearchUserToJSONTyped(value?: SearchUser | null, ignoreDiscrimin
         'userId': value['userId'],
         'bountyId': value['bountyId'],
         'responseId': value['responseId'],
-        'objectTypeAsEnum': value['objectTypeAsEnum'],
         'author': UserToJSON(value['author']),
+        'objectTypeAsEnum': value['objectTypeAsEnum'],
     };
 }
 

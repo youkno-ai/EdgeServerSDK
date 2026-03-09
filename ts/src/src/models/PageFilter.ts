@@ -91,6 +91,12 @@ export interface PageFilter {
     merchantId?: string;
     /**
      * 
+     * @type {Set<string>}
+     * @memberof PageFilter
+     */
+    merchantIds?: Set<string>;
+    /**
+     * 
      * @type {string}
      * @memberof PageFilter
      */
@@ -933,6 +939,7 @@ export function PageFilterFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'calendarEventDateTo': json['calendarEventDateTo'] == null ? undefined : json['calendarEventDateTo'],
         'marketMode': json['marketMode'] == null ? undefined : json['marketMode'],
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
+        'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
         'zone': json['zone'] == null ? undefined : json['zone'],
         'companyId': json['companyId'] == null ? undefined : json['companyId'],
         'ownerId': json['ownerId'] == null ? undefined : json['ownerId'],
@@ -1045,6 +1052,7 @@ export function PageFilterToJSONTyped(value?: PageFilter | null, ignoreDiscrimin
         'calendarEventDateTo': value['calendarEventDateTo'],
         'marketMode': value['marketMode'],
         'merchantId': value['merchantId'],
+        'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
         'zone': value['zone'],
         'companyId': value['companyId'],
         'ownerId': value['ownerId'],

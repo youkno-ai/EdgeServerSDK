@@ -32,10 +32,10 @@ public struct SearchUser: Codable, JSONEncodable, Hashable {
     public var userId: String?
     public var bountyId: String?
     public var responseId: String?
-    public var objectTypeAsEnum: ObjectTypeAsEnum?
     public var author: User?
+    public var objectTypeAsEnum: ObjectTypeAsEnum?
 
-    public init(objectID: String? = nil, shortId: String? = nil, authorId: String? = nil, authorName: String? = nil, authorAvatar: String? = nil, searchBucketKey: String? = nil, objectType: String? = nil, text: String? = nil, getTags: [String]? = nil, mentions: [String]? = nil, email: String? = nil, userId: String? = nil, bountyId: String? = nil, responseId: String? = nil, objectTypeAsEnum: ObjectTypeAsEnum? = nil, author: User? = nil) {
+    public init(objectID: String? = nil, shortId: String? = nil, authorId: String? = nil, authorName: String? = nil, authorAvatar: String? = nil, searchBucketKey: String? = nil, objectType: String? = nil, text: String? = nil, getTags: [String]? = nil, mentions: [String]? = nil, email: String? = nil, userId: String? = nil, bountyId: String? = nil, responseId: String? = nil, author: User? = nil, objectTypeAsEnum: ObjectTypeAsEnum? = nil) {
         self.objectID = objectID
         self.shortId = shortId
         self.authorId = authorId
@@ -50,8 +50,8 @@ public struct SearchUser: Codable, JSONEncodable, Hashable {
         self.userId = userId
         self.bountyId = bountyId
         self.responseId = responseId
-        self.objectTypeAsEnum = objectTypeAsEnum
         self.author = author
+        self.objectTypeAsEnum = objectTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -69,8 +69,8 @@ public struct SearchUser: Codable, JSONEncodable, Hashable {
         case userId
         case bountyId
         case responseId
-        case objectTypeAsEnum
         case author
+        case objectTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -91,8 +91,8 @@ public struct SearchUser: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(userId, forKey: .userId)
         try container.encodeIfPresent(bountyId, forKey: .bountyId)
         try container.encodeIfPresent(responseId, forKey: .responseId)
-        try container.encodeIfPresent(objectTypeAsEnum, forKey: .objectTypeAsEnum)
         try container.encodeIfPresent(author, forKey: .author)
+        try container.encodeIfPresent(objectTypeAsEnum, forKey: .objectTypeAsEnum)
     }
 }
 

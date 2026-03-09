@@ -93,18 +93,6 @@ export interface BadgesBadge {
      * @type {string}
      * @memberof BadgesBadge
      */
-    description?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BadgesBadge
-     */
-    code?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BadgesBadge
-     */
     image?: string;
     /**
      * 
@@ -112,6 +100,18 @@ export interface BadgesBadge {
      * @memberof BadgesBadge
      */
     negativeValue?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadgesBadge
+     */
+    description?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadgesBadge
+     */
+    code?: string;
     /**
      * 
      * @type {string}
@@ -159,10 +159,10 @@ export function BadgesBadgeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'type': json['type'] == null ? undefined : json['type'],
         'label': json['label'] == null ? undefined : json['label'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'description': json['description'] == null ? undefined : json['description'],
-        'code': json['code'] == null ? undefined : json['code'],
         'image': json['image'] == null ? undefined : json['image'],
         'negativeValue': json['negativeValue'] == null ? undefined : json['negativeValue'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'code': json['code'] == null ? undefined : json['code'],
         'icon': json['icon'] == null ? undefined : json['icon'],
     };
 }
@@ -187,10 +187,10 @@ export function BadgesBadgeToJSONTyped(value?: BadgesBadge | null, ignoreDiscrim
         'type': value['type'],
         'label': value['label'],
         'valid': value['valid'],
-        'description': value['description'],
-        'code': value['code'],
         'image': value['image'],
         'negativeValue': value['negativeValue'],
+        'description': value['description'],
+        'code': value['code'],
         'icon': value['icon'],
     };
 }

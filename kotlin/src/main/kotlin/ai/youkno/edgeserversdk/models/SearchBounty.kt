@@ -38,8 +38,8 @@ import com.squareup.moshi.JsonClass
  * @param bountyId 
  * @param responseId 
  * @param bountyType 
- * @param objectTypeAsEnum 
  * @param author 
+ * @param objectTypeAsEnum 
  */
 
 
@@ -90,11 +90,11 @@ data class SearchBounty (
     @Json(name = "bountyType")
     val bountyType: kotlin.String? = null,
 
-    @Json(name = "objectTypeAsEnum")
-    val objectTypeAsEnum: SearchBounty.ObjectTypeAsEnum? = null,
-
     @Json(name = "author")
-    val author: User? = null
+    val author: User? = null,
+
+    @Json(name = "objectTypeAsEnum")
+    val objectTypeAsEnum: SearchBounty.ObjectTypeAsEnum? = null
 
 ) {
 

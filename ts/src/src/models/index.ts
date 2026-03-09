@@ -691,6 +691,7 @@ export * from './RestControllerClientControllerAssignClientResponse';
 export * from './RestControllerGoogleControllerAnalyticsInfoResult';
 export * from './RestControllerGroupControllerUpdateMemberRolesReq';
 export * from './RestControllerGroupControllerUpdateMemberRolesReqUpdateMemberRole';
+export * from './RestControllerInviteControllerCreateBadgeInviteRequest';
 export * from './RestControllerInviteControllerCreateBountyInviteRequest';
 export * from './RestControllerInviteControllerCreateCompanyInviteRequest';
 export * from './RestControllerInviteControllerCreateGroupInviteRequest';

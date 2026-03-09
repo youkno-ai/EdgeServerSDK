@@ -72,6 +72,12 @@ export interface BaseSettingsShopSettingsKioskSettings {
      * @type {string}
      * @memberof BaseSettingsShopSettingsKioskSettings
      */
+    statusAsEnum?: BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseSettingsShopSettingsKioskSettings
+     */
     printReceiptAsEnum?: BaseSettingsShopSettingsKioskSettingsPrintReceiptAsEnumEnum;
     /**
      * 
@@ -79,14 +85,19 @@ export interface BaseSettingsShopSettingsKioskSettings {
      * @memberof BaseSettingsShopSettingsKioskSettings
      */
     terminalPositionAsEnum?: BaseSettingsShopSettingsKioskSettingsTerminalPositionAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BaseSettingsShopSettingsKioskSettings
-     */
-    statusAsEnum?: BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum = {
+    AUTO: 'AUTO',
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum = typeof BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum[keyof typeof BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum];
 
 /**
  * @export
@@ -118,17 +129,6 @@ export const BaseSettingsShopSettingsKioskSettingsTerminalPositionAsEnumEnum = {
 } as const;
 export type BaseSettingsShopSettingsKioskSettingsTerminalPositionAsEnumEnum = typeof BaseSettingsShopSettingsKioskSettingsTerminalPositionAsEnumEnum[keyof typeof BaseSettingsShopSettingsKioskSettingsTerminalPositionAsEnumEnum];
 
-/**
- * @export
- */
-export const BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum = {
-    AUTO: 'AUTO',
-    ENABLED: 'ENABLED',
-    DISABLED: 'DISABLED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum = typeof BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum[keyof typeof BaseSettingsShopSettingsKioskSettingsStatusAsEnumEnum];
-
 
 /**
  * Check if a given object implements the BaseSettingsShopSettingsKioskSettings interface.
@@ -155,9 +155,9 @@ export function BaseSettingsShopSettingsKioskSettingsFromJSONTyped(json: any, ig
         'printReceipt': json['printReceipt'] == null ? undefined : json['printReceipt'],
         'status': json['status'] == null ? undefined : json['status'],
         'valid': json['valid'] == null ? undefined : json['valid'],
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'printReceiptAsEnum': json['printReceiptAsEnum'] == null ? undefined : json['printReceiptAsEnum'],
         'terminalPositionAsEnum': json['terminalPositionAsEnum'] == null ? undefined : json['terminalPositionAsEnum'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
     };
 }
 
@@ -180,9 +180,9 @@ export function BaseSettingsShopSettingsKioskSettingsToJSONTyped(value?: BaseSet
         'printReceipt': value['printReceipt'],
         'status': value['status'],
         'valid': value['valid'],
+        'statusAsEnum': value['statusAsEnum'],
         'printReceiptAsEnum': value['printReceiptAsEnum'],
         'terminalPositionAsEnum': value['terminalPositionAsEnum'],
-        'statusAsEnum': value['statusAsEnum'],
     };
 }
 

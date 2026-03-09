@@ -45,12 +45,6 @@ export interface PrivateCompanySettingsAnalyticsInfo {
      * @type {PrivateCompanySettingsAnalyticsInfoPropertyInfo}
      * @memberof PrivateCompanySettingsAnalyticsInfo
      */
-    nextValidPropertyInfo?: PrivateCompanySettingsAnalyticsInfoPropertyInfo;
-    /**
-     * 
-     * @type {PrivateCompanySettingsAnalyticsInfoPropertyInfo}
-     * @memberof PrivateCompanySettingsAnalyticsInfo
-     */
     propertyInfo?: PrivateCompanySettingsAnalyticsInfoPropertyInfo;
     /**
      * 
@@ -58,6 +52,12 @@ export interface PrivateCompanySettingsAnalyticsInfo {
      * @memberof PrivateCompanySettingsAnalyticsInfo
      */
     dataStreamInfo?: PrivateCompanySettingsAnalyticsInfoDataStreamInfo;
+    /**
+     * 
+     * @type {PrivateCompanySettingsAnalyticsInfoPropertyInfo}
+     * @memberof PrivateCompanySettingsAnalyticsInfo
+     */
+    nextValidPropertyInfo?: PrivateCompanySettingsAnalyticsInfoPropertyInfo;
 }
 
 /**
@@ -78,9 +78,9 @@ export function PrivateCompanySettingsAnalyticsInfoFromJSONTyped(json: any, igno
     return {
         
         'properties': json['properties'] == null ? undefined : ((json['properties'] as Array<any>).map(PrivateCompanySettingsAnalyticsInfoPropertyInfoFromJSON)),
-        'nextValidPropertyInfo': json['nextValidPropertyInfo'] == null ? undefined : PrivateCompanySettingsAnalyticsInfoPropertyInfoFromJSON(json['nextValidPropertyInfo']),
         'propertyInfo': json['propertyInfo'] == null ? undefined : PrivateCompanySettingsAnalyticsInfoPropertyInfoFromJSON(json['propertyInfo']),
         'dataStreamInfo': json['dataStreamInfo'] == null ? undefined : PrivateCompanySettingsAnalyticsInfoDataStreamInfoFromJSON(json['dataStreamInfo']),
+        'nextValidPropertyInfo': json['nextValidPropertyInfo'] == null ? undefined : PrivateCompanySettingsAnalyticsInfoPropertyInfoFromJSON(json['nextValidPropertyInfo']),
     };
 }
 
@@ -96,9 +96,9 @@ export function PrivateCompanySettingsAnalyticsInfoToJSONTyped(value?: PrivateCo
     return {
         
         'properties': value['properties'] == null ? undefined : ((value['properties'] as Array<any>).map(PrivateCompanySettingsAnalyticsInfoPropertyInfoToJSON)),
-        'nextValidPropertyInfo': PrivateCompanySettingsAnalyticsInfoPropertyInfoToJSON(value['nextValidPropertyInfo']),
         'propertyInfo': PrivateCompanySettingsAnalyticsInfoPropertyInfoToJSON(value['propertyInfo']),
         'dataStreamInfo': PrivateCompanySettingsAnalyticsInfoDataStreamInfoToJSON(value['dataStreamInfo']),
+        'nextValidPropertyInfo': PrivateCompanySettingsAnalyticsInfoPropertyInfoToJSON(value['nextValidPropertyInfo']),
     };
 }
 

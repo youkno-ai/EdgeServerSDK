@@ -33,10 +33,10 @@ public struct SearchResponse: Codable, JSONEncodable, Hashable {
     public var bountyId: String?
     public var responseId: String?
     public var responseType: String?
-    public var objectTypeAsEnum: ObjectTypeAsEnum?
     public var author: User?
+    public var objectTypeAsEnum: ObjectTypeAsEnum?
 
-    public init(objectID: String? = nil, shortId: String? = nil, authorId: String? = nil, authorName: String? = nil, authorAvatar: String? = nil, searchBucketKey: String? = nil, objectType: String? = nil, text: String? = nil, getTags: [String]? = nil, mentions: [String]? = nil, email: String? = nil, userId: String? = nil, bountyId: String? = nil, responseId: String? = nil, responseType: String? = nil, objectTypeAsEnum: ObjectTypeAsEnum? = nil, author: User? = nil) {
+    public init(objectID: String? = nil, shortId: String? = nil, authorId: String? = nil, authorName: String? = nil, authorAvatar: String? = nil, searchBucketKey: String? = nil, objectType: String? = nil, text: String? = nil, getTags: [String]? = nil, mentions: [String]? = nil, email: String? = nil, userId: String? = nil, bountyId: String? = nil, responseId: String? = nil, responseType: String? = nil, author: User? = nil, objectTypeAsEnum: ObjectTypeAsEnum? = nil) {
         self.objectID = objectID
         self.shortId = shortId
         self.authorId = authorId
@@ -52,8 +52,8 @@ public struct SearchResponse: Codable, JSONEncodable, Hashable {
         self.bountyId = bountyId
         self.responseId = responseId
         self.responseType = responseType
-        self.objectTypeAsEnum = objectTypeAsEnum
         self.author = author
+        self.objectTypeAsEnum = objectTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -72,8 +72,8 @@ public struct SearchResponse: Codable, JSONEncodable, Hashable {
         case bountyId
         case responseId
         case responseType
-        case objectTypeAsEnum
         case author
+        case objectTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -95,8 +95,8 @@ public struct SearchResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bountyId, forKey: .bountyId)
         try container.encodeIfPresent(responseId, forKey: .responseId)
         try container.encodeIfPresent(responseType, forKey: .responseType)
-        try container.encodeIfPresent(objectTypeAsEnum, forKey: .objectTypeAsEnum)
         try container.encodeIfPresent(author, forKey: .author)
+        try container.encodeIfPresent(objectTypeAsEnum, forKey: .objectTypeAsEnum)
     }
 }
 

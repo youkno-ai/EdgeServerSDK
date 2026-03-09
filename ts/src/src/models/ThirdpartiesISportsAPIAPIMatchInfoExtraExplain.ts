@@ -96,15 +96,26 @@ export interface ThirdpartiesISportsAPIAPIMatchInfoExtraExplain {
      * @type {string}
      * @memberof ThirdpartiesISportsAPIAPIMatchInfoExtraExplain
      */
-    extraTimeStatusAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnumEnum;
+    winnerAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ThirdpartiesISportsAPIAPIMatchInfoExtraExplain
      */
-    winnerAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum;
+    extraTimeStatusAsEnum?: ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum = {
+    NONE: 'NONE',
+    HOME: 'HOME',
+    AWAY: 'AWAY',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum];
 
 /**
  * @export
@@ -117,17 +128,6 @@ export const ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnum
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainExtraTimeStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum = {
-    NONE: 'NONE',
-    HOME: 'HOME',
-    AWAY: 'AWAY',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum = typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum[keyof typeof ThirdpartiesISportsAPIAPIMatchInfoExtraExplainWinnerAsEnumEnum];
 
 
 /**
@@ -159,8 +159,8 @@ export function ThirdpartiesISportsAPIAPIMatchInfoExtraExplainFromJSONTyped(json
         'twoRoundsHomeScore': json['twoRoundsHomeScore'] == null ? undefined : json['twoRoundsHomeScore'],
         'twoRoundsAwayScore': json['twoRoundsAwayScore'] == null ? undefined : json['twoRoundsAwayScore'],
         'winner': json['winner'] == null ? undefined : json['winner'],
-        'extraTimeStatusAsEnum': json['extraTimeStatusAsEnum'] == null ? undefined : json['extraTimeStatusAsEnum'],
         'winnerAsEnum': json['winnerAsEnum'] == null ? undefined : json['winnerAsEnum'],
+        'extraTimeStatusAsEnum': json['extraTimeStatusAsEnum'] == null ? undefined : json['extraTimeStatusAsEnum'],
     };
 }
 
@@ -187,8 +187,8 @@ export function ThirdpartiesISportsAPIAPIMatchInfoExtraExplainToJSONTyped(value?
         'twoRoundsHomeScore': value['twoRoundsHomeScore'],
         'twoRoundsAwayScore': value['twoRoundsAwayScore'],
         'winner': value['winner'],
-        'extraTimeStatusAsEnum': value['extraTimeStatusAsEnum'],
         'winnerAsEnum': value['winnerAsEnum'],
+        'extraTimeStatusAsEnum': value['extraTimeStatusAsEnum'],
     };
 }
 

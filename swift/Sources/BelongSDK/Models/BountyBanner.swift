@@ -12,19 +12,6 @@ import AnyCodable
 
 public struct BountyBanner: Codable, JSONEncodable, Hashable {
 
-    public enum UserAuthStatusAsEnum: String, Codable, CaseIterable {
-        case any = "ANY"
-        case authed = "AUTHED"
-        case anon = "ANON"
-    }
-    public enum BannerTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case hero = "HERO"
-        case highlights = "HIGHLIGHTS"
-        case recommendations = "RECOMMENDATIONS"
-        case specials = "SPECIALS"
-        case unknown = "UNKNOWN"
-    }
     public enum TargetAppAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case android = "ANDROID"
@@ -36,6 +23,19 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         case kiosk = "KIOSK"
         case unknown = "UNKNOWN"
     }
+    public enum BannerTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case hero = "HERO"
+        case highlights = "HIGHLIGHTS"
+        case recommendations = "RECOMMENDATIONS"
+        case specials = "SPECIALS"
+        case unknown = "UNKNOWN"
+    }
+    public enum UserAuthStatusAsEnum: String, Codable, CaseIterable {
+        case any = "ANY"
+        case authed = "AUTHED"
+        case anon = "ANON"
+    }
     public var bannerType: String?
     public var targetApp: String?
     public var countryFilters: [String: BountyBannerCountryFilter]?
@@ -44,11 +44,11 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
     public var userAuthStatus: String?
     public var priority: Int?
     public var weight: Int?
-    public var userAuthStatusAsEnum: UserAuthStatusAsEnum?
-    public var bannerTypeAsEnum: BannerTypeAsEnum?
     public var targetAppAsEnum: TargetAppAsEnum?
+    public var bannerTypeAsEnum: BannerTypeAsEnum?
+    public var userAuthStatusAsEnum: UserAuthStatusAsEnum?
 
-    public init(bannerType: String? = nil, targetApp: String? = nil, countryFilters: [String: BountyBannerCountryFilter]? = nil, locationFilters: [String: BountyBannerLocationFilter]? = nil, dayOfWeekFilters: WeekPeriod? = nil, userAuthStatus: String? = nil, priority: Int? = nil, weight: Int? = nil, userAuthStatusAsEnum: UserAuthStatusAsEnum? = nil, bannerTypeAsEnum: BannerTypeAsEnum? = nil, targetAppAsEnum: TargetAppAsEnum? = nil) {
+    public init(bannerType: String? = nil, targetApp: String? = nil, countryFilters: [String: BountyBannerCountryFilter]? = nil, locationFilters: [String: BountyBannerLocationFilter]? = nil, dayOfWeekFilters: WeekPeriod? = nil, userAuthStatus: String? = nil, priority: Int? = nil, weight: Int? = nil, targetAppAsEnum: TargetAppAsEnum? = nil, bannerTypeAsEnum: BannerTypeAsEnum? = nil, userAuthStatusAsEnum: UserAuthStatusAsEnum? = nil) {
         self.bannerType = bannerType
         self.targetApp = targetApp
         self.countryFilters = countryFilters
@@ -57,9 +57,9 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         self.userAuthStatus = userAuthStatus
         self.priority = priority
         self.weight = weight
-        self.userAuthStatusAsEnum = userAuthStatusAsEnum
-        self.bannerTypeAsEnum = bannerTypeAsEnum
         self.targetAppAsEnum = targetAppAsEnum
+        self.bannerTypeAsEnum = bannerTypeAsEnum
+        self.userAuthStatusAsEnum = userAuthStatusAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -71,9 +71,9 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         case userAuthStatus
         case priority
         case weight
-        case userAuthStatusAsEnum
-        case bannerTypeAsEnum
         case targetAppAsEnum
+        case bannerTypeAsEnum
+        case userAuthStatusAsEnum
     }
 
     // Encodable protocol methods
@@ -88,9 +88,9 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(userAuthStatus, forKey: .userAuthStatus)
         try container.encodeIfPresent(priority, forKey: .priority)
         try container.encodeIfPresent(weight, forKey: .weight)
-        try container.encodeIfPresent(userAuthStatusAsEnum, forKey: .userAuthStatusAsEnum)
-        try container.encodeIfPresent(bannerTypeAsEnum, forKey: .bannerTypeAsEnum)
         try container.encodeIfPresent(targetAppAsEnum, forKey: .targetAppAsEnum)
+        try container.encodeIfPresent(bannerTypeAsEnum, forKey: .bannerTypeAsEnum)
+        try container.encodeIfPresent(userAuthStatusAsEnum, forKey: .userAuthStatusAsEnum)
     }
 }
 
