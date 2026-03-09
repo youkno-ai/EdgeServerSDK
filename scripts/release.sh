@@ -19,7 +19,7 @@ if [[ -z "$EFFECTIVE_VERSION" ]]; then
   EFFECTIVE_VERSION="$VERSION"
 fi
 
-git add ts kotlin swift scripts README.md bitbucket-pipelines.yml .gitignore LICENSE
+git add ts kotlin swift scripts README.md .gitignore LICENSE
 
 git commit -m "SDK release $EFFECTIVE_VERSION"
 git tag "sdk-$EFFECTIVE_VERSION"
