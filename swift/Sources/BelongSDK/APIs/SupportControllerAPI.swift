@@ -18,10 +18,10 @@ open class SupportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection
+     - returns: EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Detect(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection {
+    open class func getApiV1Detect(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection {
         return try await getApiV1DetectWithRequestBuilder(text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class SupportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection> 
+     - returns: RequestBuilder<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection> 
      */
-    open class func getApiV1DetectWithRequestBuilder(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection> {
+    open class func getApiV1DetectWithRequestBuilder(text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection> {
         let localVariablePath = "/api/v1/detect"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -54,7 +54,7 @@ open class SupportControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -67,10 +67,10 @@ open class SupportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataTranslateTextResult
+     - returns: EdgeApiDataTranslateTextResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Translate(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataTranslateTextResult {
+    open class func getApiV1Translate(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataTranslateTextResult {
         return try await getApiV1TranslateWithRequestBuilder(source: source, target: target, text: text, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -85,9 +85,9 @@ open class SupportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataTranslateTextResult> 
+     - returns: RequestBuilder<EdgeApiDataTranslateTextResult> 
      */
-    open class func getApiV1TranslateWithRequestBuilder(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataTranslateTextResult> {
+    open class func getApiV1TranslateWithRequestBuilder(source: String, target: String, text: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataTranslateTextResult> {
         let localVariablePath = "/api/v1/translate"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -107,7 +107,7 @@ open class SupportControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataTranslateTextResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataTranslateTextResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

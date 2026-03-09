@@ -15,20 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermission,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope,
-  CoEdgeappServerModelRole,
+  EdgeApiDataPageRole,
+  EdgeApiDataPageRolePermission,
+  EdgeApiDataPageScope,
+  Role,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRoleFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRoleToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermissionFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermissionToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeToJSON,
-    CoEdgeappServerModelRoleFromJSON,
-    CoEdgeappServerModelRoleToJSON,
+    EdgeApiDataPageRoleFromJSON,
+    EdgeApiDataPageRoleToJSON,
+    EdgeApiDataPageRolePermissionFromJSON,
+    EdgeApiDataPageRolePermissionToJSON,
+    EdgeApiDataPageScopeFromJSON,
+    EdgeApiDataPageScopeToJSON,
+    RoleFromJSON,
+    RoleToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1RolesByRolenameByScopenameRequest {
@@ -67,7 +67,7 @@ export interface GetApiV1RolesScopesRequest {
 
 export interface PostApiV1RolesByScopenameRequest {
     scopeName: string;
-    coEdgeappServerModelRole: CoEdgeappServerModelRole;
+    role: Role;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -76,7 +76,7 @@ export interface PostApiV1RolesByScopenameRequest {
 export interface PutApiV1RolesByRolenameByScopenameRequest {
     roleName: string;
     scopeName: string;
-    coEdgeappServerModelRole: CoEdgeappServerModelRole;
+    role: Role;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -116,62 +116,15 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>>;
+    getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRole>>;
 
     /**
      */
-    getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>;
-
-    /**
-     * 
-     * @param {string} scopeName 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RoleControllerApiInterface
-     */
-    getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermission>>;
-
-    /**
-     */
-    getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermission>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RoleControllerApiInterface
-     */
-    getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>>;
-
-    /**
-     */
-    getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>;
-
-    /**
-     * 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RoleControllerApiInterface
-     */
-    getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>>;
-
-    /**
-     */
-    getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>;
+    getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRole>;
 
     /**
      * 
      * @param {string} scopeName 
-     * @param {CoEdgeappServerModelRole} coEdgeappServerModelRole 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -179,17 +132,64 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelRole>>;
+    getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRolePermission>>;
 
     /**
      */
-    postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelRole>;
+    getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRolePermission>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoleControllerApiInterface
+     */
+    getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRole>>;
+
+    /**
+     */
+    getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRole>;
+
+    /**
+     * 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoleControllerApiInterface
+     */
+    getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageScope>>;
+
+    /**
+     */
+    getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageScope>;
+
+    /**
+     * 
+     * @param {string} scopeName 
+     * @param {Role} role 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoleControllerApiInterface
+     */
+    postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
+
+    /**
+     */
+    postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
 
     /**
      * 
      * @param {string} roleName 
      * @param {string} scopeName 
-     * @param {CoEdgeappServerModelRole} coEdgeappServerModelRole 
+     * @param {Role} role 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -197,11 +197,11 @@ export interface RoleControllerApiInterface {
      * @throws {RequiredError}
      * @memberof RoleControllerApiInterface
      */
-    putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelRole>>;
+    putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>>;
 
     /**
      */
-    putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelRole>;
+    putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role>;
 
 }
 
@@ -271,7 +271,7 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
 
     /**
      */
-    async getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>> {
+    async getApiV1RolesByScopenameRaw(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRole>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -310,19 +310,19 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRoleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageRoleFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole> {
+    async getApiV1RolesByScopename(requestParameters: GetApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRole> {
         const response = await this.getApiV1RolesByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermission>> {
+    async getApiV1RolesOpsByScopenameRaw(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRolePermission>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -361,19 +361,19 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermissionFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageRolePermissionFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRolePermission> {
+    async getApiV1RolesOpsByScopename(requestParameters: GetApiV1RolesOpsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRolePermission> {
         const response = await this.getApiV1RolesOpsByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole>> {
+    async getApiV1RolesResolveRaw(requestParameters: GetApiV1RolesResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRole>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -404,19 +404,19 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRoleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageRoleFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelRole> {
+    async getApiV1RolesResolve(requestParameters: GetApiV1RolesResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRole> {
         const response = await this.getApiV1RolesResolveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope>> {
+    async getApiV1RolesScopesRaw(requestParameters: GetApiV1RolesScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageScope>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -447,19 +447,19 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScopeFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageScopeFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelScope> {
+    async getApiV1RolesScopes(requestParameters: GetApiV1RolesScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageScope> {
         const response = await this.getApiV1RolesScopesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelRole>> {
+    async postApiV1RolesByScopenameRaw(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -467,10 +467,10 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelRole'] == null) {
+        if (requestParameters['role'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelRole',
-                'Required parameter "coEdgeappServerModelRole" was null or undefined when calling postApiV1RolesByScopename().'
+                'role',
+                'Required parameter "role" was null or undefined when calling postApiV1RolesByScopename().'
             );
         }
 
@@ -505,22 +505,22 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelRoleToJSON(requestParameters['coEdgeappServerModelRole']),
+            body: RoleToJSON(requestParameters['role']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelRoleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RoleFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelRole> {
+    async postApiV1RolesByScopename(requestParameters: PostApiV1RolesByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
         const response = await this.postApiV1RolesByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelRole>> {
+    async putApiV1RolesByRolenameByScopenameRaw(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Role>> {
         if (requestParameters['roleName'] == null) {
             throw new runtime.RequiredError(
                 'roleName',
@@ -535,10 +535,10 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelRole'] == null) {
+        if (requestParameters['role'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelRole',
-                'Required parameter "coEdgeappServerModelRole" was null or undefined when calling putApiV1RolesByRolenameByScopename().'
+                'role',
+                'Required parameter "role" was null or undefined when calling putApiV1RolesByRolenameByScopename().'
             );
         }
 
@@ -574,15 +574,15 @@ export class RoleControllerApi extends runtime.BaseAPI implements RoleController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelRoleToJSON(requestParameters['coEdgeappServerModelRole']),
+            body: RoleToJSON(requestParameters['role']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelRoleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RoleFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelRole> {
+    async putApiV1RolesByRolenameByScopename(requestParameters: PutApiV1RolesByRolenameByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Role> {
         const response = await this.putApiV1RolesByRolenameByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }

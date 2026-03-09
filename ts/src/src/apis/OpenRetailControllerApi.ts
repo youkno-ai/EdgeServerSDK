@@ -15,23 +15,23 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataOrderResponse,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart,
-  CoEdgeappServerModelShoppingCart,
-  CoEdgeappServerModelShoppingCartOrderSummary,
-  CoEdgeappServerModelShoppingCartProductInfo,
+  EdgeApiDataOrderResponse,
+  EdgeApiDataPageShoppingCart,
+  ShoppingCart,
+  ShoppingCartOrderSummary,
+  ShoppingCartProductInfo,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataOrderResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataOrderResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCartFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCartToJSON,
-    CoEdgeappServerModelShoppingCartFromJSON,
-    CoEdgeappServerModelShoppingCartToJSON,
-    CoEdgeappServerModelShoppingCartOrderSummaryFromJSON,
-    CoEdgeappServerModelShoppingCartOrderSummaryToJSON,
-    CoEdgeappServerModelShoppingCartProductInfoFromJSON,
-    CoEdgeappServerModelShoppingCartProductInfoToJSON,
+    EdgeApiDataOrderResponseFromJSON,
+    EdgeApiDataOrderResponseToJSON,
+    EdgeApiDataPageShoppingCartFromJSON,
+    EdgeApiDataPageShoppingCartToJSON,
+    ShoppingCartFromJSON,
+    ShoppingCartToJSON,
+    ShoppingCartOrderSummaryFromJSON,
+    ShoppingCartOrderSummaryToJSON,
+    ShoppingCartProductInfoFromJSON,
+    ShoppingCartProductInfoToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1OpenRetailCartsByCartidRequest {
@@ -75,7 +75,7 @@ export interface GetApiV1OpenRetailCartsByCartidSummaryRequest {
 
 export interface PatchApiV1OpenRetailCartsByCartidRequest {
     cartId: string;
-    coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -84,14 +84,14 @@ export interface PatchApiV1OpenRetailCartsByCartidRequest {
 export interface PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest {
     cartId: string;
     itemId: string;
-    coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo;
+    shoppingCartProductInfo: ShoppingCartProductInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1OpenRetailCartsRequest {
-    coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -99,7 +99,7 @@ export interface PostApiV1OpenRetailCartsRequest {
 
 export interface PostApiV1OpenRetailCartsByCartidItemsRequest {
     cartId: string;
-    coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo;
+    shoppingCartProductInfo: ShoppingCartProductInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -107,7 +107,7 @@ export interface PostApiV1OpenRetailCartsByCartidItemsRequest {
 
 export interface PostApiV1OpenRetailCartsByCartidOrderRequest {
     cartId: string;
-    coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -147,11 +147,11 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    deleteApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
+    deleteApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
 
     /**
      */
-    deleteApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
+    deleteApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
 
     /**
      * 
@@ -166,27 +166,11 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    getApiV1OpenRetailCartsRaw(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart>>;
+    getApiV1OpenRetailCartsRaw(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageShoppingCart>>;
 
     /**
      */
-    getApiV1OpenRetailCarts(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart>;
-
-    /**
-     * 
-     * @param {string} cartId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenRetailControllerApiInterface
-     */
-    getApiV1OpenRetailCartsByCartidRaw(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
-
-    /**
-     */
-    getApiV1OpenRetailCartsByCartid(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
+    getApiV1OpenRetailCarts(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageShoppingCart>;
 
     /**
      * 
@@ -198,16 +182,15 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    getApiV1OpenRetailCartsByCartidSummaryRaw(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCartOrderSummary>>;
+    getApiV1OpenRetailCartsByCartidRaw(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
 
     /**
      */
-    getApiV1OpenRetailCartsByCartidSummary(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCartOrderSummary>;
+    getApiV1OpenRetailCartsByCartid(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
 
     /**
      * 
      * @param {string} cartId 
-     * @param {CoEdgeappServerModelShoppingCart} coEdgeappServerModelShoppingCart 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -215,17 +198,34 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    patchApiV1OpenRetailCartsByCartidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
+    getApiV1OpenRetailCartsByCartidSummaryRaw(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCartOrderSummary>>;
 
     /**
      */
-    patchApiV1OpenRetailCartsByCartid(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
+    getApiV1OpenRetailCartsByCartidSummary(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCartOrderSummary>;
+
+    /**
+     * 
+     * @param {string} cartId 
+     * @param {ShoppingCart} shoppingCart 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenRetailControllerApiInterface
+     */
+    patchApiV1OpenRetailCartsByCartidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
+
+    /**
+     */
+    patchApiV1OpenRetailCartsByCartid(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
 
     /**
      * 
      * @param {string} cartId 
      * @param {string} itemId 
-     * @param {CoEdgeappServerModelShoppingCartProductInfo} coEdgeappServerModelShoppingCartProductInfo 
+     * @param {ShoppingCartProductInfo} shoppingCartProductInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -233,15 +233,15 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    patchApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
+    patchApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
 
     /**
      */
-    patchApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
+    patchApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelShoppingCart} coEdgeappServerModelShoppingCart 
+     * @param {ShoppingCart} shoppingCart 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -249,33 +249,16 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    postApiV1OpenRetailCartsRaw(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
+    postApiV1OpenRetailCartsRaw(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
 
     /**
      */
-    postApiV1OpenRetailCarts(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
-
-    /**
-     * 
-     * @param {string} cartId 
-     * @param {CoEdgeappServerModelShoppingCartProductInfo} coEdgeappServerModelShoppingCartProductInfo 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenRetailControllerApiInterface
-     */
-    postApiV1OpenRetailCartsByCartidItemsRaw(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>>;
-
-    /**
-     */
-    postApiV1OpenRetailCartsByCartidItems(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart>;
+    postApiV1OpenRetailCarts(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
 
     /**
      * 
      * @param {string} cartId 
-     * @param {CoEdgeappServerModelShoppingCart} coEdgeappServerModelShoppingCart 
+     * @param {ShoppingCartProductInfo} shoppingCartProductInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -283,11 +266,28 @@ export interface OpenRetailControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenRetailControllerApiInterface
      */
-    postApiV1OpenRetailCartsByCartidOrderRaw(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>>;
+    postApiV1OpenRetailCartsByCartidItemsRaw(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>>;
 
     /**
      */
-    postApiV1OpenRetailCartsByCartidOrder(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse>;
+    postApiV1OpenRetailCartsByCartidItems(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart>;
+
+    /**
+     * 
+     * @param {string} cartId 
+     * @param {ShoppingCart} shoppingCart 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenRetailControllerApiInterface
+     */
+    postApiV1OpenRetailCartsByCartidOrderRaw(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>>;
+
+    /**
+     */
+    postApiV1OpenRetailCartsByCartidOrder(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse>;
 
 }
 
@@ -349,7 +349,7 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
 
     /**
      */
-    async deleteApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
+    async deleteApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -396,19 +396,19 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async deleteApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async deleteApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: DeleteApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.deleteApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenRetailCartsRaw(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart>> {
+    async getApiV1OpenRetailCartsRaw(requestParameters: GetApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageShoppingCart>> {
         const queryParameters: any = {};
 
         if (requestParameters['marketId'] != null) {
@@ -455,19 +455,19 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenRetailCarts(requestParameters: GetApiV1OpenRetailCartsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart> {
+    async getApiV1OpenRetailCarts(requestParameters: GetApiV1OpenRetailCartsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageShoppingCart> {
         const response = await this.getApiV1OpenRetailCartsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenRetailCartsByCartidRaw(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
+    async getApiV1OpenRetailCartsByCartidRaw(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -506,19 +506,19 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenRetailCartsByCartid(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async getApiV1OpenRetailCartsByCartid(requestParameters: GetApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.getApiV1OpenRetailCartsByCartidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenRetailCartsByCartidSummaryRaw(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCartOrderSummary>> {
+    async getApiV1OpenRetailCartsByCartidSummaryRaw(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCartOrderSummary>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -557,19 +557,19 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartOrderSummaryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartOrderSummaryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenRetailCartsByCartidSummary(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCartOrderSummary> {
+    async getApiV1OpenRetailCartsByCartidSummary(requestParameters: GetApiV1OpenRetailCartsByCartidSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCartOrderSummary> {
         const response = await this.getApiV1OpenRetailCartsByCartidSummaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1OpenRetailCartsByCartidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
+    async patchApiV1OpenRetailCartsByCartidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -577,10 +577,10 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCart'] == null) {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCart',
-                'Required parameter "coEdgeappServerModelShoppingCart" was null or undefined when calling patchApiV1OpenRetailCartsByCartid().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling patchApiV1OpenRetailCartsByCartid().'
             );
         }
 
@@ -615,22 +615,22 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartToJSON(requestParameters['coEdgeappServerModelShoppingCart']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1OpenRetailCartsByCartid(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async patchApiV1OpenRetailCartsByCartid(requestParameters: PatchApiV1OpenRetailCartsByCartidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.patchApiV1OpenRetailCartsByCartidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
+    async patchApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -645,10 +645,10 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCartProductInfo'] == null) {
+        if (requestParameters['shoppingCartProductInfo'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCartProductInfo',
-                'Required parameter "coEdgeappServerModelShoppingCartProductInfo" was null or undefined when calling patchApiV1OpenRetailCartsByCartidItemsByItemid().'
+                'shoppingCartProductInfo',
+                'Required parameter "shoppingCartProductInfo" was null or undefined when calling patchApiV1OpenRetailCartsByCartidItemsByItemid().'
             );
         }
 
@@ -684,26 +684,26 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartProductInfoToJSON(requestParameters['coEdgeappServerModelShoppingCartProductInfo']),
+            body: ShoppingCartProductInfoToJSON(requestParameters['shoppingCartProductInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async patchApiV1OpenRetailCartsByCartidItemsByItemid(requestParameters: PatchApiV1OpenRetailCartsByCartidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.patchApiV1OpenRetailCartsByCartidItemsByItemidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenRetailCartsRaw(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
-        if (requestParameters['coEdgeappServerModelShoppingCart'] == null) {
+    async postApiV1OpenRetailCartsRaw(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCart',
-                'Required parameter "coEdgeappServerModelShoppingCart" was null or undefined when calling postApiV1OpenRetailCarts().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling postApiV1OpenRetailCarts().'
             );
         }
 
@@ -737,22 +737,22 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartToJSON(requestParameters['coEdgeappServerModelShoppingCart']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenRetailCarts(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async postApiV1OpenRetailCarts(requestParameters: PostApiV1OpenRetailCartsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.postApiV1OpenRetailCartsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenRetailCartsByCartidItemsRaw(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCart>> {
+    async postApiV1OpenRetailCartsByCartidItemsRaw(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCart>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -760,10 +760,10 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCartProductInfo'] == null) {
+        if (requestParameters['shoppingCartProductInfo'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCartProductInfo',
-                'Required parameter "coEdgeappServerModelShoppingCartProductInfo" was null or undefined when calling postApiV1OpenRetailCartsByCartidItems().'
+                'shoppingCartProductInfo',
+                'Required parameter "shoppingCartProductInfo" was null or undefined when calling postApiV1OpenRetailCartsByCartidItems().'
             );
         }
 
@@ -798,22 +798,22 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartProductInfoToJSON(requestParameters['coEdgeappServerModelShoppingCartProductInfo']),
+            body: ShoppingCartProductInfoToJSON(requestParameters['shoppingCartProductInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenRetailCartsByCartidItems(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCart> {
+    async postApiV1OpenRetailCartsByCartidItems(requestParameters: PostApiV1OpenRetailCartsByCartidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCart> {
         const response = await this.postApiV1OpenRetailCartsByCartidItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenRetailCartsByCartidOrderRaw(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>> {
+    async postApiV1OpenRetailCartsByCartidOrderRaw(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>> {
         if (requestParameters['cartId'] == null) {
             throw new runtime.RequiredError(
                 'cartId',
@@ -821,10 +821,10 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCart'] == null) {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCart',
-                'Required parameter "coEdgeappServerModelShoppingCart" was null or undefined when calling postApiV1OpenRetailCartsByCartidOrder().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling postApiV1OpenRetailCartsByCartidOrder().'
             );
         }
 
@@ -859,15 +859,15 @@ export class OpenRetailControllerApi extends runtime.BaseAPI implements OpenReta
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartToJSON(requestParameters['coEdgeappServerModelShoppingCart']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataOrderResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataOrderResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenRetailCartsByCartidOrder(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse> {
+    async postApiV1OpenRetailCartsByCartidOrder(requestParameters: PostApiV1OpenRetailCartsByCartidOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse> {
         const response = await this.postApiV1OpenRetailCartsByCartidOrderRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -6,10 +6,10 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRole
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRolePermission
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelScope
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelRole
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageRole
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageRolePermission
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageScope
+import ai.youkno.edgeserversdk.models.Role
 
 interface RoleControllerApi {
     /**
@@ -40,10 +40,10 @@ interface RoleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRole]>
+     * @return [Call]<[EdgeApiDataPageRole]>
      */
     @GET("api/v1/roles/{scopeName}")
-    fun getApiV1RolesByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRole>
+    fun getApiV1RolesByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageRole>
 
     /**
      * GET api/v1/roles/ops/{scopeName}
@@ -56,10 +56,10 @@ interface RoleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRolePermission]>
+     * @return [Call]<[EdgeApiDataPageRolePermission]>
      */
     @GET("api/v1/roles/ops/{scopeName}")
-    fun getApiV1RolesOpsByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRolePermission>
+    fun getApiV1RolesOpsByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageRolePermission>
 
     /**
      * GET api/v1/roles/resolve
@@ -71,10 +71,10 @@ interface RoleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRole]>
+     * @return [Call]<[EdgeApiDataPageRole]>
      */
     @GET("api/v1/roles/resolve")
-    fun getApiV1RolesResolve(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelRole>
+    fun getApiV1RolesResolve(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageRole>
 
     /**
      * GET api/v1/roles/scopes
@@ -86,10 +86,10 @@ interface RoleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelScope]>
+     * @return [Call]<[EdgeApiDataPageScope]>
      */
     @GET("api/v1/roles/scopes")
-    fun getApiV1RolesScopes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelScope>
+    fun getApiV1RolesScopes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageScope>
 
     /**
      * POST api/v1/roles/{scopeName}
@@ -99,14 +99,14 @@ interface RoleControllerApi {
      *  - 200: OK
      *
      * @param scopeName 
-     * @param coedgeappservermodelRole 
+     * @param role 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelRole]>
+     * @return [Call]<[Role]>
      */
     @POST("api/v1/roles/{scopeName}")
-    fun postApiV1RolesByScopename(@Path("scopeName") scopeName: kotlin.String, @Body coedgeappservermodelRole: CoedgeappservermodelRole, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelRole>
+    fun postApiV1RolesByScopename(@Path("scopeName") scopeName: kotlin.String, @Body role: Role, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Role>
 
     /**
      * PUT api/v1/roles/{roleName}/{scopeName}
@@ -117,13 +117,13 @@ interface RoleControllerApi {
      *
      * @param roleName 
      * @param scopeName 
-     * @param coedgeappservermodelRole 
+     * @param role 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelRole]>
+     * @return [Call]<[Role]>
      */
     @PUT("api/v1/roles/{roleName}/{scopeName}")
-    fun putApiV1RolesByRolenameByScopename(@Path("roleName") roleName: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Body coedgeappservermodelRole: CoedgeappservermodelRole, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelRole>
+    fun putApiV1RolesByRolenameByScopename(@Path("roleName") roleName: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Body role: Role, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Role>
 
 }

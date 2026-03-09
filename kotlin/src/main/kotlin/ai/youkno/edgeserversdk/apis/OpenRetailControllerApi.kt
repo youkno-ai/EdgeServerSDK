@@ -6,11 +6,11 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataOrderResponse
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelShoppingCart
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelShoppingCart
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelShoppingCartOrderSummary
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelShoppingCartProductInfo
+import ai.youkno.edgeserversdk.models.EdgeApiDataOrderResponse
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageShoppingCart
+import ai.youkno.edgeserversdk.models.ShoppingCart
+import ai.youkno.edgeserversdk.models.ShoppingCartOrderSummary
+import ai.youkno.edgeserversdk.models.ShoppingCartProductInfo
 
 interface OpenRetailControllerApi {
     /**
@@ -41,10 +41,10 @@ interface OpenRetailControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @DELETE("api/v1/open/retail/carts/{cartId}/items/{itemId}")
-    fun deleteApiV1OpenRetailCartsByCartidItemsByItemid(@Path("cartId") cartId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun deleteApiV1OpenRetailCartsByCartidItemsByItemid(@Path("cartId") cartId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
 
     /**
@@ -72,10 +72,10 @@ interface OpenRetailControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelShoppingCart]>
+     * @return [Call]<[EdgeApiDataPageShoppingCart]>
      */
     @GET("api/v1/open/retail/carts")
-    fun getApiV1OpenRetailCarts(@Query("marketId") marketId: kotlin.String? = null, @Query("status") status: StatusGetApiV1OpenRetailCarts? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelShoppingCart>
+    fun getApiV1OpenRetailCarts(@Query("marketId") marketId: kotlin.String? = null, @Query("status") status: StatusGetApiV1OpenRetailCarts? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageShoppingCart>
 
     /**
      * GET api/v1/open/retail/carts/{cartId}
@@ -88,10 +88,10 @@ interface OpenRetailControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @GET("api/v1/open/retail/carts/{cartId}")
-    fun getApiV1OpenRetailCartsByCartid(@Path("cartId") cartId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun getApiV1OpenRetailCartsByCartid(@Path("cartId") cartId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
     /**
      * GET api/v1/open/retail/carts/{cartId}/summary
@@ -104,10 +104,10 @@ interface OpenRetailControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCartOrderSummary]>
+     * @return [Call]<[ShoppingCartOrderSummary]>
      */
     @GET("api/v1/open/retail/carts/{cartId}/summary")
-    fun getApiV1OpenRetailCartsByCartidSummary(@Path("cartId") cartId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCartOrderSummary>
+    fun getApiV1OpenRetailCartsByCartidSummary(@Path("cartId") cartId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCartOrderSummary>
 
     /**
      * PATCH api/v1/open/retail/carts/{cartId}
@@ -117,14 +117,14 @@ interface OpenRetailControllerApi {
      *  - 200: OK
      *
      * @param cartId 
-     * @param coedgeappservermodelShoppingCart 
+     * @param shoppingCart 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @PATCH("api/v1/open/retail/carts/{cartId}")
-    fun patchApiV1OpenRetailCartsByCartid(@Path("cartId") cartId: kotlin.String, @Body coedgeappservermodelShoppingCart: CoedgeappservermodelShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun patchApiV1OpenRetailCartsByCartid(@Path("cartId") cartId: kotlin.String, @Body shoppingCart: ShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
     /**
      * PATCH api/v1/open/retail/carts/{cartId}/items/{itemId}
@@ -135,14 +135,14 @@ interface OpenRetailControllerApi {
      *
      * @param cartId 
      * @param itemId 
-     * @param coedgeappservermodelShoppingCartProductInfo 
+     * @param shoppingCartProductInfo 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @PATCH("api/v1/open/retail/carts/{cartId}/items/{itemId}")
-    fun patchApiV1OpenRetailCartsByCartidItemsByItemid(@Path("cartId") cartId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Body coedgeappservermodelShoppingCartProductInfo: CoedgeappservermodelShoppingCartProductInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun patchApiV1OpenRetailCartsByCartidItemsByItemid(@Path("cartId") cartId: kotlin.String, @Path("itemId") itemId: kotlin.String, @Body shoppingCartProductInfo: ShoppingCartProductInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
     /**
      * POST api/v1/open/retail/carts
@@ -151,14 +151,14 @@ interface OpenRetailControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param coedgeappservermodelShoppingCart 
+     * @param shoppingCart 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @POST("api/v1/open/retail/carts")
-    fun postApiV1OpenRetailCarts(@Body coedgeappservermodelShoppingCart: CoedgeappservermodelShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun postApiV1OpenRetailCarts(@Body shoppingCart: ShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
     /**
      * POST api/v1/open/retail/carts/{cartId}/items
@@ -168,14 +168,14 @@ interface OpenRetailControllerApi {
      *  - 200: OK
      *
      * @param cartId 
-     * @param coedgeappservermodelShoppingCartProductInfo 
+     * @param shoppingCartProductInfo 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShoppingCart]>
+     * @return [Call]<[ShoppingCart]>
      */
     @POST("api/v1/open/retail/carts/{cartId}/items")
-    fun postApiV1OpenRetailCartsByCartidItems(@Path("cartId") cartId: kotlin.String, @Body coedgeappservermodelShoppingCartProductInfo: CoedgeappservermodelShoppingCartProductInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShoppingCart>
+    fun postApiV1OpenRetailCartsByCartidItems(@Path("cartId") cartId: kotlin.String, @Body shoppingCartProductInfo: ShoppingCartProductInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCart>
 
     /**
      * POST api/v1/open/retail/carts/{cartId}/order
@@ -185,13 +185,13 @@ interface OpenRetailControllerApi {
      *  - 200: OK
      *
      * @param cartId 
-     * @param coedgeappservermodelShoppingCart 
+     * @param shoppingCart 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataOrderResponse]>
+     * @return [Call]<[EdgeApiDataOrderResponse]>
      */
     @POST("api/v1/open/retail/carts/{cartId}/order")
-    fun postApiV1OpenRetailCartsByCartidOrder(@Path("cartId") cartId: kotlin.String, @Body coedgeappservermodelShoppingCart: CoedgeappservermodelShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataOrderResponse>
+    fun postApiV1OpenRetailCartsByCartidOrder(@Path("cartId") cartId: kotlin.String, @Body shoppingCart: ShoppingCart, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataOrderResponse>
 
 }

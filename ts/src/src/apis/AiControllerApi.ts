@@ -15,170 +15,170 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerAiBadgeBadgeGeneratorInput,
-  CoEdgeappServerAiStickersStickerCollectionGeneratorInput,
-  CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus,
-  CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerBountyGenerationStatus,
-  CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerChatSimulationStatus,
-  CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus,
-  CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus,
-  CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerProductGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest,
-  CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse,
-  CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest,
-  CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse,
-  CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest,
-  CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse,
-  CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus,
-  CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta,
-  CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus,
-  CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus,
-  CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse,
-  CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus,
+  AiBadgeBadgeGeneratorInput,
+  AiStickersStickerCollectionGeneratorInput,
+  RestControllerAIControllerAiGeneratedEntitiesStatus,
+  RestControllerAIControllerBadgeGeneratorStatus,
+  RestControllerAIControllerBountyGenerationCleanupResponse,
+  RestControllerAIControllerBountyGenerationStatus,
+  RestControllerAIControllerCategoryGenerationCleanupResponse,
+  RestControllerAIControllerCategoryGeneratorStatus,
+  RestControllerAIControllerCategoryTreeGenerationCleanupResponse,
+  RestControllerAIControllerCategoryTreeGeneratorStatus,
+  RestControllerAIControllerChatSimulationCleanupResponse,
+  RestControllerAIControllerChatSimulationStatus,
+  RestControllerAIControllerCompanyBatchGenerationCleanupResponse,
+  RestControllerAIControllerCompanyBatchGenerationStatus,
+  RestControllerAIControllerDemoFeedSeedingCleanupResponse,
+  RestControllerAIControllerDemoFeedSeedingStatus,
+  RestControllerAIControllerMenuGenerationCleanupResponse,
+  RestControllerAIControllerMenuGeneratorStatus,
+  RestControllerAIControllerProductGenerationCleanupResponse,
+  RestControllerAIControllerProductGeneratorStatus,
+  RestControllerAIControllerStartBadgeGenerationResponse,
+  RestControllerAIControllerStartBountyGenerationRequest,
+  RestControllerAIControllerStartBountyGenerationResponse,
+  RestControllerAIControllerStartCategoryGenerationRequest,
+  RestControllerAIControllerStartCategoryGenerationResponse,
+  RestControllerAIControllerStartCategoryTreeGenerationRequest,
+  RestControllerAIControllerStartCategoryTreeGenerationResponse,
+  RestControllerAIControllerStartChatSimulationRequest,
+  RestControllerAIControllerStartChatSimulationResponse,
+  RestControllerAIControllerStartCompanyBatchGenerationRequest,
+  RestControllerAIControllerStartCompanyBatchGenerationResponse,
+  RestControllerAIControllerStartDemoFeedSeedingRequest,
+  RestControllerAIControllerStartDemoFeedSeedingResponse,
+  RestControllerAIControllerStartFullCatalogGenerationRequest,
+  RestControllerAIControllerStartFullCatalogGenerationResponse,
+  RestControllerAIControllerStartMenuGenerationRequest,
+  RestControllerAIControllerStartMenuGenerationResponse,
+  RestControllerAIControllerStartProductGenerationRequest,
+  RestControllerAIControllerStartProductGenerationResponse,
+  RestControllerAIControllerStartStickerGenerationResponse,
+  RestControllerAIControllerStartUserAvatarGenerationRequest,
+  RestControllerAIControllerStartUserAvatarGenerationResponse,
+  RestControllerAIControllerStartUserBatchGenerationRequest,
+  RestControllerAIControllerStartUserBatchGenerationResponse,
+  RestControllerAIControllerStartUserCoverGenerationRequest,
+  RestControllerAIControllerStartUserCoverGenerationResponse,
+  RestControllerAIControllerStickerCollectionGeneratorStatus,
+  RestControllerAIControllerStickerGeneratorMeta,
+  RestControllerAIControllerUserAvatarGenerationCleanupResponse,
+  RestControllerAIControllerUserAvatarGenerationStatus,
+  RestControllerAIControllerUserBatchGenerationCleanupResponse,
+  RestControllerAIControllerUserBatchGenerationStatus,
+  RestControllerAIControllerUserCoverGenerationCleanupResponse,
+  RestControllerAIControllerUserCoverGenerationStatus,
 } from '../models/index';
 import {
-    CoEdgeappServerAiBadgeBadgeGeneratorInputFromJSON,
-    CoEdgeappServerAiBadgeBadgeGeneratorInputToJSON,
-    CoEdgeappServerAiStickersStickerCollectionGeneratorInputFromJSON,
-    CoEdgeappServerAiStickersStickerCollectionGeneratorInputToJSON,
-    CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerBountyGenerationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerBountyGenerationStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerChatSimulationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerChatSimulationStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerProductGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerProductGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestToJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaFromJSON,
-    CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaToJSON,
-    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusToJSON,
-    CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseToJSON,
-    CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusFromJSON,
-    CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusToJSON,
+    AiBadgeBadgeGeneratorInputFromJSON,
+    AiBadgeBadgeGeneratorInputToJSON,
+    AiStickersStickerCollectionGeneratorInputFromJSON,
+    AiStickersStickerCollectionGeneratorInputToJSON,
+    RestControllerAIControllerAiGeneratedEntitiesStatusFromJSON,
+    RestControllerAIControllerAiGeneratedEntitiesStatusToJSON,
+    RestControllerAIControllerBadgeGeneratorStatusFromJSON,
+    RestControllerAIControllerBadgeGeneratorStatusToJSON,
+    RestControllerAIControllerBountyGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerBountyGenerationCleanupResponseToJSON,
+    RestControllerAIControllerBountyGenerationStatusFromJSON,
+    RestControllerAIControllerBountyGenerationStatusToJSON,
+    RestControllerAIControllerCategoryGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerCategoryGenerationCleanupResponseToJSON,
+    RestControllerAIControllerCategoryGeneratorStatusFromJSON,
+    RestControllerAIControllerCategoryGeneratorStatusToJSON,
+    RestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerCategoryTreeGenerationCleanupResponseToJSON,
+    RestControllerAIControllerCategoryTreeGeneratorStatusFromJSON,
+    RestControllerAIControllerCategoryTreeGeneratorStatusToJSON,
+    RestControllerAIControllerChatSimulationCleanupResponseFromJSON,
+    RestControllerAIControllerChatSimulationCleanupResponseToJSON,
+    RestControllerAIControllerChatSimulationStatusFromJSON,
+    RestControllerAIControllerChatSimulationStatusToJSON,
+    RestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerCompanyBatchGenerationCleanupResponseToJSON,
+    RestControllerAIControllerCompanyBatchGenerationStatusFromJSON,
+    RestControllerAIControllerCompanyBatchGenerationStatusToJSON,
+    RestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON,
+    RestControllerAIControllerDemoFeedSeedingCleanupResponseToJSON,
+    RestControllerAIControllerDemoFeedSeedingStatusFromJSON,
+    RestControllerAIControllerDemoFeedSeedingStatusToJSON,
+    RestControllerAIControllerMenuGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerMenuGenerationCleanupResponseToJSON,
+    RestControllerAIControllerMenuGeneratorStatusFromJSON,
+    RestControllerAIControllerMenuGeneratorStatusToJSON,
+    RestControllerAIControllerProductGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerProductGenerationCleanupResponseToJSON,
+    RestControllerAIControllerProductGeneratorStatusFromJSON,
+    RestControllerAIControllerProductGeneratorStatusToJSON,
+    RestControllerAIControllerStartBadgeGenerationResponseFromJSON,
+    RestControllerAIControllerStartBadgeGenerationResponseToJSON,
+    RestControllerAIControllerStartBountyGenerationRequestFromJSON,
+    RestControllerAIControllerStartBountyGenerationRequestToJSON,
+    RestControllerAIControllerStartBountyGenerationResponseFromJSON,
+    RestControllerAIControllerStartBountyGenerationResponseToJSON,
+    RestControllerAIControllerStartCategoryGenerationRequestFromJSON,
+    RestControllerAIControllerStartCategoryGenerationRequestToJSON,
+    RestControllerAIControllerStartCategoryGenerationResponseFromJSON,
+    RestControllerAIControllerStartCategoryGenerationResponseToJSON,
+    RestControllerAIControllerStartCategoryTreeGenerationRequestFromJSON,
+    RestControllerAIControllerStartCategoryTreeGenerationRequestToJSON,
+    RestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON,
+    RestControllerAIControllerStartCategoryTreeGenerationResponseToJSON,
+    RestControllerAIControllerStartChatSimulationRequestFromJSON,
+    RestControllerAIControllerStartChatSimulationRequestToJSON,
+    RestControllerAIControllerStartChatSimulationResponseFromJSON,
+    RestControllerAIControllerStartChatSimulationResponseToJSON,
+    RestControllerAIControllerStartCompanyBatchGenerationRequestFromJSON,
+    RestControllerAIControllerStartCompanyBatchGenerationRequestToJSON,
+    RestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON,
+    RestControllerAIControllerStartCompanyBatchGenerationResponseToJSON,
+    RestControllerAIControllerStartDemoFeedSeedingRequestFromJSON,
+    RestControllerAIControllerStartDemoFeedSeedingRequestToJSON,
+    RestControllerAIControllerStartDemoFeedSeedingResponseFromJSON,
+    RestControllerAIControllerStartDemoFeedSeedingResponseToJSON,
+    RestControllerAIControllerStartFullCatalogGenerationRequestFromJSON,
+    RestControllerAIControllerStartFullCatalogGenerationRequestToJSON,
+    RestControllerAIControllerStartFullCatalogGenerationResponseFromJSON,
+    RestControllerAIControllerStartFullCatalogGenerationResponseToJSON,
+    RestControllerAIControllerStartMenuGenerationRequestFromJSON,
+    RestControllerAIControllerStartMenuGenerationRequestToJSON,
+    RestControllerAIControllerStartMenuGenerationResponseFromJSON,
+    RestControllerAIControllerStartMenuGenerationResponseToJSON,
+    RestControllerAIControllerStartProductGenerationRequestFromJSON,
+    RestControllerAIControllerStartProductGenerationRequestToJSON,
+    RestControllerAIControllerStartProductGenerationResponseFromJSON,
+    RestControllerAIControllerStartProductGenerationResponseToJSON,
+    RestControllerAIControllerStartStickerGenerationResponseFromJSON,
+    RestControllerAIControllerStartStickerGenerationResponseToJSON,
+    RestControllerAIControllerStartUserAvatarGenerationRequestFromJSON,
+    RestControllerAIControllerStartUserAvatarGenerationRequestToJSON,
+    RestControllerAIControllerStartUserAvatarGenerationResponseFromJSON,
+    RestControllerAIControllerStartUserAvatarGenerationResponseToJSON,
+    RestControllerAIControllerStartUserBatchGenerationRequestFromJSON,
+    RestControllerAIControllerStartUserBatchGenerationRequestToJSON,
+    RestControllerAIControllerStartUserBatchGenerationResponseFromJSON,
+    RestControllerAIControllerStartUserBatchGenerationResponseToJSON,
+    RestControllerAIControllerStartUserCoverGenerationRequestFromJSON,
+    RestControllerAIControllerStartUserCoverGenerationRequestToJSON,
+    RestControllerAIControllerStartUserCoverGenerationResponseFromJSON,
+    RestControllerAIControllerStartUserCoverGenerationResponseToJSON,
+    RestControllerAIControllerStickerCollectionGeneratorStatusFromJSON,
+    RestControllerAIControllerStickerCollectionGeneratorStatusToJSON,
+    RestControllerAIControllerStickerGeneratorMetaFromJSON,
+    RestControllerAIControllerStickerGeneratorMetaToJSON,
+    RestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerUserAvatarGenerationCleanupResponseToJSON,
+    RestControllerAIControllerUserAvatarGenerationStatusFromJSON,
+    RestControllerAIControllerUserAvatarGenerationStatusToJSON,
+    RestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerUserBatchGenerationCleanupResponseToJSON,
+    RestControllerAIControllerUserBatchGenerationStatusFromJSON,
+    RestControllerAIControllerUserBatchGenerationStatusToJSON,
+    RestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON,
+    RestControllerAIControllerUserCoverGenerationCleanupResponseToJSON,
+    RestControllerAIControllerUserCoverGenerationStatusFromJSON,
+    RestControllerAIControllerUserCoverGenerationStatusToJSON,
 } from '../models/index';
 
 export interface GetApiV1AiGenerateBadgeByCompanyidRequest {
@@ -286,14 +286,14 @@ export interface GetApiV1AiGenerateUsersBatchByJobidRequest {
 }
 
 export interface PostApiV1AiGenerateBadgeRequest {
-    coEdgeappServerAiBadgeBadgeGeneratorInput: CoEdgeappServerAiBadgeBadgeGeneratorInput;
+    aiBadgeBadgeGeneratorInput: AiBadgeBadgeGeneratorInput;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateBountyRequest {
-    coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest;
+    restControllerAIControllerStartBountyGenerationRequest: RestControllerAIControllerStartBountyGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -308,14 +308,14 @@ export interface PostApiV1AiGenerateBountyByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCatalogRequest {
-    coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest;
+    restControllerAIControllerStartFullCatalogGenerationRequest: RestControllerAIControllerStartFullCatalogGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateCategoriesRequest {
-    coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest;
+    restControllerAIControllerStartCategoryGenerationRequest: RestControllerAIControllerStartCategoryGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -330,7 +330,7 @@ export interface PostApiV1AiGenerateCategoriesByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCategoryTreeRequest {
-    coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest;
+    restControllerAIControllerStartCategoryTreeGenerationRequest: RestControllerAIControllerStartCategoryTreeGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -345,7 +345,7 @@ export interface PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateChatSimulateRequest {
-    coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest;
+    restControllerAIControllerStartChatSimulationRequest: RestControllerAIControllerStartChatSimulationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -360,7 +360,7 @@ export interface PostApiV1AiGenerateChatSimulateByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCompaniesBatchRequest {
-    coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest;
+    restControllerAIControllerStartCompanyBatchGenerationRequest: RestControllerAIControllerStartCompanyBatchGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -375,7 +375,7 @@ export interface PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateDemoFeedRequest {
-    coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest;
+    restControllerAIControllerStartDemoFeedSeedingRequest: RestControllerAIControllerStartDemoFeedSeedingRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -390,7 +390,7 @@ export interface PostApiV1AiGenerateDemoFeedByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateMenuRequest {
-    coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest;
+    restControllerAIControllerStartMenuGenerationRequest: RestControllerAIControllerStartMenuGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -405,7 +405,7 @@ export interface PostApiV1AiGenerateMenuByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateProductsRequest {
-    coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest;
+    restControllerAIControllerStartProductGenerationRequest: RestControllerAIControllerStartProductGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -420,14 +420,14 @@ export interface PostApiV1AiGenerateProductsByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateStickersRequest {
-    coEdgeappServerAiStickersStickerCollectionGeneratorInput: CoEdgeappServerAiStickersStickerCollectionGeneratorInput;
+    aiStickersStickerCollectionGeneratorInput: AiStickersStickerCollectionGeneratorInput;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateUserAvatarRequest {
-    coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest;
+    restControllerAIControllerStartUserAvatarGenerationRequest: RestControllerAIControllerStartUserAvatarGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -441,7 +441,7 @@ export interface PostApiV1AiGenerateUserAvatarByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateUserCoverRequest {
-    coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest;
+    restControllerAIControllerStartUserCoverGenerationRequest: RestControllerAIControllerStartUserCoverGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -455,7 +455,7 @@ export interface PostApiV1AiGenerateUserCoverByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateUsersBatchRequest {
-    coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest;
+    restControllerAIControllerStartUserBatchGenerationRequest: RestControllerAIControllerStartUserBatchGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -486,11 +486,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>>;
+    getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBadgeGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>;
+    getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBadgeGeneratorStatus>;
 
     /**
      * 
@@ -502,11 +502,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>>;
+    getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>;
+    getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationStatus>;
 
     /**
      * 
@@ -518,75 +518,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>>;
+    getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>;
+    getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGeneratorStatus>;
 
     /**
      * 
@@ -598,27 +534,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>>;
+    getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>;
+    getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGeneratorStatus>;
 
     /**
      * 
@@ -630,11 +550,91 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>>;
+    getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>;
+    getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerAiGeneratedEntitiesStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerAiGeneratedEntitiesStatus>;
 
     /**
      * 
@@ -646,11 +646,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>>;
+    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerCollectionGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>;
+    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerCollectionGeneratorStatus>;
 
     /**
      * 
@@ -661,27 +661,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>>;
+    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerGeneratorMeta>>;
 
     /**
      */
-    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>;
+    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerGeneratorMeta>;
 
     /**
      * 
@@ -693,11 +677,27 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>>;
+    getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>;
+    getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationStatus>;
 
     /**
      * 
@@ -709,15 +709,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>>;
+    getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>;
+    getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationStatus>;
 
     /**
      * 
-     * @param {CoEdgeappServerAiBadgeBadgeGeneratorInput} coEdgeappServerAiBadgeBadgeGeneratorInput 
+     * @param {AiBadgeBadgeGeneratorInput} aiBadgeBadgeGeneratorInput 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -725,15 +725,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>>;
+    postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBadgeGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>;
+    postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBadgeGenerationResponse>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest} coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest 
+     * @param {RestControllerAIControllerStartBountyGenerationRequest} restControllerAIControllerStartBountyGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -741,60 +741,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>>;
+    postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBountyGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest} coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest} coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>;
+    postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBountyGenerationResponse>;
 
     /**
      * 
@@ -807,15 +758,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>>;
+    postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>;
+    postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest} coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest 
+     * @param {RestControllerAIControllerStartFullCatalogGenerationRequest} restControllerAIControllerStartFullCatalogGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -823,16 +774,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>>;
+    postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartFullCatalogGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>;
+    postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartFullCatalogGenerationResponse>;
 
     /**
      * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
+     * @param {RestControllerAIControllerStartCategoryGenerationRequest} restControllerAIControllerStartCategoryGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -840,27 +790,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>>;
+    postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest} coEdgeappServerRestControllerAIControllerStartChatSimulationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>;
+    postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryGenerationResponse>;
 
     /**
      * 
@@ -873,15 +807,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>>;
+    postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>;
+    postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest} coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest 
+     * @param {RestControllerAIControllerStartCategoryTreeGenerationRequest} restControllerAIControllerStartCategoryTreeGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -889,44 +823,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>>;
+    postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryTreeGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest} coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>;
+    postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryTreeGenerationResponse>;
 
     /**
      * 
@@ -939,15 +840,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>>;
+    postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>;
+    postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest} coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest 
+     * @param {RestControllerAIControllerStartChatSimulationRequest} restControllerAIControllerStartChatSimulationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -955,44 +856,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>>;
+    postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartChatSimulationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest} coEdgeappServerRestControllerAIControllerStartProductGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>;
+    postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartChatSimulationResponse>;
 
     /**
      * 
@@ -1005,15 +873,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>>;
+    postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>;
+    postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationCleanupResponse>;
 
     /**
      * 
-     * @param {CoEdgeappServerAiStickersStickerCollectionGeneratorInput} coEdgeappServerAiStickersStickerCollectionGeneratorInput 
+     * @param {RestControllerAIControllerStartCompanyBatchGenerationRequest} restControllerAIControllerStartCompanyBatchGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1021,91 +889,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>>;
+    postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCompanyBatchGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest} coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>;
+    postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCompanyBatchGenerationResponse>;
 
     /**
      * 
@@ -1118,11 +906,223 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>>;
+    postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>;
+    postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartDemoFeedSeedingRequest} restControllerAIControllerStartDemoFeedSeedingRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartDemoFeedSeedingResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartDemoFeedSeedingResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingCleanupResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartMenuGenerationRequest} restControllerAIControllerStartMenuGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartMenuGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartMenuGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartProductGenerationRequest} restControllerAIControllerStartProductGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartProductGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartProductGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {AiStickersStickerCollectionGeneratorInput} aiStickersStickerCollectionGeneratorInput 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartStickerGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartStickerGenerationResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartUserAvatarGenerationRequest} restControllerAIControllerStartUserAvatarGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserAvatarGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserAvatarGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartUserCoverGenerationRequest} restControllerAIControllerStartUserCoverGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserCoverGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserCoverGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {RestControllerAIControllerStartUserBatchGenerationRequest} restControllerAIControllerStartUserBatchGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserBatchGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserBatchGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationCleanupResponse>;
 
 }
 
@@ -1133,7 +1133,7 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
 
     /**
      */
-    async getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>> {
+    async getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBadgeGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1172,19 +1172,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBadgeGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus> {
+    async getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBadgeGeneratorStatus> {
         const response = await this.getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>> {
+    async getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1223,19 +1223,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBountyGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBountyGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus> {
+    async getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationStatus> {
         const response = await this.getApiV1AiGenerateBountyByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>> {
+    async getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1274,19 +1274,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus> {
+    async getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGeneratorStatus> {
         const response = await this.getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>> {
+    async getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1325,19 +1325,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryTreeGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus> {
+    async getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGeneratorStatus> {
         const response = await this.getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>> {
+    async getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1376,19 +1376,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerChatSimulationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerChatSimulationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationStatus> {
+    async getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationStatus> {
         const response = await this.getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>> {
+    async getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1427,19 +1427,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCompanyBatchGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus> {
+    async getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationStatus> {
         const response = await this.getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>> {
+    async getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1478,19 +1478,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerDemoFeedSeedingStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus> {
+    async getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingStatus> {
         const response = await this.getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>> {
+    async getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1529,19 +1529,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerMenuGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerMenuGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus> {
+    async getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGeneratorStatus> {
         const response = await this.getApiV1AiGenerateMenuByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>> {
+    async getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1580,19 +1580,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerProductGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerProductGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus> {
+    async getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGeneratorStatus> {
         const response = await this.getApiV1AiGenerateProductsByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>> {
+    async getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerAiGeneratedEntitiesStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1631,19 +1631,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerAiGeneratedEntitiesStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus> {
+    async getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerAiGeneratedEntitiesStatus> {
         const response = await this.getApiV1AiGenerateProvenanceByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>> {
+    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerCollectionGeneratorStatus>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1682,19 +1682,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStickerCollectionGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus> {
+    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerCollectionGeneratorStatus> {
         const response = await this.getApiV1AiGenerateStickersByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>> {
+    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerGeneratorMeta>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1725,19 +1725,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStickerGeneratorMetaFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStickerGeneratorMetaFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta> {
+    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerGeneratorMeta> {
         const response = await this.getApiV1AiGenerateStickersMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>> {
+    async getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1776,19 +1776,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserAvatarGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus> {
+    async getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationStatus> {
         const response = await this.getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>> {
+    async getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1827,19 +1827,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserCoverGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus> {
+    async getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationStatus> {
         const response = await this.getApiV1AiGenerateUserCoverByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>> {
+    async getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1878,23 +1878,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserBatchGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus> {
+    async getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationStatus> {
         const response = await this.getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>> {
-        if (requestParameters['coEdgeappServerAiBadgeBadgeGeneratorInput'] == null) {
+    async postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBadgeGenerationResponse>> {
+        if (requestParameters['aiBadgeBadgeGeneratorInput'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerAiBadgeBadgeGeneratorInput',
-                'Required parameter "coEdgeappServerAiBadgeBadgeGeneratorInput" was null or undefined when calling postApiV1AiGenerateBadge().'
+                'aiBadgeBadgeGeneratorInput',
+                'Required parameter "aiBadgeBadgeGeneratorInput" was null or undefined when calling postApiV1AiGenerateBadge().'
             );
         }
 
@@ -1928,26 +1928,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerAiBadgeBadgeGeneratorInputToJSON(requestParameters['coEdgeappServerAiBadgeBadgeGeneratorInput']),
+            body: AiBadgeBadgeGeneratorInputToJSON(requestParameters['aiBadgeBadgeGeneratorInput']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartBadgeGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse> {
+    async postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBadgeGenerationResponse> {
         const response = await this.postApiV1AiGenerateBadgeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest'] == null) {
+    async postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBountyGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartBountyGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest" was null or undefined when calling postApiV1AiGenerateBounty().'
+                'restControllerAIControllerStartBountyGenerationRequest',
+                'Required parameter "restControllerAIControllerStartBountyGenerationRequest" was null or undefined when calling postApiV1AiGenerateBounty().'
             );
         }
 
@@ -1981,22 +1981,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest']),
+            body: RestControllerAIControllerStartBountyGenerationRequestToJSON(requestParameters['restControllerAIControllerStartBountyGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartBountyGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse> {
+    async postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBountyGenerationResponse> {
         const response = await this.postApiV1AiGenerateBountyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>> {
+    async postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2039,23 +2039,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBountyGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse> {
+    async postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest'] == null) {
+    async postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartFullCatalogGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartFullCatalogGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest" was null or undefined when calling postApiV1AiGenerateCatalog().'
+                'restControllerAIControllerStartFullCatalogGenerationRequest',
+                'Required parameter "restControllerAIControllerStartFullCatalogGenerationRequest" was null or undefined when calling postApiV1AiGenerateCatalog().'
             );
         }
 
@@ -2089,26 +2089,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest']),
+            body: RestControllerAIControllerStartFullCatalogGenerationRequestToJSON(requestParameters['restControllerAIControllerStartFullCatalogGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartFullCatalogGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse> {
+    async postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartFullCatalogGenerationResponse> {
         const response = await this.postApiV1AiGenerateCatalogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest'] == null) {
+    async postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartCategoryGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategories().'
+                'restControllerAIControllerStartCategoryGenerationRequest',
+                'Required parameter "restControllerAIControllerStartCategoryGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategories().'
             );
         }
 
@@ -2142,22 +2142,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest']),
+            body: RestControllerAIControllerStartCategoryGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCategoryGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCategoryGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse> {
+    async postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryGenerationResponse> {
         const response = await this.postApiV1AiGenerateCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2200,23 +2200,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse> {
+    async postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest'] == null) {
+    async postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryTreeGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartCategoryTreeGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategoryTree().'
+                'restControllerAIControllerStartCategoryTreeGenerationRequest',
+                'Required parameter "restControllerAIControllerStartCategoryTreeGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategoryTree().'
             );
         }
 
@@ -2250,22 +2250,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest']),
+            body: RestControllerAIControllerStartCategoryTreeGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCategoryTreeGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse> {
+    async postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryTreeGenerationResponse> {
         const response = await this.postApiV1AiGenerateCategoryTreeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2308,23 +2308,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
+    async postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartChatSimulationRequest'] == null) {
+    async postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartChatSimulationResponse>> {
+        if (requestParameters['restControllerAIControllerStartChatSimulationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartChatSimulationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartChatSimulationRequest" was null or undefined when calling postApiV1AiGenerateChatSimulate().'
+                'restControllerAIControllerStartChatSimulationRequest',
+                'Required parameter "restControllerAIControllerStartChatSimulationRequest" was null or undefined when calling postApiV1AiGenerateChatSimulate().'
             );
         }
 
@@ -2358,22 +2358,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartChatSimulationRequest']),
+            body: RestControllerAIControllerStartChatSimulationRequestToJSON(requestParameters['restControllerAIControllerStartChatSimulationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartChatSimulationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartChatSimulationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse> {
+    async postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartChatSimulationResponse> {
         const response = await this.postApiV1AiGenerateChatSimulateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>> {
+    async postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2416,23 +2416,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerChatSimulationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse> {
+    async postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationCleanupResponse> {
         const response = await this.postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest'] == null) {
+    async postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCompanyBatchGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartCompanyBatchGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateCompaniesBatch().'
+                'restControllerAIControllerStartCompanyBatchGenerationRequest',
+                'Required parameter "restControllerAIControllerStartCompanyBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateCompaniesBatch().'
             );
         }
 
@@ -2466,22 +2466,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest']),
+            body: RestControllerAIControllerStartCompanyBatchGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCompanyBatchGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse> {
+    async postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCompanyBatchGenerationResponse> {
         const response = await this.postApiV1AiGenerateCompaniesBatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2524,23 +2524,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest'] == null) {
+    async postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartDemoFeedSeedingResponse>> {
+        if (requestParameters['restControllerAIControllerStartDemoFeedSeedingRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest" was null or undefined when calling postApiV1AiGenerateDemoFeed().'
+                'restControllerAIControllerStartDemoFeedSeedingRequest',
+                'Required parameter "restControllerAIControllerStartDemoFeedSeedingRequest" was null or undefined when calling postApiV1AiGenerateDemoFeed().'
             );
         }
 
@@ -2574,22 +2574,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest']),
+            body: RestControllerAIControllerStartDemoFeedSeedingRequestToJSON(requestParameters['restControllerAIControllerStartDemoFeedSeedingRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartDemoFeedSeedingResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse> {
+    async postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartDemoFeedSeedingResponse> {
         const response = await this.postApiV1AiGenerateDemoFeedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>> {
+    async postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2632,23 +2632,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse> {
+    async postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingCleanupResponse> {
         const response = await this.postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest'] == null) {
+    async postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartMenuGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartMenuGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest" was null or undefined when calling postApiV1AiGenerateMenu().'
+                'restControllerAIControllerStartMenuGenerationRequest',
+                'Required parameter "restControllerAIControllerStartMenuGenerationRequest" was null or undefined when calling postApiV1AiGenerateMenu().'
             );
         }
 
@@ -2682,22 +2682,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest']),
+            body: RestControllerAIControllerStartMenuGenerationRequestToJSON(requestParameters['restControllerAIControllerStartMenuGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartMenuGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse> {
+    async postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartMenuGenerationResponse> {
         const response = await this.postApiV1AiGenerateMenuRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>> {
+    async postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2740,23 +2740,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerMenuGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse> {
+    async postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartProductGenerationRequest'] == null) {
+    async postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartProductGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartProductGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartProductGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartProductGenerationRequest" was null or undefined when calling postApiV1AiGenerateProducts().'
+                'restControllerAIControllerStartProductGenerationRequest',
+                'Required parameter "restControllerAIControllerStartProductGenerationRequest" was null or undefined when calling postApiV1AiGenerateProducts().'
             );
         }
 
@@ -2790,22 +2790,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartProductGenerationRequest']),
+            body: RestControllerAIControllerStartProductGenerationRequestToJSON(requestParameters['restControllerAIControllerStartProductGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartProductGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartProductGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse> {
+    async postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartProductGenerationResponse> {
         const response = await this.postApiV1AiGenerateProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>> {
+    async postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2848,23 +2848,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerProductGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse> {
+    async postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>> {
-        if (requestParameters['coEdgeappServerAiStickersStickerCollectionGeneratorInput'] == null) {
+    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartStickerGenerationResponse>> {
+        if (requestParameters['aiStickersStickerCollectionGeneratorInput'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerAiStickersStickerCollectionGeneratorInput',
-                'Required parameter "coEdgeappServerAiStickersStickerCollectionGeneratorInput" was null or undefined when calling postApiV1AiGenerateStickers().'
+                'aiStickersStickerCollectionGeneratorInput',
+                'Required parameter "aiStickersStickerCollectionGeneratorInput" was null or undefined when calling postApiV1AiGenerateStickers().'
             );
         }
 
@@ -2898,26 +2898,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerAiStickersStickerCollectionGeneratorInputToJSON(requestParameters['coEdgeappServerAiStickersStickerCollectionGeneratorInput']),
+            body: AiStickersStickerCollectionGeneratorInputToJSON(requestParameters['aiStickersStickerCollectionGeneratorInput']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartStickerGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse> {
+    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartStickerGenerationResponse> {
         const response = await this.postApiV1AiGenerateStickersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest'] == null) {
+    async postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserAvatarGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartUserAvatarGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserAvatar().'
+                'restControllerAIControllerStartUserAvatarGenerationRequest',
+                'Required parameter "restControllerAIControllerStartUserAvatarGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserAvatar().'
             );
         }
 
@@ -2951,22 +2951,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest']),
+            body: RestControllerAIControllerStartUserAvatarGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserAvatarGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserAvatarGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse> {
+    async postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserAvatarGenerationResponse> {
         const response = await this.postApiV1AiGenerateUserAvatarRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3005,23 +3005,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse> {
+    async postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest'] == null) {
+    async postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserCoverGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartUserCoverGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserCover().'
+                'restControllerAIControllerStartUserCoverGenerationRequest',
+                'Required parameter "restControllerAIControllerStartUserCoverGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserCover().'
             );
         }
 
@@ -3055,22 +3055,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest']),
+            body: RestControllerAIControllerStartUserCoverGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserCoverGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserCoverGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse> {
+    async postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserCoverGenerationResponse> {
         const response = await this.postApiV1AiGenerateUserCoverRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3109,23 +3109,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse> {
+    async postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest'] == null) {
+    async postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserBatchGenerationResponse>> {
+        if (requestParameters['restControllerAIControllerStartUserBatchGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest',
-                'Required parameter "coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateUsersBatch().'
+                'restControllerAIControllerStartUserBatchGenerationRequest',
+                'Required parameter "restControllerAIControllerStartUserBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateUsersBatch().'
             );
         }
 
@@ -3159,22 +3159,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequestToJSON(requestParameters['coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest']),
+            body: RestControllerAIControllerStartUserBatchGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserBatchGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserBatchGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse> {
+    async postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserBatchGenerationResponse> {
         const response = await this.postApiV1AiGenerateUsersBatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3217,12 +3217,12 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse> {
+    async postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }

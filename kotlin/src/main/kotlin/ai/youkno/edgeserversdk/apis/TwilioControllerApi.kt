@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataSmsVerification
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestmodelUserAuth
+import ai.youkno.edgeserversdk.models.EdgeApiDataSmsVerification
+import ai.youkno.edgeserversdk.models.RestModelUserAuth
 
 interface TwilioControllerApi {
     /**
@@ -20,10 +20,10 @@ interface TwilioControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverrestmodelUserAuth]>
+     * @return [Call]<[RestModelUserAuth]>
      */
     @GET("api/v1/twilio/access_token")
-    fun getApiV1TwilioAccessToken(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestmodelUserAuth>
+    fun getApiV1TwilioAccessToken(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestModelUserAuth>
 
     /**
      * POST api/v1/twilio/phone/send_token
@@ -48,14 +48,14 @@ interface TwilioControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param coedgeappservermodelEdgeApiDataSmsVerification 
+     * @param edgeApiDataSmsVerification 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.String]>
      */
     @POST("api/v1/twilio/phone/verify_token")
-    fun postApiV1TwilioPhoneVerifyToken(@Body coedgeappservermodelEdgeApiDataSmsVerification: CoedgeappservermodelEdgeApiDataSmsVerification, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.String>
+    fun postApiV1TwilioPhoneVerifyToken(@Body edgeApiDataSmsVerification: EdgeApiDataSmsVerification, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.String>
 
     /**
      * POST api/v1/twilio/sms/reply/{state}

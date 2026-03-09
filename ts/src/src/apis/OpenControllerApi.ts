@@ -15,173 +15,173 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelAccessBountyContentResult,
-  CoEdgeappServerModelAttachmentsAttachment,
-  CoEdgeappServerModelBaseSettingsPolicy,
-  CoEdgeappServerModelBaseSettingsShopSettings,
-  CoEdgeappServerModelBounty,
-  CoEdgeappServerModelBountyBudget,
-  CoEdgeappServerModelBountyResponse,
-  CoEdgeappServerModelClientInfo,
-  CoEdgeappServerModelComment,
-  CoEdgeappServerModelEdgeApiDataAccessBountyContentReq,
-  CoEdgeappServerModelEdgeApiDataAdvertsResultAdvert,
-  CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponse,
-  CoEdgeappServerModelEdgeApiDataBountyInfoResult,
-  CoEdgeappServerModelEdgeApiDataBountyResponseRequest,
-  CoEdgeappServerModelEdgeApiDataBountyResponseResponse,
-  CoEdgeappServerModelEdgeApiDataBusinessTypesResp,
-  CoEdgeappServerModelEdgeApiDataCategory,
-  CoEdgeappServerModelEdgeApiDataClientGuessResult,
-  CoEdgeappServerModelEdgeApiDataCommentResp,
-  CoEdgeappServerModelEdgeApiDataCurrenciesResponse,
-  CoEdgeappServerModelEdgeApiDataExchangeTokenResp,
-  CoEdgeappServerModelEdgeApiDataExplainSelfLinkResp,
-  CoEdgeappServerModelEdgeApiDataGetFiltersResult,
-  CoEdgeappServerModelEdgeApiDataKioskEntryPointResult,
-  CoEdgeappServerModelEdgeApiDataLikeRequest,
-  CoEdgeappServerModelEdgeApiDataLocationGuessResult,
-  CoEdgeappServerModelEdgeApiDataLocationsResult,
-  CoEdgeappServerModelEdgeApiDataLookupResult,
-  CoEdgeappServerModelEdgeApiDataOrderPaymentResult,
-  CoEdgeappServerModelEdgeApiDataOrderResponse,
-  CoEdgeappServerModelEdgeApiDataOrderUpdate,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResult,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelComment,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfo,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfo,
-  CoEdgeappServerModelEdgeApiDataPayOrderReq,
-  CoEdgeappServerModelEdgeApiDataPickupOrdersResult,
-  CoEdgeappServerModelEdgeApiDataPlaceBidReq,
-  CoEdgeappServerModelEdgeApiDataProductExtras,
-  CoEdgeappServerModelEdgeApiDataSurveyAnswers,
-  CoEdgeappServerModelEdgeApiDataSurveyBundleResp,
-  CoEdgeappServerModelEdgeApiDataUserEarningsResult,
-  CoEdgeappServerModelEdgeApiDataUserProfileEx,
-  CoEdgeappServerModelFilter,
-  CoEdgeappServerModelPageFilter,
-  CoEdgeappServerModelPointCurrency,
-  CoEdgeappServerModelResponseChanges,
-  CoEdgeappServerModelReward,
-  CoEdgeappServerRestControllerOpenControllerInviteInfoResult,
-  CoEdgeappServerRestControllerOpenControllerStatesResult,
-  CoEdgeappServerServiceUserOpListResult,
-  CoEdgeappServerServiceUserOpSectionsResult,
-  CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfo,
-  CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailability,
+  AccessBountyContentResult,
+  AttachmentsAttachment,
+  BaseSettingsPolicy,
+  BaseSettingsShopSettings,
+  Bounty,
+  BountyBudget,
+  BountyResponse,
+  ClientInfo,
+  Comment,
+  EdgeApiDataAccessBountyContentReq,
+  EdgeApiDataAdvertsResultAdvert,
+  EdgeApiDataAllowedIntegrationsResponse,
+  EdgeApiDataBountyInfoResult,
+  EdgeApiDataBountyResponseRequest,
+  EdgeApiDataBountyResponseResponse,
+  EdgeApiDataBusinessTypesResp,
+  EdgeApiDataCategory,
+  EdgeApiDataClientGuessResult,
+  EdgeApiDataCommentResp,
+  EdgeApiDataCurrenciesResponse,
+  EdgeApiDataExchangeTokenResp,
+  EdgeApiDataExplainSelfLinkResp,
+  EdgeApiDataGetFiltersResult,
+  EdgeApiDataKioskEntryPointResult,
+  EdgeApiDataLikeRequest,
+  EdgeApiDataLocationGuessResult,
+  EdgeApiDataLocationsResult,
+  EdgeApiDataLookupResult,
+  EdgeApiDataOrderPaymentResult,
+  EdgeApiDataOrderResponse,
+  EdgeApiDataOrderUpdate,
+  EdgeApiDataPageAccessBountyContentResult,
+  EdgeApiDataPageBounty,
+  EdgeApiDataPageComment,
+  EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo,
+  EdgeApiDataPageServiceUserHandleKioskInfo,
+  EdgeApiDataPayOrderReq,
+  EdgeApiDataPickupOrdersResult,
+  EdgeApiDataPlaceBidReq,
+  EdgeApiDataProductExtras,
+  EdgeApiDataSurveyAnswers,
+  EdgeApiDataSurveyBundleResp,
+  EdgeApiDataUserEarningsResult,
+  EdgeApiDataUserProfileEx,
+  Filter,
+  PageFilter,
+  PointCurrency,
+  ResponseChanges,
+  RestControllerOpenControllerInviteInfoResult,
+  RestControllerOpenControllerStatesResult,
+  Reward,
+  ServiceUserOpListResult,
+  ServiceUserOpSectionsResult,
+  ThirdpartiesCompanyInfoAgentCompanyInfo,
+  ThirdpartiesOpentableConsumerAPIAPIAvailability,
 } from '../models/index';
 import {
-    CoEdgeappServerModelAccessBountyContentResultFromJSON,
-    CoEdgeappServerModelAccessBountyContentResultToJSON,
-    CoEdgeappServerModelAttachmentsAttachmentFromJSON,
-    CoEdgeappServerModelAttachmentsAttachmentToJSON,
-    CoEdgeappServerModelBaseSettingsPolicyFromJSON,
-    CoEdgeappServerModelBaseSettingsPolicyToJSON,
-    CoEdgeappServerModelBaseSettingsShopSettingsFromJSON,
-    CoEdgeappServerModelBaseSettingsShopSettingsToJSON,
-    CoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelBountyBudgetFromJSON,
-    CoEdgeappServerModelBountyBudgetToJSON,
-    CoEdgeappServerModelBountyResponseFromJSON,
-    CoEdgeappServerModelBountyResponseToJSON,
-    CoEdgeappServerModelClientInfoFromJSON,
-    CoEdgeappServerModelClientInfoToJSON,
-    CoEdgeappServerModelCommentFromJSON,
-    CoEdgeappServerModelCommentToJSON,
-    CoEdgeappServerModelEdgeApiDataAccessBountyContentReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataAccessBountyContentReqToJSON,
-    CoEdgeappServerModelEdgeApiDataAdvertsResultAdvertFromJSON,
-    CoEdgeappServerModelEdgeApiDataAdvertsResultAdvertToJSON,
-    CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyInfoResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyInfoResultToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyResponseRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyResponseRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyResponseResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyResponseResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataBusinessTypesRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataBusinessTypesRespToJSON,
-    CoEdgeappServerModelEdgeApiDataCategoryFromJSON,
-    CoEdgeappServerModelEdgeApiDataCategoryToJSON,
-    CoEdgeappServerModelEdgeApiDataClientGuessResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataClientGuessResultToJSON,
-    CoEdgeappServerModelEdgeApiDataCommentRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataCommentRespToJSON,
-    CoEdgeappServerModelEdgeApiDataCurrenciesResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataCurrenciesResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataExchangeTokenRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataExchangeTokenRespToJSON,
-    CoEdgeappServerModelEdgeApiDataExplainSelfLinkRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataExplainSelfLinkRespToJSON,
-    CoEdgeappServerModelEdgeApiDataGetFiltersResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataGetFiltersResultToJSON,
-    CoEdgeappServerModelEdgeApiDataKioskEntryPointResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataKioskEntryPointResultToJSON,
-    CoEdgeappServerModelEdgeApiDataLikeRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataLikeRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataLocationGuessResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataLocationGuessResultToJSON,
-    CoEdgeappServerModelEdgeApiDataLocationsResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataLocationsResultToJSON,
-    CoEdgeappServerModelEdgeApiDataLookupResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataLookupResultToJSON,
-    CoEdgeappServerModelEdgeApiDataOrderPaymentResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataOrderPaymentResultToJSON,
-    CoEdgeappServerModelEdgeApiDataOrderResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataOrderResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataOrderUpdateFromJSON,
-    CoEdgeappServerModelEdgeApiDataOrderUpdateToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResultToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelCommentFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelCommentToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfoFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfoToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfoFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfoToJSON,
-    CoEdgeappServerModelEdgeApiDataPayOrderReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataPayOrderReqToJSON,
-    CoEdgeappServerModelEdgeApiDataPickupOrdersResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPickupOrdersResultToJSON,
-    CoEdgeappServerModelEdgeApiDataPlaceBidReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataPlaceBidReqToJSON,
-    CoEdgeappServerModelEdgeApiDataProductExtrasFromJSON,
-    CoEdgeappServerModelEdgeApiDataProductExtrasToJSON,
-    CoEdgeappServerModelEdgeApiDataSurveyAnswersFromJSON,
-    CoEdgeappServerModelEdgeApiDataSurveyAnswersToJSON,
-    CoEdgeappServerModelEdgeApiDataSurveyBundleRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataSurveyBundleRespToJSON,
-    CoEdgeappServerModelEdgeApiDataUserEarningsResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserEarningsResultToJSON,
-    CoEdgeappServerModelEdgeApiDataUserProfileExFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserProfileExToJSON,
-    CoEdgeappServerModelFilterFromJSON,
-    CoEdgeappServerModelFilterToJSON,
-    CoEdgeappServerModelPageFilterFromJSON,
-    CoEdgeappServerModelPageFilterToJSON,
-    CoEdgeappServerModelPointCurrencyFromJSON,
-    CoEdgeappServerModelPointCurrencyToJSON,
-    CoEdgeappServerModelResponseChangesFromJSON,
-    CoEdgeappServerModelResponseChangesToJSON,
-    CoEdgeappServerModelRewardFromJSON,
-    CoEdgeappServerModelRewardToJSON,
-    CoEdgeappServerRestControllerOpenControllerInviteInfoResultFromJSON,
-    CoEdgeappServerRestControllerOpenControllerInviteInfoResultToJSON,
-    CoEdgeappServerRestControllerOpenControllerStatesResultFromJSON,
-    CoEdgeappServerRestControllerOpenControllerStatesResultToJSON,
-    CoEdgeappServerServiceUserOpListResultFromJSON,
-    CoEdgeappServerServiceUserOpListResultToJSON,
-    CoEdgeappServerServiceUserOpSectionsResultFromJSON,
-    CoEdgeappServerServiceUserOpSectionsResultToJSON,
-    CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfoFromJSON,
-    CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfoToJSON,
-    CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailabilityFromJSON,
-    CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailabilityToJSON,
+    AccessBountyContentResultFromJSON,
+    AccessBountyContentResultToJSON,
+    AttachmentsAttachmentFromJSON,
+    AttachmentsAttachmentToJSON,
+    BaseSettingsPolicyFromJSON,
+    BaseSettingsPolicyToJSON,
+    BaseSettingsShopSettingsFromJSON,
+    BaseSettingsShopSettingsToJSON,
+    BountyFromJSON,
+    BountyToJSON,
+    BountyBudgetFromJSON,
+    BountyBudgetToJSON,
+    BountyResponseFromJSON,
+    BountyResponseToJSON,
+    ClientInfoFromJSON,
+    ClientInfoToJSON,
+    CommentFromJSON,
+    CommentToJSON,
+    EdgeApiDataAccessBountyContentReqFromJSON,
+    EdgeApiDataAccessBountyContentReqToJSON,
+    EdgeApiDataAdvertsResultAdvertFromJSON,
+    EdgeApiDataAdvertsResultAdvertToJSON,
+    EdgeApiDataAllowedIntegrationsResponseFromJSON,
+    EdgeApiDataAllowedIntegrationsResponseToJSON,
+    EdgeApiDataBountyInfoResultFromJSON,
+    EdgeApiDataBountyInfoResultToJSON,
+    EdgeApiDataBountyResponseRequestFromJSON,
+    EdgeApiDataBountyResponseRequestToJSON,
+    EdgeApiDataBountyResponseResponseFromJSON,
+    EdgeApiDataBountyResponseResponseToJSON,
+    EdgeApiDataBusinessTypesRespFromJSON,
+    EdgeApiDataBusinessTypesRespToJSON,
+    EdgeApiDataCategoryFromJSON,
+    EdgeApiDataCategoryToJSON,
+    EdgeApiDataClientGuessResultFromJSON,
+    EdgeApiDataClientGuessResultToJSON,
+    EdgeApiDataCommentRespFromJSON,
+    EdgeApiDataCommentRespToJSON,
+    EdgeApiDataCurrenciesResponseFromJSON,
+    EdgeApiDataCurrenciesResponseToJSON,
+    EdgeApiDataExchangeTokenRespFromJSON,
+    EdgeApiDataExchangeTokenRespToJSON,
+    EdgeApiDataExplainSelfLinkRespFromJSON,
+    EdgeApiDataExplainSelfLinkRespToJSON,
+    EdgeApiDataGetFiltersResultFromJSON,
+    EdgeApiDataGetFiltersResultToJSON,
+    EdgeApiDataKioskEntryPointResultFromJSON,
+    EdgeApiDataKioskEntryPointResultToJSON,
+    EdgeApiDataLikeRequestFromJSON,
+    EdgeApiDataLikeRequestToJSON,
+    EdgeApiDataLocationGuessResultFromJSON,
+    EdgeApiDataLocationGuessResultToJSON,
+    EdgeApiDataLocationsResultFromJSON,
+    EdgeApiDataLocationsResultToJSON,
+    EdgeApiDataLookupResultFromJSON,
+    EdgeApiDataLookupResultToJSON,
+    EdgeApiDataOrderPaymentResultFromJSON,
+    EdgeApiDataOrderPaymentResultToJSON,
+    EdgeApiDataOrderResponseFromJSON,
+    EdgeApiDataOrderResponseToJSON,
+    EdgeApiDataOrderUpdateFromJSON,
+    EdgeApiDataOrderUpdateToJSON,
+    EdgeApiDataPageAccessBountyContentResultFromJSON,
+    EdgeApiDataPageAccessBountyContentResultToJSON,
+    EdgeApiDataPageBountyFromJSON,
+    EdgeApiDataPageBountyToJSON,
+    EdgeApiDataPageCommentFromJSON,
+    EdgeApiDataPageCommentToJSON,
+    EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfoFromJSON,
+    EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfoToJSON,
+    EdgeApiDataPageServiceUserHandleKioskInfoFromJSON,
+    EdgeApiDataPageServiceUserHandleKioskInfoToJSON,
+    EdgeApiDataPayOrderReqFromJSON,
+    EdgeApiDataPayOrderReqToJSON,
+    EdgeApiDataPickupOrdersResultFromJSON,
+    EdgeApiDataPickupOrdersResultToJSON,
+    EdgeApiDataPlaceBidReqFromJSON,
+    EdgeApiDataPlaceBidReqToJSON,
+    EdgeApiDataProductExtrasFromJSON,
+    EdgeApiDataProductExtrasToJSON,
+    EdgeApiDataSurveyAnswersFromJSON,
+    EdgeApiDataSurveyAnswersToJSON,
+    EdgeApiDataSurveyBundleRespFromJSON,
+    EdgeApiDataSurveyBundleRespToJSON,
+    EdgeApiDataUserEarningsResultFromJSON,
+    EdgeApiDataUserEarningsResultToJSON,
+    EdgeApiDataUserProfileExFromJSON,
+    EdgeApiDataUserProfileExToJSON,
+    FilterFromJSON,
+    FilterToJSON,
+    PageFilterFromJSON,
+    PageFilterToJSON,
+    PointCurrencyFromJSON,
+    PointCurrencyToJSON,
+    ResponseChangesFromJSON,
+    ResponseChangesToJSON,
+    RestControllerOpenControllerInviteInfoResultFromJSON,
+    RestControllerOpenControllerInviteInfoResultToJSON,
+    RestControllerOpenControllerStatesResultFromJSON,
+    RestControllerOpenControllerStatesResultToJSON,
+    RewardFromJSON,
+    RewardToJSON,
+    ServiceUserOpListResultFromJSON,
+    ServiceUserOpListResultToJSON,
+    ServiceUserOpSectionsResultFromJSON,
+    ServiceUserOpSectionsResultToJSON,
+    ThirdpartiesCompanyInfoAgentCompanyInfoFromJSON,
+    ThirdpartiesCompanyInfoAgentCompanyInfoToJSON,
+    ThirdpartiesOpentableConsumerAPIAPIAvailabilityFromJSON,
+    ThirdpartiesOpentableConsumerAPIAPIAvailabilityToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1OpenCommentsByCommentidRequest {
@@ -283,7 +283,7 @@ export interface GetApiV1OpenByUserIdSubordersByParentOrderIdRequest {
 
 export interface GetApiV1OpenCategoriesByCategoryTypeRequest {
     categoryType: GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum;
-    filter: CoEdgeappServerModelFilter;
+    filter: Filter;
     clientId?: string;
     zone?: string;
     category?: Array<string>;
@@ -450,7 +450,7 @@ export interface GetApiV1OpenPickupOrdersByClientRequest {
 }
 
 export interface GetApiV1OpenProductsRequest {
-    filter: CoEdgeappServerModelFilter;
+    filter: Filter;
     category?: Array<string>;
     tag?: Array<string>;
     zone?: string;
@@ -488,7 +488,7 @@ export interface GetApiV1OpenReportContentTypesRequest {
 }
 
 export interface GetApiV1OpenReservationsRequest {
-    filter: CoEdgeappServerModelFilter;
+    filter: Filter;
     start?: number;
     length?: number;
     xEdgeAgent?: string;
@@ -611,7 +611,7 @@ export interface GetApiV1OpenVendorByUseridPolicyRequest {
 
 export interface PatchApiV1OpenOrdersByOrderidRequest {
     orderId: string;
-    coEdgeappServerModelEdgeApiDataOrderUpdate: CoEdgeappServerModelEdgeApiDataOrderUpdate;
+    edgeApiDataOrderUpdate: EdgeApiDataOrderUpdate;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -619,7 +619,7 @@ export interface PatchApiV1OpenOrdersByOrderidRequest {
 
 export interface PostApiV1OpenBountiesByBountyidContentAccessRequest {
     bountyId: string;
-    coEdgeappServerModelEdgeApiDataAccessBountyContentReq: CoEdgeappServerModelEdgeApiDataAccessBountyContentReq;
+    edgeApiDataAccessBountyContentReq: EdgeApiDataAccessBountyContentReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -627,7 +627,7 @@ export interface PostApiV1OpenBountiesByBountyidContentAccessRequest {
 
 export interface PostApiV1OpenBountyByBountyidBidRequest {
     bountyId: string;
-    coEdgeappServerModelEdgeApiDataPlaceBidReq: CoEdgeappServerModelEdgeApiDataPlaceBidReq;
+    edgeApiDataPlaceBidReq: EdgeApiDataPlaceBidReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -635,7 +635,7 @@ export interface PostApiV1OpenBountyByBountyidBidRequest {
 
 export interface PostApiV1OpenBountyByBountyidQuickClaimRequest {
     bountyId: string;
-    coEdgeappServerModelEdgeApiDataBountyResponseRequest: CoEdgeappServerModelEdgeApiDataBountyResponseRequest;
+    edgeApiDataBountyResponseRequest: EdgeApiDataBountyResponseRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -643,7 +643,7 @@ export interface PostApiV1OpenBountyByBountyidQuickClaimRequest {
 
 export interface PostApiV1OpenBountyByBountyidResponseRequest {
     bountyId: string;
-    coEdgeappServerModelBountyResponse: CoEdgeappServerModelBountyResponse;
+    bountyResponse: BountyResponse;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -652,28 +652,28 @@ export interface PostApiV1OpenBountyByBountyidResponseRequest {
 export interface PostApiV1OpenByEntitytypeByEntityidLikeRequest {
     entityType: string;
     entityId: string;
-    coEdgeappServerModelEdgeApiDataLikeRequest: CoEdgeappServerModelEdgeApiDataLikeRequest;
+    edgeApiDataLikeRequest: EdgeApiDataLikeRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1OpenCampaignsRequest {
-    coEdgeappServerModelPageFilter: CoEdgeappServerModelPageFilter;
+    pageFilter: PageFilter;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1OpenCampaignsSectionsRequest {
-    coEdgeappServerModelPageFilter: CoEdgeappServerModelPageFilter;
+    pageFilter: PageFilter;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1OpenCommentsRequest {
-    coEdgeappServerModelComment: CoEdgeappServerModelComment;
+    comment: Comment;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -681,7 +681,7 @@ export interface PostApiV1OpenCommentsRequest {
 
 export interface PostApiV1OpenCommentsByCommentidPromoteRequest {
     commentId: string;
-    coEdgeappServerModelComment: CoEdgeappServerModelComment;
+    comment: Comment;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -689,7 +689,7 @@ export interface PostApiV1OpenCommentsByCommentidPromoteRequest {
 
 export interface PostApiV1OpenOrdersByOrderidPayRequest {
     orderId: string;
-    coEdgeappServerModelEdgeApiDataPayOrderReq: CoEdgeappServerModelEdgeApiDataPayOrderReq;
+    edgeApiDataPayOrderReq: EdgeApiDataPayOrderReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -697,7 +697,7 @@ export interface PostApiV1OpenOrdersByOrderidPayRequest {
 
 export interface PostApiV1OpenOrdersByOrderidPaymentResultRequest {
     orderId: string;
-    coEdgeappServerModelEdgeApiDataOrderPaymentResult: CoEdgeappServerModelEdgeApiDataOrderPaymentResult;
+    edgeApiDataOrderPaymentResult: EdgeApiDataOrderPaymentResult;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -713,7 +713,7 @@ export interface PostApiV1OpenOrdersByOrderidStatusByStatusRequest {
 
 export interface PostApiV1OpenSurveysByBountyidAnswerRequest {
     bountyId: string;
-    coEdgeappServerModelEdgeApiDataSurveyAnswers: CoEdgeappServerModelEdgeApiDataSurveyAnswers;
+    edgeApiDataSurveyAnswers: EdgeApiDataSurveyAnswers;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -722,7 +722,7 @@ export interface PostApiV1OpenSurveysByBountyidAnswerRequest {
 export interface PutApiV1OpenBountyByBountyidResponseByResponseidRequest {
     bountyId: string;
     responseId: string;
-    coEdgeappServerModelResponseChanges: CoEdgeappServerModelResponseChanges;
+    responseChanges: ResponseChanges;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -730,7 +730,7 @@ export interface PutApiV1OpenBountyByBountyidResponseByResponseidRequest {
 
 export interface PutApiV1OpenCommentsByCommentidRequest {
     commentId: string;
-    coEdgeappServerModelComment: CoEdgeappServerModelComment;
+    comment: Comment;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -779,11 +779,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataAdvertsResultAdvert>>>;
+    getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataAdvertsResultAdvert>>>;
 
     /**
      */
-    getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataAdvertsResultAdvert>>;
+    getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataAdvertsResultAdvert>>;
 
     /**
      * 
@@ -797,45 +797,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAttachmentsAttachment>>;
+    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>>;
 
     /**
      */
-    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAttachmentsAttachment>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
-
-    /**
-     */
-    getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelReward>>;
-
-    /**
-     * @deprecated
-     */
-    getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelReward>;
+    getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment>;
 
     /**
      * 
@@ -847,11 +813,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyBudget>>;
+    getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyBudget>;
+    getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -864,12 +830,12 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelReward>>;
+    getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
 
     /**
      * @deprecated
      */
-    getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelReward>;
+    getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
 
     /**
      * 
@@ -881,11 +847,45 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyInfoResult>>;
+    getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyBudget>>;
 
     /**
      */
-    getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyInfoResult>;
+    getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyBudget>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>>;
+
+    /**
+     * @deprecated
+     */
+    getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyInfoResult>>;
+
+    /**
+     */
+    getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyInfoResult>;
 
     /**
      * 
@@ -898,11 +898,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResult>>;
+    getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessBountyContentResult>>;
 
     /**
      */
-    getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResult>;
+    getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessBountyContentResult>;
 
     /**
      * 
@@ -919,11 +919,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -936,11 +936,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -953,16 +953,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
-     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'MENU' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'UNKNOWN'} categoryType 
-     * @param {CoEdgeappServerModelFilter} filter 
+     * @param {'NONE' | 'QUESTION' | 'THREAD' | 'TALENT_SEARCH' | 'TALENT_RECOMMENDATION' | 'TMOB_CHALLENGE' | 'TMOB_COACHING' | 'ORDER' | 'REALESTATE_CUSTOMER' | 'REALESTATE_RECOMMENDATION' | 'SURVEY' | 'CLASSIFIED' | 'PRODUCT' | 'MENU' | 'BUNDLE' | 'STORY' | 'SCORE' | 'SERIES' | 'CHECKLIST' | 'SUPPORT' | 'AI_BOT' | 'DEAL' | 'PROMOTION' | 'AUTOSUGGESTION' | 'APPROVAL' | 'MCQ' | 'FUNDING' | 'AUCTION' | 'ROLEPLAY' | 'PRIVATE_LISTING' | 'QUEST' | 'LIVE_STREAM' | 'ALBUM' | 'NEWS' | 'BANNER' | 'MATCH' | 'CONTEST' | 'TRIVIA' | 'LOTTERY' | 'BADGE_COLLECTION' | 'RAFFLE' | 'CALENDAR_EVENT' | 'CURRENCY' | 'RESERVATION' | 'QUICK_CLAIM' | 'CAMPAIGN' | 'EXPRESS_CAMPAIGN' | 'GEO_LOCATION' | 'FEEDBACK' | 'SUBSCRIPTION' | 'SUBSCRIPTION_TIER' | 'UNKNOWN'} categoryType 
+     * @param {Filter} filter 
      * @param {string} [clientId] 
      * @param {string} [zone] 
      * @param {Array<string>} [category] 
@@ -975,11 +975,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>>;
+    getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCategory>>;
 
     /**
      */
-    getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory>;
+    getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCategory>;
 
     /**
      * 
@@ -991,11 +991,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelClientInfo>>;
+    getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>>;
 
     /**
      */
-    getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelClientInfo>;
+    getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo>;
 
     /**
      * 
@@ -1009,11 +1009,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataClientGuessResult>>;
+    getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataClientGuessResult>>;
 
     /**
      */
-    getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataClientGuessResult>;
+    getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataClientGuessResult>;
 
     /**
      * 
@@ -1025,11 +1025,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>>;
+    getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>>;
 
     /**
      */
-    getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp>;
+    getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp>;
 
     /**
      * 
@@ -1044,27 +1044,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelComment>>;
+    getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageComment>>;
 
     /**
      */
-    getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelComment>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfo>>;
-
-    /**
-     */
-    getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfo>;
+    getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageComment>;
 
     /**
      * 
@@ -1076,11 +1060,27 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfo>>;
+    getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageServiceUserHandleKioskInfo>>;
 
     /**
      */
-    getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfo>;
+    getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageServiceUserHandleKioskInfo>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo>>;
+
+    /**
+     */
+    getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo>;
 
     /**
      * 
@@ -1092,11 +1092,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfo>>;
+    getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesCompanyInfoAgentCompanyInfo>>;
 
     /**
      */
-    getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfo>;
+    getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesCompanyInfoAgentCompanyInfo>;
 
     /**
      * 
@@ -1107,11 +1107,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>>;
+    getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCurrenciesResponse>>;
 
     /**
      */
-    getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>;
+    getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCurrenciesResponse>;
 
     /**
      * 
@@ -1123,11 +1123,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPointCurrency>>;
+    getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
 
     /**
      */
-    getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPointCurrency>;
+    getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
 
     /**
      * 
@@ -1160,11 +1160,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGetFiltersResult>>;
+    getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGetFiltersResult>>;
 
     /**
      */
-    getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGetFiltersResult>;
+    getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGetFiltersResult>;
 
     /**
      * 
@@ -1175,11 +1175,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponse>>;
+    getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAllowedIntegrationsResponse>>;
 
     /**
      */
-    getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponse>;
+    getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAllowedIntegrationsResponse>;
 
     /**
      * 
@@ -1191,11 +1191,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerInviteInfoResult>>;
+    getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerInviteInfoResult>>;
 
     /**
      */
-    getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerInviteInfoResult>;
+    getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerInviteInfoResult>;
 
     /**
      * 
@@ -1207,11 +1207,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationsResult>>;
+    getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationsResult>>;
 
     /**
      */
-    getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationsResult>;
+    getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationsResult>;
 
     /**
      * 
@@ -1222,11 +1222,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationGuessResult>>;
+    getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationGuessResult>>;
 
     /**
      */
-    getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationGuessResult>;
+    getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationGuessResult>;
 
     /**
      * 
@@ -1242,11 +1242,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLookupResult>>;
+    getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLookupResult>>;
 
     /**
      */
-    getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLookupResult>;
+    getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLookupResult>;
 
     /**
      * 
@@ -1259,11 +1259,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenLookupsCountriesByCountryStatesRaw(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerStatesResult>>;
+    getApiV1OpenLookupsCountriesByCountryStatesRaw(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerStatesResult>>;
 
     /**
      */
-    getApiV1OpenLookupsCountriesByCountryStates(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerStatesResult>;
+    getApiV1OpenLookupsCountriesByCountryStates(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerStatesResult>;
 
     /**
      * 
@@ -1275,11 +1275,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataKioskEntryPointResult>>;
+    getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataKioskEntryPointResult>>;
 
     /**
      */
-    getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataKioskEntryPointResult>;
+    getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataKioskEntryPointResult>;
 
     /**
      * 
@@ -1310,15 +1310,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataPickupOrdersResult>>>;
+    getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataPickupOrdersResult>>>;
 
     /**
      */
-    getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataPickupOrdersResult>>;
+    getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataPickupOrdersResult>>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelFilter} filter 
+     * @param {Filter} filter 
      * @param {Array<string>} [category] 
      * @param {Array<string>} [tag] 
      * @param {string} [zone] 
@@ -1332,11 +1332,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -1348,11 +1348,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataProductExtras>>;
+    getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataProductExtras>>;
 
     /**
      */
-    getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataProductExtras>;
+    getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataProductExtras>;
 
     /**
      * 
@@ -1369,11 +1369,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -1392,7 +1392,7 @@ export interface OpenControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelFilter} filter 
+     * @param {Filter} filter 
      * @param {number} [start] 
      * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
@@ -1402,11 +1402,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -1425,11 +1425,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailability>>;
+    getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesOpentableConsumerAPIAPIAvailability>>;
 
     /**
      */
-    getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailability>;
+    getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesOpentableConsumerAPIAPIAvailability>;
 
     /**
      * 
@@ -1440,11 +1440,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationsResult>>;
+    getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationsResult>>;
 
     /**
      */
-    getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationsResult>;
+    getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationsResult>;
 
     /**
      * 
@@ -1456,11 +1456,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExplainSelfLinkResp>>;
+    getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExplainSelfLinkResp>>;
 
     /**
      */
-    getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExplainSelfLinkResp>;
+    getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExplainSelfLinkResp>;
 
     /**
      * 
@@ -1471,11 +1471,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBusinessTypesResp>>;
+    getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBusinessTypesResp>>;
 
     /**
      */
-    getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBusinessTypesResp>;
+    getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBusinessTypesResp>;
 
     /**
      * 
@@ -1487,11 +1487,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsShopSettings>>;
+    getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsShopSettings>>;
 
     /**
      */
-    getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsShopSettings>;
+    getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsShopSettings>;
 
     /**
      * 
@@ -1504,27 +1504,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerStatesResult>>;
+    getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerStatesResult>>;
 
     /**
      */
-    getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerStatesResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OpenControllerApiInterface
-     */
-    getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyBundleResp>>;
-
-    /**
-     */
-    getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyBundleResp>;
+    getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerStatesResult>;
 
     /**
      * 
@@ -1536,11 +1520,27 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyAnswers>>;
+    getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyBundleResp>>;
 
     /**
      */
-    getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyAnswers>;
+    getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyBundleResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OpenControllerApiInterface
+     */
+    getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyAnswers>>;
+
+    /**
+     */
+    getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyAnswers>;
 
     /**
      * 
@@ -1554,11 +1554,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExchangeTokenResp>>;
+    getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExchangeTokenResp>>;
 
     /**
      */
-    getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExchangeTokenResp>;
+    getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExchangeTokenResp>;
 
     /**
      * 
@@ -1582,11 +1582,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>>;
+    getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>>;
 
     /**
      */
-    getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>;
+    getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty>;
 
     /**
      * 
@@ -1599,11 +1599,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserEarningsResult>>;
+    getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserEarningsResult>>;
 
     /**
      */
-    getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserEarningsResult>;
+    getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserEarningsResult>;
 
     /**
      * 
@@ -1615,11 +1615,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserProfileEx>>;
+    getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserProfileEx>>;
 
     /**
      */
-    getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserProfileEx>;
+    getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserProfileEx>;
 
     /**
      * 
@@ -1632,16 +1632,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: CoEdgeappServerModelBaseSettingsPolicy; }>>;
+    getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: BaseSettingsPolicy; }>>;
 
     /**
      */
-    getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: CoEdgeappServerModelBaseSettingsPolicy; }>;
+    getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: BaseSettingsPolicy; }>;
 
     /**
      * 
      * @param {string} orderId 
-     * @param {CoEdgeappServerModelEdgeApiDataOrderUpdate} coEdgeappServerModelEdgeApiDataOrderUpdate 
+     * @param {EdgeApiDataOrderUpdate} edgeApiDataOrderUpdate 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1649,16 +1649,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>>;
+    patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>>;
 
     /**
      */
-    patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse>;
+    patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelEdgeApiDataAccessBountyContentReq} coEdgeappServerModelEdgeApiDataAccessBountyContentReq 
+     * @param {EdgeApiDataAccessBountyContentReq} edgeApiDataAccessBountyContentReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1666,16 +1666,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessBountyContentResult>>;
+    postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>>;
 
     /**
      */
-    postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessBountyContentResult>;
+    postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelEdgeApiDataPlaceBidReq} coEdgeappServerModelEdgeApiDataPlaceBidReq 
+     * @param {EdgeApiDataPlaceBidReq} edgeApiDataPlaceBidReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1683,16 +1683,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>>;
+    postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>>;
 
     /**
      */
-    postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>;
+    postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelEdgeApiDataBountyResponseRequest} coEdgeappServerModelEdgeApiDataBountyResponseRequest 
+     * @param {EdgeApiDataBountyResponseRequest} edgeApiDataBountyResponseRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1700,16 +1700,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>>;
+    postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>>;
 
     /**
      */
-    postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>;
+    postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelBountyResponse} coEdgeappServerModelBountyResponse 
+     * @param {BountyResponse} bountyResponse 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1717,17 +1717,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>>;
+    postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>>;
 
     /**
      */
-    postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>;
+    postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse>;
 
     /**
      * 
      * @param {string} entityType 
      * @param {string} entityId 
-     * @param {CoEdgeappServerModelEdgeApiDataLikeRequest} coEdgeappServerModelEdgeApiDataLikeRequest 
+     * @param {EdgeApiDataLikeRequest} edgeApiDataLikeRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1743,7 +1743,7 @@ export interface OpenControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelPageFilter} coEdgeappServerModelPageFilter 
+     * @param {PageFilter} pageFilter 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1751,15 +1751,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelPageFilter} coEdgeappServerModelPageFilter 
+     * @param {PageFilter} pageFilter 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1767,15 +1767,15 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpSectionsResult>>;
+    postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpSectionsResult>>;
 
     /**
      */
-    postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpSectionsResult>;
+    postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpSectionsResult>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelComment} coEdgeappServerModelComment 
+     * @param {Comment} comment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1783,16 +1783,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>>;
+    postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>>;
 
     /**
      */
-    postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp>;
+    postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp>;
 
     /**
      * 
      * @param {string} commentId 
-     * @param {CoEdgeappServerModelComment} coEdgeappServerModelComment 
+     * @param {Comment} comment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1800,16 +1800,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>>;
+    postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>>;
 
     /**
      */
-    postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp>;
+    postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp>;
 
     /**
      * 
      * @param {string} orderId 
-     * @param {CoEdgeappServerModelEdgeApiDataPayOrderReq} coEdgeappServerModelEdgeApiDataPayOrderReq 
+     * @param {EdgeApiDataPayOrderReq} edgeApiDataPayOrderReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1817,16 +1817,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>>;
+    postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>>;
 
     /**
      */
-    postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse>;
+    postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse>;
 
     /**
      * 
      * @param {string} orderId 
-     * @param {CoEdgeappServerModelEdgeApiDataOrderPaymentResult} coEdgeappServerModelEdgeApiDataOrderPaymentResult 
+     * @param {EdgeApiDataOrderPaymentResult} edgeApiDataOrderPaymentResult 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1860,7 +1860,7 @@ export interface OpenControllerApiInterface {
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelEdgeApiDataSurveyAnswers} coEdgeappServerModelEdgeApiDataSurveyAnswers 
+     * @param {EdgeApiDataSurveyAnswers} edgeApiDataSurveyAnswers 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1868,17 +1868,17 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyAnswers>>;
+    postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyAnswers>>;
 
     /**
      */
-    postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyAnswers>;
+    postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyAnswers>;
 
     /**
      * 
      * @param {string} bountyId 
      * @param {string} responseId 
-     * @param {CoEdgeappServerModelResponseChanges} coEdgeappServerModelResponseChanges 
+     * @param {ResponseChanges} responseChanges 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1886,16 +1886,16 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>>;
+    putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>>;
 
     /**
      */
-    putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>;
+    putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse>;
 
     /**
      * 
      * @param {string} commentId 
-     * @param {CoEdgeappServerModelComment} coEdgeappServerModelComment 
+     * @param {Comment} comment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1903,11 +1903,11 @@ export interface OpenControllerApiInterface {
      * @throws {RequiredError}
      * @memberof OpenControllerApiInterface
      */
-    putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>>;
+    putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>>;
 
     /**
      */
-    putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp>;
+    putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp>;
 
     /**
      * 
@@ -1985,7 +1985,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataAdvertsResultAdvert>>> {
+    async getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataAdvertsResultAdvert>>> {
         if (requestParameters['targetApp'] == null) {
             throw new runtime.RequiredError(
                 'targetApp',
@@ -2040,19 +2040,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEdgeApiDataAdvertsResultAdvertFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EdgeApiDataAdvertsResultAdvertFromJSON));
     }
 
     /**
      */
-    async getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataAdvertsResultAdvert>> {
+    async getApiV1OpenAdvertsByTargetappByBannertype(requestParameters: GetApiV1OpenAdvertsByTargetappByBannertypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataAdvertsResultAdvert>> {
         const response = await this.getApiV1OpenAdvertsByTargetappByBannertypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAttachmentsAttachment>> {
+    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
@@ -2107,19 +2107,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAttachmentsAttachmentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsAttachmentFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAttachmentsAttachment> {
+    async getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(requestParameters: GetApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment> {
         const response = await this.getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2158,12 +2158,12 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1OpenBountiesByBountyIdActivitiesChain(requestParameters: GetApiV1OpenBountiesByBountyIdActivitiesChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1OpenBountiesByBountyIdActivitiesChainRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2171,7 +2171,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
     /**
      * @deprecated
      */
-    async getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelReward>> {
+    async getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2210,20 +2210,20 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelRewardFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelReward> {
+    async getApiV1OpenBountiesByBountyIdBudget(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
         const response = await this.getApiV1OpenBountiesByBountyIdBudgetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyBudget>> {
+    async getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyBudget>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2262,12 +2262,12 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyBudgetFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyBudgetFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyBudget> {
+    async getApiV1OpenBountiesByBountyIdBudgetNew(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyBudget> {
         const response = await this.getApiV1OpenBountiesByBountyIdBudgetNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2275,7 +2275,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
     /**
      * @deprecated
      */
-    async getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelReward>> {
+    async getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reward>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2314,20 +2314,20 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelRewardFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RewardFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelReward> {
+    async getApiV1OpenBountiesByBountyIdBudgetOld(requestParameters: GetApiV1OpenBountiesByBountyIdBudgetOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reward> {
         const response = await this.getApiV1OpenBountiesByBountyIdBudgetOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyInfoResult>> {
+    async getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyInfoResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2366,19 +2366,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyInfoResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyInfoResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyInfoResult> {
+    async getApiV1OpenBountiesByBountyIdInfo(requestParameters: GetApiV1OpenBountiesByBountyIdInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyInfoResult> {
         const response = await this.getApiV1OpenBountiesByBountyIdInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResult>> {
+    async getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessBountyContentResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2421,19 +2421,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageAccessBountyContentResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelAccessBountyContentResult> {
+    async getApiV1OpenBountiesByBountyidContentAccessStatus(requestParameters: GetApiV1OpenBountiesByBountyidContentAccessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessBountyContentResult> {
         const response = await this.getApiV1OpenBountiesByBountyidContentAccessStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async getApiV1OpenBountyFetchByBountyIdRaw(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2492,19 +2492,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async getApiV1OpenBountyFetchByBountyId(requestParameters: GetApiV1OpenBountyFetchByBountyIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.getApiV1OpenBountyFetchByBountyIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2551,19 +2551,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async getApiV1OpenByUserIdOrdersByOrderId(requestParameters: GetApiV1OpenByUserIdOrdersByOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.getApiV1OpenByUserIdOrdersByOrderIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2610,19 +2610,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1OpenByUserIdSubordersByParentOrderId(requestParameters: GetApiV1OpenByUserIdSubordersByParentOrderIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1OpenByUserIdSubordersByParentOrderIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCategory>> {
+    async getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCategory>> {
         if (requestParameters['categoryType'] == null) {
             throw new runtime.RequiredError(
                 'categoryType',
@@ -2692,19 +2692,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCategory> {
+    async getApiV1OpenCategoriesByCategoryType(requestParameters: GetApiV1OpenCategoriesByCategoryTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCategory> {
         const response = await this.getApiV1OpenCategoriesByCategoryTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelClientInfo>> {
+    async getApiV1OpenClientsByClientIdRaw(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfo>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2743,19 +2743,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelClientInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelClientInfo> {
+    async getApiV1OpenClientsByClientId(requestParameters: GetApiV1OpenClientsByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfo> {
         const response = await this.getApiV1OpenClientsByClientIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataClientGuessResult>> {
+    async getApiV1OpenClientsGuessRaw(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataClientGuessResult>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -2805,19 +2805,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataClientGuessResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataClientGuessResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataClientGuessResult> {
+    async getApiV1OpenClientsGuess(requestParameters: GetApiV1OpenClientsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataClientGuessResult> {
         const response = await this.getApiV1OpenClientsGuessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>> {
+    async getApiV1OpenCommentsByCommentidRaw(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>> {
         if (requestParameters['commentId'] == null) {
             throw new runtime.RequiredError(
                 'commentId',
@@ -2856,19 +2856,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCommentRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCommentRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp> {
+    async getApiV1OpenCommentsByCommentid(requestParameters: GetApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp> {
         const response = await this.getApiV1OpenCommentsByCommentidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelComment>> {
+    async getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageComment>> {
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
@@ -2923,19 +2923,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageCommentFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelComment> {
+    async getApiV1OpenCommentsByEntitytypeByEntityid(requestParameters: GetApiV1OpenCommentsByEntitytypeByEntityidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageComment> {
         const response = await this.getApiV1OpenCommentsByEntitytypeByEntityidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfo>> {
+    async getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageServiceUserHandleKioskInfo>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -2974,19 +2974,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageServiceUserHandleKioskInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleKioskInfo> {
+    async getApiV1OpenCompaniesByCompanyidKiosks(requestParameters: GetApiV1OpenCompaniesByCompanyidKiosksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageServiceUserHandleKioskInfo> {
         const response = await this.getApiV1OpenCompaniesByCompanyidKiosksRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfo>> {
+    async getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -3025,19 +3025,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPrivateCompanySettingsPointOfSaleInfoLocationInfo> {
+    async getApiV1OpenCompaniesByCompanyidLocations(requestParameters: GetApiV1OpenCompaniesByCompanyidLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo> {
         const response = await this.getApiV1OpenCompaniesByCompanyidLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfo>> {
+    async getApiV1OpenCompanyInfoRaw(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesCompanyInfoAgentCompanyInfo>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -3079,19 +3079,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ThirdpartiesCompanyInfoAgentCompanyInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesCompanyInfoAgentCompanyInfo> {
+    async getApiV1OpenCompanyInfo(requestParameters: GetApiV1OpenCompanyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesCompanyInfoAgentCompanyInfo> {
         const response = await this.getApiV1OpenCompanyInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>> {
+    async getApiV1OpenCurrenciesRaw(requestParameters: GetApiV1OpenCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCurrenciesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3122,19 +3122,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCurrenciesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCurrenciesResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCurrenciesResponse> {
+    async getApiV1OpenCurrencies(requestParameters: GetApiV1OpenCurrenciesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCurrenciesResponse> {
         const response = await this.getApiV1OpenCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPointCurrency>> {
+    async getApiV1OpenCurrencyByCodeRaw(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
@@ -3173,12 +3173,12 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPointCurrencyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPointCurrency> {
+    async getApiV1OpenCurrencyByCode(requestParameters: GetApiV1OpenCurrencyByCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
         const response = await this.getApiV1OpenCurrencyByCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3239,7 +3239,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataGetFiltersResult>> {
+    async getApiV1OpenFiltersByListIdRaw(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGetFiltersResult>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
@@ -3298,19 +3298,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataGetFiltersResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataGetFiltersResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataGetFiltersResult> {
+    async getApiV1OpenFiltersByListId(requestParameters: GetApiV1OpenFiltersByListIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGetFiltersResult> {
         const response = await this.getApiV1OpenFiltersByListIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponse>> {
+    async getApiV1OpenIntegrationsRaw(requestParameters: GetApiV1OpenIntegrationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAllowedIntegrationsResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3341,19 +3341,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAllowedIntegrationsResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAllowedIntegrationsResponse> {
+    async getApiV1OpenIntegrations(requestParameters: GetApiV1OpenIntegrationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAllowedIntegrationsResponse> {
         const response = await this.getApiV1OpenIntegrationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerInviteInfoResult>> {
+    async getApiV1OpenInvitesByInviteidInfoRaw(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerInviteInfoResult>> {
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
@@ -3392,19 +3392,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerOpenControllerInviteInfoResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerOpenControllerInviteInfoResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerInviteInfoResult> {
+    async getApiV1OpenInvitesByInviteidInfo(requestParameters: GetApiV1OpenInvitesByInviteidInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerInviteInfoResult> {
         const response = await this.getApiV1OpenInvitesByInviteidInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationsResult>> {
+    async getApiV1OpenLocationsRaw(requestParameters: GetApiV1OpenLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationsResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['deliveryZipcode'] != null) {
@@ -3439,19 +3439,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataLocationsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLocationsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationsResult> {
+    async getApiV1OpenLocations(requestParameters: GetApiV1OpenLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationsResult> {
         const response = await this.getApiV1OpenLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationGuessResult>> {
+    async getApiV1OpenLocationsGuessRaw(requestParameters: GetApiV1OpenLocationsGuessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationGuessResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3482,19 +3482,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataLocationGuessResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLocationGuessResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationGuessResult> {
+    async getApiV1OpenLocationsGuess(requestParameters: GetApiV1OpenLocationsGuessRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationGuessResult> {
         const response = await this.getApiV1OpenLocationsGuessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLookupResult>> {
+    async getApiV1OpenLookupsByLookupTypeRaw(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLookupResult>> {
         if (requestParameters['lookupType'] == null) {
             throw new runtime.RequiredError(
                 'lookupType',
@@ -3549,19 +3549,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataLookupResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLookupResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLookupResult> {
+    async getApiV1OpenLookupsByLookupType(requestParameters: GetApiV1OpenLookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLookupResult> {
         const response = await this.getApiV1OpenLookupsByLookupTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenLookupsCountriesByCountryStatesRaw(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerStatesResult>> {
+    async getApiV1OpenLookupsCountriesByCountryStatesRaw(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerStatesResult>> {
         if (requestParameters['country'] == null) {
             throw new runtime.RequiredError(
                 'country',
@@ -3604,19 +3604,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerOpenControllerStatesResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerOpenControllerStatesResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenLookupsCountriesByCountryStates(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerStatesResult> {
+    async getApiV1OpenLookupsCountriesByCountryStates(requestParameters: GetApiV1OpenLookupsCountriesByCountryStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerStatesResult> {
         const response = await this.getApiV1OpenLookupsCountriesByCountryStatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataKioskEntryPointResult>> {
+    async getApiV1OpenMetaTabletEntrypointRaw(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataKioskEntryPointResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['test'] != null) {
@@ -3651,12 +3651,12 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataKioskEntryPointResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataKioskEntryPointResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataKioskEntryPointResult> {
+    async getApiV1OpenMetaTabletEntrypoint(requestParameters: GetApiV1OpenMetaTabletEntrypointRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataKioskEntryPointResult> {
         const response = await this.getApiV1OpenMetaTabletEntrypointRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3725,7 +3725,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataPickupOrdersResult>>> {
+    async getApiV1OpenPickupOrdersByClientRaw(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataPickupOrdersResult>>> {
         if (requestParameters['client'] == null) {
             throw new runtime.RequiredError(
                 'client',
@@ -3779,19 +3779,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEdgeApiDataPickupOrdersResultFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EdgeApiDataPickupOrdersResultFromJSON));
     }
 
     /**
      */
-    async getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataPickupOrdersResult>> {
+    async getApiV1OpenPickupOrdersByClient(requestParameters: GetApiV1OpenPickupOrdersByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataPickupOrdersResult>> {
         const response = await this.getApiV1OpenPickupOrdersByClientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1OpenProductsRaw(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
@@ -3857,19 +3857,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1OpenProducts(requestParameters: GetApiV1OpenProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1OpenProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataProductExtras>> {
+    async getApiV1OpenProductsByProductidExtrasRaw(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataProductExtras>> {
         if (requestParameters['productId'] == null) {
             throw new runtime.RequiredError(
                 'productId',
@@ -3908,19 +3908,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataProductExtrasFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataProductExtrasFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataProductExtras> {
+    async getApiV1OpenProductsByProductidExtras(requestParameters: GetApiV1OpenProductsByProductidExtrasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataProductExtras> {
         const response = await this.getApiV1OpenProductsByProductidExtrasRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1OpenProductsRecommendationsRaw(requestParameters: GetApiV1OpenProductsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['actionVerb'] != null) {
@@ -3975,12 +3975,12 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1OpenProductsRecommendations(requestParameters: GetApiV1OpenProductsRecommendationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1OpenProductsRecommendationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4030,7 +4030,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1OpenReservationsRaw(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
@@ -4080,19 +4080,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1OpenReservations(requestParameters: GetApiV1OpenReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1OpenReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailability>> {
+    async getApiV1OpenReservationsAvailabilityRaw(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesOpentableConsumerAPIAPIAvailability>> {
         if (requestParameters['date'] == null) {
             throw new runtime.RequiredError(
                 'date',
@@ -4169,19 +4169,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailabilityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ThirdpartiesOpentableConsumerAPIAPIAvailabilityFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerThirdpartiesOpentableConsumerAPIAPIAvailability> {
+    async getApiV1OpenReservationsAvailability(requestParameters: GetApiV1OpenReservationsAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesOpentableConsumerAPIAPIAvailability> {
         const response = await this.getApiV1OpenReservationsAvailabilityRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataLocationsResult>> {
+    async getApiV1OpenRestaurantsRaw(requestParameters: GetApiV1OpenRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLocationsResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4212,19 +4212,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataLocationsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLocationsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataLocationsResult> {
+    async getApiV1OpenRestaurants(requestParameters: GetApiV1OpenRestaurantsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLocationsResult> {
         const response = await this.getApiV1OpenRestaurantsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExplainSelfLinkResp>> {
+    async getApiV1OpenSelflinksExplainRaw(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExplainSelfLinkResp>> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -4266,19 +4266,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataExplainSelfLinkRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataExplainSelfLinkRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExplainSelfLinkResp> {
+    async getApiV1OpenSelflinksExplain(requestParameters: GetApiV1OpenSelflinksExplainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExplainSelfLinkResp> {
         const response = await this.getApiV1OpenSelflinksExplainRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBusinessTypesResp>> {
+    async getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBusinessTypesResp>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4309,19 +4309,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBusinessTypesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBusinessTypesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBusinessTypesResp> {
+    async getApiV1OpenSelfonboardingBusinesstypes(requestParameters: GetApiV1OpenSelfonboardingBusinesstypesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBusinessTypesResp> {
         const response = await this.getApiV1OpenSelfonboardingBusinesstypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsShopSettings>> {
+    async getApiV1OpenSettingsShopsettingsRaw(requestParameters: GetApiV1OpenSettingsShopsettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsShopSettings>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -4356,19 +4356,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBaseSettingsShopSettingsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BaseSettingsShopSettingsFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsShopSettings> {
+    async getApiV1OpenSettingsShopsettings(requestParameters: GetApiV1OpenSettingsShopsettingsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsShopSettings> {
         const response = await this.getApiV1OpenSettingsShopsettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerOpenControllerStatesResult>> {
+    async getApiV1OpenStatesByClientIdRaw(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerOpenControllerStatesResult>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4411,19 +4411,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerOpenControllerStatesResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerOpenControllerStatesResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerOpenControllerStatesResult> {
+    async getApiV1OpenStatesByClientId(requestParameters: GetApiV1OpenStatesByClientIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerOpenControllerStatesResult> {
         const response = await this.getApiV1OpenStatesByClientIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyBundleResp>> {
+    async getApiV1OpenSurveysByBountyidRaw(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyBundleResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -4462,19 +4462,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataSurveyBundleRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSurveyBundleRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyBundleResp> {
+    async getApiV1OpenSurveysByBountyid(requestParameters: GetApiV1OpenSurveysByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyBundleResp> {
         const response = await this.getApiV1OpenSurveysByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyAnswers>> {
+    async getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyAnswers>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -4513,19 +4513,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataSurveyAnswersFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSurveyAnswersFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyAnswers> {
+    async getApiV1OpenSurveysByBountyidAnswer(requestParameters: GetApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyAnswers> {
         const response = await this.getApiV1OpenSurveysByBountyidAnswerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExchangeTokenResp>> {
+    async getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExchangeTokenResp>> {
         if (requestParameters['currencyFrom'] == null) {
             throw new runtime.RequiredError(
                 'currencyFrom',
@@ -4586,19 +4586,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataExchangeTokenRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataExchangeTokenRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExchangeTokenResp> {
+    async getApiV1OpenTokensByCurrencyfromExchange(requestParameters: GetApiV1OpenTokensByCurrencyfromExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExchangeTokenResp> {
         const response = await this.getApiV1OpenTokensByCurrencyfromExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>> {
+    async getApiV1OpenUserStreamByListidRaw(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
@@ -4685,19 +4685,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    async getApiV1OpenUserStreamByListid(requestParameters: GetApiV1OpenUserStreamByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty> {
         const response = await this.getApiV1OpenUserStreamByListidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserEarningsResult>> {
+    async getApiV1OpenUsersByUserIdEarningsRaw(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserEarningsResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4747,19 +4747,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserEarningsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserEarningsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserEarningsResult> {
+    async getApiV1OpenUsersByUserIdEarnings(requestParameters: GetApiV1OpenUsersByUserIdEarningsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserEarningsResult> {
         const response = await this.getApiV1OpenUsersByUserIdEarningsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserProfileEx>> {
+    async getApiV1OpenUsersByUserIdProfileRaw(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserProfileEx>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4798,19 +4798,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserProfileExFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserProfileExFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserProfileEx> {
+    async getApiV1OpenUsersByUserIdProfile(requestParameters: GetApiV1OpenUsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserProfileEx> {
         const response = await this.getApiV1OpenUsersByUserIdProfileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: CoEdgeappServerModelBaseSettingsPolicy; }>> {
+    async getApiV1OpenVendorByUseridPolicyRaw(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: BaseSettingsPolicy; }>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4853,19 +4853,19 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => runtime.mapValues(jsonValue, CoEdgeappServerModelBaseSettingsPolicyFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => runtime.mapValues(jsonValue, BaseSettingsPolicyFromJSON));
     }
 
     /**
      */
-    async getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: CoEdgeappServerModelBaseSettingsPolicy; }> {
+    async getApiV1OpenVendorByUseridPolicy(requestParameters: GetApiV1OpenVendorByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: BaseSettingsPolicy; }> {
         const response = await this.getApiV1OpenVendorByUseridPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>> {
+    async patchApiV1OpenOrdersByOrderidRaw(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
@@ -4873,10 +4873,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataOrderUpdate'] == null) {
+        if (requestParameters['edgeApiDataOrderUpdate'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataOrderUpdate',
-                'Required parameter "coEdgeappServerModelEdgeApiDataOrderUpdate" was null or undefined when calling patchApiV1OpenOrdersByOrderid().'
+                'edgeApiDataOrderUpdate',
+                'Required parameter "edgeApiDataOrderUpdate" was null or undefined when calling patchApiV1OpenOrdersByOrderid().'
             );
         }
 
@@ -4911,22 +4911,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataOrderUpdateToJSON(requestParameters['coEdgeappServerModelEdgeApiDataOrderUpdate']),
+            body: EdgeApiDataOrderUpdateToJSON(requestParameters['edgeApiDataOrderUpdate']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataOrderResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataOrderResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse> {
+    async patchApiV1OpenOrdersByOrderid(requestParameters: PatchApiV1OpenOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse> {
         const response = await this.patchApiV1OpenOrdersByOrderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccessBountyContentResult>> {
+    async postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessBountyContentResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -4934,10 +4934,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataAccessBountyContentReq'] == null) {
+        if (requestParameters['edgeApiDataAccessBountyContentReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataAccessBountyContentReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataAccessBountyContentReq" was null or undefined when calling postApiV1OpenBountiesByBountyidContentAccess().'
+                'edgeApiDataAccessBountyContentReq',
+                'Required parameter "edgeApiDataAccessBountyContentReq" was null or undefined when calling postApiV1OpenBountiesByBountyidContentAccess().'
             );
         }
 
@@ -4972,22 +4972,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataAccessBountyContentReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataAccessBountyContentReq']),
+            body: EdgeApiDataAccessBountyContentReqToJSON(requestParameters['edgeApiDataAccessBountyContentReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccessBountyContentResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessBountyContentResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccessBountyContentResult> {
+    async postApiV1OpenBountiesByBountyidContentAccess(requestParameters: PostApiV1OpenBountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessBountyContentResult> {
         const response = await this.postApiV1OpenBountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>> {
+    async postApiV1OpenBountyByBountyidBidRaw(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -4995,10 +4995,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataPlaceBidReq'] == null) {
+        if (requestParameters['edgeApiDataPlaceBidReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataPlaceBidReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataPlaceBidReq" was null or undefined when calling postApiV1OpenBountyByBountyidBid().'
+                'edgeApiDataPlaceBidReq',
+                'Required parameter "edgeApiDataPlaceBidReq" was null or undefined when calling postApiV1OpenBountyByBountyidBid().'
             );
         }
 
@@ -5033,22 +5033,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataPlaceBidReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataPlaceBidReq']),
+            body: EdgeApiDataPlaceBidReqToJSON(requestParameters['edgeApiDataPlaceBidReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyResponseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyResponseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse> {
+    async postApiV1OpenBountyByBountyidBid(requestParameters: PostApiV1OpenBountyByBountyidBidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse> {
         const response = await this.postApiV1OpenBountyByBountyidBidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>> {
+    async postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -5056,10 +5056,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataBountyResponseRequest'] == null) {
+        if (requestParameters['edgeApiDataBountyResponseRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataBountyResponseRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataBountyResponseRequest" was null or undefined when calling postApiV1OpenBountyByBountyidQuickClaim().'
+                'edgeApiDataBountyResponseRequest',
+                'Required parameter "edgeApiDataBountyResponseRequest" was null or undefined when calling postApiV1OpenBountyByBountyidQuickClaim().'
             );
         }
 
@@ -5094,22 +5094,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataBountyResponseRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataBountyResponseRequest']),
+            body: EdgeApiDataBountyResponseRequestToJSON(requestParameters['edgeApiDataBountyResponseRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyResponseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyResponseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse> {
+    async postApiV1OpenBountyByBountyidQuickClaim(requestParameters: PostApiV1OpenBountyByBountyidQuickClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse> {
         const response = await this.postApiV1OpenBountyByBountyidQuickClaimRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>> {
+    async postApiV1OpenBountyByBountyidResponseRaw(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -5117,10 +5117,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBountyResponse'] == null) {
+        if (requestParameters['bountyResponse'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBountyResponse',
-                'Required parameter "coEdgeappServerModelBountyResponse" was null or undefined when calling postApiV1OpenBountyByBountyidResponse().'
+                'bountyResponse',
+                'Required parameter "bountyResponse" was null or undefined when calling postApiV1OpenBountyByBountyidResponse().'
             );
         }
 
@@ -5155,15 +5155,15 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBountyResponseToJSON(requestParameters['coEdgeappServerModelBountyResponse']),
+            body: BountyResponseToJSON(requestParameters['bountyResponse']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyResponseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyResponseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse> {
+    async postApiV1OpenBountyByBountyidResponse(requestParameters: PostApiV1OpenBountyByBountyidResponseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse> {
         const response = await this.postApiV1OpenBountyByBountyidResponseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5185,10 +5185,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataLikeRequest'] == null) {
+        if (requestParameters['edgeApiDataLikeRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataLikeRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataLikeRequest" was null or undefined when calling postApiV1OpenByEntitytypeByEntityidLike().'
+                'edgeApiDataLikeRequest',
+                'Required parameter "edgeApiDataLikeRequest" was null or undefined when calling postApiV1OpenByEntitytypeByEntityidLike().'
             );
         }
 
@@ -5224,7 +5224,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataLikeRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataLikeRequest']),
+            body: EdgeApiDataLikeRequestToJSON(requestParameters['edgeApiDataLikeRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -5239,11 +5239,11 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
-        if (requestParameters['coEdgeappServerModelPageFilter'] == null) {
+    async postApiV1OpenCampaignsRaw(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
+        if (requestParameters['pageFilter'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPageFilter',
-                'Required parameter "coEdgeappServerModelPageFilter" was null or undefined when calling postApiV1OpenCampaigns().'
+                'pageFilter',
+                'Required parameter "pageFilter" was null or undefined when calling postApiV1OpenCampaigns().'
             );
         }
 
@@ -5277,26 +5277,26 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPageFilterToJSON(requestParameters['coEdgeappServerModelPageFilter']),
+            body: PageFilterToJSON(requestParameters['pageFilter']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async postApiV1OpenCampaigns(requestParameters: PostApiV1OpenCampaignsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.postApiV1OpenCampaignsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpSectionsResult>> {
-        if (requestParameters['coEdgeappServerModelPageFilter'] == null) {
+    async postApiV1OpenCampaignsSectionsRaw(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpSectionsResult>> {
+        if (requestParameters['pageFilter'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPageFilter',
-                'Required parameter "coEdgeappServerModelPageFilter" was null or undefined when calling postApiV1OpenCampaignsSections().'
+                'pageFilter',
+                'Required parameter "pageFilter" was null or undefined when calling postApiV1OpenCampaignsSections().'
             );
         }
 
@@ -5330,26 +5330,26 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPageFilterToJSON(requestParameters['coEdgeappServerModelPageFilter']),
+            body: PageFilterToJSON(requestParameters['pageFilter']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpSectionsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpSectionsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpSectionsResult> {
+    async postApiV1OpenCampaignsSections(requestParameters: PostApiV1OpenCampaignsSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpSectionsResult> {
         const response = await this.postApiV1OpenCampaignsSectionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>> {
-        if (requestParameters['coEdgeappServerModelComment'] == null) {
+    async postApiV1OpenCommentsRaw(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>> {
+        if (requestParameters['comment'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelComment',
-                'Required parameter "coEdgeappServerModelComment" was null or undefined when calling postApiV1OpenComments().'
+                'comment',
+                'Required parameter "comment" was null or undefined when calling postApiV1OpenComments().'
             );
         }
 
@@ -5383,22 +5383,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelCommentToJSON(requestParameters['coEdgeappServerModelComment']),
+            body: CommentToJSON(requestParameters['comment']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCommentRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCommentRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp> {
+    async postApiV1OpenComments(requestParameters: PostApiV1OpenCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp> {
         const response = await this.postApiV1OpenCommentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>> {
+    async postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>> {
         if (requestParameters['commentId'] == null) {
             throw new runtime.RequiredError(
                 'commentId',
@@ -5406,10 +5406,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelComment'] == null) {
+        if (requestParameters['comment'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelComment',
-                'Required parameter "coEdgeappServerModelComment" was null or undefined when calling postApiV1OpenCommentsByCommentidPromote().'
+                'comment',
+                'Required parameter "comment" was null or undefined when calling postApiV1OpenCommentsByCommentidPromote().'
             );
         }
 
@@ -5444,22 +5444,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelCommentToJSON(requestParameters['coEdgeappServerModelComment']),
+            body: CommentToJSON(requestParameters['comment']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCommentRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCommentRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp> {
+    async postApiV1OpenCommentsByCommentidPromote(requestParameters: PostApiV1OpenCommentsByCommentidPromoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp> {
         const response = await this.postApiV1OpenCommentsByCommentidPromoteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataOrderResponse>> {
+    async postApiV1OpenOrdersByOrderidPayRaw(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataOrderResponse>> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
@@ -5467,10 +5467,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataPayOrderReq'] == null) {
+        if (requestParameters['edgeApiDataPayOrderReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataPayOrderReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataPayOrderReq" was null or undefined when calling postApiV1OpenOrdersByOrderidPay().'
+                'edgeApiDataPayOrderReq',
+                'Required parameter "edgeApiDataPayOrderReq" was null or undefined when calling postApiV1OpenOrdersByOrderidPay().'
             );
         }
 
@@ -5505,15 +5505,15 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataPayOrderReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataPayOrderReq']),
+            body: EdgeApiDataPayOrderReqToJSON(requestParameters['edgeApiDataPayOrderReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataOrderResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataOrderResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataOrderResponse> {
+    async postApiV1OpenOrdersByOrderidPay(requestParameters: PostApiV1OpenOrdersByOrderidPayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataOrderResponse> {
         const response = await this.postApiV1OpenOrdersByOrderidPayRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5528,10 +5528,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataOrderPaymentResult'] == null) {
+        if (requestParameters['edgeApiDataOrderPaymentResult'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataOrderPaymentResult',
-                'Required parameter "coEdgeappServerModelEdgeApiDataOrderPaymentResult" was null or undefined when calling postApiV1OpenOrdersByOrderidPaymentResult().'
+                'edgeApiDataOrderPaymentResult',
+                'Required parameter "edgeApiDataOrderPaymentResult" was null or undefined when calling postApiV1OpenOrdersByOrderidPaymentResult().'
             );
         }
 
@@ -5566,7 +5566,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataOrderPaymentResultToJSON(requestParameters['coEdgeappServerModelEdgeApiDataOrderPaymentResult']),
+            body: EdgeApiDataOrderPaymentResultToJSON(requestParameters['edgeApiDataOrderPaymentResult']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -5638,7 +5638,7 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
 
     /**
      */
-    async postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSurveyAnswers>> {
+    async postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSurveyAnswers>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -5646,10 +5646,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataSurveyAnswers'] == null) {
+        if (requestParameters['edgeApiDataSurveyAnswers'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataSurveyAnswers',
-                'Required parameter "coEdgeappServerModelEdgeApiDataSurveyAnswers" was null or undefined when calling postApiV1OpenSurveysByBountyidAnswer().'
+                'edgeApiDataSurveyAnswers',
+                'Required parameter "edgeApiDataSurveyAnswers" was null or undefined when calling postApiV1OpenSurveysByBountyidAnswer().'
             );
         }
 
@@ -5684,22 +5684,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataSurveyAnswersToJSON(requestParameters['coEdgeappServerModelEdgeApiDataSurveyAnswers']),
+            body: EdgeApiDataSurveyAnswersToJSON(requestParameters['edgeApiDataSurveyAnswers']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataSurveyAnswersFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSurveyAnswersFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSurveyAnswers> {
+    async postApiV1OpenSurveysByBountyidAnswer(requestParameters: PostApiV1OpenSurveysByBountyidAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSurveyAnswers> {
         const response = await this.postApiV1OpenSurveysByBountyidAnswerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyResponseResponse>> {
+    async putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyResponseResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -5714,10 +5714,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelResponseChanges'] == null) {
+        if (requestParameters['responseChanges'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelResponseChanges',
-                'Required parameter "coEdgeappServerModelResponseChanges" was null or undefined when calling putApiV1OpenBountyByBountyidResponseByResponseid().'
+                'responseChanges',
+                'Required parameter "responseChanges" was null or undefined when calling putApiV1OpenBountyByBountyidResponseByResponseid().'
             );
         }
 
@@ -5753,22 +5753,22 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelResponseChangesToJSON(requestParameters['coEdgeappServerModelResponseChanges']),
+            body: ResponseChangesToJSON(requestParameters['responseChanges']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyResponseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyResponseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyResponseResponse> {
+    async putApiV1OpenBountyByBountyidResponseByResponseid(requestParameters: PutApiV1OpenBountyByBountyidResponseByResponseidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyResponseResponse> {
         const response = await this.putApiV1OpenBountyByBountyidResponseByResponseidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCommentResp>> {
+    async putApiV1OpenCommentsByCommentidRaw(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCommentResp>> {
         if (requestParameters['commentId'] == null) {
             throw new runtime.RequiredError(
                 'commentId',
@@ -5776,10 +5776,10 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelComment'] == null) {
+        if (requestParameters['comment'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelComment',
-                'Required parameter "coEdgeappServerModelComment" was null or undefined when calling putApiV1OpenCommentsByCommentid().'
+                'comment',
+                'Required parameter "comment" was null or undefined when calling putApiV1OpenCommentsByCommentid().'
             );
         }
 
@@ -5814,15 +5814,15 @@ export class OpenControllerApi extends runtime.BaseAPI implements OpenController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelCommentToJSON(requestParameters['coEdgeappServerModelComment']),
+            body: CommentToJSON(requestParameters['comment']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCommentRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCommentRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCommentResp> {
+    async putApiV1OpenCommentsByCommentid(requestParameters: PutApiV1OpenCommentsByCommentidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCommentResp> {
         const response = await this.putApiV1OpenCommentsByCommentidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5960,6 +5960,8 @@ export const GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum = {
     EXPRESS_CAMPAIGN: 'EXPRESS_CAMPAIGN',
     GEO_LOCATION: 'GEO_LOCATION',
     FEEDBACK: 'FEEDBACK',
+    SUBSCRIPTION: 'SUBSCRIPTION',
+    SUBSCRIPTION_TIER: 'SUBSCRIPTION_TIER',
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum = typeof GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum[keyof typeof GetApiV1OpenCategoriesByCategoryTypeCategoryTypeEnum];

@@ -20,10 +20,10 @@ open class BroadcastControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerServiceAntMediaServiceBroadcastToken
+     - returns: ServiceAntMediaServiceBroadcastToken
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BroadcastByStreamIdToken(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceAntMediaServiceBroadcastToken {
+    open class func getApiV1BroadcastByStreamIdToken(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceAntMediaServiceBroadcastToken {
         return try await getApiV1BroadcastByStreamIdTokenWithRequestBuilder(streamId: streamId, type: type, expireDate: expireDate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -38,9 +38,9 @@ open class BroadcastControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerServiceAntMediaServiceBroadcastToken> 
+     - returns: RequestBuilder<ServiceAntMediaServiceBroadcastToken> 
      */
-    open class func getApiV1BroadcastByStreamIdTokenWithRequestBuilder(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceAntMediaServiceBroadcastToken> {
+    open class func getApiV1BroadcastByStreamIdTokenWithRequestBuilder(streamId: String, type: String, expireDate: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceAntMediaServiceBroadcastToken> {
         var localVariablePath = "/api/v1/broadcast/{stream_id}/token"
         let streamIdPreEscape = "\(APIHelper.mapValueToPathItem(streamId))"
         let streamIdPostEscape = streamIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -62,7 +62,7 @@ open class BroadcastControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceAntMediaServiceBroadcastToken>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceAntMediaServiceBroadcastToken>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

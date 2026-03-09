@@ -6,9 +6,9 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataCompleteSelfOnboardingResponse
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelShippingFee
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelUserProfileSelfOnboardingInfo
+import ai.youkno.edgeserversdk.models.EdgeApiDataCompleteSelfOnboardingResponse
+import ai.youkno.edgeserversdk.models.ShippingFee
+import ai.youkno.edgeserversdk.models.UserProfileSelfOnboardingInfo
 
 interface MerchantControllerApi {
     /**
@@ -22,10 +22,10 @@ interface MerchantControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelUserProfileSelfOnboardingInfo]>
+     * @return [Call]<[UserProfileSelfOnboardingInfo]>
      */
     @GET("api/v1/merchant/{userId}/selfOnboarding")
-    fun getApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfileSelfOnboardingInfo>
+    fun getApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfileSelfOnboardingInfo>
 
     /**
      * GET api/v1/merchant/{userId}/shippingFee
@@ -38,10 +38,10 @@ interface MerchantControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelShippingFee]>
+     * @return [Call]<[ShippingFee]>
      */
     @GET("api/v1/merchant/{userId}/shippingFee")
-    fun getApiV1MerchantByUseridShippingfee(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelShippingFee>
+    fun getApiV1MerchantByUseridShippingfee(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShippingFee>
 
     /**
      * PATCH api/v1/merchant/{userId}/selfOnboarding
@@ -51,14 +51,14 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param coedgeappservermodelUserProfileSelfOnboardingInfo 
+     * @param userProfileSelfOnboardingInfo 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelUserProfileSelfOnboardingInfo]>
+     * @return [Call]<[UserProfileSelfOnboardingInfo]>
      */
     @PATCH("api/v1/merchant/{userId}/selfOnboarding")
-    fun patchApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Body coedgeappservermodelUserProfileSelfOnboardingInfo: CoedgeappservermodelUserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfileSelfOnboardingInfo>
+    fun patchApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Body userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfileSelfOnboardingInfo>
 
     /**
      * POST api/v1/merchant/{userId}/selfOnboarding
@@ -68,14 +68,14 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param coedgeappservermodelUserProfileSelfOnboardingInfo 
+     * @param userProfileSelfOnboardingInfo 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelUserProfileSelfOnboardingInfo]>
+     * @return [Call]<[UserProfileSelfOnboardingInfo]>
      */
     @POST("api/v1/merchant/{userId}/selfOnboarding")
-    fun postApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Body coedgeappservermodelUserProfileSelfOnboardingInfo: CoedgeappservermodelUserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserProfileSelfOnboardingInfo>
+    fun postApiV1MerchantByUseridSelfonboarding(@Path("userId") userId: kotlin.String, @Body userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfileSelfOnboardingInfo>
 
     /**
      * POST api/v1/merchant/{userId}/selfOnboarding/complete
@@ -85,14 +85,14 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param coedgeappservermodelUserProfileSelfOnboardingInfo 
+     * @param userProfileSelfOnboardingInfo 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataCompleteSelfOnboardingResponse]>
+     * @return [Call]<[EdgeApiDataCompleteSelfOnboardingResponse]>
      */
     @POST("api/v1/merchant/{userId}/selfOnboarding/complete")
-    fun postApiV1MerchantByUseridSelfonboardingComplete(@Path("userId") userId: kotlin.String, @Body coedgeappservermodelUserProfileSelfOnboardingInfo: CoedgeappservermodelUserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataCompleteSelfOnboardingResponse>
+    fun postApiV1MerchantByUseridSelfonboardingComplete(@Path("userId") userId: kotlin.String, @Body userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCompleteSelfOnboardingResponse>
 
     /**
      * POST api/v1/merchant/{userId}/shippingFee
@@ -102,13 +102,13 @@ interface MerchantControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param coedgeappservermodelShippingFee 
+     * @param shippingFee 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/merchant/{userId}/shippingFee")
-    fun postApiV1MerchantByUseridShippingfee(@Path("userId") userId: kotlin.String, @Body coedgeappservermodelShippingFee: CoedgeappservermodelShippingFee, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1MerchantByUseridShippingfee(@Path("userId") userId: kotlin.String, @Body shippingFee: ShippingFee, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

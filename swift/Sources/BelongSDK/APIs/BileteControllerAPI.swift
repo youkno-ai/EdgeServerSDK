@@ -18,10 +18,10 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataBiletePage
+     - returns: EdgeApiDataBiletePage
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Bilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataBiletePage {
+    open class func getApiV1Bilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBiletePage {
         return try await getApiV1BileteWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage> 
+     - returns: RequestBuilder<EdgeApiDataBiletePage> 
      */
-    open class func getApiV1BileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage> {
+    open class func getApiV1BileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBiletePage> {
         let localVariablePath = "/api/v1/bilete"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -54,7 +54,7 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,10 +118,10 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerThirdpartiesBileteRoTicketDetails
+     - returns: ThirdpartiesBileteRoTicketDetails
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerThirdpartiesBileteRoTicketDetails {
+    open class func getApiV1BileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ThirdpartiesBileteRoTicketDetails {
         return try await getApiV1BileteDetailsWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -134,9 +134,9 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails> 
+     - returns: RequestBuilder<ThirdpartiesBileteRoTicketDetails> 
      */
-    open class func getApiV1BileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails> {
+    open class func getApiV1BileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ThirdpartiesBileteRoTicketDetails> {
         let localVariablePath = "/api/v1/bilete/details"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -154,7 +154,7 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ThirdpartiesBileteRoTicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -165,10 +165,10 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataBiletePage
+     - returns: EdgeApiDataBiletePage
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1TmpBilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataBiletePage {
+    open class func getApiV1TmpBilete(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBiletePage {
         return try await getApiV1TmpBileteWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -181,9 +181,9 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage> 
+     - returns: RequestBuilder<EdgeApiDataBiletePage> 
      */
-    open class func getApiV1TmpBileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage> {
+    open class func getApiV1TmpBileteWithRequestBuilder(email: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBiletePage> {
         let localVariablePath = "/api/v1/tmp/bilete"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -201,7 +201,7 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataBiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBiletePage>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -265,10 +265,10 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerThirdpartiesBileteRoTicketDetails
+     - returns: ThirdpartiesBileteRoTicketDetails
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1TmpBileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerThirdpartiesBileteRoTicketDetails {
+    open class func getApiV1TmpBileteDetails(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ThirdpartiesBileteRoTicketDetails {
         return try await getApiV1TmpBileteDetailsWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -281,9 +281,9 @@ open class BileteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails> 
+     - returns: RequestBuilder<ThirdpartiesBileteRoTicketDetails> 
      */
-    open class func getApiV1TmpBileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails> {
+    open class func getApiV1TmpBileteDetailsWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ThirdpartiesBileteRoTicketDetails> {
         let localVariablePath = "/api/v1/tmp/bilete/details"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -301,7 +301,7 @@ open class BileteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerThirdpartiesBileteRoTicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ThirdpartiesBileteRoTicketDetails>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

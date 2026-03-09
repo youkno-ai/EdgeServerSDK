@@ -6,10 +6,10 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelBadgeDef
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelBadgesBadge
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataAssignBadgeReq
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBadgeDef
+import ai.youkno.edgeserversdk.models.BadgeDef
+import ai.youkno.edgeserversdk.models.BadgesBadge
+import ai.youkno.edgeserversdk.models.EdgeApiDataAssignBadgeReq
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageBadgeDef
 
 interface BadgeDefControllerApi {
     /**
@@ -56,10 +56,10 @@ interface BadgeDefControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBadgeDef]>
+     * @return [Call]<[EdgeApiDataPageBadgeDef]>
      */
     @GET("api/v1/badges/defs")
-    fun getApiV1BadgesDefs(@Query("badgeDefType") badgeDefType: kotlin.String? = "badge", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelBadgeDef>
+    fun getApiV1BadgesDefs(@Query("badgeDefType") badgeDefType: kotlin.String? = "badge", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageBadgeDef>
 
     /**
      * GET api/v1/badges/defs/{badgeCode}
@@ -72,10 +72,10 @@ interface BadgeDefControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelBadgeDef]>
+     * @return [Call]<[BadgeDef]>
      */
     @GET("api/v1/badges/defs/{badgeCode}")
-    fun getApiV1BadgesDefsByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBadgeDef>
+    fun getApiV1BadgesDefsByBadgecode(@Path("badgeCode") badgeCode: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BadgeDef>
 
     /**
      * POST api/v1/badges/defs
@@ -84,14 +84,14 @@ interface BadgeDefControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param coedgeappservermodelBadgeDef 
+     * @param badgeDef 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelBadgeDef]>
+     * @return [Call]<[BadgeDef]>
      */
     @POST("api/v1/badges/defs")
-    fun postApiV1BadgesDefs(@Body coedgeappservermodelBadgeDef: CoedgeappservermodelBadgeDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBadgeDef>
+    fun postApiV1BadgesDefs(@Body badgeDef: BadgeDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BadgeDef>
 
     /**
      * POST api/v1/badges/defs/{badgeCode}/assign
@@ -101,13 +101,13 @@ interface BadgeDefControllerApi {
      *  - 200: OK
      *
      * @param badgeCode 
-     * @param coedgeappservermodelEdgeApiDataAssignBadgeReq 
+     * @param edgeApiDataAssignBadgeReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelBadgesBadge]>
+     * @return [Call]<[BadgesBadge]>
      */
     @POST("api/v1/badges/defs/{badgeCode}/assign")
-    fun postApiV1BadgesDefsByBadgecodeAssign(@Path("badgeCode") badgeCode: kotlin.String, @Body coedgeappservermodelEdgeApiDataAssignBadgeReq: CoedgeappservermodelEdgeApiDataAssignBadgeReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelBadgesBadge>
+    fun postApiV1BadgesDefsByBadgecodeAssign(@Path("badgeCode") badgeCode: kotlin.String, @Body edgeApiDataAssignBadgeReq: EdgeApiDataAssignBadgeReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BadgesBadge>
 
 }

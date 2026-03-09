@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelAttachmentsAttachment,
-  CoEdgeappServerModelStorageRefResponse,
+  AttachmentsAttachment,
+  StorageRefResponse,
 } from '../models/index';
 import {
-    CoEdgeappServerModelAttachmentsAttachmentFromJSON,
-    CoEdgeappServerModelAttachmentsAttachmentToJSON,
-    CoEdgeappServerModelStorageRefResponseFromJSON,
-    CoEdgeappServerModelStorageRefResponseToJSON,
+    AttachmentsAttachmentFromJSON,
+    AttachmentsAttachmentToJSON,
+    StorageRefResponseFromJSON,
+    StorageRefResponseToJSON,
 } from '../models/index';
 
 export interface GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest {
@@ -37,7 +37,7 @@ export interface GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest {
 export interface PostApiV1AttachmentsByAnchortypeByAnchoridRequest {
     anchorType: PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum;
     anchorId: string;
-    coEdgeappServerModelAttachmentsAttachment: CoEdgeappServerModelAttachmentsAttachment;
+    attachmentsAttachment: AttachmentsAttachment;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -62,17 +62,17 @@ export interface AttachmentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AttachmentControllerApiInterface
      */
-    getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelStorageRefResponse>>;
+    getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>>;
 
     /**
      */
-    getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelStorageRefResponse>;
+    getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse>;
 
     /**
      * 
      * @param {'NONE' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'MESSAGE' | 'VOUCHER' | 'SETTINGS' | 'UNKNOWN'} anchorType 
      * @param {string} anchorId 
-     * @param {CoEdgeappServerModelAttachmentsAttachment} coEdgeappServerModelAttachmentsAttachment 
+     * @param {AttachmentsAttachment} attachmentsAttachment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -80,11 +80,11 @@ export interface AttachmentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AttachmentControllerApiInterface
      */
-    postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAttachmentsAttachment>>;
+    postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>>;
 
     /**
      */
-    postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAttachmentsAttachment>;
+    postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment>;
 
 }
 
@@ -95,7 +95,7 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 
     /**
      */
-    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelStorageRefResponse>> {
+    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorageRefResponse>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
@@ -153,19 +153,19 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelStorageRefResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StorageRefResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelStorageRefResponse> {
+    async getApiV1AttachmentsByAnchortypeByAnchoridStorageRef(requestParameters: GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorageRefResponse> {
         const response = await this.getApiV1AttachmentsByAnchortypeByAnchoridStorageRefRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAttachmentsAttachment>> {
+    async postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
@@ -180,10 +180,10 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
             );
         }
 
-        if (requestParameters['coEdgeappServerModelAttachmentsAttachment'] == null) {
+        if (requestParameters['attachmentsAttachment'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelAttachmentsAttachment',
-                'Required parameter "coEdgeappServerModelAttachmentsAttachment" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
+                'attachmentsAttachment',
+                'Required parameter "attachmentsAttachment" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
             );
         }
 
@@ -219,15 +219,15 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelAttachmentsAttachmentToJSON(requestParameters['coEdgeappServerModelAttachmentsAttachment']),
+            body: AttachmentsAttachmentToJSON(requestParameters['attachmentsAttachment']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAttachmentsAttachmentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsAttachmentFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAttachmentsAttachment> {
+    async postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment> {
         const response = await this.postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters, initOverrides);
         return await response.value();
     }

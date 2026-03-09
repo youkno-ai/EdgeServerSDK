@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserNotificationConfig
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelUserNotificationConfig
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageUserNotificationConfig
+import ai.youkno.edgeserversdk.models.UserNotificationConfig
 
 interface UserNotificationControllerApi {
     /**
@@ -41,10 +41,10 @@ interface UserNotificationControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelUserNotificationConfig]>
+     * @return [Call]<[UserNotificationConfig]>
      */
     @GET("api/v1/user/{userId}/notification")
-    fun getApiV1UserByUseridNotification(@Path("userId") userId: kotlin.String, @Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelUserNotificationConfig>
+    fun getApiV1UserByUseridNotification(@Path("userId") userId: kotlin.String, @Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserNotificationConfig>
 
     /**
      * GET api/v1/user/{userId}/notifications
@@ -59,10 +59,10 @@ interface UserNotificationControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserNotificationConfig]>
+     * @return [Call]<[EdgeApiDataPageUserNotificationConfig]>
      */
     @GET("api/v1/user/{userId}/notifications")
-    fun getApiV1UserByUseridNotifications(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelUserNotificationConfig>
+    fun getApiV1UserByUseridNotifications(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUserNotificationConfig>
 
     /**
      * PUT api/v1/user/{userId}/notification
@@ -72,13 +72,13 @@ interface UserNotificationControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param coedgeappservermodelUserNotificationConfig 
+     * @param userNotificationConfig 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @PUT("api/v1/user/{userId}/notification")
-    fun putApiV1UserByUseridNotification(@Path("userId") userId: kotlin.String, @Body coedgeappservermodelUserNotificationConfig: CoedgeappservermodelUserNotificationConfig, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1UserByUseridNotification(@Path("userId") userId: kotlin.String, @Body userNotificationConfig: UserNotificationConfig, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

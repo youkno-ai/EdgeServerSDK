@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ComfasterxmljacksoncoretypeTypeReferenceOrgjooqJSONB (
+data class ComFasterxmlJacksonCoreTypeTypeReferenceOrgJooqJSONB (
 
     @Json(name = "type")
     val type: ComFasterxmlJacksonCoreTypeTypeReferenceOrgJooqJSONBType? = null

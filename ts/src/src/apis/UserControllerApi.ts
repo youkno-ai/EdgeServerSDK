@@ -15,119 +15,119 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelAccount,
-  CoEdgeappServerModelBaseSettingsAgreement,
-  CoEdgeappServerModelBaseSettingsConfirmation,
-  CoEdgeappServerModelBaseSettingsPolicy,
-  CoEdgeappServerModelBounty,
-  CoEdgeappServerModelBountyReservationInfo,
-  CoEdgeappServerModelEdgeApiDataAnonAuthResp,
-  CoEdgeappServerModelEdgeApiDataApiSecret,
-  CoEdgeappServerModelEdgeApiDataCompanyPrivateData,
-  CoEdgeappServerModelEdgeApiDataManageUserData,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount,
-  CoEdgeappServerModelEdgeApiDataPaymentAccountResult,
-  CoEdgeappServerModelEdgeApiDataPointCurrencyStats,
-  CoEdgeappServerModelEdgeApiDataTopupRewardReq,
-  CoEdgeappServerModelEdgeApiDataUpdateNotificationRequest,
-  CoEdgeappServerModelEdgeApiDataUpdateRolesRequest,
-  CoEdgeappServerModelEdgeApiDataUpdateUserRequest,
-  CoEdgeappServerModelEdgeApiDataUseUserTicketRequest,
-  CoEdgeappServerModelEdgeApiDataUserAllowedRoles,
-  CoEdgeappServerModelEdgeApiDataUserChatResult,
-  CoEdgeappServerModelEdgeApiDataUserListResult,
-  CoEdgeappServerModelEdgeApiDataUserMetaResult,
-  CoEdgeappServerModelEdgeApiDataUserProfileEx,
-  CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult,
-  CoEdgeappServerModelEdgeApiDataUserTicketResult,
-  CoEdgeappServerModelEdgeApiDataValidateUserTicketRequest,
-  CoEdgeappServerModelMailingAddress,
-  CoEdgeappServerModelSignInDecision,
-  CoEdgeappServerModelTransaction,
-  CoEdgeappServerModelUpdateUserResult,
-  CoEdgeappServerModelUserData,
-  CoEdgeappServerModelUserInvite,
-  CoEdgeappServerQueueEventsUpdateUserEvent,
-  CoEdgeappServerServiceUserOpListResult,
+  Account,
+  BaseSettingsAgreement,
+  BaseSettingsConfirmation,
+  BaseSettingsPolicy,
+  Bounty,
+  BountyReservationInfo,
+  EdgeApiDataAnonAuthResp,
+  EdgeApiDataApiSecret,
+  EdgeApiDataCompanyPrivateData,
+  EdgeApiDataManageUserData,
+  EdgeApiDataPageBadgesBadgeStash,
+  EdgeApiDataPageGroupSearchResult,
+  EdgeApiDataPageRestControllerUserControllerFrontEndData,
+  EdgeApiDataPageServiceUserHandleFrontEndCount,
+  EdgeApiDataPaymentAccountResult,
+  EdgeApiDataPointCurrencyStats,
+  EdgeApiDataTopupRewardReq,
+  EdgeApiDataUpdateNotificationRequest,
+  EdgeApiDataUpdateRolesRequest,
+  EdgeApiDataUpdateUserRequest,
+  EdgeApiDataUseUserTicketRequest,
+  EdgeApiDataUserAllowedRoles,
+  EdgeApiDataUserChatResult,
+  EdgeApiDataUserListResult,
+  EdgeApiDataUserMetaResult,
+  EdgeApiDataUserProfileEx,
+  EdgeApiDataUserTicketHistoryResult,
+  EdgeApiDataUserTicketResult,
+  EdgeApiDataValidateUserTicketRequest,
+  MailingAddress,
+  QueueEventsUpdateUserEvent,
+  ServiceUserOpListResult,
+  SignInDecision,
+  Transaction,
+  UpdateUserResult,
+  UserData,
+  UserInvite,
 } from '../models/index';
 import {
-    CoEdgeappServerModelAccountFromJSON,
-    CoEdgeappServerModelAccountToJSON,
-    CoEdgeappServerModelBaseSettingsAgreementFromJSON,
-    CoEdgeappServerModelBaseSettingsAgreementToJSON,
-    CoEdgeappServerModelBaseSettingsConfirmationFromJSON,
-    CoEdgeappServerModelBaseSettingsConfirmationToJSON,
-    CoEdgeappServerModelBaseSettingsPolicyFromJSON,
-    CoEdgeappServerModelBaseSettingsPolicyToJSON,
-    CoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelBountyReservationInfoFromJSON,
-    CoEdgeappServerModelBountyReservationInfoToJSON,
-    CoEdgeappServerModelEdgeApiDataAnonAuthRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataAnonAuthRespToJSON,
-    CoEdgeappServerModelEdgeApiDataApiSecretFromJSON,
-    CoEdgeappServerModelEdgeApiDataApiSecretToJSON,
-    CoEdgeappServerModelEdgeApiDataCompanyPrivateDataFromJSON,
-    CoEdgeappServerModelEdgeApiDataCompanyPrivateDataToJSON,
-    CoEdgeappServerModelEdgeApiDataManageUserDataFromJSON,
-    CoEdgeappServerModelEdgeApiDataManageUserDataToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStashFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStashToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndDataFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndDataToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountToJSON,
-    CoEdgeappServerModelEdgeApiDataPaymentAccountResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPaymentAccountResultToJSON,
-    CoEdgeappServerModelEdgeApiDataPointCurrencyStatsFromJSON,
-    CoEdgeappServerModelEdgeApiDataPointCurrencyStatsToJSON,
-    CoEdgeappServerModelEdgeApiDataTopupRewardReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataTopupRewardReqToJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateNotificationRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateNotificationRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateRolesRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateRolesRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateUserRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateUserRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataUseUserTicketRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataUseUserTicketRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataUserAllowedRolesFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserAllowedRolesToJSON,
-    CoEdgeappServerModelEdgeApiDataUserChatResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserChatResultToJSON,
-    CoEdgeappServerModelEdgeApiDataUserListResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserListResultToJSON,
-    CoEdgeappServerModelEdgeApiDataUserMetaResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserMetaResultToJSON,
-    CoEdgeappServerModelEdgeApiDataUserProfileExFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserProfileExToJSON,
-    CoEdgeappServerModelEdgeApiDataUserTicketHistoryResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserTicketHistoryResultToJSON,
-    CoEdgeappServerModelEdgeApiDataUserTicketResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataUserTicketResultToJSON,
-    CoEdgeappServerModelEdgeApiDataValidateUserTicketRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataValidateUserTicketRequestToJSON,
-    CoEdgeappServerModelMailingAddressFromJSON,
-    CoEdgeappServerModelMailingAddressToJSON,
-    CoEdgeappServerModelSignInDecisionFromJSON,
-    CoEdgeappServerModelSignInDecisionToJSON,
-    CoEdgeappServerModelTransactionFromJSON,
-    CoEdgeappServerModelTransactionToJSON,
-    CoEdgeappServerModelUpdateUserResultFromJSON,
-    CoEdgeappServerModelUpdateUserResultToJSON,
-    CoEdgeappServerModelUserDataFromJSON,
-    CoEdgeappServerModelUserDataToJSON,
-    CoEdgeappServerModelUserInviteFromJSON,
-    CoEdgeappServerModelUserInviteToJSON,
-    CoEdgeappServerQueueEventsUpdateUserEventFromJSON,
-    CoEdgeappServerQueueEventsUpdateUserEventToJSON,
-    CoEdgeappServerServiceUserOpListResultFromJSON,
-    CoEdgeappServerServiceUserOpListResultToJSON,
+    AccountFromJSON,
+    AccountToJSON,
+    BaseSettingsAgreementFromJSON,
+    BaseSettingsAgreementToJSON,
+    BaseSettingsConfirmationFromJSON,
+    BaseSettingsConfirmationToJSON,
+    BaseSettingsPolicyFromJSON,
+    BaseSettingsPolicyToJSON,
+    BountyFromJSON,
+    BountyToJSON,
+    BountyReservationInfoFromJSON,
+    BountyReservationInfoToJSON,
+    EdgeApiDataAnonAuthRespFromJSON,
+    EdgeApiDataAnonAuthRespToJSON,
+    EdgeApiDataApiSecretFromJSON,
+    EdgeApiDataApiSecretToJSON,
+    EdgeApiDataCompanyPrivateDataFromJSON,
+    EdgeApiDataCompanyPrivateDataToJSON,
+    EdgeApiDataManageUserDataFromJSON,
+    EdgeApiDataManageUserDataToJSON,
+    EdgeApiDataPageBadgesBadgeStashFromJSON,
+    EdgeApiDataPageBadgesBadgeStashToJSON,
+    EdgeApiDataPageGroupSearchResultFromJSON,
+    EdgeApiDataPageGroupSearchResultToJSON,
+    EdgeApiDataPageRestControllerUserControllerFrontEndDataFromJSON,
+    EdgeApiDataPageRestControllerUserControllerFrontEndDataToJSON,
+    EdgeApiDataPageServiceUserHandleFrontEndCountFromJSON,
+    EdgeApiDataPageServiceUserHandleFrontEndCountToJSON,
+    EdgeApiDataPaymentAccountResultFromJSON,
+    EdgeApiDataPaymentAccountResultToJSON,
+    EdgeApiDataPointCurrencyStatsFromJSON,
+    EdgeApiDataPointCurrencyStatsToJSON,
+    EdgeApiDataTopupRewardReqFromJSON,
+    EdgeApiDataTopupRewardReqToJSON,
+    EdgeApiDataUpdateNotificationRequestFromJSON,
+    EdgeApiDataUpdateNotificationRequestToJSON,
+    EdgeApiDataUpdateRolesRequestFromJSON,
+    EdgeApiDataUpdateRolesRequestToJSON,
+    EdgeApiDataUpdateUserRequestFromJSON,
+    EdgeApiDataUpdateUserRequestToJSON,
+    EdgeApiDataUseUserTicketRequestFromJSON,
+    EdgeApiDataUseUserTicketRequestToJSON,
+    EdgeApiDataUserAllowedRolesFromJSON,
+    EdgeApiDataUserAllowedRolesToJSON,
+    EdgeApiDataUserChatResultFromJSON,
+    EdgeApiDataUserChatResultToJSON,
+    EdgeApiDataUserListResultFromJSON,
+    EdgeApiDataUserListResultToJSON,
+    EdgeApiDataUserMetaResultFromJSON,
+    EdgeApiDataUserMetaResultToJSON,
+    EdgeApiDataUserProfileExFromJSON,
+    EdgeApiDataUserProfileExToJSON,
+    EdgeApiDataUserTicketHistoryResultFromJSON,
+    EdgeApiDataUserTicketHistoryResultToJSON,
+    EdgeApiDataUserTicketResultFromJSON,
+    EdgeApiDataUserTicketResultToJSON,
+    EdgeApiDataValidateUserTicketRequestFromJSON,
+    EdgeApiDataValidateUserTicketRequestToJSON,
+    MailingAddressFromJSON,
+    MailingAddressToJSON,
+    QueueEventsUpdateUserEventFromJSON,
+    QueueEventsUpdateUserEventToJSON,
+    ServiceUserOpListResultFromJSON,
+    ServiceUserOpListResultToJSON,
+    SignInDecisionFromJSON,
+    SignInDecisionToJSON,
+    TransactionFromJSON,
+    TransactionToJSON,
+    UpdateUserResultFromJSON,
+    UpdateUserResultToJSON,
+    UserDataFromJSON,
+    UserDataToJSON,
+    UserInviteFromJSON,
+    UserInviteToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1UsersByUseridRequest {
@@ -403,7 +403,7 @@ export interface GetApiV1UsersPaymentaccountRequest {
 
 export interface PostApiV1UsersByUseridAddressesRequest {
     userId: string;
-    coEdgeappServerModelMailingAddress: CoEdgeappServerModelMailingAddress;
+    mailingAddress: MailingAddress;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -411,7 +411,7 @@ export interface PostApiV1UsersByUseridAddressesRequest {
 
 export interface PostApiV1UsersByUseridAgreementRequest {
     userId: string;
-    coEdgeappServerModelBaseSettingsAgreement: CoEdgeappServerModelBaseSettingsAgreement;
+    baseSettingsAgreement: BaseSettingsAgreement;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -433,7 +433,7 @@ export interface PostApiV1UsersByUseridBlacklistRequest {
 
 export interface PostApiV1UsersByUseridConfirmationRequest {
     userId: string;
-    coEdgeappServerModelBaseSettingsConfirmation: CoEdgeappServerModelBaseSettingsConfirmation;
+    baseSettingsConfirmation: BaseSettingsConfirmation;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -449,7 +449,7 @@ export interface PostApiV1UsersByUseridLocaleRequest {
 
 export interface PostApiV1UsersByUseridNotificationRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataUpdateNotificationRequest: CoEdgeappServerModelEdgeApiDataUpdateNotificationRequest;
+    edgeApiDataUpdateNotificationRequest: EdgeApiDataUpdateNotificationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -473,7 +473,7 @@ export interface PostApiV1UsersByUseridPinRequest {
 
 export interface PostApiV1UsersByUseridPolicyRequest {
     userId: string;
-    coEdgeappServerModelBaseSettingsPolicy: CoEdgeappServerModelBaseSettingsPolicy;
+    baseSettingsPolicy: BaseSettingsPolicy;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -489,7 +489,7 @@ export interface PostApiV1UsersByUseridReferralCodeRequest {
 
 export interface PostApiV1UsersByUseridRolesRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataUpdateRolesRequest: CoEdgeappServerModelEdgeApiDataUpdateRolesRequest;
+    edgeApiDataUpdateRolesRequest: EdgeApiDataUpdateRolesRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -512,7 +512,7 @@ export interface PostApiV1UsersByUseridSignoutRequest {
 
 export interface PostApiV1UsersByUseridTicketsUseRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataUseUserTicketRequest: CoEdgeappServerModelEdgeApiDataUseUserTicketRequest;
+    edgeApiDataUseUserTicketRequest: EdgeApiDataUseUserTicketRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -520,7 +520,7 @@ export interface PostApiV1UsersByUseridTicketsUseRequest {
 
 export interface PostApiV1UsersByUseridTicketsValidateRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataValidateUserTicketRequest: CoEdgeappServerModelEdgeApiDataValidateUserTicketRequest;
+    edgeApiDataValidateUserTicketRequest: EdgeApiDataValidateUserTicketRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -528,7 +528,7 @@ export interface PostApiV1UsersByUseridTicketsValidateRequest {
 
 export interface PostApiV1UsersByUseridTopupRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataTopupRewardReq: CoEdgeappServerModelEdgeApiDataTopupRewardReq;
+    edgeApiDataTopupRewardReq: EdgeApiDataTopupRewardReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -549,14 +549,14 @@ export interface PostApiV1UsersByUseridUnblacklistRequest {
 }
 
 export interface PostApiV1UsersInvitelinksRequest {
-    coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite;
+    userInvite: UserInvite;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1UsersReservationsRequest {
-    coEdgeappServerModelBountyReservationInfo: CoEdgeappServerModelBountyReservationInfo;
+    bountyReservationInfo: BountyReservationInfo;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -564,7 +564,7 @@ export interface PostApiV1UsersReservationsRequest {
 
 export interface PutApiV1UsersByUseridUpdateRequest {
     userId: string;
-    coEdgeappServerModelEdgeApiDataUpdateUserRequest: CoEdgeappServerModelEdgeApiDataUpdateUserRequest;
+    edgeApiDataUpdateUserRequest: EdgeApiDataUpdateUserRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -572,7 +572,7 @@ export interface PutApiV1UsersByUseridUpdateRequest {
 
 export interface PutApiV1UsersByUseridUpdateUserRequest {
     userId: string;
-    coEdgeappServerQueueEventsUpdateUserEvent: CoEdgeappServerQueueEventsUpdateUserEvent;
+    queueEventsUpdateUserEvent: QueueEventsUpdateUserEvent;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -580,7 +580,7 @@ export interface PutApiV1UsersByUseridUpdateUserRequest {
 
 export interface PutApiV1UsersInvitelinksByInvitecodeRequest {
     inviteCode: string;
-    coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite;
+    userInvite: UserInvite;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -649,11 +649,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserListResult>>;
+    getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserListResult>>;
 
     /**
      */
-    getApiV1Users(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserListResult>;
+    getApiV1Users(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserListResult>;
 
     /**
      * 
@@ -666,11 +666,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>>;
+    getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageServiceUserHandleFrontEndCount>>;
 
     /**
      */
-    getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>;
+    getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageServiceUserHandleFrontEndCount>;
 
     /**
      * 
@@ -684,11 +684,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -701,27 +701,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserProfileEx>>;
+    getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserProfileEx>>;
 
     /**
      */
-    getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserProfileEx>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>>;
-
-    /**
-     */
-    getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount>;
+    getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserProfileEx>;
 
     /**
      * 
@@ -733,11 +717,27 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridAddressesRaw(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelMailingAddress>>>;
+    getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
 
     /**
      */
-    getApiV1UsersByUseridAddresses(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelMailingAddress>>;
+    getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridAddressesRaw(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MailingAddress>>>;
+
+    /**
+     */
+    getApiV1UsersByUseridAddresses(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MailingAddress>>;
 
     /**
      * 
@@ -750,11 +750,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMailingAddress>>;
+    getApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MailingAddress>>;
 
     /**
      */
-    getApiV1UsersByUseridAddressesByAddressid(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMailingAddress>;
+    getApiV1UsersByUseridAddressesByAddressid(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MailingAddress>;
 
     /**
      * 
@@ -766,11 +766,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAnonAuthResp>>;
+    getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAnonAuthResp>>;
 
     /**
      */
-    getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAnonAuthResp>;
+    getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAnonAuthResp>;
 
     /**
      * 
@@ -784,11 +784,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -803,11 +803,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash>>;
+    getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBadgesBadgeStash>>;
 
     /**
      */
-    getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash>;
+    getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBadgesBadgeStash>;
 
     /**
      * 
@@ -839,27 +839,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserChatResult>>;
+    getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserChatResult>>;
 
     /**
      */
-    getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserChatResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataPointCurrencyStats>>>;
-
-    /**
-     */
-    getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataPointCurrencyStats>>;
+    getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserChatResult>;
 
     /**
      * 
@@ -871,11 +855,27 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserData>>;
+    getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataPointCurrencyStats>>>;
 
     /**
      */
-    getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserData>;
+    getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataPointCurrencyStats>>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>>;
+
+    /**
+     */
+    getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData>;
 
     /**
      * 
@@ -888,11 +888,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData>>;
+    getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRestControllerUserControllerFrontEndData>>;
 
     /**
      */
-    getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData>;
+    getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRestControllerUserControllerFrontEndData>;
 
     /**
      * 
@@ -906,27 +906,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>>;
+    getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageGroupSearchResult>>;
 
     /**
      */
-    getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataManageUserData>>;
-
-    /**
-     */
-    getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataManageUserData>;
+    getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageGroupSearchResult>;
 
     /**
      * 
@@ -938,11 +922,27 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserMetaResult>>;
+    getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataManageUserData>>;
 
     /**
      */
-    getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserMetaResult>;
+    getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataManageUserData>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserMetaResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserMetaResult>;
 
     /**
      * 
@@ -958,11 +958,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>>;
+    getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>>;
 
     /**
      */
-    getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult>;
+    getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult>;
 
     /**
      * 
@@ -975,11 +975,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -1007,27 +1007,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCompanyPrivateData>>;
+    getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCompanyPrivateData>>;
 
     /**
      */
-    getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCompanyPrivateData>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UserControllerApiInterface
-     */
-    getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserAllowedRoles>>;
-
-    /**
-     */
-    getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserAllowedRoles>;
+    getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCompanyPrivateData>;
 
     /**
      * 
@@ -1039,11 +1023,27 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserTicketResult>>;
+    getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserAllowedRoles>>;
 
     /**
      */
-    getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserTicketResult>;
+    getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserAllowedRoles>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApiInterface
+     */
+    getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserTicketResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserTicketResult>;
 
     /**
      * 
@@ -1056,11 +1056,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult>>;
+    getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserTicketHistoryResult>>;
 
     /**
      */
-    getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult>;
+    getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserTicketHistoryResult>;
 
     /**
      * 
@@ -1075,11 +1075,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTransaction>>>;
+    getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>>;
 
     /**
      */
-    getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTransaction>>;
+    getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>>;
 
     /**
      * 
@@ -1093,11 +1093,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelSignInDecision>>;
+    getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>>;
 
     /**
      */
-    getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelSignInDecision>;
+    getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision>;
 
     /**
      * 
@@ -1109,12 +1109,12 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelUserInvite>>>;
+    getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>>;
 
     /**
      * @deprecated
      */
-    getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelUserInvite>>;
+    getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>>;
 
     /**
      * 
@@ -1127,12 +1127,12 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      * @deprecated
      */
-    getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -1159,16 +1159,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPaymentAccountResult>>;
+    getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPaymentAccountResult>>;
 
     /**
      */
-    getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPaymentAccountResult>;
+    getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPaymentAccountResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelMailingAddress} coEdgeappServerModelMailingAddress 
+     * @param {MailingAddress} mailingAddress 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1176,16 +1176,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersByUseridAddressesRaw(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMailingAddress>>;
+    postApiV1UsersByUseridAddressesRaw(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MailingAddress>>;
 
     /**
      */
-    postApiV1UsersByUseridAddresses(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMailingAddress>;
+    postApiV1UsersByUseridAddresses(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MailingAddress>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelBaseSettingsAgreement} coEdgeappServerModelBaseSettingsAgreement 
+     * @param {BaseSettingsAgreement} baseSettingsAgreement 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1193,11 +1193,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>>;
+    postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
 
     /**
      */
-    postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount>;
+    postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
 
     /**
      * 
@@ -1209,11 +1209,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataApiSecret>>;
+    postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataApiSecret>>;
 
     /**
      */
-    postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataApiSecret>;
+    postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataApiSecret>;
 
     /**
      * 
@@ -1234,7 +1234,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelBaseSettingsConfirmation} coEdgeappServerModelBaseSettingsConfirmation 
+     * @param {BaseSettingsConfirmation} baseSettingsConfirmation 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1242,11 +1242,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>>;
+    postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
 
     /**
      */
-    postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount>;
+    postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
 
     /**
      * 
@@ -1268,7 +1268,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataUpdateNotificationRequest} coEdgeappServerModelEdgeApiDataUpdateNotificationRequest 
+     * @param {EdgeApiDataUpdateNotificationRequest} edgeApiDataUpdateNotificationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1319,7 +1319,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelBaseSettingsPolicy} coEdgeappServerModelBaseSettingsPolicy 
+     * @param {BaseSettingsPolicy} baseSettingsPolicy 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1327,11 +1327,11 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>>;
+    postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>>;
 
     /**
      */
-    postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount>;
+    postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account>;
 
     /**
      * 
@@ -1353,7 +1353,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataUpdateRolesRequest} coEdgeappServerModelEdgeApiDataUpdateRolesRequest 
+     * @param {EdgeApiDataUpdateRolesRequest} edgeApiDataUpdateRolesRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1403,7 +1403,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataUseUserTicketRequest} coEdgeappServerModelEdgeApiDataUseUserTicketRequest 
+     * @param {EdgeApiDataUseUserTicketRequest} edgeApiDataUseUserTicketRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1420,7 +1420,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataValidateUserTicketRequest} coEdgeappServerModelEdgeApiDataValidateUserTicketRequest 
+     * @param {EdgeApiDataValidateUserTicketRequest} edgeApiDataValidateUserTicketRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1437,7 +1437,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataTopupRewardReq} coEdgeappServerModelEdgeApiDataTopupRewardReq 
+     * @param {EdgeApiDataTopupRewardReq} edgeApiDataTopupRewardReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1485,7 +1485,7 @@ export interface UserControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelUserInvite} coEdgeappServerModelUserInvite 
+     * @param {UserInvite} userInvite 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1503,7 +1503,7 @@ export interface UserControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelBountyReservationInfo} coEdgeappServerModelBountyReservationInfo 
+     * @param {BountyReservationInfo} bountyReservationInfo 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1511,16 +1511,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerModelEdgeApiDataUpdateUserRequest} coEdgeappServerModelEdgeApiDataUpdateUserRequest 
+     * @param {EdgeApiDataUpdateUserRequest} edgeApiDataUpdateUserRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1539,7 +1539,7 @@ export interface UserControllerApiInterface {
     /**
      * 
      * @param {string} userId 
-     * @param {CoEdgeappServerQueueEventsUpdateUserEvent} coEdgeappServerQueueEventsUpdateUserEvent 
+     * @param {QueueEventsUpdateUserEvent} queueEventsUpdateUserEvent 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1547,16 +1547,16 @@ export interface UserControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserControllerApiInterface
      */
-    putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUpdateUserResult>>;
+    putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>>;
 
     /**
      */
-    putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUpdateUserResult>;
+    putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult>;
 
     /**
      * 
      * @param {string} inviteCode 
-     * @param {CoEdgeappServerModelUserInvite} coEdgeappServerModelUserInvite 
+     * @param {UserInvite} userInvite 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1691,7 +1691,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserListResult>> {
+    async getApiV1UsersRaw(requestParameters: GetApiV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserListResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['query'] != null) {
@@ -1778,19 +1778,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Users(requestParameters: GetApiV1UsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserListResult> {
+    async getApiV1Users(requestParameters: GetApiV1UsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserListResult> {
         const response = await this.getApiV1UsersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>> {
+    async getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageServiceUserHandleFrontEndCount>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1833,19 +1833,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageServiceUserHandleFrontEndCountFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> {
+    async getApiV1UsersByCompanyidFrontEndsStats(requestParameters: GetApiV1UsersByCompanyidFrontEndsStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageServiceUserHandleFrontEndCount> {
         const response = await this.getApiV1UsersByCompanyidFrontEndsStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
@@ -1892,19 +1892,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1UsersByMerchantidMerchantOrders(requestParameters: GetApiV1UsersByMerchantidMerchantOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1UsersByMerchantidMerchantOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserProfileEx>> {
+    async getApiV1UsersByUserIdProfileRaw(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserProfileEx>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1947,19 +1947,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserProfileExFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserProfileExFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserProfileEx> {
+    async getApiV1UsersByUserIdProfile(requestParameters: GetApiV1UsersByUserIdProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserProfileEx> {
         const response = await this.getApiV1UsersByUserIdProfileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>> {
+    async getApiV1UsersByUseridAccountRaw(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1998,19 +1998,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount> {
+    async getApiV1UsersByUseridAccount(requestParameters: GetApiV1UsersByUseridAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
         const response = await this.getApiV1UsersByUseridAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridAddressesRaw(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelMailingAddress>>> {
+    async getApiV1UsersByUseridAddressesRaw(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MailingAddress>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2049,19 +2049,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelMailingAddressFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MailingAddressFromJSON));
     }
 
     /**
      */
-    async getApiV1UsersByUseridAddresses(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelMailingAddress>> {
+    async getApiV1UsersByUseridAddresses(requestParameters: GetApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MailingAddress>> {
         const response = await this.getApiV1UsersByUseridAddressesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMailingAddress>> {
+    async getApiV1UsersByUseridAddressesByAddressidRaw(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MailingAddress>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2108,19 +2108,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMailingAddressFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MailingAddressFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridAddressesByAddressid(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMailingAddress> {
+    async getApiV1UsersByUseridAddressesByAddressid(requestParameters: GetApiV1UsersByUseridAddressesByAddressidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MailingAddress> {
         const response = await this.getApiV1UsersByUseridAddressesByAddressidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAnonAuthResp>> {
+    async getApiV1UsersByUseridAnonTokenRaw(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAnonAuthResp>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2159,19 +2159,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAnonAuthRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAnonAuthRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAnonAuthResp> {
+    async getApiV1UsersByUseridAnonToken(requestParameters: GetApiV1UsersByUseridAnonTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAnonAuthResp> {
         const response = await this.getApiV1UsersByUseridAnonTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1UsersByUseridApprovalsRaw(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2218,19 +2218,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1UsersByUseridApprovals(requestParameters: GetApiV1UsersByUseridApprovalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1UsersByUseridApprovalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash>> {
+    async getApiV1UsersByUseridBadgesRaw(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBadgesBadgeStash>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2281,12 +2281,12 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStashFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBadgesBadgeStashFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBadgesBadgeStash> {
+    async getApiV1UsersByUseridBadges(requestParameters: GetApiV1UsersByUseridBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBadgesBadgeStash> {
         const response = await this.getApiV1UsersByUseridBadgesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2356,7 +2356,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserChatResult>> {
+    async getApiV1UsersByUseridChatsRaw(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserChatResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2403,19 +2403,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserChatResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserChatResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserChatResult> {
+    async getApiV1UsersByUseridChats(requestParameters: GetApiV1UsersByUseridChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserChatResult> {
         const response = await this.getApiV1UsersByUseridChatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataPointCurrencyStats>>> {
+    async getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataPointCurrencyStats>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2454,19 +2454,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEdgeApiDataPointCurrencyStatsFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EdgeApiDataPointCurrencyStatsFromJSON));
     }
 
     /**
      */
-    async getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataPointCurrencyStats>> {
+    async getApiV1UsersByUseridCurrenciesStatistics(requestParameters: GetApiV1UsersByUseridCurrenciesStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataPointCurrencyStats>> {
         const response = await this.getApiV1UsersByUseridCurrenciesStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserData>> {
+    async getApiV1UsersByUseridDataRaw(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2505,19 +2505,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserDataFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserData> {
+    async getApiV1UsersByUseridData(requestParameters: GetApiV1UsersByUseridDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserData> {
         const response = await this.getApiV1UsersByUseridDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData>> {
+    async getApiV1UsersByUseridFrontEndsRaw(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageRestControllerUserControllerFrontEndData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2560,19 +2560,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndDataFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageRestControllerUserControllerFrontEndDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerUserControllerFrontEndData> {
+    async getApiV1UsersByUseridFrontEnds(requestParameters: GetApiV1UsersByUseridFrontEndsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageRestControllerUserControllerFrontEndData> {
         const response = await this.getApiV1UsersByUseridFrontEndsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>> {
+    async getApiV1UsersByUseridGroupsRaw(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageGroupSearchResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2619,19 +2619,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageGroupSearchResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> {
+    async getApiV1UsersByUseridGroups(requestParameters: GetApiV1UsersByUseridGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageGroupSearchResult> {
         const response = await this.getApiV1UsersByUseridGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataManageUserData>> {
+    async getApiV1UsersByUseridManageDataRaw(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataManageUserData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2670,19 +2670,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataManageUserDataFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataManageUserDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataManageUserData> {
+    async getApiV1UsersByUseridManageData(requestParameters: GetApiV1UsersByUseridManageDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataManageUserData> {
         const response = await this.getApiV1UsersByUseridManageDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserMetaResult>> {
+    async getApiV1UsersByUseridMetaRaw(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserMetaResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2721,19 +2721,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserMetaResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserMetaResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserMetaResult> {
+    async getApiV1UsersByUseridMeta(requestParameters: GetApiV1UsersByUseridMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserMetaResult> {
         const response = await this.getApiV1UsersByUseridMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerServiceUserOpListResult>> {
+    async getApiV1UsersByUseridOrdersRaw(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceUserOpListResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2788,19 +2788,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerServiceUserOpListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceUserOpListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerServiceUserOpListResult> {
+    async getApiV1UsersByUseridOrders(requestParameters: GetApiV1UsersByUseridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceUserOpListResult> {
         const response = await this.getApiV1UsersByUseridOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2847,12 +2847,12 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async getApiV1UsersByUseridOrdersByOrderid(requestParameters: GetApiV1UsersByUseridOrdersByOrderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.getApiV1UsersByUseridOrdersByOrderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2914,7 +2914,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataCompanyPrivateData>> {
+    async getApiV1UsersByUseridPrivateDataRaw(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCompanyPrivateData>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -2953,19 +2953,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataCompanyPrivateDataFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCompanyPrivateDataFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataCompanyPrivateData> {
+    async getApiV1UsersByUseridPrivateData(requestParameters: GetApiV1UsersByUseridPrivateDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCompanyPrivateData> {
         const response = await this.getApiV1UsersByUseridPrivateDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserAllowedRoles>> {
+    async getApiV1UsersByUseridRolesAllowedRaw(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserAllowedRoles>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3004,19 +3004,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserAllowedRolesFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserAllowedRolesFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserAllowedRoles> {
+    async getApiV1UsersByUseridRolesAllowed(requestParameters: GetApiV1UsersByUseridRolesAllowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserAllowedRoles> {
         const response = await this.getApiV1UsersByUseridRolesAllowedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserTicketResult>> {
+    async getApiV1UsersByUseridTicketsRaw(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserTicketResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3055,19 +3055,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserTicketResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserTicketResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserTicketResult> {
+    async getApiV1UsersByUseridTickets(requestParameters: GetApiV1UsersByUseridTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserTicketResult> {
         const response = await this.getApiV1UsersByUseridTicketsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult>> {
+    async getApiV1UsersByUseridTicketsHistoryRaw(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserTicketHistoryResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3110,19 +3110,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataUserTicketHistoryResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserTicketHistoryResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataUserTicketHistoryResult> {
+    async getApiV1UsersByUseridTicketsHistory(requestParameters: GetApiV1UsersByUseridTicketsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserTicketHistoryResult> {
         const response = await this.getApiV1UsersByUseridTicketsHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTransaction>>> {
+    async getApiV1UsersByUseridTransactionsRaw(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Transaction>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3173,19 +3173,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelTransactionFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TransactionFromJSON));
     }
 
     /**
      */
-    async getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTransaction>> {
+    async getApiV1UsersByUseridTransactions(requestParameters: GetApiV1UsersByUseridTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Transaction>> {
         const response = await this.getApiV1UsersByUseridTransactionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelSignInDecision>> {
+    async getApiV1UsersByUseridWhatNextRaw(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInDecision>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3232,12 +3232,12 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelSignInDecisionFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignInDecisionFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelSignInDecision> {
+    async getApiV1UsersByUseridWhatNext(requestParameters: GetApiV1UsersByUseridWhatNextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInDecision> {
         const response = await this.getApiV1UsersByUseridWhatNextRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3245,7 +3245,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
     /**
      * @deprecated
      */
-    async getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelUserInvite>>> {
+    async getApiV1UsersInvitelinksRaw(requestParameters: GetApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<UserInvite>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3276,13 +3276,13 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelUserInviteFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UserInviteFromJSON));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelUserInvite>> {
+    async getApiV1UsersInvitelinks(requestParameters: GetApiV1UsersInvitelinksRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<UserInvite>> {
         const response = await this.getApiV1UsersInvitelinksRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3290,7 +3290,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
     /**
      * @deprecated
      */
-    async getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['inviteCode'] == null) {
             throw new runtime.RequiredError(
                 'inviteCode',
@@ -3329,13 +3329,13 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async getApiV1UsersInvitelinksByInvitecode(requestParameters: GetApiV1UsersInvitelinksByInvitecodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.getApiV1UsersInvitelinksByInvitecodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3385,7 +3385,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPaymentAccountResult>> {
+    async getApiV1UsersPaymentaccountRaw(requestParameters: GetApiV1UsersPaymentaccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPaymentAccountResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['merchantId'] != null) {
@@ -3420,19 +3420,19 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPaymentAccountResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPaymentAccountResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPaymentAccountResult> {
+    async getApiV1UsersPaymentaccount(requestParameters: GetApiV1UsersPaymentaccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPaymentAccountResult> {
         const response = await this.getApiV1UsersPaymentaccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1UsersByUseridAddressesRaw(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMailingAddress>> {
+    async postApiV1UsersByUseridAddressesRaw(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MailingAddress>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3440,10 +3440,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelMailingAddress'] == null) {
+        if (requestParameters['mailingAddress'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelMailingAddress',
-                'Required parameter "coEdgeappServerModelMailingAddress" was null or undefined when calling postApiV1UsersByUseridAddresses().'
+                'mailingAddress',
+                'Required parameter "mailingAddress" was null or undefined when calling postApiV1UsersByUseridAddresses().'
             );
         }
 
@@ -3478,22 +3478,22 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelMailingAddressToJSON(requestParameters['coEdgeappServerModelMailingAddress']),
+            body: MailingAddressToJSON(requestParameters['mailingAddress']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMailingAddressFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MailingAddressFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersByUseridAddresses(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMailingAddress> {
+    async postApiV1UsersByUseridAddresses(requestParameters: PostApiV1UsersByUseridAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MailingAddress> {
         const response = await this.postApiV1UsersByUseridAddressesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>> {
+    async postApiV1UsersByUseridAgreementRaw(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3501,10 +3501,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBaseSettingsAgreement'] == null) {
+        if (requestParameters['baseSettingsAgreement'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBaseSettingsAgreement',
-                'Required parameter "coEdgeappServerModelBaseSettingsAgreement" was null or undefined when calling postApiV1UsersByUseridAgreement().'
+                'baseSettingsAgreement',
+                'Required parameter "baseSettingsAgreement" was null or undefined when calling postApiV1UsersByUseridAgreement().'
             );
         }
 
@@ -3539,22 +3539,22 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBaseSettingsAgreementToJSON(requestParameters['coEdgeappServerModelBaseSettingsAgreement']),
+            body: BaseSettingsAgreementToJSON(requestParameters['baseSettingsAgreement']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount> {
+    async postApiV1UsersByUseridAgreement(requestParameters: PostApiV1UsersByUseridAgreementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
         const response = await this.postApiV1UsersByUseridAgreementRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataApiSecret>> {
+    async postApiV1UsersByUseridApiSecretRaw(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataApiSecret>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3593,12 +3593,12 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataApiSecretFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataApiSecretFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataApiSecret> {
+    async postApiV1UsersByUseridApiSecret(requestParameters: PostApiV1UsersByUseridApiSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataApiSecret> {
         const response = await this.postApiV1UsersByUseridApiSecretRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3656,7 +3656,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>> {
+    async postApiV1UsersByUseridConfirmationRaw(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3664,10 +3664,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBaseSettingsConfirmation'] == null) {
+        if (requestParameters['baseSettingsConfirmation'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBaseSettingsConfirmation',
-                'Required parameter "coEdgeappServerModelBaseSettingsConfirmation" was null or undefined when calling postApiV1UsersByUseridConfirmation().'
+                'baseSettingsConfirmation',
+                'Required parameter "baseSettingsConfirmation" was null or undefined when calling postApiV1UsersByUseridConfirmation().'
             );
         }
 
@@ -3702,15 +3702,15 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBaseSettingsConfirmationToJSON(requestParameters['coEdgeappServerModelBaseSettingsConfirmation']),
+            body: BaseSettingsConfirmationToJSON(requestParameters['baseSettingsConfirmation']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount> {
+    async postApiV1UsersByUseridConfirmation(requestParameters: PostApiV1UsersByUseridConfirmationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
         const response = await this.postApiV1UsersByUseridConfirmationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3787,10 +3787,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataUpdateNotificationRequest'] == null) {
+        if (requestParameters['edgeApiDataUpdateNotificationRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataUpdateNotificationRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataUpdateNotificationRequest" was null or undefined when calling postApiV1UsersByUseridNotification().'
+                'edgeApiDataUpdateNotificationRequest',
+                'Required parameter "edgeApiDataUpdateNotificationRequest" was null or undefined when calling postApiV1UsersByUseridNotification().'
             );
         }
 
@@ -3825,7 +3825,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataUpdateNotificationRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataUpdateNotificationRequest']),
+            body: EdgeApiDataUpdateNotificationRequestToJSON(requestParameters['edgeApiDataUpdateNotificationRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -3964,7 +3964,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelAccount>> {
+    async postApiV1UsersByUseridPolicyRaw(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -3972,10 +3972,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBaseSettingsPolicy'] == null) {
+        if (requestParameters['baseSettingsPolicy'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBaseSettingsPolicy',
-                'Required parameter "coEdgeappServerModelBaseSettingsPolicy" was null or undefined when calling postApiV1UsersByUseridPolicy().'
+                'baseSettingsPolicy',
+                'Required parameter "baseSettingsPolicy" was null or undefined when calling postApiV1UsersByUseridPolicy().'
             );
         }
 
@@ -4010,15 +4010,15 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBaseSettingsPolicyToJSON(requestParameters['coEdgeappServerModelBaseSettingsPolicy']),
+            body: BaseSettingsPolicyToJSON(requestParameters['baseSettingsPolicy']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelAccountFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelAccount> {
+    async postApiV1UsersByUseridPolicy(requestParameters: PostApiV1UsersByUseridPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
         const response = await this.postApiV1UsersByUseridPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4095,10 +4095,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataUpdateRolesRequest'] == null) {
+        if (requestParameters['edgeApiDataUpdateRolesRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataUpdateRolesRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataUpdateRolesRequest" was null or undefined when calling postApiV1UsersByUseridRoles().'
+                'edgeApiDataUpdateRolesRequest',
+                'Required parameter "edgeApiDataUpdateRolesRequest" was null or undefined when calling postApiV1UsersByUseridRoles().'
             );
         }
 
@@ -4133,7 +4133,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataUpdateRolesRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataUpdateRolesRequest']),
+            body: EdgeApiDataUpdateRolesRequestToJSON(requestParameters['edgeApiDataUpdateRolesRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4269,10 +4269,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataUseUserTicketRequest'] == null) {
+        if (requestParameters['edgeApiDataUseUserTicketRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataUseUserTicketRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataUseUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsUse().'
+                'edgeApiDataUseUserTicketRequest',
+                'Required parameter "edgeApiDataUseUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsUse().'
             );
         }
 
@@ -4307,7 +4307,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataUseUserTicketRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataUseUserTicketRequest']),
+            body: EdgeApiDataUseUserTicketRequestToJSON(requestParameters['edgeApiDataUseUserTicketRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4330,10 +4330,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataValidateUserTicketRequest'] == null) {
+        if (requestParameters['edgeApiDataValidateUserTicketRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataValidateUserTicketRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataValidateUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsValidate().'
+                'edgeApiDataValidateUserTicketRequest',
+                'Required parameter "edgeApiDataValidateUserTicketRequest" was null or undefined when calling postApiV1UsersByUseridTicketsValidate().'
             );
         }
 
@@ -4368,7 +4368,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataValidateUserTicketRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataValidateUserTicketRequest']),
+            body: EdgeApiDataValidateUserTicketRequestToJSON(requestParameters['edgeApiDataValidateUserTicketRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4391,10 +4391,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataTopupRewardReq'] == null) {
+        if (requestParameters['edgeApiDataTopupRewardReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataTopupRewardReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataTopupRewardReq" was null or undefined when calling postApiV1UsersByUseridTopup().'
+                'edgeApiDataTopupRewardReq',
+                'Required parameter "edgeApiDataTopupRewardReq" was null or undefined when calling postApiV1UsersByUseridTopup().'
             );
         }
 
@@ -4429,7 +4429,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataTopupRewardReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataTopupRewardReq']),
+            body: EdgeApiDataTopupRewardReqToJSON(requestParameters['edgeApiDataTopupRewardReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4548,10 +4548,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
      * @deprecated
      */
     async postApiV1UsersInvitelinksRaw(requestParameters: PostApiV1UsersInvitelinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['coEdgeappServerModelUserInvite'] == null) {
+        if (requestParameters['userInvite'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelUserInvite',
-                'Required parameter "coEdgeappServerModelUserInvite" was null or undefined when calling postApiV1UsersInvitelinks().'
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling postApiV1UsersInvitelinks().'
             );
         }
 
@@ -4585,7 +4585,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelUserInviteToJSON(requestParameters['coEdgeappServerModelUserInvite']),
+            body: UserInviteToJSON(requestParameters['userInvite']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4601,11 +4601,11 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
-        if (requestParameters['coEdgeappServerModelBountyReservationInfo'] == null) {
+    async postApiV1UsersReservationsRaw(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bountyReservationInfo'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBountyReservationInfo',
-                'Required parameter "coEdgeappServerModelBountyReservationInfo" was null or undefined when calling postApiV1UsersReservations().'
+                'bountyReservationInfo',
+                'Required parameter "bountyReservationInfo" was null or undefined when calling postApiV1UsersReservations().'
             );
         }
 
@@ -4639,15 +4639,15 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBountyReservationInfoToJSON(requestParameters['coEdgeappServerModelBountyReservationInfo']),
+            body: BountyReservationInfoToJSON(requestParameters['bountyReservationInfo']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async postApiV1UsersReservations(requestParameters: PostApiV1UsersReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.postApiV1UsersReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4663,10 +4663,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataUpdateUserRequest'] == null) {
+        if (requestParameters['edgeApiDataUpdateUserRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataUpdateUserRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataUpdateUserRequest" was null or undefined when calling putApiV1UsersByUseridUpdate().'
+                'edgeApiDataUpdateUserRequest',
+                'Required parameter "edgeApiDataUpdateUserRequest" was null or undefined when calling putApiV1UsersByUseridUpdate().'
             );
         }
 
@@ -4701,7 +4701,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataUpdateUserRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataUpdateUserRequest']),
+            body: EdgeApiDataUpdateUserRequestToJSON(requestParameters['edgeApiDataUpdateUserRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4717,7 +4717,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
 
     /**
      */
-    async putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUpdateUserResult>> {
+    async putApiV1UsersByUseridUpdateUserRaw(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4725,10 +4725,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerQueueEventsUpdateUserEvent'] == null) {
+        if (requestParameters['queueEventsUpdateUserEvent'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerQueueEventsUpdateUserEvent',
-                'Required parameter "coEdgeappServerQueueEventsUpdateUserEvent" was null or undefined when calling putApiV1UsersByUseridUpdateUser().'
+                'queueEventsUpdateUserEvent',
+                'Required parameter "queueEventsUpdateUserEvent" was null or undefined when calling putApiV1UsersByUseridUpdateUser().'
             );
         }
 
@@ -4763,15 +4763,15 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerQueueEventsUpdateUserEventToJSON(requestParameters['coEdgeappServerQueueEventsUpdateUserEvent']),
+            body: QueueEventsUpdateUserEventToJSON(requestParameters['queueEventsUpdateUserEvent']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUpdateUserResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateUserResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUpdateUserResult> {
+    async putApiV1UsersByUseridUpdateUser(requestParameters: PutApiV1UsersByUseridUpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResult> {
         const response = await this.putApiV1UsersByUseridUpdateUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4787,10 +4787,10 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             );
         }
 
-        if (requestParameters['coEdgeappServerModelUserInvite'] == null) {
+        if (requestParameters['userInvite'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelUserInvite',
-                'Required parameter "coEdgeappServerModelUserInvite" was null or undefined when calling putApiV1UsersInvitelinksByInvitecode().'
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling putApiV1UsersInvitelinksByInvitecode().'
             );
         }
 
@@ -4825,7 +4825,7 @@ export class UserControllerApi extends runtime.BaseAPI implements UserController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelUserInviteToJSON(requestParameters['coEdgeappServerModelUserInvite']),
+            body: UserInviteToJSON(requestParameters['userInvite']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

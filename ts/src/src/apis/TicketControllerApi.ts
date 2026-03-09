@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataNewId,
-  CoEdgeappServerModelTicket,
-  CoEdgeappServerModelTicketScan,
+  EdgeApiDataNewId,
+  Ticket,
+  TicketScan,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataNewIdFromJSON,
-    CoEdgeappServerModelEdgeApiDataNewIdToJSON,
-    CoEdgeappServerModelTicketFromJSON,
-    CoEdgeappServerModelTicketToJSON,
-    CoEdgeappServerModelTicketScanFromJSON,
-    CoEdgeappServerModelTicketScanToJSON,
+    EdgeApiDataNewIdFromJSON,
+    EdgeApiDataNewIdToJSON,
+    TicketFromJSON,
+    TicketToJSON,
+    TicketScanFromJSON,
+    TicketScanToJSON,
 } from '../models/index';
 
 export interface GetApiV1TicketsByTicketidRequest {
@@ -65,7 +65,7 @@ export interface GetApiV1TicketsByuseridByUseridRequest {
 }
 
 export interface PostApiV1TicketsRequest {
-    coEdgeappServerModelTicket: CoEdgeappServerModelTicket;
+    ticket: Ticket;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -73,7 +73,7 @@ export interface PostApiV1TicketsRequest {
 
 export interface PostApiV1TicketsByTicketidScanRequest {
     ticketId: string;
-    coEdgeappServerModelTicketScan: CoEdgeappServerModelTicketScan;
+    ticketScan: TicketScan;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -96,11 +96,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelTicket>>;
+    getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
 
     /**
      */
-    getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelTicket>;
+    getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
 
     /**
      * 
@@ -112,11 +112,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicketScan>>>;
+    getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>>;
 
     /**
      */
-    getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicketScan>>;
+    getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>>;
 
     /**
      * 
@@ -128,11 +128,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>>;
+    getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
 
     /**
      */
-    getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>>;
+    getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
@@ -145,11 +145,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>>;
+    getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
 
     /**
      */
-    getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>>;
+    getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
@@ -161,15 +161,15 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>>;
+    getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>>;
 
     /**
      */
-    getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>>;
+    getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelTicket} coEdgeappServerModelTicket 
+     * @param {Ticket} ticket 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -177,16 +177,16 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
+    postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
+    postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
 
     /**
      * 
      * @param {string} ticketId 
-     * @param {CoEdgeappServerModelTicketScan} coEdgeappServerModelTicketScan 
+     * @param {TicketScan} ticketScan 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -209,7 +209,7 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
 
     /**
      */
-    async getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelTicket>> {
+    async getApiV1TicketsByTicketidRaw(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
         if (requestParameters['ticketId'] == null) {
             throw new runtime.RequiredError(
                 'ticketId',
@@ -248,19 +248,19 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelTicketFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TicketFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelTicket> {
+    async getApiV1TicketsByTicketid(requestParameters: GetApiV1TicketsByTicketidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
         const response = await this.getApiV1TicketsByTicketidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicketScan>>> {
+    async getApiV1TicketsByTicketidScansRaw(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TicketScan>>> {
         if (requestParameters['ticketId'] == null) {
             throw new runtime.RequiredError(
                 'ticketId',
@@ -299,19 +299,19 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelTicketScanFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketScanFromJSON));
     }
 
     /**
      */
-    async getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicketScan>> {
+    async getApiV1TicketsByTicketidScans(requestParameters: GetApiV1TicketsByTicketidScansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TicketScan>> {
         const response = await this.getApiV1TicketsByTicketidScansRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>> {
+    async getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
@@ -350,19 +350,19 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelTicketFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
     }
 
     /**
      */
-    async getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>> {
+    async getApiV1TicketsByeventidByEventidAvailable(requestParameters: GetApiV1TicketsByeventidByEventidAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
         const response = await this.getApiV1TicketsByeventidByEventidAvailableRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>> {
+    async getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
@@ -409,19 +409,19 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelTicketFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
     }
 
     /**
      */
-    async getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>> {
+    async getApiV1TicketsByeventidByEventidBystatusByStatus(requestParameters: GetApiV1TicketsByeventidByEventidBystatusByStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
         const response = await this.getApiV1TicketsByeventidByEventidBystatusByStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelTicket>>> {
+    async getApiV1TicketsByuseridByUseridRaw(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Ticket>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -460,23 +460,23 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelTicketFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TicketFromJSON));
     }
 
     /**
      */
-    async getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelTicket>> {
+    async getApiV1TicketsByuseridByUserid(requestParameters: GetApiV1TicketsByuseridByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Ticket>> {
         const response = await this.getApiV1TicketsByuseridByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
-        if (requestParameters['coEdgeappServerModelTicket'] == null) {
+    async postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+        if (requestParameters['ticket'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelTicket',
-                'Required parameter "coEdgeappServerModelTicket" was null or undefined when calling postApiV1Tickets().'
+                'ticket',
+                'Required parameter "ticket" was null or undefined when calling postApiV1Tickets().'
             );
         }
 
@@ -510,15 +510,15 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelTicketToJSON(requestParameters['coEdgeappServerModelTicket']),
+            body: TicketToJSON(requestParameters['ticket']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
+    async postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
         const response = await this.postApiV1TicketsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -533,10 +533,10 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelTicketScan'] == null) {
+        if (requestParameters['ticketScan'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelTicketScan',
-                'Required parameter "coEdgeappServerModelTicketScan" was null or undefined when calling postApiV1TicketsByTicketidScan().'
+                'ticketScan',
+                'Required parameter "ticketScan" was null or undefined when calling postApiV1TicketsByTicketidScan().'
             );
         }
 
@@ -571,7 +571,7 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelTicketScanToJSON(requestParameters['coEdgeappServerModelTicketScan']),
+            body: TicketScanToJSON(requestParameters['ticketScan']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

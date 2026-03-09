@@ -18,10 +18,10 @@ open class ReportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerServiceReportsServiceReportsMetadata
+     - returns: ServiceReportsServiceReportsMetadata
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ReportsMeta(authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerServiceReportsServiceReportsMetadata {
+    open class func getApiV1ReportsMeta(authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceReportsServiceReportsMetadata {
         return try await getApiV1ReportsMetaWithRequestBuilder(authorization: authorization, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class ReportControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerServiceReportsServiceReportsMetadata> 
+     - returns: RequestBuilder<ServiceReportsServiceReportsMetadata> 
      */
-    open class func getApiV1ReportsMetaWithRequestBuilder(authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerServiceReportsServiceReportsMetadata> {
+    open class func getApiV1ReportsMetaWithRequestBuilder(authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceReportsServiceReportsMetadata> {
         let localVariablePath = "/api/v1/reports/meta"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -52,14 +52,14 @@ open class ReportControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerServiceReportsServiceReportsMetadata>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceReportsServiceReportsMetadata>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerModelEdgeApiDataDownloadReportRequest: (body)  
+     - parameter edgeApiDataDownloadReportRequest: (body)  
      - parameter authorization: (header)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
@@ -67,8 +67,8 @@ open class ReportControllerAPI {
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1ReportsDownload(coEdgeappServerModelEdgeApiDataDownloadReportRequest: CoEdgeappServerModelEdgeApiDataDownloadReportRequest, authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1ReportsDownloadWithRequestBuilder(coEdgeappServerModelEdgeApiDataDownloadReportRequest: coEdgeappServerModelEdgeApiDataDownloadReportRequest, authorization: authorization, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ReportsDownload(edgeApiDataDownloadReportRequest: EdgeApiDataDownloadReportRequest, authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1ReportsDownloadWithRequestBuilder(edgeApiDataDownloadReportRequest: edgeApiDataDownloadReportRequest, authorization: authorization, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -76,17 +76,17 @@ open class ReportControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerModelEdgeApiDataDownloadReportRequest: (body)  
+     - parameter edgeApiDataDownloadReportRequest: (body)  
      - parameter authorization: (header)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1ReportsDownloadWithRequestBuilder(coEdgeappServerModelEdgeApiDataDownloadReportRequest: CoEdgeappServerModelEdgeApiDataDownloadReportRequest, authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1ReportsDownloadWithRequestBuilder(edgeApiDataDownloadReportRequest: EdgeApiDataDownloadReportRequest, authorization: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         let localVariablePath = "/api/v1/reports/download"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataDownloadReportRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataDownloadReportRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

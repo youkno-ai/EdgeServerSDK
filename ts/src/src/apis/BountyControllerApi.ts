@@ -15,74 +15,74 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelBounty,
-  CoEdgeappServerModelBountyChanges,
-  CoEdgeappServerModelBountyResponse,
-  CoEdgeappServerModelBountyTermsContentAccessRule,
-  CoEdgeappServerModelEdgeApiDataAnswerCallResult,
-  CoEdgeappServerModelEdgeApiDataBountyRecipientResp,
-  CoEdgeappServerModelEdgeApiDataBountySectionResult,
-  CoEdgeappServerModelEdgeApiDataBountyStatisticsResult,
-  CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld,
-  CoEdgeappServerModelEdgeApiDataColorSchemeResult,
-  CoEdgeappServerModelEdgeApiDataFeedbackReportResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef,
-  CoEdgeappServerModelEdgeApiDataPlaceCallResult,
-  CoEdgeappServerModelEdgeApiDataSponsorshipRequest,
-  CoEdgeappServerModelEdgeApiDataSubBountiesResp,
-  CoEdgeappServerModelEdgeApiDataUpdateBountyStateReq,
-  CoEdgeappServerModelShoppingCartOrderSummary,
-  CoEdgeappServerModelUserInvite,
-  CoEdgeappServerRestControllerBountyControllerActivateMenuRequest,
-  CoEdgeappServerRestControllerBountyControllerPaymentSummary,
-  CoEdgeappServerRestControllerBountyControllerShareLinkResult,
+  Bounty,
+  BountyChanges,
+  BountyResponse,
+  BountyTermsContentAccessRule,
+  EdgeApiDataAnswerCallResult,
+  EdgeApiDataBountyRecipientResp,
+  EdgeApiDataBountySectionResult,
+  EdgeApiDataBountyStatisticsResult,
+  EdgeApiDataBountyStatisticsResultOld,
+  EdgeApiDataColorSchemeResult,
+  EdgeApiDataFeedbackReportResp,
+  EdgeApiDataPageBounty,
+  EdgeApiDataPageListsListDef,
+  EdgeApiDataPlaceCallResult,
+  EdgeApiDataSponsorshipRequest,
+  EdgeApiDataSubBountiesResp,
+  EdgeApiDataUpdateBountyStateReq,
+  RestControllerBountyControllerActivateMenuRequest,
+  RestControllerBountyControllerPaymentSummary,
+  RestControllerBountyControllerShareLinkResult,
+  ShoppingCartOrderSummary,
+  UserInvite,
 } from '../models/index';
 import {
-    CoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelBountyChangesFromJSON,
-    CoEdgeappServerModelBountyChangesToJSON,
-    CoEdgeappServerModelBountyResponseFromJSON,
-    CoEdgeappServerModelBountyResponseToJSON,
-    CoEdgeappServerModelBountyTermsContentAccessRuleFromJSON,
-    CoEdgeappServerModelBountyTermsContentAccessRuleToJSON,
-    CoEdgeappServerModelEdgeApiDataAnswerCallResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataAnswerCallResultToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyRecipientRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyRecipientRespToJSON,
-    CoEdgeappServerModelEdgeApiDataBountySectionResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountySectionResultToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyStatisticsResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyStatisticsResultToJSON,
-    CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOldFromJSON,
-    CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOldToJSON,
-    CoEdgeappServerModelEdgeApiDataColorSchemeResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataColorSchemeResultToJSON,
-    CoEdgeappServerModelEdgeApiDataFeedbackReportRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataFeedbackReportRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDefFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDefToJSON,
-    CoEdgeappServerModelEdgeApiDataPlaceCallResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPlaceCallResultToJSON,
-    CoEdgeappServerModelEdgeApiDataSponsorshipRequestFromJSON,
-    CoEdgeappServerModelEdgeApiDataSponsorshipRequestToJSON,
-    CoEdgeappServerModelEdgeApiDataSubBountiesRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataSubBountiesRespToJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateBountyStateReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataUpdateBountyStateReqToJSON,
-    CoEdgeappServerModelShoppingCartOrderSummaryFromJSON,
-    CoEdgeappServerModelShoppingCartOrderSummaryToJSON,
-    CoEdgeappServerModelUserInviteFromJSON,
-    CoEdgeappServerModelUserInviteToJSON,
-    CoEdgeappServerRestControllerBountyControllerActivateMenuRequestFromJSON,
-    CoEdgeappServerRestControllerBountyControllerActivateMenuRequestToJSON,
-    CoEdgeappServerRestControllerBountyControllerPaymentSummaryFromJSON,
-    CoEdgeappServerRestControllerBountyControllerPaymentSummaryToJSON,
-    CoEdgeappServerRestControllerBountyControllerShareLinkResultFromJSON,
-    CoEdgeappServerRestControllerBountyControllerShareLinkResultToJSON,
+    BountyFromJSON,
+    BountyToJSON,
+    BountyChangesFromJSON,
+    BountyChangesToJSON,
+    BountyResponseFromJSON,
+    BountyResponseToJSON,
+    BountyTermsContentAccessRuleFromJSON,
+    BountyTermsContentAccessRuleToJSON,
+    EdgeApiDataAnswerCallResultFromJSON,
+    EdgeApiDataAnswerCallResultToJSON,
+    EdgeApiDataBountyRecipientRespFromJSON,
+    EdgeApiDataBountyRecipientRespToJSON,
+    EdgeApiDataBountySectionResultFromJSON,
+    EdgeApiDataBountySectionResultToJSON,
+    EdgeApiDataBountyStatisticsResultFromJSON,
+    EdgeApiDataBountyStatisticsResultToJSON,
+    EdgeApiDataBountyStatisticsResultOldFromJSON,
+    EdgeApiDataBountyStatisticsResultOldToJSON,
+    EdgeApiDataColorSchemeResultFromJSON,
+    EdgeApiDataColorSchemeResultToJSON,
+    EdgeApiDataFeedbackReportRespFromJSON,
+    EdgeApiDataFeedbackReportRespToJSON,
+    EdgeApiDataPageBountyFromJSON,
+    EdgeApiDataPageBountyToJSON,
+    EdgeApiDataPageListsListDefFromJSON,
+    EdgeApiDataPageListsListDefToJSON,
+    EdgeApiDataPlaceCallResultFromJSON,
+    EdgeApiDataPlaceCallResultToJSON,
+    EdgeApiDataSponsorshipRequestFromJSON,
+    EdgeApiDataSponsorshipRequestToJSON,
+    EdgeApiDataSubBountiesRespFromJSON,
+    EdgeApiDataSubBountiesRespToJSON,
+    EdgeApiDataUpdateBountyStateReqFromJSON,
+    EdgeApiDataUpdateBountyStateReqToJSON,
+    RestControllerBountyControllerActivateMenuRequestFromJSON,
+    RestControllerBountyControllerActivateMenuRequestToJSON,
+    RestControllerBountyControllerPaymentSummaryFromJSON,
+    RestControllerBountyControllerPaymentSummaryToJSON,
+    RestControllerBountyControllerShareLinkResultFromJSON,
+    RestControllerBountyControllerShareLinkResultToJSON,
+    ShoppingCartOrderSummaryFromJSON,
+    ShoppingCartOrderSummaryToJSON,
+    UserInviteFromJSON,
+    UserInviteToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1BountiesByBountyidDeleteRequest {
@@ -244,7 +244,7 @@ export interface PostApiV1BountiesByBountyidMenuActivateRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    coEdgeappServerRestControllerBountyControllerActivateMenuRequest?: CoEdgeappServerRestControllerBountyControllerActivateMenuRequest;
+    restControllerBountyControllerActivateMenuRequest?: RestControllerBountyControllerActivateMenuRequest;
 }
 
 export interface PostApiV1BountiesByBountyidNextwinnerRequest {
@@ -272,7 +272,7 @@ export interface PostApiV1BountiesByBountyidParticipateRequest {
 export interface PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest {
     bountyId: string;
     avatarId: string;
-    coEdgeappServerModelEdgeApiDataSponsorshipRequest: CoEdgeappServerModelEdgeApiDataSponsorshipRequest;
+    edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -281,7 +281,7 @@ export interface PostApiV1BountiesByBountyidSponsorshipsByAvataridAcceptRequest 
 export interface PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest {
     bountyId: string;
     avatarId: string;
-    coEdgeappServerModelEdgeApiDataSponsorshipRequest: CoEdgeappServerModelEdgeApiDataSponsorshipRequest;
+    edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -295,7 +295,7 @@ export interface PostApiV1BountiesByBountyidUnparticipateRequest {
 }
 
 export interface PostApiV1BountiesPublishRequest {
-    coEdgeappServerModelBounty: CoEdgeappServerModelBounty;
+    bounty: Bounty;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -303,7 +303,7 @@ export interface PostApiV1BountiesPublishRequest {
 
 export interface PutApiV1BountiesByBountyidContentAccessRequest {
     bountyId: string;
-    coEdgeappServerModelBountyTermsContentAccessRule: CoEdgeappServerModelBountyTermsContentAccessRule;
+    bountyTermsContentAccessRule: BountyTermsContentAccessRule;
     refreshPin?: boolean;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -320,7 +320,7 @@ export interface PutApiV1BountiesByBountyidFlagsRequest {
 
 export interface PutApiV1BountiesByBountyidUpdateRequest {
     bountyId: string;
-    coEdgeappServerModelBountyChanges: CoEdgeappServerModelBountyChanges;
+    bountyChanges: BountyChanges;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -328,7 +328,7 @@ export interface PutApiV1BountiesByBountyidUpdateRequest {
 
 export interface PutApiV1BountiesByBountyidUpdateStateRequest {
     bountyId: string;
-    coEdgeappServerModelEdgeApiDataUpdateBountyStateReq: CoEdgeappServerModelEdgeApiDataUpdateBountyStateReq;
+    edgeApiDataUpdateBountyStateReq: EdgeApiDataUpdateBountyStateReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -368,12 +368,12 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>>;
+    getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResultOld>>;
 
     /**
      * @deprecated
      */
-    getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>;
+    getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResultOld>;
 
     /**
      * 
@@ -385,11 +385,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResult>>;
+    getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResult>>;
 
     /**
      */
-    getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResult>;
+    getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResult>;
 
     /**
      * 
@@ -402,12 +402,12 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>>;
+    getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResultOld>>;
 
     /**
      * @deprecated
      */
-    getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>;
+    getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResultOld>;
 
     /**
      * 
@@ -419,11 +419,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyTermsContentAccessRule>>;
+    getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyTermsContentAccessRule>>;
 
     /**
      */
-    getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyTermsContentAccessRule>;
+    getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyTermsContentAccessRule>;
 
     /**
      * 
@@ -437,27 +437,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataFeedbackReportResp>>;
+    getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFeedbackReportResp>>;
 
     /**
      */
-    getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataFeedbackReportResp>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>>;
-
-    /**
-     */
-    getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse>;
+    getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFeedbackReportResp>;
 
     /**
      * 
@@ -469,27 +453,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerPaymentSummary>>;
+    getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
 
     /**
      */
-    getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerPaymentSummary>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyRecipientResp>>;
-
-    /**
-     */
-    getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyRecipientResp>;
+    getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
 
     /**
      * 
@@ -501,11 +469,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerShareLinkResult>>;
+    getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerPaymentSummary>>;
 
     /**
      */
-    getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerShareLinkResult>;
+    getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerPaymentSummary>;
 
     /**
      * 
@@ -517,11 +485,43 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerShareLinkResult>>;
+    getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyRecipientResp>>;
 
     /**
      */
-    getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerShareLinkResult>;
+    getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyRecipientResp>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerShareLinkResult>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerShareLinkResult>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerShareLinkResult>>;
+
+    /**
+     */
+    getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerShareLinkResult>;
 
     /**
      * 
@@ -535,12 +535,12 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      * @deprecated
      */
-    getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -554,11 +554,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSubBountiesResp>>;
+    getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSubBountiesResp>>;
 
     /**
      */
-    getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSubBountiesResp>;
+    getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSubBountiesResp>;
 
     /**
      * 
@@ -569,11 +569,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataColorSchemeResult>>;
+    getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataColorSchemeResult>>;
 
     /**
      */
-    getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataColorSchemeResult>;
+    getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataColorSchemeResult>;
 
     /**
      * 
@@ -587,11 +587,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesMenusActiveRaw(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>>;
+    getApiV1BountiesMenusActiveRaw(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>>;
 
     /**
      */
-    getApiV1BountiesMenusActive(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>;
+    getApiV1BountiesMenusActive(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty>;
 
     /**
      * 
@@ -602,11 +602,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef>>;
+    getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageListsListDef>>;
 
     /**
      */
-    getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef>;
+    getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageListsListDef>;
 
     /**
      * 
@@ -618,11 +618,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountySectionResult>>;
+    getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountySectionResult>>;
 
     /**
      */
-    getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountySectionResult>;
+    getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountySectionResult>;
 
     /**
      * 
@@ -635,27 +635,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAnswerCallResult>>;
+    postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAnswerCallResult>>;
 
     /**
      */
-    postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAnswerCallResult>;
-
-    /**
-     * 
-     * @param {string} bountyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BountyControllerApiInterface
-     */
-    postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPlaceCallResult>>;
-
-    /**
-     */
-    postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPlaceCallResult>;
+    postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAnswerCallResult>;
 
     /**
      * 
@@ -667,11 +651,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPlaceCallResult>>;
 
     /**
      */
-    postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPlaceCallResult>;
 
     /**
      * 
@@ -683,11 +667,27 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidDrawlotteryRaw(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>>;
+    postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    postApiV1BountiesByBountyidDrawlottery(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse>;
+    postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
+
+    /**
+     * 
+     * @param {string} bountyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BountyControllerApiInterface
+     */
+    postApiV1BountiesByBountyidDrawlotteryRaw(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
+
+    /**
+     */
+    postApiV1BountiesByBountyidDrawlottery(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
 
     /**
      * 
@@ -696,16 +696,16 @@ export interface BountyControllerApiInterface {
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {CoEdgeappServerRestControllerBountyControllerActivateMenuRequest} [coEdgeappServerRestControllerBountyControllerActivateMenuRequest] 
+     * @param {RestControllerBountyControllerActivateMenuRequest} [restControllerBountyControllerActivateMenuRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidMenuActivateRaw(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    postApiV1BountiesByBountyidMenuActivateRaw(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    postApiV1BountiesByBountyidMenuActivate(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    postApiV1BountiesByBountyidMenuActivate(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -717,11 +717,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>>;
+    postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>>;
 
     /**
      */
-    postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse>;
+    postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse>;
 
     /**
      * 
@@ -760,7 +760,7 @@ export interface BountyControllerApiInterface {
      * 
      * @param {string} bountyId 
      * @param {string} avatarId 
-     * @param {CoEdgeappServerModelEdgeApiDataSponsorshipRequest} coEdgeappServerModelEdgeApiDataSponsorshipRequest 
+     * @param {EdgeApiDataSponsorshipRequest} edgeApiDataSponsorshipRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -778,7 +778,7 @@ export interface BountyControllerApiInterface {
      * 
      * @param {string} bountyId 
      * @param {string} avatarId 
-     * @param {CoEdgeappServerModelEdgeApiDataSponsorshipRequest} coEdgeappServerModelEdgeApiDataSponsorshipRequest 
+     * @param {EdgeApiDataSponsorshipRequest} edgeApiDataSponsorshipRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -786,11 +786,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCartOrderSummary>>;
+    postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCartOrderSummary>>;
 
     /**
      */
-    postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCartOrderSummary>;
+    postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCartOrderSummary>;
 
     /**
      * 
@@ -810,7 +810,7 @@ export interface BountyControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelBounty} coEdgeappServerModelBounty 
+     * @param {Bounty} bounty 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -818,16 +818,16 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelBountyTermsContentAccessRule} coEdgeappServerModelBountyTermsContentAccessRule 
+     * @param {BountyTermsContentAccessRule} bountyTermsContentAccessRule 
      * @param {boolean} [refreshPin] 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
@@ -836,11 +836,11 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyTermsContentAccessRule>>;
+    putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyTermsContentAccessRule>>;
 
     /**
      */
-    putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyTermsContentAccessRule>;
+    putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyTermsContentAccessRule>;
 
     /**
      * 
@@ -862,7 +862,7 @@ export interface BountyControllerApiInterface {
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelBountyChanges} coEdgeappServerModelBountyChanges 
+     * @param {BountyChanges} bountyChanges 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -870,16 +870,16 @@ export interface BountyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BountyControllerApiInterface
      */
-    putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerModelEdgeApiDataUpdateBountyStateReq} coEdgeappServerModelEdgeApiDataUpdateBountyStateReq 
+     * @param {EdgeApiDataUpdateBountyStateReq} edgeApiDataUpdateBountyStateReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -954,7 +954,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>> {
+    async getApiV1BountiesByBountyIdStatisticsRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResultOld>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -993,20 +993,20 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOldFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyStatisticsResultOldFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld> {
+    async getApiV1BountiesByBountyIdStatistics(requestParameters: GetApiV1BountiesByBountyIdStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResultOld> {
         const response = await this.getApiV1BountiesByBountyIdStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResult>> {
+    async getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1045,12 +1045,12 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyStatisticsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyStatisticsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResult> {
+    async getApiV1BountiesByBountyIdStatisticsNew(requestParameters: GetApiV1BountiesByBountyIdStatisticsNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResult> {
         const response = await this.getApiV1BountiesByBountyIdStatisticsNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1058,7 +1058,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld>> {
+    async getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyStatisticsResultOld>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1097,20 +1097,20 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOldFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyStatisticsResultOldFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyStatisticsResultOld> {
+    async getApiV1BountiesByBountyIdStatisticsOld(requestParameters: GetApiV1BountiesByBountyIdStatisticsOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyStatisticsResultOld> {
         const response = await this.getApiV1BountiesByBountyIdStatisticsOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyTermsContentAccessRule>> {
+    async getApiV1BountiesByBountyidContentAccessRaw(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyTermsContentAccessRule>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1149,19 +1149,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyTermsContentAccessRuleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyTermsContentAccessRuleFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyTermsContentAccessRule> {
+    async getApiV1BountiesByBountyidContentAccess(requestParameters: GetApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyTermsContentAccessRule> {
         const response = await this.getApiV1BountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataFeedbackReportResp>> {
+    async getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFeedbackReportResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1208,19 +1208,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataFeedbackReportRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataFeedbackReportRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataFeedbackReportResp> {
+    async getApiV1BountiesByBountyidFeedbackReport(requestParameters: GetApiV1BountiesByBountyidFeedbackReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFeedbackReportResp> {
         const response = await this.getApiV1BountiesByBountyidFeedbackReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>> {
+    async getApiV1BountiesByBountyidNextwinnerRaw(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1259,19 +1259,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse> {
+    async getApiV1BountiesByBountyidNextwinner(requestParameters: GetApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
         const response = await this.getApiV1BountiesByBountyidNextwinnerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerPaymentSummary>> {
+    async getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerPaymentSummary>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1310,19 +1310,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerBountyControllerPaymentSummaryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerBountyControllerPaymentSummaryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerPaymentSummary> {
+    async getApiV1BountiesByBountyidPaymentSummary(requestParameters: GetApiV1BountiesByBountyidPaymentSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerPaymentSummary> {
         const response = await this.getApiV1BountiesByBountyidPaymentSummaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountyRecipientResp>> {
+    async getApiV1BountiesByBountyidRecipientRaw(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountyRecipientResp>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1361,19 +1361,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountyRecipientRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountyRecipientRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountyRecipientResp> {
+    async getApiV1BountiesByBountyidRecipient(requestParameters: GetApiV1BountiesByBountyidRecipientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountyRecipientResp> {
         const response = await this.getApiV1BountiesByBountyidRecipientRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerShareLinkResult>> {
+    async getApiV1BountiesByBountyidShareRaw(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerShareLinkResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1412,19 +1412,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerBountyControllerShareLinkResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerBountyControllerShareLinkResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerShareLinkResult> {
+    async getApiV1BountiesByBountyidShare(requestParameters: GetApiV1BountiesByBountyidShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerShareLinkResult> {
         const response = await this.getApiV1BountiesByBountyidShareRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerBountyControllerShareLinkResult>> {
+    async getApiV1BountiesByBountyidSharesRaw(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerBountyControllerShareLinkResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1463,12 +1463,12 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerBountyControllerShareLinkResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerBountyControllerShareLinkResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerBountyControllerShareLinkResult> {
+    async getApiV1BountiesByBountyidShares(requestParameters: GetApiV1BountiesByBountyidSharesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerBountyControllerShareLinkResult> {
         const response = await this.getApiV1BountiesByBountyidSharesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1476,7 +1476,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
     /**
      * @deprecated
      */
-    async getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['dealId'] == null) {
             throw new runtime.RequiredError(
                 'dealId',
@@ -1523,20 +1523,20 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async getApiV1BountiesByDealidInvitelinksByInviteid(requestParameters: GetApiV1BountiesByDealidInvitelinksByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.getApiV1BountiesByDealidInvitelinksByInviteidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataSubBountiesResp>> {
+    async getApiV1BountiesByParentIdSubbountiesRaw(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSubBountiesResp>> {
         if (requestParameters['parentId'] == null) {
             throw new runtime.RequiredError(
                 'parentId',
@@ -1583,19 +1583,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataSubBountiesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSubBountiesRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataSubBountiesResp> {
+    async getApiV1BountiesByParentIdSubbounties(requestParameters: GetApiV1BountiesByParentIdSubbountiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSubBountiesResp> {
         const response = await this.getApiV1BountiesByParentIdSubbountiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataColorSchemeResult>> {
+    async getApiV1BountiesColorschemesRaw(requestParameters: GetApiV1BountiesColorschemesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataColorSchemeResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1626,19 +1626,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataColorSchemeResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataColorSchemeResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataColorSchemeResult> {
+    async getApiV1BountiesColorschemes(requestParameters: GetApiV1BountiesColorschemesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataColorSchemeResult> {
         const response = await this.getApiV1BountiesColorschemesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesMenusActiveRaw(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>> {
+    async getApiV1BountiesMenusActiveRaw(requestParameters: GetApiV1BountiesMenusActiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>> {
         const queryParameters: any = {};
 
         if (requestParameters['merchantId'] != null) {
@@ -1681,19 +1681,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesMenusActive(requestParameters: GetApiV1BountiesMenusActiveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    async getApiV1BountiesMenusActive(requestParameters: GetApiV1BountiesMenusActiveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty> {
         const response = await this.getApiV1BountiesMenusActiveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef>> {
+    async getApiV1BountiesPublishListsRaw(requestParameters: GetApiV1BountiesPublishListsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageListsListDef>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1724,19 +1724,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageListsListDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef> {
+    async getApiV1BountiesPublishLists(requestParameters: GetApiV1BountiesPublishListsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageListsListDef> {
         const response = await this.getApiV1BountiesPublishListsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataBountySectionResult>> {
+    async getApiV1BountiesSectionsRaw(requestParameters: GetApiV1BountiesSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataBountySectionResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['type'] != null) {
@@ -1771,19 +1771,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataBountySectionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataBountySectionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataBountySectionResult> {
+    async getApiV1BountiesSections(requestParameters: GetApiV1BountiesSectionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataBountySectionResult> {
         const response = await this.getApiV1BountiesSectionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAnswerCallResult>> {
+    async postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAnswerCallResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1826,19 +1826,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAnswerCallResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAnswerCallResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAnswerCallResult> {
+    async postApiV1BountiesByBountyidCallsAnswer(requestParameters: PostApiV1BountiesByBountyidCallsAnswerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAnswerCallResult> {
         const response = await this.postApiV1BountiesByBountyidCallsAnswerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPlaceCallResult>> {
+    async postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPlaceCallResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1877,19 +1877,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPlaceCallResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPlaceCallResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPlaceCallResult> {
+    async postApiV1BountiesByBountyidCallsPlace(requestParameters: PostApiV1BountiesByBountyidCallsPlaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPlaceCallResult> {
         const response = await this.postApiV1BountiesByBountyidCallsPlaceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async postApiV1BountiesByBountyidCloseauctionRaw(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1928,19 +1928,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async postApiV1BountiesByBountyidCloseauction(requestParameters: PostApiV1BountiesByBountyidCloseauctionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.postApiV1BountiesByBountyidCloseauctionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidDrawlotteryRaw(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>> {
+    async postApiV1BountiesByBountyidDrawlotteryRaw(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1979,19 +1979,19 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidDrawlottery(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse> {
+    async postApiV1BountiesByBountyidDrawlottery(requestParameters: PostApiV1BountiesByBountyidDrawlotteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
         const response = await this.postApiV1BountiesByBountyidDrawlotteryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidMenuActivateRaw(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async postApiV1BountiesByBountyidMenuActivateRaw(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2034,22 +2034,22 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerBountyControllerActivateMenuRequestToJSON(requestParameters['coEdgeappServerRestControllerBountyControllerActivateMenuRequest']),
+            body: RestControllerBountyControllerActivateMenuRequestToJSON(requestParameters['restControllerBountyControllerActivateMenuRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidMenuActivate(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async postApiV1BountiesByBountyidMenuActivate(requestParameters: PostApiV1BountiesByBountyidMenuActivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.postApiV1BountiesByBountyidMenuActivateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyResponse>> {
+    async postApiV1BountiesByBountyidNextwinnerRaw(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyResponse>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2088,12 +2088,12 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyResponse> {
+    async postApiV1BountiesByBountyidNextwinner(requestParameters: PostApiV1BountiesByBountyidNextwinnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyResponse> {
         const response = await this.postApiV1BountiesByBountyidNextwinnerRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2221,10 +2221,10 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataSponsorshipRequest'] == null) {
+        if (requestParameters['edgeApiDataSponsorshipRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataSponsorshipRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataSponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridAccept().'
+                'edgeApiDataSponsorshipRequest',
+                'Required parameter "edgeApiDataSponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridAccept().'
             );
         }
 
@@ -2260,7 +2260,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataSponsorshipRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataSponsorshipRequest']),
+            body: EdgeApiDataSponsorshipRequestToJSON(requestParameters['edgeApiDataSponsorshipRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -2275,7 +2275,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelShoppingCartOrderSummary>> {
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingCartOrderSummary>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2290,10 +2290,10 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataSponsorshipRequest'] == null) {
+        if (requestParameters['edgeApiDataSponsorshipRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataSponsorshipRequest',
-                'Required parameter "coEdgeappServerModelEdgeApiDataSponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridReject().'
+                'edgeApiDataSponsorshipRequest',
+                'Required parameter "edgeApiDataSponsorshipRequest" was null or undefined when calling postApiV1BountiesByBountyidSponsorshipsByAvataridReject().'
             );
         }
 
@@ -2329,15 +2329,15 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataSponsorshipRequestToJSON(requestParameters['coEdgeappServerModelEdgeApiDataSponsorshipRequest']),
+            body: EdgeApiDataSponsorshipRequestToJSON(requestParameters['edgeApiDataSponsorshipRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelShoppingCartOrderSummaryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingCartOrderSummaryFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelShoppingCartOrderSummary> {
+    async postApiV1BountiesByBountyidSponsorshipsByAvataridReject(requestParameters: PostApiV1BountiesByBountyidSponsorshipsByAvataridRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingCartOrderSummary> {
         const response = await this.postApiV1BountiesByBountyidSponsorshipsByAvataridRejectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2395,11 +2395,11 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
-        if (requestParameters['coEdgeappServerModelBounty'] == null) {
+    async postApiV1BountiesPublishRaw(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
+        if (requestParameters['bounty'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBounty',
-                'Required parameter "coEdgeappServerModelBounty" was null or undefined when calling postApiV1BountiesPublish().'
+                'bounty',
+                'Required parameter "bounty" was null or undefined when calling postApiV1BountiesPublish().'
             );
         }
 
@@ -2433,22 +2433,22 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBountyToJSON(requestParameters['coEdgeappServerModelBounty']),
+            body: BountyToJSON(requestParameters['bounty']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async postApiV1BountiesPublish(requestParameters: PostApiV1BountiesPublishRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.postApiV1BountiesPublishRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBountyTermsContentAccessRule>> {
+    async putApiV1BountiesByBountyidContentAccessRaw(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyTermsContentAccessRule>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2456,10 +2456,10 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBountyTermsContentAccessRule'] == null) {
+        if (requestParameters['bountyTermsContentAccessRule'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBountyTermsContentAccessRule',
-                'Required parameter "coEdgeappServerModelBountyTermsContentAccessRule" was null or undefined when calling putApiV1BountiesByBountyidContentAccess().'
+                'bountyTermsContentAccessRule',
+                'Required parameter "bountyTermsContentAccessRule" was null or undefined when calling putApiV1BountiesByBountyidContentAccess().'
             );
         }
 
@@ -2498,15 +2498,15 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBountyTermsContentAccessRuleToJSON(requestParameters['coEdgeappServerModelBountyTermsContentAccessRule']),
+            body: BountyTermsContentAccessRuleToJSON(requestParameters['bountyTermsContentAccessRule']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyTermsContentAccessRuleFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyTermsContentAccessRuleFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBountyTermsContentAccessRule> {
+    async putApiV1BountiesByBountyidContentAccess(requestParameters: PutApiV1BountiesByBountyidContentAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyTermsContentAccessRule> {
         const response = await this.putApiV1BountiesByBountyidContentAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2568,7 +2568,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
 
     /**
      */
-    async putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async putApiV1BountiesByBountyidUpdateRaw(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -2576,10 +2576,10 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelBountyChanges'] == null) {
+        if (requestParameters['bountyChanges'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBountyChanges',
-                'Required parameter "coEdgeappServerModelBountyChanges" was null or undefined when calling putApiV1BountiesByBountyidUpdate().'
+                'bountyChanges',
+                'Required parameter "bountyChanges" was null or undefined when calling putApiV1BountiesByBountyidUpdate().'
             );
         }
 
@@ -2614,15 +2614,15 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBountyChangesToJSON(requestParameters['coEdgeappServerModelBountyChanges']),
+            body: BountyChangesToJSON(requestParameters['bountyChanges']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async putApiV1BountiesByBountyidUpdate(requestParameters: PutApiV1BountiesByBountyidUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.putApiV1BountiesByBountyidUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2637,10 +2637,10 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataUpdateBountyStateReq'] == null) {
+        if (requestParameters['edgeApiDataUpdateBountyStateReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataUpdateBountyStateReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataUpdateBountyStateReq" was null or undefined when calling putApiV1BountiesByBountyidUpdateState().'
+                'edgeApiDataUpdateBountyStateReq',
+                'Required parameter "edgeApiDataUpdateBountyStateReq" was null or undefined when calling putApiV1BountiesByBountyidUpdateState().'
             );
         }
 
@@ -2675,7 +2675,7 @@ export class BountyControllerApi extends runtime.BaseAPI implements BountyContro
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataUpdateBountyStateReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataUpdateBountyStateReq']),
+            body: EdgeApiDataUpdateBountyStateReqToJSON(requestParameters['edgeApiDataUpdateBountyStateReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

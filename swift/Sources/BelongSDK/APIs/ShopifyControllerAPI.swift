@@ -61,10 +61,10 @@ open class ShopifyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataShopifyConnectResponse
+     - returns: EdgeApiDataShopifyConnectResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ShopifyConnect(shop: String, redirectUrl: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataShopifyConnectResponse {
+    open class func getApiV1ShopifyConnect(shop: String, redirectUrl: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataShopifyConnectResponse {
         return try await getApiV1ShopifyConnectWithRequestBuilder(shop: shop, redirectUrl: redirectUrl, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -78,9 +78,9 @@ open class ShopifyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse> 
+     - returns: RequestBuilder<EdgeApiDataShopifyConnectResponse> 
      */
-    open class func getApiV1ShopifyConnectWithRequestBuilder(shop: String, redirectUrl: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse> {
+    open class func getApiV1ShopifyConnectWithRequestBuilder(shop: String, redirectUrl: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataShopifyConnectResponse> {
         let localVariablePath = "/api/v1/shopify/connect"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -99,7 +99,7 @@ open class ShopifyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataShopifyConnectResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -165,10 +165,10 @@ open class ShopifyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerModelEdgeApiDataShopifyShopInfo]
+     - returns: [EdgeApiDataShopifyShopInfo]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ShopifyInfo(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelEdgeApiDataShopifyShopInfo] {
+    open class func getApiV1ShopifyInfo(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [EdgeApiDataShopifyShopInfo] {
         return try await getApiV1ShopifyInfoWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -180,9 +180,9 @@ open class ShopifyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerModelEdgeApiDataShopifyShopInfo]> 
+     - returns: RequestBuilder<[EdgeApiDataShopifyShopInfo]> 
      */
-    open class func getApiV1ShopifyInfoWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelEdgeApiDataShopifyShopInfo]> {
+    open class func getApiV1ShopifyInfoWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[EdgeApiDataShopifyShopInfo]> {
         let localVariablePath = "/api/v1/shopify/info"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -197,7 +197,7 @@ open class ShopifyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelEdgeApiDataShopifyShopInfo]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[EdgeApiDataShopifyShopInfo]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

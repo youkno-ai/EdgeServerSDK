@@ -15,38 +15,38 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite,
-  CoEdgeappServerModelUserInvite,
-  CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest,
-  CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest,
-  CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest,
-  CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest,
-  CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequest,
-  CoEdgeappServerRestControllerInviteControllerInvitesRolesResult,
-  CoEdgeappServerRestControllerInviteControllerSendInvitesRequest,
-  CoEdgeappServerRestControllerInviteControllerSendInvitesResponse,
+  EdgeApiDataPageUserInvite,
+  RestControllerInviteControllerCreateBountyInviteRequest,
+  RestControllerInviteControllerCreateCompanyInviteRequest,
+  RestControllerInviteControllerCreateGroupInviteRequest,
+  RestControllerInviteControllerCreatePlatformInviteRequest,
+  RestControllerInviteControllerGetInviteLinkRequest,
+  RestControllerInviteControllerInvitesRolesResult,
+  RestControllerInviteControllerSendInvitesRequest,
+  RestControllerInviteControllerSendInvitesResponse,
+  UserInvite,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteToJSON,
-    CoEdgeappServerModelUserInviteFromJSON,
-    CoEdgeappServerModelUserInviteToJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerInvitesRolesResultFromJSON,
-    CoEdgeappServerRestControllerInviteControllerInvitesRolesResultToJSON,
-    CoEdgeappServerRestControllerInviteControllerSendInvitesRequestFromJSON,
-    CoEdgeappServerRestControllerInviteControllerSendInvitesRequestToJSON,
-    CoEdgeappServerRestControllerInviteControllerSendInvitesResponseFromJSON,
-    CoEdgeappServerRestControllerInviteControllerSendInvitesResponseToJSON,
+    EdgeApiDataPageUserInviteFromJSON,
+    EdgeApiDataPageUserInviteToJSON,
+    RestControllerInviteControllerCreateBountyInviteRequestFromJSON,
+    RestControllerInviteControllerCreateBountyInviteRequestToJSON,
+    RestControllerInviteControllerCreateCompanyInviteRequestFromJSON,
+    RestControllerInviteControllerCreateCompanyInviteRequestToJSON,
+    RestControllerInviteControllerCreateGroupInviteRequestFromJSON,
+    RestControllerInviteControllerCreateGroupInviteRequestToJSON,
+    RestControllerInviteControllerCreatePlatformInviteRequestFromJSON,
+    RestControllerInviteControllerCreatePlatformInviteRequestToJSON,
+    RestControllerInviteControllerGetInviteLinkRequestFromJSON,
+    RestControllerInviteControllerGetInviteLinkRequestToJSON,
+    RestControllerInviteControllerInvitesRolesResultFromJSON,
+    RestControllerInviteControllerInvitesRolesResultToJSON,
+    RestControllerInviteControllerSendInvitesRequestFromJSON,
+    RestControllerInviteControllerSendInvitesRequestToJSON,
+    RestControllerInviteControllerSendInvitesResponseFromJSON,
+    RestControllerInviteControllerSendInvitesResponseToJSON,
+    UserInviteFromJSON,
+    UserInviteToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1InvitesByInviteidRequest {
@@ -123,7 +123,7 @@ export interface GetApiV1InvitesRolesRequest {
 }
 
 export interface PostApiV1InvitesRequest {
-    coEdgeappServerRestControllerInviteControllerSendInvitesRequest: CoEdgeappServerRestControllerInviteControllerSendInvitesRequest;
+    restControllerInviteControllerSendInvitesRequest: RestControllerInviteControllerSendInvitesRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -131,7 +131,7 @@ export interface PostApiV1InvitesRequest {
 
 export interface PostApiV1InvitesBountyByBountyidRequest {
     bountyId: string;
-    coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest;
+    restControllerInviteControllerCreateBountyInviteRequest: RestControllerInviteControllerCreateBountyInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -146,7 +146,7 @@ export interface PostApiV1InvitesByInviteidResendRequest {
 
 export interface PostApiV1InvitesCompanyByCompanyidRequest {
     companyId: string;
-    coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest;
+    restControllerInviteControllerCreateCompanyInviteRequest: RestControllerInviteControllerCreateCompanyInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -154,21 +154,21 @@ export interface PostApiV1InvitesCompanyByCompanyidRequest {
 
 export interface PostApiV1InvitesGroupByGroupidRequest {
     groupId: string;
-    coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest;
+    restControllerInviteControllerCreateGroupInviteRequest: RestControllerInviteControllerCreateGroupInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1InvitesLinkRequest {
-    coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequest;
+    restControllerInviteControllerGetInviteLinkRequest: RestControllerInviteControllerGetInviteLinkRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1InvitesPlatformRequest {
-    coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest;
+    restControllerInviteControllerCreatePlatformInviteRequest: RestControllerInviteControllerCreatePlatformInviteRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -176,7 +176,7 @@ export interface PostApiV1InvitesPlatformRequest {
 
 export interface PutApiV1InvitesByInviteidRequest {
     inviteId: string;
-    coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite;
+    userInvite: UserInvite;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -218,11 +218,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
 
     /**
      */
-    getApiV1Invites(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>;
+    getApiV1Invites(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -236,11 +236,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
 
     /**
      */
-    getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>;
+    getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -252,11 +252,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -270,11 +270,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
 
     /**
      */
-    getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>;
+    getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -287,11 +287,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -305,11 +305,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
 
     /**
      */
-    getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>;
+    getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -322,11 +322,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>>;
+    getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>>;
 
     /**
      */
-    getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>;
+    getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite>;
 
     /**
      * 
@@ -337,15 +337,15 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult>>;
+    getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerInviteControllerInvitesRolesResult>>;
 
     /**
      */
-    getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult>;
+    getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerInvitesRolesResult>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerInviteControllerSendInvitesRequest} coEdgeappServerRestControllerInviteControllerSendInvitesRequest 
+     * @param {RestControllerInviteControllerSendInvitesRequest} restControllerInviteControllerSendInvitesRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -354,17 +354,17 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse>>;
+    postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerInviteControllerSendInvitesResponse>>;
 
     /**
      * @deprecated
      */
-    postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse>;
+    postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerSendInvitesResponse>;
 
     /**
      * 
      * @param {string} bountyId 
-     * @param {CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest} coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest 
+     * @param {RestControllerInviteControllerCreateBountyInviteRequest} restControllerInviteControllerCreateBountyInviteRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -372,11 +372,11 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
@@ -397,7 +397,7 @@ export interface InviteControllerApiInterface {
     /**
      * 
      * @param {string} companyId 
-     * @param {CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest} coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest 
+     * @param {RestControllerInviteControllerCreateCompanyInviteRequest} restControllerInviteControllerCreateCompanyInviteRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -405,16 +405,16 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
      * @param {string} groupId 
-     * @param {CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest} coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest 
+     * @param {RestControllerInviteControllerCreateGroupInviteRequest} restControllerInviteControllerCreateGroupInviteRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -422,15 +422,15 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequest} coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest 
+     * @param {RestControllerInviteControllerGetInviteLinkRequest} restControllerInviteControllerGetInviteLinkRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -438,15 +438,15 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest} coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest 
+     * @param {RestControllerInviteControllerCreatePlatformInviteRequest} restControllerInviteControllerCreatePlatformInviteRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -454,16 +454,16 @@ export interface InviteControllerApiInterface {
      * @throws {RequiredError}
      * @memberof InviteControllerApiInterface
      */
-    postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>>;
+    postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>>;
 
     /**
      */
-    postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite>;
+    postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite>;
 
     /**
      * 
      * @param {string} inviteId 
-     * @param {CoEdgeappServerModelUserInvite} coEdgeappServerModelUserInvite 
+     * @param {UserInvite} userInvite 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -536,7 +536,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesRaw(requestParameters: GetApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -583,19 +583,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Invites(requestParameters: GetApiV1InvitesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    async getApiV1Invites(requestParameters: GetApiV1InvitesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesBountyByBountyidRaw(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -642,19 +642,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesBountyByBountyid(requestParameters: GetApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesBountyByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesByInviteidRaw(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['inviteId'] == null) {
             throw new runtime.RequiredError(
                 'inviteId',
@@ -693,19 +693,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesByInviteid(requestParameters: GetApiV1InvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.getApiV1InvitesByInviteidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesCompanyByCompanyidRaw(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -752,19 +752,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesCompanyByCompanyid(requestParameters: GetApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesCompanyByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['dealId'] == null) {
             throw new runtime.RequiredError(
                 'dealId',
@@ -811,19 +811,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesDealsByDealidInvitesByInviteid(requestParameters: GetApiV1InvitesDealsByDealidInvitesByInviteidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.getApiV1InvitesDealsByDealidInvitesByInviteidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesGroupByGroupidRaw(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -870,19 +870,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesGroupByGroupid(requestParameters: GetApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesGroupByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>> {
+    async getApiV1InvitesPlatformRaw(requestParameters: GetApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserInvite>> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -921,19 +921,19 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    async getApiV1InvitesPlatform(requestParameters: GetApiV1InvitesPlatformRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserInvite> {
         const response = await this.getApiV1InvitesPlatformRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult>> {
+    async getApiV1InvitesRolesRaw(requestParameters: GetApiV1InvitesRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerInviteControllerInvitesRolesResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -964,12 +964,12 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerInviteControllerInvitesRolesResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerInviteControllerInvitesRolesResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult> {
+    async getApiV1InvitesRoles(requestParameters: GetApiV1InvitesRolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerInvitesRolesResult> {
         const response = await this.getApiV1InvitesRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -977,11 +977,11 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
     /**
      * @deprecated
      */
-    async postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse>> {
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerSendInvitesRequest'] == null) {
+    async postApiV1InvitesRaw(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerInviteControllerSendInvitesResponse>> {
+        if (requestParameters['restControllerInviteControllerSendInvitesRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerSendInvitesRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerSendInvitesRequest" was null or undefined when calling postApiV1Invites().'
+                'restControllerInviteControllerSendInvitesRequest',
+                'Required parameter "restControllerInviteControllerSendInvitesRequest" was null or undefined when calling postApiV1Invites().'
             );
         }
 
@@ -1015,23 +1015,23 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerSendInvitesRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerSendInvitesRequest']),
+            body: RestControllerInviteControllerSendInvitesRequestToJSON(requestParameters['restControllerInviteControllerSendInvitesRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestControllerInviteControllerSendInvitesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerInviteControllerSendInvitesResponseFromJSON(jsonValue));
     }
 
     /**
      * @deprecated
      */
-    async postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse> {
+    async postApiV1Invites(requestParameters: PostApiV1InvitesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerInviteControllerSendInvitesResponse> {
         const response = await this.postApiV1InvitesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async postApiV1InvitesBountyByBountyidRaw(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1039,10 +1039,10 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             );
         }
 
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest'] == null) {
+        if (requestParameters['restControllerInviteControllerCreateBountyInviteRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest" was null or undefined when calling postApiV1InvitesBountyByBountyid().'
+                'restControllerInviteControllerCreateBountyInviteRequest',
+                'Required parameter "restControllerInviteControllerCreateBountyInviteRequest" was null or undefined when calling postApiV1InvitesBountyByBountyid().'
             );
         }
 
@@ -1077,15 +1077,15 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest']),
+            body: RestControllerInviteControllerCreateBountyInviteRequestToJSON(requestParameters['restControllerInviteControllerCreateBountyInviteRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async postApiV1InvitesBountyByBountyid(requestParameters: PostApiV1InvitesBountyByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesBountyByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1142,7 +1142,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
 
     /**
      */
-    async postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async postApiV1InvitesCompanyByCompanyidRaw(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1150,10 +1150,10 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             );
         }
 
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest'] == null) {
+        if (requestParameters['restControllerInviteControllerCreateCompanyInviteRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest" was null or undefined when calling postApiV1InvitesCompanyByCompanyid().'
+                'restControllerInviteControllerCreateCompanyInviteRequest',
+                'Required parameter "restControllerInviteControllerCreateCompanyInviteRequest" was null or undefined when calling postApiV1InvitesCompanyByCompanyid().'
             );
         }
 
@@ -1188,22 +1188,22 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest']),
+            body: RestControllerInviteControllerCreateCompanyInviteRequestToJSON(requestParameters['restControllerInviteControllerCreateCompanyInviteRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async postApiV1InvitesCompanyByCompanyid(requestParameters: PostApiV1InvitesCompanyByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesCompanyByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
+    async postApiV1InvitesGroupByGroupidRaw(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -1211,10 +1211,10 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             );
         }
 
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest'] == null) {
+        if (requestParameters['restControllerInviteControllerCreateGroupInviteRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest" was null or undefined when calling postApiV1InvitesGroupByGroupid().'
+                'restControllerInviteControllerCreateGroupInviteRequest',
+                'Required parameter "restControllerInviteControllerCreateGroupInviteRequest" was null or undefined when calling postApiV1InvitesGroupByGroupid().'
             );
         }
 
@@ -1249,26 +1249,26 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest']),
+            body: RestControllerInviteControllerCreateGroupInviteRequestToJSON(requestParameters['restControllerInviteControllerCreateGroupInviteRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async postApiV1InvitesGroupByGroupid(requestParameters: PostApiV1InvitesGroupByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesGroupByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest'] == null) {
+    async postApiV1InvitesLinkRaw(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['restControllerInviteControllerGetInviteLinkRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest" was null or undefined when calling postApiV1InvitesLink().'
+                'restControllerInviteControllerGetInviteLinkRequest',
+                'Required parameter "restControllerInviteControllerGetInviteLinkRequest" was null or undefined when calling postApiV1InvitesLink().'
             );
         }
 
@@ -1302,26 +1302,26 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest']),
+            body: RestControllerInviteControllerGetInviteLinkRequestToJSON(requestParameters['restControllerInviteControllerGetInviteLinkRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async postApiV1InvitesLink(requestParameters: PostApiV1InvitesLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesLinkRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserInvite>> {
-        if (requestParameters['coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest'] == null) {
+    async postApiV1InvitesPlatformRaw(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInvite>> {
+        if (requestParameters['restControllerInviteControllerCreatePlatformInviteRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest',
-                'Required parameter "coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest" was null or undefined when calling postApiV1InvitesPlatform().'
+                'restControllerInviteControllerCreatePlatformInviteRequest',
+                'Required parameter "restControllerInviteControllerCreatePlatformInviteRequest" was null or undefined when calling postApiV1InvitesPlatform().'
             );
         }
 
@@ -1355,15 +1355,15 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequestToJSON(requestParameters['coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest']),
+            body: RestControllerInviteControllerCreatePlatformInviteRequestToJSON(requestParameters['restControllerInviteControllerCreatePlatformInviteRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserInviteFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInviteFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserInvite> {
+    async postApiV1InvitesPlatform(requestParameters: PostApiV1InvitesPlatformRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInvite> {
         const response = await this.postApiV1InvitesPlatformRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1378,10 +1378,10 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             );
         }
 
-        if (requestParameters['coEdgeappServerModelUserInvite'] == null) {
+        if (requestParameters['userInvite'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelUserInvite',
-                'Required parameter "coEdgeappServerModelUserInvite" was null or undefined when calling putApiV1InvitesByInviteid().'
+                'userInvite',
+                'Required parameter "userInvite" was null or undefined when calling putApiV1InvitesByInviteid().'
             );
         }
 
@@ -1416,7 +1416,7 @@ export class InviteControllerApi extends runtime.BaseAPI implements InviteContro
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelUserInviteToJSON(requestParameters['coEdgeappServerModelUserInvite']),
+            body: UserInviteToJSON(requestParameters['userInvite']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

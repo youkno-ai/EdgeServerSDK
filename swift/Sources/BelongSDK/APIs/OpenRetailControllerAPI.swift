@@ -66,10 +66,10 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteApiV1OpenRetailCartsByCartidItemsByItemid(cartId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
+    open class func deleteApiV1OpenRetailCartsByCartidItemsByItemid(cartId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
         return try await deleteApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: cartId, itemId: itemId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -83,9 +83,9 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func deleteApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func deleteApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}/items/{itemId}"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -131,10 +131,10 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart
+     - returns: EdgeApiDataPageShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenRetailCarts(marketId: String? = nil, status: Status_getApiV1OpenRetailCarts? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart {
+    open class func getApiV1OpenRetailCarts(marketId: String? = nil, status: Status_getApiV1OpenRetailCarts? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageShoppingCart {
         return try await getApiV1OpenRetailCartsWithRequestBuilder(marketId: marketId, status: status, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -150,9 +150,9 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<EdgeApiDataPageShoppingCart> 
      */
-    open class func getApiV1OpenRetailCartsWithRequestBuilder(marketId: String? = nil, status: Status_getApiV1OpenRetailCarts? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart> {
+    open class func getApiV1OpenRetailCartsWithRequestBuilder(marketId: String? = nil, status: Status_getApiV1OpenRetailCarts? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageShoppingCart> {
         let localVariablePath = "/api/v1/open/retail/carts"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -173,7 +173,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -184,10 +184,10 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenRetailCartsByCartid(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
+    open class func getApiV1OpenRetailCartsByCartid(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
         return try await getApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: cartId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -200,9 +200,9 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func getApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func getApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -220,7 +220,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -231,10 +231,10 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCartOrderSummary
+     - returns: ShoppingCartOrderSummary
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenRetailCartsByCartidSummary(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCartOrderSummary {
+    open class func getApiV1OpenRetailCartsByCartidSummary(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCartOrderSummary {
         return try await getApiV1OpenRetailCartsByCartidSummaryWithRequestBuilder(cartId: cartId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -247,9 +247,9 @@ open class OpenRetailControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCartOrderSummary> 
+     - returns: RequestBuilder<ShoppingCartOrderSummary> 
      */
-    open class func getApiV1OpenRetailCartsByCartidSummaryWithRequestBuilder(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCartOrderSummary> {
+    open class func getApiV1OpenRetailCartsByCartidSummaryWithRequestBuilder(cartId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCartOrderSummary> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}/summary"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -267,7 +267,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCartOrderSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCartOrderSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -275,15 +275,15 @@ open class OpenRetailControllerAPI {
     /**
 
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func patchApiV1OpenRetailCartsByCartid(cartId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
-        return try await patchApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: cartId, coEdgeappServerModelShoppingCart: coEdgeappServerModelShoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func patchApiV1OpenRetailCartsByCartid(cartId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
+        return try await patchApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: cartId, shoppingCart: shoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -292,19 +292,19 @@ open class OpenRetailControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func patchApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func patchApiV1OpenRetailCartsByCartidWithRequestBuilder(cartId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cartId}", with: cartIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCart)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCart)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -317,7 +317,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -326,15 +326,15 @@ open class OpenRetailControllerAPI {
 
      - parameter cartId: (path)  
      - parameter itemId: (path)  
-     - parameter coEdgeappServerModelShoppingCartProductInfo: (body)  
+     - parameter shoppingCartProductInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func patchApiV1OpenRetailCartsByCartidItemsByItemid(cartId: String, itemId: String, coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
-        return try await patchApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: cartId, itemId: itemId, coEdgeappServerModelShoppingCartProductInfo: coEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func patchApiV1OpenRetailCartsByCartidItemsByItemid(cartId: String, itemId: String, shoppingCartProductInfo: ShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
+        return try await patchApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: cartId, itemId: itemId, shoppingCartProductInfo: shoppingCartProductInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -344,13 +344,13 @@ open class OpenRetailControllerAPI {
        - name: JWT
      - parameter cartId: (path)  
      - parameter itemId: (path)  
-     - parameter coEdgeappServerModelShoppingCartProductInfo: (body)  
+     - parameter shoppingCartProductInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func patchApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: String, itemId: String, coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func patchApiV1OpenRetailCartsByCartidItemsByItemidWithRequestBuilder(cartId: String, itemId: String, shoppingCartProductInfo: ShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}/items/{itemId}"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -359,7 +359,7 @@ open class OpenRetailControllerAPI {
         let itemIdPostEscape = itemIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{itemId}", with: itemIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCartProductInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCartProductInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -372,22 +372,22 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenRetailCarts(coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
-        return try await postApiV1OpenRetailCartsWithRequestBuilder(coEdgeappServerModelShoppingCart: coEdgeappServerModelShoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenRetailCarts(shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
+        return try await postApiV1OpenRetailCartsWithRequestBuilder(shoppingCart: shoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -395,16 +395,16 @@ open class OpenRetailControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func postApiV1OpenRetailCartsWithRequestBuilder(coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func postApiV1OpenRetailCartsWithRequestBuilder(shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         let localVariablePath = "/api/v1/open/retail/carts"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCart)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCart)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -417,7 +417,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -425,15 +425,15 @@ open class OpenRetailControllerAPI {
     /**
 
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCartProductInfo: (body)  
+     - parameter shoppingCartProductInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelShoppingCart
+     - returns: ShoppingCart
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenRetailCartsByCartidItems(cartId: String, coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelShoppingCart {
-        return try await postApiV1OpenRetailCartsByCartidItemsWithRequestBuilder(cartId: cartId, coEdgeappServerModelShoppingCartProductInfo: coEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenRetailCartsByCartidItems(cartId: String, shoppingCartProductInfo: ShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCart {
+        return try await postApiV1OpenRetailCartsByCartidItemsWithRequestBuilder(cartId: cartId, shoppingCartProductInfo: shoppingCartProductInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -442,19 +442,19 @@ open class OpenRetailControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCartProductInfo: (body)  
+     - parameter shoppingCartProductInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelShoppingCart> 
+     - returns: RequestBuilder<ShoppingCart> 
      */
-    open class func postApiV1OpenRetailCartsByCartidItemsWithRequestBuilder(cartId: String, coEdgeappServerModelShoppingCartProductInfo: CoEdgeappServerModelShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelShoppingCart> {
+    open class func postApiV1OpenRetailCartsByCartidItemsWithRequestBuilder(cartId: String, shoppingCartProductInfo: ShoppingCartProductInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCart> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}/items"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cartId}", with: cartIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCartProductInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCartProductInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -467,7 +467,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShoppingCart>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -475,15 +475,15 @@ open class OpenRetailControllerAPI {
     /**
 
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataOrderResponse
+     - returns: EdgeApiDataOrderResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenRetailCartsByCartidOrder(cartId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataOrderResponse {
-        return try await postApiV1OpenRetailCartsByCartidOrderWithRequestBuilder(cartId: cartId, coEdgeappServerModelShoppingCart: coEdgeappServerModelShoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenRetailCartsByCartidOrder(cartId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataOrderResponse {
+        return try await postApiV1OpenRetailCartsByCartidOrderWithRequestBuilder(cartId: cartId, shoppingCart: shoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -492,19 +492,19 @@ open class OpenRetailControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter cartId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataOrderResponse> 
+     - returns: RequestBuilder<EdgeApiDataOrderResponse> 
      */
-    open class func postApiV1OpenRetailCartsByCartidOrderWithRequestBuilder(cartId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataOrderResponse> {
+    open class func postApiV1OpenRetailCartsByCartidOrderWithRequestBuilder(cartId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataOrderResponse> {
         var localVariablePath = "/api/v1/open/retail/carts/{cartId}/order"
         let cartIdPreEscape = "\(APIHelper.mapValueToPathItem(cartId))"
         let cartIdPostEscape = cartIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cartId}", with: cartIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCart)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCart)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -517,7 +517,7 @@ open class OpenRetailControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataOrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataOrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

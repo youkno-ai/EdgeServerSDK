@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataSmsVerification,
-  CoEdgeappServerRestModelUserAuth,
+  EdgeApiDataSmsVerification,
+  RestModelUserAuth,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataSmsVerificationFromJSON,
-    CoEdgeappServerModelEdgeApiDataSmsVerificationToJSON,
-    CoEdgeappServerRestModelUserAuthFromJSON,
-    CoEdgeappServerRestModelUserAuthToJSON,
+    EdgeApiDataSmsVerificationFromJSON,
+    EdgeApiDataSmsVerificationToJSON,
+    RestModelUserAuthFromJSON,
+    RestModelUserAuthToJSON,
 } from '../models/index';
 
 export interface GetApiV1TwilioAccessTokenRequest {
@@ -39,7 +39,7 @@ export interface PostApiV1TwilioPhoneSendTokenRequest {
 }
 
 export interface PostApiV1TwilioPhoneVerifyTokenRequest {
-    coEdgeappServerModelEdgeApiDataSmsVerification: CoEdgeappServerModelEdgeApiDataSmsVerification;
+    edgeApiDataSmsVerification: EdgeApiDataSmsVerification;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -82,11 +82,11 @@ export interface TwilioControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TwilioControllerApiInterface
      */
-    getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestModelUserAuth>>;
+    getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestModelUserAuth>>;
 
     /**
      */
-    getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestModelUserAuth>;
+    getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestModelUserAuth>;
 
     /**
      * 
@@ -106,7 +106,7 @@ export interface TwilioControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerModelEdgeApiDataSmsVerification} coEdgeappServerModelEdgeApiDataSmsVerification 
+     * @param {EdgeApiDataSmsVerification} edgeApiDataSmsVerification 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -177,7 +177,7 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
 
     /**
      */
-    async getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerRestModelUserAuth>> {
+    async getApiV1TwilioAccessTokenRaw(requestParameters: GetApiV1TwilioAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestModelUserAuth>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -208,12 +208,12 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerRestModelUserAuthFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RestModelUserAuthFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerRestModelUserAuth> {
+    async getApiV1TwilioAccessToken(requestParameters: GetApiV1TwilioAccessTokenRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestModelUserAuth> {
         const response = await this.getApiV1TwilioAccessTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -274,10 +274,10 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
     /**
      */
     async postApiV1TwilioPhoneVerifyTokenRaw(requestParameters: PostApiV1TwilioPhoneVerifyTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['coEdgeappServerModelEdgeApiDataSmsVerification'] == null) {
+        if (requestParameters['edgeApiDataSmsVerification'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataSmsVerification',
-                'Required parameter "coEdgeappServerModelEdgeApiDataSmsVerification" was null or undefined when calling postApiV1TwilioPhoneVerifyToken().'
+                'edgeApiDataSmsVerification',
+                'Required parameter "edgeApiDataSmsVerification" was null or undefined when calling postApiV1TwilioPhoneVerifyToken().'
             );
         }
 
@@ -311,7 +311,7 @@ export class TwilioControllerApi extends runtime.BaseAPI implements TwilioContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataSmsVerificationToJSON(requestParameters['coEdgeappServerModelEdgeApiDataSmsVerification']),
+            body: EdgeApiDataSmsVerificationToJSON(requestParameters['edgeApiDataSmsVerification']),
         }, initOverrides);
 
         if (this.isJsonMime(response.headers.get('content-type'))) {

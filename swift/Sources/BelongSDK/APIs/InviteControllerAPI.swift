@@ -81,10 +81,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite
+     - returns: EdgeApiDataPageUserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Invites(companyId: String? = nil, start: Int? = nil, limit: Int? = nil, statuses: [Statuses_getApiV1Invites]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite {
+    open class func getApiV1Invites(companyId: String? = nil, start: Int? = nil, limit: Int? = nil, statuses: [Statuses_getApiV1Invites]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
         return try await getApiV1InvitesWithRequestBuilder(companyId: companyId, start: start, limit: limit, statuses: statuses, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -100,9 +100,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
      */
-    open class func getApiV1InvitesWithRequestBuilder(companyId: String? = nil, start: Int? = nil, limit: Int? = nil, statuses: [Statuses_getApiV1Invites]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesWithRequestBuilder(companyId: String? = nil, start: Int? = nil, limit: Int? = nil, statuses: [Statuses_getApiV1Invites]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
         let localVariablePath = "/api/v1/invites"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -123,7 +123,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -136,10 +136,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite
+     - returns: EdgeApiDataPageUserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesBountyByBountyid(bountyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesBountyByBountyid(bountyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
         return try await getApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: bountyId, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -154,9 +154,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
      */
-    open class func getApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
         var localVariablePath = "/api/v1/invites/bounty/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -178,7 +178,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -189,10 +189,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesByInviteid(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesByInviteid(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
         return try await getApiV1InvitesByInviteidWithRequestBuilder(inviteId: inviteId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -205,9 +205,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func getApiV1InvitesByInviteidWithRequestBuilder(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesByInviteidWithRequestBuilder(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         var localVariablePath = "/api/v1/invites/{inviteId}"
         let inviteIdPreEscape = "\(APIHelper.mapValueToPathItem(inviteId))"
         let inviteIdPostEscape = inviteIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -225,7 +225,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -238,10 +238,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite
+     - returns: EdgeApiDataPageUserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesCompanyByCompanyid(companyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesCompanyByCompanyid(companyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
         return try await getApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: companyId, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -256,9 +256,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
      */
-    open class func getApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
         var localVariablePath = "/api/v1/invites/company/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -280,7 +280,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -292,10 +292,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesDealsByDealidInvitesByInviteid(dealId: String, inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesDealsByDealidInvitesByInviteid(dealId: String, inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
         return try await getApiV1InvitesDealsByDealidInvitesByInviteidWithRequestBuilder(dealId: dealId, inviteId: inviteId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -309,9 +309,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func getApiV1InvitesDealsByDealidInvitesByInviteidWithRequestBuilder(dealId: String, inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesDealsByDealidInvitesByInviteidWithRequestBuilder(dealId: String, inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         var localVariablePath = "/api/v1/invites/deals/{dealId}/invites/{inviteId}"
         let dealIdPreEscape = "\(APIHelper.mapValueToPathItem(dealId))"
         let dealIdPostEscape = dealIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -332,7 +332,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -345,10 +345,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite
+     - returns: EdgeApiDataPageUserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesGroupByGroupid(groupId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesGroupByGroupid(groupId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
         return try await getApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: groupId, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -363,9 +363,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
      */
-    open class func getApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
         var localVariablePath = "/api/v1/invites/group/{groupId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -387,7 +387,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -399,10 +399,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite
+     - returns: EdgeApiDataPageUserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesPlatform(start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite {
+    open class func getApiV1InvitesPlatform(start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserInvite {
         return try await getApiV1InvitesPlatformWithRequestBuilder(start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -416,9 +416,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<EdgeApiDataPageUserInvite> 
      */
-    open class func getApiV1InvitesPlatformWithRequestBuilder(start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite> {
+    open class func getApiV1InvitesPlatformWithRequestBuilder(start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserInvite> {
         let localVariablePath = "/api/v1/invites/platform"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -437,7 +437,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -447,10 +447,10 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerInviteControllerInvitesRolesResult
+     - returns: RestControllerInviteControllerInvitesRolesResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1InvitesRoles(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerInviteControllerInvitesRolesResult {
+    open class func getApiV1InvitesRoles(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerInviteControllerInvitesRolesResult {
         return try await getApiV1InvitesRolesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -462,9 +462,9 @@ open class InviteControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult> 
+     - returns: RequestBuilder<RestControllerInviteControllerInvitesRolesResult> 
      */
-    open class func getApiV1InvitesRolesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult> {
+    open class func getApiV1InvitesRolesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerInviteControllerInvitesRolesResult> {
         let localVariablePath = "/api/v1/invites/roles"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -479,23 +479,23 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerInviteControllerInvitesRolesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerInviteControllerInvitesRolesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerInviteControllerSendInvitesRequest: (body)  
+     - parameter restControllerInviteControllerSendInvitesRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerInviteControllerSendInvitesResponse
+     - returns: RestControllerInviteControllerSendInvitesResponse
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Invites(coEdgeappServerRestControllerInviteControllerSendInvitesRequest: CoEdgeappServerRestControllerInviteControllerSendInvitesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerInviteControllerSendInvitesResponse {
-        return try await postApiV1InvitesWithRequestBuilder(coEdgeappServerRestControllerInviteControllerSendInvitesRequest: coEdgeappServerRestControllerInviteControllerSendInvitesRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Invites(restControllerInviteControllerSendInvitesRequest: RestControllerInviteControllerSendInvitesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerInviteControllerSendInvitesResponse {
+        return try await postApiV1InvitesWithRequestBuilder(restControllerInviteControllerSendInvitesRequest: restControllerInviteControllerSendInvitesRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -503,17 +503,17 @@ open class InviteControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerInviteControllerSendInvitesRequest: (body)  
+     - parameter restControllerInviteControllerSendInvitesRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse> 
+     - returns: RequestBuilder<RestControllerInviteControllerSendInvitesResponse> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func postApiV1InvitesWithRequestBuilder(coEdgeappServerRestControllerInviteControllerSendInvitesRequest: CoEdgeappServerRestControllerInviteControllerSendInvitesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse> {
+    open class func postApiV1InvitesWithRequestBuilder(restControllerInviteControllerSendInvitesRequest: RestControllerInviteControllerSendInvitesRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerInviteControllerSendInvitesResponse> {
         let localVariablePath = "/api/v1/invites"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerSendInvitesRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerSendInvitesRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -526,7 +526,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerInviteControllerSendInvitesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerInviteControllerSendInvitesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -534,15 +534,15 @@ open class InviteControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateBountyInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1InvitesBountyByBountyid(bountyId: String, coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
-        return try await postApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: bountyId, coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1InvitesBountyByBountyid(bountyId: String, restControllerInviteControllerCreateBountyInviteRequest: RestControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: bountyId, restControllerInviteControllerCreateBountyInviteRequest: restControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -551,19 +551,19 @@ open class InviteControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateBountyInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func postApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: String, coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func postApiV1InvitesBountyByBountyidWithRequestBuilder(bountyId: String, restControllerInviteControllerCreateBountyInviteRequest: RestControllerInviteControllerCreateBountyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         var localVariablePath = "/api/v1/invites/bounty/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerCreateBountyInviteRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreateBountyInviteRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -576,7 +576,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -631,15 +631,15 @@ open class InviteControllerAPI {
     /**
 
      - parameter companyId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateCompanyInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1InvitesCompanyByCompanyid(companyId: String, coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
-        return try await postApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: companyId, coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1InvitesCompanyByCompanyid(companyId: String, restControllerInviteControllerCreateCompanyInviteRequest: RestControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: companyId, restControllerInviteControllerCreateCompanyInviteRequest: restControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -648,19 +648,19 @@ open class InviteControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter companyId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateCompanyInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func postApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: String, coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func postApiV1InvitesCompanyByCompanyidWithRequestBuilder(companyId: String, restControllerInviteControllerCreateCompanyInviteRequest: RestControllerInviteControllerCreateCompanyInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         var localVariablePath = "/api/v1/invites/company/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{companyId}", with: companyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerCreateCompanyInviteRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreateCompanyInviteRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -673,7 +673,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -681,15 +681,15 @@ open class InviteControllerAPI {
     /**
 
      - parameter groupId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateGroupInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1InvitesGroupByGroupid(groupId: String, coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
-        return try await postApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: groupId, coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1InvitesGroupByGroupid(groupId: String, restControllerInviteControllerCreateGroupInviteRequest: RestControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: groupId, restControllerInviteControllerCreateGroupInviteRequest: restControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -698,19 +698,19 @@ open class InviteControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter groupId: (path)  
-     - parameter coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreateGroupInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func postApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: String, coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest: CoEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func postApiV1InvitesGroupByGroupidWithRequestBuilder(groupId: String, restControllerInviteControllerCreateGroupInviteRequest: RestControllerInviteControllerCreateGroupInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         var localVariablePath = "/api/v1/invites/group/{groupId}"
         let groupIdPreEscape = "\(APIHelper.mapValueToPathItem(groupId))"
         let groupIdPostEscape = groupIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{groupId}", with: groupIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerCreateGroupInviteRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreateGroupInviteRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -723,22 +723,22 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: (body)  
+     - parameter restControllerInviteControllerGetInviteLinkRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1InvitesLink(coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
-        return try await postApiV1InvitesLinkWithRequestBuilder(coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1InvitesLink(restControllerInviteControllerGetInviteLinkRequest: RestControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesLinkWithRequestBuilder(restControllerInviteControllerGetInviteLinkRequest: restControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -746,16 +746,16 @@ open class InviteControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: (body)  
+     - parameter restControllerInviteControllerGetInviteLinkRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func postApiV1InvitesLinkWithRequestBuilder(coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest: CoEdgeappServerRestControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func postApiV1InvitesLinkWithRequestBuilder(restControllerInviteControllerGetInviteLinkRequest: RestControllerInviteControllerGetInviteLinkRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         let localVariablePath = "/api/v1/invites/link"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerGetInviteLinkRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerGetInviteLinkRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -768,22 +768,22 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreatePlatformInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserInvite
+     - returns: UserInvite
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1InvitesPlatform(coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserInvite {
-        return try await postApiV1InvitesPlatformWithRequestBuilder(coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1InvitesPlatform(restControllerInviteControllerCreatePlatformInviteRequest: RestControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserInvite {
+        return try await postApiV1InvitesPlatformWithRequestBuilder(restControllerInviteControllerCreatePlatformInviteRequest: restControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -791,16 +791,16 @@ open class InviteControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: (body)  
+     - parameter restControllerInviteControllerCreatePlatformInviteRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserInvite> 
+     - returns: RequestBuilder<UserInvite> 
      */
-    open class func postApiV1InvitesPlatformWithRequestBuilder(coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest: CoEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserInvite> {
+    open class func postApiV1InvitesPlatformWithRequestBuilder(restControllerInviteControllerCreatePlatformInviteRequest: RestControllerInviteControllerCreatePlatformInviteRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserInvite> {
         let localVariablePath = "/api/v1/invites/platform"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerInviteControllerCreatePlatformInviteRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerInviteControllerCreatePlatformInviteRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -813,7 +813,7 @@ open class InviteControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserInvite>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -821,15 +821,15 @@ open class InviteControllerAPI {
     /**
 
      - parameter inviteId: (path)  
-     - parameter coEdgeappServerModelUserInvite: (body)  
+     - parameter userInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1InvitesByInviteid(inviteId: String, coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1InvitesByInviteidWithRequestBuilder(inviteId: inviteId, coEdgeappServerModelUserInvite: coEdgeappServerModelUserInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1InvitesByInviteid(inviteId: String, userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1InvitesByInviteidWithRequestBuilder(inviteId: inviteId, userInvite: userInvite, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -838,19 +838,19 @@ open class InviteControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter inviteId: (path)  
-     - parameter coEdgeappServerModelUserInvite: (body)  
+     - parameter userInvite: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func putApiV1InvitesByInviteidWithRequestBuilder(inviteId: String, coEdgeappServerModelUserInvite: CoEdgeappServerModelUserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1InvitesByInviteidWithRequestBuilder(inviteId: String, userInvite: UserInvite, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/invites/{inviteId}"
         let inviteIdPreEscape = "\(APIHelper.mapValueToPathItem(inviteId))"
         let inviteIdPostEscape = inviteIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{inviteId}", with: inviteIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelUserInvite)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userInvite)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

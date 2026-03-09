@@ -6,9 +6,9 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataGeofencesResp
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataGeofencesResp
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelGeofences
+import ai.youkno.edgeserversdk.models.EdgeApiDataGeofencesResp
+import ai.youkno.edgeserversdk.models.EdgeApiDataPageEdgeApiDataGeofencesResp
+import ai.youkno.edgeserversdk.models.Geofences
 
 interface GeofencesControllerApi {
     /**
@@ -40,10 +40,10 @@ interface GeofencesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataGeofencesResp]>
+     * @return [Call]<[EdgeApiDataPageEdgeApiDataGeofencesResp]>
      */
     @GET("api/v1/geofences")
-    fun getApiV1Geofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataPageCoedgeappservermodelEdgeApiDataGeofencesResp>
+    fun getApiV1Geofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageEdgeApiDataGeofencesResp>
 
     /**
      * GET api/v1/geofences/{bountyId}
@@ -56,10 +56,10 @@ interface GeofencesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataGeofencesResp]>
+     * @return [Call]<[EdgeApiDataGeofencesResp]>
      */
     @GET("api/v1/geofences/{bountyId}")
-    fun getApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataGeofencesResp>
+    fun getApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataGeofencesResp>
 
     /**
      * POST api/v1/geofences
@@ -68,14 +68,14 @@ interface GeofencesControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param coedgeappservermodelGeofences 
+     * @param geofences 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataGeofencesResp]>
+     * @return [Call]<[EdgeApiDataGeofencesResp]>
      */
     @POST("api/v1/geofences")
-    fun postApiV1Geofences(@Body coedgeappservermodelGeofences: CoedgeappservermodelGeofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataGeofencesResp>
+    fun postApiV1Geofences(@Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataGeofencesResp>
 
     /**
      * PUT api/v1/geofences/{bountyId}
@@ -85,13 +85,13 @@ interface GeofencesControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param coedgeappservermodelGeofences 
+     * @param geofences 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataGeofencesResp]>
+     * @return [Call]<[EdgeApiDataGeofencesResp]>
      */
     @PUT("api/v1/geofences/{bountyId}")
-    fun putApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Body coedgeappservermodelGeofences: CoedgeappservermodelGeofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataGeofencesResp>
+    fun putApiV1GeofencesByBountyid(@Path("bountyId") bountyId: kotlin.String, @Body geofences: Geofences, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataGeofencesResp>
 
 }

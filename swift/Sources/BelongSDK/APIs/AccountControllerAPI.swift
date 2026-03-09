@@ -18,10 +18,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataAccountAmountResp
+     - returns: EdgeApiDataAccountAmountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountAmount(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataAccountAmountResp {
+    open class func getApiV1AccountAmount(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAccountAmountResp {
         return try await getApiV1AccountAmountWithRequestBuilder(currency: currency, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> 
+     - returns: RequestBuilder<EdgeApiDataAccountAmountResp> 
      */
-    open class func getApiV1AccountAmountWithRequestBuilder(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    open class func getApiV1AccountAmountWithRequestBuilder(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAccountAmountResp> {
         let localVariablePath = "/api/v1/account/amount"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -54,7 +54,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -65,10 +65,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataAccountAmountResp
+     - returns: EdgeApiDataAccountAmountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountAmountTmp(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataAccountAmountResp {
+    open class func getApiV1AccountAmountTmp(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAccountAmountResp {
         return try await getApiV1AccountAmountTmpWithRequestBuilder(currency: currency, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -81,9 +81,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> 
+     - returns: RequestBuilder<EdgeApiDataAccountAmountResp> 
      */
-    open class func getApiV1AccountAmountTmpWithRequestBuilder(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    open class func getApiV1AccountAmountTmpWithRequestBuilder(currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAccountAmountResp> {
         let localVariablePath = "/api/v1/account/amount_tmp"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -101,7 +101,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -112,10 +112,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPointCurrency
+     - returns: PointCurrency
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountByCodeCurrency(code: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPointCurrency {
+    open class func getApiV1AccountByCodeCurrency(code: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PointCurrency {
         return try await getApiV1AccountByCodeCurrencyWithRequestBuilder(code: code, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -128,9 +128,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPointCurrency> 
+     - returns: RequestBuilder<PointCurrency> 
      */
-    open class func getApiV1AccountByCodeCurrencyWithRequestBuilder(code: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPointCurrency> {
+    open class func getApiV1AccountByCodeCurrencyWithRequestBuilder(code: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PointCurrency> {
         var localVariablePath = "/api/v1/account/{code}/currency"
         let codePreEscape = "\(APIHelper.mapValueToPathItem(code))"
         let codePostEscape = codePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -148,7 +148,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPointCurrency>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PointCurrency>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -160,10 +160,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataAccountAmountResp
+     - returns: EdgeApiDataAccountAmountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountCompaniesByCompanyidAmount(companyId: String, currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataAccountAmountResp {
+    open class func getApiV1AccountCompaniesByCompanyidAmount(companyId: String, currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAccountAmountResp {
         return try await getApiV1AccountCompaniesByCompanyidAmountWithRequestBuilder(companyId: companyId, currency: currency, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -177,9 +177,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> 
+     - returns: RequestBuilder<EdgeApiDataAccountAmountResp> 
      */
-    open class func getApiV1AccountCompaniesByCompanyidAmountWithRequestBuilder(companyId: String, currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    open class func getApiV1AccountCompaniesByCompanyidAmountWithRequestBuilder(companyId: String, currency: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAccountAmountResp> {
         var localVariablePath = "/api/v1/account/companies/{companyId}/amount"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -200,7 +200,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAccountAmountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -213,10 +213,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp
+     - returns: EdgeApiDataExchangeCurrencyResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(companyId: String, code: String, amount: Int, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp {
+    open class func getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(companyId: String, code: String, amount: Int, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataExchangeCurrencyResp {
         return try await getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeWithRequestBuilder(companyId: companyId, code: code, amount: amount, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -231,9 +231,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp> 
+     - returns: RequestBuilder<EdgeApiDataExchangeCurrencyResp> 
      */
-    open class func getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeWithRequestBuilder(companyId: String, code: String, amount: Int, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp> {
+    open class func getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeWithRequestBuilder(companyId: String, code: String, amount: Int, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataExchangeCurrencyResp> {
         var localVariablePath = "/api/v1/account/companies/{companyId}/currency/{code}/exchange"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -257,7 +257,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataExchangeCurrencyResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -270,10 +270,10 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency
+     - returns: EdgeApiDataPagePointCurrency
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccountCurrencies(filter: CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency {
+    open class func getApiV1AccountCurrencies(filter: EdgeApiDataSearchCurrenciesFilter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePointCurrency {
         return try await getApiV1AccountCurrenciesWithRequestBuilder(filter: filter, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -288,9 +288,9 @@ open class AccountControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency> 
+     - returns: RequestBuilder<EdgeApiDataPagePointCurrency> 
      */
-    open class func getApiV1AccountCurrenciesWithRequestBuilder(filter: CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency> {
+    open class func getApiV1AccountCurrenciesWithRequestBuilder(filter: EdgeApiDataSearchCurrenciesFilter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePointCurrency> {
         let localVariablePath = "/api/v1/account/currencies"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -310,7 +310,7 @@ open class AccountControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePointCurrency>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -15,29 +15,29 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser,
-  CoEdgeappServerModelGroup,
-  CoEdgeappServerModelGroupSearchResult,
-  CoEdgeappServerModelMember,
-  CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq,
+  EdgeApiDataPageGroupSearchResult,
+  EdgeApiDataPageMember,
+  EdgeApiDataPageUser,
+  Group,
+  GroupSearchResult,
+  Member,
+  RestControllerGroupControllerUpdateMemberRolesReq,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMemberFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMemberToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserToJSON,
-    CoEdgeappServerModelGroupFromJSON,
-    CoEdgeappServerModelGroupToJSON,
-    CoEdgeappServerModelGroupSearchResultFromJSON,
-    CoEdgeappServerModelGroupSearchResultToJSON,
-    CoEdgeappServerModelMemberFromJSON,
-    CoEdgeappServerModelMemberToJSON,
-    CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReqFromJSON,
-    CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReqToJSON,
+    EdgeApiDataPageGroupSearchResultFromJSON,
+    EdgeApiDataPageGroupSearchResultToJSON,
+    EdgeApiDataPageMemberFromJSON,
+    EdgeApiDataPageMemberToJSON,
+    EdgeApiDataPageUserFromJSON,
+    EdgeApiDataPageUserToJSON,
+    GroupFromJSON,
+    GroupToJSON,
+    GroupSearchResultFromJSON,
+    GroupSearchResultToJSON,
+    MemberFromJSON,
+    MemberToJSON,
+    RestControllerGroupControllerUpdateMemberRolesReqFromJSON,
+    RestControllerGroupControllerUpdateMemberRolesReqToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1GroupsByGroupidRequest {
@@ -108,7 +108,7 @@ export interface GetApiV1GroupsByGroupidMembersByMemberidRequest {
 }
 
 export interface PostApiV1GroupsRequest {
-    coEdgeappServerModelGroup: CoEdgeappServerModelGroup;
+    group: Group;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -133,7 +133,7 @@ export interface PostApiV1GroupsByGroupidMembersByMemberidRejectRequest {
 export interface PostApiV1GroupsByGroupidMembersByMemberidRolesRequest {
     groupId: string;
     memberId: string;
-    coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq: CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq;
+    restControllerGroupControllerUpdateMemberRolesReq: RestControllerGroupControllerUpdateMemberRolesReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -141,7 +141,7 @@ export interface PostApiV1GroupsByGroupidMembersByMemberidRolesRequest {
 
 export interface PutApiV1GroupsByGroupidRequest {
     groupId: string;
-    coEdgeappServerModelGroup: CoEdgeappServerModelGroup;
+    group: Group;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -230,11 +230,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>>;
+    getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageGroupSearchResult>>;
 
     /**
      */
-    getApiV1Groups(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>;
+    getApiV1Groups(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageGroupSearchResult>;
 
     /**
      * 
@@ -246,11 +246,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroupSearchResult>>;
+    getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>>;
 
     /**
      */
-    getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroupSearchResult>;
+    getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult>;
 
     /**
      * 
@@ -265,11 +265,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser>>;
+    getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUser>>;
 
     /**
      */
-    getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser>;
+    getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUser>;
 
     /**
      * 
@@ -285,11 +285,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember>>;
+    getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageMember>>;
 
     /**
      */
-    getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember>;
+    getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageMember>;
 
     /**
      * 
@@ -302,15 +302,15 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>>;
+    getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember>;
+    getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelGroup} coEdgeappServerModelGroup 
+     * @param {Group} group 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -318,11 +318,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroup>>;
+    postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
 
     /**
      */
-    postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroup>;
+    postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
 
     /**
      * 
@@ -362,7 +362,7 @@ export interface GroupControllerApiInterface {
      * 
      * @param {string} groupId 
      * @param {string} memberId 
-     * @param {CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq} coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq 
+     * @param {RestControllerGroupControllerUpdateMemberRolesReq} restControllerGroupControllerUpdateMemberRolesReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -370,16 +370,16 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>>;
+    postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember>;
+    postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
     /**
      * 
      * @param {string} groupId 
-     * @param {CoEdgeappServerModelGroup} coEdgeappServerModelGroup 
+     * @param {Group} group 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -387,11 +387,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroup>>;
+    putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>>;
 
     /**
      */
-    putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroup>;
+    putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group>;
 
     /**
      * 
@@ -404,11 +404,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>>;
+    putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember>;
+    putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
     /**
      * 
@@ -420,11 +420,11 @@ export interface GroupControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GroupControllerApiInterface
      */
-    putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>>;
+    putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>>;
 
     /**
      */
-    putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember>;
+    putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member>;
 
 }
 
@@ -595,7 +595,7 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult>> {
+    async getApiV1GroupsRaw(requestParameters: GetApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageGroupSearchResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['clientId'] != null) {
@@ -638,19 +638,19 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageGroupSearchResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Groups(requestParameters: GetApiV1GroupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelGroupSearchResult> {
+    async getApiV1Groups(requestParameters: GetApiV1GroupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageGroupSearchResult> {
         const response = await this.getApiV1GroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroupSearchResult>> {
+    async getApiV1GroupsByGroupidRaw(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GroupSearchResult>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -689,19 +689,19 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelGroupSearchResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GroupSearchResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroupSearchResult> {
+    async getApiV1GroupsByGroupid(requestParameters: GetApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GroupSearchResult> {
         const response = await this.getApiV1GroupsByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser>> {
+    async getApiV1GroupsByGroupidCandidatesRaw(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUser>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -752,19 +752,19 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUser> {
+    async getApiV1GroupsByGroupidCandidates(requestParameters: GetApiV1GroupsByGroupidCandidatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUser> {
         const response = await this.getApiV1GroupsByGroupidCandidatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember>> {
+    async getApiV1GroupsByGroupidMembersRaw(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageMember>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -819,19 +819,19 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageMemberFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelMember> {
+    async getApiV1GroupsByGroupidMembers(requestParameters: GetApiV1GroupsByGroupidMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageMember> {
         const response = await this.getApiV1GroupsByGroupidMembersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>> {
+    async getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -878,23 +878,23 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember> {
+    async getApiV1GroupsByGroupidMembersByMemberid(requestParameters: GetApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
         const response = await this.getApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroup>> {
-        if (requestParameters['coEdgeappServerModelGroup'] == null) {
+    async postApiV1GroupsRaw(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
+        if (requestParameters['group'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelGroup',
-                'Required parameter "coEdgeappServerModelGroup" was null or undefined when calling postApiV1Groups().'
+                'group',
+                'Required parameter "group" was null or undefined when calling postApiV1Groups().'
             );
         }
 
@@ -928,15 +928,15 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelGroupToJSON(requestParameters['coEdgeappServerModelGroup']),
+            body: GroupToJSON(requestParameters['group']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelGroupFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroup> {
+    async postApiV1Groups(requestParameters: PostApiV1GroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
         const response = await this.postApiV1GroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1061,7 +1061,7 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
 
     /**
      */
-    async postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>> {
+    async postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -1076,10 +1076,10 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             );
         }
 
-        if (requestParameters['coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq'] == null) {
+        if (requestParameters['restControllerGroupControllerUpdateMemberRolesReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq',
-                'Required parameter "coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidRoles().'
+                'restControllerGroupControllerUpdateMemberRolesReq',
+                'Required parameter "restControllerGroupControllerUpdateMemberRolesReq" was null or undefined when calling postApiV1GroupsByGroupidMembersByMemberidRoles().'
             );
         }
 
@@ -1115,22 +1115,22 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerGroupControllerUpdateMemberRolesReqToJSON(requestParameters['coEdgeappServerRestControllerGroupControllerUpdateMemberRolesReq']),
+            body: RestControllerGroupControllerUpdateMemberRolesReqToJSON(requestParameters['restControllerGroupControllerUpdateMemberRolesReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember> {
+    async postApiV1GroupsByGroupidMembersByMemberidRoles(requestParameters: PostApiV1GroupsByGroupidMembersByMemberidRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
         const response = await this.postApiV1GroupsByGroupidMembersByMemberidRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelGroup>> {
+    async putApiV1GroupsByGroupidRaw(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Group>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -1138,10 +1138,10 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             );
         }
 
-        if (requestParameters['coEdgeappServerModelGroup'] == null) {
+        if (requestParameters['group'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelGroup',
-                'Required parameter "coEdgeappServerModelGroup" was null or undefined when calling putApiV1GroupsByGroupid().'
+                'group',
+                'Required parameter "group" was null or undefined when calling putApiV1GroupsByGroupid().'
             );
         }
 
@@ -1176,22 +1176,22 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelGroupToJSON(requestParameters['coEdgeappServerModelGroup']),
+            body: GroupToJSON(requestParameters['group']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelGroupFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GroupFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelGroup> {
+    async putApiV1GroupsByGroupid(requestParameters: PutApiV1GroupsByGroupidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Group> {
         const response = await this.putApiV1GroupsByGroupidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>> {
+    async putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -1238,19 +1238,19 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember> {
+    async putApiV1GroupsByGroupidMembersByMemberid(requestParameters: PutApiV1GroupsByGroupidMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
         const response = await this.putApiV1GroupsByGroupidMembersByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelMember>> {
+    async putApiV1GroupsSupportMembersByMemberidRaw(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Member>> {
         if (requestParameters['memberId'] == null) {
             throw new runtime.RequiredError(
                 'memberId',
@@ -1289,12 +1289,12 @@ export class GroupControllerApi extends runtime.BaseAPI implements GroupControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelMemberFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelMember> {
+    async putApiV1GroupsSupportMembersByMemberid(requestParameters: PutApiV1GroupsSupportMembersByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Member> {
         const response = await this.putApiV1GroupsSupportMembersByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }

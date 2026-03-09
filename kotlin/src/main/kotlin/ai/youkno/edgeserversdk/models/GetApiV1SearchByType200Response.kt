@@ -15,14 +15,14 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchBounty
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchBountyResults
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchComment
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchCommentResults
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchResponse
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchResponseResults
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchUser
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelSearchUserResults
+import ai.youkno.edgeserversdk.models.SearchBounty
+import ai.youkno.edgeserversdk.models.SearchBountyResults
+import ai.youkno.edgeserversdk.models.SearchComment
+import ai.youkno.edgeserversdk.models.SearchCommentResults
+import ai.youkno.edgeserversdk.models.SearchResponse
+import ai.youkno.edgeserversdk.models.SearchResponseResults
+import ai.youkno.edgeserversdk.models.SearchUser
+import ai.youkno.edgeserversdk.models.SearchUserResults
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -41,19 +41,19 @@ import com.squareup.moshi.JsonClass
 data class GetApiV1SearchByType200Response (
 
     @Json(name = "users")
-    val users: kotlin.collections.List<CoedgeappservermodelSearchUser>? = null,
+    val users: kotlin.collections.List<SearchUser>? = null,
 
     @Json(name = "dummy")
     val dummy: kotlin.Int? = null,
 
     @Json(name = "bounties")
-    val bounties: kotlin.collections.List<CoedgeappservermodelSearchBounty>? = null,
+    val bounties: kotlin.collections.List<SearchBounty>? = null,
 
     @Json(name = "responses")
-    val responses: kotlin.collections.List<CoedgeappservermodelSearchResponse>? = null,
+    val responses: kotlin.collections.List<SearchResponse>? = null,
 
     @Json(name = "comments")
-    val comments: kotlin.collections.List<CoedgeappservermodelSearchComment>? = null
+    val comments: kotlin.collections.List<SearchComment>? = null
 
 ) {
 

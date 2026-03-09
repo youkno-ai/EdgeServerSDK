@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataNewId
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelVenue
+import ai.youkno.edgeserversdk.models.EdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.Venue
 
 interface VenueControllerApi {
     /**
@@ -36,10 +36,10 @@ interface VenueControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelVenue>]>
+     * @return [Call]<[kotlin.collections.List<Venue>]>
      */
     @GET("api/v1/venues")
-    fun getApiV1Venues(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelVenue>>
+    fun getApiV1Venues(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Venue>>
 
     /**
      * GET api/v1/venues/{venueId}
@@ -52,10 +52,10 @@ interface VenueControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelVenue]>
+     * @return [Call]<[Venue]>
      */
     @GET("api/v1/venues/{venueId}")
-    fun getApiV1VenuesByVenueid(@Path("venueId") venueId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVenue>
+    fun getApiV1VenuesByVenueid(@Path("venueId") venueId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Venue>
 
     /**
      * GET api/v1/venues/byCompany/{companyId}
@@ -68,10 +68,10 @@ interface VenueControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<CoedgeappservermodelVenue>]>
+     * @return [Call]<[kotlin.collections.List<Venue>]>
      */
     @GET("api/v1/venues/byCompany/{companyId}")
-    fun getApiV1VenuesBycompanyByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<CoedgeappservermodelVenue>>
+    fun getApiV1VenuesBycompanyByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Venue>>
 
     /**
      * PATCH api/v1/venues/{venueId}
@@ -81,14 +81,14 @@ interface VenueControllerApi {
      *  - 200: OK
      *
      * @param venueId 
-     * @param coedgeappservermodelVenue 
+     * @param venue 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelVenue]>
+     * @return [Call]<[Venue]>
      */
     @PATCH("api/v1/venues/{venueId}")
-    fun patchApiV1VenuesByVenueid(@Path("venueId") venueId: kotlin.String, @Body coedgeappservermodelVenue: CoedgeappservermodelVenue, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelVenue>
+    fun patchApiV1VenuesByVenueid(@Path("venueId") venueId: kotlin.String, @Body venue: Venue, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Venue>
 
     /**
      * POST api/v1/venues
@@ -97,13 +97,13 @@ interface VenueControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param coedgeappservermodelVenue 
+     * @param venue 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataNewId]>
+     * @return [Call]<[EdgeApiDataNewId]>
      */
     @POST("api/v1/venues")
-    fun postApiV1Venues(@Body coedgeappservermodelVenue: CoedgeappservermodelVenue, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataNewId>
+    fun postApiV1Venues(@Body venue: Venue, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
 
 }

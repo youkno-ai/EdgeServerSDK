@@ -15,23 +15,23 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataAccountAmountResp,
-  CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency,
-  CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilter,
-  CoEdgeappServerModelPointCurrency,
+  EdgeApiDataAccountAmountResp,
+  EdgeApiDataExchangeCurrencyResp,
+  EdgeApiDataPagePointCurrency,
+  EdgeApiDataSearchCurrenciesFilter,
+  PointCurrency,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataAccountAmountRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataAccountAmountRespToJSON,
-    CoEdgeappServerModelEdgeApiDataExchangeCurrencyRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataExchangeCurrencyRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrencyFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrencyToJSON,
-    CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilterFromJSON,
-    CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilterToJSON,
-    CoEdgeappServerModelPointCurrencyFromJSON,
-    CoEdgeappServerModelPointCurrencyToJSON,
+    EdgeApiDataAccountAmountRespFromJSON,
+    EdgeApiDataAccountAmountRespToJSON,
+    EdgeApiDataExchangeCurrencyRespFromJSON,
+    EdgeApiDataExchangeCurrencyRespToJSON,
+    EdgeApiDataPagePointCurrencyFromJSON,
+    EdgeApiDataPagePointCurrencyToJSON,
+    EdgeApiDataSearchCurrenciesFilterFromJSON,
+    EdgeApiDataSearchCurrenciesFilterToJSON,
+    PointCurrencyFromJSON,
+    PointCurrencyToJSON,
 } from '../models/index';
 
 export interface GetApiV1AccountAmountRequest {
@@ -73,7 +73,7 @@ export interface GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeReques
 }
 
 export interface GetApiV1AccountCurrenciesRequest {
-    filter: CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilter;
+    filter: EdgeApiDataSearchCurrenciesFilter;
     start?: number;
     length?: number;
     xEdgeAgent?: string;
@@ -114,11 +114,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>>;
+    getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>>;
 
     /**
      */
-    getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp>;
+    getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp>;
 
     /**
      * 
@@ -130,11 +130,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>>;
+    getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>>;
 
     /**
      */
-    getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp>;
+    getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp>;
 
     /**
      * 
@@ -146,11 +146,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPointCurrency>>;
+    getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>>;
 
     /**
      */
-    getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPointCurrency>;
+    getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency>;
 
     /**
      * 
@@ -163,11 +163,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>>;
+    getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>>;
 
     /**
      */
-    getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp>;
+    getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp>;
 
     /**
      * 
@@ -181,15 +181,15 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp>>;
+    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExchangeCurrencyResp>>;
 
     /**
      */
-    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp>;
+    getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExchangeCurrencyResp>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelEdgeApiDataSearchCurrenciesFilter} filter 
+     * @param {EdgeApiDataSearchCurrenciesFilter} filter 
      * @param {number} [start] 
      * @param {number} [length] 
      * @param {string} [xEdgeAgent] 
@@ -199,11 +199,11 @@ export interface AccountControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccountControllerApiInterface
      */
-    getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency>>;
+    getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePointCurrency>>;
 
     /**
      */
-    getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency>;
+    getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePointCurrency>;
 
     /**
      * 
@@ -248,7 +248,7 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
 
     /**
      */
-    async getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>> {
+    async getApiV1AccountAmountRaw(requestParameters: GetApiV1AccountAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>> {
         const queryParameters: any = {};
 
         if (requestParameters['currency'] != null) {
@@ -283,19 +283,19 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAccountAmountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAccountAmountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    async getApiV1AccountAmount(requestParameters: GetApiV1AccountAmountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp> {
         const response = await this.getApiV1AccountAmountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>> {
+    async getApiV1AccountAmountTmpRaw(requestParameters: GetApiV1AccountAmountTmpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>> {
         const queryParameters: any = {};
 
         if (requestParameters['currency'] != null) {
@@ -330,19 +330,19 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAccountAmountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAccountAmountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    async getApiV1AccountAmountTmp(requestParameters: GetApiV1AccountAmountTmpRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp> {
         const response = await this.getApiV1AccountAmountTmpRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPointCurrency>> {
+    async getApiV1AccountByCodeCurrencyRaw(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PointCurrency>> {
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
@@ -381,19 +381,19 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPointCurrencyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PointCurrencyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPointCurrency> {
+    async getApiV1AccountByCodeCurrency(requestParameters: GetApiV1AccountByCodeCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PointCurrency> {
         const response = await this.getApiV1AccountByCodeCurrencyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataAccountAmountResp>> {
+    async getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAccountAmountResp>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -436,19 +436,19 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataAccountAmountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAccountAmountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataAccountAmountResp> {
+    async getApiV1AccountCompaniesByCompanyidAmount(requestParameters: GetApiV1AccountCompaniesByCompanyidAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAccountAmountResp> {
         const response = await this.getApiV1AccountCompaniesByCompanyidAmountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp>> {
+    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataExchangeCurrencyResp>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -506,19 +506,19 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataExchangeCurrencyRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataExchangeCurrencyRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataExchangeCurrencyResp> {
+    async getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchange(requestParameters: GetApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataExchangeCurrencyResp> {
         const response = await this.getApiV1AccountCompaniesByCompanyidCurrencyByCodeExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency>> {
+    async getApiV1AccountCurrenciesRaw(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePointCurrency>> {
         if (requestParameters['filter'] == null) {
             throw new runtime.RequiredError(
                 'filter',
@@ -568,12 +568,12 @@ export class AccountControllerApi extends runtime.BaseAPI implements AccountCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrencyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePointCurrencyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPointCurrency> {
+    async getApiV1AccountCurrencies(requestParameters: GetApiV1AccountCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePointCurrency> {
         const response = await this.getApiV1AccountCurrenciesRaw(requestParameters, initOverrides);
         return await response.value();
     }

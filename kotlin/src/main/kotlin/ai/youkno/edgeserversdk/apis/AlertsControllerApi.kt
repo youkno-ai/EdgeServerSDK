@@ -6,10 +6,10 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataEmailSettings
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataEmailTemplate
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataSendTestEmailReq
-import ai.youkno.edgeserversdk.models.CoedgeappservermodelEdgeApiDataSendTestEmailResp
+import ai.youkno.edgeserversdk.models.EdgeApiDataEmailSettings
+import ai.youkno.edgeserversdk.models.EdgeApiDataEmailTemplate
+import ai.youkno.edgeserversdk.models.EdgeApiDataSendTestEmailReq
+import ai.youkno.edgeserversdk.models.EdgeApiDataSendTestEmailResp
 
 interface AlertsControllerApi {
     /**
@@ -40,10 +40,10 @@ interface AlertsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataEmailSettings]>
+     * @return [Call]<[EdgeApiDataEmailSettings]>
      */
     @GET("api/v1/alerts/{companyId}/email/settings")
-    fun getApiV1AlertsByCompanyidEmailSettings(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataEmailSettings>
+    fun getApiV1AlertsByCompanyidEmailSettings(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataEmailSettings>
 
     /**
      * GET api/v1/alerts/{companyId}/email/template
@@ -57,10 +57,10 @@ interface AlertsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataEmailTemplate]>
+     * @return [Call]<[EdgeApiDataEmailTemplate]>
      */
     @GET("api/v1/alerts/{companyId}/email/template")
-    fun getApiV1AlertsByCompanyidEmailTemplate(@Path("companyId") companyId: kotlin.String, @Query("templateType") templateType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataEmailTemplate>
+    fun getApiV1AlertsByCompanyidEmailTemplate(@Path("companyId") companyId: kotlin.String, @Query("templateType") templateType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataEmailTemplate>
 
     /**
      * GET api/v1/alerts/email/defaultTemplate
@@ -73,10 +73,10 @@ interface AlertsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataEmailTemplate]>
+     * @return [Call]<[EdgeApiDataEmailTemplate]>
      */
     @GET("api/v1/alerts/email/defaultTemplate")
-    fun getApiV1AlertsEmailDefaulttemplate(@Query("templateType") templateType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataEmailTemplate>
+    fun getApiV1AlertsEmailDefaulttemplate(@Query("templateType") templateType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataEmailTemplate>
 
     /**
      * POST api/v1/alerts/{companyId}/email/settings
@@ -86,14 +86,14 @@ interface AlertsControllerApi {
      *  - 200: OK
      *
      * @param companyId 
-     * @param coedgeappservermodelEdgeApiDataEmailSettings 
+     * @param edgeApiDataEmailSettings 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/alerts/{companyId}/email/settings")
-    fun postApiV1AlertsByCompanyidEmailSettings(@Path("companyId") companyId: kotlin.String, @Body coedgeappservermodelEdgeApiDataEmailSettings: CoedgeappservermodelEdgeApiDataEmailSettings, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1AlertsByCompanyidEmailSettings(@Path("companyId") companyId: kotlin.String, @Body edgeApiDataEmailSettings: EdgeApiDataEmailSettings, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/alerts/{companyId}/email/template
@@ -103,14 +103,14 @@ interface AlertsControllerApi {
      *  - 200: OK
      *
      * @param companyId 
-     * @param coedgeappservermodelEdgeApiDataEmailTemplate 
+     * @param edgeApiDataEmailTemplate 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/alerts/{companyId}/email/template")
-    fun postApiV1AlertsByCompanyidEmailTemplate(@Path("companyId") companyId: kotlin.String, @Body coedgeappservermodelEdgeApiDataEmailTemplate: CoedgeappservermodelEdgeApiDataEmailTemplate, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1AlertsByCompanyidEmailTemplate(@Path("companyId") companyId: kotlin.String, @Body edgeApiDataEmailTemplate: EdgeApiDataEmailTemplate, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/alerts/{companyId}/email/test
@@ -120,13 +120,13 @@ interface AlertsControllerApi {
      *  - 200: OK
      *
      * @param companyId 
-     * @param coedgeappservermodelEdgeApiDataSendTestEmailReq 
+     * @param edgeApiDataSendTestEmailReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappservermodelEdgeApiDataSendTestEmailResp]>
+     * @return [Call]<[EdgeApiDataSendTestEmailResp]>
      */
     @POST("api/v1/alerts/{companyId}/email/test")
-    fun postApiV1AlertsByCompanyidEmailTest(@Path("companyId") companyId: kotlin.String, @Body coedgeappservermodelEdgeApiDataSendTestEmailReq: CoedgeappservermodelEdgeApiDataSendTestEmailReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappservermodelEdgeApiDataSendTestEmailResp>
+    fun postApiV1AlertsByCompanyidEmailTest(@Path("companyId") companyId: kotlin.String, @Body edgeApiDataSendTestEmailReq: EdgeApiDataSendTestEmailReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataSendTestEmailResp>
 
 }

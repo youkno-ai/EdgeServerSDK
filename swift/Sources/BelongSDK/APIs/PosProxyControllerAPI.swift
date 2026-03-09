@@ -72,10 +72,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
+    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
         return try await deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, discountId: discountId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -90,9 +90,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -116,7 +116,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -129,10 +129,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(clientId: String, posOrderId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
+    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(clientId: String, posOrderId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
         return try await deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, itemId: itemId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -147,9 +147,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidWithRequestBuilder(clientId: String, posOrderId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidWithRequestBuilder(clientId: String, posOrderId: String, itemId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items/{itemId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -173,7 +173,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -237,10 +237,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidCustomersByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
+    open class func getApiV1PosClientsByClientidCustomersByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
         return try await getApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -254,9 +254,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func getApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func getApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -277,7 +277,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -289,10 +289,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserProfile
+     - returns: UserProfile
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidCustomersNewByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserProfile {
+    open class func getApiV1PosClientsByClientidCustomersNewByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfile {
         return try await getApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -306,9 +306,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserProfile> 
+     - returns: RequestBuilder<UserProfile> 
      */
-    open class func getApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserProfile> {
+    open class func getApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfile> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_new/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -329,7 +329,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -341,10 +341,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidCustomersOldByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
+    open class func getApiV1PosClientsByClientidCustomersOldByCustomerid(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
         return try await getApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -358,9 +358,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func getApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func getApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_old/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -381,7 +381,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -395,10 +395,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerModelPosApiDataDiscountResp]
+     - returns: [PosApiDataDiscountResp]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidDiscounts(clientId: String, customerId: String? = nil, promotionCode: Int? = nil, enabledOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelPosApiDataDiscountResp] {
+    open class func getApiV1PosClientsByClientidDiscounts(clientId: String, customerId: String? = nil, promotionCode: Int? = nil, enabledOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [PosApiDataDiscountResp] {
         return try await getApiV1PosClientsByClientidDiscountsWithRequestBuilder(clientId: clientId, customerId: customerId, promotionCode: promotionCode, enabledOnly: enabledOnly, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -414,9 +414,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerModelPosApiDataDiscountResp]> 
+     - returns: RequestBuilder<[PosApiDataDiscountResp]> 
      */
-    open class func getApiV1PosClientsByClientidDiscountsWithRequestBuilder(clientId: String, customerId: String? = nil, promotionCode: Int? = nil, enabledOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelPosApiDataDiscountResp]> {
+    open class func getApiV1PosClientsByClientidDiscountsWithRequestBuilder(clientId: String, customerId: String? = nil, promotionCode: Int? = nil, enabledOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[PosApiDataDiscountResp]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/discounts"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -439,7 +439,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelPosApiDataDiscountResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[PosApiDataDiscountResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -450,10 +450,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp
+     - returns: EdgeApiDataPagePosApiDataAdjustReasonResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryAdjustReason(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp {
+    open class func getApiV1PosClientsByClientidInventoryAdjustReason(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataAdjustReasonResp {
         return try await getApiV1PosClientsByClientidInventoryAdjustReasonWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -466,9 +466,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataAdjustReasonResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryAdjustReasonWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp> {
+    open class func getApiV1PosClientsByClientidInventoryAdjustReasonWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataAdjustReasonResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/adjust_reason"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -486,7 +486,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataAdjustReasonResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -497,10 +497,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp
+     - returns: EdgeApiDataPagePosApiDataAreaResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryArea(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp {
+    open class func getApiV1PosClientsByClientidInventoryArea(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataAreaResp {
         return try await getApiV1PosClientsByClientidInventoryAreaWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -513,9 +513,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataAreaResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryAreaWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp> {
+    open class func getApiV1PosClientsByClientidInventoryAreaWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataAreaResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/area"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -533,7 +533,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataAreaResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -544,10 +544,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp
+     - returns: EdgeApiDataPagePosApiDataBrandResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryBrand(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp {
+    open class func getApiV1PosClientsByClientidInventoryBrand(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataBrandResp {
         return try await getApiV1PosClientsByClientidInventoryBrandWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -560,9 +560,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataBrandResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryBrandWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp> {
+    open class func getApiV1PosClientsByClientidInventoryBrandWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataBrandResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/brand"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -580,7 +580,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataBrandResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -591,10 +591,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp
+     - returns: EdgeApiDataPagePosApiDataCategoryResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryCategory(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp {
+    open class func getApiV1PosClientsByClientidInventoryCategory(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataCategoryResp {
         return try await getApiV1PosClientsByClientidInventoryCategoryWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -607,9 +607,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryCategoryWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> {
+    open class func getApiV1PosClientsByClientidInventoryCategoryWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/category"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -627,7 +627,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -638,10 +638,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory
+     - returns: EdgeApiDataPageCategory
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryCategoryNew(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory {
+    open class func getApiV1PosClientsByClientidInventoryCategoryNew(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageCategory {
         return try await getApiV1PosClientsByClientidInventoryCategoryNewWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -654,9 +654,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory> 
+     - returns: RequestBuilder<EdgeApiDataPageCategory> 
      */
-    open class func getApiV1PosClientsByClientidInventoryCategoryNewWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory> {
+    open class func getApiV1PosClientsByClientidInventoryCategoryNewWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageCategory> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/category_new"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -674,7 +674,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageCategory>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -685,10 +685,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp
+     - returns: EdgeApiDataPagePosApiDataCategoryResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryCategoryOld(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp {
+    open class func getApiV1PosClientsByClientidInventoryCategoryOld(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataCategoryResp {
         return try await getApiV1PosClientsByClientidInventoryCategoryOldWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -701,9 +701,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryCategoryOldWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> {
+    open class func getApiV1PosClientsByClientidInventoryCategoryOldWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/category_old"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -721,7 +721,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataCategoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -732,10 +732,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp
+     - returns: EdgeApiDataPagePosApiDataCycleCountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryCycleCount(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp {
+    open class func getApiV1PosClientsByClientidInventoryCycleCount(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataCycleCountResp {
         return try await getApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -748,9 +748,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataCycleCountResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp> {
+    open class func getApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataCycleCountResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/cycle_count"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -768,7 +768,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -780,10 +780,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCycleCountResp
+     - returns: PosApiDataCycleCountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(clientId: String, cycleCountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCycleCountResp {
+    open class func getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(clientId: String, cycleCountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCycleCountResp {
         return try await getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: clientId, cycleCountId: cycleCountId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -797,9 +797,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCycleCountResp> 
+     - returns: RequestBuilder<PosApiDataCycleCountResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: String, cycleCountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCycleCountResp> {
+    open class func getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: String, cycleCountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCycleCountResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -820,7 +820,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -831,10 +831,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp
+     - returns: EdgeApiDataPagePosApiDataDeliveryRouteResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryDeliveryRoute(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp {
+    open class func getApiV1PosClientsByClientidInventoryDeliveryRoute(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataDeliveryRouteResp {
         return try await getApiV1PosClientsByClientidInventoryDeliveryRouteWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -847,9 +847,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataDeliveryRouteResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryDeliveryRouteWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp> {
+    open class func getApiV1PosClientsByClientidInventoryDeliveryRouteWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataDeliveryRouteResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/delivery_route"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -867,7 +867,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataDeliveryRouteResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -878,10 +878,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp
+     - returns: EdgeApiDataPagePosApiDataStrainResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryStrain(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp {
+    open class func getApiV1PosClientsByClientidInventoryStrain(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataStrainResp {
         return try await getApiV1PosClientsByClientidInventoryStrainWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -894,9 +894,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataStrainResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryStrainWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp> {
+    open class func getApiV1PosClientsByClientidInventoryStrainWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataStrainResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/strain"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -914,7 +914,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataStrainResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -925,10 +925,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp
+     - returns: EdgeApiDataPagePosApiDataUomResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryUom(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp {
+    open class func getApiV1PosClientsByClientidInventoryUom(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataUomResp {
         return try await getApiV1PosClientsByClientidInventoryUomWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -941,9 +941,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataUomResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryUomWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp> {
+    open class func getApiV1PosClientsByClientidInventoryUomWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataUomResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/uom"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -961,7 +961,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataUomResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -972,10 +972,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp
+     - returns: EdgeApiDataPagePosApiDataVendorResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidInventoryVendor(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp {
+    open class func getApiV1PosClientsByClientidInventoryVendor(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataVendorResp {
         return try await getApiV1PosClientsByClientidInventoryVendorWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -988,9 +988,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataVendorResp> 
      */
-    open class func getApiV1PosClientsByClientidInventoryVendorWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp> {
+    open class func getApiV1PosClientsByClientidInventoryVendorWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataVendorResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/vendor"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1008,7 +1008,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataVendorResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1020,10 +1020,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidOrdersByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
+    open class func getApiV1PosClientsByClientidOrdersByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
         return try await getApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1037,9 +1037,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func getApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func getApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1060,7 +1060,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1072,10 +1072,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelBounty
+     - returns: Bounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidOrdersNewByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
+    open class func getApiV1PosClientsByClientidOrdersNewByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
         return try await getApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1089,9 +1089,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
+     - returns: RequestBuilder<Bounty> 
      */
-    open class func getApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
+    open class func getApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_new/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1112,7 +1112,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1124,10 +1124,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidOrdersOldByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
+    open class func getApiV1PosClientsByClientidOrdersOldByPosorderid(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
         return try await getApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1141,9 +1141,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func getApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func getApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_old/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1164,7 +1164,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1175,10 +1175,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerModelPosApiDataQueueItemResp]
+     - returns: [PosApiDataQueueItemResp]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidQueue(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelPosApiDataQueueItemResp] {
+    open class func getApiV1PosClientsByClientidQueue(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [PosApiDataQueueItemResp] {
         return try await getApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1191,9 +1191,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerModelPosApiDataQueueItemResp]> 
+     - returns: RequestBuilder<[PosApiDataQueueItemResp]> 
      */
-    open class func getApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelPosApiDataQueueItemResp]> {
+    open class func getApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[PosApiDataQueueItemResp]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/queue"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1211,7 +1211,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelPosApiDataQueueItemResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[PosApiDataQueueItemResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1222,10 +1222,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerModelPosApiDataTerminalLabelResp]
+     - returns: [PosApiDataTerminalLabelResp]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PosClientsByClientidTerminalsLabels(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerModelPosApiDataTerminalLabelResp] {
+    open class func getApiV1PosClientsByClientidTerminalsLabels(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [PosApiDataTerminalLabelResp] {
         return try await getApiV1PosClientsByClientidTerminalsLabelsWithRequestBuilder(clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1238,9 +1238,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerModelPosApiDataTerminalLabelResp]> 
+     - returns: RequestBuilder<[PosApiDataTerminalLabelResp]> 
      */
-    open class func getApiV1PosClientsByClientidTerminalsLabelsWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerModelPosApiDataTerminalLabelResp]> {
+    open class func getApiV1PosClientsByClientidTerminalsLabelsWithRequestBuilder(clientId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[PosApiDataTerminalLabelResp]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/terminals/labels"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1258,7 +1258,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerModelPosApiDataTerminalLabelResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[PosApiDataTerminalLabelResp]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1266,15 +1266,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomers(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
-        return try await postApiV1PosClientsByClientidCustomersWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomers(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
+        return try await postApiV1PosClientsByClientidCustomersWithRequestBuilder(clientId: clientId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1283,19 +1283,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func postApiV1PosClientsByClientidCustomersWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func postApiV1PosClientsByClientidCustomersWithRequestBuilder(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1308,7 +1308,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1317,17 +1317,17 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder
+     - returns: EdgeApiDataPagePosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrders(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder {
-        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrders(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataOrder {
+        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataSearchReq: posApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1337,15 +1337,15 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersWithRequestBuilder(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/{customerId}/orders"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1354,7 +1354,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -1371,7 +1371,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1380,17 +1380,17 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty
+     - returns: EdgeApiDataPageBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty {
-        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageBounty {
+        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataSearchReq: posApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1400,15 +1400,15 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> 
+     - returns: RequestBuilder<EdgeApiDataPageBounty> 
      */
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewWithRequestBuilder(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageBounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_new"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1417,7 +1417,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -1434,7 +1434,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1443,17 +1443,17 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder
+     - returns: EdgeApiDataPagePosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder {
-        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataOrder {
+        return try await postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataSearchReq: posApiDataSearchReq, completed: completed, paidInFull: paidInFull, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1463,15 +1463,15 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter completed: (query)  (optional)
      - parameter paidInFull: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldWithRequestBuilder(clientId: String, customerId: String, posApiDataSearchReq: PosApiDataSearchReq, completed: Bool? = nil, paidInFull: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/{customerId}/orders_old"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1480,7 +1480,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -1497,7 +1497,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1505,15 +1505,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserProfile
+     - returns: UserProfile
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersNew(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserProfile {
-        return try await postApiV1PosClientsByClientidCustomersNewWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersNew(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfile {
+        return try await postApiV1PosClientsByClientidCustomersNewWithRequestBuilder(clientId: clientId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1522,19 +1522,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserProfile> 
+     - returns: RequestBuilder<UserProfile> 
      */
-    open class func postApiV1PosClientsByClientidCustomersNewWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserProfile> {
+    open class func postApiV1PosClientsByClientidCustomersNewWithRequestBuilder(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfile> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_new"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1547,7 +1547,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1555,15 +1555,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile
+     - returns: EdgeApiDataPageUserProfile
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersNewSearch(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile {
-        return try await postApiV1PosClientsByClientidCustomersNewSearchWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersNewSearch(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageUserProfile {
+        return try await postApiV1PosClientsByClientidCustomersNewSearchWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1572,19 +1572,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile> 
+     - returns: RequestBuilder<EdgeApiDataPageUserProfile> 
      */
-    open class func postApiV1PosClientsByClientidCustomersNewSearchWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile> {
+    open class func postApiV1PosClientsByClientidCustomersNewSearchWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageUserProfile> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_new/search"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1597,7 +1597,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageUserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1605,15 +1605,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersOld(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
-        return try await postApiV1PosClientsByClientidCustomersOldWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersOld(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
+        return try await postApiV1PosClientsByClientidCustomersOldWithRequestBuilder(clientId: clientId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1622,19 +1622,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func postApiV1PosClientsByClientidCustomersOldWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func postApiV1PosClientsByClientidCustomersOldWithRequestBuilder(clientId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_old"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1647,7 +1647,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1655,15 +1655,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer
+     - returns: EdgeApiDataPagePosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersOldSearch(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer {
-        return try await postApiV1PosClientsByClientidCustomersOldSearchWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersOldSearch(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataCustomer {
+        return try await postApiV1PosClientsByClientidCustomersOldSearchWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1672,19 +1672,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataCustomer> 
      */
-    open class func postApiV1PosClientsByClientidCustomersOldSearchWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> {
+    open class func postApiV1PosClientsByClientidCustomersOldSearchWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_old/search"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1697,7 +1697,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1705,15 +1705,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer
+     - returns: EdgeApiDataPagePosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidCustomersSearch(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer {
-        return try await postApiV1PosClientsByClientidCustomersSearchWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidCustomersSearch(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataCustomer {
+        return try await postApiV1PosClientsByClientidCustomersSearchWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1722,19 +1722,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataCustomer> 
      */
-    open class func postApiV1PosClientsByClientidCustomersSearchWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> {
+    open class func postApiV1PosClientsByClientidCustomersSearchWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/search"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1747,7 +1747,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1755,15 +1755,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCycleCountReq: (body)  
+     - parameter posApiDataCycleCountReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidInventoryCycleCount(clientId: String, coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataCycleCountReq: coEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidInventoryCycleCount(clientId: String, posApiDataCycleCountReq: PosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: clientId, posApiDataCycleCountReq: posApiDataCycleCountReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1772,19 +1772,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCycleCountReq: (body)  
+     - parameter posApiDataCycleCountReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1PosClientsByClientidInventoryCycleCountWithRequestBuilder(clientId: String, posApiDataCycleCountReq: PosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/cycle_count"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCycleCountReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCycleCountReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1805,15 +1805,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp
+     - returns: EdgeApiDataPagePosApiDataInventoryItemResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidInventoryItemSearch(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp {
-        return try await postApiV1PosClientsByClientidInventoryItemSearchWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidInventoryItemSearch(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataInventoryItemResp {
+        return try await postApiV1PosClientsByClientidInventoryItemSearchWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1822,19 +1822,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataInventoryItemResp> 
      */
-    open class func postApiV1PosClientsByClientidInventoryItemSearchWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp> {
+    open class func postApiV1PosClientsByClientidInventoryItemSearchWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataInventoryItemResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/item/search"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1847,7 +1847,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataInventoryItemResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1855,15 +1855,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp
+     - returns: EdgeApiDataPagePosApiDataInventoryResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidInventorySearch(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp {
-        return try await postApiV1PosClientsByClientidInventorySearchWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidInventorySearch(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataInventoryResp {
+        return try await postApiV1PosClientsByClientidInventorySearchWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1872,19 +1872,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataInventoryResp> 
      */
-    open class func postApiV1PosClientsByClientidInventorySearchWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp> {
+    open class func postApiV1PosClientsByClientidInventorySearchWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataInventoryResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/search"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1897,7 +1897,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataInventoryResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1905,15 +1905,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp
+     - returns: EdgeApiDataPagePosApiDataSearchCycleCountResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidInventorySearchCycleCount(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp {
-        return try await postApiV1PosClientsByClientidInventorySearchCycleCountWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataSearchReq: coEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidInventorySearchCycleCount(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePosApiDataSearchCycleCountResp {
+        return try await postApiV1PosClientsByClientidInventorySearchCycleCountWithRequestBuilder(clientId: clientId, posApiDataSearchReq: posApiDataSearchReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1922,19 +1922,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataSearchReq: (body)  
+     - parameter posApiDataSearchReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp> 
+     - returns: RequestBuilder<EdgeApiDataPagePosApiDataSearchCycleCountResp> 
      */
-    open class func postApiV1PosClientsByClientidInventorySearchCycleCountWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp> {
+    open class func postApiV1PosClientsByClientidInventorySearchCycleCountWithRequestBuilder(clientId: String, posApiDataSearchReq: PosApiDataSearchReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePosApiDataSearchCycleCountResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/search/cycle_count"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataSearchReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataSearchReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1947,7 +1947,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePosApiDataSearchCycleCountResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1955,15 +1955,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrders(clientId: String, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await postApiV1PosClientsByClientidOrdersWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataOrder: coEdgeappServerModelPosApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidOrders(clientId: String, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await postApiV1PosClientsByClientidOrdersWithRequestBuilder(clientId: clientId, posApiDataOrder: posApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1972,19 +1972,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidOrdersWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidOrdersWithRequestBuilder(clientId: String, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataOrder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataOrder)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1997,7 +1997,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2009,12 +2009,12 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty
+     - parameter posApiDataOrder: (body)  (optional)
+     - returns: EdgeApiDataPageBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrdersBounty(clientId: String, posOrderIds: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, coEdgeappServerModelPosApiDataOrder: [CoEdgeappServerModelPosApiDataOrder]? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty {
-        return try await postApiV1PosClientsByClientidOrdersBountyWithRequestBuilder(clientId: clientId, posOrderIds: posOrderIds, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, coEdgeappServerModelPosApiDataOrder: coEdgeappServerModelPosApiDataOrder).execute().body
+    open class func postApiV1PosClientsByClientidOrdersBounty(clientId: String, posOrderIds: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, posApiDataOrder: [PosApiDataOrder]? = nil) async throws -> EdgeApiDataPageBounty {
+        return try await postApiV1PosClientsByClientidOrdersBountyWithRequestBuilder(clientId: clientId, posOrderIds: posOrderIds, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, posApiDataOrder: posApiDataOrder).execute().body
     }
 
     /**
@@ -2027,16 +2027,16 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> 
+     - parameter posApiDataOrder: (body)  (optional)
+     - returns: RequestBuilder<EdgeApiDataPageBounty> 
      */
-    open class func postApiV1PosClientsByClientidOrdersBountyWithRequestBuilder(clientId: String, posOrderIds: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, coEdgeappServerModelPosApiDataOrder: [CoEdgeappServerModelPosApiDataOrder]? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    open class func postApiV1PosClientsByClientidOrdersBountyWithRequestBuilder(clientId: String, posOrderIds: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, posApiDataOrder: [PosApiDataOrder]? = nil) -> RequestBuilder<EdgeApiDataPageBounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/bounty"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataOrder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataOrder)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -2052,7 +2052,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2065,10 +2065,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
+    open class func postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
         return try await postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, discountId: discountId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2083,9 +2083,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidWithRequestBuilder(clientId: String, posOrderId: String, discountId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/discounts/{discountId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2109,7 +2109,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2118,15 +2118,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataAddOrderItemDto: (body)  
+     - parameter posApiDataAddOrderItemDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrdersByPosorderidItems(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataAddOrderItemDto: CoEdgeappServerModelPosApiDataAddOrderItemDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await postApiV1PosClientsByClientidOrdersByPosorderidItemsWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataAddOrderItemDto: coEdgeappServerModelPosApiDataAddOrderItemDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidOrdersByPosorderidItems(clientId: String, posOrderId: String, posApiDataAddOrderItemDto: PosApiDataAddOrderItemDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await postApiV1PosClientsByClientidOrdersByPosorderidItemsWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataAddOrderItemDto: posApiDataAddOrderItemDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2136,13 +2136,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataAddOrderItemDto: (body)  
+     - parameter posApiDataAddOrderItemDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidOrdersByPosorderidItemsWithRequestBuilder(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataAddOrderItemDto: CoEdgeappServerModelPosApiDataAddOrderItemDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidOrdersByPosorderidItemsWithRequestBuilder(clientId: String, posOrderId: String, posApiDataAddOrderItemDto: PosApiDataAddOrderItemDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/items"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2151,7 +2151,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataAddOrderItemDto)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataAddOrderItemDto)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2164,7 +2164,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2172,15 +2172,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelBounty
+     - returns: Bounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrdersNew(clientId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
-        return try await postApiV1PosClientsByClientidOrdersNewWithRequestBuilder(clientId: clientId, coEdgeappServerModelShoppingCart: coEdgeappServerModelShoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidOrdersNew(clientId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
+        return try await postApiV1PosClientsByClientidOrdersNewWithRequestBuilder(clientId: clientId, shoppingCart: shoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2189,19 +2189,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
+     - returns: RequestBuilder<Bounty> 
      */
-    open class func postApiV1PosClientsByClientidOrdersNewWithRequestBuilder(clientId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
+    open class func postApiV1PosClientsByClientidOrdersNewWithRequestBuilder(clientId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_new"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCart)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCart)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2214,7 +2214,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2222,15 +2222,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidOrdersOld(clientId: String, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await postApiV1PosClientsByClientidOrdersOldWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataOrder: coEdgeappServerModelPosApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PosClientsByClientidOrdersOld(clientId: String, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await postApiV1PosClientsByClientidOrdersOldWithRequestBuilder(clientId: clientId, posApiDataOrder: posApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2239,19 +2239,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func postApiV1PosClientsByClientidOrdersOldWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func postApiV1PosClientsByClientidOrdersOldWithRequestBuilder(clientId: String, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_old"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataOrder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataOrder)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2264,7 +2264,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2276,10 +2276,10 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataQueueItemResp
+     - returns: PosApiDataQueueItemResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PosClientsByClientidQueue(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataQueueItemResp {
+    open class func postApiV1PosClientsByClientidQueue(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataQueueItemResp {
         return try await postApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: clientId, customerId: customerId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2293,9 +2293,9 @@ open class PosProxyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataQueueItemResp> 
+     - returns: RequestBuilder<PosApiDataQueueItemResp> 
      */
-    open class func postApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataQueueItemResp> {
+    open class func postApiV1PosClientsByClientidQueueWithRequestBuilder(clientId: String, customerId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataQueueItemResp> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/queue"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2316,7 +2316,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataQueueItemResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataQueueItemResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2325,15 +2325,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidCustomersByCustomerid(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
-        return try await putApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidCustomersByCustomerid(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
+        return try await putApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2343,13 +2343,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func putApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func putApiV1PosClientsByClientidCustomersByCustomeridWithRequestBuilder(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2358,7 +2358,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2371,7 +2371,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2380,15 +2380,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelUserProfile
+     - returns: UserProfile
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidCustomersNewByCustomerid(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelUserProfile {
-        return try await putApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidCustomersNewByCustomerid(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfile {
+        return try await putApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2398,13 +2398,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelUserProfile> 
+     - returns: RequestBuilder<UserProfile> 
      */
-    open class func putApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelUserProfile> {
+    open class func putApiV1PosClientsByClientidCustomersNewByCustomeridWithRequestBuilder(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfile> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_new/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2413,7 +2413,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2426,7 +2426,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelUserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserProfile>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2435,15 +2435,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataCustomer
+     - returns: PosApiDataCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidCustomersOldByCustomerid(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataCustomer {
-        return try await putApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, coEdgeappServerModelPosApiDataCustomer: coEdgeappServerModelPosApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidCustomersOldByCustomerid(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataCustomer {
+        return try await putApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: clientId, customerId: customerId, posApiDataCustomer: posApiDataCustomer, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2453,13 +2453,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter customerId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCustomer: (body)  
+     - parameter posApiDataCustomer: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> 
+     - returns: RequestBuilder<PosApiDataCustomer> 
      */
-    open class func putApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: String, customerId: String, coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataCustomer> {
+    open class func putApiV1PosClientsByClientidCustomersOldByCustomeridWithRequestBuilder(clientId: String, customerId: String, posApiDataCustomer: PosApiDataCustomer, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataCustomer> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/customers_old/{customerId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2468,7 +2468,7 @@ open class PosProxyControllerAPI {
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCustomer)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCustomer)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2481,7 +2481,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2489,15 +2489,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataManageInventoryAdjustReq: (body)  
+     - parameter posApiDataManageInventoryAdjustReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidInventoryAdjust(clientId: String, coEdgeappServerModelPosApiDataManageInventoryAdjustReq: CoEdgeappServerModelPosApiDataManageInventoryAdjustReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1PosClientsByClientidInventoryAdjustWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataManageInventoryAdjustReq: coEdgeappServerModelPosApiDataManageInventoryAdjustReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidInventoryAdjust(clientId: String, posApiDataManageInventoryAdjustReq: PosApiDataManageInventoryAdjustReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1PosClientsByClientidInventoryAdjustWithRequestBuilder(clientId: clientId, posApiDataManageInventoryAdjustReq: posApiDataManageInventoryAdjustReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2506,19 +2506,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataManageInventoryAdjustReq: (body)  
+     - parameter posApiDataManageInventoryAdjustReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func putApiV1PosClientsByClientidInventoryAdjustWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataManageInventoryAdjustReq: CoEdgeappServerModelPosApiDataManageInventoryAdjustReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1PosClientsByClientidInventoryAdjustWithRequestBuilder(clientId: String, posApiDataManageInventoryAdjustReq: PosApiDataManageInventoryAdjustReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/adjust"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataManageInventoryAdjustReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataManageInventoryAdjustReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2540,15 +2540,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter cycleCountId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCycleCountReq: (body)  
+     - parameter posApiDataCycleCountReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(clientId: String, cycleCountId: String, coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: clientId, cycleCountId: cycleCountId, coEdgeappServerModelPosApiDataCycleCountReq: coEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(clientId: String, cycleCountId: String, posApiDataCycleCountReq: PosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: clientId, cycleCountId: cycleCountId, posApiDataCycleCountReq: posApiDataCycleCountReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2558,13 +2558,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter cycleCountId: (path)  
-     - parameter coEdgeappServerModelPosApiDataCycleCountReq: (body)  
+     - parameter posApiDataCycleCountReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: String, cycleCountId: String, coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdWithRequestBuilder(clientId: String, cycleCountId: String, posApiDataCycleCountReq: PosApiDataCycleCountReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/cycle_count/{cycle_count_id}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2573,7 +2573,7 @@ open class PosProxyControllerAPI {
         let cycleCountIdPostEscape = cycleCountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cycle_count_id}", with: cycleCountIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataCycleCountReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataCycleCountReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2594,15 +2594,15 @@ open class PosProxyControllerAPI {
     /**
 
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataManageInventoryReq: (body)  
+     - parameter posApiDataManageInventoryReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidInventoryMove(clientId: String, coEdgeappServerModelPosApiDataManageInventoryReq: CoEdgeappServerModelPosApiDataManageInventoryReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1PosClientsByClientidInventoryMoveWithRequestBuilder(clientId: clientId, coEdgeappServerModelPosApiDataManageInventoryReq: coEdgeappServerModelPosApiDataManageInventoryReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidInventoryMove(clientId: String, posApiDataManageInventoryReq: PosApiDataManageInventoryReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1PosClientsByClientidInventoryMoveWithRequestBuilder(clientId: clientId, posApiDataManageInventoryReq: posApiDataManageInventoryReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2611,19 +2611,19 @@ open class PosProxyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter clientId: (path)  
-     - parameter coEdgeappServerModelPosApiDataManageInventoryReq: (body)  
+     - parameter posApiDataManageInventoryReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func putApiV1PosClientsByClientidInventoryMoveWithRequestBuilder(clientId: String, coEdgeappServerModelPosApiDataManageInventoryReq: CoEdgeappServerModelPosApiDataManageInventoryReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1PosClientsByClientidInventoryMoveWithRequestBuilder(clientId: String, posApiDataManageInventoryReq: PosApiDataManageInventoryReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/inventory/move"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{clientId}", with: clientIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataManageInventoryReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataManageInventoryReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2645,15 +2645,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersByPosorderid(clientId: String, posOrderId: Int, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await putApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataOrder: coEdgeappServerModelPosApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersByPosorderid(clientId: String, posOrderId: Int, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await putApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataOrder: posApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2663,13 +2663,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: String, posOrderId: Int, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidWithRequestBuilder(clientId: String, posOrderId: Int, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2678,7 +2678,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataOrder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataOrder)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2691,7 +2691,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2700,15 +2700,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMerge(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataMergeOrdersRequest: coEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMerge(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataMergeOrdersRequest: posApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2718,13 +2718,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeWithRequestBuilder(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeWithRequestBuilder(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2733,7 +2733,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataMergeOrdersRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataMergeOrdersRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2746,7 +2746,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2755,15 +2755,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelBounty
+     - returns: Bounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
-        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeNewWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataMergeOrdersRequest: coEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
+        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeNewWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataMergeOrdersRequest: posApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2773,13 +2773,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
+     - returns: RequestBuilder<Bounty> 
      */
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeNewWithRequestBuilder(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeNewWithRequestBuilder(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_new"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2788,7 +2788,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataMergeOrdersRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataMergeOrdersRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2801,7 +2801,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2810,15 +2810,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeOldWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataMergeOrdersRequest: coEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await putApiV1PosClientsByClientidOrdersByPosorderidMergeOldWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataMergeOrdersRequest: posApiDataMergeOrdersRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2828,13 +2828,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataMergeOrdersRequest: (body)  
+     - parameter posApiDataMergeOrdersRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeOldWithRequestBuilder(clientId: String, posOrderId: String, coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func putApiV1PosClientsByClientidOrdersByPosorderidMergeOldWithRequestBuilder(clientId: String, posOrderId: String, posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders/{posOrderId}/merge_old"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2843,7 +2843,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataMergeOrdersRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataMergeOrdersRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2856,7 +2856,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2865,15 +2865,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelBounty
+     - returns: Bounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersNewByPosorderid(clientId: String, posOrderId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelBounty {
-        return try await putApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelShoppingCart: coEdgeappServerModelShoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersNewByPosorderid(clientId: String, posOrderId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bounty {
+        return try await putApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, shoppingCart: shoppingCart, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2883,13 +2883,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelShoppingCart: (body)  
+     - parameter shoppingCart: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelBounty> 
+     - returns: RequestBuilder<Bounty> 
      */
-    open class func putApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelBounty> {
+    open class func putApiV1PosClientsByClientidOrdersNewByPosorderidWithRequestBuilder(clientId: String, posOrderId: String, shoppingCart: ShoppingCart, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bounty> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_new/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2898,7 +2898,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelShoppingCart)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: shoppingCart)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2911,7 +2911,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2920,15 +2920,15 @@ open class PosProxyControllerAPI {
 
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelPosApiDataOrder
+     - returns: PosApiDataOrder
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1PosClientsByClientidOrdersOldByPosorderid(clientId: String, posOrderId: Int, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelPosApiDataOrder {
-        return try await putApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, coEdgeappServerModelPosApiDataOrder: coEdgeappServerModelPosApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1PosClientsByClientidOrdersOldByPosorderid(clientId: String, posOrderId: Int, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PosApiDataOrder {
+        return try await putApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: clientId, posOrderId: posOrderId, posApiDataOrder: posApiDataOrder, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2938,13 +2938,13 @@ open class PosProxyControllerAPI {
        - name: JWT
      - parameter clientId: (path)  
      - parameter posOrderId: (path)  
-     - parameter coEdgeappServerModelPosApiDataOrder: (body)  
+     - parameter posApiDataOrder: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelPosApiDataOrder> 
+     - returns: RequestBuilder<PosApiDataOrder> 
      */
-    open class func putApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: String, posOrderId: Int, coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelPosApiDataOrder> {
+    open class func putApiV1PosClientsByClientidOrdersOldByPosorderidWithRequestBuilder(clientId: String, posOrderId: Int, posApiDataOrder: PosApiDataOrder, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PosApiDataOrder> {
         var localVariablePath = "/api/v1/pos/clients/{clientId}/orders_old/{posOrderId}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2953,7 +2953,7 @@ open class PosProxyControllerAPI {
         let posOrderIdPostEscape = posOrderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{posOrderId}", with: posOrderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelPosApiDataOrder)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: posApiDataOrder)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2966,7 +2966,7 @@ open class PosProxyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelPosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PosApiDataOrder>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

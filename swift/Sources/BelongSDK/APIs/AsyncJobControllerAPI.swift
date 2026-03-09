@@ -37,10 +37,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]
+     - returns: [AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobs(status: Status_getApiV1AsyncJobsJobs? = nil, jobType: String? = nil, entityType: String? = nil, entityId: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB] {
+    open class func getApiV1AsyncJobsJobs(status: Status_getApiV1AsyncJobsJobs? = nil, jobType: String? = nil, entityType: String? = nil, entityId: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB] {
         return try await getApiV1AsyncJobsJobsWithRequestBuilder(status: status, jobType: jobType, entityType: entityType, entityId: entityId, limit: limit, offset: offset, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -58,9 +58,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> 
+     - returns: RequestBuilder<[AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> 
      */
-    open class func getApiV1AsyncJobsJobsWithRequestBuilder(status: Status_getApiV1AsyncJobsJobs? = nil, jobType: String? = nil, entityType: String? = nil, entityId: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> {
+    open class func getApiV1AsyncJobsJobsWithRequestBuilder(status: Status_getApiV1AsyncJobsJobs? = nil, jobType: String? = nil, entityType: String? = nil, entityId: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> {
         let localVariablePath = "/api/v1/async-jobs/jobs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -83,7 +83,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -94,10 +94,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
+     - returns: AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobsByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB {
+    open class func getApiV1AsyncJobsJobsByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB {
         return try await getApiV1AsyncJobsJobsByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -110,9 +110,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> 
+     - returns: RequestBuilder<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> 
      */
-    open class func getApiV1AsyncJobsJobsByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
+    open class func getApiV1AsyncJobsJobsByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -130,7 +130,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerAsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -143,10 +143,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerAsyncAsyncEventOrgJooqJSONB]
+     - returns: [AsyncAsyncEventOrgJooqJSONB]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobsByJobidEvents(jobId: UUID, limit: Int? = nil, afterCreatedAt: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerAsyncAsyncEventOrgJooqJSONB] {
+    open class func getApiV1AsyncJobsJobsByJobidEvents(jobId: UUID, limit: Int? = nil, afterCreatedAt: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [AsyncAsyncEventOrgJooqJSONB] {
         return try await getApiV1AsyncJobsJobsByJobidEventsWithRequestBuilder(jobId: jobId, limit: limit, afterCreatedAt: afterCreatedAt, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -161,9 +161,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerAsyncAsyncEventOrgJooqJSONB]> 
+     - returns: RequestBuilder<[AsyncAsyncEventOrgJooqJSONB]> 
      */
-    open class func getApiV1AsyncJobsJobsByJobidEventsWithRequestBuilder(jobId: UUID, limit: Int? = nil, afterCreatedAt: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerAsyncAsyncEventOrgJooqJSONB]> {
+    open class func getApiV1AsyncJobsJobsByJobidEventsWithRequestBuilder(jobId: UUID, limit: Int? = nil, afterCreatedAt: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[AsyncAsyncEventOrgJooqJSONB]> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/events"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -185,7 +185,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerAsyncAsyncEventOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[AsyncAsyncEventOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -196,10 +196,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse
+     - returns: RestControllerAsyncJobControllerJobProgressResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobsByJobidProgress(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse {
+    open class func getApiV1AsyncJobsJobsByJobidProgress(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAsyncJobControllerJobProgressResponse {
         return try await getApiV1AsyncJobsJobsByJobidProgressWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -212,9 +212,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse> 
+     - returns: RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse> 
      */
-    open class func getApiV1AsyncJobsJobsByJobidProgressWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse> {
+    open class func getApiV1AsyncJobsJobsByJobidProgressWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/progress"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -232,7 +232,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -247,10 +247,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]
+     - returns: [AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobsByJobidTasks(jobId: UUID, status: String? = nil, taskType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB] {
+    open class func getApiV1AsyncJobsJobsByJobidTasks(jobId: UUID, status: String? = nil, taskType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB] {
         return try await getApiV1AsyncJobsJobsByJobidTasksWithRequestBuilder(jobId: jobId, status: status, taskType: taskType, limit: limit, offset: offset, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -267,9 +267,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> 
+     - returns: RequestBuilder<[AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> 
      */
-    open class func getApiV1AsyncJobsJobsByJobidTasksWithRequestBuilder(jobId: UUID, status: String? = nil, taskType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> {
+    open class func getApiV1AsyncJobsJobsByJobidTasksWithRequestBuilder(jobId: UUID, status: String? = nil, taskType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/tasks"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -293,7 +293,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -305,10 +305,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
+     - returns: AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsJobsByJobidTasksByTaskid(jobId: UUID, taskId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB {
+    open class func getApiV1AsyncJobsJobsByJobidTasksByTaskid(jobId: UUID, taskId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB {
         return try await getApiV1AsyncJobsJobsByJobidTasksByTaskidWithRequestBuilder(jobId: jobId, taskId: taskId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -322,9 +322,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> 
+     - returns: RequestBuilder<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> 
      */
-    open class func getApiV1AsyncJobsJobsByJobidTasksByTaskidWithRequestBuilder(jobId: UUID, taskId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
+    open class func getApiV1AsyncJobsJobsByJobidTasksByTaskidWithRequestBuilder(jobId: UUID, taskId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -345,7 +345,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerAsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -358,10 +358,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse
+     - returns: RestControllerAsyncJobControllerJobProgressResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsProgress(entityType: String, entityId: String, jobType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse {
+    open class func getApiV1AsyncJobsProgress(entityType: String, entityId: String, jobType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAsyncJobControllerJobProgressResponse {
         return try await getApiV1AsyncJobsProgressWithRequestBuilder(entityType: entityType, entityId: entityId, jobType: jobType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -376,9 +376,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse> 
+     - returns: RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse> 
      */
-    open class func getApiV1AsyncJobsProgressWithRequestBuilder(entityType: String, entityId: String, jobType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse> {
+    open class func getApiV1AsyncJobsProgressWithRequestBuilder(entityType: String, entityId: String, jobType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse> {
         let localVariablePath = "/api/v1/async-jobs/progress"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -398,7 +398,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAsyncJobControllerJobProgressResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAsyncJobControllerJobProgressResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -412,10 +412,10 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [CoEdgeappServerAsyncQueueStats]
+     - returns: [AsyncQueueStats]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AsyncJobsQueues(jobId: UUID? = nil, entityType: String? = nil, entityId: String? = nil, taskType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [CoEdgeappServerAsyncQueueStats] {
+    open class func getApiV1AsyncJobsQueues(jobId: UUID? = nil, entityType: String? = nil, entityId: String? = nil, taskType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [AsyncQueueStats] {
         return try await getApiV1AsyncJobsQueuesWithRequestBuilder(jobId: jobId, entityType: entityType, entityId: entityId, taskType: taskType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -431,9 +431,9 @@ open class AsyncJobControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[CoEdgeappServerAsyncQueueStats]> 
+     - returns: RequestBuilder<[AsyncQueueStats]> 
      */
-    open class func getApiV1AsyncJobsQueuesWithRequestBuilder(jobId: UUID? = nil, entityType: String? = nil, entityId: String? = nil, taskType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[CoEdgeappServerAsyncQueueStats]> {
+    open class func getApiV1AsyncJobsQueuesWithRequestBuilder(jobId: UUID? = nil, entityType: String? = nil, entityId: String? = nil, taskType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[AsyncQueueStats]> {
         let localVariablePath = "/api/v1/async-jobs/queues"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -454,7 +454,7 @@ open class AsyncJobControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[CoEdgeappServerAsyncQueueStats]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[AsyncQueueStats]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -604,15 +604,15 @@ open class AsyncJobControllerAPI {
 
      - parameter jobId: (path)  
      - parameter taskId: (path)  
-     - parameter coEdgeappServerRestControllerAsyncJobControllerReleaseRequest: (body)  
+     - parameter restControllerAsyncJobControllerReleaseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: Bool
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(jobId: UUID, taskId: UUID, coEdgeappServerRestControllerAsyncJobControllerReleaseRequest: CoEdgeappServerRestControllerAsyncJobControllerReleaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bool {
-        return try await postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseWithRequestBuilder(jobId: jobId, taskId: taskId, coEdgeappServerRestControllerAsyncJobControllerReleaseRequest: coEdgeappServerRestControllerAsyncJobControllerReleaseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(jobId: UUID, taskId: UUID, restControllerAsyncJobControllerReleaseRequest: RestControllerAsyncJobControllerReleaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bool {
+        return try await postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseWithRequestBuilder(jobId: jobId, taskId: taskId, restControllerAsyncJobControllerReleaseRequest: restControllerAsyncJobControllerReleaseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -622,13 +622,13 @@ open class AsyncJobControllerAPI {
        - name: JWT
      - parameter jobId: (path)  
      - parameter taskId: (path)  
-     - parameter coEdgeappServerRestControllerAsyncJobControllerReleaseRequest: (body)  
+     - parameter restControllerAsyncJobControllerReleaseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Bool> 
      */
-    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseWithRequestBuilder(jobId: UUID, taskId: UUID, coEdgeappServerRestControllerAsyncJobControllerReleaseRequest: CoEdgeappServerRestControllerAsyncJobControllerReleaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bool> {
+    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseWithRequestBuilder(jobId: UUID, taskId: UUID, restControllerAsyncJobControllerReleaseRequest: RestControllerAsyncJobControllerReleaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bool> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:release"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -637,7 +637,7 @@ open class AsyncJobControllerAPI {
         let taskIdPostEscape = taskIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{taskId}", with: taskIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAsyncJobControllerReleaseRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAsyncJobControllerReleaseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -659,15 +659,15 @@ open class AsyncJobControllerAPI {
 
      - parameter jobId: (path)  
      - parameter taskId: (path)  
-     - parameter coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest: (body)  
+     - parameter restControllerAsyncJobControllerRenewLeaseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: Bool
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(jobId: UUID, taskId: UUID, coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest: CoEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bool {
-        return try await postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseWithRequestBuilder(jobId: jobId, taskId: taskId, coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest: coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(jobId: UUID, taskId: UUID, restControllerAsyncJobControllerRenewLeaseRequest: RestControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Bool {
+        return try await postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseWithRequestBuilder(jobId: jobId, taskId: taskId, restControllerAsyncJobControllerRenewLeaseRequest: restControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -677,13 +677,13 @@ open class AsyncJobControllerAPI {
        - name: JWT
      - parameter jobId: (path)  
      - parameter taskId: (path)  
-     - parameter coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest: (body)  
+     - parameter restControllerAsyncJobControllerRenewLeaseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Bool> 
      */
-    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseWithRequestBuilder(jobId: UUID, taskId: UUID, coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest: CoEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bool> {
+    open class func postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseWithRequestBuilder(jobId: UUID, taskId: UUID, restControllerAsyncJobControllerRenewLeaseRequest: RestControllerAsyncJobControllerRenewLeaseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Bool> {
         var localVariablePath = "/api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:renew-lease"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -692,7 +692,7 @@ open class AsyncJobControllerAPI {
         let taskIdPostEscape = taskIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{taskId}", with: taskIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAsyncJobControllerRenewLeaseRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAsyncJobControllerRenewLeaseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

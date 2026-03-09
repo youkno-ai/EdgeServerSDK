@@ -15,34 +15,34 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerAuthAuthTokens,
-  CoEdgeappServerRestControllerAuthControllerExchangeRequest,
-  CoEdgeappServerRestControllerAuthControllerLogoutRequest,
-  CoEdgeappServerRestControllerAuthControllerRefreshRequest,
+  AuthAuthTokens,
+  RestControllerAuthControllerExchangeRequest,
+  RestControllerAuthControllerLogoutRequest,
+  RestControllerAuthControllerRefreshRequest,
 } from '../models/index';
 import {
-    CoEdgeappServerAuthAuthTokensFromJSON,
-    CoEdgeappServerAuthAuthTokensToJSON,
-    CoEdgeappServerRestControllerAuthControllerExchangeRequestFromJSON,
-    CoEdgeappServerRestControllerAuthControllerExchangeRequestToJSON,
-    CoEdgeappServerRestControllerAuthControllerLogoutRequestFromJSON,
-    CoEdgeappServerRestControllerAuthControllerLogoutRequestToJSON,
-    CoEdgeappServerRestControllerAuthControllerRefreshRequestFromJSON,
-    CoEdgeappServerRestControllerAuthControllerRefreshRequestToJSON,
+    AuthAuthTokensFromJSON,
+    AuthAuthTokensToJSON,
+    RestControllerAuthControllerExchangeRequestFromJSON,
+    RestControllerAuthControllerExchangeRequestToJSON,
+    RestControllerAuthControllerLogoutRequestFromJSON,
+    RestControllerAuthControllerLogoutRequestToJSON,
+    RestControllerAuthControllerRefreshRequestFromJSON,
+    RestControllerAuthControllerRefreshRequestToJSON,
 } from '../models/index';
 
 export interface PostApiV1AuthExchangeRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    coEdgeappServerRestControllerAuthControllerExchangeRequest?: CoEdgeappServerRestControllerAuthControllerExchangeRequest;
+    restControllerAuthControllerExchangeRequest?: RestControllerAuthControllerExchangeRequest;
 }
 
 export interface PostApiV1AuthLogoutRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    coEdgeappServerRestControllerAuthControllerLogoutRequest?: CoEdgeappServerRestControllerAuthControllerLogoutRequest;
+    restControllerAuthControllerLogoutRequest?: RestControllerAuthControllerLogoutRequest;
 }
 
 export interface PostApiV1AuthLogoutAllRequest {
@@ -52,7 +52,7 @@ export interface PostApiV1AuthLogoutAllRequest {
 }
 
 export interface PostApiV1AuthRefreshRequest {
-    coEdgeappServerRestControllerAuthControllerRefreshRequest: CoEdgeappServerRestControllerAuthControllerRefreshRequest;
+    restControllerAuthControllerRefreshRequest: RestControllerAuthControllerRefreshRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -70,23 +70,23 @@ export interface AuthControllerApiInterface {
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {CoEdgeappServerRestControllerAuthControllerExchangeRequest} [coEdgeappServerRestControllerAuthControllerExchangeRequest] 
+     * @param {RestControllerAuthControllerExchangeRequest} [restControllerAuthControllerExchangeRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
      */
-    postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerAuthAuthTokens>>;
+    postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>>;
 
     /**
      */
-    postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerAuthAuthTokens>;
+    postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens>;
 
     /**
      * 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {CoEdgeappServerRestControllerAuthControllerLogoutRequest} [coEdgeappServerRestControllerAuthControllerLogoutRequest] 
+     * @param {RestControllerAuthControllerLogoutRequest} [restControllerAuthControllerLogoutRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
@@ -114,7 +114,7 @@ export interface AuthControllerApiInterface {
 
     /**
      * 
-     * @param {CoEdgeappServerRestControllerAuthControllerRefreshRequest} coEdgeappServerRestControllerAuthControllerRefreshRequest 
+     * @param {RestControllerAuthControllerRefreshRequest} restControllerAuthControllerRefreshRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -122,11 +122,11 @@ export interface AuthControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
      */
-    postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerAuthAuthTokens>>;
+    postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>>;
 
     /**
      */
-    postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerAuthAuthTokens>;
+    postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens>;
 
 }
 
@@ -137,7 +137,7 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
 
     /**
      */
-    async postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerAuthAuthTokens>> {
+    async postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -168,15 +168,15 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAuthControllerExchangeRequestToJSON(requestParameters['coEdgeappServerRestControllerAuthControllerExchangeRequest']),
+            body: RestControllerAuthControllerExchangeRequestToJSON(requestParameters['restControllerAuthControllerExchangeRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerAuthAuthTokensFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthAuthTokensFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerAuthAuthTokens> {
+    async postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens> {
         const response = await this.postApiV1AuthExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -214,7 +214,7 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAuthControllerLogoutRequestToJSON(requestParameters['coEdgeappServerRestControllerAuthControllerLogoutRequest']),
+            body: RestControllerAuthControllerLogoutRequestToJSON(requestParameters['restControllerAuthControllerLogoutRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -272,11 +272,11 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
 
     /**
      */
-    async postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerAuthAuthTokens>> {
-        if (requestParameters['coEdgeappServerRestControllerAuthControllerRefreshRequest'] == null) {
+    async postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>> {
+        if (requestParameters['restControllerAuthControllerRefreshRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerRestControllerAuthControllerRefreshRequest',
-                'Required parameter "coEdgeappServerRestControllerAuthControllerRefreshRequest" was null or undefined when calling postApiV1AuthRefresh().'
+                'restControllerAuthControllerRefreshRequest',
+                'Required parameter "restControllerAuthControllerRefreshRequest" was null or undefined when calling postApiV1AuthRefresh().'
             );
         }
 
@@ -310,15 +310,15 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerRestControllerAuthControllerRefreshRequestToJSON(requestParameters['coEdgeappServerRestControllerAuthControllerRefreshRequest']),
+            body: RestControllerAuthControllerRefreshRequestToJSON(requestParameters['restControllerAuthControllerRefreshRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerAuthAuthTokensFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthAuthTokensFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerAuthAuthTokens> {
+    async postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens> {
         const response = await this.postApiV1AuthRefreshRaw(requestParameters, initOverrides);
         return await response.value();
     }

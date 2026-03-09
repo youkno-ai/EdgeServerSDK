@@ -71,10 +71,10 @@ open class ListControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelListsListDef
+     - returns: ListsListDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ListsByListidByScopename(listId: String, scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelListsListDef {
+    open class func getApiV1ListsByListidByScopename(listId: String, scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListsListDef {
         return try await getApiV1ListsByListidByScopenameWithRequestBuilder(listId: listId, scopeName: scopeName, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -88,9 +88,9 @@ open class ListControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelListsListDef> 
+     - returns: RequestBuilder<ListsListDef> 
      */
-    open class func getApiV1ListsByListidByScopenameWithRequestBuilder(listId: String, scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelListsListDef> {
+    open class func getApiV1ListsByListidByScopenameWithRequestBuilder(listId: String, scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListsListDef> {
         var localVariablePath = "/api/v1/lists/{listId}/{scopeName}"
         let listIdPreEscape = "\(APIHelper.mapValueToPathItem(listId))"
         let listIdPostEscape = listIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -111,7 +111,7 @@ open class ListControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -122,10 +122,10 @@ open class ListControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef
+     - returns: EdgeApiDataPageListsListDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ListsByScopename(scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef {
+    open class func getApiV1ListsByScopename(scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageListsListDef {
         return try await getApiV1ListsByScopenameWithRequestBuilder(scopeName: scopeName, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -138,9 +138,9 @@ open class ListControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef> 
+     - returns: RequestBuilder<EdgeApiDataPageListsListDef> 
      */
-    open class func getApiV1ListsByScopenameWithRequestBuilder(scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef> {
+    open class func getApiV1ListsByScopenameWithRequestBuilder(scopeName: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageListsListDef> {
         var localVariablePath = "/api/v1/lists/{scopeName}"
         let scopeNamePreEscape = "\(APIHelper.mapValueToPathItem(scopeName))"
         let scopeNamePostEscape = scopeNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -158,7 +158,7 @@ open class ListControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -166,15 +166,15 @@ open class ListControllerAPI {
     /**
 
      - parameter scopeName: (path)  
-     - parameter coEdgeappServerModelListsListDef: (body)  
+     - parameter listsListDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelListsListDef
+     - returns: ListsListDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1ListsByScopename(scopeName: String, coEdgeappServerModelListsListDef: CoEdgeappServerModelListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelListsListDef {
-        return try await postApiV1ListsByScopenameWithRequestBuilder(scopeName: scopeName, coEdgeappServerModelListsListDef: coEdgeappServerModelListsListDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ListsByScopename(scopeName: String, listsListDef: ListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListsListDef {
+        return try await postApiV1ListsByScopenameWithRequestBuilder(scopeName: scopeName, listsListDef: listsListDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -183,19 +183,19 @@ open class ListControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter scopeName: (path)  
-     - parameter coEdgeappServerModelListsListDef: (body)  
+     - parameter listsListDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelListsListDef> 
+     - returns: RequestBuilder<ListsListDef> 
      */
-    open class func postApiV1ListsByScopenameWithRequestBuilder(scopeName: String, coEdgeappServerModelListsListDef: CoEdgeappServerModelListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelListsListDef> {
+    open class func postApiV1ListsByScopenameWithRequestBuilder(scopeName: String, listsListDef: ListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListsListDef> {
         var localVariablePath = "/api/v1/lists/{scopeName}"
         let scopeNamePreEscape = "\(APIHelper.mapValueToPathItem(scopeName))"
         let scopeNamePostEscape = scopeNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{scopeName}", with: scopeNamePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelListsListDef)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: listsListDef)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -208,7 +208,7 @@ open class ListControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -217,15 +217,15 @@ open class ListControllerAPI {
 
      - parameter listId: (path)  
      - parameter scopeName: (path)  
-     - parameter coEdgeappServerModelListsListDef: (body)  
+     - parameter listsListDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelListsListDef
+     - returns: ListsListDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1ListsByListidByScopename(listId: String, scopeName: String, coEdgeappServerModelListsListDef: CoEdgeappServerModelListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelListsListDef {
-        return try await putApiV1ListsByListidByScopenameWithRequestBuilder(listId: listId, scopeName: scopeName, coEdgeappServerModelListsListDef: coEdgeappServerModelListsListDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1ListsByListidByScopename(listId: String, scopeName: String, listsListDef: ListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListsListDef {
+        return try await putApiV1ListsByListidByScopenameWithRequestBuilder(listId: listId, scopeName: scopeName, listsListDef: listsListDef, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -235,13 +235,13 @@ open class ListControllerAPI {
        - name: JWT
      - parameter listId: (path)  
      - parameter scopeName: (path)  
-     - parameter coEdgeappServerModelListsListDef: (body)  
+     - parameter listsListDef: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelListsListDef> 
+     - returns: RequestBuilder<ListsListDef> 
      */
-    open class func putApiV1ListsByListidByScopenameWithRequestBuilder(listId: String, scopeName: String, coEdgeappServerModelListsListDef: CoEdgeappServerModelListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelListsListDef> {
+    open class func putApiV1ListsByListidByScopenameWithRequestBuilder(listId: String, scopeName: String, listsListDef: ListsListDef, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListsListDef> {
         var localVariablePath = "/api/v1/lists/{listId}/{scopeName}"
         let listIdPreEscape = "\(APIHelper.mapValueToPathItem(listId))"
         let listIdPostEscape = listIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -250,7 +250,7 @@ open class ListControllerAPI {
         let scopeNamePostEscape = scopeNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{scopeName}", with: scopeNamePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelListsListDef)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: listsListDef)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -263,7 +263,7 @@ open class ListControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

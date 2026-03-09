@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerOpenPaymentControllerPaymentSummaryResp
+import ai.youkno.edgeserversdk.models.RestControllerOpenPaymentControllerPaymentSummaryResp
 
 interface OpenPaymentControllerApi {
     /**
@@ -21,9 +21,9 @@ interface OpenPaymentControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverrestcontrollerOpenPaymentControllerPaymentSummaryResp]>
+     * @return [Call]<[RestControllerOpenPaymentControllerPaymentSummaryResp]>
      */
     @POST("api/v1/open/payments/{paymentId}/pay")
-    fun postApiV1OpenPaymentsByPaymentidPay(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestcontrollerOpenPaymentControllerPaymentSummaryResp>
+    fun postApiV1OpenPaymentsByPaymentidPay(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerOpenPaymentControllerPaymentSummaryResp>
 
 }

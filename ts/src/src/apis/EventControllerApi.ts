@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataNewId,
-  CoEdgeappServerModelEvent,
+  EdgeApiDataNewId,
+  Event,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataNewIdFromJSON,
-    CoEdgeappServerModelEdgeApiDataNewIdToJSON,
-    CoEdgeappServerModelEventFromJSON,
-    CoEdgeappServerModelEventToJSON,
+    EdgeApiDataNewIdFromJSON,
+    EdgeApiDataNewIdToJSON,
+    EventFromJSON,
+    EventToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1ActsEventsByEventidRequest {
@@ -54,14 +54,14 @@ export interface GetApiV1ActsEventsByVenueidRequest {
 
 export interface PatchApiV1ActsEventsByEventidRequest {
     eventId: string;
-    coEdgeappServerModelEvent: CoEdgeappServerModelEvent;
+    event: Event;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1ActsEventsRequest {
-    coEdgeappServerModelEvent: CoEdgeappServerModelEvent;
+    event: Event;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -99,11 +99,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEvent>>>;
+    getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
 
     /**
      */
-    getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEvent>>;
+    getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
 
     /**
      * 
@@ -115,11 +115,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEvent>>;
+    getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
 
     /**
      */
-    getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEvent>;
+    getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
 
     /**
      * 
@@ -131,16 +131,16 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEvent>>>;
+    getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>>;
 
     /**
      */
-    getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEvent>>;
+    getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>>;
 
     /**
      * 
      * @param {string} eventId 
-     * @param {CoEdgeappServerModelEvent} coEdgeappServerModelEvent 
+     * @param {Event} event 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -148,15 +148,15 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEvent>>;
+    patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>>;
 
     /**
      */
-    patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEvent>;
+    patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelEvent} coEdgeappServerModelEvent 
+     * @param {Event} event 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -164,11 +164,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>>;
+    postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
 
     /**
      */
-    postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId>;
+    postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
 
 }
 
@@ -230,7 +230,7 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEvent>>> {
+    async getApiV1ActsEventsRaw(requestParameters: GetApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -261,19 +261,19 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEventFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EventFromJSON));
     }
 
     /**
      */
-    async getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEvent>> {
+    async getApiV1ActsEvents(requestParameters: GetApiV1ActsEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
         const response = await this.getApiV1ActsEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEvent>> {
+    async getApiV1ActsEventsByEventidRaw(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
@@ -312,19 +312,19 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEventFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EventFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEvent> {
+    async getApiV1ActsEventsByEventid(requestParameters: GetApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
         const response = await this.getApiV1ActsEventsByEventidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEvent>>> {
+    async getApiV1ActsEventsByVenueidRaw(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Event>>> {
         if (requestParameters['venueId'] == null) {
             throw new runtime.RequiredError(
                 'venueId',
@@ -363,19 +363,19 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEventFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EventFromJSON));
     }
 
     /**
      */
-    async getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEvent>> {
+    async getApiV1ActsEventsByVenueid(requestParameters: GetApiV1ActsEventsByVenueidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Event>> {
         const response = await this.getApiV1ActsEventsByVenueidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEvent>> {
+    async patchApiV1ActsEventsByEventidRaw(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Event>> {
         if (requestParameters['eventId'] == null) {
             throw new runtime.RequiredError(
                 'eventId',
@@ -383,10 +383,10 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEvent'] == null) {
+        if (requestParameters['event'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEvent',
-                'Required parameter "coEdgeappServerModelEvent" was null or undefined when calling patchApiV1ActsEventsByEventid().'
+                'event',
+                'Required parameter "event" was null or undefined when calling patchApiV1ActsEventsByEventid().'
             );
         }
 
@@ -421,26 +421,26 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEventToJSON(requestParameters['coEdgeappServerModelEvent']),
+            body: EventToJSON(requestParameters['event']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEventFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EventFromJSON(jsonValue));
     }
 
     /**
      */
-    async patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEvent> {
+    async patchApiV1ActsEventsByEventid(requestParameters: PatchApiV1ActsEventsByEventidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Event> {
         const response = await this.patchApiV1ActsEventsByEventidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataNewId>> {
-        if (requestParameters['coEdgeappServerModelEvent'] == null) {
+    async postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+        if (requestParameters['event'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEvent',
-                'Required parameter "coEdgeappServerModelEvent" was null or undefined when calling postApiV1ActsEvents().'
+                'event',
+                'Required parameter "event" was null or undefined when calling postApiV1ActsEvents().'
             );
         }
 
@@ -474,15 +474,15 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEventToJSON(requestParameters['coEdgeappServerModelEvent']),
+            body: EventToJSON(requestParameters['event']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataNewId> {
+    async postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
         const response = await this.postApiV1ActsEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }

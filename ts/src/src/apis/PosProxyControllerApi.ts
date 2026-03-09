@@ -15,104 +15,104 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelBounty,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory,
-  CoEdgeappServerModelPosApiDataAddOrderItemDto,
-  CoEdgeappServerModelPosApiDataCustomer,
-  CoEdgeappServerModelPosApiDataCycleCountReq,
-  CoEdgeappServerModelPosApiDataCycleCountResp,
-  CoEdgeappServerModelPosApiDataDiscountResp,
-  CoEdgeappServerModelPosApiDataManageInventoryAdjustReq,
-  CoEdgeappServerModelPosApiDataManageInventoryReq,
-  CoEdgeappServerModelPosApiDataMergeOrdersRequest,
-  CoEdgeappServerModelPosApiDataOrder,
-  CoEdgeappServerModelPosApiDataQueueItemResp,
-  CoEdgeappServerModelPosApiDataSearchReq,
-  CoEdgeappServerModelPosApiDataTerminalLabelResp,
-  CoEdgeappServerModelShoppingCart,
-  CoEdgeappServerModelUserProfile,
+  Bounty,
+  EdgeApiDataPageBounty,
+  EdgeApiDataPageCategory,
+  EdgeApiDataPagePosApiDataAdjustReasonResp,
+  EdgeApiDataPagePosApiDataAreaResp,
+  EdgeApiDataPagePosApiDataBrandResp,
+  EdgeApiDataPagePosApiDataCategoryResp,
+  EdgeApiDataPagePosApiDataCustomer,
+  EdgeApiDataPagePosApiDataCycleCountResp,
+  EdgeApiDataPagePosApiDataDeliveryRouteResp,
+  EdgeApiDataPagePosApiDataInventoryItemResp,
+  EdgeApiDataPagePosApiDataInventoryResp,
+  EdgeApiDataPagePosApiDataOrder,
+  EdgeApiDataPagePosApiDataSearchCycleCountResp,
+  EdgeApiDataPagePosApiDataStrainResp,
+  EdgeApiDataPagePosApiDataUomResp,
+  EdgeApiDataPagePosApiDataVendorResp,
+  EdgeApiDataPageUserProfile,
+  PosApiDataAddOrderItemDto,
+  PosApiDataCustomer,
+  PosApiDataCycleCountReq,
+  PosApiDataCycleCountResp,
+  PosApiDataDiscountResp,
+  PosApiDataManageInventoryAdjustReq,
+  PosApiDataManageInventoryReq,
+  PosApiDataMergeOrdersRequest,
+  PosApiDataOrder,
+  PosApiDataQueueItemResp,
+  PosApiDataSearchReq,
+  PosApiDataTerminalLabelResp,
+  ShoppingCart,
+  UserProfile,
 } from '../models/index';
 import {
-    CoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomerFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomerToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrderFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrderToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorRespFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorRespToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfileFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfileToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategoryFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategoryToJSON,
-    CoEdgeappServerModelPosApiDataAddOrderItemDtoFromJSON,
-    CoEdgeappServerModelPosApiDataAddOrderItemDtoToJSON,
-    CoEdgeappServerModelPosApiDataCustomerFromJSON,
-    CoEdgeappServerModelPosApiDataCustomerToJSON,
-    CoEdgeappServerModelPosApiDataCycleCountReqFromJSON,
-    CoEdgeappServerModelPosApiDataCycleCountReqToJSON,
-    CoEdgeappServerModelPosApiDataCycleCountRespFromJSON,
-    CoEdgeappServerModelPosApiDataCycleCountRespToJSON,
-    CoEdgeappServerModelPosApiDataDiscountRespFromJSON,
-    CoEdgeappServerModelPosApiDataDiscountRespToJSON,
-    CoEdgeappServerModelPosApiDataManageInventoryAdjustReqFromJSON,
-    CoEdgeappServerModelPosApiDataManageInventoryAdjustReqToJSON,
-    CoEdgeappServerModelPosApiDataManageInventoryReqFromJSON,
-    CoEdgeappServerModelPosApiDataManageInventoryReqToJSON,
-    CoEdgeappServerModelPosApiDataMergeOrdersRequestFromJSON,
-    CoEdgeappServerModelPosApiDataMergeOrdersRequestToJSON,
-    CoEdgeappServerModelPosApiDataOrderFromJSON,
-    CoEdgeappServerModelPosApiDataOrderToJSON,
-    CoEdgeappServerModelPosApiDataQueueItemRespFromJSON,
-    CoEdgeappServerModelPosApiDataQueueItemRespToJSON,
-    CoEdgeappServerModelPosApiDataSearchReqFromJSON,
-    CoEdgeappServerModelPosApiDataSearchReqToJSON,
-    CoEdgeappServerModelPosApiDataTerminalLabelRespFromJSON,
-    CoEdgeappServerModelPosApiDataTerminalLabelRespToJSON,
-    CoEdgeappServerModelShoppingCartFromJSON,
-    CoEdgeappServerModelShoppingCartToJSON,
-    CoEdgeappServerModelUserProfileFromJSON,
-    CoEdgeappServerModelUserProfileToJSON,
+    BountyFromJSON,
+    BountyToJSON,
+    EdgeApiDataPageBountyFromJSON,
+    EdgeApiDataPageBountyToJSON,
+    EdgeApiDataPageCategoryFromJSON,
+    EdgeApiDataPageCategoryToJSON,
+    EdgeApiDataPagePosApiDataAdjustReasonRespFromJSON,
+    EdgeApiDataPagePosApiDataAdjustReasonRespToJSON,
+    EdgeApiDataPagePosApiDataAreaRespFromJSON,
+    EdgeApiDataPagePosApiDataAreaRespToJSON,
+    EdgeApiDataPagePosApiDataBrandRespFromJSON,
+    EdgeApiDataPagePosApiDataBrandRespToJSON,
+    EdgeApiDataPagePosApiDataCategoryRespFromJSON,
+    EdgeApiDataPagePosApiDataCategoryRespToJSON,
+    EdgeApiDataPagePosApiDataCustomerFromJSON,
+    EdgeApiDataPagePosApiDataCustomerToJSON,
+    EdgeApiDataPagePosApiDataCycleCountRespFromJSON,
+    EdgeApiDataPagePosApiDataCycleCountRespToJSON,
+    EdgeApiDataPagePosApiDataDeliveryRouteRespFromJSON,
+    EdgeApiDataPagePosApiDataDeliveryRouteRespToJSON,
+    EdgeApiDataPagePosApiDataInventoryItemRespFromJSON,
+    EdgeApiDataPagePosApiDataInventoryItemRespToJSON,
+    EdgeApiDataPagePosApiDataInventoryRespFromJSON,
+    EdgeApiDataPagePosApiDataInventoryRespToJSON,
+    EdgeApiDataPagePosApiDataOrderFromJSON,
+    EdgeApiDataPagePosApiDataOrderToJSON,
+    EdgeApiDataPagePosApiDataSearchCycleCountRespFromJSON,
+    EdgeApiDataPagePosApiDataSearchCycleCountRespToJSON,
+    EdgeApiDataPagePosApiDataStrainRespFromJSON,
+    EdgeApiDataPagePosApiDataStrainRespToJSON,
+    EdgeApiDataPagePosApiDataUomRespFromJSON,
+    EdgeApiDataPagePosApiDataUomRespToJSON,
+    EdgeApiDataPagePosApiDataVendorRespFromJSON,
+    EdgeApiDataPagePosApiDataVendorRespToJSON,
+    EdgeApiDataPageUserProfileFromJSON,
+    EdgeApiDataPageUserProfileToJSON,
+    PosApiDataAddOrderItemDtoFromJSON,
+    PosApiDataAddOrderItemDtoToJSON,
+    PosApiDataCustomerFromJSON,
+    PosApiDataCustomerToJSON,
+    PosApiDataCycleCountReqFromJSON,
+    PosApiDataCycleCountReqToJSON,
+    PosApiDataCycleCountRespFromJSON,
+    PosApiDataCycleCountRespToJSON,
+    PosApiDataDiscountRespFromJSON,
+    PosApiDataDiscountRespToJSON,
+    PosApiDataManageInventoryAdjustReqFromJSON,
+    PosApiDataManageInventoryAdjustReqToJSON,
+    PosApiDataManageInventoryReqFromJSON,
+    PosApiDataManageInventoryReqToJSON,
+    PosApiDataMergeOrdersRequestFromJSON,
+    PosApiDataMergeOrdersRequestToJSON,
+    PosApiDataOrderFromJSON,
+    PosApiDataOrderToJSON,
+    PosApiDataQueueItemRespFromJSON,
+    PosApiDataQueueItemRespToJSON,
+    PosApiDataSearchReqFromJSON,
+    PosApiDataSearchReqToJSON,
+    PosApiDataTerminalLabelRespFromJSON,
+    PosApiDataTerminalLabelRespToJSON,
+    ShoppingCartFromJSON,
+    ShoppingCartToJSON,
+    UserProfileFromJSON,
+    UserProfileToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest {
@@ -308,7 +308,7 @@ export interface GetApiV1PosClientsByClientidTerminalsLabelsRequest {
 
 export interface PostApiV1PosClientsByClientidCustomersRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -317,7 +317,7 @@ export interface PostApiV1PosClientsByClientidCustomersRequest {
 export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     completed?: boolean;
     paidInFull?: boolean;
     xEdgeAgent?: string;
@@ -328,7 +328,7 @@ export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest
 export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     completed?: boolean;
     paidInFull?: boolean;
     xEdgeAgent?: string;
@@ -339,7 +339,7 @@ export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequ
 export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     completed?: boolean;
     paidInFull?: boolean;
     xEdgeAgent?: string;
@@ -349,7 +349,7 @@ export interface PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequ
 
 export interface PostApiV1PosClientsByClientidCustomersNewRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -357,7 +357,7 @@ export interface PostApiV1PosClientsByClientidCustomersNewRequest {
 
 export interface PostApiV1PosClientsByClientidCustomersNewSearchRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -365,7 +365,7 @@ export interface PostApiV1PosClientsByClientidCustomersNewSearchRequest {
 
 export interface PostApiV1PosClientsByClientidCustomersOldRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -373,7 +373,7 @@ export interface PostApiV1PosClientsByClientidCustomersOldRequest {
 
 export interface PostApiV1PosClientsByClientidCustomersOldSearchRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -381,7 +381,7 @@ export interface PostApiV1PosClientsByClientidCustomersOldSearchRequest {
 
 export interface PostApiV1PosClientsByClientidCustomersSearchRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -389,7 +389,7 @@ export interface PostApiV1PosClientsByClientidCustomersSearchRequest {
 
 export interface PostApiV1PosClientsByClientidInventoryCycleCountRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq;
+    posApiDataCycleCountReq: PosApiDataCycleCountReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -397,7 +397,7 @@ export interface PostApiV1PosClientsByClientidInventoryCycleCountRequest {
 
 export interface PostApiV1PosClientsByClientidInventoryItemSearchRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -405,7 +405,7 @@ export interface PostApiV1PosClientsByClientidInventoryItemSearchRequest {
 
 export interface PostApiV1PosClientsByClientidInventorySearchRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -413,7 +413,7 @@ export interface PostApiV1PosClientsByClientidInventorySearchRequest {
 
 export interface PostApiV1PosClientsByClientidInventorySearchCycleCountRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataSearchReq: CoEdgeappServerModelPosApiDataSearchReq;
+    posApiDataSearchReq: PosApiDataSearchReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -421,7 +421,7 @@ export interface PostApiV1PosClientsByClientidInventorySearchCycleCountRequest {
 
 export interface PostApiV1PosClientsByClientidOrdersRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder;
+    posApiDataOrder: PosApiDataOrder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -433,7 +433,7 @@ export interface PostApiV1PosClientsByClientidOrdersBountyRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    coEdgeappServerModelPosApiDataOrder?: Array<CoEdgeappServerModelPosApiDataOrder>;
+    posApiDataOrder?: Array<PosApiDataOrder>;
 }
 
 export interface PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest {
@@ -448,7 +448,7 @@ export interface PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDisco
 export interface PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest {
     clientId: string;
     posOrderId: string;
-    coEdgeappServerModelPosApiDataAddOrderItemDto: CoEdgeappServerModelPosApiDataAddOrderItemDto;
+    posApiDataAddOrderItemDto: PosApiDataAddOrderItemDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -456,7 +456,7 @@ export interface PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest {
 
 export interface PostApiV1PosClientsByClientidOrdersNewRequest {
     clientId: string;
-    coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -464,7 +464,7 @@ export interface PostApiV1PosClientsByClientidOrdersNewRequest {
 
 export interface PostApiV1PosClientsByClientidOrdersOldRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder;
+    posApiDataOrder: PosApiDataOrder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -481,7 +481,7 @@ export interface PostApiV1PosClientsByClientidQueueRequest {
 export interface PutApiV1PosClientsByClientidCustomersByCustomeridRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -490,7 +490,7 @@ export interface PutApiV1PosClientsByClientidCustomersByCustomeridRequest {
 export interface PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -499,7 +499,7 @@ export interface PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest {
 export interface PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest {
     clientId: string;
     customerId: string;
-    coEdgeappServerModelPosApiDataCustomer: CoEdgeappServerModelPosApiDataCustomer;
+    posApiDataCustomer: PosApiDataCustomer;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -507,7 +507,7 @@ export interface PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest {
 
 export interface PutApiV1PosClientsByClientidInventoryAdjustRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataManageInventoryAdjustReq: CoEdgeappServerModelPosApiDataManageInventoryAdjustReq;
+    posApiDataManageInventoryAdjustReq: PosApiDataManageInventoryAdjustReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -516,7 +516,7 @@ export interface PutApiV1PosClientsByClientidInventoryAdjustRequest {
 export interface PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest {
     clientId: string;
     cycleCountId: string;
-    coEdgeappServerModelPosApiDataCycleCountReq: CoEdgeappServerModelPosApiDataCycleCountReq;
+    posApiDataCycleCountReq: PosApiDataCycleCountReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -524,7 +524,7 @@ export interface PutApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRe
 
 export interface PutApiV1PosClientsByClientidInventoryMoveRequest {
     clientId: string;
-    coEdgeappServerModelPosApiDataManageInventoryReq: CoEdgeappServerModelPosApiDataManageInventoryReq;
+    posApiDataManageInventoryReq: PosApiDataManageInventoryReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -533,7 +533,7 @@ export interface PutApiV1PosClientsByClientidInventoryMoveRequest {
 export interface PutApiV1PosClientsByClientidOrdersByPosorderidRequest {
     clientId: string;
     posOrderId: number;
-    coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder;
+    posApiDataOrder: PosApiDataOrder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -542,7 +542,7 @@ export interface PutApiV1PosClientsByClientidOrdersByPosorderidRequest {
 export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest {
     clientId: string;
     posOrderId: string;
-    coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest;
+    posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -551,7 +551,7 @@ export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest {
 export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest {
     clientId: string;
     posOrderId: string;
-    coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest;
+    posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -560,7 +560,7 @@ export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest {
 export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest {
     clientId: string;
     posOrderId: string;
-    coEdgeappServerModelPosApiDataMergeOrdersRequest: CoEdgeappServerModelPosApiDataMergeOrdersRequest;
+    posApiDataMergeOrdersRequest: PosApiDataMergeOrdersRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -569,7 +569,7 @@ export interface PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest {
 export interface PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest {
     clientId: string;
     posOrderId: string;
-    coEdgeappServerModelShoppingCart: CoEdgeappServerModelShoppingCart;
+    shoppingCart: ShoppingCart;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -578,7 +578,7 @@ export interface PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest {
 export interface PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest {
     clientId: string;
     posOrderId: number;
-    coEdgeappServerModelPosApiDataOrder: CoEdgeappServerModelPosApiDataOrder;
+    posApiDataOrder: PosApiDataOrder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -629,11 +629,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -647,11 +647,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -681,28 +681,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
 
     /**
      */
-    getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile>;
+    getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
 
     /**
      * 
@@ -715,11 +698,28 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
      */
-    getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
+    getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} customerId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
 
     /**
      * 
@@ -734,27 +734,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataDiscountResp>>>;
+    getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataDiscountResp>>>;
 
     /**
      */
-    getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataDiscountResp>>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp>;
+    getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataDiscountResp>>;
 
     /**
      * 
@@ -766,27 +750,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp>>;
+    getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataAdjustReasonResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp>;
+    getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataAdjustReasonResp>;
 
     /**
      * 
@@ -798,27 +766,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>>;
+    getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataAreaResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory>;
+    getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataAreaResp>;
 
     /**
      * 
@@ -830,11 +782,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>>;
+    getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataBrandResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>;
+    getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataBrandResp>;
 
     /**
      * 
@@ -846,11 +798,59 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp>>;
+    getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCategoryResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp>;
+    getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCategoryResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageCategory>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageCategory>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCategoryResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCategoryResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCycleCountResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCycleCountResp>;
 
     /**
      * 
@@ -863,27 +863,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCycleCountResp>>;
+    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCycleCountResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCycleCountResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp>;
+    getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCycleCountResp>;
 
     /**
      * 
@@ -895,27 +879,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp>>;
+    getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataDeliveryRouteResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp>;
+    getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataDeliveryRouteResp>;
 
     /**
      * 
@@ -927,11 +895,43 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp>>;
+    getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataStrainResp>>;
 
     /**
      */
-    getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp>;
+    getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataStrainResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataUomResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataUomResp>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataVendorResp>>;
+
+    /**
+     */
+    getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataVendorResp>;
 
     /**
      * 
@@ -944,11 +944,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -961,11 +961,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
@@ -978,27 +978,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataQueueItemResp>>>;
-
-    /**
-     */
-    getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataQueueItemResp>>;
+    getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -1010,16 +994,15 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataTerminalLabelResp>>>;
+    getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataQueueItemResp>>>;
 
     /**
      */
-    getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataTerminalLabelResp>>;
+    getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataQueueItemResp>>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1027,17 +1010,34 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataTerminalLabelResp>>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
+    getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataTerminalLabelResp>>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
+
+    /**
+     */
+    postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {boolean} [completed] 
      * @param {boolean} [paidInFull] 
      * @param {string} [xEdgeAgent] 
@@ -1047,17 +1047,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {boolean} [completed] 
      * @param {boolean} [paidInFull] 
      * @param {string} [xEdgeAgent] 
@@ -1067,17 +1067,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {boolean} [completed] 
      * @param {boolean} [paidInFull] 
      * @param {string} [xEdgeAgent] 
@@ -1087,16 +1087,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>;
+    postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1104,16 +1104,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>>;
+    postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile>;
+    postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1121,16 +1121,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile>>;
+    postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserProfile>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile>;
+    postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserProfile>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1138,16 +1138,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
+    postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1155,16 +1155,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>>;
+    postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCustomer>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>;
+    postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCustomer>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1172,16 +1172,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>>;
+    postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCustomer>>;
 
     /**
      */
-    postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>;
+    postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCustomer>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataCycleCountReq} coEdgeappServerModelPosApiDataCycleCountReq 
+     * @param {PosApiDataCycleCountReq} posApiDataCycleCountReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1198,7 +1198,7 @@ export interface PosProxyControllerApiInterface {
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1206,16 +1206,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp>>;
+    postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataInventoryItemResp>>;
 
     /**
      */
-    postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp>;
+    postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataInventoryItemResp>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1223,16 +1223,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp>>;
+    postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataInventoryResp>>;
 
     /**
      */
-    postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp>;
+    postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataInventoryResp>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataSearchReq} coEdgeappServerModelPosApiDataSearchReq 
+     * @param {PosApiDataSearchReq} posApiDataSearchReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1240,16 +1240,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp>>;
+    postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataSearchCycleCountResp>>;
 
     /**
      */
-    postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp>;
+    postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataSearchCycleCountResp>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataOrder} coEdgeappServerModelPosApiDataOrder 
+     * @param {PosApiDataOrder} posApiDataOrder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1257,11 +1257,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -1270,16 +1270,16 @@ export interface PosProxyControllerApiInterface {
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {Array<CoEdgeappServerModelPosApiDataOrder>} [coEdgeappServerModelPosApiDataOrder] 
+     * @param {Array<PosApiDataOrder>} [posApiDataOrder] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>>;
+    postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>;
+    postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty>;
 
     /**
      * 
@@ -1293,17 +1293,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataAddOrderItemDto} coEdgeappServerModelPosApiDataAddOrderItemDto 
+     * @param {PosApiDataAddOrderItemDto} posApiDataAddOrderItemDto 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1311,16 +1311,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelShoppingCart} coEdgeappServerModelShoppingCart 
+     * @param {ShoppingCart} shoppingCart 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1328,16 +1328,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataOrder} coEdgeappServerModelPosApiDataOrder 
+     * @param {PosApiDataOrder} posApiDataOrder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1345,34 +1345,16 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
-
-    /**
-     * 
-     * @param {string} clientId 
-     * @param {string} customerId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PosProxyControllerApiInterface
-     */
-    postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataQueueItemResp>>;
-
-    /**
-     */
-    postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataQueueItemResp>;
+    postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1380,17 +1362,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataQueueItemResp>>;
 
     /**
      */
-    putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
+    postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataQueueItemResp>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1398,17 +1380,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>>;
+    putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
 
     /**
      */
-    putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile>;
+    putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} customerId 
-     * @param {CoEdgeappServerModelPosApiDataCustomer} coEdgeappServerModelPosApiDataCustomer 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1416,16 +1398,34 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>>;
+    putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
      */
-    putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer>;
+    putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile>;
 
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataManageInventoryAdjustReq} coEdgeappServerModelPosApiDataManageInventoryAdjustReq 
+     * @param {string} customerId 
+     * @param {PosApiDataCustomer} posApiDataCustomer 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PosProxyControllerApiInterface
+     */
+    putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>>;
+
+    /**
+     */
+    putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer>;
+
+    /**
+     * 
+     * @param {string} clientId 
+     * @param {PosApiDataManageInventoryAdjustReq} posApiDataManageInventoryAdjustReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1443,7 +1443,7 @@ export interface PosProxyControllerApiInterface {
      * 
      * @param {string} clientId 
      * @param {string} cycleCountId 
-     * @param {CoEdgeappServerModelPosApiDataCycleCountReq} coEdgeappServerModelPosApiDataCycleCountReq 
+     * @param {PosApiDataCycleCountReq} posApiDataCycleCountReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1460,7 +1460,7 @@ export interface PosProxyControllerApiInterface {
     /**
      * 
      * @param {string} clientId 
-     * @param {CoEdgeappServerModelPosApiDataManageInventoryReq} coEdgeappServerModelPosApiDataManageInventoryReq 
+     * @param {PosApiDataManageInventoryReq} posApiDataManageInventoryReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1478,7 +1478,7 @@ export interface PosProxyControllerApiInterface {
      * 
      * @param {string} clientId 
      * @param {number} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataOrder} coEdgeappServerModelPosApiDataOrder 
+     * @param {PosApiDataOrder} posApiDataOrder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1486,17 +1486,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataMergeOrdersRequest} coEdgeappServerModelPosApiDataMergeOrdersRequest 
+     * @param {PosApiDataMergeOrdersRequest} posApiDataMergeOrdersRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1504,17 +1504,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataMergeOrdersRequest} coEdgeappServerModelPosApiDataMergeOrdersRequest 
+     * @param {PosApiDataMergeOrdersRequest} posApiDataMergeOrdersRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1522,17 +1522,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataMergeOrdersRequest} coEdgeappServerModelPosApiDataMergeOrdersRequest 
+     * @param {PosApiDataMergeOrdersRequest} posApiDataMergeOrdersRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1540,17 +1540,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {string} posOrderId 
-     * @param {CoEdgeappServerModelShoppingCart} coEdgeappServerModelShoppingCart 
+     * @param {ShoppingCart} shoppingCart 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1558,17 +1558,17 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>>;
+    putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty>;
+    putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty>;
 
     /**
      * 
      * @param {string} clientId 
      * @param {number} posOrderId 
-     * @param {CoEdgeappServerModelPosApiDataOrder} coEdgeappServerModelPosApiDataOrder 
+     * @param {PosApiDataOrder} posApiDataOrder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1576,11 +1576,11 @@ export interface PosProxyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PosProxyControllerApiInterface
      */
-    putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>>;
+    putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>>;
 
     /**
      */
-    putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder>;
+    putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder>;
 
     /**
      * 
@@ -1668,7 +1668,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -1723,19 +1723,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.deleteApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -1790,12 +1790,12 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemid(requestParameters: DeleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.deleteApiV1PosClientsByClientidOrdersByPosorderidItemsByItemidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1861,7 +1861,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -1908,19 +1908,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async getApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.getApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>> {
+    async getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -1967,19 +1967,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile> {
+    async getApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
         const response = await this.getApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2026,19 +2026,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async getApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: GetApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.getApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataDiscountResp>>> {
+    async getApiV1PosClientsByClientidDiscountsRaw(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataDiscountResp>>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2089,19 +2089,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelPosApiDataDiscountRespFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PosApiDataDiscountRespFromJSON));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataDiscountResp>> {
+    async getApiV1PosClientsByClientidDiscounts(requestParameters: GetApiV1PosClientsByClientidDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataDiscountResp>> {
         const response = await this.getApiV1PosClientsByClientidDiscountsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp>> {
+    async getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataAdjustReasonResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2140,19 +2140,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataAdjustReasonRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAdjustReasonResp> {
+    async getApiV1PosClientsByClientidInventoryAdjustReason(requestParameters: GetApiV1PosClientsByClientidInventoryAdjustReasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataAdjustReasonResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryAdjustReasonRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp>> {
+    async getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataAreaResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2191,19 +2191,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataAreaRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataAreaResp> {
+    async getApiV1PosClientsByClientidInventoryArea(requestParameters: GetApiV1PosClientsByClientidInventoryAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataAreaResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryAreaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp>> {
+    async getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataBrandResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2242,19 +2242,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataBrandRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataBrandResp> {
+    async getApiV1PosClientsByClientidInventoryBrand(requestParameters: GetApiV1PosClientsByClientidInventoryBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataBrandResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryBrandRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>> {
+    async getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCategoryResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2293,19 +2293,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataCategoryRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> {
+    async getApiV1PosClientsByClientidInventoryCategory(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCategoryResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory>> {
+    async getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageCategory>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2344,19 +2344,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategoryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageCategoryFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelCategory> {
+    async getApiV1PosClientsByClientidInventoryCategoryNew(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageCategory> {
         const response = await this.getApiV1PosClientsByClientidInventoryCategoryNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp>> {
+    async getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCategoryResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2395,19 +2395,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataCategoryRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCategoryResp> {
+    async getApiV1PosClientsByClientidInventoryCategoryOld(requestParameters: GetApiV1PosClientsByClientidInventoryCategoryOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCategoryResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryCategoryOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp>> {
+    async getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCycleCountResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2446,19 +2446,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataCycleCountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCycleCountResp> {
+    async getApiV1PosClientsByClientidInventoryCycleCount(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCycleCountResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryCycleCountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCycleCountResp>> {
+    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCycleCountResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2505,19 +2505,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCycleCountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCycleCountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCycleCountResp> {
+    async getApiV1PosClientsByClientidInventoryCycleCountByCycleCountId(requestParameters: GetApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCycleCountResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryCycleCountByCycleCountIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp>> {
+    async getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataDeliveryRouteResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2556,19 +2556,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataDeliveryRouteRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataDeliveryRouteResp> {
+    async getApiV1PosClientsByClientidInventoryDeliveryRoute(requestParameters: GetApiV1PosClientsByClientidInventoryDeliveryRouteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataDeliveryRouteResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryDeliveryRouteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp>> {
+    async getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataStrainResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2607,19 +2607,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataStrainRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataStrainResp> {
+    async getApiV1PosClientsByClientidInventoryStrain(requestParameters: GetApiV1PosClientsByClientidInventoryStrainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataStrainResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryStrainRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp>> {
+    async getApiV1PosClientsByClientidInventoryUomRaw(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataUomResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2658,19 +2658,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataUomRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataUomResp> {
+    async getApiV1PosClientsByClientidInventoryUom(requestParameters: GetApiV1PosClientsByClientidInventoryUomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataUomResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryUomRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp>> {
+    async getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataVendorResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2709,19 +2709,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataVendorRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataVendorResp> {
+    async getApiV1PosClientsByClientidInventoryVendor(requestParameters: GetApiV1PosClientsByClientidInventoryVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataVendorResp> {
         const response = await this.getApiV1PosClientsByClientidInventoryVendorRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2768,19 +2768,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async getApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.getApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2827,19 +2827,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async getApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.getApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2886,19 +2886,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async getApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: GetApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.getApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataQueueItemResp>>> {
+    async getApiV1PosClientsByClientidQueueRaw(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataQueueItemResp>>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2937,19 +2937,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelPosApiDataQueueItemRespFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PosApiDataQueueItemRespFromJSON));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataQueueItemResp>> {
+    async getApiV1PosClientsByClientidQueue(requestParameters: GetApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataQueueItemResp>> {
         const response = await this.getApiV1PosClientsByClientidQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelPosApiDataTerminalLabelResp>>> {
+    async getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PosApiDataTerminalLabelResp>>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -2988,19 +2988,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelPosApiDataTerminalLabelRespFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PosApiDataTerminalLabelRespFromJSON));
     }
 
     /**
      */
-    async getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelPosApiDataTerminalLabelResp>> {
+    async getApiV1PosClientsByClientidTerminalsLabels(requestParameters: GetApiV1PosClientsByClientidTerminalsLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PosApiDataTerminalLabelResp>> {
         const response = await this.getApiV1PosClientsByClientidTerminalsLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async postApiV1PosClientsByClientidCustomersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3008,10 +3008,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomers().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomers().'
             );
         }
 
@@ -3046,22 +3046,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async postApiV1PosClientsByClientidCustomers(requestParameters: PostApiV1PosClientsByClientidCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.postApiV1PosClientsByClientidCustomersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3076,10 +3076,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrders().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrders().'
             );
         }
 
@@ -3123,22 +3123,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrders(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3153,10 +3153,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew().'
             );
         }
 
@@ -3200,22 +3200,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersNew(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty> {
         const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3230,10 +3230,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld().'
             );
         }
 
@@ -3277,22 +3277,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidCustomersByCustomeridOrdersOld(requestParameters: PostApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidCustomersByCustomeridOrdersOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>> {
+    async postApiV1PosClientsByClientidCustomersNewRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3300,10 +3300,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomersNew().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomersNew().'
             );
         }
 
@@ -3338,22 +3338,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile> {
+    async postApiV1PosClientsByClientidCustomersNew(requestParameters: PostApiV1PosClientsByClientidCustomersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
         const response = await this.postApiV1PosClientsByClientidCustomersNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile>> {
+    async postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3361,10 +3361,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersNewSearch().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersNewSearch().'
             );
         }
 
@@ -3399,22 +3399,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfileFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserProfileFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelUserProfile> {
+    async postApiV1PosClientsByClientidCustomersNewSearch(requestParameters: PostApiV1PosClientsByClientidCustomersNewSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserProfile> {
         const response = await this.postApiV1PosClientsByClientidCustomersNewSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async postApiV1PosClientsByClientidCustomersOldRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3422,10 +3422,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomersOld().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling postApiV1PosClientsByClientidCustomersOld().'
             );
         }
 
@@ -3460,22 +3460,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async postApiV1PosClientsByClientidCustomersOld(requestParameters: PostApiV1PosClientsByClientidCustomersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.postApiV1PosClientsByClientidCustomersOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>> {
+    async postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3483,10 +3483,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersOldSearch().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersOldSearch().'
             );
         }
 
@@ -3521,22 +3521,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> {
+    async postApiV1PosClientsByClientidCustomersOldSearch(requestParameters: PostApiV1PosClientsByClientidCustomersOldSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCustomer> {
         const response = await this.postApiV1PosClientsByClientidCustomersOldSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer>> {
+    async postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3544,10 +3544,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersSearch().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidCustomersSearch().'
             );
         }
 
@@ -3582,15 +3582,15 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataCustomer> {
+    async postApiV1PosClientsByClientidCustomersSearch(requestParameters: PostApiV1PosClientsByClientidCustomersSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataCustomer> {
         const response = await this.postApiV1PosClientsByClientidCustomersSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3605,10 +3605,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCycleCountReq'] == null) {
+        if (requestParameters['posApiDataCycleCountReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCycleCountReq',
-                'Required parameter "coEdgeappServerModelPosApiDataCycleCountReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryCycleCount().'
+                'posApiDataCycleCountReq',
+                'Required parameter "posApiDataCycleCountReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryCycleCount().'
             );
         }
 
@@ -3643,7 +3643,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCycleCountReqToJSON(requestParameters['coEdgeappServerModelPosApiDataCycleCountReq']),
+            body: PosApiDataCycleCountReqToJSON(requestParameters['posApiDataCycleCountReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -3658,7 +3658,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp>> {
+    async postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataInventoryItemResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3666,10 +3666,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryItemSearch().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventoryItemSearch().'
             );
         }
 
@@ -3704,22 +3704,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataInventoryItemRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryItemResp> {
+    async postApiV1PosClientsByClientidInventoryItemSearch(requestParameters: PostApiV1PosClientsByClientidInventoryItemSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataInventoryItemResp> {
         const response = await this.postApiV1PosClientsByClientidInventoryItemSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp>> {
+    async postApiV1PosClientsByClientidInventorySearchRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataInventoryResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3727,10 +3727,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearch().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearch().'
             );
         }
 
@@ -3765,22 +3765,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataInventoryRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataInventoryResp> {
+    async postApiV1PosClientsByClientidInventorySearch(requestParameters: PostApiV1PosClientsByClientidInventorySearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataInventoryResp> {
         const response = await this.postApiV1PosClientsByClientidInventorySearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp>> {
+    async postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePosApiDataSearchCycleCountResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3788,10 +3788,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataSearchReq'] == null) {
+        if (requestParameters['posApiDataSearchReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataSearchReq',
-                'Required parameter "coEdgeappServerModelPosApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearchCycleCount().'
+                'posApiDataSearchReq',
+                'Required parameter "posApiDataSearchReq" was null or undefined when calling postApiV1PosClientsByClientidInventorySearchCycleCount().'
             );
         }
 
@@ -3826,22 +3826,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataSearchReqToJSON(requestParameters['coEdgeappServerModelPosApiDataSearchReq']),
+            body: PosApiDataSearchReqToJSON(requestParameters['posApiDataSearchReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePosApiDataSearchCycleCountRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelPosApiDataSearchCycleCountResp> {
+    async postApiV1PosClientsByClientidInventorySearchCycleCount(requestParameters: PostApiV1PosClientsByClientidInventorySearchCycleCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePosApiDataSearchCycleCountResp> {
         const response = await this.postApiV1PosClientsByClientidInventorySearchCycleCountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidOrdersRaw(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3849,10 +3849,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataOrder'] == null) {
+        if (requestParameters['posApiDataOrder'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataOrder',
-                'Required parameter "coEdgeappServerModelPosApiDataOrder" was null or undefined when calling postApiV1PosClientsByClientidOrders().'
+                'posApiDataOrder',
+                'Required parameter "posApiDataOrder" was null or undefined when calling postApiV1PosClientsByClientidOrders().'
             );
         }
 
@@ -3887,22 +3887,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataOrderToJSON(requestParameters['coEdgeappServerModelPosApiDataOrder']),
+            body: PosApiDataOrderToJSON(requestParameters['posApiDataOrder']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidOrders(requestParameters: PostApiV1PosClientsByClientidOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty>> {
+    async postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -3952,22 +3952,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['coEdgeappServerModelPosApiDataOrder']!.map(CoEdgeappServerModelPosApiDataOrderToJSON),
+            body: requestParameters['posApiDataOrder']!.map(PosApiDataOrderToJSON),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBounty> {
+    async postApiV1PosClientsByClientidOrdersBounty(requestParameters: PostApiV1PosClientsByClientidOrdersBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBounty> {
         const response = await this.postApiV1PosClientsByClientidOrdersBountyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4022,19 +4022,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountid(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidOrdersByPosorderidDiscountsByDiscountidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4049,10 +4049,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataAddOrderItemDto'] == null) {
+        if (requestParameters['posApiDataAddOrderItemDto'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataAddOrderItemDto',
-                'Required parameter "coEdgeappServerModelPosApiDataAddOrderItemDto" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidItems().'
+                'posApiDataAddOrderItemDto',
+                'Required parameter "posApiDataAddOrderItemDto" was null or undefined when calling postApiV1PosClientsByClientidOrdersByPosorderidItems().'
             );
         }
 
@@ -4088,22 +4088,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataAddOrderItemDtoToJSON(requestParameters['coEdgeappServerModelPosApiDataAddOrderItemDto']),
+            body: PosApiDataAddOrderItemDtoToJSON(requestParameters['posApiDataAddOrderItemDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidOrdersByPosorderidItems(requestParameters: PostApiV1PosClientsByClientidOrdersByPosorderidItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidOrdersByPosorderidItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async postApiV1PosClientsByClientidOrdersNewRaw(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4111,10 +4111,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCart'] == null) {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCart',
-                'Required parameter "coEdgeappServerModelShoppingCart" was null or undefined when calling postApiV1PosClientsByClientidOrdersNew().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling postApiV1PosClientsByClientidOrdersNew().'
             );
         }
 
@@ -4149,22 +4149,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartToJSON(requestParameters['coEdgeappServerModelShoppingCart']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async postApiV1PosClientsByClientidOrdersNew(requestParameters: PostApiV1PosClientsByClientidOrdersNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.postApiV1PosClientsByClientidOrdersNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async postApiV1PosClientsByClientidOrdersOldRaw(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4172,10 +4172,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataOrder'] == null) {
+        if (requestParameters['posApiDataOrder'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataOrder',
-                'Required parameter "coEdgeappServerModelPosApiDataOrder" was null or undefined when calling postApiV1PosClientsByClientidOrdersOld().'
+                'posApiDataOrder',
+                'Required parameter "posApiDataOrder" was null or undefined when calling postApiV1PosClientsByClientidOrdersOld().'
             );
         }
 
@@ -4210,22 +4210,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataOrderToJSON(requestParameters['coEdgeappServerModelPosApiDataOrder']),
+            body: PosApiDataOrderToJSON(requestParameters['posApiDataOrder']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async postApiV1PosClientsByClientidOrdersOld(requestParameters: PostApiV1PosClientsByClientidOrdersOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.postApiV1PosClientsByClientidOrdersOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataQueueItemResp>> {
+    async postApiV1PosClientsByClientidQueueRaw(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataQueueItemResp>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4275,19 +4275,19 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataQueueItemRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataQueueItemRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataQueueItemResp> {
+    async postApiV1PosClientsByClientidQueue(requestParameters: PostApiV1PosClientsByClientidQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataQueueItemResp> {
         const response = await this.postApiV1PosClientsByClientidQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4302,10 +4302,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersByCustomerid().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersByCustomerid().'
             );
         }
 
@@ -4341,22 +4341,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async putApiV1PosClientsByClientidCustomersByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.putApiV1PosClientsByClientidCustomersByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserProfile>> {
+    async putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserProfile>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4371,10 +4371,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersNewByCustomerid().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersNewByCustomerid().'
             );
         }
 
@@ -4410,22 +4410,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserProfileFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserProfile> {
+    async putApiV1PosClientsByClientidCustomersNewByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersNewByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserProfile> {
         const response = await this.putApiV1PosClientsByClientidCustomersNewByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataCustomer>> {
+    async putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataCustomer>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4440,10 +4440,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCustomer'] == null) {
+        if (requestParameters['posApiDataCustomer'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCustomer',
-                'Required parameter "coEdgeappServerModelPosApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersOldByCustomerid().'
+                'posApiDataCustomer',
+                'Required parameter "posApiDataCustomer" was null or undefined when calling putApiV1PosClientsByClientidCustomersOldByCustomerid().'
             );
         }
 
@@ -4479,15 +4479,15 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCustomerToJSON(requestParameters['coEdgeappServerModelPosApiDataCustomer']),
+            body: PosApiDataCustomerToJSON(requestParameters['posApiDataCustomer']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataCustomerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataCustomerFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataCustomer> {
+    async putApiV1PosClientsByClientidCustomersOldByCustomerid(requestParameters: PutApiV1PosClientsByClientidCustomersOldByCustomeridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataCustomer> {
         const response = await this.putApiV1PosClientsByClientidCustomersOldByCustomeridRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4502,10 +4502,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataManageInventoryAdjustReq'] == null) {
+        if (requestParameters['posApiDataManageInventoryAdjustReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataManageInventoryAdjustReq',
-                'Required parameter "coEdgeappServerModelPosApiDataManageInventoryAdjustReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryAdjust().'
+                'posApiDataManageInventoryAdjustReq',
+                'Required parameter "posApiDataManageInventoryAdjustReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryAdjust().'
             );
         }
 
@@ -4540,7 +4540,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataManageInventoryAdjustReqToJSON(requestParameters['coEdgeappServerModelPosApiDataManageInventoryAdjustReq']),
+            body: PosApiDataManageInventoryAdjustReqToJSON(requestParameters['posApiDataManageInventoryAdjustReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4570,10 +4570,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataCycleCountReq'] == null) {
+        if (requestParameters['posApiDataCycleCountReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataCycleCountReq',
-                'Required parameter "coEdgeappServerModelPosApiDataCycleCountReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
+                'posApiDataCycleCountReq',
+                'Required parameter "posApiDataCycleCountReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryCycleCountByCycleCountId().'
             );
         }
 
@@ -4609,7 +4609,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataCycleCountReqToJSON(requestParameters['coEdgeappServerModelPosApiDataCycleCountReq']),
+            body: PosApiDataCycleCountReqToJSON(requestParameters['posApiDataCycleCountReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4632,10 +4632,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataManageInventoryReq'] == null) {
+        if (requestParameters['posApiDataManageInventoryReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataManageInventoryReq',
-                'Required parameter "coEdgeappServerModelPosApiDataManageInventoryReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryMove().'
+                'posApiDataManageInventoryReq',
+                'Required parameter "posApiDataManageInventoryReq" was null or undefined when calling putApiV1PosClientsByClientidInventoryMove().'
             );
         }
 
@@ -4670,7 +4670,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataManageInventoryReqToJSON(requestParameters['coEdgeappServerModelPosApiDataManageInventoryReq']),
+            body: PosApiDataManageInventoryReqToJSON(requestParameters['posApiDataManageInventoryReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -4685,7 +4685,7 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4700,10 +4700,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataOrder'] == null) {
+        if (requestParameters['posApiDataOrder'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataOrder',
-                'Required parameter "coEdgeappServerModelPosApiDataOrder" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderid().'
+                'posApiDataOrder',
+                'Required parameter "posApiDataOrder" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderid().'
             );
         }
 
@@ -4739,22 +4739,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataOrderToJSON(requestParameters['coEdgeappServerModelPosApiDataOrder']),
+            body: PosApiDataOrderToJSON(requestParameters['posApiDataOrder']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async putApiV1PosClientsByClientidOrdersByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4769,10 +4769,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest'] == null) {
+        if (requestParameters['posApiDataMergeOrdersRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataMergeOrdersRequest',
-                'Required parameter "coEdgeappServerModelPosApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMerge().'
+                'posApiDataMergeOrdersRequest',
+                'Required parameter "posApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMerge().'
             );
         }
 
@@ -4808,22 +4808,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataMergeOrdersRequestToJSON(requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest']),
+            body: PosApiDataMergeOrdersRequestToJSON(requestParameters['posApiDataMergeOrdersRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMerge(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4838,10 +4838,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest'] == null) {
+        if (requestParameters['posApiDataMergeOrdersRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataMergeOrdersRequest',
-                'Required parameter "coEdgeappServerModelPosApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeNew().'
+                'posApiDataMergeOrdersRequest',
+                'Required parameter "posApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeNew().'
             );
         }
 
@@ -4877,22 +4877,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataMergeOrdersRequestToJSON(requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest']),
+            body: PosApiDataMergeOrdersRequestToJSON(requestParameters['posApiDataMergeOrdersRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeNew(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeNewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeNewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4907,10 +4907,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest'] == null) {
+        if (requestParameters['posApiDataMergeOrdersRequest'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataMergeOrdersRequest',
-                'Required parameter "coEdgeappServerModelPosApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeOld().'
+                'posApiDataMergeOrdersRequest',
+                'Required parameter "posApiDataMergeOrdersRequest" was null or undefined when calling putApiV1PosClientsByClientidOrdersByPosorderidMergeOld().'
             );
         }
 
@@ -4946,22 +4946,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataMergeOrdersRequestToJSON(requestParameters['coEdgeappServerModelPosApiDataMergeOrdersRequest']),
+            body: PosApiDataMergeOrdersRequestToJSON(requestParameters['posApiDataMergeOrdersRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async putApiV1PosClientsByClientidOrdersByPosorderidMergeOld(requestParameters: PutApiV1PosClientsByClientidOrdersByPosorderidMergeOldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.putApiV1PosClientsByClientidOrdersByPosorderidMergeOldRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBounty>> {
+    async putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Bounty>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -4976,10 +4976,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelShoppingCart'] == null) {
+        if (requestParameters['shoppingCart'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelShoppingCart',
-                'Required parameter "coEdgeappServerModelShoppingCart" was null or undefined when calling putApiV1PosClientsByClientidOrdersNewByPosorderid().'
+                'shoppingCart',
+                'Required parameter "shoppingCart" was null or undefined when calling putApiV1PosClientsByClientidOrdersNewByPosorderid().'
             );
         }
 
@@ -5015,22 +5015,22 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelShoppingCartToJSON(requestParameters['coEdgeappServerModelShoppingCart']),
+            body: ShoppingCartToJSON(requestParameters['shoppingCart']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBountyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBounty> {
+    async putApiV1PosClientsByClientidOrdersNewByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersNewByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Bounty> {
         const response = await this.putApiV1PosClientsByClientidOrdersNewByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelPosApiDataOrder>> {
+    async putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PosApiDataOrder>> {
         if (requestParameters['clientId'] == null) {
             throw new runtime.RequiredError(
                 'clientId',
@@ -5045,10 +5045,10 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             );
         }
 
-        if (requestParameters['coEdgeappServerModelPosApiDataOrder'] == null) {
+        if (requestParameters['posApiDataOrder'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelPosApiDataOrder',
-                'Required parameter "coEdgeappServerModelPosApiDataOrder" was null or undefined when calling putApiV1PosClientsByClientidOrdersOldByPosorderid().'
+                'posApiDataOrder',
+                'Required parameter "posApiDataOrder" was null or undefined when calling putApiV1PosClientsByClientidOrdersOldByPosorderid().'
             );
         }
 
@@ -5084,15 +5084,15 @@ export class PosProxyControllerApi extends runtime.BaseAPI implements PosProxyCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelPosApiDataOrderToJSON(requestParameters['coEdgeappServerModelPosApiDataOrder']),
+            body: PosApiDataOrderToJSON(requestParameters['posApiDataOrder']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelPosApiDataOrderFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PosApiDataOrderFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelPosApiDataOrder> {
+    async putApiV1PosClientsByClientidOrdersOldByPosorderid(requestParameters: PutApiV1PosClientsByClientidOrdersOldByPosorderidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PosApiDataOrder> {
         const response = await this.putApiV1PosClientsByClientidOrdersOldByPosorderidRaw(requestParameters, initOverrides);
         return await response.value();
     }

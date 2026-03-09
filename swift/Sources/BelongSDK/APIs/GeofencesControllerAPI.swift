@@ -67,10 +67,10 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp
+     - returns: EdgeApiDataPageEdgeApiDataGeofencesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Geofences(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp {
+    open class func getApiV1Geofences(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageEdgeApiDataGeofencesResp {
         return try await getApiV1GeofencesWithRequestBuilder(start: start, length: length, ignoreCache: ignoreCache, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -85,9 +85,9 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp> 
+     - returns: RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp> 
      */
-    open class func getApiV1GeofencesWithRequestBuilder(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp> {
+    open class func getApiV1GeofencesWithRequestBuilder(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp> {
         let localVariablePath = "/api/v1/geofences"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -107,7 +107,7 @@ open class GeofencesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,10 +118,10 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataGeofencesResp
+     - returns: EdgeApiDataGeofencesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1GeofencesByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataGeofencesResp {
+    open class func getApiV1GeofencesByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataGeofencesResp {
         return try await getApiV1GeofencesByBountyidWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -134,9 +134,9 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> 
+     - returns: RequestBuilder<EdgeApiDataGeofencesResp> 
      */
-    open class func getApiV1GeofencesByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
+    open class func getApiV1GeofencesByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataGeofencesResp> {
         var localVariablePath = "/api/v1/geofences/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -154,22 +154,22 @@ open class GeofencesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerModelGeofences: (body)  
+     - parameter geofences: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataGeofencesResp
+     - returns: EdgeApiDataGeofencesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Geofences(coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataGeofencesResp {
-        return try await postApiV1GeofencesWithRequestBuilder(coEdgeappServerModelGeofences: coEdgeappServerModelGeofences, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Geofences(geofences: Geofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataGeofencesResp {
+        return try await postApiV1GeofencesWithRequestBuilder(geofences: geofences, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -177,16 +177,16 @@ open class GeofencesControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerModelGeofences: (body)  
+     - parameter geofences: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> 
+     - returns: RequestBuilder<EdgeApiDataGeofencesResp> 
      */
-    open class func postApiV1GeofencesWithRequestBuilder(coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
+    open class func postApiV1GeofencesWithRequestBuilder(geofences: Geofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataGeofencesResp> {
         let localVariablePath = "/api/v1/geofences"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelGeofences)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: geofences)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -199,7 +199,7 @@ open class GeofencesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -207,15 +207,15 @@ open class GeofencesControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter coEdgeappServerModelGeofences: (body)  
+     - parameter geofences: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataGeofencesResp
+     - returns: EdgeApiDataGeofencesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1GeofencesByBountyid(bountyId: String, coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataGeofencesResp {
-        return try await putApiV1GeofencesByBountyidWithRequestBuilder(bountyId: bountyId, coEdgeappServerModelGeofences: coEdgeappServerModelGeofences, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1GeofencesByBountyid(bountyId: String, geofences: Geofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataGeofencesResp {
+        return try await putApiV1GeofencesByBountyidWithRequestBuilder(bountyId: bountyId, geofences: geofences, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -224,19 +224,19 @@ open class GeofencesControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter coEdgeappServerModelGeofences: (body)  
+     - parameter geofences: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> 
+     - returns: RequestBuilder<EdgeApiDataGeofencesResp> 
      */
-    open class func putApiV1GeofencesByBountyidWithRequestBuilder(bountyId: String, coEdgeappServerModelGeofences: CoEdgeappServerModelGeofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp> {
+    open class func putApiV1GeofencesByBountyidWithRequestBuilder(bountyId: String, geofences: Geofences, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataGeofencesResp> {
         var localVariablePath = "/api/v1/geofences/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelGeofences)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: geofences)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -249,7 +249,7 @@ open class GeofencesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

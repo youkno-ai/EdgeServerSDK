@@ -15,15 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload,
+  ThirdpartiesBillMyBankAPISignedPayload,
 } from '../models/index';
 import {
-    CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadFromJSON,
-    CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadToJSON,
+    ThirdpartiesBillMyBankAPISignedPayloadFromJSON,
+    ThirdpartiesBillMyBankAPISignedPayloadToJSON,
 } from '../models/index';
 
 export interface PostApiV1BmbPaymentsWebhookRequest {
-    coEdgeappServerThirdpartiesBillMyBankAPISignedPayload: CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload;
+    thirdpartiesBillMyBankAPISignedPayload: ThirdpartiesBillMyBankAPISignedPayload;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -38,7 +38,7 @@ export interface PostApiV1BmbPaymentsWebhookRequest {
 export interface BillMyBankControllerApiInterface {
     /**
      * 
-     * @param {CoEdgeappServerThirdpartiesBillMyBankAPISignedPayload} coEdgeappServerThirdpartiesBillMyBankAPISignedPayload 
+     * @param {ThirdpartiesBillMyBankAPISignedPayload} thirdpartiesBillMyBankAPISignedPayload 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -62,10 +62,10 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
     /**
      */
     async postApiV1BmbPaymentsWebhookRaw(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['coEdgeappServerThirdpartiesBillMyBankAPISignedPayload'] == null) {
+        if (requestParameters['thirdpartiesBillMyBankAPISignedPayload'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerThirdpartiesBillMyBankAPISignedPayload',
-                'Required parameter "coEdgeappServerThirdpartiesBillMyBankAPISignedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
+                'thirdpartiesBillMyBankAPISignedPayload',
+                'Required parameter "thirdpartiesBillMyBankAPISignedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
             );
         }
 
@@ -99,7 +99,7 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerThirdpartiesBillMyBankAPISignedPayloadToJSON(requestParameters['coEdgeappServerThirdpartiesBillMyBankAPISignedPayload']),
+            body: ThirdpartiesBillMyBankAPISignedPayloadToJSON(requestParameters['thirdpartiesBillMyBankAPISignedPayload']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

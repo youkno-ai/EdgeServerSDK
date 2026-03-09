@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataShopifyConnectResponse,
-  CoEdgeappServerModelEdgeApiDataShopifyShopInfo,
+  EdgeApiDataShopifyConnectResponse,
+  EdgeApiDataShopifyShopInfo,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataShopifyConnectResponseFromJSON,
-    CoEdgeappServerModelEdgeApiDataShopifyConnectResponseToJSON,
-    CoEdgeappServerModelEdgeApiDataShopifyShopInfoFromJSON,
-    CoEdgeappServerModelEdgeApiDataShopifyShopInfoToJSON,
+    EdgeApiDataShopifyConnectResponseFromJSON,
+    EdgeApiDataShopifyConnectResponseToJSON,
+    EdgeApiDataShopifyShopInfoFromJSON,
+    EdgeApiDataShopifyShopInfoToJSON,
 } from '../models/index';
 
 export interface GetApiV1ShopifyAppInfoRequest {
@@ -106,11 +106,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>>;
+    getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataShopifyConnectResponse>>;
 
     /**
      */
-    getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>;
+    getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataShopifyConnectResponse>;
 
     /**
      * 
@@ -140,11 +140,11 @@ export interface ShopifyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ShopifyControllerApiInterface
      */
-    getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>>;
+    getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataShopifyShopInfo>>>;
 
     /**
      */
-    getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>;
+    getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataShopifyShopInfo>>;
 
     /**
      * 
@@ -234,7 +234,7 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse>> {
+    async getApiV1ShopifyConnectRaw(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataShopifyConnectResponse>> {
         if (requestParameters['shop'] == null) {
             throw new runtime.RequiredError(
                 'shop',
@@ -287,12 +287,12 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataShopifyConnectResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataShopifyConnectResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataShopifyConnectResponse> {
+    async getApiV1ShopifyConnect(requestParameters: GetApiV1ShopifyConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataShopifyConnectResponse> {
         const response = await this.getApiV1ShopifyConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -358,7 +358,7 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
 
     /**
      */
-    async getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>>> {
+    async getApiV1ShopifyInfoRaw(requestParameters: GetApiV1ShopifyInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<EdgeApiDataShopifyShopInfo>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -389,12 +389,12 @@ export class ShopifyControllerApi extends runtime.BaseAPI implements ShopifyCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CoEdgeappServerModelEdgeApiDataShopifyShopInfoFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(EdgeApiDataShopifyShopInfoFromJSON));
     }
 
     /**
      */
-    async getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CoEdgeappServerModelEdgeApiDataShopifyShopInfo>> {
+    async getApiV1ShopifyInfo(requestParameters: GetApiV1ShopifyInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<EdgeApiDataShopifyShopInfo>> {
         const response = await this.getApiV1ShopifyInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }

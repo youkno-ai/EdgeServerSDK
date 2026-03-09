@@ -15,20 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelBaseSettingsReputationDef,
-  CoEdgeappServerModelEdgeApiDataAssignReputationReq,
-  CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDef,
-  CoEdgeappServerModelUserReputation,
+  BaseSettingsReputationDef,
+  EdgeApiDataAssignReputationReq,
+  EdgeApiDataPageBaseSettingsReputationDef,
+  UserReputation,
 } from '../models/index';
 import {
-    CoEdgeappServerModelBaseSettingsReputationDefFromJSON,
-    CoEdgeappServerModelBaseSettingsReputationDefToJSON,
-    CoEdgeappServerModelEdgeApiDataAssignReputationReqFromJSON,
-    CoEdgeappServerModelEdgeApiDataAssignReputationReqToJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDefFromJSON,
-    CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDefToJSON,
-    CoEdgeappServerModelUserReputationFromJSON,
-    CoEdgeappServerModelUserReputationToJSON,
+    BaseSettingsReputationDefFromJSON,
+    BaseSettingsReputationDefToJSON,
+    EdgeApiDataAssignReputationReqFromJSON,
+    EdgeApiDataAssignReputationReqToJSON,
+    EdgeApiDataPageBaseSettingsReputationDefFromJSON,
+    EdgeApiDataPageBaseSettingsReputationDefToJSON,
+    UserReputationFromJSON,
+    UserReputationToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1ReputationsByReputationcodeByHolderidRequest {
@@ -60,7 +60,7 @@ export interface GetApiV1ReputationsDefsByReputationcodeRequest {
 }
 
 export interface PostApiV1ReputationsDefsRequest {
-    coEdgeappServerModelBaseSettingsReputationDef: CoEdgeappServerModelBaseSettingsReputationDef;
+    baseSettingsReputationDef: BaseSettingsReputationDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -68,14 +68,14 @@ export interface PostApiV1ReputationsDefsRequest {
 
 export interface PostApiV1ReputationsDefsByReputationcodeAssignRequest {
     reputationCode: string;
-    coEdgeappServerModelEdgeApiDataAssignReputationReq: CoEdgeappServerModelEdgeApiDataAssignReputationReq;
+    edgeApiDataAssignReputationReq: EdgeApiDataAssignReputationReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PutApiV1ReputationsDefsRequest {
-    coEdgeappServerModelBaseSettingsReputationDef: CoEdgeappServerModelBaseSettingsReputationDef;
+    baseSettingsReputationDef: BaseSettingsReputationDef;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -130,48 +130,15 @@ export interface ReputationDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationDefControllerApiInterface
      */
-    getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDef>>;
+    getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBaseSettingsReputationDef>>;
 
     /**
      */
-    getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDef>;
-
-    /**
-     * 
-     * @param {string} reputationCode 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationDefControllerApiInterface
-     */
-    getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>>;
-
-    /**
-     */
-    getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef>;
-
-    /**
-     * 
-     * @param {CoEdgeappServerModelBaseSettingsReputationDef} coEdgeappServerModelBaseSettingsReputationDef 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReputationDefControllerApiInterface
-     */
-    postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>>;
-
-    /**
-     */
-    postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef>;
+    getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBaseSettingsReputationDef>;
 
     /**
      * 
      * @param {string} reputationCode 
-     * @param {CoEdgeappServerModelEdgeApiDataAssignReputationReq} coEdgeappServerModelEdgeApiDataAssignReputationReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -179,15 +146,15 @@ export interface ReputationDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationDefControllerApiInterface
      */
-    postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserReputation>>;
+    getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>>;
 
     /**
      */
-    postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserReputation>;
+    getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef>;
 
     /**
      * 
-     * @param {CoEdgeappServerModelBaseSettingsReputationDef} coEdgeappServerModelBaseSettingsReputationDef 
+     * @param {BaseSettingsReputationDef} baseSettingsReputationDef 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -195,11 +162,44 @@ export interface ReputationDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationDefControllerApiInterface
      */
-    putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>>;
+    postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>>;
 
     /**
      */
-    putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef>;
+    postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef>;
+
+    /**
+     * 
+     * @param {string} reputationCode 
+     * @param {EdgeApiDataAssignReputationReq} edgeApiDataAssignReputationReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationDefControllerApiInterface
+     */
+    postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserReputation>>;
+
+    /**
+     */
+    postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserReputation>;
+
+    /**
+     * 
+     * @param {BaseSettingsReputationDef} baseSettingsReputationDef 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReputationDefControllerApiInterface
+     */
+    putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>>;
+
+    /**
+     */
+    putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef>;
 
 }
 
@@ -320,7 +320,7 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
 
     /**
      */
-    async getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDef>> {
+    async getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBaseSettingsReputationDef>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -351,19 +351,19 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBaseSettingsReputationDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerModelBaseSettingsReputationDef> {
+    async getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBaseSettingsReputationDef> {
         const response = await this.getApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>> {
+    async getApiV1ReputationsDefsByReputationcodeRaw(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>> {
         if (requestParameters['reputationCode'] == null) {
             throw new runtime.RequiredError(
                 'reputationCode',
@@ -402,23 +402,23 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBaseSettingsReputationDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BaseSettingsReputationDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef> {
+    async getApiV1ReputationsDefsByReputationcode(requestParameters: GetApiV1ReputationsDefsByReputationcodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef> {
         const response = await this.getApiV1ReputationsDefsByReputationcodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>> {
-        if (requestParameters['coEdgeappServerModelBaseSettingsReputationDef'] == null) {
+    async postApiV1ReputationsDefsRaw(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>> {
+        if (requestParameters['baseSettingsReputationDef'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBaseSettingsReputationDef',
-                'Required parameter "coEdgeappServerModelBaseSettingsReputationDef" was null or undefined when calling postApiV1ReputationsDefs().'
+                'baseSettingsReputationDef',
+                'Required parameter "baseSettingsReputationDef" was null or undefined when calling postApiV1ReputationsDefs().'
             );
         }
 
@@ -452,22 +452,22 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBaseSettingsReputationDefToJSON(requestParameters['coEdgeappServerModelBaseSettingsReputationDef']),
+            body: BaseSettingsReputationDefToJSON(requestParameters['baseSettingsReputationDef']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBaseSettingsReputationDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BaseSettingsReputationDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef> {
+    async postApiV1ReputationsDefs(requestParameters: PostApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef> {
         const response = await this.postApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelUserReputation>> {
+    async postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserReputation>> {
         if (requestParameters['reputationCode'] == null) {
             throw new runtime.RequiredError(
                 'reputationCode',
@@ -475,10 +475,10 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             );
         }
 
-        if (requestParameters['coEdgeappServerModelEdgeApiDataAssignReputationReq'] == null) {
+        if (requestParameters['edgeApiDataAssignReputationReq'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelEdgeApiDataAssignReputationReq',
-                'Required parameter "coEdgeappServerModelEdgeApiDataAssignReputationReq" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
+                'edgeApiDataAssignReputationReq',
+                'Required parameter "edgeApiDataAssignReputationReq" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
             );
         }
 
@@ -513,26 +513,26 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelEdgeApiDataAssignReputationReqToJSON(requestParameters['coEdgeappServerModelEdgeApiDataAssignReputationReq']),
+            body: EdgeApiDataAssignReputationReqToJSON(requestParameters['edgeApiDataAssignReputationReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelUserReputationFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserReputationFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelUserReputation> {
+    async postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserReputation> {
         const response = await this.postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelBaseSettingsReputationDef>> {
-        if (requestParameters['coEdgeappServerModelBaseSettingsReputationDef'] == null) {
+    async putApiV1ReputationsDefsRaw(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef>> {
+        if (requestParameters['baseSettingsReputationDef'] == null) {
             throw new runtime.RequiredError(
-                'coEdgeappServerModelBaseSettingsReputationDef',
-                'Required parameter "coEdgeappServerModelBaseSettingsReputationDef" was null or undefined when calling putApiV1ReputationsDefs().'
+                'baseSettingsReputationDef',
+                'Required parameter "baseSettingsReputationDef" was null or undefined when calling putApiV1ReputationsDefs().'
             );
         }
 
@@ -566,15 +566,15 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CoEdgeappServerModelBaseSettingsReputationDefToJSON(requestParameters['coEdgeappServerModelBaseSettingsReputationDef']),
+            body: BaseSettingsReputationDefToJSON(requestParameters['baseSettingsReputationDef']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelBaseSettingsReputationDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BaseSettingsReputationDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelBaseSettingsReputationDef> {
+    async putApiV1ReputationsDefs(requestParameters: PutApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef> {
         const response = await this.putApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }

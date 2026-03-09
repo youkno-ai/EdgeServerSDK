@@ -18,10 +18,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus
+     - returns: RestControllerAIControllerBadgeGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateBadgeByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus {
+    open class func getApiV1AiGenerateBadgeByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerBadgeGeneratorStatus {
         return try await getApiV1AiGenerateBadgeByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerBadgeGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateBadgeByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus> {
+    open class func getApiV1AiGenerateBadgeByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerBadgeGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/badge/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -54,7 +54,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerBadgeGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerBadgeGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -65,10 +65,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerBountyGenerationStatus
+     - returns: RestControllerAIControllerBountyGenerationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateBountyByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerBountyGenerationStatus {
+    open class func getApiV1AiGenerateBountyByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerBountyGenerationStatus {
         return try await getApiV1AiGenerateBountyByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -81,9 +81,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerBountyGenerationStatus> 
      */
-    open class func getApiV1AiGenerateBountyByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus> {
+    open class func getApiV1AiGenerateBountyByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerBountyGenerationStatus> {
         var localVariablePath = "/api/v1/ai/generate/bounty/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -101,7 +101,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerBountyGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -112,10 +112,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus
+     - returns: RestControllerAIControllerCategoryGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateCategoriesByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus {
+    open class func getApiV1AiGenerateCategoriesByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCategoryGeneratorStatus {
         return try await getApiV1AiGenerateCategoriesByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -128,9 +128,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerCategoryGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateCategoriesByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus> {
+    open class func getApiV1AiGenerateCategoriesByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCategoryGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/categories/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -148,7 +148,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCategoryGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -159,10 +159,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus
+     - returns: RestControllerAIControllerCategoryTreeGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateCategoryTreeByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus {
+    open class func getApiV1AiGenerateCategoryTreeByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCategoryTreeGeneratorStatus {
         return try await getApiV1AiGenerateCategoryTreeByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -175,9 +175,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerCategoryTreeGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateCategoryTreeByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus> {
+    open class func getApiV1AiGenerateCategoryTreeByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCategoryTreeGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/category-tree/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -195,7 +195,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCategoryTreeGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -206,10 +206,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerChatSimulationStatus
+     - returns: RestControllerAIControllerChatSimulationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateChatSimulateByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerChatSimulationStatus {
+    open class func getApiV1AiGenerateChatSimulateByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerChatSimulationStatus {
         return try await getApiV1AiGenerateChatSimulateByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -222,9 +222,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerChatSimulationStatus> 
      */
-    open class func getApiV1AiGenerateChatSimulateByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationStatus> {
+    open class func getApiV1AiGenerateChatSimulateByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerChatSimulationStatus> {
         var localVariablePath = "/api/v1/ai/generate/chat/simulate/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -242,7 +242,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerChatSimulationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -253,10 +253,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus
+     - returns: RestControllerAIControllerCompanyBatchGenerationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateCompaniesBatchByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus {
+    open class func getApiV1AiGenerateCompaniesBatchByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCompanyBatchGenerationStatus {
         return try await getApiV1AiGenerateCompaniesBatchByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -269,9 +269,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerCompanyBatchGenerationStatus> 
      */
-    open class func getApiV1AiGenerateCompaniesBatchByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus> {
+    open class func getApiV1AiGenerateCompaniesBatchByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCompanyBatchGenerationStatus> {
         var localVariablePath = "/api/v1/ai/generate/companies/batch/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -289,7 +289,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCompanyBatchGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -300,10 +300,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus
+     - returns: RestControllerAIControllerDemoFeedSeedingStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateDemoFeedByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus {
+    open class func getApiV1AiGenerateDemoFeedByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerDemoFeedSeedingStatus {
         return try await getApiV1AiGenerateDemoFeedByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -316,9 +316,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerDemoFeedSeedingStatus> 
      */
-    open class func getApiV1AiGenerateDemoFeedByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus> {
+    open class func getApiV1AiGenerateDemoFeedByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerDemoFeedSeedingStatus> {
         var localVariablePath = "/api/v1/ai/generate/demo-feed/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -336,7 +336,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerDemoFeedSeedingStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -347,10 +347,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus
+     - returns: RestControllerAIControllerMenuGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateMenuByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus {
+    open class func getApiV1AiGenerateMenuByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerMenuGeneratorStatus {
         return try await getApiV1AiGenerateMenuByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -363,9 +363,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerMenuGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateMenuByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus> {
+    open class func getApiV1AiGenerateMenuByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerMenuGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/menu/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -383,7 +383,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerMenuGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -394,10 +394,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerProductGeneratorStatus
+     - returns: RestControllerAIControllerProductGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateProductsByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerProductGeneratorStatus {
+    open class func getApiV1AiGenerateProductsByCompanyid(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerProductGeneratorStatus {
         return try await getApiV1AiGenerateProductsByCompanyidWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -410,9 +410,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerProductGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateProductsByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus> {
+    open class func getApiV1AiGenerateProductsByCompanyidWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerProductGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/products/{companyId}"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -430,7 +430,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerProductGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -441,10 +441,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus
+     - returns: RestControllerAIControllerAiGeneratedEntitiesStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateProvenanceByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus {
+    open class func getApiV1AiGenerateProvenanceByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerAiGeneratedEntitiesStatus {
         return try await getApiV1AiGenerateProvenanceByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -457,9 +457,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerAiGeneratedEntitiesStatus> 
      */
-    open class func getApiV1AiGenerateProvenanceByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus> {
+    open class func getApiV1AiGenerateProvenanceByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerAiGeneratedEntitiesStatus> {
         var localVariablePath = "/api/v1/ai/generate/provenance/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -477,7 +477,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerAiGeneratedEntitiesStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerAiGeneratedEntitiesStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -488,10 +488,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus
+     - returns: RestControllerAIControllerStickerCollectionGeneratorStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateStickersByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus {
+    open class func getApiV1AiGenerateStickersByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStickerCollectionGeneratorStatus {
         return try await getApiV1AiGenerateStickersByBountyidWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -504,9 +504,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerStickerCollectionGeneratorStatus> 
      */
-    open class func getApiV1AiGenerateStickersByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus> {
+    open class func getApiV1AiGenerateStickersByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStickerCollectionGeneratorStatus> {
         var localVariablePath = "/api/v1/ai/generate/stickers/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -524,7 +524,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerCollectionGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStickerCollectionGeneratorStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -534,10 +534,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta
+     - returns: RestControllerAIControllerStickerGeneratorMeta
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateStickersMeta(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta {
+    open class func getApiV1AiGenerateStickersMeta(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStickerGeneratorMeta {
         return try await getApiV1AiGenerateStickersMetaWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -549,9 +549,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta> 
+     - returns: RequestBuilder<RestControllerAIControllerStickerGeneratorMeta> 
      */
-    open class func getApiV1AiGenerateStickersMetaWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta> {
+    open class func getApiV1AiGenerateStickersMetaWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStickerGeneratorMeta> {
         let localVariablePath = "/api/v1/ai/generate/stickers/meta"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -566,7 +566,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStickerGeneratorMeta>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStickerGeneratorMeta>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -577,10 +577,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus
+     - returns: RestControllerAIControllerUserAvatarGenerationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateUserAvatarByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus {
+    open class func getApiV1AiGenerateUserAvatarByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserAvatarGenerationStatus {
         return try await getApiV1AiGenerateUserAvatarByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -593,9 +593,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerUserAvatarGenerationStatus> 
      */
-    open class func getApiV1AiGenerateUserAvatarByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus> {
+    open class func getApiV1AiGenerateUserAvatarByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserAvatarGenerationStatus> {
         var localVariablePath = "/api/v1/ai/generate/user-avatar/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -613,7 +613,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserAvatarGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -624,10 +624,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus
+     - returns: RestControllerAIControllerUserCoverGenerationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateUserCoverByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus {
+    open class func getApiV1AiGenerateUserCoverByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserCoverGenerationStatus {
         return try await getApiV1AiGenerateUserCoverByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -640,9 +640,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerUserCoverGenerationStatus> 
      */
-    open class func getApiV1AiGenerateUserCoverByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus> {
+    open class func getApiV1AiGenerateUserCoverByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserCoverGenerationStatus> {
         var localVariablePath = "/api/v1/ai/generate/user-cover/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -660,7 +660,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserCoverGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -671,10 +671,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus
+     - returns: RestControllerAIControllerUserBatchGenerationStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AiGenerateUsersBatchByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus {
+    open class func getApiV1AiGenerateUsersBatchByJobid(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserBatchGenerationStatus {
         return try await getApiV1AiGenerateUsersBatchByJobidWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -687,9 +687,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus> 
+     - returns: RequestBuilder<RestControllerAIControllerUserBatchGenerationStatus> 
      */
-    open class func getApiV1AiGenerateUsersBatchByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus> {
+    open class func getApiV1AiGenerateUsersBatchByJobidWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserBatchGenerationStatus> {
         var localVariablePath = "/api/v1/ai/generate/users/batch/{jobId}"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -707,22 +707,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserBatchGenerationStatus>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerAiBadgeBadgeGeneratorInput: (body)  
+     - parameter aiBadgeBadgeGeneratorInput: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse
+     - returns: RestControllerAIControllerStartBadgeGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateBadge(coEdgeappServerAiBadgeBadgeGeneratorInput: CoEdgeappServerAiBadgeBadgeGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse {
-        return try await postApiV1AiGenerateBadgeWithRequestBuilder(coEdgeappServerAiBadgeBadgeGeneratorInput: coEdgeappServerAiBadgeBadgeGeneratorInput, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateBadge(aiBadgeBadgeGeneratorInput: AiBadgeBadgeGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartBadgeGenerationResponse {
+        return try await postApiV1AiGenerateBadgeWithRequestBuilder(aiBadgeBadgeGeneratorInput: aiBadgeBadgeGeneratorInput, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -730,16 +730,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerAiBadgeBadgeGeneratorInput: (body)  
+     - parameter aiBadgeBadgeGeneratorInput: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartBadgeGenerationResponse> 
      */
-    open class func postApiV1AiGenerateBadgeWithRequestBuilder(coEdgeappServerAiBadgeBadgeGeneratorInput: CoEdgeappServerAiBadgeBadgeGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse> {
+    open class func postApiV1AiGenerateBadgeWithRequestBuilder(aiBadgeBadgeGeneratorInput: AiBadgeBadgeGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartBadgeGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/badge"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerAiBadgeBadgeGeneratorInput)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: aiBadgeBadgeGeneratorInput)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -752,22 +752,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBadgeGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartBadgeGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartBountyGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse
+     - returns: RestControllerAIControllerStartBountyGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateBounty(coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse {
-        return try await postApiV1AiGenerateBountyWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateBounty(restControllerAIControllerStartBountyGenerationRequest: RestControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartBountyGenerationResponse {
+        return try await postApiV1AiGenerateBountyWithRequestBuilder(restControllerAIControllerStartBountyGenerationRequest: restControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -775,16 +775,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartBountyGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartBountyGenerationResponse> 
      */
-    open class func postApiV1AiGenerateBountyWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest: CoEdgeappServerRestControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse> {
+    open class func postApiV1AiGenerateBountyWithRequestBuilder(restControllerAIControllerStartBountyGenerationRequest: RestControllerAIControllerStartBountyGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartBountyGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/bounty"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartBountyGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartBountyGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -797,7 +797,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartBountyGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartBountyGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -809,10 +809,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse
+     - returns: RestControllerAIControllerBountyGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateBountyByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse {
+    open class func postApiV1AiGenerateBountyByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerBountyGenerationCleanupResponse {
         return try await postApiV1AiGenerateBountyByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -826,9 +826,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerBountyGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateBountyByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateBountyByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerBountyGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/bounty/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -849,22 +849,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerBountyGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerBountyGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartFullCatalogGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse
+     - returns: RestControllerAIControllerStartFullCatalogGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCatalog(coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse {
-        return try await postApiV1AiGenerateCatalogWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateCatalog(restControllerAIControllerStartFullCatalogGenerationRequest: RestControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartFullCatalogGenerationResponse {
+        return try await postApiV1AiGenerateCatalogWithRequestBuilder(restControllerAIControllerStartFullCatalogGenerationRequest: restControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -872,16 +872,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartFullCatalogGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartFullCatalogGenerationResponse> 
      */
-    open class func postApiV1AiGenerateCatalogWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest: CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse> {
+    open class func postApiV1AiGenerateCatalogWithRequestBuilder(restControllerAIControllerStartFullCatalogGenerationRequest: RestControllerAIControllerStartFullCatalogGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartFullCatalogGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/catalog"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartFullCatalogGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartFullCatalogGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -894,22 +894,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartFullCatalogGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartFullCatalogGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCategoryGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse
+     - returns: RestControllerAIControllerStartCategoryGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCategories(coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse {
-        return try await postApiV1AiGenerateCategoriesWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateCategories(restControllerAIControllerStartCategoryGenerationRequest: RestControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartCategoryGenerationResponse {
+        return try await postApiV1AiGenerateCategoriesWithRequestBuilder(restControllerAIControllerStartCategoryGenerationRequest: restControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -917,16 +917,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCategoryGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartCategoryGenerationResponse> 
      */
-    open class func postApiV1AiGenerateCategoriesWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse> {
+    open class func postApiV1AiGenerateCategoriesWithRequestBuilder(restControllerAIControllerStartCategoryGenerationRequest: RestControllerAIControllerStartCategoryGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartCategoryGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/categories"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartCategoryGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartCategoryGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -939,7 +939,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartCategoryGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -951,10 +951,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse
+     - returns: RestControllerAIControllerCategoryGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCategoriesByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse {
+    open class func postApiV1AiGenerateCategoriesByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCategoryGenerationCleanupResponse {
         return try await postApiV1AiGenerateCategoriesByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -968,9 +968,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerCategoryGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateCategoriesByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateCategoriesByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCategoryGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/categories/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -991,22 +991,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCategoryGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCategoryTreeGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse
+     - returns: RestControllerAIControllerStartCategoryTreeGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCategoryTree(coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse {
-        return try await postApiV1AiGenerateCategoryTreeWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateCategoryTree(restControllerAIControllerStartCategoryTreeGenerationRequest: RestControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartCategoryTreeGenerationResponse {
+        return try await postApiV1AiGenerateCategoryTreeWithRequestBuilder(restControllerAIControllerStartCategoryTreeGenerationRequest: restControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1014,16 +1014,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCategoryTreeGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartCategoryTreeGenerationResponse> 
      */
-    open class func postApiV1AiGenerateCategoryTreeWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse> {
+    open class func postApiV1AiGenerateCategoryTreeWithRequestBuilder(restControllerAIControllerStartCategoryTreeGenerationRequest: RestControllerAIControllerStartCategoryTreeGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartCategoryTreeGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/category-tree"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartCategoryTreeGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1036,7 +1036,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCategoryTreeGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartCategoryTreeGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1048,10 +1048,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse
+     - returns: RestControllerAIControllerCategoryTreeGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCategoryTreeByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse {
+    open class func postApiV1AiGenerateCategoryTreeByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCategoryTreeGenerationCleanupResponse {
         return try await postApiV1AiGenerateCategoryTreeByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1065,9 +1065,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerCategoryTreeGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateCategoryTreeByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateCategoryTreeByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/category-tree/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1088,22 +1088,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCategoryTreeGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: (body)  
+     - parameter restControllerAIControllerStartChatSimulationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse
+     - returns: RestControllerAIControllerStartChatSimulationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateChatSimulate(coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse {
-        return try await postApiV1AiGenerateChatSimulateWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: coEdgeappServerRestControllerAIControllerStartChatSimulationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateChatSimulate(restControllerAIControllerStartChatSimulationRequest: RestControllerAIControllerStartChatSimulationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartChatSimulationResponse {
+        return try await postApiV1AiGenerateChatSimulateWithRequestBuilder(restControllerAIControllerStartChatSimulationRequest: restControllerAIControllerStartChatSimulationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1111,16 +1111,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: (body)  
+     - parameter restControllerAIControllerStartChatSimulationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartChatSimulationResponse> 
      */
-    open class func postApiV1AiGenerateChatSimulateWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartChatSimulationRequest: CoEdgeappServerRestControllerAIControllerStartChatSimulationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse> {
+    open class func postApiV1AiGenerateChatSimulateWithRequestBuilder(restControllerAIControllerStartChatSimulationRequest: RestControllerAIControllerStartChatSimulationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartChatSimulationResponse> {
         let localVariablePath = "/api/v1/ai/generate/chat/simulate"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartChatSimulationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartChatSimulationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1133,7 +1133,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartChatSimulationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartChatSimulationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1145,10 +1145,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse
+     - returns: RestControllerAIControllerChatSimulationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateChatSimulateByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse {
+    open class func postApiV1AiGenerateChatSimulateByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerChatSimulationCleanupResponse {
         return try await postApiV1AiGenerateChatSimulateByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1162,9 +1162,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerChatSimulationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateChatSimulateByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse> {
+    open class func postApiV1AiGenerateChatSimulateByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerChatSimulationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/chat/simulate/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1185,22 +1185,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerChatSimulationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerChatSimulationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCompanyBatchGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse
+     - returns: RestControllerAIControllerStartCompanyBatchGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCompaniesBatch(coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse {
-        return try await postApiV1AiGenerateCompaniesBatchWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateCompaniesBatch(restControllerAIControllerStartCompanyBatchGenerationRequest: RestControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartCompanyBatchGenerationResponse {
+        return try await postApiV1AiGenerateCompaniesBatchWithRequestBuilder(restControllerAIControllerStartCompanyBatchGenerationRequest: restControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1208,16 +1208,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartCompanyBatchGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartCompanyBatchGenerationResponse> 
      */
-    open class func postApiV1AiGenerateCompaniesBatchWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse> {
+    open class func postApiV1AiGenerateCompaniesBatchWithRequestBuilder(restControllerAIControllerStartCompanyBatchGenerationRequest: RestControllerAIControllerStartCompanyBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartCompanyBatchGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/companies/batch"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartCompanyBatchGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1230,7 +1230,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartCompanyBatchGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartCompanyBatchGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1242,10 +1242,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse
+     - returns: RestControllerAIControllerCompanyBatchGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateCompaniesBatchByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse {
+    open class func postApiV1AiGenerateCompaniesBatchByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerCompanyBatchGenerationCleanupResponse {
         return try await postApiV1AiGenerateCompaniesBatchByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1259,9 +1259,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerCompanyBatchGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateCompaniesBatchByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateCompaniesBatchByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/companies/batch/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1282,22 +1282,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerCompanyBatchGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: (body)  
+     - parameter restControllerAIControllerStartDemoFeedSeedingRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse
+     - returns: RestControllerAIControllerStartDemoFeedSeedingResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateDemoFeed(coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse {
-        return try await postApiV1AiGenerateDemoFeedWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateDemoFeed(restControllerAIControllerStartDemoFeedSeedingRequest: RestControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartDemoFeedSeedingResponse {
+        return try await postApiV1AiGenerateDemoFeedWithRequestBuilder(restControllerAIControllerStartDemoFeedSeedingRequest: restControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1305,16 +1305,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: (body)  
+     - parameter restControllerAIControllerStartDemoFeedSeedingRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartDemoFeedSeedingResponse> 
      */
-    open class func postApiV1AiGenerateDemoFeedWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest: CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse> {
+    open class func postApiV1AiGenerateDemoFeedWithRequestBuilder(restControllerAIControllerStartDemoFeedSeedingRequest: RestControllerAIControllerStartDemoFeedSeedingRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartDemoFeedSeedingResponse> {
         let localVariablePath = "/api/v1/ai/generate/demo-feed"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartDemoFeedSeedingRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartDemoFeedSeedingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1327,7 +1327,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartDemoFeedSeedingResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartDemoFeedSeedingResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1339,10 +1339,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse
+     - returns: RestControllerAIControllerDemoFeedSeedingCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateDemoFeedByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse {
+    open class func postApiV1AiGenerateDemoFeedByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerDemoFeedSeedingCleanupResponse {
         return try await postApiV1AiGenerateDemoFeedByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1356,9 +1356,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerDemoFeedSeedingCleanupResponse> 
      */
-    open class func postApiV1AiGenerateDemoFeedByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse> {
+    open class func postApiV1AiGenerateDemoFeedByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerDemoFeedSeedingCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/demo-feed/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1379,22 +1379,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerDemoFeedSeedingCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerDemoFeedSeedingCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartMenuGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse
+     - returns: RestControllerAIControllerStartMenuGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateMenu(coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse {
-        return try await postApiV1AiGenerateMenuWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateMenu(restControllerAIControllerStartMenuGenerationRequest: RestControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartMenuGenerationResponse {
+        return try await postApiV1AiGenerateMenuWithRequestBuilder(restControllerAIControllerStartMenuGenerationRequest: restControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1402,16 +1402,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartMenuGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartMenuGenerationResponse> 
      */
-    open class func postApiV1AiGenerateMenuWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest: CoEdgeappServerRestControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse> {
+    open class func postApiV1AiGenerateMenuWithRequestBuilder(restControllerAIControllerStartMenuGenerationRequest: RestControllerAIControllerStartMenuGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartMenuGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/menu"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartMenuGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartMenuGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1424,7 +1424,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartMenuGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartMenuGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1436,10 +1436,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse
+     - returns: RestControllerAIControllerMenuGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateMenuByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse {
+    open class func postApiV1AiGenerateMenuByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerMenuGenerationCleanupResponse {
         return try await postApiV1AiGenerateMenuByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1453,9 +1453,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerMenuGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateMenuByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateMenuByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerMenuGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/menu/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1476,22 +1476,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerMenuGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerMenuGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartProductGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse
+     - returns: RestControllerAIControllerStartProductGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateProducts(coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse {
-        return try await postApiV1AiGenerateProductsWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: coEdgeappServerRestControllerAIControllerStartProductGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateProducts(restControllerAIControllerStartProductGenerationRequest: RestControllerAIControllerStartProductGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartProductGenerationResponse {
+        return try await postApiV1AiGenerateProductsWithRequestBuilder(restControllerAIControllerStartProductGenerationRequest: restControllerAIControllerStartProductGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1499,16 +1499,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartProductGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartProductGenerationResponse> 
      */
-    open class func postApiV1AiGenerateProductsWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartProductGenerationRequest: CoEdgeappServerRestControllerAIControllerStartProductGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse> {
+    open class func postApiV1AiGenerateProductsWithRequestBuilder(restControllerAIControllerStartProductGenerationRequest: RestControllerAIControllerStartProductGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartProductGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/products"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartProductGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartProductGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1521,7 +1521,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartProductGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartProductGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1533,10 +1533,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse
+     - returns: RestControllerAIControllerProductGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateProductsByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse {
+    open class func postApiV1AiGenerateProductsByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerProductGenerationCleanupResponse {
         return try await postApiV1AiGenerateProductsByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1550,9 +1550,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerProductGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateProductsByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateProductsByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerProductGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/products/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1573,22 +1573,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerProductGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerProductGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerAiStickersStickerCollectionGeneratorInput: (body)  
+     - parameter aiStickersStickerCollectionGeneratorInput: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse
+     - returns: RestControllerAIControllerStartStickerGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateStickers(coEdgeappServerAiStickersStickerCollectionGeneratorInput: CoEdgeappServerAiStickersStickerCollectionGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse {
-        return try await postApiV1AiGenerateStickersWithRequestBuilder(coEdgeappServerAiStickersStickerCollectionGeneratorInput: coEdgeappServerAiStickersStickerCollectionGeneratorInput, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateStickers(aiStickersStickerCollectionGeneratorInput: AiStickersStickerCollectionGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartStickerGenerationResponse {
+        return try await postApiV1AiGenerateStickersWithRequestBuilder(aiStickersStickerCollectionGeneratorInput: aiStickersStickerCollectionGeneratorInput, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1596,16 +1596,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerAiStickersStickerCollectionGeneratorInput: (body)  
+     - parameter aiStickersStickerCollectionGeneratorInput: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartStickerGenerationResponse> 
      */
-    open class func postApiV1AiGenerateStickersWithRequestBuilder(coEdgeappServerAiStickersStickerCollectionGeneratorInput: CoEdgeappServerAiStickersStickerCollectionGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse> {
+    open class func postApiV1AiGenerateStickersWithRequestBuilder(aiStickersStickerCollectionGeneratorInput: AiStickersStickerCollectionGeneratorInput, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartStickerGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/stickers"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerAiStickersStickerCollectionGeneratorInput)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: aiStickersStickerCollectionGeneratorInput)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1618,22 +1618,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartStickerGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartStickerGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserAvatarGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse
+     - returns: RestControllerAIControllerStartUserAvatarGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUserAvatar(coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse {
-        return try await postApiV1AiGenerateUserAvatarWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateUserAvatar(restControllerAIControllerStartUserAvatarGenerationRequest: RestControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartUserAvatarGenerationResponse {
+        return try await postApiV1AiGenerateUserAvatarWithRequestBuilder(restControllerAIControllerStartUserAvatarGenerationRequest: restControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1641,16 +1641,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserAvatarGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartUserAvatarGenerationResponse> 
      */
-    open class func postApiV1AiGenerateUserAvatarWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse> {
+    open class func postApiV1AiGenerateUserAvatarWithRequestBuilder(restControllerAIControllerStartUserAvatarGenerationRequest: RestControllerAIControllerStartUserAvatarGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartUserAvatarGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/user-avatar"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartUserAvatarGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartUserAvatarGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1663,7 +1663,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserAvatarGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartUserAvatarGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1674,10 +1674,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse
+     - returns: RestControllerAIControllerUserAvatarGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUserAvatarByJobidCleanup(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse {
+    open class func postApiV1AiGenerateUserAvatarByJobidCleanup(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserAvatarGenerationCleanupResponse {
         return try await postApiV1AiGenerateUserAvatarByJobidCleanupWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1690,9 +1690,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerUserAvatarGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateUserAvatarByJobidCleanupWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateUserAvatarByJobidCleanupWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserAvatarGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/user-avatar/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1710,22 +1710,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserAvatarGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserAvatarGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserCoverGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse
+     - returns: RestControllerAIControllerStartUserCoverGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUserCover(coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse {
-        return try await postApiV1AiGenerateUserCoverWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateUserCover(restControllerAIControllerStartUserCoverGenerationRequest: RestControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartUserCoverGenerationResponse {
+        return try await postApiV1AiGenerateUserCoverWithRequestBuilder(restControllerAIControllerStartUserCoverGenerationRequest: restControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1733,16 +1733,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserCoverGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartUserCoverGenerationResponse> 
      */
-    open class func postApiV1AiGenerateUserCoverWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse> {
+    open class func postApiV1AiGenerateUserCoverWithRequestBuilder(restControllerAIControllerStartUserCoverGenerationRequest: RestControllerAIControllerStartUserCoverGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartUserCoverGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/user-cover"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartUserCoverGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartUserCoverGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1755,7 +1755,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserCoverGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartUserCoverGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1766,10 +1766,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse
+     - returns: RestControllerAIControllerUserCoverGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUserCoverByJobidCleanup(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse {
+    open class func postApiV1AiGenerateUserCoverByJobidCleanup(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserCoverGenerationCleanupResponse {
         return try await postApiV1AiGenerateUserCoverByJobidCleanupWithRequestBuilder(jobId: jobId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1782,9 +1782,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerUserCoverGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateUserCoverByJobidCleanupWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateUserCoverByJobidCleanupWithRequestBuilder(jobId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserCoverGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/user-cover/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1802,22 +1802,22 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserCoverGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserCoverGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserBatchGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse
+     - returns: RestControllerAIControllerStartUserBatchGenerationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUsersBatch(coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse {
-        return try await postApiV1AiGenerateUsersBatchWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AiGenerateUsersBatch(restControllerAIControllerStartUserBatchGenerationRequest: RestControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerStartUserBatchGenerationResponse {
+        return try await postApiV1AiGenerateUsersBatchWithRequestBuilder(restControllerAIControllerStartUserBatchGenerationRequest: restControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1825,16 +1825,16 @@ open class AiControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: (body)  
+     - parameter restControllerAIControllerStartUserBatchGenerationRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerStartUserBatchGenerationResponse> 
      */
-    open class func postApiV1AiGenerateUsersBatchWithRequestBuilder(coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest: CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse> {
+    open class func postApiV1AiGenerateUsersBatchWithRequestBuilder(restControllerAIControllerStartUserBatchGenerationRequest: RestControllerAIControllerStartUserBatchGenerationRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerStartUserBatchGenerationResponse> {
         let localVariablePath = "/api/v1/ai/generate/users/batch"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerRestControllerAIControllerStartUserBatchGenerationRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAIControllerStartUserBatchGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1847,7 +1847,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerStartUserBatchGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerStartUserBatchGenerationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1859,10 +1859,10 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse
+     - returns: RestControllerAIControllerUserBatchGenerationCleanupResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AiGenerateUsersBatchByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse {
+    open class func postApiV1AiGenerateUsersBatchByJobidCleanup(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerAIControllerUserBatchGenerationCleanupResponse {
         return try await postApiV1AiGenerateUsersBatchByJobidCleanupWithRequestBuilder(jobId: jobId, force: force, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1876,9 +1876,9 @@ open class AiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse> 
+     - returns: RequestBuilder<RestControllerAIControllerUserBatchGenerationCleanupResponse> 
      */
-    open class func postApiV1AiGenerateUsersBatchByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse> {
+    open class func postApiV1AiGenerateUsersBatchByJobidCleanupWithRequestBuilder(jobId: UUID, force: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerAIControllerUserBatchGenerationCleanupResponse> {
         var localVariablePath = "/api/v1/ai/generate/users/batch/{jobId}/cleanup"
         let jobIdPreEscape = "\(APIHelper.mapValueToPathItem(jobId))"
         let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1899,7 +1899,7 @@ open class AiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerAIControllerUserBatchGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerAIControllerUserBatchGenerationCleanupResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -42,10 +42,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataAuditLogResult
+     - returns: EdgeApiDataAuditLogResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemAuditLog(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verbs: [Verbs_getApiV1SystemAuditLog]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataAuditLogResult {
+    open class func getApiV1SystemAuditLog(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verbs: [Verbs_getApiV1SystemAuditLog]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAuditLogResult {
         return try await getApiV1SystemAuditLogWithRequestBuilder(actorId: actorId, objectType: objectType, objectId: objectId, verbs: verbs, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -63,9 +63,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataAuditLogResult> 
+     - returns: RequestBuilder<EdgeApiDataAuditLogResult> 
      */
-    open class func getApiV1SystemAuditLogWithRequestBuilder(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verbs: [Verbs_getApiV1SystemAuditLog]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataAuditLogResult> {
+    open class func getApiV1SystemAuditLogWithRequestBuilder(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verbs: [Verbs_getApiV1SystemAuditLog]? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAuditLogResult> {
         let localVariablePath = "/api/v1/system/audit/log"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -88,7 +88,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataAuditLogResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAuditLogResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -98,10 +98,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataCountriesResponse
+     - returns: EdgeApiDataCountriesResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemCountries(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCountriesResponse {
+    open class func getApiV1SystemCountries(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCountriesResponse {
         return try await getApiV1SystemCountriesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -113,9 +113,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCountriesResponse> 
+     - returns: RequestBuilder<EdgeApiDataCountriesResponse> 
      */
-    open class func getApiV1SystemCountriesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCountriesResponse> {
+    open class func getApiV1SystemCountriesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCountriesResponse> {
         let localVariablePath = "/api/v1/system/countries"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -130,7 +130,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCountriesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCountriesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -141,10 +141,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataCountryExtraInfo
+     - returns: EdgeApiDataCountryExtraInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemCountriesByCountrycode(countryCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCountryExtraInfo {
+    open class func getApiV1SystemCountriesByCountrycode(countryCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCountryExtraInfo {
         return try await getApiV1SystemCountriesByCountrycodeWithRequestBuilder(countryCode: countryCode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -157,9 +157,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCountryExtraInfo> 
+     - returns: RequestBuilder<EdgeApiDataCountryExtraInfo> 
      */
-    open class func getApiV1SystemCountriesByCountrycodeWithRequestBuilder(countryCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCountryExtraInfo> {
+    open class func getApiV1SystemCountriesByCountrycodeWithRequestBuilder(countryCode: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCountryExtraInfo> {
         var localVariablePath = "/api/v1/system/countries/{countryCode}"
         let countryCodePreEscape = "\(APIHelper.mapValueToPathItem(countryCode))"
         let countryCodePostEscape = countryCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -177,7 +177,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCountryExtraInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCountryExtraInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -239,10 +239,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataDocSearchResult
+     - returns: EdgeApiDataDocSearchResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemDocSearch(s: String, index: String? = nil, start: String? = nil, length: Int? = nil, type: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataDocSearchResult {
+    open class func getApiV1SystemDocSearch(s: String, index: String? = nil, start: String? = nil, length: Int? = nil, type: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataDocSearchResult {
         return try await getApiV1SystemDocSearchWithRequestBuilder(s: s, index: index, start: start, length: length, type: type, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -259,9 +259,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataDocSearchResult> 
+     - returns: RequestBuilder<EdgeApiDataDocSearchResult> 
      */
-    open class func getApiV1SystemDocSearchWithRequestBuilder(s: String, index: String? = nil, start: String? = nil, length: Int? = nil, type: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataDocSearchResult> {
+    open class func getApiV1SystemDocSearchWithRequestBuilder(s: String, index: String? = nil, start: String? = nil, length: Int? = nil, type: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataDocSearchResult> {
         let localVariablePath = "/api/v1/system/doc-search"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -283,7 +283,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataDocSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataDocSearchResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -308,10 +308,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry
+     - returns: EdgeApiDataPageEventLogEntry
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemEventLog(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verb: [Verb_getApiV1SystemEventLog]? = nil, startAt: String? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry {
+    open class func getApiV1SystemEventLog(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verb: [Verb_getApiV1SystemEventLog]? = nil, startAt: String? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageEventLogEntry {
         return try await getApiV1SystemEventLogWithRequestBuilder(actorId: actorId, objectType: objectType, objectId: objectId, verb: verb, startAt: startAt, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -329,9 +329,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry> 
+     - returns: RequestBuilder<EdgeApiDataPageEventLogEntry> 
      */
-    open class func getApiV1SystemEventLogWithRequestBuilder(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verb: [Verb_getApiV1SystemEventLog]? = nil, startAt: String? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry> {
+    open class func getApiV1SystemEventLogWithRequestBuilder(actorId: String? = nil, objectType: String? = nil, objectId: String? = nil, verb: [Verb_getApiV1SystemEventLog]? = nil, startAt: String? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageEventLogEntry> {
         let localVariablePath = "/api/v1/system/event/log"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -354,7 +354,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceModelEventLogEntry>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageEventLogEntry>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -365,10 +365,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount
+     - returns: EdgeApiDataPageServiceUserHandleFrontEndCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemFrontEndsStats(latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount {
+    open class func getApiV1SystemFrontEndsStats(latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageServiceUserHandleFrontEndCount {
         return try await getApiV1SystemFrontEndsStatsWithRequestBuilder(latestOnly: latestOnly, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -381,9 +381,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> 
+     - returns: RequestBuilder<EdgeApiDataPageServiceUserHandleFrontEndCount> 
      */
-    open class func getApiV1SystemFrontEndsStatsWithRequestBuilder(latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount> {
+    open class func getApiV1SystemFrontEndsStatsWithRequestBuilder(latestOnly: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageServiceUserHandleFrontEndCount> {
         let localVariablePath = "/api/v1/system/front-ends-stats"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -401,7 +401,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerServiceUserHandleFrontEndCount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageServiceUserHandleFrontEndCount>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -412,10 +412,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataMxCheckResponse
+     - returns: EdgeApiDataMxCheckResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemMxCheck(email: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataMxCheckResponse {
+    open class func getApiV1SystemMxCheck(email: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataMxCheckResponse {
         return try await getApiV1SystemMxCheckWithRequestBuilder(email: email, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -428,9 +428,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataMxCheckResponse> 
+     - returns: RequestBuilder<EdgeApiDataMxCheckResponse> 
      */
-    open class func getApiV1SystemMxCheckWithRequestBuilder(email: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataMxCheckResponse> {
+    open class func getApiV1SystemMxCheckWithRequestBuilder(email: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataMxCheckResponse> {
         let localVariablePath = "/api/v1/system/mx-check"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -448,7 +448,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataMxCheckResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataMxCheckResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -458,10 +458,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp
+     - returns: EdgeApiDataPageRestControllerSystemControllerOrgTypeResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemOrganizations(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp {
+    open class func getApiV1SystemOrganizations(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageRestControllerSystemControllerOrgTypeResp {
         return try await getApiV1SystemOrganizationsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -473,9 +473,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp> 
+     - returns: RequestBuilder<EdgeApiDataPageRestControllerSystemControllerOrgTypeResp> 
      */
-    open class func getApiV1SystemOrganizationsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp> {
+    open class func getApiV1SystemOrganizationsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageRestControllerSystemControllerOrgTypeResp> {
         let localVariablePath = "/api/v1/system/organizations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -490,7 +490,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataPageCoEdgeappServerRestControllerSystemControllerOrgTypeResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageRestControllerSystemControllerOrgTypeResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -502,10 +502,10 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerRestControllerSystemControllerShopMeta
+     - returns: RestControllerSystemControllerShopMeta
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1SystemShopsByShopidMeta(shopId: String, locationId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerRestControllerSystemControllerShopMeta {
+    open class func getApiV1SystemShopsByShopidMeta(shopId: String, locationId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerSystemControllerShopMeta {
         return try await getApiV1SystemShopsByShopidMetaWithRequestBuilder(shopId: shopId, locationId: locationId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -519,9 +519,9 @@ open class SystemControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerRestControllerSystemControllerShopMeta> 
+     - returns: RequestBuilder<RestControllerSystemControllerShopMeta> 
      */
-    open class func getApiV1SystemShopsByShopidMetaWithRequestBuilder(shopId: String, locationId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerRestControllerSystemControllerShopMeta> {
+    open class func getApiV1SystemShopsByShopidMetaWithRequestBuilder(shopId: String, locationId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerSystemControllerShopMeta> {
         var localVariablePath = "/api/v1/system/shops/{shopId}/meta"
         let shopIdPreEscape = "\(APIHelper.mapValueToPathItem(shopId))"
         let shopIdPostEscape = shopIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -542,22 +542,22 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerRestControllerSystemControllerShopMeta>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestControllerSystemControllerShopMeta>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter coEdgeappServerModelEdgeApiDataSaveCurrencyReq: (body)  
+     - parameter edgeApiDataSaveCurrencyReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: CoEdgeappServerModelEdgeApiDataCurrenciesResponse
+     - returns: EdgeApiDataCurrenciesResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SystemCurrencies(coEdgeappServerModelEdgeApiDataSaveCurrencyReq: CoEdgeappServerModelEdgeApiDataSaveCurrencyReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CoEdgeappServerModelEdgeApiDataCurrenciesResponse {
-        return try await postApiV1SystemCurrenciesWithRequestBuilder(coEdgeappServerModelEdgeApiDataSaveCurrencyReq: coEdgeappServerModelEdgeApiDataSaveCurrencyReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1SystemCurrencies(edgeApiDataSaveCurrencyReq: EdgeApiDataSaveCurrencyReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCurrenciesResponse {
+        return try await postApiV1SystemCurrenciesWithRequestBuilder(edgeApiDataSaveCurrencyReq: edgeApiDataSaveCurrencyReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -565,16 +565,16 @@ open class SystemControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter coEdgeappServerModelEdgeApiDataSaveCurrencyReq: (body)  
+     - parameter edgeApiDataSaveCurrencyReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<CoEdgeappServerModelEdgeApiDataCurrenciesResponse> 
+     - returns: RequestBuilder<EdgeApiDataCurrenciesResponse> 
      */
-    open class func postApiV1SystemCurrenciesWithRequestBuilder(coEdgeappServerModelEdgeApiDataSaveCurrencyReq: CoEdgeappServerModelEdgeApiDataSaveCurrencyReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CoEdgeappServerModelEdgeApiDataCurrenciesResponse> {
+    open class func postApiV1SystemCurrenciesWithRequestBuilder(edgeApiDataSaveCurrencyReq: EdgeApiDataSaveCurrencyReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCurrenciesResponse> {
         let localVariablePath = "/api/v1/system/currencies"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: coEdgeappServerModelEdgeApiDataSaveCurrencyReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataSaveCurrencyReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -587,7 +587,7 @@ open class SystemControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CoEdgeappServerModelEdgeApiDataCurrenciesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCurrenciesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

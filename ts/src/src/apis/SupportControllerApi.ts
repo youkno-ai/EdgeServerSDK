@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection,
-  CoEdgeappServerModelEdgeApiDataTranslateTextResult,
+  EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection,
+  EdgeApiDataTranslateTextResult,
 } from '../models/index';
 import {
-    CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON,
-    CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetectionToJSON,
-    CoEdgeappServerModelEdgeApiDataTranslateTextResultFromJSON,
-    CoEdgeappServerModelEdgeApiDataTranslateTextResultToJSON,
+    EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON,
+    EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionToJSON,
+    EdgeApiDataTranslateTextResultFromJSON,
+    EdgeApiDataTranslateTextResultToJSON,
 } from '../models/index';
 
 export interface GetApiV1DetectRequest {
@@ -58,11 +58,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection>>;
+    getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>>;
 
     /**
      */
-    getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection>;
+    getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>;
 
     /**
      * 
@@ -76,11 +76,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataTranslateTextResult>>;
+    getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataTranslateTextResult>>;
 
     /**
      */
-    getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataTranslateTextResult>;
+    getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataTranslateTextResult>;
 
 }
 
@@ -91,7 +91,7 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
 
     /**
      */
-    async getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection>> {
+    async getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>> {
         if (requestParameters['text'] == null) {
             throw new runtime.RequiredError(
                 'text',
@@ -133,19 +133,19 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataDetectedLanguageResultJavaUtilListJavaUtilListCoEdgeappServerThirdpartiesGoogleTranslateAPIDetectedDataDetection> {
+    async getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection> {
         const response = await this.getApiV1DetectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoEdgeappServerModelEdgeApiDataTranslateTextResult>> {
+    async getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataTranslateTextResult>> {
         if (requestParameters['source'] == null) {
             throw new runtime.RequiredError(
                 'source',
@@ -209,12 +209,12 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoEdgeappServerModelEdgeApiDataTranslateTextResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataTranslateTextResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoEdgeappServerModelEdgeApiDataTranslateTextResult> {
+    async getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataTranslateTextResult> {
         const response = await this.getApiV1TranslateRaw(requestParameters, initOverrides);
         return await response.value();
     }

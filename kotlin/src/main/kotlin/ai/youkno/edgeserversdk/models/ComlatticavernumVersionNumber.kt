@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ComlatticavernumVersionNumber (
+data class ComLatticaVernumVersionNumber (
 
     @Json(name = "major")
     val major: kotlin.Int? = null,

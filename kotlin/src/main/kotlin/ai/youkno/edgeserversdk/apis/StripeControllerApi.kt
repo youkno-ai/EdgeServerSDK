@@ -6,12 +6,14 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerStripeControllerCreateSetupIntentRequest
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerStripeControllerStripeAccountResponse
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerStripeControllerStripeConfigResponse
-import ai.youkno.edgeserversdk.models.CoedgeappserverrestcontrollerStripeControllerStripeConnectResponse
-import ai.youkno.edgeserversdk.models.CoedgeappserverserviceStripeServiceCreatePaymentIntentResponse
-import ai.youkno.edgeserversdk.models.CoedgeappserverserviceStripeServiceCreateSetupIntentResponse
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerCreateSetupIntentRequest
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequest
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerStripeAccountResponse
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerStripeConfigResponse
+import ai.youkno.edgeserversdk.models.RestControllerStripeControllerStripeConnectResponse
+import ai.youkno.edgeserversdk.models.ServiceStripeServiceCreatePaymentIntentResponse
+import ai.youkno.edgeserversdk.models.ServiceStripeServiceCreateSetupIntentResponse
 
 interface StripeControllerApi {
     /**
@@ -24,10 +26,10 @@ interface StripeControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverrestcontrollerStripeControllerStripeAccountResponse]>
+     * @return [Call]<[RestControllerStripeControllerStripeAccountResponse]>
      */
     @GET("api/v1/stripe/account")
-    fun getApiV1StripeAccount(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestcontrollerStripeControllerStripeAccountResponse>
+    fun getApiV1StripeAccount(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerStripeControllerStripeAccountResponse>
 
     /**
      * GET api/v1/stripe/config
@@ -39,10 +41,10 @@ interface StripeControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverrestcontrollerStripeControllerStripeConfigResponse]>
+     * @return [Call]<[RestControllerStripeControllerStripeConfigResponse]>
      */
     @GET("api/v1/stripe/config")
-    fun getApiV1StripeConfig(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestcontrollerStripeControllerStripeConfigResponse>
+    fun getApiV1StripeConfig(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerStripeControllerStripeConfigResponse>
 
     /**
      * GET api/v1/stripe/connect
@@ -55,10 +57,10 @@ interface StripeControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverrestcontrollerStripeControllerStripeConnectResponse]>
+     * @return [Call]<[RestControllerStripeControllerStripeConnectResponse]>
      */
     @GET("api/v1/stripe/connect")
-    fun getApiV1StripeConnect(@Query("redirectUrl") redirectUrl: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverrestcontrollerStripeControllerStripeConnectResponse>
+    fun getApiV1StripeConnect(@Query("redirectUrl") redirectUrl: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerStripeControllerStripeConnectResponse>
 
     /**
      * POST api/v1/stripe/payments/{paymentId}/payment-intent
@@ -72,10 +74,10 @@ interface StripeControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[CoedgeappserverserviceStripeServiceCreatePaymentIntentResponse]>
+     * @return [Call]<[ServiceStripeServiceCreatePaymentIntentResponse]>
      */
     @POST("api/v1/stripe/payments/{paymentId}/payment-intent")
-    fun postApiV1StripePaymentsByPaymentidPaymentIntent(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CoedgeappserverserviceStripeServiceCreatePaymentIntentResponse>
+    fun postApiV1StripePaymentsByPaymentidPaymentIntent(@Path("paymentId") paymentId: kotlin.String, @Body body: kotlin.Any, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceStripeServiceCreatePaymentIntentResponse>
 
     /**
      * POST api/v1/stripe/setup-intent
@@ -87,11 +89,27 @@ interface StripeControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param coedgeappserverrestcontrollerStripeControllerCreateSetupIntentRequest  (optional)
-     * @return [Call]<[CoedgeappserverserviceStripeServiceCreateSetupIntentResponse]>
+     * @param restControllerStripeControllerCreateSetupIntentRequest  (optional)
+     * @return [Call]<[ServiceStripeServiceCreateSetupIntentResponse]>
      */
     @POST("api/v1/stripe/setup-intent")
-    fun postApiV1StripeSetupIntent(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body coedgeappserverrestcontrollerStripeControllerCreateSetupIntentRequest: CoedgeappserverrestcontrollerStripeControllerCreateSetupIntentRequest? = null): Call<CoedgeappserverserviceStripeServiceCreateSetupIntentResponse>
+    fun postApiV1StripeSetupIntent(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body restControllerStripeControllerCreateSetupIntentRequest: RestControllerStripeControllerCreateSetupIntentRequest? = null): Call<ServiceStripeServiceCreateSetupIntentResponse>
+
+    /**
+     * POST api/v1/stripe/subscriptions/checkout-session
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse]>
+     */
+    @POST("api/v1/stripe/subscriptions/checkout-session")
+    fun postApiV1StripeSubscriptionsCheckoutSession(@Body restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest: RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse>
 
     /**
      * POST api/v1/stripe/webhook_callback
