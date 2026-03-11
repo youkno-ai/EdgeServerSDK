@@ -38,8 +38,10 @@ public struct SubscriptionTierCardView: Codable, JSONEncodable, Hashable {
     public var currentTier: Bool?
     public var selectable: Bool?
     public var primaryAction: SubscriptionPrimaryActionView?
+    public var grantsAnyGatingKey: Bool?
+    public var gatingKeysGranted: [String]?
 
-    public init(tierBountyId: String? = nil, tierCode: String? = nil, displayName: String? = nil, description: String? = nil, sortOrder: Int? = nil, active: Bool? = nil, recommended: Bool? = nil, badge: String? = nil, highlight: Bool? = nil, shortDescription: String? = nil, ctaLabel: String? = nil, monthly: SubscriptionTierPriceOptionView? = nil, yearly: SubscriptionTierPriceOptionView? = nil, trial: SubscriptionTierTrialView? = nil, features: [SubscriptionTierFeatureView]? = nil, relationshipToCurrent: RelationshipToCurrent? = nil, currentTier: Bool? = nil, selectable: Bool? = nil, primaryAction: SubscriptionPrimaryActionView? = nil) {
+    public init(tierBountyId: String? = nil, tierCode: String? = nil, displayName: String? = nil, description: String? = nil, sortOrder: Int? = nil, active: Bool? = nil, recommended: Bool? = nil, badge: String? = nil, highlight: Bool? = nil, shortDescription: String? = nil, ctaLabel: String? = nil, monthly: SubscriptionTierPriceOptionView? = nil, yearly: SubscriptionTierPriceOptionView? = nil, trial: SubscriptionTierTrialView? = nil, features: [SubscriptionTierFeatureView]? = nil, relationshipToCurrent: RelationshipToCurrent? = nil, currentTier: Bool? = nil, selectable: Bool? = nil, primaryAction: SubscriptionPrimaryActionView? = nil, grantsAnyGatingKey: Bool? = nil, gatingKeysGranted: [String]? = nil) {
         self.tierBountyId = tierBountyId
         self.tierCode = tierCode
         self.displayName = displayName
@@ -59,6 +61,8 @@ public struct SubscriptionTierCardView: Codable, JSONEncodable, Hashable {
         self.currentTier = currentTier
         self.selectable = selectable
         self.primaryAction = primaryAction
+        self.grantsAnyGatingKey = grantsAnyGatingKey
+        self.gatingKeysGranted = gatingKeysGranted
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -81,6 +85,8 @@ public struct SubscriptionTierCardView: Codable, JSONEncodable, Hashable {
         case currentTier
         case selectable
         case primaryAction
+        case grantsAnyGatingKey
+        case gatingKeysGranted
     }
 
     // Encodable protocol methods
@@ -106,6 +112,8 @@ public struct SubscriptionTierCardView: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(currentTier, forKey: .currentTier)
         try container.encodeIfPresent(selectable, forKey: .selectable)
         try container.encodeIfPresent(primaryAction, forKey: .primaryAction)
+        try container.encodeIfPresent(grantsAnyGatingKey, forKey: .grantsAnyGatingKey)
+        try container.encodeIfPresent(gatingKeysGranted, forKey: .gatingKeysGranted)
     }
 }
 

@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataNewId,
+  NewId,
   WebSnippet,
 } from '../models/index';
 import {
-    EdgeApiDataNewIdFromJSON,
-    EdgeApiDataNewIdToJSON,
+    NewIdFromJSON,
+    NewIdToJSON,
     WebSnippetFromJSON,
     WebSnippetToJSON,
 } from '../models/index';
@@ -151,11 +151,11 @@ export interface WebSnippetControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebSnippetControllerApiInterface
      */
-    postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -390,7 +390,7 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
 
     /**
      */
-    async postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1WebSnippetsRaw(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['webSnippet'] == null) {
             throw new runtime.RequiredError(
                 'webSnippet',
@@ -431,12 +431,12 @@ export class WebSnippetControllerApi extends runtime.BaseAPI implements WebSnipp
             body: WebSnippetToJSON(requestParameters['webSnippet']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1WebSnippets(requestParameters: PostApiV1WebSnippetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1WebSnippetsRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -233,10 +233,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageAccessKey
+     - returns: ModelAccessKey
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysByUserid(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageAccessKey {
+    open class func getApiV1AccesskeysByUserid(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelAccessKey {
         return try await getApiV1AccesskeysByUseridWithRequestBuilder(userId: userId, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -251,9 +251,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageAccessKey> 
+     - returns: RequestBuilder<ModelAccessKey> 
      */
-    open class func getApiV1AccesskeysByUseridWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageAccessKey> {
+    open class func getApiV1AccesskeysByUseridWithRequestBuilder(userId: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelAccessKey> {
         var localVariablePath = "/api/v1/accessKeys/{userId}"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -275,7 +275,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageAccessKey>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelAccessKey>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -287,10 +287,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageAccessKey
+     - returns: ModelAccessKey
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysByUseridByAccesskeydefid(userId: String, accessKeyDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageAccessKey {
+    open class func getApiV1AccesskeysByUseridByAccesskeydefid(userId: String, accessKeyDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelAccessKey {
         return try await getApiV1AccesskeysByUseridByAccesskeydefidWithRequestBuilder(userId: userId, accessKeyDefId: accessKeyDefId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -304,9 +304,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageAccessKey> 
+     - returns: RequestBuilder<ModelAccessKey> 
      */
-    open class func getApiV1AccesskeysByUseridByAccesskeydefidWithRequestBuilder(userId: String, accessKeyDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageAccessKey> {
+    open class func getApiV1AccesskeysByUseridByAccesskeydefidWithRequestBuilder(userId: String, accessKeyDefId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelAccessKey> {
         var localVariablePath = "/api/v1/accessKeys/{userId}/{accessKeyDefId}"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -327,7 +327,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageAccessKey>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelAccessKey>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -340,10 +340,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageAccessKeyDef
+     - returns: ModelAccessKeyDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysDefsByScopename(scopeName: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageAccessKeyDef {
+    open class func getApiV1AccesskeysDefsByScopename(scopeName: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelAccessKeyDef {
         return try await getApiV1AccesskeysDefsByScopenameWithRequestBuilder(scopeName: scopeName, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -358,9 +358,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageAccessKeyDef> 
+     - returns: RequestBuilder<ModelAccessKeyDef> 
      */
-    open class func getApiV1AccesskeysDefsByScopenameWithRequestBuilder(scopeName: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageAccessKeyDef> {
+    open class func getApiV1AccesskeysDefsByScopenameWithRequestBuilder(scopeName: String, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelAccessKeyDef> {
         var localVariablePath = "/api/v1/accessKeys/defs/{scopeName}"
         let scopeNamePreEscape = "\(APIHelper.mapValueToPathItem(scopeName))"
         let scopeNamePostEscape = scopeNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -382,7 +382,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageAccessKeyDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelAccessKeyDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -439,10 +439,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageScope
+     - returns: ModelScope
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysDefsScopes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageScope {
+    open class func getApiV1AccesskeysDefsScopes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelScope {
         return try await getApiV1AccesskeysDefsScopesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -454,9 +454,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageScope> 
+     - returns: RequestBuilder<ModelScope> 
      */
-    open class func getApiV1AccesskeysDefsScopesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageScope> {
+    open class func getApiV1AccesskeysDefsScopesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelScope> {
         let localVariablePath = "/api/v1/accessKeys/defs/scopes"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -471,7 +471,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageScope>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelScope>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -483,10 +483,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AccessKeyApiAccessKeyRequirement
+     - returns: AccessKeyRequirement
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectid(objectType: String, objectId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyApiAccessKeyRequirement {
+    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectid(objectType: String, objectId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyRequirement {
         return try await getApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: objectType, objectId: objectId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -500,9 +500,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AccessKeyApiAccessKeyRequirement> 
+     - returns: RequestBuilder<AccessKeyRequirement> 
      */
-    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: String, objectId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyApiAccessKeyRequirement> {
+    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: String, objectId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyRequirement> {
         var localVariablePath = "/api/v1/accessKeys/requirements/{objectType}/{objectId}"
         let objectTypePreEscape = "\(APIHelper.mapValueToPathItem(objectType))"
         let objectTypePostEscape = objectTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -523,7 +523,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AccessKeyApiAccessKeyRequirement>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AccessKeyRequirement>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -537,10 +537,10 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AccessKeyApiRequirementEvaluationResponse
+     - returns: RequirementEvaluationResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(objectType: String, objectId: String, userId: String, virtualUserId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyApiRequirementEvaluationResponse {
+    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(objectType: String, objectId: String, userId: String, virtualUserId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RequirementEvaluationResponse {
         return try await getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridWithRequestBuilder(objectType: objectType, objectId: objectId, userId: userId, virtualUserId: virtualUserId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -556,9 +556,9 @@ open class AccessKeyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AccessKeyApiRequirementEvaluationResponse> 
+     - returns: RequestBuilder<RequirementEvaluationResponse> 
      */
-    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridWithRequestBuilder(objectType: String, objectId: String, userId: String, virtualUserId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyApiRequirementEvaluationResponse> {
+    open class func getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridWithRequestBuilder(objectType: String, objectId: String, userId: String, virtualUserId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RequirementEvaluationResponse> {
         var localVariablePath = "/api/v1/accessKeys/requirements/{objectType}/{objectId}/evaluate/{userId}/{virtualUserId}"
         let objectTypePreEscape = "\(APIHelper.mapValueToPathItem(objectType))"
         let objectTypePostEscape = objectTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -585,7 +585,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AccessKeyApiRequirementEvaluationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RequirementEvaluationResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -741,15 +741,15 @@ open class AccessKeyControllerAPI {
 
      - parameter userId: (path)  
      - parameter virtualUserId: (path)  
-     - parameter accessKeyApiKeychainAcquireRequest: (body)  
+     - parameter keychainAcquireRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: AccessKey
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(userId: String, virtualUserId: String, accessKeyApiKeychainAcquireRequest: AccessKeyApiKeychainAcquireRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKey {
-        return try await postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireWithRequestBuilder(userId: userId, virtualUserId: virtualUserId, accessKeyApiKeychainAcquireRequest: accessKeyApiKeychainAcquireRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(userId: String, virtualUserId: String, keychainAcquireRequest: KeychainAcquireRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKey {
+        return try await postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireWithRequestBuilder(userId: userId, virtualUserId: virtualUserId, keychainAcquireRequest: keychainAcquireRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -759,13 +759,13 @@ open class AccessKeyControllerAPI {
        - name: JWT
      - parameter userId: (path)  
      - parameter virtualUserId: (path)  
-     - parameter accessKeyApiKeychainAcquireRequest: (body)  
+     - parameter keychainAcquireRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<AccessKey> 
      */
-    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireWithRequestBuilder(userId: String, virtualUserId: String, accessKeyApiKeychainAcquireRequest: AccessKeyApiKeychainAcquireRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKey> {
+    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireWithRequestBuilder(userId: String, virtualUserId: String, keychainAcquireRequest: KeychainAcquireRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKey> {
         var localVariablePath = "/api/v1/accessKeys/keychain/{userId}/{virtualUserId}/acquire"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -774,7 +774,7 @@ open class AccessKeyControllerAPI {
         let virtualUserIdPostEscape = virtualUserIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{virtualUserId}", with: virtualUserIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accessKeyApiKeychainAcquireRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: keychainAcquireRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -796,15 +796,15 @@ open class AccessKeyControllerAPI {
 
      - parameter userId: (path)  
      - parameter virtualUserId: (path)  
-     - parameter accessKeyApiKeychainUseRequest: (body)  
+     - parameter keychainUseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AccessKeyApiKeychainUseResponse
+     - returns: KeychainUseResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(userId: String, virtualUserId: String, accessKeyApiKeychainUseRequest: AccessKeyApiKeychainUseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyApiKeychainUseResponse {
-        return try await postApiV1AccesskeysKeychainByUseridByVirtualuseridUseWithRequestBuilder(userId: userId, virtualUserId: virtualUserId, accessKeyApiKeychainUseRequest: accessKeyApiKeychainUseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(userId: String, virtualUserId: String, keychainUseRequest: KeychainUseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> KeychainUseResponse {
+        return try await postApiV1AccesskeysKeychainByUseridByVirtualuseridUseWithRequestBuilder(userId: userId, virtualUserId: virtualUserId, keychainUseRequest: keychainUseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -814,13 +814,13 @@ open class AccessKeyControllerAPI {
        - name: JWT
      - parameter userId: (path)  
      - parameter virtualUserId: (path)  
-     - parameter accessKeyApiKeychainUseRequest: (body)  
+     - parameter keychainUseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AccessKeyApiKeychainUseResponse> 
+     - returns: RequestBuilder<KeychainUseResponse> 
      */
-    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridUseWithRequestBuilder(userId: String, virtualUserId: String, accessKeyApiKeychainUseRequest: AccessKeyApiKeychainUseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyApiKeychainUseResponse> {
+    open class func postApiV1AccesskeysKeychainByUseridByVirtualuseridUseWithRequestBuilder(userId: String, virtualUserId: String, keychainUseRequest: KeychainUseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<KeychainUseResponse> {
         var localVariablePath = "/api/v1/accessKeys/keychain/{userId}/{virtualUserId}/use"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -829,7 +829,7 @@ open class AccessKeyControllerAPI {
         let virtualUserIdPostEscape = virtualUserIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{virtualUserId}", with: virtualUserIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accessKeyApiKeychainUseRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: keychainUseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -842,7 +842,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AccessKeyApiKeychainUseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KeychainUseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -906,15 +906,15 @@ open class AccessKeyControllerAPI {
 
      - parameter objectType: (path)  
      - parameter objectId: (path)  
-     - parameter accessKeyApiAccessKeyRequirement: (body)  
+     - parameter accessKeyRequirement: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AccessKeyApiAccessKeyRequirement
+     - returns: AccessKeyRequirement
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1AccesskeysRequirementsByObjecttypeByObjectid(objectType: String, objectId: String, accessKeyApiAccessKeyRequirement: AccessKeyApiAccessKeyRequirement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyApiAccessKeyRequirement {
-        return try await putApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: objectType, objectId: objectId, accessKeyApiAccessKeyRequirement: accessKeyApiAccessKeyRequirement, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1AccesskeysRequirementsByObjecttypeByObjectid(objectType: String, objectId: String, accessKeyRequirement: AccessKeyRequirement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessKeyRequirement {
+        return try await putApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: objectType, objectId: objectId, accessKeyRequirement: accessKeyRequirement, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -924,13 +924,13 @@ open class AccessKeyControllerAPI {
        - name: JWT
      - parameter objectType: (path)  
      - parameter objectId: (path)  
-     - parameter accessKeyApiAccessKeyRequirement: (body)  
+     - parameter accessKeyRequirement: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AccessKeyApiAccessKeyRequirement> 
+     - returns: RequestBuilder<AccessKeyRequirement> 
      */
-    open class func putApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: String, objectId: String, accessKeyApiAccessKeyRequirement: AccessKeyApiAccessKeyRequirement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyApiAccessKeyRequirement> {
+    open class func putApiV1AccesskeysRequirementsByObjecttypeByObjectidWithRequestBuilder(objectType: String, objectId: String, accessKeyRequirement: AccessKeyRequirement, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessKeyRequirement> {
         var localVariablePath = "/api/v1/accessKeys/requirements/{objectType}/{objectId}"
         let objectTypePreEscape = "\(APIHelper.mapValueToPathItem(objectType))"
         let objectTypePostEscape = objectTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -939,7 +939,7 @@ open class AccessKeyControllerAPI {
         let objectIdPostEscape = objectIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{objectId}", with: objectIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accessKeyApiAccessKeyRequirement)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accessKeyRequirement)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -952,7 +952,7 @@ open class AccessKeyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AccessKeyApiAccessKeyRequirement>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AccessKeyRequirement>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

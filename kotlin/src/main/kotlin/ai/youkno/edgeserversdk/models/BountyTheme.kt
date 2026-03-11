@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyColorScheme
+import ai.youkno.edgeserversdk.models.ColorScheme
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,7 +35,7 @@ data class BountyTheme (
     val type: kotlin.String? = null,
 
     @Json(name = "colorScheme")
-    val colorScheme: BountyColorScheme? = null,
+    val colorScheme: ColorScheme? = null,
 
     @Json(name = "themeTypeAsEnum")
     val themeTypeAsEnum: BountyTheme.ThemeTypeAsEnum? = null

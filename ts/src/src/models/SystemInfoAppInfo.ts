@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ComLatticaVernumVersionNumber } from './ComLatticaVernumVersionNumber';
+import type { VersionNumber } from './VersionNumber';
 import {
-    ComLatticaVernumVersionNumberFromJSON,
-    ComLatticaVernumVersionNumberFromJSONTyped,
-    ComLatticaVernumVersionNumberToJSON,
-    ComLatticaVernumVersionNumberToJSONTyped,
-} from './ComLatticaVernumVersionNumber';
+    VersionNumberFromJSON,
+    VersionNumberFromJSONTyped,
+    VersionNumberToJSON,
+    VersionNumberToJSONTyped,
+} from './VersionNumber';
 
 /**
  * 
@@ -65,16 +65,16 @@ export interface SystemInfoAppInfo {
     enforceDelayInHours?: number;
     /**
      * 
-     * @type {ComLatticaVernumVersionNumber}
+     * @type {VersionNumber}
      * @memberof SystemInfoAppInfo
      */
-    curVersionAsObj?: ComLatticaVernumVersionNumber;
+    curVersionAsObj?: VersionNumber;
     /**
      * 
-     * @type {ComLatticaVernumVersionNumber}
+     * @type {VersionNumber}
      * @memberof SystemInfoAppInfo
      */
-    minVersionAsObj?: ComLatticaVernumVersionNumber;
+    minVersionAsObj?: VersionNumber;
     /**
      * 
      * @type {number}
@@ -112,8 +112,8 @@ export function SystemInfoAppInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'enforceAt': json['enforceAt'] == null ? undefined : json['enforceAt'],
         'notifyDelayInHours': json['notifyDelayInHours'] == null ? undefined : json['notifyDelayInHours'],
         'enforceDelayInHours': json['enforceDelayInHours'] == null ? undefined : json['enforceDelayInHours'],
-        'curVersionAsObj': json['curVersionAsObj'] == null ? undefined : ComLatticaVernumVersionNumberFromJSON(json['curVersionAsObj']),
-        'minVersionAsObj': json['minVersionAsObj'] == null ? undefined : ComLatticaVernumVersionNumberFromJSON(json['minVersionAsObj']),
+        'curVersionAsObj': json['curVersionAsObj'] == null ? undefined : VersionNumberFromJSON(json['curVersionAsObj']),
+        'minVersionAsObj': json['minVersionAsObj'] == null ? undefined : VersionNumberFromJSON(json['minVersionAsObj']),
         'notificationStartingAt': json['notificationStartingAt'] == null ? undefined : json['notificationStartingAt'],
         'enforcementStartingAt': json['enforcementStartingAt'] == null ? undefined : json['enforcementStartingAt'],
     };
@@ -136,8 +136,8 @@ export function SystemInfoAppInfoToJSONTyped(value?: SystemInfoAppInfo | null, i
         'enforceAt': value['enforceAt'],
         'notifyDelayInHours': value['notifyDelayInHours'],
         'enforceDelayInHours': value['enforceDelayInHours'],
-        'curVersionAsObj': ComLatticaVernumVersionNumberToJSON(value['curVersionAsObj']),
-        'minVersionAsObj': ComLatticaVernumVersionNumberToJSON(value['minVersionAsObj']),
+        'curVersionAsObj': VersionNumberToJSON(value['curVersionAsObj']),
+        'minVersionAsObj': VersionNumberToJSON(value['minVersionAsObj']),
         'notificationStartingAt': value['notificationStartingAt'],
         'enforcementStartingAt': value['enforcementStartingAt'],
     };

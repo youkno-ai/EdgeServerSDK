@@ -23,6 +23,11 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         case kiosk = "KIOSK"
         case unknown = "UNKNOWN"
     }
+    public enum UserAuthStatusAsEnum: String, Codable, CaseIterable {
+        case any = "ANY"
+        case authed = "AUTHED"
+        case anon = "ANON"
+    }
     public enum BannerTypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case hero = "HERO"
@@ -31,24 +36,19 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         case specials = "SPECIALS"
         case unknown = "UNKNOWN"
     }
-    public enum UserAuthStatusAsEnum: String, Codable, CaseIterable {
-        case any = "ANY"
-        case authed = "AUTHED"
-        case anon = "ANON"
-    }
     public var bannerType: String?
     public var targetApp: String?
-    public var countryFilters: [String: BountyBannerCountryFilter]?
-    public var locationFilters: [String: BountyBannerLocationFilter]?
+    public var countryFilters: [String: CountryFilter]?
+    public var locationFilters: [String: LocationFilter]?
     public var dayOfWeekFilters: WeekPeriod?
     public var userAuthStatus: String?
     public var priority: Int?
     public var weight: Int?
     public var targetAppAsEnum: TargetAppAsEnum?
-    public var bannerTypeAsEnum: BannerTypeAsEnum?
     public var userAuthStatusAsEnum: UserAuthStatusAsEnum?
+    public var bannerTypeAsEnum: BannerTypeAsEnum?
 
-    public init(bannerType: String? = nil, targetApp: String? = nil, countryFilters: [String: BountyBannerCountryFilter]? = nil, locationFilters: [String: BountyBannerLocationFilter]? = nil, dayOfWeekFilters: WeekPeriod? = nil, userAuthStatus: String? = nil, priority: Int? = nil, weight: Int? = nil, targetAppAsEnum: TargetAppAsEnum? = nil, bannerTypeAsEnum: BannerTypeAsEnum? = nil, userAuthStatusAsEnum: UserAuthStatusAsEnum? = nil) {
+    public init(bannerType: String? = nil, targetApp: String? = nil, countryFilters: [String: CountryFilter]? = nil, locationFilters: [String: LocationFilter]? = nil, dayOfWeekFilters: WeekPeriod? = nil, userAuthStatus: String? = nil, priority: Int? = nil, weight: Int? = nil, targetAppAsEnum: TargetAppAsEnum? = nil, userAuthStatusAsEnum: UserAuthStatusAsEnum? = nil, bannerTypeAsEnum: BannerTypeAsEnum? = nil) {
         self.bannerType = bannerType
         self.targetApp = targetApp
         self.countryFilters = countryFilters
@@ -58,8 +58,8 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         self.priority = priority
         self.weight = weight
         self.targetAppAsEnum = targetAppAsEnum
-        self.bannerTypeAsEnum = bannerTypeAsEnum
         self.userAuthStatusAsEnum = userAuthStatusAsEnum
+        self.bannerTypeAsEnum = bannerTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -72,8 +72,8 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         case priority
         case weight
         case targetAppAsEnum
-        case bannerTypeAsEnum
         case userAuthStatusAsEnum
+        case bannerTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -89,8 +89,8 @@ public struct BountyBanner: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(priority, forKey: .priority)
         try container.encodeIfPresent(weight, forKey: .weight)
         try container.encodeIfPresent(targetAppAsEnum, forKey: .targetAppAsEnum)
-        try container.encodeIfPresent(bannerTypeAsEnum, forKey: .bannerTypeAsEnum)
         try container.encodeIfPresent(userAuthStatusAsEnum, forKey: .userAuthStatusAsEnum)
+        try container.encodeIfPresent(bannerTypeAsEnum, forKey: .bannerTypeAsEnum)
     }
 }
 

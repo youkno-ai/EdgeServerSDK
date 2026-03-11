@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.InviteStats
 import ai.youkno.edgeserversdk.models.User
-import ai.youkno.edgeserversdk.models.UserInviteInviteStats
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -139,7 +139,7 @@ data class UserInvite (
     val createdAt: kotlin.Long? = null,
 
     @Json(name = "stats")
-    val stats: UserInviteInviteStats? = null
+    val stats: InviteStats? = null
 
 ) {
 

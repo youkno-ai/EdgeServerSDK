@@ -12,90 +12,37 @@ import AnyCodable
 
 public struct WebhooksWebhookDeliverySummaryDto: Codable, JSONEncodable, Hashable {
 
-    public enum Status: String, Codable, CaseIterable {
-        case pending = "PENDING"
-        case inProgress = "IN_PROGRESS"
-        case succeeded = "SUCCEEDED"
-        case retryScheduled = "RETRY_SCHEDULED"
-        case dead = "DEAD"
-        case unknown = "UNKNOWN"
-    }
-    public enum DeliveryOutcome: String, Codable, CaseIterable {
-        case success = "SUCCESS"
-        case retryableFailure = "RETRYABLE_FAILURE"
-        case terminalFailure = "TERMINAL_FAILURE"
-        case deferredRateLimit = "DEFERRED_RATE_LIMIT"
-        case deferredCircuitOpen = "DEFERRED_CIRCUIT_OPEN"
-        case skippedDisabledEndpoint = "SKIPPED_DISABLED_ENDPOINT"
-        case unknown = "UNKNOWN"
-    }
-    public var deliveryId: UUID?
-    public var eventLogId: UUID?
-    public var eventType: String?
-    public var eventCreatedAt: Date?
-    public var status: Status?
-    public var deliveryOutcome: DeliveryOutcome?
-    public var attemptCount: Int?
-    public var responseStatusCode: Int?
-    public var lastAttemptAt: Date?
-    public var nextAttemptAt: Date?
-    public var createdAt: Date?
-    public var deadReason: String?
-    public var deadAt: Date?
-    public var errorMessage: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [WebhooksWebhookDeliverySummaryDto2]?
 
-    public init(deliveryId: UUID? = nil, eventLogId: UUID? = nil, eventType: String? = nil, eventCreatedAt: Date? = nil, status: Status? = nil, deliveryOutcome: DeliveryOutcome? = nil, attemptCount: Int? = nil, responseStatusCode: Int? = nil, lastAttemptAt: Date? = nil, nextAttemptAt: Date? = nil, createdAt: Date? = nil, deadReason: String? = nil, deadAt: Date? = nil, errorMessage: String? = nil) {
-        self.deliveryId = deliveryId
-        self.eventLogId = eventLogId
-        self.eventType = eventType
-        self.eventCreatedAt = eventCreatedAt
-        self.status = status
-        self.deliveryOutcome = deliveryOutcome
-        self.attemptCount = attemptCount
-        self.responseStatusCode = responseStatusCode
-        self.lastAttemptAt = lastAttemptAt
-        self.nextAttemptAt = nextAttemptAt
-        self.createdAt = createdAt
-        self.deadReason = deadReason
-        self.deadAt = deadAt
-        self.errorMessage = errorMessage
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [WebhooksWebhookDeliverySummaryDto2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case deliveryId
-        case eventLogId
-        case eventType
-        case eventCreatedAt
-        case status
-        case deliveryOutcome
-        case attemptCount
-        case responseStatusCode
-        case lastAttemptAt
-        case nextAttemptAt
-        case createdAt
-        case deadReason
-        case deadAt
-        case errorMessage
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(deliveryId, forKey: .deliveryId)
-        try container.encodeIfPresent(eventLogId, forKey: .eventLogId)
-        try container.encodeIfPresent(eventType, forKey: .eventType)
-        try container.encodeIfPresent(eventCreatedAt, forKey: .eventCreatedAt)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(deliveryOutcome, forKey: .deliveryOutcome)
-        try container.encodeIfPresent(attemptCount, forKey: .attemptCount)
-        try container.encodeIfPresent(responseStatusCode, forKey: .responseStatusCode)
-        try container.encodeIfPresent(lastAttemptAt, forKey: .lastAttemptAt)
-        try container.encodeIfPresent(nextAttemptAt, forKey: .nextAttemptAt)
-        try container.encodeIfPresent(createdAt, forKey: .createdAt)
-        try container.encodeIfPresent(deadReason, forKey: .deadReason)
-        try container.encodeIfPresent(deadAt, forKey: .deadAt)
-        try container.encodeIfPresent(errorMessage, forKey: .errorMessage)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

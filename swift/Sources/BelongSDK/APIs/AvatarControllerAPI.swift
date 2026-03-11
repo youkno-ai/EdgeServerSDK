@@ -111,15 +111,15 @@ open class AvatarControllerAPI {
 
     /**
 
-     - parameter edgeApiDataCreateAvatarRequest: (body)  
+     - parameter createAvatarRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: Avatar
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1Avatars(edgeApiDataCreateAvatarRequest: EdgeApiDataCreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Avatar {
-        return try await postApiV1AvatarsWithRequestBuilder(edgeApiDataCreateAvatarRequest: edgeApiDataCreateAvatarRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1Avatars(createAvatarRequest: CreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Avatar {
+        return try await postApiV1AvatarsWithRequestBuilder(createAvatarRequest: createAvatarRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -127,16 +127,16 @@ open class AvatarControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter edgeApiDataCreateAvatarRequest: (body)  
+     - parameter createAvatarRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Avatar> 
      */
-    open class func postApiV1AvatarsWithRequestBuilder(edgeApiDataCreateAvatarRequest: EdgeApiDataCreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Avatar> {
+    open class func postApiV1AvatarsWithRequestBuilder(createAvatarRequest: CreateAvatarRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Avatar> {
         let localVariablePath = "/api/v1/avatars"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataCreateAvatarRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createAvatarRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

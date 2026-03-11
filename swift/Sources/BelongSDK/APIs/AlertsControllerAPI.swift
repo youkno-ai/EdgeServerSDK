@@ -118,10 +118,10 @@ open class AlertsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataEmailTemplate
+     - returns: EmailTemplate
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AlertsByCompanyidEmailTemplate(companyId: String, templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataEmailTemplate {
+    open class func getApiV1AlertsByCompanyidEmailTemplate(companyId: String, templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EmailTemplate {
         return try await getApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: companyId, templateType: templateType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -135,9 +135,9 @@ open class AlertsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataEmailTemplate> 
+     - returns: RequestBuilder<EmailTemplate> 
      */
-    open class func getApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: String, templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataEmailTemplate> {
+    open class func getApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: String, templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EmailTemplate> {
         var localVariablePath = "/api/v1/alerts/{companyId}/email/template"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -158,7 +158,7 @@ open class AlertsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataEmailTemplate>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailTemplate>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -169,10 +169,10 @@ open class AlertsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataEmailTemplate
+     - returns: EmailTemplate
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1AlertsEmailDefaulttemplate(templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataEmailTemplate {
+    open class func getApiV1AlertsEmailDefaulttemplate(templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EmailTemplate {
         return try await getApiV1AlertsEmailDefaulttemplateWithRequestBuilder(templateType: templateType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -185,9 +185,9 @@ open class AlertsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataEmailTemplate> 
+     - returns: RequestBuilder<EmailTemplate> 
      */
-    open class func getApiV1AlertsEmailDefaulttemplateWithRequestBuilder(templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataEmailTemplate> {
+    open class func getApiV1AlertsEmailDefaulttemplateWithRequestBuilder(templateType: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EmailTemplate> {
         let localVariablePath = "/api/v1/alerts/email/defaultTemplate"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -205,7 +205,7 @@ open class AlertsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataEmailTemplate>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailTemplate>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -263,15 +263,15 @@ open class AlertsControllerAPI {
     /**
 
      - parameter companyId: (path)  
-     - parameter edgeApiDataEmailTemplate: (body)  
+     - parameter emailTemplate: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AlertsByCompanyidEmailTemplate(companyId: String, edgeApiDataEmailTemplate: EdgeApiDataEmailTemplate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: companyId, edgeApiDataEmailTemplate: edgeApiDataEmailTemplate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AlertsByCompanyidEmailTemplate(companyId: String, emailTemplate: EmailTemplate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: companyId, emailTemplate: emailTemplate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -280,19 +280,19 @@ open class AlertsControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter companyId: (path)  
-     - parameter edgeApiDataEmailTemplate: (body)  
+     - parameter emailTemplate: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: String, edgeApiDataEmailTemplate: EdgeApiDataEmailTemplate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1AlertsByCompanyidEmailTemplateWithRequestBuilder(companyId: String, emailTemplate: EmailTemplate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/alerts/{companyId}/email/template"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{companyId}", with: companyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataEmailTemplate)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: emailTemplate)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -313,15 +313,15 @@ open class AlertsControllerAPI {
     /**
 
      - parameter companyId: (path)  
-     - parameter edgeApiDataSendTestEmailReq: (body)  
+     - parameter sendTestEmailReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataSendTestEmailResp
+     - returns: SendTestEmailResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AlertsByCompanyidEmailTest(companyId: String, edgeApiDataSendTestEmailReq: EdgeApiDataSendTestEmailReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataSendTestEmailResp {
-        return try await postApiV1AlertsByCompanyidEmailTestWithRequestBuilder(companyId: companyId, edgeApiDataSendTestEmailReq: edgeApiDataSendTestEmailReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AlertsByCompanyidEmailTest(companyId: String, sendTestEmailReq: SendTestEmailReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SendTestEmailResp {
+        return try await postApiV1AlertsByCompanyidEmailTestWithRequestBuilder(companyId: companyId, sendTestEmailReq: sendTestEmailReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -330,19 +330,19 @@ open class AlertsControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter companyId: (path)  
-     - parameter edgeApiDataSendTestEmailReq: (body)  
+     - parameter sendTestEmailReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataSendTestEmailResp> 
+     - returns: RequestBuilder<SendTestEmailResp> 
      */
-    open class func postApiV1AlertsByCompanyidEmailTestWithRequestBuilder(companyId: String, edgeApiDataSendTestEmailReq: EdgeApiDataSendTestEmailReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataSendTestEmailResp> {
+    open class func postApiV1AlertsByCompanyidEmailTestWithRequestBuilder(companyId: String, sendTestEmailReq: SendTestEmailReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SendTestEmailResp> {
         var localVariablePath = "/api/v1/alerts/{companyId}/email/test"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{companyId}", with: companyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataSendTestEmailReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sendTestEmailReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -355,7 +355,7 @@ open class AlertsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataSendTestEmailResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SendTestEmailResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

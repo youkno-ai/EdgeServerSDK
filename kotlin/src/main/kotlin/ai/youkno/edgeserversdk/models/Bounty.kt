@@ -15,52 +15,52 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.AddressedTo
+import ai.youkno.edgeserversdk.models.AgentInfo
 import ai.youkno.edgeserversdk.models.Attachments
 import ai.youkno.edgeserversdk.models.Badges
 import ai.youkno.edgeserversdk.models.BountyActivities
-import ai.youkno.edgeserversdk.models.BountyAddressedTo
-import ai.youkno.edgeserversdk.models.BountyAgentInfo
 import ai.youkno.edgeserversdk.models.BountyApprovalInfo
 import ai.youkno.edgeserversdk.models.BountyAuctionInfo
 import ai.youkno.edgeserversdk.models.BountyBanner
 import ai.youkno.edgeserversdk.models.BountyBountyCategory
-import ai.youkno.edgeserversdk.models.BountyBountyStats
-import ai.youkno.edgeserversdk.models.BountyBroadcastInfo
 import ai.youkno.edgeserversdk.models.BountyBudget
 import ai.youkno.edgeserversdk.models.BountyChallengeInfo
 import ai.youkno.edgeserversdk.models.BountyContestInfo
 import ai.youkno.edgeserversdk.models.BountyDescription
 import ai.youkno.edgeserversdk.models.BountyDistribution
 import ai.youkno.edgeserversdk.models.BountyInteractions
-import ai.youkno.edgeserversdk.models.BountyLatLng
 import ai.youkno.edgeserversdk.models.BountyMatchInfo
 import ai.youkno.edgeserversdk.models.BountyMenuInfo
 import ai.youkno.edgeserversdk.models.BountyMetaInfo
 import ai.youkno.edgeserversdk.models.BountyNewsInfo
 import ai.youkno.edgeserversdk.models.BountyOrder
-import ai.youkno.edgeserversdk.models.BountyParentBounty
 import ai.youkno.edgeserversdk.models.BountyProduct
 import ai.youkno.edgeserversdk.models.BountyQuickClaimInfo
 import ai.youkno.edgeserversdk.models.BountyReservationInfo
 import ai.youkno.edgeserversdk.models.BountyResponse
 import ai.youkno.edgeserversdk.models.BountySnippets
-import ai.youkno.edgeserversdk.models.BountySummary
+import ai.youkno.edgeserversdk.models.BountyStats
 import ai.youkno.edgeserversdk.models.BountyTerms
 import ai.youkno.edgeserversdk.models.BountyTheme
-import ai.youkno.edgeserversdk.models.BountyVarTerms
-import ai.youkno.edgeserversdk.models.BountyWork
+import ai.youkno.edgeserversdk.models.BroadcastInfo
 import ai.youkno.edgeserversdk.models.EntityReportInfo
 import ai.youkno.edgeserversdk.models.Geofences
-import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys
+import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys2
 import ai.youkno.edgeserversdk.models.IdentityMode
-import ai.youkno.edgeserversdk.models.ListsListDef
+import ai.youkno.edgeserversdk.models.LatLng
+import ai.youkno.edgeserversdk.models.ListsListDef2
+import ai.youkno.edgeserversdk.models.ParentBounty
 import ai.youkno.edgeserversdk.models.Rating
 import ai.youkno.edgeserversdk.models.Rejects
 import ai.youkno.edgeserversdk.models.Reward
 import ai.youkno.edgeserversdk.models.Sponsorship
+import ai.youkno.edgeserversdk.models.Summary
 import ai.youkno.edgeserversdk.models.Tags
 import ai.youkno.edgeserversdk.models.User
+import ai.youkno.edgeserversdk.models.VarTerms
 import ai.youkno.edgeserversdk.models.VisibilityMode
+import ai.youkno.edgeserversdk.models.Work
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -187,7 +187,7 @@ data class Bounty (
     val onBehalfOf: User? = null,
 
     @Json(name = "agentInfo")
-    val agentInfo: BountyAgentInfo? = null,
+    val agentInfo: AgentInfo? = null,
 
     @Json(name = "identityMode")
     val identityMode: IdentityMode? = null,
@@ -196,10 +196,10 @@ data class Bounty (
     val replyIdentityMode: IdentityMode? = null,
 
     @Json(name = "to")
-    val to: BountyAddressedTo? = null,
+    val to: AddressedTo? = null,
 
     @Json(name = "parentBounty")
-    val parentBounty: BountyParentBounty? = null,
+    val parentBounty: ParentBounty? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,
@@ -214,10 +214,10 @@ data class Bounty (
     val terms: BountyTerms? = null,
 
     @Json(name = "accessKeys")
-    val accessKeys: HasAccessKeysAccessKeys? = null,
+    val accessKeys: HasAccessKeysAccessKeys2? = null,
 
     @Json(name = "varTerms")
-    val varTerms: BountyVarTerms? = null,
+    val varTerms: VarTerms? = null,
 
     @Json(name = "targetUrl")
     val targetUrl: kotlin.String? = null,
@@ -244,7 +244,7 @@ data class Bounty (
     val attachments: Attachments? = null,
 
     @Json(name = "broadcastInfo")
-    val broadcastInfo: BountyBroadcastInfo? = null,
+    val broadcastInfo: BroadcastInfo? = null,
 
     @Json(name = "badges")
     val badges: Badges? = null,
@@ -271,7 +271,7 @@ data class Bounty (
     val listCode: kotlin.String? = null,
 
     @Json(name = "locationGeo")
-    val locationGeo: BountyLatLng? = null,
+    val locationGeo: LatLng? = null,
 
     @Json(name = "visibility")
     val visibility: kotlin.String? = null,
@@ -349,10 +349,10 @@ data class Bounty (
     val pinnedAt: kotlin.Long? = null,
 
     @Json(name = "summary")
-    val summary: BountySummary? = null,
+    val summary: Summary? = null,
 
     @Json(name = "stats")
-    val stats: BountyBountyStats? = null,
+    val stats: BountyStats? = null,
 
     @Json(name = "rating")
     val rating: Rating? = null,
@@ -394,7 +394,7 @@ data class Bounty (
     val entitySource: kotlin.String? = null,
 
     @Json(name = "work")
-    val work: BountyWork? = null,
+    val work: Work? = null,
 
     @Json(name = "interactions")
     val interactions: BountyInteractions? = null,
@@ -418,7 +418,7 @@ data class Bounty (
     val recommendationToken: kotlin.String? = null,
 
     @Json(name = "listDef")
-    val listDef: ListsListDef? = null,
+    val listDef: ListsListDef2? = null,
 
     @Json(name = "entityId")
     val entityId: kotlin.String? = null,

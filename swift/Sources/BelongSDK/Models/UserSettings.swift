@@ -33,19 +33,19 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         case _default = "DEFAULT"
         case followers = "FOLLOWERS"
     }
-    public var sysInfo: BaseSettingsSysInfo?
+    public var sysInfo: SysInfo?
     public var currency: String?
     public var locale: String?
     public var timeZone: String?
     public var identityMode: IdentityMode?
     public var groups: User?
     public var deeplinkImageFromServer: Bool?
-    public var bountyTypes: [String: BaseSettingsBountyTypeSettings]?
-    public var allowedOrgTypes: [String: BaseSettingsOrganizationTypeInfo]?
+    public var bountyTypes: [String: BountyTypeSettings]?
+    public var allowedOrgTypes: [String: OrganizationTypeInfo]?
     public var customLists: Lists?
-    public var listInfos: [String: BaseSettingsListInfo]?
-    public var roles: [String: BaseSettingsCustomRoleDef]?
-    public var actionBar: BaseSettingsCustomActionBar?
+    public var listInfos: [String: ListInfo]?
+    public var roles: [String: CustomRoleDef]?
+    public var actionBar: CustomActionBar?
     public var bountyAttachments: Attachments?
     public var searchInfo: SearchInfo?
     public var paymentMethod: String?
@@ -57,15 +57,15 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
     @available(*, deprecated, message: "This property is deprecated.")
     public var badgeDefs: [String: BadgeDef]?
     public var reputationDefs: [String: BaseSettingsReputationDef]?
-    public var drawerItemDefs: [String: BaseSettingsDrawerItemDef]?
-    public var navItemDefs: [String: BaseSettingsNavItemDef]?
-    public var navModeInfo: BaseSettingsNavModeInfo?
+    public var drawerItemDefs: [String: DrawerItemDef]?
+    public var navItemDefs: [String: NavItemDef]?
+    public var navModeInfo: NavModeInfo?
     public var maxNotificationPriority: Int?
-    public var marketInfos: [String: BaseSettingsMarketInfo]?
+    public var marketInfos: [String: MarketInfo]?
     public var organizationType: String?
     public var addresses: [String: MailingAddress]?
-    public var bileteEmail: BaseSettingsAltEmail?
-    public var altEmails: [String: BaseSettingsAltEmail]?
+    public var bileteEmail: AltEmail?
+    public var altEmails: [String: AltEmail]?
     public var apiSecret: String?
     public var allowedMarketTags: Tags?
     public var leaderboardReportCron: String?
@@ -73,30 +73,30 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
     public var maxFundraisingAmount: Int?
     public var companyVisibility: String?
     public var inviteMode: InviteMode?
-    public var bannerInfos: [String: BaseSettingsBannerInfo]?
-    public var paymentOptions: BaseSettingsPaymentOptions?
+    public var bannerInfos: [String: BannerInfo]?
+    public var paymentOptions: PaymentOptions?
     public var defaultLoginMethods: String?
     public var translateMode: TranslateMode?
     public var joinType: JoinType?
-    public var notificationInfos: [String: BaseSettingsNotificationInfo]?
-    public var sportInfos: [String: BaseSettingsSportInfo]?
-    public var sportTeamReplacements: [String: BaseSettingsSportTeamReplacement]?
+    public var notificationInfos: [String: NotificationInfo]?
+    public var sportInfos: [String: SportInfo]?
+    public var sportTeamReplacements: [String: SportTeamReplacement]?
     public var emailSettings: [String: BaseSettingsEmailSettings]?
-    public var shopSettings: BaseSettingsShopSettings?
+    public var shopSettings: ShopSettings?
     public var bountyAlertMode: BountyAlertMode?
-    public var agreements: [String: BaseSettingsAgreement]?
-    public var confirmations: [String: BaseSettingsConfirmation]?
+    public var agreements: [String: Agreement]?
+    public var confirmations: [String: Confirmation]?
     public var sections: [String: BaseSettingsSection]?
     public var merchantMode: String?
     public var livePaymentMode: Bool?
     public var approvalInfos: [String: BaseSettingsApprovalInfo]?
-    public var merchantSettings: BaseSettingsMerchantSettings?
+    public var merchantSettings: MerchantSettings?
     public var deletionStrategies: [String: String]?
     public var allowedCurrencies: [String: BaseSettingsCurrencyInfo]?
-    public var paymentLiabilities: [String: BaseSettingsPaymentLiability]?
+    public var paymentLiabilities: [String: PaymentLiability]?
     public var attachments: Attachments?
 
-    public init(sysInfo: BaseSettingsSysInfo? = nil, currency: String? = nil, locale: String? = nil, timeZone: String? = nil, identityMode: IdentityMode? = nil, groups: User? = nil, deeplinkImageFromServer: Bool? = nil, bountyTypes: [String: BaseSettingsBountyTypeSettings]? = nil, allowedOrgTypes: [String: BaseSettingsOrganizationTypeInfo]? = nil, customLists: Lists? = nil, listInfos: [String: BaseSettingsListInfo]? = nil, roles: [String: BaseSettingsCustomRoleDef]? = nil, actionBar: BaseSettingsCustomActionBar? = nil, bountyAttachments: Attachments? = nil, searchInfo: SearchInfo? = nil, paymentMethod: String? = nil, vouchersEnabled: Bool? = nil, sentimentAnalysisType: String? = nil, lookAndFeel: LookAndFeelDef? = nil, deviceAccessPolicy: String? = nil, rewards: [String: Reward]? = nil, badgeDefs: [String: BadgeDef]? = nil, reputationDefs: [String: BaseSettingsReputationDef]? = nil, drawerItemDefs: [String: BaseSettingsDrawerItemDef]? = nil, navItemDefs: [String: BaseSettingsNavItemDef]? = nil, navModeInfo: BaseSettingsNavModeInfo? = nil, maxNotificationPriority: Int? = nil, marketInfos: [String: BaseSettingsMarketInfo]? = nil, organizationType: String? = nil, addresses: [String: MailingAddress]? = nil, bileteEmail: BaseSettingsAltEmail? = nil, altEmails: [String: BaseSettingsAltEmail]? = nil, apiSecret: String? = nil, allowedMarketTags: Tags? = nil, leaderboardReportCron: String? = nil, maxMoneyAmount: Int? = nil, maxFundraisingAmount: Int? = nil, companyVisibility: String? = nil, inviteMode: InviteMode? = nil, bannerInfos: [String: BaseSettingsBannerInfo]? = nil, paymentOptions: BaseSettingsPaymentOptions? = nil, defaultLoginMethods: String? = nil, translateMode: TranslateMode? = nil, joinType: JoinType? = nil, notificationInfos: [String: BaseSettingsNotificationInfo]? = nil, sportInfos: [String: BaseSettingsSportInfo]? = nil, sportTeamReplacements: [String: BaseSettingsSportTeamReplacement]? = nil, emailSettings: [String: BaseSettingsEmailSettings]? = nil, shopSettings: BaseSettingsShopSettings? = nil, bountyAlertMode: BountyAlertMode? = nil, agreements: [String: BaseSettingsAgreement]? = nil, confirmations: [String: BaseSettingsConfirmation]? = nil, sections: [String: BaseSettingsSection]? = nil, merchantMode: String? = nil, livePaymentMode: Bool? = nil, approvalInfos: [String: BaseSettingsApprovalInfo]? = nil, merchantSettings: BaseSettingsMerchantSettings? = nil, deletionStrategies: [String: String]? = nil, allowedCurrencies: [String: BaseSettingsCurrencyInfo]? = nil, paymentLiabilities: [String: BaseSettingsPaymentLiability]? = nil, attachments: Attachments? = nil) {
+    public init(sysInfo: SysInfo? = nil, currency: String? = nil, locale: String? = nil, timeZone: String? = nil, identityMode: IdentityMode? = nil, groups: User? = nil, deeplinkImageFromServer: Bool? = nil, bountyTypes: [String: BountyTypeSettings]? = nil, allowedOrgTypes: [String: OrganizationTypeInfo]? = nil, customLists: Lists? = nil, listInfos: [String: ListInfo]? = nil, roles: [String: CustomRoleDef]? = nil, actionBar: CustomActionBar? = nil, bountyAttachments: Attachments? = nil, searchInfo: SearchInfo? = nil, paymentMethod: String? = nil, vouchersEnabled: Bool? = nil, sentimentAnalysisType: String? = nil, lookAndFeel: LookAndFeelDef? = nil, deviceAccessPolicy: String? = nil, rewards: [String: Reward]? = nil, badgeDefs: [String: BadgeDef]? = nil, reputationDefs: [String: BaseSettingsReputationDef]? = nil, drawerItemDefs: [String: DrawerItemDef]? = nil, navItemDefs: [String: NavItemDef]? = nil, navModeInfo: NavModeInfo? = nil, maxNotificationPriority: Int? = nil, marketInfos: [String: MarketInfo]? = nil, organizationType: String? = nil, addresses: [String: MailingAddress]? = nil, bileteEmail: AltEmail? = nil, altEmails: [String: AltEmail]? = nil, apiSecret: String? = nil, allowedMarketTags: Tags? = nil, leaderboardReportCron: String? = nil, maxMoneyAmount: Int? = nil, maxFundraisingAmount: Int? = nil, companyVisibility: String? = nil, inviteMode: InviteMode? = nil, bannerInfos: [String: BannerInfo]? = nil, paymentOptions: PaymentOptions? = nil, defaultLoginMethods: String? = nil, translateMode: TranslateMode? = nil, joinType: JoinType? = nil, notificationInfos: [String: NotificationInfo]? = nil, sportInfos: [String: SportInfo]? = nil, sportTeamReplacements: [String: SportTeamReplacement]? = nil, emailSettings: [String: BaseSettingsEmailSettings]? = nil, shopSettings: ShopSettings? = nil, bountyAlertMode: BountyAlertMode? = nil, agreements: [String: Agreement]? = nil, confirmations: [String: Confirmation]? = nil, sections: [String: BaseSettingsSection]? = nil, merchantMode: String? = nil, livePaymentMode: Bool? = nil, approvalInfos: [String: BaseSettingsApprovalInfo]? = nil, merchantSettings: MerchantSettings? = nil, deletionStrategies: [String: String]? = nil, allowedCurrencies: [String: BaseSettingsCurrencyInfo]? = nil, paymentLiabilities: [String: PaymentLiability]? = nil, attachments: Attachments? = nil) {
         self.sysInfo = sysInfo
         self.currency = currency
         self.locale = locale

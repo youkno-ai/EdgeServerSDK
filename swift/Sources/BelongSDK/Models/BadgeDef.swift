@@ -20,13 +20,13 @@ public struct BadgeDef: Codable, JSONEncodable, Hashable {
     public var reputationCode: String?
     public var idempotent: Bool?
     public var reward: Reward?
-    public var entityTypes: [String: BadgeDefEntityInfo]?
+    public var entityTypes: [String: EntityInfo]?
     public var maxQty: Int?
     public var createdQty: Int?
     public var badgeDefType: String?
     public var uuid: UUID?
 
-    public init(code: String? = nil, label: String? = nil, description: String? = nil, icon: String? = nil, image: String? = nil, reputationCode: String? = nil, idempotent: Bool? = nil, reward: Reward? = nil, entityTypes: [String: BadgeDefEntityInfo]? = nil, maxQty: Int? = nil, createdQty: Int? = nil, badgeDefType: String? = nil, uuid: UUID? = nil) {
+    public init(code: String? = nil, label: String? = nil, description: String? = nil, icon: String? = nil, image: String? = nil, reputationCode: String? = nil, idempotent: Bool? = nil, reward: Reward? = nil, entityTypes: [String: EntityInfo]? = nil, maxQty: Int? = nil, createdQty: Int? = nil, badgeDefType: String? = nil, uuid: UUID? = nil) {
         self.code = code
         self.label = label
         self.description = description

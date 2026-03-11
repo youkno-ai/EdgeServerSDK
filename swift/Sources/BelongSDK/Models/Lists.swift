@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct Lists: Codable, JSONEncodable, Hashable {
 
-    public var lists: [String: ListsListDef]?
+    public var lists: [String: ListsListDef2]?
 
-    public init(lists: [String: ListsListDef]? = nil) {
+    public init(lists: [String: ListsListDef2]? = nil) {
         self.lists = lists
     }
 

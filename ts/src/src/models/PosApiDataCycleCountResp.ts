@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PosApiDataCycleCountRespCycleCountItem } from './PosApiDataCycleCountRespCycleCountItem';
+import type { PosApiDataCycleCountResp2 } from './PosApiDataCycleCountResp2';
 import {
-    PosApiDataCycleCountRespCycleCountItemFromJSON,
-    PosApiDataCycleCountRespCycleCountItemFromJSONTyped,
-    PosApiDataCycleCountRespCycleCountItemToJSON,
-    PosApiDataCycleCountRespCycleCountItemToJSONTyped,
-} from './PosApiDataCycleCountRespCycleCountItem';
+    PosApiDataCycleCountResp2FromJSON,
+    PosApiDataCycleCountResp2FromJSONTyped,
+    PosApiDataCycleCountResp2ToJSON,
+    PosApiDataCycleCountResp2ToJSONTyped,
+} from './PosApiDataCycleCountResp2';
 
 /**
  * 
@@ -29,52 +29,34 @@ import {
 export interface PosApiDataCycleCountResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataCycleCountResp
      */
-    cycleCountId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCycleCountResp
-     */
-    locationName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCycleCountResp
-     */
-    userName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCycleCountResp
-     */
-    adjustReason?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCycleCountResp
-     */
-    adjustReasonNote?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataCycleCountResp
      */
-    startDate?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataCycleCountResp
      */
-    endDate?: number;
+    length?: number;
     /**
      * 
-     * @type {Array<PosApiDataCycleCountRespCycleCountItem>}
+     * @type {boolean}
      * @memberof PosApiDataCycleCountResp
      */
-    items?: Array<PosApiDataCycleCountRespCycleCountItem>;
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataCycleCountResp2>}
+     * @memberof PosApiDataCycleCountResp
+     */
+    list?: Array<PosApiDataCycleCountResp2>;
 }
 
 /**
@@ -94,14 +76,11 @@ export function PosApiDataCycleCountRespFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'cycleCountId': json['cycleCountId'] == null ? undefined : json['cycleCountId'],
-        'locationName': json['locationName'] == null ? undefined : json['locationName'],
-        'userName': json['userName'] == null ? undefined : json['userName'],
-        'adjustReason': json['adjustReason'] == null ? undefined : json['adjustReason'],
-        'adjustReasonNote': json['adjustReasonNote'] == null ? undefined : json['adjustReasonNote'],
-        'startDate': json['startDate'] == null ? undefined : json['startDate'],
-        'endDate': json['endDate'] == null ? undefined : json['endDate'],
-        'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(PosApiDataCycleCountRespCycleCountItemFromJSON)),
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataCycleCountResp2FromJSON)),
     };
 }
 
@@ -116,14 +95,11 @@ export function PosApiDataCycleCountRespToJSONTyped(value?: PosApiDataCycleCount
 
     return {
         
-        'cycleCountId': value['cycleCountId'],
-        'locationName': value['locationName'],
-        'userName': value['userName'],
-        'adjustReason': value['adjustReason'],
-        'adjustReasonNote': value['adjustReasonNote'],
-        'startDate': value['startDate'],
-        'endDate': value['endDate'],
-        'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(PosApiDataCycleCountRespCycleCountItemToJSON)),
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataCycleCountResp2ToJSON)),
     };
 }
 

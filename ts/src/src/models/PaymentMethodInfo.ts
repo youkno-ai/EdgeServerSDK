@@ -24,6 +24,12 @@ export interface PaymentMethodInfo {
      * @type {string}
      * @memberof PaymentMethodInfo
      */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PaymentMethodInfo
+     */
     providerType?: string;
     /**
      * 
@@ -86,6 +92,7 @@ export function PaymentMethodInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'id': json['id'] == null ? undefined : json['id'],
         'providerType': json['providerType'] == null ? undefined : json['providerType'],
         'cardType': json['cardType'] == null ? undefined : json['cardType'],
         'redactedNumber': json['redactedNumber'] == null ? undefined : json['redactedNumber'],
@@ -108,6 +115,7 @@ export function PaymentMethodInfoToJSONTyped(value?: PaymentMethodInfo | null, i
 
     return {
         
+        'id': value['id'],
         'providerType': value['providerType'],
         'cardType': value['cardType'],
         'redactedNumber': value['redactedNumber'],

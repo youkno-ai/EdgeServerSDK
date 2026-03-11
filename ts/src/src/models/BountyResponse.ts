@@ -13,20 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyResponseChoiceExtras } from './BountyResponseChoiceExtras';
-import {
-    BountyResponseChoiceExtrasFromJSON,
-    BountyResponseChoiceExtrasFromJSONTyped,
-    BountyResponseChoiceExtrasToJSON,
-    BountyResponseChoiceExtrasToJSONTyped,
-} from './BountyResponseChoiceExtras';
-import type { BountyResponseResponseStats } from './BountyResponseResponseStats';
-import {
-    BountyResponseResponseStatsFromJSON,
-    BountyResponseResponseStatsFromJSONTyped,
-    BountyResponseResponseStatsToJSON,
-    BountyResponseResponseStatsToJSONTyped,
-} from './BountyResponseResponseStats';
 import type { BountyResponseSnippets } from './BountyResponseSnippets';
 import {
     BountyResponseSnippetsFromJSON,
@@ -62,6 +48,13 @@ import {
     RatingToJSON,
     RatingToJSONTyped,
 } from './Rating';
+import type { ExtraInfo } from './ExtraInfo';
+import {
+    ExtraInfoFromJSON,
+    ExtraInfoFromJSONTyped,
+    ExtraInfoToJSON,
+    ExtraInfoToJSONTyped,
+} from './ExtraInfo';
 import type { Attachments } from './Attachments';
 import {
     AttachmentsFromJSON,
@@ -69,13 +62,13 @@ import {
     AttachmentsToJSON,
     AttachmentsToJSONTyped,
 } from './Attachments';
-import type { BountyResponseExtraInfo } from './BountyResponseExtraInfo';
+import type { ChoiceExtras } from './ChoiceExtras';
 import {
-    BountyResponseExtraInfoFromJSON,
-    BountyResponseExtraInfoFromJSONTyped,
-    BountyResponseExtraInfoToJSON,
-    BountyResponseExtraInfoToJSONTyped,
-} from './BountyResponseExtraInfo';
+    ChoiceExtrasFromJSON,
+    ChoiceExtrasFromJSONTyped,
+    ChoiceExtrasToJSON,
+    ChoiceExtrasToJSONTyped,
+} from './ChoiceExtras';
 import type { IdentityMode } from './IdentityMode';
 import {
     IdentityModeFromJSON,
@@ -97,6 +90,13 @@ import {
     BountyResponseBountyInfoToJSON,
     BountyResponseBountyInfoToJSONTyped,
 } from './BountyResponseBountyInfo';
+import type { ResponseStats } from './ResponseStats';
+import {
+    ResponseStatsFromJSON,
+    ResponseStatsFromJSONTyped,
+    ResponseStatsToJSON,
+    ResponseStatsToJSONTyped,
+} from './ResponseStats';
 import type { EntityReportInfo } from './EntityReportInfo';
 import {
     EntityReportInfoFromJSON,
@@ -209,10 +209,10 @@ export interface BountyResponse {
     attachments?: Attachments;
     /**
      * 
-     * @type {BountyResponseExtraInfo}
+     * @type {ExtraInfo}
      * @memberof BountyResponse
      */
-    extraInfo?: BountyResponseExtraInfo;
+    extraInfo?: ExtraInfo;
     /**
      * 
      * @type {Badges}
@@ -275,10 +275,10 @@ export interface BountyResponse {
     bountyDiscussedSortKey?: string;
     /**
      * 
-     * @type {BountyResponseResponseStats}
+     * @type {ResponseStats}
      * @memberof BountyResponse
      */
-    stats?: BountyResponseResponseStats;
+    stats?: ResponseStats;
     /**
      * 
      * @type {Rating}
@@ -319,11 +319,11 @@ export interface BountyResponse {
     timeSpentInMs?: number;
     /**
      * 
-     * @type {BountyResponseChoiceExtras}
+     * @type {ChoiceExtras}
      * @memberof BountyResponse
      * @deprecated
      */
-    choiceExtras?: BountyResponseChoiceExtras;
+    choiceExtras?: ChoiceExtras;
     /**
      * 
      * @type {string}
@@ -365,7 +365,7 @@ export function BountyResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
         'note': json['note'] == null ? undefined : json['note'],
         'surveyAnswers': json['surveyAnswers'] == null ? undefined : BountyResponseSurveyAnswersFromJSON(json['surveyAnswers']),
         'attachments': json['attachments'] == null ? undefined : AttachmentsFromJSON(json['attachments']),
-        'extraInfo': json['extraInfo'] == null ? undefined : BountyResponseExtraInfoFromJSON(json['extraInfo']),
+        'extraInfo': json['extraInfo'] == null ? undefined : ExtraInfoFromJSON(json['extraInfo']),
         'badges': json['badges'] == null ? undefined : BadgesFromJSON(json['badges']),
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
@@ -376,14 +376,14 @@ export function BountyResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
         'bountyCreatedAtSortKey': json['bountyCreatedAtSortKey'] == null ? undefined : json['bountyCreatedAtSortKey'],
         'bountyPopularitySortKey': json['bountyPopularitySortKey'] == null ? undefined : json['bountyPopularitySortKey'],
         'bountyDiscussedSortKey': json['bountyDiscussedSortKey'] == null ? undefined : json['bountyDiscussedSortKey'],
-        'stats': json['stats'] == null ? undefined : BountyResponseResponseStatsFromJSON(json['stats']),
+        'stats': json['stats'] == null ? undefined : ResponseStatsFromJSON(json['stats']),
         'rating': json['rating'] == null ? undefined : RatingFromJSON(json['rating']),
         'favoritedAt': json['favoritedAt'] == null ? undefined : json['favoritedAt'],
         'likedAt': json['likedAt'] == null ? undefined : json['likedAt'],
         'report': json['report'] == null ? undefined : EntityReportInfoFromJSON(json['report']),
         'choice': json['choice'] == null ? undefined : json['choice'],
         'timeSpentInMs': json['timeSpentInMs'] == null ? undefined : json['timeSpentInMs'],
-        'choiceExtras': json['choiceExtras'] == null ? undefined : BountyResponseChoiceExtrasFromJSON(json['choiceExtras']),
+        'choiceExtras': json['choiceExtras'] == null ? undefined : ChoiceExtrasFromJSON(json['choiceExtras']),
         'entityId': json['entityId'] == null ? undefined : json['entityId'],
     };
 }
@@ -415,7 +415,7 @@ export function BountyResponseToJSONTyped(value?: BountyResponse | null, ignoreD
         'note': value['note'],
         'surveyAnswers': BountyResponseSurveyAnswersToJSON(value['surveyAnswers']),
         'attachments': AttachmentsToJSON(value['attachments']),
-        'extraInfo': BountyResponseExtraInfoToJSON(value['extraInfo']),
+        'extraInfo': ExtraInfoToJSON(value['extraInfo']),
         'badges': BadgesToJSON(value['badges']),
         'updatedAt': value['updatedAt'],
         'createdAt': value['createdAt'],
@@ -426,14 +426,14 @@ export function BountyResponseToJSONTyped(value?: BountyResponse | null, ignoreD
         'bountyCreatedAtSortKey': value['bountyCreatedAtSortKey'],
         'bountyPopularitySortKey': value['bountyPopularitySortKey'],
         'bountyDiscussedSortKey': value['bountyDiscussedSortKey'],
-        'stats': BountyResponseResponseStatsToJSON(value['stats']),
+        'stats': ResponseStatsToJSON(value['stats']),
         'rating': RatingToJSON(value['rating']),
         'favoritedAt': value['favoritedAt'],
         'likedAt': value['likedAt'],
         'report': EntityReportInfoToJSON(value['report']),
         'choice': value['choice'],
         'timeSpentInMs': value['timeSpentInMs'],
-        'choiceExtras': BountyResponseChoiceExtrasToJSON(value['choiceExtras']),
+        'choiceExtras': ChoiceExtrasToJSON(value['choiceExtras']),
         'entityId': value['entityId'],
     };
 }

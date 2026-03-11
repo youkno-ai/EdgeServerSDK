@@ -12,25 +12,37 @@ import AnyCodable
 
 public struct PosApiDataUomResp: Codable, JSONEncodable, Hashable {
 
-    public var uomId: String?
-    public var uomName: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataUomResp2]?
 
-    public init(uomId: String? = nil, uomName: String? = nil) {
-        self.uomId = uomId
-        self.uomName = uomName
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataUomResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case uomId
-        case uomName
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(uomId, forKey: .uomId)
-        try container.encodeIfPresent(uomName, forKey: .uomName)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

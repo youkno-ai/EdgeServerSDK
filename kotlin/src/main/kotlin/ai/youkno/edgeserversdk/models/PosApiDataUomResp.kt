@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataUomResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,18 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param uomId 
- * @param uomName 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataUomResp (
 
-    @Json(name = "uomId")
-    val uomId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "uomName")
-    val uomName: kotlin.String? = null
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
+
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
+
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
+
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataUomResp2>? = null
 
 ) {
 

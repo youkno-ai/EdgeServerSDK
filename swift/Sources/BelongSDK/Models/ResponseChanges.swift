@@ -12,14 +12,14 @@ import AnyCodable
 
 public struct ResponseChanges: Codable, JSONEncodable, Hashable {
 
-    public var note: BountyChangesChangesString?
-    public var expiresAt: BountyChangesChangesLong?
-    public var attachments: BountyChangesChangesAttachments?
-    public var createdAt: BountyChangesChangesLong?
-    public var displayMode: BountyChangesChangesString?
+    public var note: AnyCodable?
+    public var expiresAt: AnyCodable?
+    public var attachments: ModelAttachments?
+    public var createdAt: AnyCodable?
+    public var displayMode: AnyCodable?
     public var editedAt: Int64?
 
-    public init(note: BountyChangesChangesString? = nil, expiresAt: BountyChangesChangesLong? = nil, attachments: BountyChangesChangesAttachments? = nil, createdAt: BountyChangesChangesLong? = nil, displayMode: BountyChangesChangesString? = nil, editedAt: Int64? = nil) {
+    public init(note: AnyCodable? = nil, expiresAt: AnyCodable? = nil, attachments: ModelAttachments? = nil, createdAt: AnyCodable? = nil, displayMode: AnyCodable? = nil, editedAt: Int64? = nil) {
         self.note = note
         self.expiresAt = expiresAt
         self.attachments = attachments

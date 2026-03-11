@@ -13,20 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BaseSettingsBountyTypeSettings } from './BaseSettingsBountyTypeSettings';
-import {
-    BaseSettingsBountyTypeSettingsFromJSON,
-    BaseSettingsBountyTypeSettingsFromJSONTyped,
-    BaseSettingsBountyTypeSettingsToJSON,
-    BaseSettingsBountyTypeSettingsToJSONTyped,
-} from './BaseSettingsBountyTypeSettings';
-import type { BaseSettingsDrawerItemDef } from './BaseSettingsDrawerItemDef';
-import {
-    BaseSettingsDrawerItemDefFromJSON,
-    BaseSettingsDrawerItemDefFromJSONTyped,
-    BaseSettingsDrawerItemDefToJSON,
-    BaseSettingsDrawerItemDefToJSONTyped,
-} from './BaseSettingsDrawerItemDef';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -41,41 +27,20 @@ import {
     BaseSettingsEmailSettingsToJSON,
     BaseSettingsEmailSettingsToJSONTyped,
 } from './BaseSettingsEmailSettings';
-import type { BaseSettingsNavModeInfo } from './BaseSettingsNavModeInfo';
+import type { ListInfo } from './ListInfo';
 import {
-    BaseSettingsNavModeInfoFromJSON,
-    BaseSettingsNavModeInfoFromJSONTyped,
-    BaseSettingsNavModeInfoToJSON,
-    BaseSettingsNavModeInfoToJSONTyped,
-} from './BaseSettingsNavModeInfo';
-import type { BaseSettingsCustomRoleDef } from './BaseSettingsCustomRoleDef';
+    ListInfoFromJSON,
+    ListInfoFromJSONTyped,
+    ListInfoToJSON,
+    ListInfoToJSONTyped,
+} from './ListInfo';
+import type { CustomRoleDef } from './CustomRoleDef';
 import {
-    BaseSettingsCustomRoleDefFromJSON,
-    BaseSettingsCustomRoleDefFromJSONTyped,
-    BaseSettingsCustomRoleDefToJSON,
-    BaseSettingsCustomRoleDefToJSONTyped,
-} from './BaseSettingsCustomRoleDef';
-import type { BaseSettingsListInfo } from './BaseSettingsListInfo';
-import {
-    BaseSettingsListInfoFromJSON,
-    BaseSettingsListInfoFromJSONTyped,
-    BaseSettingsListInfoToJSON,
-    BaseSettingsListInfoToJSONTyped,
-} from './BaseSettingsListInfo';
-import type { BaseSettingsSportTeamReplacement } from './BaseSettingsSportTeamReplacement';
-import {
-    BaseSettingsSportTeamReplacementFromJSON,
-    BaseSettingsSportTeamReplacementFromJSONTyped,
-    BaseSettingsSportTeamReplacementToJSON,
-    BaseSettingsSportTeamReplacementToJSONTyped,
-} from './BaseSettingsSportTeamReplacement';
-import type { BaseSettingsPaymentLiability } from './BaseSettingsPaymentLiability';
-import {
-    BaseSettingsPaymentLiabilityFromJSON,
-    BaseSettingsPaymentLiabilityFromJSONTyped,
-    BaseSettingsPaymentLiabilityToJSON,
-    BaseSettingsPaymentLiabilityToJSONTyped,
-} from './BaseSettingsPaymentLiability';
+    CustomRoleDefFromJSON,
+    CustomRoleDefFromJSONTyped,
+    CustomRoleDefToJSON,
+    CustomRoleDefToJSONTyped,
+} from './CustomRoleDef';
 import type { BadgeDef } from './BadgeDef';
 import {
     BadgeDefFromJSON,
@@ -83,6 +48,13 @@ import {
     BadgeDefToJSON,
     BadgeDefToJSONTyped,
 } from './BadgeDef';
+import type { MerchantSettings } from './MerchantSettings';
+import {
+    MerchantSettingsFromJSON,
+    MerchantSettingsFromJSONTyped,
+    MerchantSettingsToJSON,
+    MerchantSettingsToJSONTyped,
+} from './MerchantSettings';
 import type { Attachments } from './Attachments';
 import {
     AttachmentsFromJSON,
@@ -90,6 +62,20 @@ import {
     AttachmentsToJSON,
     AttachmentsToJSONTyped,
 } from './Attachments';
+import type { MarketInfo } from './MarketInfo';
+import {
+    MarketInfoFromJSON,
+    MarketInfoFromJSONTyped,
+    MarketInfoToJSON,
+    MarketInfoToJSONTyped,
+} from './MarketInfo';
+import type { OrganizationTypeInfo } from './OrganizationTypeInfo';
+import {
+    OrganizationTypeInfoFromJSON,
+    OrganizationTypeInfoFromJSONTyped,
+    OrganizationTypeInfoToJSON,
+    OrganizationTypeInfoToJSONTyped,
+} from './OrganizationTypeInfo';
 import type { BaseSettingsReputationDef } from './BaseSettingsReputationDef';
 import {
     BaseSettingsReputationDefFromJSON,
@@ -104,13 +90,13 @@ import {
     LookAndFeelDefToJSON,
     LookAndFeelDefToJSONTyped,
 } from './LookAndFeelDef';
-import type { BaseSettingsMarketInfo } from './BaseSettingsMarketInfo';
+import type { PaymentLiability } from './PaymentLiability';
 import {
-    BaseSettingsMarketInfoFromJSON,
-    BaseSettingsMarketInfoFromJSONTyped,
-    BaseSettingsMarketInfoToJSON,
-    BaseSettingsMarketInfoToJSONTyped,
-} from './BaseSettingsMarketInfo';
+    PaymentLiabilityFromJSON,
+    PaymentLiabilityFromJSONTyped,
+    PaymentLiabilityToJSON,
+    PaymentLiabilityToJSONTyped,
+} from './PaymentLiability';
 import type { BaseSettingsApprovalInfo } from './BaseSettingsApprovalInfo';
 import {
     BaseSettingsApprovalInfoFromJSON,
@@ -118,13 +104,20 @@ import {
     BaseSettingsApprovalInfoToJSON,
     BaseSettingsApprovalInfoToJSONTyped,
 } from './BaseSettingsApprovalInfo';
-import type { BaseSettingsPaymentOptions } from './BaseSettingsPaymentOptions';
+import type { BannerInfo } from './BannerInfo';
 import {
-    BaseSettingsPaymentOptionsFromJSON,
-    BaseSettingsPaymentOptionsFromJSONTyped,
-    BaseSettingsPaymentOptionsToJSON,
-    BaseSettingsPaymentOptionsToJSONTyped,
-} from './BaseSettingsPaymentOptions';
+    BannerInfoFromJSON,
+    BannerInfoFromJSONTyped,
+    BannerInfoToJSON,
+    BannerInfoToJSONTyped,
+} from './BannerInfo';
+import type { NotificationInfo } from './NotificationInfo';
+import {
+    NotificationInfoFromJSON,
+    NotificationInfoFromJSONTyped,
+    NotificationInfoToJSON,
+    NotificationInfoToJSONTyped,
+} from './NotificationInfo';
 import type { BaseSettingsSection } from './BaseSettingsSection';
 import {
     BaseSettingsSectionFromJSON,
@@ -139,6 +132,13 @@ import {
     ListsToJSON,
     ListsToJSONTyped,
 } from './Lists';
+import type { NavItemDef } from './NavItemDef';
+import {
+    NavItemDefFromJSON,
+    NavItemDefFromJSONTyped,
+    NavItemDefToJSON,
+    NavItemDefToJSONTyped,
+} from './NavItemDef';
 import type { Tags } from './Tags';
 import {
     TagsFromJSON,
@@ -146,27 +146,6 @@ import {
     TagsToJSON,
     TagsToJSONTyped,
 } from './Tags';
-import type { BaseSettingsSportInfo } from './BaseSettingsSportInfo';
-import {
-    BaseSettingsSportInfoFromJSON,
-    BaseSettingsSportInfoFromJSONTyped,
-    BaseSettingsSportInfoToJSON,
-    BaseSettingsSportInfoToJSONTyped,
-} from './BaseSettingsSportInfo';
-import type { BaseSettingsAgreement } from './BaseSettingsAgreement';
-import {
-    BaseSettingsAgreementFromJSON,
-    BaseSettingsAgreementFromJSONTyped,
-    BaseSettingsAgreementToJSON,
-    BaseSettingsAgreementToJSONTyped,
-} from './BaseSettingsAgreement';
-import type { BaseSettingsMerchantSettings } from './BaseSettingsMerchantSettings';
-import {
-    BaseSettingsMerchantSettingsFromJSON,
-    BaseSettingsMerchantSettingsFromJSONTyped,
-    BaseSettingsMerchantSettingsToJSON,
-    BaseSettingsMerchantSettingsToJSONTyped,
-} from './BaseSettingsMerchantSettings';
 import type { SearchInfo } from './SearchInfo';
 import {
     SearchInfoFromJSON,
@@ -174,20 +153,20 @@ import {
     SearchInfoToJSON,
     SearchInfoToJSONTyped,
 } from './SearchInfo';
-import type { BaseSettingsNotificationInfo } from './BaseSettingsNotificationInfo';
+import type { SportTeamReplacement } from './SportTeamReplacement';
 import {
-    BaseSettingsNotificationInfoFromJSON,
-    BaseSettingsNotificationInfoFromJSONTyped,
-    BaseSettingsNotificationInfoToJSON,
-    BaseSettingsNotificationInfoToJSONTyped,
-} from './BaseSettingsNotificationInfo';
-import type { BaseSettingsCustomActionBar } from './BaseSettingsCustomActionBar';
+    SportTeamReplacementFromJSON,
+    SportTeamReplacementFromJSONTyped,
+    SportTeamReplacementToJSON,
+    SportTeamReplacementToJSONTyped,
+} from './SportTeamReplacement';
+import type { NavModeInfo } from './NavModeInfo';
 import {
-    BaseSettingsCustomActionBarFromJSON,
-    BaseSettingsCustomActionBarFromJSONTyped,
-    BaseSettingsCustomActionBarToJSON,
-    BaseSettingsCustomActionBarToJSONTyped,
-} from './BaseSettingsCustomActionBar';
+    NavModeInfoFromJSON,
+    NavModeInfoFromJSONTyped,
+    NavModeInfoToJSON,
+    NavModeInfoToJSONTyped,
+} from './NavModeInfo';
 import type { MailingAddress } from './MailingAddress';
 import {
     MailingAddressFromJSON,
@@ -195,20 +174,41 @@ import {
     MailingAddressToJSON,
     MailingAddressToJSONTyped,
 } from './MailingAddress';
-import type { BaseSettingsOrganizationTypeInfo } from './BaseSettingsOrganizationTypeInfo';
+import type { BountyTypeSettings } from './BountyTypeSettings';
 import {
-    BaseSettingsOrganizationTypeInfoFromJSON,
-    BaseSettingsOrganizationTypeInfoFromJSONTyped,
-    BaseSettingsOrganizationTypeInfoToJSON,
-    BaseSettingsOrganizationTypeInfoToJSONTyped,
-} from './BaseSettingsOrganizationTypeInfo';
-import type { BaseSettingsShopSettings } from './BaseSettingsShopSettings';
+    BountyTypeSettingsFromJSON,
+    BountyTypeSettingsFromJSONTyped,
+    BountyTypeSettingsToJSON,
+    BountyTypeSettingsToJSONTyped,
+} from './BountyTypeSettings';
+import type { PaymentOptions } from './PaymentOptions';
 import {
-    BaseSettingsShopSettingsFromJSON,
-    BaseSettingsShopSettingsFromJSONTyped,
-    BaseSettingsShopSettingsToJSON,
-    BaseSettingsShopSettingsToJSONTyped,
-} from './BaseSettingsShopSettings';
+    PaymentOptionsFromJSON,
+    PaymentOptionsFromJSONTyped,
+    PaymentOptionsToJSON,
+    PaymentOptionsToJSONTyped,
+} from './PaymentOptions';
+import type { SysInfo } from './SysInfo';
+import {
+    SysInfoFromJSON,
+    SysInfoFromJSONTyped,
+    SysInfoToJSON,
+    SysInfoToJSONTyped,
+} from './SysInfo';
+import type { AltEmail } from './AltEmail';
+import {
+    AltEmailFromJSON,
+    AltEmailFromJSONTyped,
+    AltEmailToJSON,
+    AltEmailToJSONTyped,
+} from './AltEmail';
+import type { Agreement } from './Agreement';
+import {
+    AgreementFromJSON,
+    AgreementFromJSONTyped,
+    AgreementToJSON,
+    AgreementToJSONTyped,
+} from './Agreement';
 import type { BaseSettingsCurrencyInfo } from './BaseSettingsCurrencyInfo';
 import {
     BaseSettingsCurrencyInfoFromJSON,
@@ -216,13 +216,13 @@ import {
     BaseSettingsCurrencyInfoToJSON,
     BaseSettingsCurrencyInfoToJSONTyped,
 } from './BaseSettingsCurrencyInfo';
-import type { BaseSettingsSysInfo } from './BaseSettingsSysInfo';
+import type { DrawerItemDef } from './DrawerItemDef';
 import {
-    BaseSettingsSysInfoFromJSON,
-    BaseSettingsSysInfoFromJSONTyped,
-    BaseSettingsSysInfoToJSON,
-    BaseSettingsSysInfoToJSONTyped,
-} from './BaseSettingsSysInfo';
+    DrawerItemDefFromJSON,
+    DrawerItemDefFromJSONTyped,
+    DrawerItemDefToJSON,
+    DrawerItemDefToJSONTyped,
+} from './DrawerItemDef';
 import type { IdentityMode } from './IdentityMode';
 import {
     IdentityModeFromJSON,
@@ -230,20 +230,20 @@ import {
     IdentityModeToJSON,
     IdentityModeToJSONTyped,
 } from './IdentityMode';
-import type { BaseSettingsConfirmation } from './BaseSettingsConfirmation';
+import type { SportInfo } from './SportInfo';
 import {
-    BaseSettingsConfirmationFromJSON,
-    BaseSettingsConfirmationFromJSONTyped,
-    BaseSettingsConfirmationToJSON,
-    BaseSettingsConfirmationToJSONTyped,
-} from './BaseSettingsConfirmation';
-import type { BaseSettingsBannerInfo } from './BaseSettingsBannerInfo';
+    SportInfoFromJSON,
+    SportInfoFromJSONTyped,
+    SportInfoToJSON,
+    SportInfoToJSONTyped,
+} from './SportInfo';
+import type { CustomActionBar } from './CustomActionBar';
 import {
-    BaseSettingsBannerInfoFromJSON,
-    BaseSettingsBannerInfoFromJSONTyped,
-    BaseSettingsBannerInfoToJSON,
-    BaseSettingsBannerInfoToJSONTyped,
-} from './BaseSettingsBannerInfo';
+    CustomActionBarFromJSON,
+    CustomActionBarFromJSONTyped,
+    CustomActionBarToJSON,
+    CustomActionBarToJSONTyped,
+} from './CustomActionBar';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -251,20 +251,20 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
-import type { BaseSettingsNavItemDef } from './BaseSettingsNavItemDef';
+import type { Confirmation } from './Confirmation';
 import {
-    BaseSettingsNavItemDefFromJSON,
-    BaseSettingsNavItemDefFromJSONTyped,
-    BaseSettingsNavItemDefToJSON,
-    BaseSettingsNavItemDefToJSONTyped,
-} from './BaseSettingsNavItemDef';
-import type { BaseSettingsAltEmail } from './BaseSettingsAltEmail';
+    ConfirmationFromJSON,
+    ConfirmationFromJSONTyped,
+    ConfirmationToJSON,
+    ConfirmationToJSONTyped,
+} from './Confirmation';
+import type { ShopSettings } from './ShopSettings';
 import {
-    BaseSettingsAltEmailFromJSON,
-    BaseSettingsAltEmailFromJSONTyped,
-    BaseSettingsAltEmailToJSON,
-    BaseSettingsAltEmailToJSONTyped,
-} from './BaseSettingsAltEmail';
+    ShopSettingsFromJSON,
+    ShopSettingsFromJSONTyped,
+    ShopSettingsToJSON,
+    ShopSettingsToJSONTyped,
+} from './ShopSettings';
 
 /**
  * 
@@ -274,10 +274,10 @@ import {
 export interface UserSettings {
     /**
      * 
-     * @type {BaseSettingsSysInfo}
+     * @type {SysInfo}
      * @memberof UserSettings
      */
-    sysInfo?: BaseSettingsSysInfo;
+    sysInfo?: SysInfo;
     /**
      * 
      * @type {string}
@@ -316,16 +316,16 @@ export interface UserSettings {
     deeplinkImageFromServer?: boolean;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsBountyTypeSettings; }}
+     * @type {{ [key: string]: BountyTypeSettings; }}
      * @memberof UserSettings
      */
-    bountyTypes?: { [key: string]: BaseSettingsBountyTypeSettings; };
+    bountyTypes?: { [key: string]: BountyTypeSettings; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsOrganizationTypeInfo; }}
+     * @type {{ [key: string]: OrganizationTypeInfo; }}
      * @memberof UserSettings
      */
-    allowedOrgTypes?: { [key: string]: BaseSettingsOrganizationTypeInfo; };
+    allowedOrgTypes?: { [key: string]: OrganizationTypeInfo; };
     /**
      * 
      * @type {Lists}
@@ -334,22 +334,22 @@ export interface UserSettings {
     customLists?: Lists;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsListInfo; }}
+     * @type {{ [key: string]: ListInfo; }}
      * @memberof UserSettings
      */
-    listInfos?: { [key: string]: BaseSettingsListInfo; };
+    listInfos?: { [key: string]: ListInfo; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsCustomRoleDef; }}
+     * @type {{ [key: string]: CustomRoleDef; }}
      * @memberof UserSettings
      */
-    roles?: { [key: string]: BaseSettingsCustomRoleDef; };
+    roles?: { [key: string]: CustomRoleDef; };
     /**
      * 
-     * @type {BaseSettingsCustomActionBar}
+     * @type {CustomActionBar}
      * @memberof UserSettings
      */
-    actionBar?: BaseSettingsCustomActionBar;
+    actionBar?: CustomActionBar;
     /**
      * 
      * @type {Attachments}
@@ -413,22 +413,22 @@ export interface UserSettings {
     reputationDefs?: { [key: string]: BaseSettingsReputationDef; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsDrawerItemDef; }}
+     * @type {{ [key: string]: DrawerItemDef; }}
      * @memberof UserSettings
      */
-    drawerItemDefs?: { [key: string]: BaseSettingsDrawerItemDef; };
+    drawerItemDefs?: { [key: string]: DrawerItemDef; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsNavItemDef; }}
+     * @type {{ [key: string]: NavItemDef; }}
      * @memberof UserSettings
      */
-    navItemDefs?: { [key: string]: BaseSettingsNavItemDef; };
+    navItemDefs?: { [key: string]: NavItemDef; };
     /**
      * 
-     * @type {BaseSettingsNavModeInfo}
+     * @type {NavModeInfo}
      * @memberof UserSettings
      */
-    navModeInfo?: BaseSettingsNavModeInfo;
+    navModeInfo?: NavModeInfo;
     /**
      * 
      * @type {number}
@@ -437,10 +437,10 @@ export interface UserSettings {
     maxNotificationPriority?: number;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsMarketInfo; }}
+     * @type {{ [key: string]: MarketInfo; }}
      * @memberof UserSettings
      */
-    marketInfos?: { [key: string]: BaseSettingsMarketInfo; };
+    marketInfos?: { [key: string]: MarketInfo; };
     /**
      * 
      * @type {string}
@@ -455,16 +455,16 @@ export interface UserSettings {
     addresses?: { [key: string]: MailingAddress; };
     /**
      * 
-     * @type {BaseSettingsAltEmail}
+     * @type {AltEmail}
      * @memberof UserSettings
      */
-    bileteEmail?: BaseSettingsAltEmail;
+    bileteEmail?: AltEmail;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsAltEmail; }}
+     * @type {{ [key: string]: AltEmail; }}
      * @memberof UserSettings
      */
-    altEmails?: { [key: string]: BaseSettingsAltEmail; };
+    altEmails?: { [key: string]: AltEmail; };
     /**
      * 
      * @type {string}
@@ -509,16 +509,16 @@ export interface UserSettings {
     inviteMode?: UserSettingsInviteModeEnum;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsBannerInfo; }}
+     * @type {{ [key: string]: BannerInfo; }}
      * @memberof UserSettings
      */
-    bannerInfos?: { [key: string]: BaseSettingsBannerInfo; };
+    bannerInfos?: { [key: string]: BannerInfo; };
     /**
      * 
-     * @type {BaseSettingsPaymentOptions}
+     * @type {PaymentOptions}
      * @memberof UserSettings
      */
-    paymentOptions?: BaseSettingsPaymentOptions;
+    paymentOptions?: PaymentOptions;
     /**
      * 
      * @type {string}
@@ -539,22 +539,22 @@ export interface UserSettings {
     joinType?: UserSettingsJoinTypeEnum;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsNotificationInfo; }}
+     * @type {{ [key: string]: NotificationInfo; }}
      * @memberof UserSettings
      */
-    notificationInfos?: { [key: string]: BaseSettingsNotificationInfo; };
+    notificationInfos?: { [key: string]: NotificationInfo; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsSportInfo; }}
+     * @type {{ [key: string]: SportInfo; }}
      * @memberof UserSettings
      */
-    sportInfos?: { [key: string]: BaseSettingsSportInfo; };
+    sportInfos?: { [key: string]: SportInfo; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsSportTeamReplacement; }}
+     * @type {{ [key: string]: SportTeamReplacement; }}
      * @memberof UserSettings
      */
-    sportTeamReplacements?: { [key: string]: BaseSettingsSportTeamReplacement; };
+    sportTeamReplacements?: { [key: string]: SportTeamReplacement; };
     /**
      * 
      * @type {{ [key: string]: BaseSettingsEmailSettings; }}
@@ -563,10 +563,10 @@ export interface UserSettings {
     emailSettings?: { [key: string]: BaseSettingsEmailSettings; };
     /**
      * 
-     * @type {BaseSettingsShopSettings}
+     * @type {ShopSettings}
      * @memberof UserSettings
      */
-    shopSettings?: BaseSettingsShopSettings;
+    shopSettings?: ShopSettings;
     /**
      * 
      * @type {string}
@@ -575,16 +575,16 @@ export interface UserSettings {
     bountyAlertMode?: UserSettingsBountyAlertModeEnum;
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsAgreement; }}
+     * @type {{ [key: string]: Agreement; }}
      * @memberof UserSettings
      */
-    agreements?: { [key: string]: BaseSettingsAgreement; };
+    agreements?: { [key: string]: Agreement; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsConfirmation; }}
+     * @type {{ [key: string]: Confirmation; }}
      * @memberof UserSettings
      */
-    confirmations?: { [key: string]: BaseSettingsConfirmation; };
+    confirmations?: { [key: string]: Confirmation; };
     /**
      * 
      * @type {{ [key: string]: BaseSettingsSection; }}
@@ -611,10 +611,10 @@ export interface UserSettings {
     approvalInfos?: { [key: string]: BaseSettingsApprovalInfo; };
     /**
      * 
-     * @type {BaseSettingsMerchantSettings}
+     * @type {MerchantSettings}
      * @memberof UserSettings
      */
-    merchantSettings?: BaseSettingsMerchantSettings;
+    merchantSettings?: MerchantSettings;
     /**
      * 
      * @type {{ [key: string]: string; }}
@@ -629,10 +629,10 @@ export interface UserSettings {
     allowedCurrencies?: { [key: string]: BaseSettingsCurrencyInfo; };
     /**
      * 
-     * @type {{ [key: string]: BaseSettingsPaymentLiability; }}
+     * @type {{ [key: string]: PaymentLiability; }}
      * @memberof UserSettings
      */
-    paymentLiabilities?: { [key: string]: BaseSettingsPaymentLiability; };
+    paymentLiabilities?: { [key: string]: PaymentLiability; };
     /**
      * 
      * @type {Attachments}
@@ -701,19 +701,19 @@ export function UserSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'sysInfo': json['sysInfo'] == null ? undefined : BaseSettingsSysInfoFromJSON(json['sysInfo']),
+        'sysInfo': json['sysInfo'] == null ? undefined : SysInfoFromJSON(json['sysInfo']),
         'currency': json['currency'] == null ? undefined : json['currency'],
         'locale': json['locale'] == null ? undefined : json['locale'],
         'timeZone': json['timeZone'] == null ? undefined : json['timeZone'],
         'identityMode': json['identityMode'] == null ? undefined : IdentityModeFromJSON(json['identityMode']),
         'groups': json['groups'] == null ? undefined : UserFromJSON(json['groups']),
         'deeplinkImageFromServer': json['deeplinkImageFromServer'] == null ? undefined : json['deeplinkImageFromServer'],
-        'bountyTypes': json['bountyTypes'] == null ? undefined : (mapValues(json['bountyTypes'], BaseSettingsBountyTypeSettingsFromJSON)),
-        'allowedOrgTypes': json['allowedOrgTypes'] == null ? undefined : (mapValues(json['allowedOrgTypes'], BaseSettingsOrganizationTypeInfoFromJSON)),
+        'bountyTypes': json['bountyTypes'] == null ? undefined : (mapValues(json['bountyTypes'], BountyTypeSettingsFromJSON)),
+        'allowedOrgTypes': json['allowedOrgTypes'] == null ? undefined : (mapValues(json['allowedOrgTypes'], OrganizationTypeInfoFromJSON)),
         'customLists': json['customLists'] == null ? undefined : ListsFromJSON(json['customLists']),
-        'listInfos': json['listInfos'] == null ? undefined : (mapValues(json['listInfos'], BaseSettingsListInfoFromJSON)),
-        'roles': json['roles'] == null ? undefined : (mapValues(json['roles'], BaseSettingsCustomRoleDefFromJSON)),
-        'actionBar': json['actionBar'] == null ? undefined : BaseSettingsCustomActionBarFromJSON(json['actionBar']),
+        'listInfos': json['listInfos'] == null ? undefined : (mapValues(json['listInfos'], ListInfoFromJSON)),
+        'roles': json['roles'] == null ? undefined : (mapValues(json['roles'], CustomRoleDefFromJSON)),
+        'actionBar': json['actionBar'] == null ? undefined : CustomActionBarFromJSON(json['actionBar']),
         'bountyAttachments': json['bountyAttachments'] == null ? undefined : AttachmentsFromJSON(json['bountyAttachments']),
         'searchInfo': json['searchInfo'] == null ? undefined : SearchInfoFromJSON(json['searchInfo']),
         'paymentMethod': json['paymentMethod'] == null ? undefined : json['paymentMethod'],
@@ -724,15 +724,15 @@ export function UserSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'rewards': json['rewards'] == null ? undefined : (mapValues(json['rewards'], RewardFromJSON)),
         'badgeDefs': json['badgeDefs'] == null ? undefined : (mapValues(json['badgeDefs'], BadgeDefFromJSON)),
         'reputationDefs': json['reputationDefs'] == null ? undefined : (mapValues(json['reputationDefs'], BaseSettingsReputationDefFromJSON)),
-        'drawerItemDefs': json['drawerItemDefs'] == null ? undefined : (mapValues(json['drawerItemDefs'], BaseSettingsDrawerItemDefFromJSON)),
-        'navItemDefs': json['navItemDefs'] == null ? undefined : (mapValues(json['navItemDefs'], BaseSettingsNavItemDefFromJSON)),
-        'navModeInfo': json['navModeInfo'] == null ? undefined : BaseSettingsNavModeInfoFromJSON(json['navModeInfo']),
+        'drawerItemDefs': json['drawerItemDefs'] == null ? undefined : (mapValues(json['drawerItemDefs'], DrawerItemDefFromJSON)),
+        'navItemDefs': json['navItemDefs'] == null ? undefined : (mapValues(json['navItemDefs'], NavItemDefFromJSON)),
+        'navModeInfo': json['navModeInfo'] == null ? undefined : NavModeInfoFromJSON(json['navModeInfo']),
         'maxNotificationPriority': json['maxNotificationPriority'] == null ? undefined : json['maxNotificationPriority'],
-        'marketInfos': json['marketInfos'] == null ? undefined : (mapValues(json['marketInfos'], BaseSettingsMarketInfoFromJSON)),
+        'marketInfos': json['marketInfos'] == null ? undefined : (mapValues(json['marketInfos'], MarketInfoFromJSON)),
         'organizationType': json['organizationType'] == null ? undefined : json['organizationType'],
         'addresses': json['addresses'] == null ? undefined : (mapValues(json['addresses'], MailingAddressFromJSON)),
-        'bileteEmail': json['bileteEmail'] == null ? undefined : BaseSettingsAltEmailFromJSON(json['bileteEmail']),
-        'altEmails': json['altEmails'] == null ? undefined : (mapValues(json['altEmails'], BaseSettingsAltEmailFromJSON)),
+        'bileteEmail': json['bileteEmail'] == null ? undefined : AltEmailFromJSON(json['bileteEmail']),
+        'altEmails': json['altEmails'] == null ? undefined : (mapValues(json['altEmails'], AltEmailFromJSON)),
         'apiSecret': json['apiSecret'] == null ? undefined : json['apiSecret'],
         'allowedMarketTags': json['allowedMarketTags'] == null ? undefined : TagsFromJSON(json['allowedMarketTags']),
         'leaderboardReportCron': json['leaderboardReportCron'] == null ? undefined : json['leaderboardReportCron'],
@@ -740,27 +740,27 @@ export function UserSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'maxFundraisingAmount': json['maxFundraisingAmount'] == null ? undefined : json['maxFundraisingAmount'],
         'companyVisibility': json['companyVisibility'] == null ? undefined : json['companyVisibility'],
         'inviteMode': json['inviteMode'] == null ? undefined : json['inviteMode'],
-        'bannerInfos': json['bannerInfos'] == null ? undefined : (mapValues(json['bannerInfos'], BaseSettingsBannerInfoFromJSON)),
-        'paymentOptions': json['paymentOptions'] == null ? undefined : BaseSettingsPaymentOptionsFromJSON(json['paymentOptions']),
+        'bannerInfos': json['bannerInfos'] == null ? undefined : (mapValues(json['bannerInfos'], BannerInfoFromJSON)),
+        'paymentOptions': json['paymentOptions'] == null ? undefined : PaymentOptionsFromJSON(json['paymentOptions']),
         'defaultLoginMethods': json['defaultLoginMethods'] == null ? undefined : json['defaultLoginMethods'],
         'translateMode': json['translateMode'] == null ? undefined : json['translateMode'],
         'joinType': json['joinType'] == null ? undefined : json['joinType'],
-        'notificationInfos': json['notificationInfos'] == null ? undefined : (mapValues(json['notificationInfos'], BaseSettingsNotificationInfoFromJSON)),
-        'sportInfos': json['sportInfos'] == null ? undefined : (mapValues(json['sportInfos'], BaseSettingsSportInfoFromJSON)),
-        'sportTeamReplacements': json['sportTeamReplacements'] == null ? undefined : (mapValues(json['sportTeamReplacements'], BaseSettingsSportTeamReplacementFromJSON)),
+        'notificationInfos': json['notificationInfos'] == null ? undefined : (mapValues(json['notificationInfos'], NotificationInfoFromJSON)),
+        'sportInfos': json['sportInfos'] == null ? undefined : (mapValues(json['sportInfos'], SportInfoFromJSON)),
+        'sportTeamReplacements': json['sportTeamReplacements'] == null ? undefined : (mapValues(json['sportTeamReplacements'], SportTeamReplacementFromJSON)),
         'emailSettings': json['emailSettings'] == null ? undefined : (mapValues(json['emailSettings'], BaseSettingsEmailSettingsFromJSON)),
-        'shopSettings': json['shopSettings'] == null ? undefined : BaseSettingsShopSettingsFromJSON(json['shopSettings']),
+        'shopSettings': json['shopSettings'] == null ? undefined : ShopSettingsFromJSON(json['shopSettings']),
         'bountyAlertMode': json['bountyAlertMode'] == null ? undefined : json['bountyAlertMode'],
-        'agreements': json['agreements'] == null ? undefined : (mapValues(json['agreements'], BaseSettingsAgreementFromJSON)),
-        'confirmations': json['confirmations'] == null ? undefined : (mapValues(json['confirmations'], BaseSettingsConfirmationFromJSON)),
+        'agreements': json['agreements'] == null ? undefined : (mapValues(json['agreements'], AgreementFromJSON)),
+        'confirmations': json['confirmations'] == null ? undefined : (mapValues(json['confirmations'], ConfirmationFromJSON)),
         'sections': json['sections'] == null ? undefined : (mapValues(json['sections'], BaseSettingsSectionFromJSON)),
         'merchantMode': json['merchantMode'] == null ? undefined : json['merchantMode'],
         'livePaymentMode': json['livePaymentMode'] == null ? undefined : json['livePaymentMode'],
         'approvalInfos': json['approvalInfos'] == null ? undefined : (mapValues(json['approvalInfos'], BaseSettingsApprovalInfoFromJSON)),
-        'merchantSettings': json['merchantSettings'] == null ? undefined : BaseSettingsMerchantSettingsFromJSON(json['merchantSettings']),
+        'merchantSettings': json['merchantSettings'] == null ? undefined : MerchantSettingsFromJSON(json['merchantSettings']),
         'deletionStrategies': json['deletionStrategies'] == null ? undefined : json['deletionStrategies'],
         'allowedCurrencies': json['allowedCurrencies'] == null ? undefined : (mapValues(json['allowedCurrencies'], BaseSettingsCurrencyInfoFromJSON)),
-        'paymentLiabilities': json['paymentLiabilities'] == null ? undefined : (mapValues(json['paymentLiabilities'], BaseSettingsPaymentLiabilityFromJSON)),
+        'paymentLiabilities': json['paymentLiabilities'] == null ? undefined : (mapValues(json['paymentLiabilities'], PaymentLiabilityFromJSON)),
         'attachments': json['attachments'] == null ? undefined : AttachmentsFromJSON(json['attachments']),
     };
 }
@@ -776,19 +776,19 @@ export function UserSettingsToJSONTyped(value?: UserSettings | null, ignoreDiscr
 
     return {
         
-        'sysInfo': BaseSettingsSysInfoToJSON(value['sysInfo']),
+        'sysInfo': SysInfoToJSON(value['sysInfo']),
         'currency': value['currency'],
         'locale': value['locale'],
         'timeZone': value['timeZone'],
         'identityMode': IdentityModeToJSON(value['identityMode']),
         'groups': UserToJSON(value['groups']),
         'deeplinkImageFromServer': value['deeplinkImageFromServer'],
-        'bountyTypes': value['bountyTypes'] == null ? undefined : (mapValues(value['bountyTypes'], BaseSettingsBountyTypeSettingsToJSON)),
-        'allowedOrgTypes': value['allowedOrgTypes'] == null ? undefined : (mapValues(value['allowedOrgTypes'], BaseSettingsOrganizationTypeInfoToJSON)),
+        'bountyTypes': value['bountyTypes'] == null ? undefined : (mapValues(value['bountyTypes'], BountyTypeSettingsToJSON)),
+        'allowedOrgTypes': value['allowedOrgTypes'] == null ? undefined : (mapValues(value['allowedOrgTypes'], OrganizationTypeInfoToJSON)),
         'customLists': ListsToJSON(value['customLists']),
-        'listInfos': value['listInfos'] == null ? undefined : (mapValues(value['listInfos'], BaseSettingsListInfoToJSON)),
-        'roles': value['roles'] == null ? undefined : (mapValues(value['roles'], BaseSettingsCustomRoleDefToJSON)),
-        'actionBar': BaseSettingsCustomActionBarToJSON(value['actionBar']),
+        'listInfos': value['listInfos'] == null ? undefined : (mapValues(value['listInfos'], ListInfoToJSON)),
+        'roles': value['roles'] == null ? undefined : (mapValues(value['roles'], CustomRoleDefToJSON)),
+        'actionBar': CustomActionBarToJSON(value['actionBar']),
         'bountyAttachments': AttachmentsToJSON(value['bountyAttachments']),
         'searchInfo': SearchInfoToJSON(value['searchInfo']),
         'paymentMethod': value['paymentMethod'],
@@ -799,15 +799,15 @@ export function UserSettingsToJSONTyped(value?: UserSettings | null, ignoreDiscr
         'rewards': value['rewards'] == null ? undefined : (mapValues(value['rewards'], RewardToJSON)),
         'badgeDefs': value['badgeDefs'] == null ? undefined : (mapValues(value['badgeDefs'], BadgeDefToJSON)),
         'reputationDefs': value['reputationDefs'] == null ? undefined : (mapValues(value['reputationDefs'], BaseSettingsReputationDefToJSON)),
-        'drawerItemDefs': value['drawerItemDefs'] == null ? undefined : (mapValues(value['drawerItemDefs'], BaseSettingsDrawerItemDefToJSON)),
-        'navItemDefs': value['navItemDefs'] == null ? undefined : (mapValues(value['navItemDefs'], BaseSettingsNavItemDefToJSON)),
-        'navModeInfo': BaseSettingsNavModeInfoToJSON(value['navModeInfo']),
+        'drawerItemDefs': value['drawerItemDefs'] == null ? undefined : (mapValues(value['drawerItemDefs'], DrawerItemDefToJSON)),
+        'navItemDefs': value['navItemDefs'] == null ? undefined : (mapValues(value['navItemDefs'], NavItemDefToJSON)),
+        'navModeInfo': NavModeInfoToJSON(value['navModeInfo']),
         'maxNotificationPriority': value['maxNotificationPriority'],
-        'marketInfos': value['marketInfos'] == null ? undefined : (mapValues(value['marketInfos'], BaseSettingsMarketInfoToJSON)),
+        'marketInfos': value['marketInfos'] == null ? undefined : (mapValues(value['marketInfos'], MarketInfoToJSON)),
         'organizationType': value['organizationType'],
         'addresses': value['addresses'] == null ? undefined : (mapValues(value['addresses'], MailingAddressToJSON)),
-        'bileteEmail': BaseSettingsAltEmailToJSON(value['bileteEmail']),
-        'altEmails': value['altEmails'] == null ? undefined : (mapValues(value['altEmails'], BaseSettingsAltEmailToJSON)),
+        'bileteEmail': AltEmailToJSON(value['bileteEmail']),
+        'altEmails': value['altEmails'] == null ? undefined : (mapValues(value['altEmails'], AltEmailToJSON)),
         'apiSecret': value['apiSecret'],
         'allowedMarketTags': TagsToJSON(value['allowedMarketTags']),
         'leaderboardReportCron': value['leaderboardReportCron'],
@@ -815,27 +815,27 @@ export function UserSettingsToJSONTyped(value?: UserSettings | null, ignoreDiscr
         'maxFundraisingAmount': value['maxFundraisingAmount'],
         'companyVisibility': value['companyVisibility'],
         'inviteMode': value['inviteMode'],
-        'bannerInfos': value['bannerInfos'] == null ? undefined : (mapValues(value['bannerInfos'], BaseSettingsBannerInfoToJSON)),
-        'paymentOptions': BaseSettingsPaymentOptionsToJSON(value['paymentOptions']),
+        'bannerInfos': value['bannerInfos'] == null ? undefined : (mapValues(value['bannerInfos'], BannerInfoToJSON)),
+        'paymentOptions': PaymentOptionsToJSON(value['paymentOptions']),
         'defaultLoginMethods': value['defaultLoginMethods'],
         'translateMode': value['translateMode'],
         'joinType': value['joinType'],
-        'notificationInfos': value['notificationInfos'] == null ? undefined : (mapValues(value['notificationInfos'], BaseSettingsNotificationInfoToJSON)),
-        'sportInfos': value['sportInfos'] == null ? undefined : (mapValues(value['sportInfos'], BaseSettingsSportInfoToJSON)),
-        'sportTeamReplacements': value['sportTeamReplacements'] == null ? undefined : (mapValues(value['sportTeamReplacements'], BaseSettingsSportTeamReplacementToJSON)),
+        'notificationInfos': value['notificationInfos'] == null ? undefined : (mapValues(value['notificationInfos'], NotificationInfoToJSON)),
+        'sportInfos': value['sportInfos'] == null ? undefined : (mapValues(value['sportInfos'], SportInfoToJSON)),
+        'sportTeamReplacements': value['sportTeamReplacements'] == null ? undefined : (mapValues(value['sportTeamReplacements'], SportTeamReplacementToJSON)),
         'emailSettings': value['emailSettings'] == null ? undefined : (mapValues(value['emailSettings'], BaseSettingsEmailSettingsToJSON)),
-        'shopSettings': BaseSettingsShopSettingsToJSON(value['shopSettings']),
+        'shopSettings': ShopSettingsToJSON(value['shopSettings']),
         'bountyAlertMode': value['bountyAlertMode'],
-        'agreements': value['agreements'] == null ? undefined : (mapValues(value['agreements'], BaseSettingsAgreementToJSON)),
-        'confirmations': value['confirmations'] == null ? undefined : (mapValues(value['confirmations'], BaseSettingsConfirmationToJSON)),
+        'agreements': value['agreements'] == null ? undefined : (mapValues(value['agreements'], AgreementToJSON)),
+        'confirmations': value['confirmations'] == null ? undefined : (mapValues(value['confirmations'], ConfirmationToJSON)),
         'sections': value['sections'] == null ? undefined : (mapValues(value['sections'], BaseSettingsSectionToJSON)),
         'merchantMode': value['merchantMode'],
         'livePaymentMode': value['livePaymentMode'],
         'approvalInfos': value['approvalInfos'] == null ? undefined : (mapValues(value['approvalInfos'], BaseSettingsApprovalInfoToJSON)),
-        'merchantSettings': BaseSettingsMerchantSettingsToJSON(value['merchantSettings']),
+        'merchantSettings': MerchantSettingsToJSON(value['merchantSettings']),
         'deletionStrategies': value['deletionStrategies'],
         'allowedCurrencies': value['allowedCurrencies'] == null ? undefined : (mapValues(value['allowedCurrencies'], BaseSettingsCurrencyInfoToJSON)),
-        'paymentLiabilities': value['paymentLiabilities'] == null ? undefined : (mapValues(value['paymentLiabilities'], BaseSettingsPaymentLiabilityToJSON)),
+        'paymentLiabilities': value['paymentLiabilities'] == null ? undefined : (mapValues(value['paymentLiabilities'], PaymentLiabilityToJSON)),
         'attachments': AttachmentsToJSON(value['attachments']),
     };
 }

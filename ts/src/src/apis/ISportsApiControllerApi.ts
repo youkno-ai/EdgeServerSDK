@@ -15,32 +15,32 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo,
-  EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo,
-  EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo,
+  APIEventsInfo,
+  APIInjuryInfo,
+  APILineupInfo,
+  APILiveTextInfo,
+  APIMatchInfo,
+  APIStandingsInfo,
+  APIStatsInfo,
+  APITeamInfo,
 } from '../models/index';
 import {
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfoToJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfoFromJSON,
-    EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfoToJSON,
-    EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfoFromJSON,
-    EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfoToJSON,
+    APIEventsInfoFromJSON,
+    APIEventsInfoToJSON,
+    APIInjuryInfoFromJSON,
+    APIInjuryInfoToJSON,
+    APILineupInfoFromJSON,
+    APILineupInfoToJSON,
+    APILiveTextInfoFromJSON,
+    APILiveTextInfoToJSON,
+    APIMatchInfoFromJSON,
+    APIMatchInfoToJSON,
+    APIStandingsInfoFromJSON,
+    APIStandingsInfoToJSON,
+    APIStatsInfoFromJSON,
+    APIStatsInfoToJSON,
+    APITeamInfoFromJSON,
+    APITeamInfoToJSON,
 } from '../models/index';
 
 export interface GetApiV1IsportsFootballEventsRequest {
@@ -130,27 +130,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballEventsRaw(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo>>;
+    getApiV1IsportsFootballEventsRaw(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIEventsInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballEvents(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo>;
-
-    /**
-     * 
-     * @param {string} [matchId] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ISportsApiControllerApiInterface
-     */
-    getApiV1IsportsFootballInjuryRaw(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo>>;
-
-    /**
-     */
-    getApiV1IsportsFootballInjury(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo>;
+    getApiV1IsportsFootballEvents(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIEventsInfo>;
 
     /**
      * 
@@ -162,11 +146,27 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballLineupsRaw(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo>>;
+    getApiV1IsportsFootballInjuryRaw(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIInjuryInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballLineups(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo>;
+    getApiV1IsportsFootballInjury(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIInjuryInfo>;
+
+    /**
+     * 
+     * @param {string} [matchId] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ISportsApiControllerApiInterface
+     */
+    getApiV1IsportsFootballLineupsRaw(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APILineupInfo>>;
+
+    /**
+     */
+    getApiV1IsportsFootballLineups(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APILineupInfo>;
 
     /**
      * 
@@ -177,11 +177,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballLivescoresRaw(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>>;
+    getApiV1IsportsFootballLivescoresRaw(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIMatchInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballLivescores(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>;
+    getApiV1IsportsFootballLivescores(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIMatchInfo>;
 
     /**
      * 
@@ -193,11 +193,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballLivetextRaw(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo>>;
+    getApiV1IsportsFootballLivetextRaw(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APILiveTextInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballLivetext(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo>;
+    getApiV1IsportsFootballLivetext(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APILiveTextInfo>;
 
     /**
      * 
@@ -214,11 +214,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballScheduleRaw(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>>;
+    getApiV1IsportsFootballScheduleRaw(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIMatchInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballSchedule(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>;
+    getApiV1IsportsFootballSchedule(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIMatchInfo>;
 
     /**
      * 
@@ -231,11 +231,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballStandingLeagueRaw(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo>>;
+    getApiV1IsportsFootballStandingLeagueRaw(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIStandingsInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballStandingLeague(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo>;
+    getApiV1IsportsFootballStandingLeague(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIStandingsInfo>;
 
     /**
      * 
@@ -248,11 +248,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballStatsRaw(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo>>;
+    getApiV1IsportsFootballStatsRaw(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIStatsInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballStats(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo>;
+    getApiV1IsportsFootballStats(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIStatsInfo>;
 
     /**
      * 
@@ -265,11 +265,11 @@ export interface ISportsApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ISportsApiControllerApiInterface
      */
-    getApiV1IsportsFootballTeamRaw(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo>>;
+    getApiV1IsportsFootballTeamRaw(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APITeamInfo>>;
 
     /**
      */
-    getApiV1IsportsFootballTeam(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo>;
+    getApiV1IsportsFootballTeam(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APITeamInfo>;
 
 }
 
@@ -280,7 +280,7 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
 
     /**
      */
-    async getApiV1IsportsFootballEventsRaw(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo>> {
+    async getApiV1IsportsFootballEventsRaw(requestParameters: GetApiV1IsportsFootballEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIEventsInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['date'] != null) {
@@ -315,19 +315,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIEventsInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballEvents(requestParameters: GetApiV1IsportsFootballEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo> {
+    async getApiV1IsportsFootballEvents(requestParameters: GetApiV1IsportsFootballEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIEventsInfo> {
         const response = await this.getApiV1IsportsFootballEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballInjuryRaw(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo>> {
+    async getApiV1IsportsFootballInjuryRaw(requestParameters: GetApiV1IsportsFootballInjuryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIInjuryInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['matchId'] != null) {
@@ -362,19 +362,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIInjuryInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballInjury(requestParameters: GetApiV1IsportsFootballInjuryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo> {
+    async getApiV1IsportsFootballInjury(requestParameters: GetApiV1IsportsFootballInjuryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIInjuryInfo> {
         const response = await this.getApiV1IsportsFootballInjuryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballLineupsRaw(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo>> {
+    async getApiV1IsportsFootballLineupsRaw(requestParameters: GetApiV1IsportsFootballLineupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APILineupInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['matchId'] != null) {
@@ -409,19 +409,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APILineupInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballLineups(requestParameters: GetApiV1IsportsFootballLineupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo> {
+    async getApiV1IsportsFootballLineups(requestParameters: GetApiV1IsportsFootballLineupsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APILineupInfo> {
         const response = await this.getApiV1IsportsFootballLineupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballLivescoresRaw(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>> {
+    async getApiV1IsportsFootballLivescoresRaw(requestParameters: GetApiV1IsportsFootballLivescoresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIMatchInfo>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -452,19 +452,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIMatchInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballLivescores(requestParameters: GetApiV1IsportsFootballLivescoresRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> {
+    async getApiV1IsportsFootballLivescores(requestParameters: GetApiV1IsportsFootballLivescoresRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIMatchInfo> {
         const response = await this.getApiV1IsportsFootballLivescoresRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballLivetextRaw(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo>> {
+    async getApiV1IsportsFootballLivetextRaw(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APILiveTextInfo>> {
         if (requestParameters['matchId'] == null) {
             throw new runtime.RequiredError(
                 'matchId',
@@ -506,19 +506,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APILiveTextInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballLivetext(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo> {
+    async getApiV1IsportsFootballLivetext(requestParameters: GetApiV1IsportsFootballLivetextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APILiveTextInfo> {
         const response = await this.getApiV1IsportsFootballLivetextRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballScheduleRaw(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>> {
+    async getApiV1IsportsFootballScheduleRaw(requestParameters: GetApiV1IsportsFootballScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIMatchInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['date'] != null) {
@@ -573,19 +573,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIMatchInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballSchedule(requestParameters: GetApiV1IsportsFootballScheduleRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> {
+    async getApiV1IsportsFootballSchedule(requestParameters: GetApiV1IsportsFootballScheduleRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIMatchInfo> {
         const response = await this.getApiV1IsportsFootballScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballStandingLeagueRaw(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo>> {
+    async getApiV1IsportsFootballStandingLeagueRaw(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIStandingsInfo>> {
         if (requestParameters['leagueId'] == null) {
             throw new runtime.RequiredError(
                 'leagueId',
@@ -631,19 +631,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIStandingsInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballStandingLeague(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo> {
+    async getApiV1IsportsFootballStandingLeague(requestParameters: GetApiV1IsportsFootballStandingLeagueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIStandingsInfo> {
         const response = await this.getApiV1IsportsFootballStandingLeagueRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballStatsRaw(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo>> {
+    async getApiV1IsportsFootballStatsRaw(requestParameters: GetApiV1IsportsFootballStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APIStatsInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['date'] != null) {
@@ -682,19 +682,19 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APIStatsInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballStats(requestParameters: GetApiV1IsportsFootballStatsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo> {
+    async getApiV1IsportsFootballStats(requestParameters: GetApiV1IsportsFootballStatsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APIStatsInfo> {
         const response = await this.getApiV1IsportsFootballStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1IsportsFootballTeamRaw(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo>> {
+    async getApiV1IsportsFootballTeamRaw(requestParameters: GetApiV1IsportsFootballTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<APITeamInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['leagueId'] != null) {
@@ -733,12 +733,12 @@ export class ISportsApiControllerApi extends runtime.BaseAPI implements ISportsA
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => APITeamInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1IsportsFootballTeam(requestParameters: GetApiV1IsportsFootballTeamRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo> {
+    async getApiV1IsportsFootballTeam(requestParameters: GetApiV1IsportsFootballTeamRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<APITeamInfo> {
         const response = await this.getApiV1IsportsFootballTeamRaw(requestParameters, initOverrides);
         return await response.value();
     }

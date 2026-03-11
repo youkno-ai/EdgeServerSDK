@@ -239,15 +239,15 @@ open class SubscriptionCatalogAdminControllerAPI {
 
     /**
 
-     - parameter restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: (body)  
+     - parameter createFamilyRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionCatalogAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionCatalogs(restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
-        return try await postApiV1AdminSubscriptionCatalogsWithRequestBuilder(restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionCatalogs(createFamilyRequest: CreateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
+        return try await postApiV1AdminSubscriptionCatalogsWithRequestBuilder(createFamilyRequest: createFamilyRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -255,16 +255,16 @@ open class SubscriptionCatalogAdminControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: (body)  
+     - parameter createFamilyRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionCatalogAdminView> 
      */
-    open class func postApiV1AdminSubscriptionCatalogsWithRequestBuilder(restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
+    open class func postApiV1AdminSubscriptionCatalogsWithRequestBuilder(createFamilyRequest: CreateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
         let localVariablePath = "/api/v1/admin/subscription-catalogs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createFamilyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -285,15 +285,15 @@ open class SubscriptionCatalogAdminControllerAPI {
     /**
 
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerSetActiveRequest: (body)  
+     - parameter setActiveRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionCatalogAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActive(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
-        return try await postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActiveWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: restControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActive(subscriptionBountyId: String, setActiveRequest: SetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
+        return try await postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActiveWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, setActiveRequest: setActiveRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -302,19 +302,19 @@ open class SubscriptionCatalogAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerSetActiveRequest: (body)  
+     - parameter setActiveRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionCatalogAdminView> 
      */
-    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActiveWithRequestBuilder(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
+    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActiveWithRequestBuilder(subscriptionBountyId: String, setActiveRequest: SetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
         var localVariablePath = "/api/v1/admin/subscription-catalogs/{subscriptionBountyId}/set-active"
         let subscriptionBountyIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionBountyId))"
         let subscriptionBountyIdPostEscape = subscriptionBountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionBountyId}", with: subscriptionBountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerSetActiveRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: setActiveRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -335,15 +335,15 @@ open class SubscriptionCatalogAdminControllerAPI {
     /**
 
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerCreateTierRequest: (body)  
+     - parameter createTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionTierAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiers(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerCreateTierRequest: RestControllerSubscriptionCatalogAdminControllerCreateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
-        return try await postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, restControllerSubscriptionCatalogAdminControllerCreateTierRequest: restControllerSubscriptionCatalogAdminControllerCreateTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiers(subscriptionBountyId: String, createTierRequest: CreateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
+        return try await postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, createTierRequest: createTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -352,19 +352,19 @@ open class SubscriptionCatalogAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerCreateTierRequest: (body)  
+     - parameter createTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionTierAdminView> 
      */
-    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersWithRequestBuilder(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerCreateTierRequest: RestControllerSubscriptionCatalogAdminControllerCreateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
+    open class func postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersWithRequestBuilder(subscriptionBountyId: String, createTierRequest: CreateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
         var localVariablePath = "/api/v1/admin/subscription-catalogs/{subscriptionBountyId}/tiers"
         let subscriptionBountyIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionBountyId))"
         let subscriptionBountyIdPostEscape = subscriptionBountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionBountyId}", with: subscriptionBountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerCreateTierRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createTierRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -385,15 +385,15 @@ open class SubscriptionCatalogAdminControllerAPI {
     /**
 
      - parameter tierBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerSetActiveRequest: (body)  
+     - parameter setActiveRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionTierAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActive(tierBountyId: String, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
-        return try await postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveWithRequestBuilder(tierBountyId: tierBountyId, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: restControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActive(tierBountyId: String, setActiveRequest: SetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
+        return try await postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveWithRequestBuilder(tierBountyId: tierBountyId, setActiveRequest: setActiveRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -402,19 +402,19 @@ open class SubscriptionCatalogAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter tierBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerSetActiveRequest: (body)  
+     - parameter setActiveRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionTierAdminView> 
      */
-    open class func postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveWithRequestBuilder(tierBountyId: String, restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
+    open class func postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveWithRequestBuilder(tierBountyId: String, setActiveRequest: SetActiveRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
         var localVariablePath = "/api/v1/admin/subscription-catalogs/tiers/{tierBountyId}/set-active"
         let tierBountyIdPreEscape = "\(APIHelper.mapValueToPathItem(tierBountyId))"
         let tierBountyIdPostEscape = tierBountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tierBountyId}", with: tierBountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerSetActiveRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: setActiveRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -435,15 +435,15 @@ open class SubscriptionCatalogAdminControllerAPI {
     /**
 
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: (body)  
+     - parameter updateFamilyRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionCatalogAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1AdminSubscriptionCatalogsBySubscriptionbountyid(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
-        return try await putApiV1AdminSubscriptionCatalogsBySubscriptionbountyidWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1AdminSubscriptionCatalogsBySubscriptionbountyid(subscriptionBountyId: String, updateFamilyRequest: UpdateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionCatalogAdminView {
+        return try await putApiV1AdminSubscriptionCatalogsBySubscriptionbountyidWithRequestBuilder(subscriptionBountyId: subscriptionBountyId, updateFamilyRequest: updateFamilyRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -452,19 +452,19 @@ open class SubscriptionCatalogAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: (body)  
+     - parameter updateFamilyRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionCatalogAdminView> 
      */
-    open class func putApiV1AdminSubscriptionCatalogsBySubscriptionbountyidWithRequestBuilder(subscriptionBountyId: String, restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
+    open class func putApiV1AdminSubscriptionCatalogsBySubscriptionbountyidWithRequestBuilder(subscriptionBountyId: String, updateFamilyRequest: UpdateFamilyRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionCatalogAdminView> {
         var localVariablePath = "/api/v1/admin/subscription-catalogs/{subscriptionBountyId}"
         let subscriptionBountyIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionBountyId))"
         let subscriptionBountyIdPostEscape = subscriptionBountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionBountyId}", with: subscriptionBountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateFamilyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -485,15 +485,15 @@ open class SubscriptionCatalogAdminControllerAPI {
     /**
 
      - parameter tierBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: (body)  
+     - parameter updateTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: SubscriptionTierAdminView
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1AdminSubscriptionCatalogsTiersByTierbountyid(tierBountyId: String, restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: RestControllerSubscriptionCatalogAdminControllerUpdateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
-        return try await putApiV1AdminSubscriptionCatalogsTiersByTierbountyidWithRequestBuilder(tierBountyId: tierBountyId, restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: restControllerSubscriptionCatalogAdminControllerUpdateTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1AdminSubscriptionCatalogsTiersByTierbountyid(tierBountyId: String, updateTierRequest: UpdateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubscriptionTierAdminView {
+        return try await putApiV1AdminSubscriptionCatalogsTiersByTierbountyidWithRequestBuilder(tierBountyId: tierBountyId, updateTierRequest: updateTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -502,19 +502,19 @@ open class SubscriptionCatalogAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter tierBountyId: (path)  
-     - parameter restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: (body)  
+     - parameter updateTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<SubscriptionTierAdminView> 
      */
-    open class func putApiV1AdminSubscriptionCatalogsTiersByTierbountyidWithRequestBuilder(tierBountyId: String, restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: RestControllerSubscriptionCatalogAdminControllerUpdateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
+    open class func putApiV1AdminSubscriptionCatalogsTiersByTierbountyidWithRequestBuilder(tierBountyId: String, updateTierRequest: UpdateTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubscriptionTierAdminView> {
         var localVariablePath = "/api/v1/admin/subscription-catalogs/tiers/{tierBountyId}"
         let tierBountyIdPreEscape = "\(APIHelper.mapValueToPathItem(tierBountyId))"
         let tierBountyIdPostEscape = tierBountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tierBountyId}", with: tierBountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionCatalogAdminControllerUpdateTierRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateTierRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

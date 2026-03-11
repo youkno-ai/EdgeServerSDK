@@ -15,40 +15,40 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.Agreement
+import ai.youkno.edgeserversdk.models.AltEmail
 import ai.youkno.edgeserversdk.models.Attachments
 import ai.youkno.edgeserversdk.models.BadgeDef
-import ai.youkno.edgeserversdk.models.BaseSettingsAgreement
-import ai.youkno.edgeserversdk.models.BaseSettingsAltEmail
+import ai.youkno.edgeserversdk.models.BannerInfo
 import ai.youkno.edgeserversdk.models.BaseSettingsApprovalInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsBannerInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsBountyTypeSettings
-import ai.youkno.edgeserversdk.models.BaseSettingsConfirmation
 import ai.youkno.edgeserversdk.models.BaseSettingsCurrencyInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsCustomActionBar
-import ai.youkno.edgeserversdk.models.BaseSettingsCustomRoleDef
-import ai.youkno.edgeserversdk.models.BaseSettingsDrawerItemDef
 import ai.youkno.edgeserversdk.models.BaseSettingsEmailSettings
-import ai.youkno.edgeserversdk.models.BaseSettingsListInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsMarketInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsMerchantSettings
-import ai.youkno.edgeserversdk.models.BaseSettingsNavItemDef
-import ai.youkno.edgeserversdk.models.BaseSettingsNavModeInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsNotificationInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsOrganizationTypeInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsPaymentLiability
-import ai.youkno.edgeserversdk.models.BaseSettingsPaymentOptions
 import ai.youkno.edgeserversdk.models.BaseSettingsReputationDef
 import ai.youkno.edgeserversdk.models.BaseSettingsSection
-import ai.youkno.edgeserversdk.models.BaseSettingsShopSettings
-import ai.youkno.edgeserversdk.models.BaseSettingsSportInfo
-import ai.youkno.edgeserversdk.models.BaseSettingsSportTeamReplacement
-import ai.youkno.edgeserversdk.models.BaseSettingsSysInfo
+import ai.youkno.edgeserversdk.models.BountyTypeSettings
+import ai.youkno.edgeserversdk.models.Confirmation
+import ai.youkno.edgeserversdk.models.CustomActionBar
+import ai.youkno.edgeserversdk.models.CustomRoleDef
+import ai.youkno.edgeserversdk.models.DrawerItemDef
 import ai.youkno.edgeserversdk.models.IdentityMode
+import ai.youkno.edgeserversdk.models.ListInfo
 import ai.youkno.edgeserversdk.models.Lists
 import ai.youkno.edgeserversdk.models.LookAndFeelDef
 import ai.youkno.edgeserversdk.models.MailingAddress
+import ai.youkno.edgeserversdk.models.MarketInfo
+import ai.youkno.edgeserversdk.models.MerchantSettings
+import ai.youkno.edgeserversdk.models.NavItemDef
+import ai.youkno.edgeserversdk.models.NavModeInfo
+import ai.youkno.edgeserversdk.models.NotificationInfo
+import ai.youkno.edgeserversdk.models.OrganizationTypeInfo
+import ai.youkno.edgeserversdk.models.PaymentLiability
+import ai.youkno.edgeserversdk.models.PaymentOptions
 import ai.youkno.edgeserversdk.models.Reward
 import ai.youkno.edgeserversdk.models.SearchInfo
+import ai.youkno.edgeserversdk.models.ShopSettings
+import ai.youkno.edgeserversdk.models.SportInfo
+import ai.youkno.edgeserversdk.models.SportTeamReplacement
+import ai.youkno.edgeserversdk.models.SysInfo
 import ai.youkno.edgeserversdk.models.Tags
 import ai.youkno.edgeserversdk.models.User
 
@@ -125,7 +125,7 @@ import com.squareup.moshi.JsonClass
 data class UserSettings (
 
     @Json(name = "sysInfo")
-    val sysInfo: BaseSettingsSysInfo? = null,
+    val sysInfo: SysInfo? = null,
 
     @Json(name = "currency")
     val currency: kotlin.String? = null,
@@ -146,22 +146,22 @@ data class UserSettings (
     val deeplinkImageFromServer: kotlin.Boolean? = null,
 
     @Json(name = "bountyTypes")
-    val bountyTypes: kotlin.collections.Map<kotlin.String, BaseSettingsBountyTypeSettings>? = null,
+    val bountyTypes: kotlin.collections.Map<kotlin.String, BountyTypeSettings>? = null,
 
     @Json(name = "allowedOrgTypes")
-    val allowedOrgTypes: kotlin.collections.Map<kotlin.String, BaseSettingsOrganizationTypeInfo>? = null,
+    val allowedOrgTypes: kotlin.collections.Map<kotlin.String, OrganizationTypeInfo>? = null,
 
     @Json(name = "customLists")
     val customLists: Lists? = null,
 
     @Json(name = "listInfos")
-    val listInfos: kotlin.collections.Map<kotlin.String, BaseSettingsListInfo>? = null,
+    val listInfos: kotlin.collections.Map<kotlin.String, ListInfo>? = null,
 
     @Json(name = "roles")
-    val roles: kotlin.collections.Map<kotlin.String, BaseSettingsCustomRoleDef>? = null,
+    val roles: kotlin.collections.Map<kotlin.String, CustomRoleDef>? = null,
 
     @Json(name = "actionBar")
-    val actionBar: BaseSettingsCustomActionBar? = null,
+    val actionBar: CustomActionBar? = null,
 
     @Json(name = "bountyAttachments")
     val bountyAttachments: Attachments? = null,
@@ -195,19 +195,19 @@ data class UserSettings (
     val reputationDefs: kotlin.collections.Map<kotlin.String, BaseSettingsReputationDef>? = null,
 
     @Json(name = "drawerItemDefs")
-    val drawerItemDefs: kotlin.collections.Map<kotlin.String, BaseSettingsDrawerItemDef>? = null,
+    val drawerItemDefs: kotlin.collections.Map<kotlin.String, DrawerItemDef>? = null,
 
     @Json(name = "navItemDefs")
-    val navItemDefs: kotlin.collections.Map<kotlin.String, BaseSettingsNavItemDef>? = null,
+    val navItemDefs: kotlin.collections.Map<kotlin.String, NavItemDef>? = null,
 
     @Json(name = "navModeInfo")
-    val navModeInfo: BaseSettingsNavModeInfo? = null,
+    val navModeInfo: NavModeInfo? = null,
 
     @Json(name = "maxNotificationPriority")
     val maxNotificationPriority: kotlin.Int? = null,
 
     @Json(name = "marketInfos")
-    val marketInfos: kotlin.collections.Map<kotlin.String, BaseSettingsMarketInfo>? = null,
+    val marketInfos: kotlin.collections.Map<kotlin.String, MarketInfo>? = null,
 
     @Json(name = "organizationType")
     val organizationType: kotlin.String? = null,
@@ -216,10 +216,10 @@ data class UserSettings (
     val addresses: kotlin.collections.Map<kotlin.String, MailingAddress>? = null,
 
     @Json(name = "bileteEmail")
-    val bileteEmail: BaseSettingsAltEmail? = null,
+    val bileteEmail: AltEmail? = null,
 
     @Json(name = "altEmails")
-    val altEmails: kotlin.collections.Map<kotlin.String, BaseSettingsAltEmail>? = null,
+    val altEmails: kotlin.collections.Map<kotlin.String, AltEmail>? = null,
 
     @Json(name = "apiSecret")
     val apiSecret: kotlin.String? = null,
@@ -243,10 +243,10 @@ data class UserSettings (
     val inviteMode: UserSettings.InviteMode? = null,
 
     @Json(name = "bannerInfos")
-    val bannerInfos: kotlin.collections.Map<kotlin.String, BaseSettingsBannerInfo>? = null,
+    val bannerInfos: kotlin.collections.Map<kotlin.String, BannerInfo>? = null,
 
     @Json(name = "paymentOptions")
-    val paymentOptions: BaseSettingsPaymentOptions? = null,
+    val paymentOptions: PaymentOptions? = null,
 
     @Json(name = "defaultLoginMethods")
     val defaultLoginMethods: kotlin.String? = null,
@@ -258,28 +258,28 @@ data class UserSettings (
     val joinType: UserSettings.JoinType? = null,
 
     @Json(name = "notificationInfos")
-    val notificationInfos: kotlin.collections.Map<kotlin.String, BaseSettingsNotificationInfo>? = null,
+    val notificationInfos: kotlin.collections.Map<kotlin.String, NotificationInfo>? = null,
 
     @Json(name = "sportInfos")
-    val sportInfos: kotlin.collections.Map<kotlin.String, BaseSettingsSportInfo>? = null,
+    val sportInfos: kotlin.collections.Map<kotlin.String, SportInfo>? = null,
 
     @Json(name = "sportTeamReplacements")
-    val sportTeamReplacements: kotlin.collections.Map<kotlin.String, BaseSettingsSportTeamReplacement>? = null,
+    val sportTeamReplacements: kotlin.collections.Map<kotlin.String, SportTeamReplacement>? = null,
 
     @Json(name = "emailSettings")
     val emailSettings: kotlin.collections.Map<kotlin.String, BaseSettingsEmailSettings>? = null,
 
     @Json(name = "shopSettings")
-    val shopSettings: BaseSettingsShopSettings? = null,
+    val shopSettings: ShopSettings? = null,
 
     @Json(name = "bountyAlertMode")
     val bountyAlertMode: UserSettings.BountyAlertMode? = null,
 
     @Json(name = "agreements")
-    val agreements: kotlin.collections.Map<kotlin.String, BaseSettingsAgreement>? = null,
+    val agreements: kotlin.collections.Map<kotlin.String, Agreement>? = null,
 
     @Json(name = "confirmations")
-    val confirmations: kotlin.collections.Map<kotlin.String, BaseSettingsConfirmation>? = null,
+    val confirmations: kotlin.collections.Map<kotlin.String, Confirmation>? = null,
 
     @Json(name = "sections")
     val sections: kotlin.collections.Map<kotlin.String, BaseSettingsSection>? = null,
@@ -294,7 +294,7 @@ data class UserSettings (
     val approvalInfos: kotlin.collections.Map<kotlin.String, BaseSettingsApprovalInfo>? = null,
 
     @Json(name = "merchantSettings")
-    val merchantSettings: BaseSettingsMerchantSettings? = null,
+    val merchantSettings: MerchantSettings? = null,
 
     @Json(name = "deletionStrategies")
     val deletionStrategies: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
@@ -303,7 +303,7 @@ data class UserSettings (
     val allowedCurrencies: kotlin.collections.Map<kotlin.String, BaseSettingsCurrencyInfo>? = null,
 
     @Json(name = "paymentLiabilities")
-    val paymentLiabilities: kotlin.collections.Map<kotlin.String, BaseSettingsPaymentLiability>? = null,
+    val paymentLiabilities: kotlin.collections.Map<kotlin.String, PaymentLiability>? = null,
 
     @Json(name = "attachments")
     val attachments: Attachments? = null

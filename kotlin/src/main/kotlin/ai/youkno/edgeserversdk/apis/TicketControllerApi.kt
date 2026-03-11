@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.NewId
 import ai.youkno.edgeserversdk.models.Ticket
 import ai.youkno.edgeserversdk.models.TicketScan
 
@@ -103,10 +103,10 @@ interface TicketControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataNewId]>
+     * @return [Call]<[NewId]>
      */
     @POST("api/v1/tickets")
-    fun postApiV1Tickets(@Body ticket: Ticket, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
+    fun postApiV1Tickets(@Body ticket: Ticket, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * POST api/v1/tickets/{ticketId}/scan

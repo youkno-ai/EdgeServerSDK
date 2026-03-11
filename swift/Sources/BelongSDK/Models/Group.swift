@@ -31,12 +31,12 @@ public struct Group: Codable, JSONEncodable, Hashable {
     public var streamKey: String?
     public var inheritRoles: String?
     public var visibilityRoles: String?
-    public var accessKeys: HasAccessKeysAccessKeys?
+    public var accessKeys: HasAccessKeysAccessKeys2?
     public var createdAt: Int64?
     public var accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum?
     public var accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum?
 
-    public init(parentId: String? = nil, user: User? = nil, description: String? = nil, shortId: String? = nil, groupType: String? = nil, joiningStrategy: String? = nil, streamKey: String? = nil, inheritRoles: String? = nil, visibilityRoles: String? = nil, accessKeys: HasAccessKeysAccessKeys? = nil, createdAt: Int64? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
+    public init(parentId: String? = nil, user: User? = nil, description: String? = nil, shortId: String? = nil, groupType: String? = nil, joiningStrategy: String? = nil, streamKey: String? = nil, inheritRoles: String? = nil, visibilityRoles: String? = nil, accessKeys: HasAccessKeysAccessKeys2? = nil, createdAt: Int64? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
         self.parentId = parentId
         self.user = user
         self.description = description

@@ -15,13 +15,13 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataNewId,
+  NewId,
   Ticket,
   TicketScan,
 } from '../models/index';
 import {
-    EdgeApiDataNewIdFromJSON,
-    EdgeApiDataNewIdToJSON,
+    NewIdFromJSON,
+    NewIdToJSON,
     TicketFromJSON,
     TicketToJSON,
     TicketScanFromJSON,
@@ -177,11 +177,11 @@ export interface TicketControllerApiInterface {
      * @throws {RequiredError}
      * @memberof TicketControllerApiInterface
      */
-    postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -472,7 +472,7 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
 
     /**
      */
-    async postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1TicketsRaw(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['ticket'] == null) {
             throw new runtime.RequiredError(
                 'ticket',
@@ -513,12 +513,12 @@ export class TicketControllerApi extends runtime.BaseAPI implements TicketContro
             body: TicketToJSON(requestParameters['ticket']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1Tickets(requestParameters: PostApiV1TicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1TicketsRaw(requestParameters, initOverrides);
         return await response.value();
     }

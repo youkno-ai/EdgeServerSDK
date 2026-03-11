@@ -12,32 +12,32 @@ import AnyCodable
 
 public struct BountyDistribution: Codable, JSONEncodable, Hashable {
 
-    public var areasList: [BountyDistributionAreas]?
+    public var areasList: [Areas]?
     public var empty: Bool?
+    public var global: Bool?
     public var includesEmpty: Bool?
     public var excludesEmpty: Bool?
     public var targetArea: String?
     public var excludeArea: String?
-    public var global: Bool?
 
-    public init(areasList: [BountyDistributionAreas]? = nil, empty: Bool? = nil, includesEmpty: Bool? = nil, excludesEmpty: Bool? = nil, targetArea: String? = nil, excludeArea: String? = nil, global: Bool? = nil) {
+    public init(areasList: [Areas]? = nil, empty: Bool? = nil, global: Bool? = nil, includesEmpty: Bool? = nil, excludesEmpty: Bool? = nil, targetArea: String? = nil, excludeArea: String? = nil) {
         self.areasList = areasList
         self.empty = empty
+        self.global = global
         self.includesEmpty = includesEmpty
         self.excludesEmpty = excludesEmpty
         self.targetArea = targetArea
         self.excludeArea = excludeArea
-        self.global = global
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case areasList
         case empty
+        case global
         case includesEmpty
         case excludesEmpty
         case targetArea
         case excludeArea
-        case global
     }
 
     // Encodable protocol methods
@@ -46,11 +46,11 @@ public struct BountyDistribution: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(areasList, forKey: .areasList)
         try container.encodeIfPresent(empty, forKey: .empty)
+        try container.encodeIfPresent(global, forKey: .global)
         try container.encodeIfPresent(includesEmpty, forKey: .includesEmpty)
         try container.encodeIfPresent(excludesEmpty, forKey: .excludesEmpty)
         try container.encodeIfPresent(targetArea, forKey: .targetArea)
         try container.encodeIfPresent(excludeArea, forKey: .excludeArea)
-        try container.encodeIfPresent(global, forKey: .global)
     }
 }
 

@@ -13,27 +13,27 @@
  */
 
 import { mapValues } from '../runtime';
-import type { DeviceUseInfo } from './DeviceUseInfo';
+import type { LossInfo } from './LossInfo';
 import {
-    DeviceUseInfoFromJSON,
-    DeviceUseInfoFromJSONTyped,
-    DeviceUseInfoToJSON,
-    DeviceUseInfoToJSONTyped,
-} from './DeviceUseInfo';
-import type { DeviceLossInfo } from './DeviceLossInfo';
+    LossInfoFromJSON,
+    LossInfoFromJSONTyped,
+    LossInfoToJSON,
+    LossInfoToJSONTyped,
+} from './LossInfo';
+import type { UseInfo } from './UseInfo';
 import {
-    DeviceLossInfoFromJSON,
-    DeviceLossInfoFromJSONTyped,
-    DeviceLossInfoToJSON,
-    DeviceLossInfoToJSONTyped,
-} from './DeviceLossInfo';
-import type { DeviceCollectionInfo } from './DeviceCollectionInfo';
+    UseInfoFromJSON,
+    UseInfoFromJSONTyped,
+    UseInfoToJSON,
+    UseInfoToJSONTyped,
+} from './UseInfo';
+import type { CollectionInfo } from './CollectionInfo';
 import {
-    DeviceCollectionInfoFromJSON,
-    DeviceCollectionInfoFromJSONTyped,
-    DeviceCollectionInfoToJSON,
-    DeviceCollectionInfoToJSONTyped,
-} from './DeviceCollectionInfo';
+    CollectionInfoFromJSON,
+    CollectionInfoFromJSONTyped,
+    CollectionInfoToJSON,
+    CollectionInfoToJSONTyped,
+} from './CollectionInfo';
 
 /**
  * 
@@ -145,22 +145,22 @@ export interface Device {
     ownership?: string;
     /**
      * 
-     * @type {DeviceUseInfo}
+     * @type {UseInfo}
      * @memberof Device
      */
-    useInfo?: DeviceUseInfo;
+    useInfo?: UseInfo;
     /**
      * 
-     * @type {DeviceCollectionInfo}
+     * @type {CollectionInfo}
      * @memberof Device
      */
-    collectionInfo?: DeviceCollectionInfo;
+    collectionInfo?: CollectionInfo;
     /**
      * 
-     * @type {DeviceLossInfo}
+     * @type {LossInfo}
      * @memberof Device
      */
-    lossInfo?: DeviceLossInfo;
+    lossInfo?: LossInfo;
 }
 
 /**
@@ -197,9 +197,9 @@ export function DeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): De
         'rooted': json['rooted'] == null ? undefined : json['rooted'],
         'status': json['status'] == null ? undefined : json['status'],
         'ownership': json['ownership'] == null ? undefined : json['ownership'],
-        'useInfo': json['useInfo'] == null ? undefined : DeviceUseInfoFromJSON(json['useInfo']),
-        'collectionInfo': json['collectionInfo'] == null ? undefined : DeviceCollectionInfoFromJSON(json['collectionInfo']),
-        'lossInfo': json['lossInfo'] == null ? undefined : DeviceLossInfoFromJSON(json['lossInfo']),
+        'useInfo': json['useInfo'] == null ? undefined : UseInfoFromJSON(json['useInfo']),
+        'collectionInfo': json['collectionInfo'] == null ? undefined : CollectionInfoFromJSON(json['collectionInfo']),
+        'lossInfo': json['lossInfo'] == null ? undefined : LossInfoFromJSON(json['lossInfo']),
     };
 }
 
@@ -231,9 +231,9 @@ export function DeviceToJSONTyped(value?: Device | null, ignoreDiscriminator: bo
         'rooted': value['rooted'],
         'status': value['status'],
         'ownership': value['ownership'],
-        'useInfo': DeviceUseInfoToJSON(value['useInfo']),
-        'collectionInfo': DeviceCollectionInfoToJSON(value['collectionInfo']),
-        'lossInfo': DeviceLossInfoToJSON(value['lossInfo']),
+        'useInfo': UseInfoToJSON(value['useInfo']),
+        'collectionInfo': CollectionInfoToJSON(value['collectionInfo']),
+        'lossInfo': LossInfoToJSON(value['lossInfo']),
     };
 }
 

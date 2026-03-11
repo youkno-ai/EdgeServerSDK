@@ -32,10 +32,10 @@ public struct SignInDecision: Codable, JSONEncodable, Hashable {
     }
     public var nextStep: NextStep?
     public var link: String?
-    public var fields: [SignInDecisionField]?
+    public var fields: [Field]?
     public var missingFields: [MissingFields]?
 
-    public init(nextStep: NextStep? = nil, link: String? = nil, fields: [SignInDecisionField]? = nil, missingFields: [MissingFields]? = nil) {
+    public init(nextStep: NextStep? = nil, link: String? = nil, fields: [Field]? = nil, missingFields: [MissingFields]? = nil) {
         self.nextStep = nextStep
         self.link = link
         self.fields = fields

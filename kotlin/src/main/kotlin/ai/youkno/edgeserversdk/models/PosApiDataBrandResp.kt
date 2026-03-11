@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataBrandResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,22 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param brandId 
- * @param brandName 
- * @param deleted 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataBrandResp (
 
-    @Json(name = "brandId")
-    val brandId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "brandName")
-    val brandName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "deleted")
-    val deleted: kotlin.Boolean? = null
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
+
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
+
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataBrandResp2>? = null
 
 ) {
 

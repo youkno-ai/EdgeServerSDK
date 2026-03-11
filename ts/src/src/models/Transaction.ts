@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TransactionTransactionLine } from './TransactionTransactionLine';
+import type { TransactionLine } from './TransactionLine';
 import {
-    TransactionTransactionLineFromJSON,
-    TransactionTransactionLineFromJSONTyped,
-    TransactionTransactionLineToJSON,
-    TransactionTransactionLineToJSONTyped,
-} from './TransactionTransactionLine';
+    TransactionLineFromJSON,
+    TransactionLineFromJSONTyped,
+    TransactionLineToJSON,
+    TransactionLineToJSONTyped,
+} from './TransactionLine';
 
 /**
  * 
@@ -59,10 +59,10 @@ export interface Transaction {
     createdAt?: number;
     /**
      * 
-     * @type {Array<TransactionTransactionLine>}
+     * @type {Array<TransactionLine>}
      * @memberof Transaction
      */
-    lines?: Array<TransactionTransactionLine>;
+    lines?: Array<TransactionLine>;
 }
 
 /**
@@ -87,7 +87,7 @@ export function TransactionFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'bountyType': json['bountyType'] == null ? undefined : json['bountyType'],
         'livePayment': json['livePayment'] == null ? undefined : json['livePayment'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'lines': json['lines'] == null ? undefined : ((json['lines'] as Array<any>).map(TransactionTransactionLineFromJSON)),
+        'lines': json['lines'] == null ? undefined : ((json['lines'] as Array<any>).map(TransactionLineFromJSON)),
     };
 }
 
@@ -107,7 +107,7 @@ export function TransactionToJSONTyped(value?: Transaction | null, ignoreDiscrim
         'bountyType': value['bountyType'],
         'livePayment': value['livePayment'],
         'createdAt': value['createdAt'],
-        'lines': value['lines'] == null ? undefined : ((value['lines'] as Array<any>).map(TransactionTransactionLineToJSON)),
+        'lines': value['lines'] == null ? undefined : ((value['lines'] as Array<any>).map(TransactionLineToJSON)),
     };
 }
 

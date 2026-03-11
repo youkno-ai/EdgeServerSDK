@@ -23,20 +23,20 @@ public struct BountyTerms: Codable, JSONEncodable, Hashable {
         case random = "RANDOM"
     }
     public var receiver: String?
-    public var admissionRule: BountyTermsAdmissionRule?
-    public var contentAccessRule: BountyTermsContentAccessRule?
+    public var admissionRule: AdmissionRule?
+    public var contentAccessRule: ContentAccessRule?
     public var allowedResponseCount: Int?
     public var participantResponseCount: Int?
     public var budget: BountyBudget?
     public var minReward: Reward?
     public var goalReward: Reward?
     public var autoClose: Bool?
-    public var promises: [String: BountyPromise]?
+    public var promises: [String: Promise]?
     public var receiverAsEnum: ReceiverAsEnum?
     public var distributionReward: Reward?
     public var admissionStrategyAsEnum: AdmissionStrategyAsEnum?
 
-    public init(receiver: String? = nil, admissionRule: BountyTermsAdmissionRule? = nil, contentAccessRule: BountyTermsContentAccessRule? = nil, allowedResponseCount: Int? = nil, participantResponseCount: Int? = nil, budget: BountyBudget? = nil, minReward: Reward? = nil, goalReward: Reward? = nil, autoClose: Bool? = nil, promises: [String: BountyPromise]? = nil, receiverAsEnum: ReceiverAsEnum? = nil, distributionReward: Reward? = nil, admissionStrategyAsEnum: AdmissionStrategyAsEnum? = nil) {
+    public init(receiver: String? = nil, admissionRule: AdmissionRule? = nil, contentAccessRule: ContentAccessRule? = nil, allowedResponseCount: Int? = nil, participantResponseCount: Int? = nil, budget: BountyBudget? = nil, minReward: Reward? = nil, goalReward: Reward? = nil, autoClose: Bool? = nil, promises: [String: Promise]? = nil, receiverAsEnum: ReceiverAsEnum? = nil, distributionReward: Reward? = nil, admissionStrategyAsEnum: AdmissionStrategyAsEnum? = nil) {
         self.receiver = receiver
         self.admissionRule = admissionRule
         self.contentAccessRule = contentAccessRule

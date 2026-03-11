@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.PosApiDataCycleCountRespCycleCountItem
+import ai.youkno.edgeserversdk.models.PosApiDataCycleCountResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -23,42 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param cycleCountId 
- * @param locationName 
- * @param userName 
- * @param adjustReason 
- * @param adjustReasonNote 
- * @param startDate 
- * @param endDate 
- * @param items 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataCycleCountResp (
 
-    @Json(name = "cycleCountId")
-    val cycleCountId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "locationName")
-    val locationName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "userName")
-    val userName: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "adjustReason")
-    val adjustReason: kotlin.String? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "adjustReasonNote")
-    val adjustReasonNote: kotlin.String? = null,
-
-    @Json(name = "startDate")
-    val startDate: kotlin.Long? = null,
-
-    @Json(name = "endDate")
-    val endDate: kotlin.Long? = null,
-
-    @Json(name = "items")
-    val items: kotlin.collections.List<PosApiDataCycleCountRespCycleCountItem>? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataCycleCountResp2>? = null
 
 ) {
 

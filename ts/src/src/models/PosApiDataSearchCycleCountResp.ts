@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataSearchCycleCountResp2 } from './PosApiDataSearchCycleCountResp2';
+import {
+    PosApiDataSearchCycleCountResp2FromJSON,
+    PosApiDataSearchCycleCountResp2FromJSONTyped,
+    PosApiDataSearchCycleCountResp2ToJSON,
+    PosApiDataSearchCycleCountResp2ToJSONTyped,
+} from './PosApiDataSearchCycleCountResp2';
+
 /**
  * 
  * @export
@@ -21,58 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataSearchCycleCountResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataSearchCycleCountResp
      */
-    itemId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataSearchCycleCountResp
-     */
-    item?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataSearchCycleCountResp
-     */
-    batchId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataSearchCycleCountResp
-     */
-    batch?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataSearchCycleCountResp
-     */
-    areaId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataSearchCycleCountResp
-     */
-    areaPath?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataSearchCycleCountResp
      */
-    onHand?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataSearchCycleCountResp
      */
-    available?: number;
+    length?: number;
     /**
      * 
-     * @type {string}
+     * @type {boolean}
      * @memberof PosApiDataSearchCycleCountResp
      */
-    uom?: string;
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataSearchCycleCountResp2>}
+     * @memberof PosApiDataSearchCycleCountResp
+     */
+    list?: Array<PosApiDataSearchCycleCountResp2>;
 }
 
 /**
@@ -92,15 +76,11 @@ export function PosApiDataSearchCycleCountRespFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'itemId': json['itemId'] == null ? undefined : json['itemId'],
-        'item': json['item'] == null ? undefined : json['item'],
-        'batchId': json['batchId'] == null ? undefined : json['batchId'],
-        'batch': json['batch'] == null ? undefined : json['batch'],
-        'areaId': json['areaId'] == null ? undefined : json['areaId'],
-        'areaPath': json['areaPath'] == null ? undefined : json['areaPath'],
-        'onHand': json['onHand'] == null ? undefined : json['onHand'],
-        'available': json['available'] == null ? undefined : json['available'],
-        'uom': json['uom'] == null ? undefined : json['uom'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataSearchCycleCountResp2FromJSON)),
     };
 }
 
@@ -115,15 +95,11 @@ export function PosApiDataSearchCycleCountRespToJSONTyped(value?: PosApiDataSear
 
     return {
         
-        'itemId': value['itemId'],
-        'item': value['item'],
-        'batchId': value['batchId'],
-        'batch': value['batch'],
-        'areaId': value['areaId'],
-        'areaPath': value['areaPath'],
-        'onHand': value['onHand'],
-        'available': value['available'],
-        'uom': value['uom'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataSearchCycleCountResp2ToJSON)),
     };
 }
 

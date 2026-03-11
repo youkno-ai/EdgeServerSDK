@@ -13,11 +13,11 @@ import AnyCodable
 public struct CalendarEventInfo: Codable, JSONEncodable, Hashable {
 
     public var structuredDescription: StructuredDescription?
-    public var markDoc: StructuredDescriptionMarkDoc?
+    public var markDoc: MarkDoc?
     public var meta: CalendarEventInfoMetaInfo?
     public var metaError: String?
 
-    public init(structuredDescription: StructuredDescription? = nil, markDoc: StructuredDescriptionMarkDoc? = nil, meta: CalendarEventInfoMetaInfo? = nil, metaError: String? = nil) {
+    public init(structuredDescription: StructuredDescription? = nil, markDoc: MarkDoc? = nil, meta: CalendarEventInfoMetaInfo? = nil, metaError: String? = nil) {
         self.structuredDescription = structuredDescription
         self.markDoc = markDoc
         self.meta = meta

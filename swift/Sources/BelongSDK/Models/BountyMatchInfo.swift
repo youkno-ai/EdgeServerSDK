@@ -43,19 +43,19 @@ public struct BountyMatchInfo: Codable, JSONEncodable, Hashable {
     public var weather: String?
     public var temperature: String?
     public var explain: String?
-    public var extraTime: BountyMatchInfoExtraTime?
+    public var extraTime: ExtraTime?
     public var neutral: Bool?
-    public var events: [String: BountyMatchInfoMatchEvent]?
-    public var liveTexts: [String: BountyMatchInfoLiveText]?
-    public var stats: [String: BountyMatchInfoStats]?
-    public var injury: [String: BountyMatchInfoInjury]?
-    public var lineups: BountyMatchInfoLineups?
-    public var homeTeam: BountyMatchInfoTeamInfo?
-    public var awayTeam: BountyMatchInfoTeamInfo?
+    public var events: [String: MatchEvent]?
+    public var liveTexts: [String: LiveText]?
+    public var stats: [String: MatchInfoStats]?
+    public var injury: [String: Injury]?
+    public var lineups: Lineups?
+    public var homeTeam: MatchInfoTeamInfo?
+    public var awayTeam: MatchInfoTeamInfo?
     public var ticketsAvailableAt: Int64?
     public var ticketsNotificationSentAt: Int64?
 
-    public init(matchId: String? = nil, leagueType: String? = nil, leagueName: String? = nil, leagueShortName: String? = nil, subLeagueName: String? = nil, matchTime: Int64? = nil, halfStartTime: Int64? = nil, status: String? = nil, homeId: String? = nil, homeName: String? = nil, awayId: String? = nil, awayName: String? = nil, homeScore: Int? = nil, awayScore: Int? = nil, homeHalfScore: Int? = nil, awayHalfScore: Int? = nil, homeRed: Int? = nil, awayRed: Int? = nil, homeYellow: Int? = nil, awayYellow: Int? = nil, homeCorner: Int? = nil, awayCorner: Int? = nil, homeRank: String? = nil, awayRank: String? = nil, season: String? = nil, round: String? = nil, group: String? = nil, location: String? = nil, weather: String? = nil, temperature: String? = nil, explain: String? = nil, extraTime: BountyMatchInfoExtraTime? = nil, neutral: Bool? = nil, events: [String: BountyMatchInfoMatchEvent]? = nil, liveTexts: [String: BountyMatchInfoLiveText]? = nil, stats: [String: BountyMatchInfoStats]? = nil, injury: [String: BountyMatchInfoInjury]? = nil, lineups: BountyMatchInfoLineups? = nil, homeTeam: BountyMatchInfoTeamInfo? = nil, awayTeam: BountyMatchInfoTeamInfo? = nil, ticketsAvailableAt: Int64? = nil, ticketsNotificationSentAt: Int64? = nil) {
+    public init(matchId: String? = nil, leagueType: String? = nil, leagueName: String? = nil, leagueShortName: String? = nil, subLeagueName: String? = nil, matchTime: Int64? = nil, halfStartTime: Int64? = nil, status: String? = nil, homeId: String? = nil, homeName: String? = nil, awayId: String? = nil, awayName: String? = nil, homeScore: Int? = nil, awayScore: Int? = nil, homeHalfScore: Int? = nil, awayHalfScore: Int? = nil, homeRed: Int? = nil, awayRed: Int? = nil, homeYellow: Int? = nil, awayYellow: Int? = nil, homeCorner: Int? = nil, awayCorner: Int? = nil, homeRank: String? = nil, awayRank: String? = nil, season: String? = nil, round: String? = nil, group: String? = nil, location: String? = nil, weather: String? = nil, temperature: String? = nil, explain: String? = nil, extraTime: ExtraTime? = nil, neutral: Bool? = nil, events: [String: MatchEvent]? = nil, liveTexts: [String: LiveText]? = nil, stats: [String: MatchInfoStats]? = nil, injury: [String: Injury]? = nil, lineups: Lineups? = nil, homeTeam: MatchInfoTeamInfo? = nil, awayTeam: MatchInfoTeamInfo? = nil, ticketsAvailableAt: Int64? = nil, ticketsNotificationSentAt: Int64? = nil) {
         self.matchId = matchId
         self.leagueType = leagueType
         self.leagueName = leagueName

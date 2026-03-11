@@ -106,15 +106,27 @@ export interface BountyApprovalInfo {
      * @type {string}
      * @memberof BountyApprovalInfo
      */
-    entityTypeAsEnum?: BountyApprovalInfoEntityTypeAsEnumEnum;
+    approvalStateAsEnum?: BountyApprovalInfoApprovalStateAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BountyApprovalInfo
      */
-    approvalStateAsEnum?: BountyApprovalInfoApprovalStateAsEnumEnum;
+    entityTypeAsEnum?: BountyApprovalInfoEntityTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const BountyApprovalInfoApprovalStateAsEnumEnum = {
+    NONE: 'NONE',
+    PENDING: 'PENDING',
+    APPROVED: 'APPROVED',
+    DECLINED: 'DECLINED',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BountyApprovalInfoApprovalStateAsEnumEnum = typeof BountyApprovalInfoApprovalStateAsEnumEnum[keyof typeof BountyApprovalInfoApprovalStateAsEnumEnum];
 
 /**
  * @export
@@ -140,18 +152,6 @@ export const BountyApprovalInfoEntityTypeAsEnumEnum = {
     SYSTEM: 'SYSTEM'
 } as const;
 export type BountyApprovalInfoEntityTypeAsEnumEnum = typeof BountyApprovalInfoEntityTypeAsEnumEnum[keyof typeof BountyApprovalInfoEntityTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyApprovalInfoApprovalStateAsEnumEnum = {
-    NONE: 'NONE',
-    PENDING: 'PENDING',
-    APPROVED: 'APPROVED',
-    DECLINED: 'DECLINED',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyApprovalInfoApprovalStateAsEnumEnum = typeof BountyApprovalInfoApprovalStateAsEnumEnum[keyof typeof BountyApprovalInfoApprovalStateAsEnumEnum];
 
 
 /**
@@ -181,8 +181,8 @@ export function BountyApprovalInfoFromJSONTyped(json: any, ignoreDiscriminator: 
         'comment': json['comment'] == null ? undefined : CommentFromJSON(json['comment']),
         'description': json['description'] == null ? undefined : json['description'],
         'moderationReason': json['moderationReason'] == null ? undefined : json['moderationReason'],
-        'entityTypeAsEnum': json['entityTypeAsEnum'] == null ? undefined : json['entityTypeAsEnum'],
         'approvalStateAsEnum': json['approvalStateAsEnum'] == null ? undefined : json['approvalStateAsEnum'],
+        'entityTypeAsEnum': json['entityTypeAsEnum'] == null ? undefined : json['entityTypeAsEnum'],
     };
 }
 
@@ -207,8 +207,8 @@ export function BountyApprovalInfoToJSONTyped(value?: BountyApprovalInfo | null,
         'comment': CommentToJSON(value['comment']),
         'description': value['description'],
         'moderationReason': value['moderationReason'],
-        'entityTypeAsEnum': value['entityTypeAsEnum'],
         'approvalStateAsEnum': value['approvalStateAsEnum'],
+        'entityTypeAsEnum': value['entityTypeAsEnum'],
     };
 }
 

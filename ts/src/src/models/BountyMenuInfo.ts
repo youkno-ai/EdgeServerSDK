@@ -13,34 +13,34 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyMenuInfoMenuSection } from './BountyMenuInfoMenuSection';
+import type { UpsellPresentation } from './UpsellPresentation';
 import {
-    BountyMenuInfoMenuSectionFromJSON,
-    BountyMenuInfoMenuSectionFromJSONTyped,
-    BountyMenuInfoMenuSectionToJSON,
-    BountyMenuInfoMenuSectionToJSONTyped,
-} from './BountyMenuInfoMenuSection';
-import type { BountyMenuInfoMenuOptions } from './BountyMenuInfoMenuOptions';
+    UpsellPresentationFromJSON,
+    UpsellPresentationFromJSONTyped,
+    UpsellPresentationToJSON,
+    UpsellPresentationToJSONTyped,
+} from './UpsellPresentation';
+import type { MenuSection } from './MenuSection';
 import {
-    BountyMenuInfoMenuOptionsFromJSON,
-    BountyMenuInfoMenuOptionsFromJSONTyped,
-    BountyMenuInfoMenuOptionsToJSON,
-    BountyMenuInfoMenuOptionsToJSONTyped,
-} from './BountyMenuInfoMenuOptions';
-import type { BountyMenuInfoUpsellPresentation } from './BountyMenuInfoUpsellPresentation';
+    MenuSectionFromJSON,
+    MenuSectionFromJSONTyped,
+    MenuSectionToJSON,
+    MenuSectionToJSONTyped,
+} from './MenuSection';
+import type { MenuTagDefinition } from './MenuTagDefinition';
 import {
-    BountyMenuInfoUpsellPresentationFromJSON,
-    BountyMenuInfoUpsellPresentationFromJSONTyped,
-    BountyMenuInfoUpsellPresentationToJSON,
-    BountyMenuInfoUpsellPresentationToJSONTyped,
-} from './BountyMenuInfoUpsellPresentation';
-import type { BountyMenuInfoMenuTagDefinition } from './BountyMenuInfoMenuTagDefinition';
+    MenuTagDefinitionFromJSON,
+    MenuTagDefinitionFromJSONTyped,
+    MenuTagDefinitionToJSON,
+    MenuTagDefinitionToJSONTyped,
+} from './MenuTagDefinition';
+import type { MenuOptions } from './MenuOptions';
 import {
-    BountyMenuInfoMenuTagDefinitionFromJSON,
-    BountyMenuInfoMenuTagDefinitionFromJSONTyped,
-    BountyMenuInfoMenuTagDefinitionToJSON,
-    BountyMenuInfoMenuTagDefinitionToJSONTyped,
-} from './BountyMenuInfoMenuTagDefinition';
+    MenuOptionsFromJSON,
+    MenuOptionsFromJSONTyped,
+    MenuOptionsToJSON,
+    MenuOptionsToJSONTyped,
+} from './MenuOptions';
 
 /**
  * 
@@ -80,28 +80,28 @@ export interface BountyMenuInfo {
     currencyCode?: string;
     /**
      * 
-     * @type {{ [key: string]: BountyMenuInfoMenuSection; }}
+     * @type {{ [key: string]: MenuSection; }}
      * @memberof BountyMenuInfo
      */
-    sections?: { [key: string]: BountyMenuInfoMenuSection; };
+    sections?: { [key: string]: MenuSection; };
     /**
      * 
-     * @type {{ [key: string]: BountyMenuInfoMenuTagDefinition; }}
+     * @type {{ [key: string]: MenuTagDefinition; }}
      * @memberof BountyMenuInfo
      */
-    tagDefinitions?: { [key: string]: BountyMenuInfoMenuTagDefinition; };
+    tagDefinitions?: { [key: string]: MenuTagDefinition; };
     /**
      * 
-     * @type {{ [key: string]: BountyMenuInfoUpsellPresentation; }}
+     * @type {{ [key: string]: UpsellPresentation; }}
      * @memberof BountyMenuInfo
      */
-    upsellGroups?: { [key: string]: BountyMenuInfoUpsellPresentation; };
+    upsellGroups?: { [key: string]: UpsellPresentation; };
     /**
      * 
-     * @type {BountyMenuInfoMenuOptions}
+     * @type {MenuOptions}
      * @memberof BountyMenuInfo
      */
-    options?: BountyMenuInfoMenuOptions;
+    options?: MenuOptions;
 }
 
 /**
@@ -126,10 +126,10 @@ export function BountyMenuInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'zone': json['zone'] == null ? undefined : json['zone'],
         'name': json['name'] == null ? undefined : json['name'],
         'currencyCode': json['currencyCode'] == null ? undefined : json['currencyCode'],
-        'sections': json['sections'] == null ? undefined : (mapValues(json['sections'], BountyMenuInfoMenuSectionFromJSON)),
-        'tagDefinitions': json['tagDefinitions'] == null ? undefined : (mapValues(json['tagDefinitions'], BountyMenuInfoMenuTagDefinitionFromJSON)),
-        'upsellGroups': json['upsellGroups'] == null ? undefined : (mapValues(json['upsellGroups'], BountyMenuInfoUpsellPresentationFromJSON)),
-        'options': json['options'] == null ? undefined : BountyMenuInfoMenuOptionsFromJSON(json['options']),
+        'sections': json['sections'] == null ? undefined : (mapValues(json['sections'], MenuSectionFromJSON)),
+        'tagDefinitions': json['tagDefinitions'] == null ? undefined : (mapValues(json['tagDefinitions'], MenuTagDefinitionFromJSON)),
+        'upsellGroups': json['upsellGroups'] == null ? undefined : (mapValues(json['upsellGroups'], UpsellPresentationFromJSON)),
+        'options': json['options'] == null ? undefined : MenuOptionsFromJSON(json['options']),
     };
 }
 
@@ -149,10 +149,10 @@ export function BountyMenuInfoToJSONTyped(value?: BountyMenuInfo | null, ignoreD
         'zone': value['zone'],
         'name': value['name'],
         'currencyCode': value['currencyCode'],
-        'sections': value['sections'] == null ? undefined : (mapValues(value['sections'], BountyMenuInfoMenuSectionToJSON)),
-        'tagDefinitions': value['tagDefinitions'] == null ? undefined : (mapValues(value['tagDefinitions'], BountyMenuInfoMenuTagDefinitionToJSON)),
-        'upsellGroups': value['upsellGroups'] == null ? undefined : (mapValues(value['upsellGroups'], BountyMenuInfoUpsellPresentationToJSON)),
-        'options': BountyMenuInfoMenuOptionsToJSON(value['options']),
+        'sections': value['sections'] == null ? undefined : (mapValues(value['sections'], MenuSectionToJSON)),
+        'tagDefinitions': value['tagDefinitions'] == null ? undefined : (mapValues(value['tagDefinitions'], MenuTagDefinitionToJSON)),
+        'upsellGroups': value['upsellGroups'] == null ? undefined : (mapValues(value['upsellGroups'], UpsellPresentationToJSON)),
+        'options': MenuOptionsToJSON(value['options']),
     };
 }
 

@@ -18,10 +18,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo
+     - returns: APIEventsInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballEvents(date: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo {
+    open class func getApiV1IsportsFootballEvents(date: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIEventsInfo {
         return try await getApiV1IsportsFootballEventsWithRequestBuilder(date: date, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo> 
+     - returns: RequestBuilder<APIEventsInfo> 
      */
-    open class func getApiV1IsportsFootballEventsWithRequestBuilder(date: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo> {
+    open class func getApiV1IsportsFootballEventsWithRequestBuilder(date: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIEventsInfo> {
         let localVariablePath = "/api/v1/isports/football/events"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -54,7 +54,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIEventsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIEventsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -65,10 +65,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo
+     - returns: APIInjuryInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballInjury(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo {
+    open class func getApiV1IsportsFootballInjury(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIInjuryInfo {
         return try await getApiV1IsportsFootballInjuryWithRequestBuilder(matchId: matchId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -81,9 +81,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo> 
+     - returns: RequestBuilder<APIInjuryInfo> 
      */
-    open class func getApiV1IsportsFootballInjuryWithRequestBuilder(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo> {
+    open class func getApiV1IsportsFootballInjuryWithRequestBuilder(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIInjuryInfo> {
         let localVariablePath = "/api/v1/isports/football/injury"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -101,7 +101,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIInjuryInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIInjuryInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -112,10 +112,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo
+     - returns: APILineupInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballLineups(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo {
+    open class func getApiV1IsportsFootballLineups(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APILineupInfo {
         return try await getApiV1IsportsFootballLineupsWithRequestBuilder(matchId: matchId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -128,9 +128,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo> 
+     - returns: RequestBuilder<APILineupInfo> 
      */
-    open class func getApiV1IsportsFootballLineupsWithRequestBuilder(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo> {
+    open class func getApiV1IsportsFootballLineupsWithRequestBuilder(matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APILineupInfo> {
         let localVariablePath = "/api/v1/isports/football/lineups"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -148,7 +148,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILineupInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APILineupInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -158,10 +158,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo
+     - returns: APIMatchInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballLivescores(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo {
+    open class func getApiV1IsportsFootballLivescores(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIMatchInfo {
         return try await getApiV1IsportsFootballLivescoresWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -173,9 +173,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> 
+     - returns: RequestBuilder<APIMatchInfo> 
      */
-    open class func getApiV1IsportsFootballLivescoresWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> {
+    open class func getApiV1IsportsFootballLivescoresWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIMatchInfo> {
         let localVariablePath = "/api/v1/isports/football/livescores"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -190,7 +190,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIMatchInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -201,10 +201,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo
+     - returns: APILiveTextInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballLivetext(matchId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo {
+    open class func getApiV1IsportsFootballLivetext(matchId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APILiveTextInfo {
         return try await getApiV1IsportsFootballLivetextWithRequestBuilder(matchId: matchId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -217,9 +217,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo> 
+     - returns: RequestBuilder<APILiveTextInfo> 
      */
-    open class func getApiV1IsportsFootballLivetextWithRequestBuilder(matchId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo> {
+    open class func getApiV1IsportsFootballLivetextWithRequestBuilder(matchId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APILiveTextInfo> {
         let localVariablePath = "/api/v1/isports/football/livetext"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -237,7 +237,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPILiveTextInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APILiveTextInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -253,10 +253,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo
+     - returns: APIMatchInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballSchedule(date: Int64? = nil, leagueId: [String]? = nil, season: String? = nil, subLeagueId: String? = nil, stageId: String? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo {
+    open class func getApiV1IsportsFootballSchedule(date: Int64? = nil, leagueId: [String]? = nil, season: String? = nil, subLeagueId: String? = nil, stageId: String? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIMatchInfo {
         return try await getApiV1IsportsFootballScheduleWithRequestBuilder(date: date, leagueId: leagueId, season: season, subLeagueId: subLeagueId, stageId: stageId, matchId: matchId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -274,9 +274,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> 
+     - returns: RequestBuilder<APIMatchInfo> 
      */
-    open class func getApiV1IsportsFootballScheduleWithRequestBuilder(date: Int64? = nil, leagueId: [String]? = nil, season: String? = nil, subLeagueId: String? = nil, stageId: String? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo> {
+    open class func getApiV1IsportsFootballScheduleWithRequestBuilder(date: Int64? = nil, leagueId: [String]? = nil, season: String? = nil, subLeagueId: String? = nil, stageId: String? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIMatchInfo> {
         let localVariablePath = "/api/v1/isports/football/schedule"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -299,7 +299,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIMatchInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIMatchInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -311,10 +311,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo
+     - returns: APIStandingsInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballStandingLeague(leagueId: String, subLeagueId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo {
+    open class func getApiV1IsportsFootballStandingLeague(leagueId: String, subLeagueId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIStandingsInfo {
         return try await getApiV1IsportsFootballStandingLeagueWithRequestBuilder(leagueId: leagueId, subLeagueId: subLeagueId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -328,9 +328,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo> 
+     - returns: RequestBuilder<APIStandingsInfo> 
      */
-    open class func getApiV1IsportsFootballStandingLeagueWithRequestBuilder(leagueId: String, subLeagueId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo> {
+    open class func getApiV1IsportsFootballStandingLeagueWithRequestBuilder(leagueId: String, subLeagueId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIStandingsInfo> {
         let localVariablePath = "/api/v1/isports/football/standing/league"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -349,7 +349,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultThirdpartiesISportsAPIAPIStandingsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIStandingsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -361,10 +361,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo
+     - returns: APIStatsInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballStats(date: Int64? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo {
+    open class func getApiV1IsportsFootballStats(date: Int64? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APIStatsInfo {
         return try await getApiV1IsportsFootballStatsWithRequestBuilder(date: date, matchId: matchId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -378,9 +378,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo> 
+     - returns: RequestBuilder<APIStatsInfo> 
      */
-    open class func getApiV1IsportsFootballStatsWithRequestBuilder(date: Int64? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo> {
+    open class func getApiV1IsportsFootballStatsWithRequestBuilder(date: Int64? = nil, matchId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APIStatsInfo> {
         let localVariablePath = "/api/v1/isports/football/stats"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -399,7 +399,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPIStatsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APIStatsInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -411,10 +411,10 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo
+     - returns: APITeamInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1IsportsFootballTeam(leagueId: String? = nil, teamId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo {
+    open class func getApiV1IsportsFootballTeam(leagueId: String? = nil, teamId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> APITeamInfo {
         return try await getApiV1IsportsFootballTeamWithRequestBuilder(leagueId: leagueId, teamId: teamId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -428,9 +428,9 @@ open class ISportsApiControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo> 
+     - returns: RequestBuilder<APITeamInfo> 
      */
-    open class func getApiV1IsportsFootballTeamWithRequestBuilder(leagueId: String? = nil, teamId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo> {
+    open class func getApiV1IsportsFootballTeamWithRequestBuilder(leagueId: String? = nil, teamId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<APITeamInfo> {
         let localVariablePath = "/api/v1/isports/football/team"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -449,7 +449,7 @@ open class ISportsApiControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataISportsApiResultListThirdpartiesISportsAPIAPITeamInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<APITeamInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -13,20 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyAuctionInfoCurrentBid } from './BountyAuctionInfoCurrentBid';
+import type { BidStep } from './BidStep';
 import {
-    BountyAuctionInfoCurrentBidFromJSON,
-    BountyAuctionInfoCurrentBidFromJSONTyped,
-    BountyAuctionInfoCurrentBidToJSON,
-    BountyAuctionInfoCurrentBidToJSONTyped,
-} from './BountyAuctionInfoCurrentBid';
-import type { BountyAuctionInfoBidStep } from './BountyAuctionInfoBidStep';
-import {
-    BountyAuctionInfoBidStepFromJSON,
-    BountyAuctionInfoBidStepFromJSONTyped,
-    BountyAuctionInfoBidStepToJSON,
-    BountyAuctionInfoBidStepToJSONTyped,
-} from './BountyAuctionInfoBidStep';
+    BidStepFromJSON,
+    BidStepFromJSONTyped,
+    BidStepToJSON,
+    BidStepToJSONTyped,
+} from './BidStep';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -34,6 +27,13 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
+import type { CurrentBid } from './CurrentBid';
+import {
+    CurrentBidFromJSON,
+    CurrentBidFromJSONTyped,
+    CurrentBidToJSON,
+    CurrentBidToJSONTyped,
+} from './CurrentBid';
 
 /**
  * 
@@ -61,16 +61,16 @@ export interface BountyAuctionInfo {
     maxBid?: Reward;
     /**
      * 
-     * @type {BountyAuctionInfoCurrentBid}
+     * @type {CurrentBid}
      * @memberof BountyAuctionInfo
      */
-    currentBid?: BountyAuctionInfoCurrentBid;
+    currentBid?: CurrentBid;
     /**
      * 
-     * @type {{ [key: string]: BountyAuctionInfoBidStep; }}
+     * @type {{ [key: string]: BidStep; }}
      * @memberof BountyAuctionInfo
      */
-    bidSteps?: { [key: string]: BountyAuctionInfoBidStep; };
+    bidSteps?: { [key: string]: BidStep; };
     /**
      * 
      * @type {string}
@@ -112,8 +112,8 @@ export function BountyAuctionInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'status': json['status'] == null ? undefined : json['status'],
         'startingBid': json['startingBid'] == null ? undefined : RewardFromJSON(json['startingBid']),
         'maxBid': json['maxBid'] == null ? undefined : RewardFromJSON(json['maxBid']),
-        'currentBid': json['currentBid'] == null ? undefined : BountyAuctionInfoCurrentBidFromJSON(json['currentBid']),
-        'bidSteps': json['bidSteps'] == null ? undefined : (mapValues(json['bidSteps'], BountyAuctionInfoBidStepFromJSON)),
+        'currentBid': json['currentBid'] == null ? undefined : CurrentBidFromJSON(json['currentBid']),
+        'bidSteps': json['bidSteps'] == null ? undefined : (mapValues(json['bidSteps'], BidStepFromJSON)),
         'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
     };
 }
@@ -132,8 +132,8 @@ export function BountyAuctionInfoToJSONTyped(value?: BountyAuctionInfo | null, i
         'status': value['status'],
         'startingBid': RewardToJSON(value['startingBid']),
         'maxBid': RewardToJSON(value['maxBid']),
-        'currentBid': BountyAuctionInfoCurrentBidToJSON(value['currentBid']),
-        'bidSteps': value['bidSteps'] == null ? undefined : (mapValues(value['bidSteps'], BountyAuctionInfoBidStepToJSON)),
+        'currentBid': CurrentBidToJSON(value['currentBid']),
+        'bidSteps': value['bidSteps'] == null ? undefined : (mapValues(value['bidSteps'], BidStepToJSON)),
         'statusAsEnum': value['statusAsEnum'],
     };
 }

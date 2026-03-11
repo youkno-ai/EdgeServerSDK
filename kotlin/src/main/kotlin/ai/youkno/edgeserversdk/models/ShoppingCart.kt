@@ -15,15 +15,15 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyOrderCustomer
-import ai.youkno.edgeserversdk.models.BountyOrderDelivery
-import ai.youkno.edgeserversdk.models.BountyOrderDriverLicense
-import ai.youkno.edgeserversdk.models.BountyOrderMedical
-import ai.youkno.edgeserversdk.models.BountyOrderPaymentInfo
+import ai.youkno.edgeserversdk.models.Delivery
+import ai.youkno.edgeserversdk.models.DiscountRule
+import ai.youkno.edgeserversdk.models.DriverLicense
+import ai.youkno.edgeserversdk.models.Medical
+import ai.youkno.edgeserversdk.models.OrderCustomer
+import ai.youkno.edgeserversdk.models.OrderPaymentInfo
 import ai.youkno.edgeserversdk.models.PaymentMethodInfo
-import ai.youkno.edgeserversdk.models.ShoppingCartDiscountRule
+import ai.youkno.edgeserversdk.models.RedemptionInfo
 import ai.youkno.edgeserversdk.models.ShoppingCartProductInfo
-import ai.youkno.edgeserversdk.models.ShoppingCartRedemptionInfo
 import ai.youkno.edgeserversdk.models.Voucher
 
 import com.squareup.moshi.Json
@@ -89,25 +89,25 @@ data class ShoppingCart (
     val products: kotlin.collections.Map<kotlin.String, ShoppingCartProductInfo>? = null,
 
     @Json(name = "redemptionInfo")
-    val redemptionInfo: ShoppingCartRedemptionInfo? = null,
+    val redemptionInfo: RedemptionInfo? = null,
 
     @Json(name = "posOrderId")
     val posOrderId: kotlin.String? = null,
 
     @Json(name = "customer")
-    val customer: BountyOrderCustomer? = null,
+    val customer: OrderCustomer? = null,
 
     @Json(name = "driverLicense")
-    val driverLicense: BountyOrderDriverLicense? = null,
+    val driverLicense: DriverLicense? = null,
 
     @Json(name = "medical")
-    val medical: BountyOrderMedical? = null,
+    val medical: Medical? = null,
 
     @Json(name = "payment")
-    val payment: BountyOrderPaymentInfo? = null,
+    val payment: OrderPaymentInfo? = null,
 
     @Json(name = "delivery")
-    val delivery: BountyOrderDelivery? = null,
+    val delivery: Delivery? = null,
 
     @Json(name = "useType")
     val useType: kotlin.String? = null,
@@ -119,7 +119,7 @@ data class ShoppingCart (
     val printReceipt: kotlin.String? = null,
 
     @Json(name = "discounts")
-    val discounts: kotlin.collections.List<ShoppingCartDiscountRule>? = null
+    val discounts: kotlin.collections.List<DiscountRule>? = null
 
 ) {
 

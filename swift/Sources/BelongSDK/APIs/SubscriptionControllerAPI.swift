@@ -290,12 +290,12 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerSubscriptionControllerAdminCancelSubscriptionRequest: (body)  (optional)
+     - parameter adminCancelSubscriptionRequest: (body)  (optional)
      - returns: SubscriptionMutationResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SubscriptionsAdminBySubscriptionidCancelImmediately(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerSubscriptionControllerAdminCancelSubscriptionRequest: RestControllerSubscriptionControllerAdminCancelSubscriptionRequest? = nil) async throws -> SubscriptionMutationResult {
-        return try await postApiV1SubscriptionsAdminBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: subscriptionId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, restControllerSubscriptionControllerAdminCancelSubscriptionRequest: restControllerSubscriptionControllerAdminCancelSubscriptionRequest).execute().body
+    open class func postApiV1SubscriptionsAdminBySubscriptionidCancelImmediately(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, adminCancelSubscriptionRequest: AdminCancelSubscriptionRequest? = nil) async throws -> SubscriptionMutationResult {
+        return try await postApiV1SubscriptionsAdminBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: subscriptionId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, adminCancelSubscriptionRequest: adminCancelSubscriptionRequest).execute().body
     }
 
     /**
@@ -307,16 +307,16 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerSubscriptionControllerAdminCancelSubscriptionRequest: (body)  (optional)
+     - parameter adminCancelSubscriptionRequest: (body)  (optional)
      - returns: RequestBuilder<SubscriptionMutationResult> 
      */
-    open class func postApiV1SubscriptionsAdminBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerSubscriptionControllerAdminCancelSubscriptionRequest: RestControllerSubscriptionControllerAdminCancelSubscriptionRequest? = nil) -> RequestBuilder<SubscriptionMutationResult> {
+    open class func postApiV1SubscriptionsAdminBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, adminCancelSubscriptionRequest: AdminCancelSubscriptionRequest? = nil) -> RequestBuilder<SubscriptionMutationResult> {
         var localVariablePath = "/api/v1/subscriptions/admin/{subscriptionId}/cancel-immediately"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionControllerAdminCancelSubscriptionRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: adminCancelSubscriptionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -340,10 +340,10 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult
+     - returns: SyncResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult {
+    open class func postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SyncResult {
         return try await postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsWithRequestBuilder(subscriptionId: subscriptionId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -356,9 +356,9 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult> 
+     - returns: RequestBuilder<SyncResult> 
      */
-    open class func postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsWithRequestBuilder(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult> {
+    open class func postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsWithRequestBuilder(subscriptionId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SyncResult> {
         var localVariablePath = "/api/v1/subscriptions/admin/{subscriptionId}/rebuild-entitlements"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -376,7 +376,7 @@ open class SubscriptionControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SyncResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -387,10 +387,10 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult]
+     - returns: [SyncResult]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult] {
+    open class func postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [SyncResult] {
         return try await postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -403,9 +403,9 @@ open class SubscriptionControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult]> 
+     - returns: RequestBuilder<[SyncResult]> 
      */
-    open class func postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult]> {
+    open class func postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[SyncResult]> {
         var localVariablePath = "/api/v1/subscriptions/admin/users/{userId}/rebuild-entitlements"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -423,7 +423,7 @@ open class SubscriptionControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[SyncResult]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -478,15 +478,15 @@ open class SubscriptionControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionControllerChangeSubscriptionTierRequest: (body)  
+     - parameter changeSubscriptionTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: ChangeSubscriptionTierResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SubscriptionsMeBySubscriptionidChangeTier(subscriptionId: UUID, restControllerSubscriptionControllerChangeSubscriptionTierRequest: RestControllerSubscriptionControllerChangeSubscriptionTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ChangeSubscriptionTierResult {
-        return try await postApiV1SubscriptionsMeBySubscriptionidChangeTierWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionControllerChangeSubscriptionTierRequest: restControllerSubscriptionControllerChangeSubscriptionTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1SubscriptionsMeBySubscriptionidChangeTier(subscriptionId: UUID, changeSubscriptionTierRequest: ChangeSubscriptionTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ChangeSubscriptionTierResult {
+        return try await postApiV1SubscriptionsMeBySubscriptionidChangeTierWithRequestBuilder(subscriptionId: subscriptionId, changeSubscriptionTierRequest: changeSubscriptionTierRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -495,19 +495,19 @@ open class SubscriptionControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionControllerChangeSubscriptionTierRequest: (body)  
+     - parameter changeSubscriptionTierRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<ChangeSubscriptionTierResult> 
      */
-    open class func postApiV1SubscriptionsMeBySubscriptionidChangeTierWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionControllerChangeSubscriptionTierRequest: RestControllerSubscriptionControllerChangeSubscriptionTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ChangeSubscriptionTierResult> {
+    open class func postApiV1SubscriptionsMeBySubscriptionidChangeTierWithRequestBuilder(subscriptionId: UUID, changeSubscriptionTierRequest: ChangeSubscriptionTierRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ChangeSubscriptionTierResult> {
         var localVariablePath = "/api/v1/subscriptions/me/{subscriptionId}/change-tier"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionControllerChangeSubscriptionTierRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: changeSubscriptionTierRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -574,15 +574,15 @@ open class SubscriptionControllerAPI {
 
     /**
 
-     - parameter restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: (body)  
+     - parameter startSubscriptionCheckoutRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: StartSubscriptionCheckoutResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1SubscriptionsMeCheckout(restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StartSubscriptionCheckoutResult {
-        return try await postApiV1SubscriptionsMeCheckoutWithRequestBuilder(restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: restControllerSubscriptionControllerStartSubscriptionCheckoutRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1SubscriptionsMeCheckout(startSubscriptionCheckoutRequest: StartSubscriptionCheckoutRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StartSubscriptionCheckoutResult {
+        return try await postApiV1SubscriptionsMeCheckoutWithRequestBuilder(startSubscriptionCheckoutRequest: startSubscriptionCheckoutRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -590,16 +590,16 @@ open class SubscriptionControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: (body)  
+     - parameter startSubscriptionCheckoutRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<StartSubscriptionCheckoutResult> 
      */
-    open class func postApiV1SubscriptionsMeCheckoutWithRequestBuilder(restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StartSubscriptionCheckoutResult> {
+    open class func postApiV1SubscriptionsMeCheckoutWithRequestBuilder(startSubscriptionCheckoutRequest: StartSubscriptionCheckoutRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StartSubscriptionCheckoutResult> {
         let localVariablePath = "/api/v1/subscriptions/me/checkout"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionControllerStartSubscriptionCheckoutRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: startSubscriptionCheckoutRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

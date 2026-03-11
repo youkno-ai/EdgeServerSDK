@@ -35,8 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param comment 
  * @param description 
  * @param moderationReason 
- * @param entityTypeAsEnum 
  * @param approvalStateAsEnum 
+ * @param entityTypeAsEnum 
  */
 
 
@@ -72,14 +72,27 @@ data class BountyApprovalInfo (
     @Json(name = "moderationReason")
     val moderationReason: kotlin.String? = null,
 
-    @Json(name = "entityTypeAsEnum")
-    val entityTypeAsEnum: BountyApprovalInfo.EntityTypeAsEnum? = null,
-
     @Json(name = "approvalStateAsEnum")
-    val approvalStateAsEnum: BountyApprovalInfo.ApprovalStateAsEnum? = null
+    val approvalStateAsEnum: BountyApprovalInfo.ApprovalStateAsEnum? = null,
+
+    @Json(name = "entityTypeAsEnum")
+    val entityTypeAsEnum: BountyApprovalInfo.EntityTypeAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NONE,PENDING,APPROVED,DECLINED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ApprovalStateAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "PENDING") PENDING("PENDING"),
+        @Json(name = "APPROVED") APPROVED("APPROVED"),
+        @Json(name = "DECLINED") DECLINED("DECLINED"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
     /**
      * 
      *
@@ -105,19 +118,6 @@ data class BountyApprovalInfo (
         @Json(name = "CATEGORY") CATEGORY("CATEGORY"),
         @Json(name = "SUBSCRIPTION") SUBSCRIPTION("SUBSCRIPTION"),
         @Json(name = "SYSTEM") SYSTEM("SYSTEM");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,PENDING,APPROVED,DECLINED,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ApprovalStateAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "APPROVED") APPROVED("APPROVED"),
-        @Json(name = "DECLINED") DECLINED("DECLINED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 
 }

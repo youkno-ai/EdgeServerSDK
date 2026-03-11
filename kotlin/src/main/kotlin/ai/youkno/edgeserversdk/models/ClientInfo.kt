@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.ClientInfoBackend
-import ai.youkno.edgeserversdk.models.ClientInfoBranding
+import ai.youkno.edgeserversdk.models.Backend
+import ai.youkno.edgeserversdk.models.Branding
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -71,10 +71,10 @@ data class ClientInfo (
     val ssoInfo: kotlin.String? = null,
 
     @Json(name = "backend")
-    val backend: ClientInfoBackend? = null,
+    val backend: Backend? = null,
 
     @Json(name = "branding")
-    val branding: ClientInfoBranding? = null,
+    val branding: Branding? = null,
 
     @Json(name = "status")
     val status: kotlin.String? = null,

@@ -13,55 +13,55 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyMatchInfoInjury } from './BountyMatchInfoInjury';
+import type { Lineups } from './Lineups';
 import {
-    BountyMatchInfoInjuryFromJSON,
-    BountyMatchInfoInjuryFromJSONTyped,
-    BountyMatchInfoInjuryToJSON,
-    BountyMatchInfoInjuryToJSONTyped,
-} from './BountyMatchInfoInjury';
-import type { BountyMatchInfoStats } from './BountyMatchInfoStats';
+    LineupsFromJSON,
+    LineupsFromJSONTyped,
+    LineupsToJSON,
+    LineupsToJSONTyped,
+} from './Lineups';
+import type { LiveText } from './LiveText';
 import {
-    BountyMatchInfoStatsFromJSON,
-    BountyMatchInfoStatsFromJSONTyped,
-    BountyMatchInfoStatsToJSON,
-    BountyMatchInfoStatsToJSONTyped,
-} from './BountyMatchInfoStats';
-import type { BountyMatchInfoMatchEvent } from './BountyMatchInfoMatchEvent';
+    LiveTextFromJSON,
+    LiveTextFromJSONTyped,
+    LiveTextToJSON,
+    LiveTextToJSONTyped,
+} from './LiveText';
+import type { MatchEvent } from './MatchEvent';
 import {
-    BountyMatchInfoMatchEventFromJSON,
-    BountyMatchInfoMatchEventFromJSONTyped,
-    BountyMatchInfoMatchEventToJSON,
-    BountyMatchInfoMatchEventToJSONTyped,
-} from './BountyMatchInfoMatchEvent';
-import type { BountyMatchInfoTeamInfo } from './BountyMatchInfoTeamInfo';
+    MatchEventFromJSON,
+    MatchEventFromJSONTyped,
+    MatchEventToJSON,
+    MatchEventToJSONTyped,
+} from './MatchEvent';
+import type { ExtraTime } from './ExtraTime';
 import {
-    BountyMatchInfoTeamInfoFromJSON,
-    BountyMatchInfoTeamInfoFromJSONTyped,
-    BountyMatchInfoTeamInfoToJSON,
-    BountyMatchInfoTeamInfoToJSONTyped,
-} from './BountyMatchInfoTeamInfo';
-import type { BountyMatchInfoLineups } from './BountyMatchInfoLineups';
+    ExtraTimeFromJSON,
+    ExtraTimeFromJSONTyped,
+    ExtraTimeToJSON,
+    ExtraTimeToJSONTyped,
+} from './ExtraTime';
+import type { Injury } from './Injury';
 import {
-    BountyMatchInfoLineupsFromJSON,
-    BountyMatchInfoLineupsFromJSONTyped,
-    BountyMatchInfoLineupsToJSON,
-    BountyMatchInfoLineupsToJSONTyped,
-} from './BountyMatchInfoLineups';
-import type { BountyMatchInfoLiveText } from './BountyMatchInfoLiveText';
+    InjuryFromJSON,
+    InjuryFromJSONTyped,
+    InjuryToJSON,
+    InjuryToJSONTyped,
+} from './Injury';
+import type { MatchInfoTeamInfo } from './MatchInfoTeamInfo';
 import {
-    BountyMatchInfoLiveTextFromJSON,
-    BountyMatchInfoLiveTextFromJSONTyped,
-    BountyMatchInfoLiveTextToJSON,
-    BountyMatchInfoLiveTextToJSONTyped,
-} from './BountyMatchInfoLiveText';
-import type { BountyMatchInfoExtraTime } from './BountyMatchInfoExtraTime';
+    MatchInfoTeamInfoFromJSON,
+    MatchInfoTeamInfoFromJSONTyped,
+    MatchInfoTeamInfoToJSON,
+    MatchInfoTeamInfoToJSONTyped,
+} from './MatchInfoTeamInfo';
+import type { MatchInfoStats } from './MatchInfoStats';
 import {
-    BountyMatchInfoExtraTimeFromJSON,
-    BountyMatchInfoExtraTimeFromJSONTyped,
-    BountyMatchInfoExtraTimeToJSON,
-    BountyMatchInfoExtraTimeToJSONTyped,
-} from './BountyMatchInfoExtraTime';
+    MatchInfoStatsFromJSON,
+    MatchInfoStatsFromJSONTyped,
+    MatchInfoStatsToJSON,
+    MatchInfoStatsToJSONTyped,
+} from './MatchInfoStats';
 
 /**
  * 
@@ -257,10 +257,10 @@ export interface BountyMatchInfo {
     explain?: string;
     /**
      * 
-     * @type {BountyMatchInfoExtraTime}
+     * @type {ExtraTime}
      * @memberof BountyMatchInfo
      */
-    extraTime?: BountyMatchInfoExtraTime;
+    extraTime?: ExtraTime;
     /**
      * 
      * @type {boolean}
@@ -269,46 +269,46 @@ export interface BountyMatchInfo {
     neutral?: boolean;
     /**
      * 
-     * @type {{ [key: string]: BountyMatchInfoMatchEvent; }}
+     * @type {{ [key: string]: MatchEvent; }}
      * @memberof BountyMatchInfo
      */
-    events?: { [key: string]: BountyMatchInfoMatchEvent; };
+    events?: { [key: string]: MatchEvent; };
     /**
      * 
-     * @type {{ [key: string]: BountyMatchInfoLiveText; }}
+     * @type {{ [key: string]: LiveText; }}
      * @memberof BountyMatchInfo
      */
-    liveTexts?: { [key: string]: BountyMatchInfoLiveText; };
+    liveTexts?: { [key: string]: LiveText; };
     /**
      * 
-     * @type {{ [key: string]: BountyMatchInfoStats; }}
+     * @type {{ [key: string]: MatchInfoStats; }}
      * @memberof BountyMatchInfo
      */
-    stats?: { [key: string]: BountyMatchInfoStats; };
+    stats?: { [key: string]: MatchInfoStats; };
     /**
      * 
-     * @type {{ [key: string]: BountyMatchInfoInjury; }}
+     * @type {{ [key: string]: Injury; }}
      * @memberof BountyMatchInfo
      */
-    injury?: { [key: string]: BountyMatchInfoInjury; };
+    injury?: { [key: string]: Injury; };
     /**
      * 
-     * @type {BountyMatchInfoLineups}
+     * @type {Lineups}
      * @memberof BountyMatchInfo
      */
-    lineups?: BountyMatchInfoLineups;
+    lineups?: Lineups;
     /**
      * 
-     * @type {BountyMatchInfoTeamInfo}
+     * @type {MatchInfoTeamInfo}
      * @memberof BountyMatchInfo
      */
-    homeTeam?: BountyMatchInfoTeamInfo;
+    homeTeam?: MatchInfoTeamInfo;
     /**
      * 
-     * @type {BountyMatchInfoTeamInfo}
+     * @type {MatchInfoTeamInfo}
      * @memberof BountyMatchInfo
      */
-    awayTeam?: BountyMatchInfoTeamInfo;
+    awayTeam?: MatchInfoTeamInfo;
     /**
      * 
      * @type {number}
@@ -371,15 +371,15 @@ export function BountyMatchInfoFromJSONTyped(json: any, ignoreDiscriminator: boo
         'weather': json['weather'] == null ? undefined : json['weather'],
         'temperature': json['temperature'] == null ? undefined : json['temperature'],
         'explain': json['explain'] == null ? undefined : json['explain'],
-        'extraTime': json['extraTime'] == null ? undefined : BountyMatchInfoExtraTimeFromJSON(json['extraTime']),
+        'extraTime': json['extraTime'] == null ? undefined : ExtraTimeFromJSON(json['extraTime']),
         'neutral': json['neutral'] == null ? undefined : json['neutral'],
-        'events': json['events'] == null ? undefined : (mapValues(json['events'], BountyMatchInfoMatchEventFromJSON)),
-        'liveTexts': json['liveTexts'] == null ? undefined : (mapValues(json['liveTexts'], BountyMatchInfoLiveTextFromJSON)),
-        'stats': json['stats'] == null ? undefined : (mapValues(json['stats'], BountyMatchInfoStatsFromJSON)),
-        'injury': json['injury'] == null ? undefined : (mapValues(json['injury'], BountyMatchInfoInjuryFromJSON)),
-        'lineups': json['lineups'] == null ? undefined : BountyMatchInfoLineupsFromJSON(json['lineups']),
-        'homeTeam': json['homeTeam'] == null ? undefined : BountyMatchInfoTeamInfoFromJSON(json['homeTeam']),
-        'awayTeam': json['awayTeam'] == null ? undefined : BountyMatchInfoTeamInfoFromJSON(json['awayTeam']),
+        'events': json['events'] == null ? undefined : (mapValues(json['events'], MatchEventFromJSON)),
+        'liveTexts': json['liveTexts'] == null ? undefined : (mapValues(json['liveTexts'], LiveTextFromJSON)),
+        'stats': json['stats'] == null ? undefined : (mapValues(json['stats'], MatchInfoStatsFromJSON)),
+        'injury': json['injury'] == null ? undefined : (mapValues(json['injury'], InjuryFromJSON)),
+        'lineups': json['lineups'] == null ? undefined : LineupsFromJSON(json['lineups']),
+        'homeTeam': json['homeTeam'] == null ? undefined : MatchInfoTeamInfoFromJSON(json['homeTeam']),
+        'awayTeam': json['awayTeam'] == null ? undefined : MatchInfoTeamInfoFromJSON(json['awayTeam']),
         'ticketsAvailableAt': json['ticketsAvailableAt'] == null ? undefined : json['ticketsAvailableAt'],
         'ticketsNotificationSentAt': json['ticketsNotificationSentAt'] == null ? undefined : json['ticketsNotificationSentAt'],
     };
@@ -427,15 +427,15 @@ export function BountyMatchInfoToJSONTyped(value?: BountyMatchInfo | null, ignor
         'weather': value['weather'],
         'temperature': value['temperature'],
         'explain': value['explain'],
-        'extraTime': BountyMatchInfoExtraTimeToJSON(value['extraTime']),
+        'extraTime': ExtraTimeToJSON(value['extraTime']),
         'neutral': value['neutral'],
-        'events': value['events'] == null ? undefined : (mapValues(value['events'], BountyMatchInfoMatchEventToJSON)),
-        'liveTexts': value['liveTexts'] == null ? undefined : (mapValues(value['liveTexts'], BountyMatchInfoLiveTextToJSON)),
-        'stats': value['stats'] == null ? undefined : (mapValues(value['stats'], BountyMatchInfoStatsToJSON)),
-        'injury': value['injury'] == null ? undefined : (mapValues(value['injury'], BountyMatchInfoInjuryToJSON)),
-        'lineups': BountyMatchInfoLineupsToJSON(value['lineups']),
-        'homeTeam': BountyMatchInfoTeamInfoToJSON(value['homeTeam']),
-        'awayTeam': BountyMatchInfoTeamInfoToJSON(value['awayTeam']),
+        'events': value['events'] == null ? undefined : (mapValues(value['events'], MatchEventToJSON)),
+        'liveTexts': value['liveTexts'] == null ? undefined : (mapValues(value['liveTexts'], LiveTextToJSON)),
+        'stats': value['stats'] == null ? undefined : (mapValues(value['stats'], MatchInfoStatsToJSON)),
+        'injury': value['injury'] == null ? undefined : (mapValues(value['injury'], InjuryToJSON)),
+        'lineups': LineupsToJSON(value['lineups']),
+        'homeTeam': MatchInfoTeamInfoToJSON(value['homeTeam']),
+        'awayTeam': MatchInfoTeamInfoToJSON(value['awayTeam']),
         'ticketsAvailableAt': value['ticketsAvailableAt'],
         'ticketsNotificationSentAt': value['ticketsNotificationSentAt'],
     };

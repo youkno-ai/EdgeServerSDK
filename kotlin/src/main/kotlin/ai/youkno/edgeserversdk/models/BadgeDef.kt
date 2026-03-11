@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BadgeDefEntityInfo
+import ai.youkno.edgeserversdk.models.EntityInfo
 import ai.youkno.edgeserversdk.models.Reward
 
 import com.squareup.moshi.Json
@@ -67,7 +67,7 @@ data class BadgeDef (
     val reward: Reward? = null,
 
     @Json(name = "entityTypes")
-    val entityTypes: kotlin.collections.Map<kotlin.String, BadgeDefEntityInfo>? = null,
+    val entityTypes: kotlin.collections.Map<kotlin.String, EntityInfo>? = null,
 
     @Json(name = "maxQty")
     val maxQty: kotlin.Int? = null,

@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataInventoryItemResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,54 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param itemId 
- * @param itemName 
- * @param categoryId 
- * @param categoryPath 
- * @param barcode 
- * @param priceRetail 
- * @param priceRetailAdultUse 
- * @param priceRetailMedicalUse 
- * @param priceSale 
- * @param priceSaleAdultUse 
- * @param priceSaleMedicalUse 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataInventoryItemResp (
 
-    @Json(name = "itemId")
-    val itemId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "itemName")
-    val itemName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "categoryId")
-    val categoryId: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "categoryPath")
-    val categoryPath: kotlin.String? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "barcode")
-    val barcode: kotlin.String? = null,
-
-    @Json(name = "priceRetail")
-    val priceRetail: kotlin.Double? = null,
-
-    @Json(name = "priceRetailAdultUse")
-    val priceRetailAdultUse: kotlin.Double? = null,
-
-    @Json(name = "priceRetailMedicalUse")
-    val priceRetailMedicalUse: kotlin.Double? = null,
-
-    @Json(name = "priceSale")
-    val priceSale: kotlin.Double? = null,
-
-    @Json(name = "priceSaleAdultUse")
-    val priceSaleAdultUse: kotlin.Double? = null,
-
-    @Json(name = "priceSaleMedicalUse")
-    val priceSaleMedicalUse: kotlin.Double? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataInventoryItemResp2>? = null
 
 ) {
 

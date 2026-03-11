@@ -15,37 +15,35 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyChangesBroadcastChanges
-import ai.youkno.edgeserversdk.models.BountyChangesChangesAttachments
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyActivities
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyApprovalInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyAuctionInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyBanner
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyBudget
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyChallengeInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyContestInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyDescription
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyDistribution
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyInteractions
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyMatchInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyMenuInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyNewsInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyProduct
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyQuickClaimInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyReservationInfo
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyTerms
-import ai.youkno.edgeserversdk.models.BountyChangesChangesBountyTheme
-import ai.youkno.edgeserversdk.models.BountyChangesChangesGeofences
-import ai.youkno.edgeserversdk.models.BountyChangesChangesHasAccessKeysAccessKeys
-import ai.youkno.edgeserversdk.models.BountyChangesChangesIdentityMode
-import ai.youkno.edgeserversdk.models.BountyChangesChangesLong
-import ai.youkno.edgeserversdk.models.BountyChangesChangesMapStringBountyBountyCategory
-import ai.youkno.edgeserversdk.models.BountyChangesChangesReward
-import ai.youkno.edgeserversdk.models.BountyChangesChangesSponsorship
-import ai.youkno.edgeserversdk.models.BountyChangesChangesString
-import ai.youkno.edgeserversdk.models.BountyChangesChangesTags
-import ai.youkno.edgeserversdk.models.BountyChangesChangesVisibilityMode
-import ai.youkno.edgeserversdk.models.BountyChangesOrderChanges
+import ai.youkno.edgeserversdk.models.BountyActivities2
+import ai.youkno.edgeserversdk.models.BountyApprovalInfo2
+import ai.youkno.edgeserversdk.models.BountyAuctionInfo2
+import ai.youkno.edgeserversdk.models.BountyBanner2
+import ai.youkno.edgeserversdk.models.BountyBountyCategory2
+import ai.youkno.edgeserversdk.models.BountyBudget2
+import ai.youkno.edgeserversdk.models.BountyChallengeInfo2
+import ai.youkno.edgeserversdk.models.BountyContestInfo2
+import ai.youkno.edgeserversdk.models.BountyDescription2
+import ai.youkno.edgeserversdk.models.BountyDistribution2
+import ai.youkno.edgeserversdk.models.BountyInteractions2
+import ai.youkno.edgeserversdk.models.BountyMatchInfo2
+import ai.youkno.edgeserversdk.models.BountyMenuInfo2
+import ai.youkno.edgeserversdk.models.BountyNewsInfo2
+import ai.youkno.edgeserversdk.models.BountyProduct2
+import ai.youkno.edgeserversdk.models.BountyQuickClaimInfo2
+import ai.youkno.edgeserversdk.models.BountyReservationInfo2
+import ai.youkno.edgeserversdk.models.BountyTerms2
+import ai.youkno.edgeserversdk.models.BountyTheme2
+import ai.youkno.edgeserversdk.models.BroadcastChanges
+import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys
+import ai.youkno.edgeserversdk.models.ModelAttachments
+import ai.youkno.edgeserversdk.models.ModelGeofences
+import ai.youkno.edgeserversdk.models.ModelIdentityMode
+import ai.youkno.edgeserversdk.models.ModelReward
+import ai.youkno.edgeserversdk.models.ModelSponsorship
+import ai.youkno.edgeserversdk.models.ModelTags
+import ai.youkno.edgeserversdk.models.ModelVisibilityMode
+import ai.youkno.edgeserversdk.models.OrderChanges
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -104,124 +102,124 @@ import com.squareup.moshi.JsonClass
 data class BountyChanges (
 
     @Json(name = "description")
-    val description: BountyChangesChangesBountyDescription? = null,
+    val description: BountyDescription2? = null,
 
     @Json(name = "reward")
-    val reward: BountyChangesChangesReward? = null,
+    val reward: ModelReward? = null,
 
     @Json(name = "distribution")
-    val distribution: BountyChangesChangesBountyDistribution? = null,
+    val distribution: BountyDistribution2? = null,
 
     @Json(name = "listId")
-    val listId: BountyChangesChangesString? = null,
+    val listId: kotlin.Any? = null,
 
     @Json(name = "listCode")
-    val listCode: BountyChangesChangesString? = null,
+    val listCode: kotlin.Any? = null,
 
     @Json(name = "terms")
-    val terms: BountyChangesChangesBountyTerms? = null,
+    val terms: BountyTerms2? = null,
 
     @Json(name = "matchInfo")
-    val matchInfo: BountyChangesChangesBountyMatchInfo? = null,
+    val matchInfo: BountyMatchInfo2? = null,
 
     @Json(name = "reservationInfo")
-    val reservationInfo: BountyChangesChangesBountyReservationInfo? = null,
+    val reservationInfo: BountyReservationInfo2? = null,
 
     @Json(name = "contestInfo")
-    val contestInfo: BountyChangesChangesBountyContestInfo? = null,
+    val contestInfo: BountyContestInfo2? = null,
 
     @Json(name = "attachments")
-    val attachments: BountyChangesChangesAttachments? = null,
+    val attachments: ModelAttachments? = null,
 
     @Json(name = "interactions")
-    val interactions: BountyChangesChangesBountyInteractions? = null,
+    val interactions: BountyInteractions2? = null,
 
     @Json(name = "identityMode")
-    val identityMode: BountyChangesChangesIdentityMode? = null,
+    val identityMode: ModelIdentityMode? = null,
 
     @Json(name = "responseVisibilityMode")
-    val responseVisibilityMode: BountyChangesChangesVisibilityMode? = null,
+    val responseVisibilityMode: ModelVisibilityMode? = null,
 
     @Json(name = "visibility")
-    val visibility: BountyChangesChangesString? = null,
+    val visibility: kotlin.Any? = null,
 
     @Json(name = "product")
-    val product: BountyChangesChangesBountyProduct? = null,
+    val product: BountyProduct2? = null,
 
     @Json(name = "bountyCategories")
-    val bountyCategories: BountyChangesChangesMapStringBountyBountyCategory? = null,
+    val bountyCategories: BountyBountyCategory2? = null,
 
     @Json(name = "order")
-    val order: BountyChangesOrderChanges? = null,
+    val order: OrderChanges? = null,
 
     @Json(name = "broadcastInfo")
-    val broadcastInfo: BountyChangesBroadcastChanges? = null,
+    val broadcastInfo: BroadcastChanges? = null,
 
     @Json(name = "expiresAt")
-    val expiresAt: BountyChangesChangesLong? = null,
+    val expiresAt: kotlin.Any? = null,
 
     @Json(name = "postedAt")
-    val postedAt: BountyChangesChangesLong? = null,
+    val postedAt: kotlin.Any? = null,
 
     @Json(name = "postAt")
-    val postAt: BountyChangesChangesLong? = null,
+    val postAt: kotlin.Any? = null,
 
     @Json(name = "timeLimit")
-    val timeLimit: BountyChangesChangesLong? = null,
+    val timeLimit: kotlin.Any? = null,
 
     @Json(name = "title")
-    val title: BountyChangesChangesString? = null,
+    val title: kotlin.Any? = null,
 
     @Json(name = "targetUrl")
-    val targetUrl: BountyChangesChangesString? = null,
+    val targetUrl: kotlin.Any? = null,
 
     @Json(name = "tags")
-    val tags: BountyChangesChangesTags? = null,
+    val tags: ModelTags? = null,
 
     @Json(name = "trustedTags")
-    val trustedTags: BountyChangesChangesTags? = null,
+    val trustedTags: ModelTags? = null,
 
     @Json(name = "theme")
-    val theme: BountyChangesChangesBountyTheme? = null,
+    val theme: BountyTheme2? = null,
 
     @Json(name = "sponsorship")
-    val sponsorship: BountyChangesChangesSponsorship? = null,
+    val sponsorship: ModelSponsorship? = null,
 
     @Json(name = "geofences")
-    val geofences: BountyChangesChangesGeofences? = null,
+    val geofences: ModelGeofences? = null,
 
     @Json(name = "banner")
-    val banner: BountyChangesChangesBountyBanner? = null,
+    val banner: BountyBanner2? = null,
 
     @Json(name = "challengeInfo")
-    val challengeInfo: BountyChangesChangesBountyChallengeInfo? = null,
+    val challengeInfo: BountyChallengeInfo2? = null,
 
     @Json(name = "approvalInfo")
-    val approvalInfo: BountyChangesChangesBountyApprovalInfo? = null,
+    val approvalInfo: BountyApprovalInfo2? = null,
 
     @Json(name = "activities")
-    val activities: BountyChangesChangesBountyActivities? = null,
+    val activities: BountyActivities2? = null,
 
     @Json(name = "quickClaimInfo")
-    val quickClaimInfo: BountyChangesChangesBountyQuickClaimInfo? = null,
+    val quickClaimInfo: BountyQuickClaimInfo2? = null,
 
     @Json(name = "auctionInfo")
-    val auctionInfo: BountyChangesChangesBountyAuctionInfo? = null,
+    val auctionInfo: BountyAuctionInfo2? = null,
 
     @Json(name = "newsInfo")
-    val newsInfo: BountyChangesChangesBountyNewsInfo? = null,
+    val newsInfo: BountyNewsInfo2? = null,
 
     @Json(name = "menuInfo")
-    val menuInfo: BountyChangesChangesBountyMenuInfo? = null,
+    val menuInfo: BountyMenuInfo2? = null,
 
     @Json(name = "overallBudget")
-    val overallBudget: BountyChangesChangesBountyBudget? = null,
+    val overallBudget: BountyBudget2? = null,
 
     @Json(name = "accessKeys")
-    val accessKeys: BountyChangesChangesHasAccessKeysAccessKeys? = null,
+    val accessKeys: HasAccessKeysAccessKeys? = null,
 
     @Json(name = "orderInParentSortKey")
-    val orderInParentSortKey: BountyChangesChangesString? = null,
+    val orderInParentSortKey: kotlin.Any? = null,
 
     @Json(name = "updateSortKeys")
     val updateSortKeys: kotlin.Boolean? = null,
@@ -233,7 +231,7 @@ data class BountyChanges (
     val editedAt: kotlin.Long? = null,
 
     @Json(name = "source")
-    val source: BountyChangesChangesString? = null,
+    val source: kotlin.Any? = null,
 
     @Json(name = "notify")
     val notify: kotlin.Boolean? = null

@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.ComLatticaVernumVersionNumber
+import ai.youkno.edgeserversdk.models.VersionNumber
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -57,10 +57,10 @@ data class SystemInfoAppInfo (
     val enforceDelayInHours: kotlin.Long? = null,
 
     @Json(name = "curVersionAsObj")
-    val curVersionAsObj: ComLatticaVernumVersionNumber? = null,
+    val curVersionAsObj: VersionNumber? = null,
 
     @Json(name = "minVersionAsObj")
-    val minVersionAsObj: ComLatticaVernumVersionNumber? = null,
+    val minVersionAsObj: VersionNumber? = null,
 
     @Json(name = "notificationStartingAt")
     val notificationStartingAt: kotlin.Long? = null,

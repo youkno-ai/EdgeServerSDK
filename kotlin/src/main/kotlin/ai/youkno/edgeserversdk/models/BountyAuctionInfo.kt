@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyAuctionInfoBidStep
-import ai.youkno.edgeserversdk.models.BountyAuctionInfoCurrentBid
+import ai.youkno.edgeserversdk.models.BidStep
+import ai.youkno.edgeserversdk.models.CurrentBid
 import ai.youkno.edgeserversdk.models.Reward
 
 import com.squareup.moshi.Json
@@ -46,10 +46,10 @@ data class BountyAuctionInfo (
     val maxBid: Reward? = null,
 
     @Json(name = "currentBid")
-    val currentBid: BountyAuctionInfoCurrentBid? = null,
+    val currentBid: CurrentBid? = null,
 
     @Json(name = "bidSteps")
-    val bidSteps: kotlin.collections.Map<kotlin.String, BountyAuctionInfoBidStep>? = null,
+    val bidSteps: kotlin.collections.Map<kotlin.String, BidStep>? = null,
 
     @Json(name = "statusAsEnum")
     val statusAsEnum: BountyAuctionInfo.StatusAsEnum? = null

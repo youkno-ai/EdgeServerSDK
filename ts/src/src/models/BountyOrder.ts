@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyOrderCustomerInfo } from './BountyOrderCustomerInfo';
+import type { OrderChargebackInfo } from './OrderChargebackInfo';
 import {
-    BountyOrderCustomerInfoFromJSON,
-    BountyOrderCustomerInfoFromJSONTyped,
-    BountyOrderCustomerInfoToJSON,
-    BountyOrderCustomerInfoToJSONTyped,
-} from './BountyOrderCustomerInfo';
-import type { ShoppingCartOrderSummaryOrderSection } from './ShoppingCartOrderSummaryOrderSection';
+    OrderChargebackInfoFromJSON,
+    OrderChargebackInfoFromJSONTyped,
+    OrderChargebackInfoToJSON,
+    OrderChargebackInfoToJSONTyped,
+} from './OrderChargebackInfo';
+import type { OrderSection } from './OrderSection';
 import {
-    ShoppingCartOrderSummaryOrderSectionFromJSON,
-    ShoppingCartOrderSummaryOrderSectionFromJSONTyped,
-    ShoppingCartOrderSummaryOrderSectionToJSON,
-    ShoppingCartOrderSummaryOrderSectionToJSONTyped,
-} from './ShoppingCartOrderSummaryOrderSection';
+    OrderSectionFromJSON,
+    OrderSectionFromJSONTyped,
+    OrderSectionToJSON,
+    OrderSectionToJSONTyped,
+} from './OrderSection';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -41,13 +41,13 @@ import {
     InvoiceInfoToJSON,
     InvoiceInfoToJSONTyped,
 } from './InvoiceInfo';
-import type { ShoppingCartRedemptionInfo } from './ShoppingCartRedemptionInfo';
+import type { ProductsInfo } from './ProductsInfo';
 import {
-    ShoppingCartRedemptionInfoFromJSON,
-    ShoppingCartRedemptionInfoFromJSONTyped,
-    ShoppingCartRedemptionInfoToJSON,
-    ShoppingCartRedemptionInfoToJSONTyped,
-} from './ShoppingCartRedemptionInfo';
+    ProductsInfoFromJSON,
+    ProductsInfoFromJSONTyped,
+    ProductsInfoToJSON,
+    ProductsInfoToJSONTyped,
+} from './ProductsInfo';
 import type { MailingAddress } from './MailingAddress';
 import {
     MailingAddressFromJSON,
@@ -55,6 +55,13 @@ import {
     MailingAddressToJSON,
     MailingAddressToJSONTyped,
 } from './MailingAddress';
+import type { OrderPaymentInfo } from './OrderPaymentInfo';
+import {
+    OrderPaymentInfoFromJSON,
+    OrderPaymentInfoFromJSONTyped,
+    OrderPaymentInfoToJSON,
+    OrderPaymentInfoToJSONTyped,
+} from './OrderPaymentInfo';
 import type { ShippingInfo } from './ShippingInfo';
 import {
     ShippingInfoFromJSON,
@@ -62,20 +69,13 @@ import {
     ShippingInfoToJSON,
     ShippingInfoToJSONTyped,
 } from './ShippingInfo';
-import type { BountyOrderChargebackInfo } from './BountyOrderChargebackInfo';
+import type { RedemptionInfo } from './RedemptionInfo';
 import {
-    BountyOrderChargebackInfoFromJSON,
-    BountyOrderChargebackInfoFromJSONTyped,
-    BountyOrderChargebackInfoToJSON,
-    BountyOrderChargebackInfoToJSONTyped,
-} from './BountyOrderChargebackInfo';
-import type { BountyOrderPaymentInfo } from './BountyOrderPaymentInfo';
-import {
-    BountyOrderPaymentInfoFromJSON,
-    BountyOrderPaymentInfoFromJSONTyped,
-    BountyOrderPaymentInfoToJSON,
-    BountyOrderPaymentInfoToJSONTyped,
-} from './BountyOrderPaymentInfo';
+    RedemptionInfoFromJSON,
+    RedemptionInfoFromJSONTyped,
+    RedemptionInfoToJSON,
+    RedemptionInfoToJSONTyped,
+} from './RedemptionInfo';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -83,6 +83,13 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
+import type { CustomerInfo } from './CustomerInfo';
+import {
+    CustomerInfoFromJSON,
+    CustomerInfoFromJSONTyped,
+    CustomerInfoToJSON,
+    CustomerInfoToJSONTyped,
+} from './CustomerInfo';
 import type { PaymentMethodInfo } from './PaymentMethodInfo';
 import {
     PaymentMethodInfoFromJSON,
@@ -90,13 +97,6 @@ import {
     PaymentMethodInfoToJSON,
     PaymentMethodInfoToJSONTyped,
 } from './PaymentMethodInfo';
-import type { ShoppingCartProductsInfo } from './ShoppingCartProductsInfo';
-import {
-    ShoppingCartProductsInfoFromJSON,
-    ShoppingCartProductsInfoFromJSONTyped,
-    ShoppingCartProductsInfoToJSON,
-    ShoppingCartProductsInfoToJSONTyped,
-} from './ShoppingCartProductsInfo';
 
 /**
  * 
@@ -160,16 +160,16 @@ export interface BountyOrder {
     invoiceInfo?: InvoiceInfo;
     /**
      * 
-     * @type {ShoppingCartProductsInfo}
+     * @type {ProductsInfo}
      * @memberof BountyOrder
      */
-    productsInfo?: ShoppingCartProductsInfo;
+    productsInfo?: ProductsInfo;
     /**
      * 
-     * @type {ShoppingCartRedemptionInfo}
+     * @type {RedemptionInfo}
      * @memberof BountyOrder
      */
-    redemptionInfo?: ShoppingCartRedemptionInfo;
+    redemptionInfo?: RedemptionInfo;
     /**
      * 
      * @type {Reward}
@@ -178,22 +178,22 @@ export interface BountyOrder {
     orderTotal?: Reward;
     /**
      * 
-     * @type {BountyOrderCustomerInfo}
+     * @type {CustomerInfo}
      * @memberof BountyOrder
      */
-    customerInfo?: BountyOrderCustomerInfo;
+    customerInfo?: CustomerInfo;
     /**
      * 
-     * @type {BountyOrderPaymentInfo}
+     * @type {OrderPaymentInfo}
      * @memberof BountyOrder
      */
-    paymentInfo?: BountyOrderPaymentInfo;
+    paymentInfo?: OrderPaymentInfo;
     /**
      * 
-     * @type {BountyOrderChargebackInfo}
+     * @type {OrderChargebackInfo}
      * @memberof BountyOrder
      */
-    chargebackInfo?: BountyOrderChargebackInfo;
+    chargebackInfo?: OrderChargebackInfo;
     /**
      * 
      * @type {number}
@@ -223,30 +223,6 @@ export interface BountyOrder {
      * @type {string}
      * @memberof BountyOrder
      */
-    statusAsEnum?: BountyOrderStatusAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyOrder
-     */
-    customerEmail?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof BountyOrder
-     */
-    merchant?: User;
-    /**
-     * 
-     * @type {ShoppingCartOrderSummaryOrderSection}
-     * @memberof BountyOrder
-     */
-    overallSection?: ShoppingCartOrderSummaryOrderSection;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyOrder
-     */
     merchantId?: string;
     /**
      * 
@@ -256,10 +232,34 @@ export interface BountyOrder {
     imageUrl?: string;
     /**
      * 
+     * @type {OrderSection}
+     * @memberof BountyOrder
+     */
+    overallSection?: OrderSection;
+    /**
+     * 
+     * @type {User}
+     * @memberof BountyOrder
+     */
+    merchant?: User;
+    /**
+     * 
      * @type {string}
      * @memberof BountyOrder
      */
-    paymentStatusAsEnum?: BountyOrderPaymentStatusAsEnumEnum;
+    statusAsEnum?: BountyOrderStatusAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BountyOrder
+     */
+    customerEmail?: string;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof BountyOrder
+     */
+    vouchersToRedeem?: Reward;
     /**
      * 
      * @type {string}
@@ -268,10 +268,10 @@ export interface BountyOrder {
     receiptStatusAsEnum?: BountyOrderReceiptStatusAsEnumEnum;
     /**
      * 
-     * @type {Reward}
+     * @type {string}
      * @memberof BountyOrder
      */
-    vouchersToRedeem?: Reward;
+    paymentStatusAsEnum?: BountyOrderPaymentStatusAsEnumEnum;
 }
 
 
@@ -297,6 +297,15 @@ export type BountyOrderStatusAsEnumEnum = typeof BountyOrderStatusAsEnumEnum[key
 /**
  * @export
  */
+export const BountyOrderReceiptStatusAsEnumEnum = {
+    CREATED: 'CREATED',
+    SCANNED: 'SCANNED'
+} as const;
+export type BountyOrderReceiptStatusAsEnumEnum = typeof BountyOrderReceiptStatusAsEnumEnum[keyof typeof BountyOrderReceiptStatusAsEnumEnum];
+
+/**
+ * @export
+ */
 export const BountyOrderPaymentStatusAsEnumEnum = {
     NONE: 'NONE',
     PENDING_PAYMENT: 'PENDING_PAYMENT',
@@ -307,15 +316,6 @@ export const BountyOrderPaymentStatusAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyOrderPaymentStatusAsEnumEnum = typeof BountyOrderPaymentStatusAsEnumEnum[keyof typeof BountyOrderPaymentStatusAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyOrderReceiptStatusAsEnumEnum = {
-    CREATED: 'CREATED',
-    SCANNED: 'SCANNED'
-} as const;
-export type BountyOrderReceiptStatusAsEnumEnum = typeof BountyOrderReceiptStatusAsEnumEnum[keyof typeof BountyOrderReceiptStatusAsEnumEnum];
 
 
 /**
@@ -344,25 +344,25 @@ export function BountyOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'shippingInfo': json['shippingInfo'] == null ? undefined : ShippingInfoFromJSON(json['shippingInfo']),
         'paymentMethodInfo': json['paymentMethodInfo'] == null ? undefined : PaymentMethodInfoFromJSON(json['paymentMethodInfo']),
         'invoiceInfo': json['invoiceInfo'] == null ? undefined : InvoiceInfoFromJSON(json['invoiceInfo']),
-        'productsInfo': json['productsInfo'] == null ? undefined : ShoppingCartProductsInfoFromJSON(json['productsInfo']),
-        'redemptionInfo': json['redemptionInfo'] == null ? undefined : ShoppingCartRedemptionInfoFromJSON(json['redemptionInfo']),
+        'productsInfo': json['productsInfo'] == null ? undefined : ProductsInfoFromJSON(json['productsInfo']),
+        'redemptionInfo': json['redemptionInfo'] == null ? undefined : RedemptionInfoFromJSON(json['redemptionInfo']),
         'orderTotal': json['orderTotal'] == null ? undefined : RewardFromJSON(json['orderTotal']),
-        'customerInfo': json['customerInfo'] == null ? undefined : BountyOrderCustomerInfoFromJSON(json['customerInfo']),
-        'paymentInfo': json['paymentInfo'] == null ? undefined : BountyOrderPaymentInfoFromJSON(json['paymentInfo']),
-        'chargebackInfo': json['chargebackInfo'] == null ? undefined : BountyOrderChargebackInfoFromJSON(json['chargebackInfo']),
+        'customerInfo': json['customerInfo'] == null ? undefined : CustomerInfoFromJSON(json['customerInfo']),
+        'paymentInfo': json['paymentInfo'] == null ? undefined : OrderPaymentInfoFromJSON(json['paymentInfo']),
+        'chargebackInfo': json['chargebackInfo'] == null ? undefined : OrderChargebackInfoFromJSON(json['chargebackInfo']),
         'orderedAt': json['orderedAt'] == null ? undefined : json['orderedAt'],
         'receiptUrl': json['receiptUrl'] == null ? undefined : json['receiptUrl'],
         'posUrl': json['posUrl'] == null ? undefined : json['posUrl'],
         'merchantOrderUrl': json['merchantOrderUrl'] == null ? undefined : json['merchantOrderUrl'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
-        'customerEmail': json['customerEmail'] == null ? undefined : json['customerEmail'],
-        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
-        'overallSection': json['overallSection'] == null ? undefined : ShoppingCartOrderSummaryOrderSectionFromJSON(json['overallSection']),
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
-        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
+        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
+        'customerEmail': json['customerEmail'] == null ? undefined : json['customerEmail'],
         'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
+        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
     };
 }
 
@@ -386,25 +386,25 @@ export function BountyOrderToJSONTyped(value?: BountyOrder | null, ignoreDiscrim
         'shippingInfo': ShippingInfoToJSON(value['shippingInfo']),
         'paymentMethodInfo': PaymentMethodInfoToJSON(value['paymentMethodInfo']),
         'invoiceInfo': InvoiceInfoToJSON(value['invoiceInfo']),
-        'productsInfo': ShoppingCartProductsInfoToJSON(value['productsInfo']),
-        'redemptionInfo': ShoppingCartRedemptionInfoToJSON(value['redemptionInfo']),
+        'productsInfo': ProductsInfoToJSON(value['productsInfo']),
+        'redemptionInfo': RedemptionInfoToJSON(value['redemptionInfo']),
         'orderTotal': RewardToJSON(value['orderTotal']),
-        'customerInfo': BountyOrderCustomerInfoToJSON(value['customerInfo']),
-        'paymentInfo': BountyOrderPaymentInfoToJSON(value['paymentInfo']),
-        'chargebackInfo': BountyOrderChargebackInfoToJSON(value['chargebackInfo']),
+        'customerInfo': CustomerInfoToJSON(value['customerInfo']),
+        'paymentInfo': OrderPaymentInfoToJSON(value['paymentInfo']),
+        'chargebackInfo': OrderChargebackInfoToJSON(value['chargebackInfo']),
         'orderedAt': value['orderedAt'],
         'receiptUrl': value['receiptUrl'],
         'posUrl': value['posUrl'],
         'merchantOrderUrl': value['merchantOrderUrl'],
-        'statusAsEnum': value['statusAsEnum'],
-        'customerEmail': value['customerEmail'],
-        'merchant': UserToJSON(value['merchant']),
-        'overallSection': ShoppingCartOrderSummaryOrderSectionToJSON(value['overallSection']),
         'merchantId': value['merchantId'],
         'imageUrl': value['imageUrl'],
-        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
-        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'overallSection': OrderSectionToJSON(value['overallSection']),
+        'merchant': UserToJSON(value['merchant']),
+        'statusAsEnum': value['statusAsEnum'],
+        'customerEmail': value['customerEmail'],
         'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
+        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
     };
 }
 

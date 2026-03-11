@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyColorScheme } from './BountyColorScheme';
+import type { ColorScheme } from './ColorScheme';
 import {
-    BountyColorSchemeFromJSON,
-    BountyColorSchemeFromJSONTyped,
-    BountyColorSchemeToJSON,
-    BountyColorSchemeToJSONTyped,
-} from './BountyColorScheme';
+    ColorSchemeFromJSON,
+    ColorSchemeFromJSONTyped,
+    ColorSchemeToJSON,
+    ColorSchemeToJSONTyped,
+} from './ColorScheme';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface BountyTheme {
     type?: string;
     /**
      * 
-     * @type {BountyColorScheme}
+     * @type {ColorScheme}
      * @memberof BountyTheme
      */
-    colorScheme?: BountyColorScheme;
+    colorScheme?: ColorScheme;
     /**
      * 
      * @type {string}
@@ -77,7 +77,7 @@ export function BountyThemeFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'type': json['type'] == null ? undefined : json['type'],
-        'colorScheme': json['colorScheme'] == null ? undefined : BountyColorSchemeFromJSON(json['colorScheme']),
+        'colorScheme': json['colorScheme'] == null ? undefined : ColorSchemeFromJSON(json['colorScheme']),
         'themeTypeAsEnum': json['themeTypeAsEnum'] == null ? undefined : json['themeTypeAsEnum'],
     };
 }
@@ -94,7 +94,7 @@ export function BountyThemeToJSONTyped(value?: BountyTheme | null, ignoreDiscrim
     return {
         
         'type': value['type'],
-        'colorScheme': BountyColorSchemeToJSON(value['colorScheme']),
+        'colorScheme': ColorSchemeToJSON(value['colorScheme']),
         'themeTypeAsEnum': value['themeTypeAsEnum'],
     };
 }

@@ -15,27 +15,23 @@
 
 import * as runtime from '../runtime';
 import type {
-  RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequest,
-  RestControllerSubscriptionCatalogAdminControllerCreateTierRequest,
-  RestControllerSubscriptionCatalogAdminControllerSetActiveRequest,
-  RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest,
-  RestControllerSubscriptionCatalogAdminControllerUpdateTierRequest,
+  CreateFamilyRequest,
+  CreateTierRequest,
+  SetActiveRequest,
   SubscriptionCatalogAdminView,
   SubscriptionCatalogSummaryView,
   SubscriptionCatalogValidationView,
   SubscriptionTierAdminView,
+  UpdateFamilyRequest,
+  UpdateTierRequest,
 } from '../models/index';
 import {
-    RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequestFromJSON,
-    RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequestToJSON,
-    RestControllerSubscriptionCatalogAdminControllerCreateTierRequestFromJSON,
-    RestControllerSubscriptionCatalogAdminControllerCreateTierRequestToJSON,
-    RestControllerSubscriptionCatalogAdminControllerSetActiveRequestFromJSON,
-    RestControllerSubscriptionCatalogAdminControllerSetActiveRequestToJSON,
-    RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequestFromJSON,
-    RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequestToJSON,
-    RestControllerSubscriptionCatalogAdminControllerUpdateTierRequestFromJSON,
-    RestControllerSubscriptionCatalogAdminControllerUpdateTierRequestToJSON,
+    CreateFamilyRequestFromJSON,
+    CreateFamilyRequestToJSON,
+    CreateTierRequestFromJSON,
+    CreateTierRequestToJSON,
+    SetActiveRequestFromJSON,
+    SetActiveRequestToJSON,
     SubscriptionCatalogAdminViewFromJSON,
     SubscriptionCatalogAdminViewToJSON,
     SubscriptionCatalogSummaryViewFromJSON,
@@ -44,6 +40,10 @@ import {
     SubscriptionCatalogValidationViewToJSON,
     SubscriptionTierAdminViewFromJSON,
     SubscriptionTierAdminViewToJSON,
+    UpdateFamilyRequestFromJSON,
+    UpdateFamilyRequestToJSON,
+    UpdateTierRequestFromJSON,
+    UpdateTierRequestToJSON,
 } from '../models/index';
 
 export interface GetApiV1AdminSubscriptionCatalogsRequest {
@@ -80,7 +80,7 @@ export interface GetApiV1AdminSubscriptionCatalogsValidateAllRequest {
 }
 
 export interface PostApiV1AdminSubscriptionCatalogsRequest {
-    restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequest;
+    createFamilyRequest: CreateFamilyRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -88,7 +88,7 @@ export interface PostApiV1AdminSubscriptionCatalogsRequest {
 
 export interface PostApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActiveRequest {
     subscriptionBountyId: string;
-    restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest;
+    setActiveRequest: SetActiveRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -96,7 +96,7 @@ export interface PostApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActi
 
 export interface PostApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersRequest {
     subscriptionBountyId: string;
-    restControllerSubscriptionCatalogAdminControllerCreateTierRequest: RestControllerSubscriptionCatalogAdminControllerCreateTierRequest;
+    createTierRequest: CreateTierRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -104,7 +104,7 @@ export interface PostApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiersRe
 
 export interface PostApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveRequest {
     tierBountyId: string;
-    restControllerSubscriptionCatalogAdminControllerSetActiveRequest: RestControllerSubscriptionCatalogAdminControllerSetActiveRequest;
+    setActiveRequest: SetActiveRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -112,7 +112,7 @@ export interface PostApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActiveR
 
 export interface PutApiV1AdminSubscriptionCatalogsBySubscriptionbountyidRequest {
     subscriptionBountyId: string;
-    restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest: RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest;
+    updateFamilyRequest: UpdateFamilyRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -120,7 +120,7 @@ export interface PutApiV1AdminSubscriptionCatalogsBySubscriptionbountyidRequest 
 
 export interface PutApiV1AdminSubscriptionCatalogsTiersByTierbountyidRequest {
     tierBountyId: string;
-    restControllerSubscriptionCatalogAdminControllerUpdateTierRequest: RestControllerSubscriptionCatalogAdminControllerUpdateTierRequest;
+    updateTierRequest: UpdateTierRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -213,7 +213,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
 
     /**
      * 
-     * @param {RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequest} restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest 
+     * @param {CreateFamilyRequest} createFamilyRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -230,7 +230,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
     /**
      * 
      * @param {string} subscriptionBountyId 
-     * @param {RestControllerSubscriptionCatalogAdminControllerSetActiveRequest} restControllerSubscriptionCatalogAdminControllerSetActiveRequest 
+     * @param {SetActiveRequest} setActiveRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -247,7 +247,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
     /**
      * 
      * @param {string} subscriptionBountyId 
-     * @param {RestControllerSubscriptionCatalogAdminControllerCreateTierRequest} restControllerSubscriptionCatalogAdminControllerCreateTierRequest 
+     * @param {CreateTierRequest} createTierRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -264,7 +264,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
     /**
      * 
      * @param {string} tierBountyId 
-     * @param {RestControllerSubscriptionCatalogAdminControllerSetActiveRequest} restControllerSubscriptionCatalogAdminControllerSetActiveRequest 
+     * @param {SetActiveRequest} setActiveRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -281,7 +281,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
     /**
      * 
      * @param {string} subscriptionBountyId 
-     * @param {RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest} restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest 
+     * @param {UpdateFamilyRequest} updateFamilyRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -298,7 +298,7 @@ export interface SubscriptionCatalogAdminControllerApiInterface {
     /**
      * 
      * @param {string} tierBountyId 
-     * @param {RestControllerSubscriptionCatalogAdminControllerUpdateTierRequest} restControllerSubscriptionCatalogAdminControllerUpdateTierRequest 
+     * @param {UpdateTierRequest} updateTierRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -561,10 +561,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
     /**
      */
     async postApiV1AdminSubscriptionCatalogsRaw(requestParameters: PostApiV1AdminSubscriptionCatalogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionCatalogAdminView>> {
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest'] == null) {
+        if (requestParameters['createFamilyRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogs().'
+                'createFamilyRequest',
+                'Required parameter "createFamilyRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogs().'
             );
         }
 
@@ -598,7 +598,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerCreateFamilyRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerCreateFamilyRequest']),
+            body: CreateFamilyRequestToJSON(requestParameters['createFamilyRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionCatalogAdminViewFromJSON(jsonValue));
@@ -621,10 +621,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             );
         }
 
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerSetActiveRequest'] == null) {
+        if (requestParameters['setActiveRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerSetActiveRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerSetActiveRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActive().'
+                'setActiveRequest',
+                'Required parameter "setActiveRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidSetActive().'
             );
         }
 
@@ -659,7 +659,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerSetActiveRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerSetActiveRequest']),
+            body: SetActiveRequestToJSON(requestParameters['setActiveRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionCatalogAdminViewFromJSON(jsonValue));
@@ -682,10 +682,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             );
         }
 
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerCreateTierRequest'] == null) {
+        if (requestParameters['createTierRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerCreateTierRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerCreateTierRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiers().'
+                'createTierRequest',
+                'Required parameter "createTierRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsBySubscriptionbountyidTiers().'
             );
         }
 
@@ -720,7 +720,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerCreateTierRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerCreateTierRequest']),
+            body: CreateTierRequestToJSON(requestParameters['createTierRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionTierAdminViewFromJSON(jsonValue));
@@ -743,10 +743,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             );
         }
 
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerSetActiveRequest'] == null) {
+        if (requestParameters['setActiveRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerSetActiveRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerSetActiveRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActive().'
+                'setActiveRequest',
+                'Required parameter "setActiveRequest" was null or undefined when calling postApiV1AdminSubscriptionCatalogsTiersByTierbountyidSetActive().'
             );
         }
 
@@ -781,7 +781,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerSetActiveRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerSetActiveRequest']),
+            body: SetActiveRequestToJSON(requestParameters['setActiveRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionTierAdminViewFromJSON(jsonValue));
@@ -804,10 +804,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             );
         }
 
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest'] == null) {
+        if (requestParameters['updateFamilyRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest" was null or undefined when calling putApiV1AdminSubscriptionCatalogsBySubscriptionbountyid().'
+                'updateFamilyRequest',
+                'Required parameter "updateFamilyRequest" was null or undefined when calling putApiV1AdminSubscriptionCatalogsBySubscriptionbountyid().'
             );
         }
 
@@ -842,7 +842,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerUpdateFamilyRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerUpdateFamilyRequest']),
+            body: UpdateFamilyRequestToJSON(requestParameters['updateFamilyRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionCatalogAdminViewFromJSON(jsonValue));
@@ -865,10 +865,10 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             );
         }
 
-        if (requestParameters['restControllerSubscriptionCatalogAdminControllerUpdateTierRequest'] == null) {
+        if (requestParameters['updateTierRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionCatalogAdminControllerUpdateTierRequest',
-                'Required parameter "restControllerSubscriptionCatalogAdminControllerUpdateTierRequest" was null or undefined when calling putApiV1AdminSubscriptionCatalogsTiersByTierbountyid().'
+                'updateTierRequest',
+                'Required parameter "updateTierRequest" was null or undefined when calling putApiV1AdminSubscriptionCatalogsTiersByTierbountyid().'
             );
         }
 
@@ -903,7 +903,7 @@ export class SubscriptionCatalogAdminControllerApi extends runtime.BaseAPI imple
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionCatalogAdminControllerUpdateTierRequestToJSON(requestParameters['restControllerSubscriptionCatalogAdminControllerUpdateTierRequest']),
+            body: UpdateTierRequestToJSON(requestParameters['updateTierRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionTierAdminViewFromJSON(jsonValue));

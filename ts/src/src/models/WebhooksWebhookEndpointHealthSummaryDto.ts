@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { WebhooksWebhookEndpointHealthSummaryDto2 } from './WebhooksWebhookEndpointHealthSummaryDto2';
+import {
+    WebhooksWebhookEndpointHealthSummaryDto2FromJSON,
+    WebhooksWebhookEndpointHealthSummaryDto2FromJSONTyped,
+    WebhooksWebhookEndpointHealthSummaryDto2ToJSON,
+    WebhooksWebhookEndpointHealthSummaryDto2ToJSONTyped,
+} from './WebhooksWebhookEndpointHealthSummaryDto2';
+
 /**
  * 
  * @export
@@ -21,133 +29,35 @@ import { mapValues } from '../runtime';
 export interface WebhooksWebhookEndpointHealthSummaryDto {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointHealthSummaryDto
      */
-    endpointId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointHealthSummaryDto
      */
-    description?: string;
+    start?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointHealthSummaryDto
      */
-    targetUrl?: string;
+    length?: number;
     /**
      * 
      * @type {boolean}
      * @memberof WebhooksWebhookEndpointHealthSummaryDto
      */
-    enabled?: boolean;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {string}
+     * @type {Array<WebhooksWebhookEndpointHealthSummaryDto2>}
      * @memberof WebhooksWebhookEndpointHealthSummaryDto
      */
-    circuitState?: WebhooksWebhookEndpointHealthSummaryDtoCircuitStateEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    consecutiveFailureCount?: number;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    nextDispatchAllowedAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    lastDeliveryAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    lastSuccessAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    lastFailureAt?: Date;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    deliveriesLast24h?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    successesLast24h?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    failuresLast24h?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    deadLettersLast24h?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    currentDlqCount?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    lastDeliveryOutcome?: WebhooksWebhookEndpointHealthSummaryDtoLastDeliveryOutcomeEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebhooksWebhookEndpointHealthSummaryDto
-     */
-    lastResponseStatusCode?: number;
+    list?: Array<WebhooksWebhookEndpointHealthSummaryDto2>;
 }
-
-
-/**
- * @export
- */
-export const WebhooksWebhookEndpointHealthSummaryDtoCircuitStateEnum = {
-    CLOSED: 'CLOSED',
-    OPEN: 'OPEN',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type WebhooksWebhookEndpointHealthSummaryDtoCircuitStateEnum = typeof WebhooksWebhookEndpointHealthSummaryDtoCircuitStateEnum[keyof typeof WebhooksWebhookEndpointHealthSummaryDtoCircuitStateEnum];
-
-/**
- * @export
- */
-export const WebhooksWebhookEndpointHealthSummaryDtoLastDeliveryOutcomeEnum = {
-    SUCCESS: 'SUCCESS',
-    RETRYABLE_FAILURE: 'RETRYABLE_FAILURE',
-    TERMINAL_FAILURE: 'TERMINAL_FAILURE',
-    DEFERRED_RATE_LIMIT: 'DEFERRED_RATE_LIMIT',
-    DEFERRED_CIRCUIT_OPEN: 'DEFERRED_CIRCUIT_OPEN',
-    SKIPPED_DISABLED_ENDPOINT: 'SKIPPED_DISABLED_ENDPOINT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type WebhooksWebhookEndpointHealthSummaryDtoLastDeliveryOutcomeEnum = typeof WebhooksWebhookEndpointHealthSummaryDtoLastDeliveryOutcomeEnum[keyof typeof WebhooksWebhookEndpointHealthSummaryDtoLastDeliveryOutcomeEnum];
-
 
 /**
  * Check if a given object implements the WebhooksWebhookEndpointHealthSummaryDto interface.
@@ -166,23 +76,11 @@ export function WebhooksWebhookEndpointHealthSummaryDtoFromJSONTyped(json: any, 
     }
     return {
         
-        'endpointId': json['endpointId'] == null ? undefined : json['endpointId'],
-        'description': json['description'] == null ? undefined : json['description'],
-        'targetUrl': json['targetUrl'] == null ? undefined : json['targetUrl'],
-        'enabled': json['enabled'] == null ? undefined : json['enabled'],
-        'circuitState': json['circuitState'] == null ? undefined : json['circuitState'],
-        'consecutiveFailureCount': json['consecutiveFailureCount'] == null ? undefined : json['consecutiveFailureCount'],
-        'nextDispatchAllowedAt': json['nextDispatchAllowedAt'] == null ? undefined : (new Date(json['nextDispatchAllowedAt'])),
-        'lastDeliveryAt': json['lastDeliveryAt'] == null ? undefined : (new Date(json['lastDeliveryAt'])),
-        'lastSuccessAt': json['lastSuccessAt'] == null ? undefined : (new Date(json['lastSuccessAt'])),
-        'lastFailureAt': json['lastFailureAt'] == null ? undefined : (new Date(json['lastFailureAt'])),
-        'deliveriesLast24h': json['deliveriesLast24h'] == null ? undefined : json['deliveriesLast24h'],
-        'successesLast24h': json['successesLast24h'] == null ? undefined : json['successesLast24h'],
-        'failuresLast24h': json['failuresLast24h'] == null ? undefined : json['failuresLast24h'],
-        'deadLettersLast24h': json['deadLettersLast24h'] == null ? undefined : json['deadLettersLast24h'],
-        'currentDlqCount': json['currentDlqCount'] == null ? undefined : json['currentDlqCount'],
-        'lastDeliveryOutcome': json['lastDeliveryOutcome'] == null ? undefined : json['lastDeliveryOutcome'],
-        'lastResponseStatusCode': json['lastResponseStatusCode'] == null ? undefined : json['lastResponseStatusCode'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(WebhooksWebhookEndpointHealthSummaryDto2FromJSON)),
     };
 }
 
@@ -197,23 +95,11 @@ export function WebhooksWebhookEndpointHealthSummaryDtoToJSONTyped(value?: Webho
 
     return {
         
-        'endpointId': value['endpointId'],
-        'description': value['description'],
-        'targetUrl': value['targetUrl'],
-        'enabled': value['enabled'],
-        'circuitState': value['circuitState'],
-        'consecutiveFailureCount': value['consecutiveFailureCount'],
-        'nextDispatchAllowedAt': value['nextDispatchAllowedAt'] == null ? undefined : ((value['nextDispatchAllowedAt']).toISOString()),
-        'lastDeliveryAt': value['lastDeliveryAt'] == null ? undefined : ((value['lastDeliveryAt']).toISOString()),
-        'lastSuccessAt': value['lastSuccessAt'] == null ? undefined : ((value['lastSuccessAt']).toISOString()),
-        'lastFailureAt': value['lastFailureAt'] == null ? undefined : ((value['lastFailureAt']).toISOString()),
-        'deliveriesLast24h': value['deliveriesLast24h'],
-        'successesLast24h': value['successesLast24h'],
-        'failuresLast24h': value['failuresLast24h'],
-        'deadLettersLast24h': value['deadLettersLast24h'],
-        'currentDlqCount': value['currentDlqCount'],
-        'lastDeliveryOutcome': value['lastDeliveryOutcome'],
-        'lastResponseStatusCode': value['lastResponseStatusCode'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(WebhooksWebhookEndpointHealthSummaryDto2ToJSON)),
     };
 }
 

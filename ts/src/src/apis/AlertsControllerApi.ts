@@ -16,19 +16,19 @@
 import * as runtime from '../runtime';
 import type {
   EdgeApiDataEmailSettings,
-  EdgeApiDataEmailTemplate,
-  EdgeApiDataSendTestEmailReq,
-  EdgeApiDataSendTestEmailResp,
+  EmailTemplate,
+  SendTestEmailReq,
+  SendTestEmailResp,
 } from '../models/index';
 import {
     EdgeApiDataEmailSettingsFromJSON,
     EdgeApiDataEmailSettingsToJSON,
-    EdgeApiDataEmailTemplateFromJSON,
-    EdgeApiDataEmailTemplateToJSON,
-    EdgeApiDataSendTestEmailReqFromJSON,
-    EdgeApiDataSendTestEmailReqToJSON,
-    EdgeApiDataSendTestEmailRespFromJSON,
-    EdgeApiDataSendTestEmailRespToJSON,
+    EmailTemplateFromJSON,
+    EmailTemplateToJSON,
+    SendTestEmailReqFromJSON,
+    SendTestEmailReqToJSON,
+    SendTestEmailRespFromJSON,
+    SendTestEmailRespToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1AlertsCompaniesByCompanyidOrderByBountyidRequest {
@@ -71,7 +71,7 @@ export interface PostApiV1AlertsByCompanyidEmailSettingsRequest {
 
 export interface PostApiV1AlertsByCompanyidEmailTemplateRequest {
     companyId: string;
-    edgeApiDataEmailTemplate: EdgeApiDataEmailTemplate;
+    emailTemplate: EmailTemplate;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -79,7 +79,7 @@ export interface PostApiV1AlertsByCompanyidEmailTemplateRequest {
 
 export interface PostApiV1AlertsByCompanyidEmailTestRequest {
     companyId: string;
-    edgeApiDataSendTestEmailReq: EdgeApiDataSendTestEmailReq;
+    sendTestEmailReq: SendTestEmailReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -136,11 +136,11 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataEmailTemplate>>;
+    getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
 
     /**
      */
-    getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataEmailTemplate>;
+    getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
 
     /**
      * 
@@ -152,11 +152,11 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataEmailTemplate>>;
+    getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>>;
 
     /**
      */
-    getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataEmailTemplate>;
+    getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate>;
 
     /**
      * 
@@ -178,7 +178,7 @@ export interface AlertsControllerApiInterface {
     /**
      * 
      * @param {string} companyId 
-     * @param {EdgeApiDataEmailTemplate} edgeApiDataEmailTemplate 
+     * @param {EmailTemplate} emailTemplate 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -195,7 +195,7 @@ export interface AlertsControllerApiInterface {
     /**
      * 
      * @param {string} companyId 
-     * @param {EdgeApiDataSendTestEmailReq} edgeApiDataSendTestEmailReq 
+     * @param {SendTestEmailReq} sendTestEmailReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -203,11 +203,11 @@ export interface AlertsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AlertsControllerApiInterface
      */
-    postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSendTestEmailResp>>;
+    postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>>;
 
     /**
      */
-    postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSendTestEmailResp>;
+    postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp>;
 
 }
 
@@ -328,7 +328,7 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataEmailTemplate>> {
+    async getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -378,19 +378,19 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataEmailTemplateFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EmailTemplateFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataEmailTemplate> {
+    async getApiV1AlertsByCompanyidEmailTemplate(requestParameters: GetApiV1AlertsByCompanyidEmailTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
         const response = await this.getApiV1AlertsByCompanyidEmailTemplateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataEmailTemplate>> {
+    async getApiV1AlertsEmailDefaulttemplateRaw(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EmailTemplate>> {
         if (requestParameters['templateType'] == null) {
             throw new runtime.RequiredError(
                 'templateType',
@@ -432,12 +432,12 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataEmailTemplateFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EmailTemplateFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataEmailTemplate> {
+    async getApiV1AlertsEmailDefaulttemplate(requestParameters: GetApiV1AlertsEmailDefaulttemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EmailTemplate> {
         const response = await this.getApiV1AlertsEmailDefaulttemplateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -513,10 +513,10 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             );
         }
 
-        if (requestParameters['edgeApiDataEmailTemplate'] == null) {
+        if (requestParameters['emailTemplate'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataEmailTemplate',
-                'Required parameter "edgeApiDataEmailTemplate" was null or undefined when calling postApiV1AlertsByCompanyidEmailTemplate().'
+                'emailTemplate',
+                'Required parameter "emailTemplate" was null or undefined when calling postApiV1AlertsByCompanyidEmailTemplate().'
             );
         }
 
@@ -551,7 +551,7 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataEmailTemplateToJSON(requestParameters['edgeApiDataEmailTemplate']),
+            body: EmailTemplateToJSON(requestParameters['emailTemplate']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -566,7 +566,7 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
 
     /**
      */
-    async postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSendTestEmailResp>> {
+    async postApiV1AlertsByCompanyidEmailTestRaw(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendTestEmailResp>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -574,10 +574,10 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             );
         }
 
-        if (requestParameters['edgeApiDataSendTestEmailReq'] == null) {
+        if (requestParameters['sendTestEmailReq'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataSendTestEmailReq',
-                'Required parameter "edgeApiDataSendTestEmailReq" was null or undefined when calling postApiV1AlertsByCompanyidEmailTest().'
+                'sendTestEmailReq',
+                'Required parameter "sendTestEmailReq" was null or undefined when calling postApiV1AlertsByCompanyidEmailTest().'
             );
         }
 
@@ -612,15 +612,15 @@ export class AlertsControllerApi extends runtime.BaseAPI implements AlertsContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataSendTestEmailReqToJSON(requestParameters['edgeApiDataSendTestEmailReq']),
+            body: SendTestEmailReqToJSON(requestParameters['sendTestEmailReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSendTestEmailRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SendTestEmailRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSendTestEmailResp> {
+    async postApiV1AlertsByCompanyidEmailTest(requestParameters: PostApiV1AlertsByCompanyidEmailTestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendTestEmailResp> {
         const response = await this.postApiV1AlertsByCompanyidEmailTestRaw(requestParameters, initOverrides);
         return await response.value();
     }

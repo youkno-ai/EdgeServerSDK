@@ -13,11 +13,11 @@ import AnyCodable
 public struct PrivateListing: Codable, JSONEncodable, Hashable {
 
     public var structuredDescription: StructuredDescription?
-    public var markDoc: StructuredDescriptionMarkDoc?
+    public var markDoc: MarkDoc?
     public var meta: PrivateListingMetaInfo?
     public var metaError: String?
 
-    public init(structuredDescription: StructuredDescription? = nil, markDoc: StructuredDescriptionMarkDoc? = nil, meta: PrivateListingMetaInfo? = nil, metaError: String? = nil) {
+    public init(structuredDescription: StructuredDescription? = nil, markDoc: MarkDoc? = nil, meta: PrivateListingMetaInfo? = nil, metaError: String? = nil) {
         self.structuredDescription = structuredDescription
         self.markDoc = markDoc
         self.meta = meta

@@ -15,53 +15,53 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPageWebhooksWebhookDeliverySummaryDto,
-  EdgeApiDataPageWebhooksWebhookDlqSummaryDto,
-  EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto,
-  EdgeApiDataPageWebhooksWebhookEndpointSummaryDto,
-  WebhooksWebhookDeliveryDetailDto,
-  WebhooksWebhookDlqBulkRetryRequestDto,
-  WebhooksWebhookDlqBulkRetryResultDto,
-  WebhooksWebhookDlqDetailDto,
-  WebhooksWebhookEndpointDetailDto,
-  WebhooksWebhookEndpointHealthDetailDto,
-  WebhooksWebhookReplayRangeRequestDto,
-  WebhooksWebhookReplayResultDto,
-  WebhooksWebhookResendDeliveryResultDto,
-  WebhooksWebhookRotateSecretResultDto,
-  WebhooksWebhookTenantHealthSummaryDto,
+  WebhookDeliveryDetailDto,
+  WebhookDlqBulkRetryRequestDto,
+  WebhookDlqBulkRetryResultDto,
+  WebhookDlqDetailDto,
+  WebhookEndpointDetailDto,
+  WebhookEndpointHealthDetailDto,
+  WebhookReplayRangeRequestDto,
+  WebhookReplayResultDto,
+  WebhookResendDeliveryResultDto,
+  WebhookRotateSecretResultDto,
+  WebhookTenantHealthSummaryDto,
+  WebhooksWebhookDeliverySummaryDto,
+  WebhooksWebhookDlqSummaryDto,
+  WebhooksWebhookEndpointHealthSummaryDto,
+  WebhooksWebhookEndpointSummaryDto,
 } from '../models/index';
 import {
-    EdgeApiDataPageWebhooksWebhookDeliverySummaryDtoFromJSON,
-    EdgeApiDataPageWebhooksWebhookDeliverySummaryDtoToJSON,
-    EdgeApiDataPageWebhooksWebhookDlqSummaryDtoFromJSON,
-    EdgeApiDataPageWebhooksWebhookDlqSummaryDtoToJSON,
-    EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDtoFromJSON,
-    EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDtoToJSON,
-    EdgeApiDataPageWebhooksWebhookEndpointSummaryDtoFromJSON,
-    EdgeApiDataPageWebhooksWebhookEndpointSummaryDtoToJSON,
-    WebhooksWebhookDeliveryDetailDtoFromJSON,
-    WebhooksWebhookDeliveryDetailDtoToJSON,
-    WebhooksWebhookDlqBulkRetryRequestDtoFromJSON,
-    WebhooksWebhookDlqBulkRetryRequestDtoToJSON,
-    WebhooksWebhookDlqBulkRetryResultDtoFromJSON,
-    WebhooksWebhookDlqBulkRetryResultDtoToJSON,
-    WebhooksWebhookDlqDetailDtoFromJSON,
-    WebhooksWebhookDlqDetailDtoToJSON,
-    WebhooksWebhookEndpointDetailDtoFromJSON,
-    WebhooksWebhookEndpointDetailDtoToJSON,
-    WebhooksWebhookEndpointHealthDetailDtoFromJSON,
-    WebhooksWebhookEndpointHealthDetailDtoToJSON,
-    WebhooksWebhookReplayRangeRequestDtoFromJSON,
-    WebhooksWebhookReplayRangeRequestDtoToJSON,
-    WebhooksWebhookReplayResultDtoFromJSON,
-    WebhooksWebhookReplayResultDtoToJSON,
-    WebhooksWebhookResendDeliveryResultDtoFromJSON,
-    WebhooksWebhookResendDeliveryResultDtoToJSON,
-    WebhooksWebhookRotateSecretResultDtoFromJSON,
-    WebhooksWebhookRotateSecretResultDtoToJSON,
-    WebhooksWebhookTenantHealthSummaryDtoFromJSON,
-    WebhooksWebhookTenantHealthSummaryDtoToJSON,
+    WebhookDeliveryDetailDtoFromJSON,
+    WebhookDeliveryDetailDtoToJSON,
+    WebhookDlqBulkRetryRequestDtoFromJSON,
+    WebhookDlqBulkRetryRequestDtoToJSON,
+    WebhookDlqBulkRetryResultDtoFromJSON,
+    WebhookDlqBulkRetryResultDtoToJSON,
+    WebhookDlqDetailDtoFromJSON,
+    WebhookDlqDetailDtoToJSON,
+    WebhookEndpointDetailDtoFromJSON,
+    WebhookEndpointDetailDtoToJSON,
+    WebhookEndpointHealthDetailDtoFromJSON,
+    WebhookEndpointHealthDetailDtoToJSON,
+    WebhookReplayRangeRequestDtoFromJSON,
+    WebhookReplayRangeRequestDtoToJSON,
+    WebhookReplayResultDtoFromJSON,
+    WebhookReplayResultDtoToJSON,
+    WebhookResendDeliveryResultDtoFromJSON,
+    WebhookResendDeliveryResultDtoToJSON,
+    WebhookRotateSecretResultDtoFromJSON,
+    WebhookRotateSecretResultDtoToJSON,
+    WebhookTenantHealthSummaryDtoFromJSON,
+    WebhookTenantHealthSummaryDtoToJSON,
+    WebhooksWebhookDeliverySummaryDtoFromJSON,
+    WebhooksWebhookDeliverySummaryDtoToJSON,
+    WebhooksWebhookDlqSummaryDtoFromJSON,
+    WebhooksWebhookDlqSummaryDtoToJSON,
+    WebhooksWebhookEndpointHealthSummaryDtoFromJSON,
+    WebhooksWebhookEndpointHealthSummaryDtoToJSON,
+    WebhooksWebhookEndpointSummaryDtoFromJSON,
+    WebhooksWebhookEndpointSummaryDtoToJSON,
 } from '../models/index';
 
 export interface GetApiV1WebhooksDeliveriesByDeliveryidRequest {
@@ -154,7 +154,7 @@ export interface PostApiV1WebhooksDlqByDeliveryidRetryRequest {
 }
 
 export interface PostApiV1WebhooksDlqRetryRequest {
-    webhooksWebhookDlqBulkRetryRequestDto: WebhooksWebhookDlqBulkRetryRequestDto;
+    webhookDlqBulkRetryRequestDto: WebhookDlqBulkRetryRequestDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -168,7 +168,7 @@ export interface PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest {
 }
 
 export interface PostApiV1WebhooksReplayRequest {
-    webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto;
+    webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -176,7 +176,7 @@ export interface PostApiV1WebhooksReplayRequest {
 
 export interface PostApiV1WebhooksReplayEndpointsByEndpointidRequest {
     endpointId: string;
-    webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto;
+    webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -214,11 +214,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksDeliveriesByDeliveryidRaw(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDeliveryDetailDto>>;
+    getApiV1WebhooksDeliveriesByDeliveryidRaw(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDeliveryDetailDto>>;
 
     /**
      */
-    getApiV1WebhooksDeliveriesByDeliveryid(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDeliveryDetailDto>;
+    getApiV1WebhooksDeliveriesByDeliveryid(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDeliveryDetailDto>;
 
     /**
      * 
@@ -236,11 +236,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksDlqRaw(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookDlqSummaryDto>>;
+    getApiV1WebhooksDlqRaw(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqSummaryDto>>;
 
     /**
      */
-    getApiV1WebhooksDlq(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookDlqSummaryDto>;
+    getApiV1WebhooksDlq(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqSummaryDto>;
 
     /**
      * 
@@ -252,11 +252,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksDlqByDeliveryidRaw(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqDetailDto>>;
+    getApiV1WebhooksDlqByDeliveryidRaw(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDlqDetailDto>>;
 
     /**
      */
-    getApiV1WebhooksDlqByDeliveryid(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqDetailDto>;
+    getApiV1WebhooksDlqByDeliveryid(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDlqDetailDto>;
 
     /**
      * 
@@ -267,11 +267,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksEndpointsRaw(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto>>;
+    getApiV1WebhooksEndpointsRaw(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointSummaryDto>>;
 
     /**
      */
-    getApiV1WebhooksEndpoints(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto>;
+    getApiV1WebhooksEndpoints(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointSummaryDto>;
 
     /**
      * 
@@ -283,11 +283,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointDetailDto>>;
+    getApiV1WebhooksEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookEndpointDetailDto>>;
 
     /**
      */
-    getApiV1WebhooksEndpointsByEndpointid(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointDetailDto>;
+    getApiV1WebhooksEndpointsByEndpointid(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookEndpointDetailDto>;
 
     /**
      * 
@@ -304,11 +304,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksEndpointsByEndpointidDeliveriesRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto>>;
+    getApiV1WebhooksEndpointsByEndpointidDeliveriesRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDeliverySummaryDto>>;
 
     /**
      */
-    getApiV1WebhooksEndpointsByEndpointidDeliveries(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto>;
+    getApiV1WebhooksEndpointsByEndpointidDeliveries(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDeliverySummaryDto>;
 
     /**
      * 
@@ -323,11 +323,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksHealthEndpointsRaw(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto>>;
+    getApiV1WebhooksHealthEndpointsRaw(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointHealthSummaryDto>>;
 
     /**
      */
-    getApiV1WebhooksHealthEndpoints(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto>;
+    getApiV1WebhooksHealthEndpoints(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointHealthSummaryDto>;
 
     /**
      * 
@@ -339,11 +339,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksHealthEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointHealthDetailDto>>;
+    getApiV1WebhooksHealthEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookEndpointHealthDetailDto>>;
 
     /**
      */
-    getApiV1WebhooksHealthEndpointsByEndpointid(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointHealthDetailDto>;
+    getApiV1WebhooksHealthEndpointsByEndpointid(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookEndpointHealthDetailDto>;
 
     /**
      * 
@@ -354,11 +354,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    getApiV1WebhooksHealthSummaryRaw(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookTenantHealthSummaryDto>>;
+    getApiV1WebhooksHealthSummaryRaw(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookTenantHealthSummaryDto>>;
 
     /**
      */
-    getApiV1WebhooksHealthSummary(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookTenantHealthSummaryDto>;
+    getApiV1WebhooksHealthSummary(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookTenantHealthSummaryDto>;
 
     /**
      * 
@@ -370,11 +370,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksDeliveriesByDeliveryidResendRaw(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookResendDeliveryResultDto>>;
+    postApiV1WebhooksDeliveriesByDeliveryidResendRaw(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookResendDeliveryResultDto>>;
 
     /**
      */
-    postApiV1WebhooksDeliveriesByDeliveryidResend(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookResendDeliveryResultDto>;
+    postApiV1WebhooksDeliveriesByDeliveryidResend(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookResendDeliveryResultDto>;
 
     /**
      * 
@@ -386,15 +386,15 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksDlqByDeliveryidRetryRaw(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookResendDeliveryResultDto>>;
+    postApiV1WebhooksDlqByDeliveryidRetryRaw(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookResendDeliveryResultDto>>;
 
     /**
      */
-    postApiV1WebhooksDlqByDeliveryidRetry(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookResendDeliveryResultDto>;
+    postApiV1WebhooksDlqByDeliveryidRetry(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookResendDeliveryResultDto>;
 
     /**
      * 
-     * @param {WebhooksWebhookDlqBulkRetryRequestDto} webhooksWebhookDlqBulkRetryRequestDto 
+     * @param {WebhookDlqBulkRetryRequestDto} webhookDlqBulkRetryRequestDto 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -402,48 +402,15 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksDlqRetryRaw(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqBulkRetryResultDto>>;
+    postApiV1WebhooksDlqRetryRaw(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDlqBulkRetryResultDto>>;
 
     /**
      */
-    postApiV1WebhooksDlqRetry(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqBulkRetryResultDto>;
-
-    /**
-     * 
-     * @param {string} endpointId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebhookControllerApiInterface
-     */
-    postApiV1WebhooksEndpointsByEndpointidRotateSecretRaw(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookRotateSecretResultDto>>;
-
-    /**
-     */
-    postApiV1WebhooksEndpointsByEndpointidRotateSecret(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookRotateSecretResultDto>;
-
-    /**
-     * 
-     * @param {WebhooksWebhookReplayRangeRequestDto} webhooksWebhookReplayRangeRequestDto 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebhookControllerApiInterface
-     */
-    postApiV1WebhooksReplayRaw(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>>;
-
-    /**
-     */
-    postApiV1WebhooksReplay(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto>;
+    postApiV1WebhooksDlqRetry(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDlqBulkRetryResultDto>;
 
     /**
      * 
      * @param {string} endpointId 
-     * @param {WebhooksWebhookReplayRangeRequestDto} webhooksWebhookReplayRangeRequestDto 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -451,11 +418,44 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksReplayEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>>;
+    postApiV1WebhooksEndpointsByEndpointidRotateSecretRaw(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookRotateSecretResultDto>>;
 
     /**
      */
-    postApiV1WebhooksReplayEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto>;
+    postApiV1WebhooksEndpointsByEndpointidRotateSecret(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookRotateSecretResultDto>;
+
+    /**
+     * 
+     * @param {WebhookReplayRangeRequestDto} webhookReplayRangeRequestDto 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookControllerApiInterface
+     */
+    postApiV1WebhooksReplayRaw(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>>;
+
+    /**
+     */
+    postApiV1WebhooksReplay(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto>;
+
+    /**
+     * 
+     * @param {string} endpointId 
+     * @param {WebhookReplayRangeRequestDto} webhookReplayRangeRequestDto 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookControllerApiInterface
+     */
+    postApiV1WebhooksReplayEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>>;
+
+    /**
+     */
+    postApiV1WebhooksReplayEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto>;
 
     /**
      * 
@@ -467,11 +467,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksReplayEventLogByEventlogidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>>;
+    postApiV1WebhooksReplayEventLogByEventlogidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>>;
 
     /**
      */
-    postApiV1WebhooksReplayEventLogByEventlogid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto>;
+    postApiV1WebhooksReplayEventLogByEventlogid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto>;
 
     /**
      * 
@@ -484,11 +484,11 @@ export interface WebhookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof WebhookControllerApiInterface
      */
-    postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>>;
+    postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>>;
 
     /**
      */
-    postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto>;
+    postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto>;
 
 }
 
@@ -499,7 +499,7 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
 
     /**
      */
-    async getApiV1WebhooksDeliveriesByDeliveryidRaw(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDeliveryDetailDto>> {
+    async getApiV1WebhooksDeliveriesByDeliveryidRaw(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDeliveryDetailDto>> {
         if (requestParameters['deliveryId'] == null) {
             throw new runtime.RequiredError(
                 'deliveryId',
@@ -538,19 +538,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookDeliveryDetailDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookDeliveryDetailDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksDeliveriesByDeliveryid(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDeliveryDetailDto> {
+    async getApiV1WebhooksDeliveriesByDeliveryid(requestParameters: GetApiV1WebhooksDeliveriesByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDeliveryDetailDto> {
         const response = await this.getApiV1WebhooksDeliveriesByDeliveryidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksDlqRaw(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookDlqSummaryDto>> {
+    async getApiV1WebhooksDlqRaw(requestParameters: GetApiV1WebhooksDlqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqSummaryDto>> {
         const queryParameters: any = {};
 
         if (requestParameters['endpointId'] != null) {
@@ -609,19 +609,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageWebhooksWebhookDlqSummaryDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookDlqSummaryDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksDlq(requestParameters: GetApiV1WebhooksDlqRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookDlqSummaryDto> {
+    async getApiV1WebhooksDlq(requestParameters: GetApiV1WebhooksDlqRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqSummaryDto> {
         const response = await this.getApiV1WebhooksDlqRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksDlqByDeliveryidRaw(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqDetailDto>> {
+    async getApiV1WebhooksDlqByDeliveryidRaw(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDlqDetailDto>> {
         if (requestParameters['deliveryId'] == null) {
             throw new runtime.RequiredError(
                 'deliveryId',
@@ -660,19 +660,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookDlqDetailDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookDlqDetailDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksDlqByDeliveryid(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqDetailDto> {
+    async getApiV1WebhooksDlqByDeliveryid(requestParameters: GetApiV1WebhooksDlqByDeliveryidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDlqDetailDto> {
         const response = await this.getApiV1WebhooksDlqByDeliveryidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksEndpointsRaw(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto>> {
+    async getApiV1WebhooksEndpointsRaw(requestParameters: GetApiV1WebhooksEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointSummaryDto>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -703,19 +703,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageWebhooksWebhookEndpointSummaryDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookEndpointSummaryDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksEndpoints(requestParameters: GetApiV1WebhooksEndpointsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto> {
+    async getApiV1WebhooksEndpoints(requestParameters: GetApiV1WebhooksEndpointsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointSummaryDto> {
         const response = await this.getApiV1WebhooksEndpointsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointDetailDto>> {
+    async getApiV1WebhooksEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookEndpointDetailDto>> {
         if (requestParameters['endpointId'] == null) {
             throw new runtime.RequiredError(
                 'endpointId',
@@ -754,19 +754,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookEndpointDetailDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookEndpointDetailDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksEndpointsByEndpointid(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointDetailDto> {
+    async getApiV1WebhooksEndpointsByEndpointid(requestParameters: GetApiV1WebhooksEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookEndpointDetailDto> {
         const response = await this.getApiV1WebhooksEndpointsByEndpointidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksEndpointsByEndpointidDeliveriesRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto>> {
+    async getApiV1WebhooksEndpointsByEndpointidDeliveriesRaw(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDeliverySummaryDto>> {
         if (requestParameters['endpointId'] == null) {
             throw new runtime.RequiredError(
                 'endpointId',
@@ -825,19 +825,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageWebhooksWebhookDeliverySummaryDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookDeliverySummaryDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksEndpointsByEndpointidDeliveries(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto> {
+    async getApiV1WebhooksEndpointsByEndpointidDeliveries(requestParameters: GetApiV1WebhooksEndpointsByEndpointidDeliveriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDeliverySummaryDto> {
         const response = await this.getApiV1WebhooksEndpointsByEndpointidDeliveriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksHealthEndpointsRaw(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto>> {
+    async getApiV1WebhooksHealthEndpointsRaw(requestParameters: GetApiV1WebhooksHealthEndpointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointHealthSummaryDto>> {
         const queryParameters: any = {};
 
         if (requestParameters['enabled'] != null) {
@@ -884,19 +884,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookEndpointHealthSummaryDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksHealthEndpoints(requestParameters: GetApiV1WebhooksHealthEndpointsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto> {
+    async getApiV1WebhooksHealthEndpoints(requestParameters: GetApiV1WebhooksHealthEndpointsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointHealthSummaryDto> {
         const response = await this.getApiV1WebhooksHealthEndpointsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksHealthEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookEndpointHealthDetailDto>> {
+    async getApiV1WebhooksHealthEndpointsByEndpointidRaw(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookEndpointHealthDetailDto>> {
         if (requestParameters['endpointId'] == null) {
             throw new runtime.RequiredError(
                 'endpointId',
@@ -935,19 +935,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookEndpointHealthDetailDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookEndpointHealthDetailDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksHealthEndpointsByEndpointid(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookEndpointHealthDetailDto> {
+    async getApiV1WebhooksHealthEndpointsByEndpointid(requestParameters: GetApiV1WebhooksHealthEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookEndpointHealthDetailDto> {
         const response = await this.getApiV1WebhooksHealthEndpointsByEndpointidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1WebhooksHealthSummaryRaw(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookTenantHealthSummaryDto>> {
+    async getApiV1WebhooksHealthSummaryRaw(requestParameters: GetApiV1WebhooksHealthSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookTenantHealthSummaryDto>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -978,19 +978,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookTenantHealthSummaryDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookTenantHealthSummaryDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1WebhooksHealthSummary(requestParameters: GetApiV1WebhooksHealthSummaryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookTenantHealthSummaryDto> {
+    async getApiV1WebhooksHealthSummary(requestParameters: GetApiV1WebhooksHealthSummaryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookTenantHealthSummaryDto> {
         const response = await this.getApiV1WebhooksHealthSummaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksDeliveriesByDeliveryidResendRaw(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookResendDeliveryResultDto>> {
+    async postApiV1WebhooksDeliveriesByDeliveryidResendRaw(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookResendDeliveryResultDto>> {
         if (requestParameters['deliveryId'] == null) {
             throw new runtime.RequiredError(
                 'deliveryId',
@@ -1029,19 +1029,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookResendDeliveryResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookResendDeliveryResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksDeliveriesByDeliveryidResend(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookResendDeliveryResultDto> {
+    async postApiV1WebhooksDeliveriesByDeliveryidResend(requestParameters: PostApiV1WebhooksDeliveriesByDeliveryidResendRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookResendDeliveryResultDto> {
         const response = await this.postApiV1WebhooksDeliveriesByDeliveryidResendRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksDlqByDeliveryidRetryRaw(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookResendDeliveryResultDto>> {
+    async postApiV1WebhooksDlqByDeliveryidRetryRaw(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookResendDeliveryResultDto>> {
         if (requestParameters['deliveryId'] == null) {
             throw new runtime.RequiredError(
                 'deliveryId',
@@ -1080,23 +1080,23 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookResendDeliveryResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookResendDeliveryResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksDlqByDeliveryidRetry(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookResendDeliveryResultDto> {
+    async postApiV1WebhooksDlqByDeliveryidRetry(requestParameters: PostApiV1WebhooksDlqByDeliveryidRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookResendDeliveryResultDto> {
         const response = await this.postApiV1WebhooksDlqByDeliveryidRetryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksDlqRetryRaw(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookDlqBulkRetryResultDto>> {
-        if (requestParameters['webhooksWebhookDlqBulkRetryRequestDto'] == null) {
+    async postApiV1WebhooksDlqRetryRaw(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookDlqBulkRetryResultDto>> {
+        if (requestParameters['webhookDlqBulkRetryRequestDto'] == null) {
             throw new runtime.RequiredError(
-                'webhooksWebhookDlqBulkRetryRequestDto',
-                'Required parameter "webhooksWebhookDlqBulkRetryRequestDto" was null or undefined when calling postApiV1WebhooksDlqRetry().'
+                'webhookDlqBulkRetryRequestDto',
+                'Required parameter "webhookDlqBulkRetryRequestDto" was null or undefined when calling postApiV1WebhooksDlqRetry().'
             );
         }
 
@@ -1130,22 +1130,22 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: WebhooksWebhookDlqBulkRetryRequestDtoToJSON(requestParameters['webhooksWebhookDlqBulkRetryRequestDto']),
+            body: WebhookDlqBulkRetryRequestDtoToJSON(requestParameters['webhookDlqBulkRetryRequestDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookDlqBulkRetryResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookDlqBulkRetryResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksDlqRetry(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookDlqBulkRetryResultDto> {
+    async postApiV1WebhooksDlqRetry(requestParameters: PostApiV1WebhooksDlqRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookDlqBulkRetryResultDto> {
         const response = await this.postApiV1WebhooksDlqRetryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksEndpointsByEndpointidRotateSecretRaw(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookRotateSecretResultDto>> {
+    async postApiV1WebhooksEndpointsByEndpointidRotateSecretRaw(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookRotateSecretResultDto>> {
         if (requestParameters['endpointId'] == null) {
             throw new runtime.RequiredError(
                 'endpointId',
@@ -1184,23 +1184,23 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookRotateSecretResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookRotateSecretResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksEndpointsByEndpointidRotateSecret(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookRotateSecretResultDto> {
+    async postApiV1WebhooksEndpointsByEndpointidRotateSecret(requestParameters: PostApiV1WebhooksEndpointsByEndpointidRotateSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookRotateSecretResultDto> {
         const response = await this.postApiV1WebhooksEndpointsByEndpointidRotateSecretRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksReplayRaw(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>> {
-        if (requestParameters['webhooksWebhookReplayRangeRequestDto'] == null) {
+    async postApiV1WebhooksReplayRaw(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>> {
+        if (requestParameters['webhookReplayRangeRequestDto'] == null) {
             throw new runtime.RequiredError(
-                'webhooksWebhookReplayRangeRequestDto',
-                'Required parameter "webhooksWebhookReplayRangeRequestDto" was null or undefined when calling postApiV1WebhooksReplay().'
+                'webhookReplayRangeRequestDto',
+                'Required parameter "webhookReplayRangeRequestDto" was null or undefined when calling postApiV1WebhooksReplay().'
             );
         }
 
@@ -1234,22 +1234,22 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: WebhooksWebhookReplayRangeRequestDtoToJSON(requestParameters['webhooksWebhookReplayRangeRequestDto']),
+            body: WebhookReplayRangeRequestDtoToJSON(requestParameters['webhookReplayRangeRequestDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookReplayResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookReplayResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksReplay(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto> {
+    async postApiV1WebhooksReplay(requestParameters: PostApiV1WebhooksReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto> {
         const response = await this.postApiV1WebhooksReplayRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>> {
+    async postApiV1WebhooksReplayEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>> {
         if (requestParameters['endpointId'] == null) {
             throw new runtime.RequiredError(
                 'endpointId',
@@ -1257,10 +1257,10 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             );
         }
 
-        if (requestParameters['webhooksWebhookReplayRangeRequestDto'] == null) {
+        if (requestParameters['webhookReplayRangeRequestDto'] == null) {
             throw new runtime.RequiredError(
-                'webhooksWebhookReplayRangeRequestDto',
-                'Required parameter "webhooksWebhookReplayRangeRequestDto" was null or undefined when calling postApiV1WebhooksReplayEndpointsByEndpointid().'
+                'webhookReplayRangeRequestDto',
+                'Required parameter "webhookReplayRangeRequestDto" was null or undefined when calling postApiV1WebhooksReplayEndpointsByEndpointid().'
             );
         }
 
@@ -1295,22 +1295,22 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: WebhooksWebhookReplayRangeRequestDtoToJSON(requestParameters['webhooksWebhookReplayRangeRequestDto']),
+            body: WebhookReplayRangeRequestDtoToJSON(requestParameters['webhookReplayRangeRequestDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookReplayResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookReplayResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto> {
+    async postApiV1WebhooksReplayEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto> {
         const response = await this.postApiV1WebhooksReplayEndpointsByEndpointidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEventLogByEventlogidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>> {
+    async postApiV1WebhooksReplayEventLogByEventlogidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>> {
         if (requestParameters['eventLogId'] == null) {
             throw new runtime.RequiredError(
                 'eventLogId',
@@ -1349,19 +1349,19 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookReplayResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookReplayResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEventLogByEventlogid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto> {
+    async postApiV1WebhooksReplayEventLogByEventlogid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto> {
         const response = await this.postApiV1WebhooksReplayEventLogByEventlogidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhooksWebhookReplayResultDto>> {
+    async postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRaw(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WebhookReplayResultDto>> {
         if (requestParameters['eventLogId'] == null) {
             throw new runtime.RequiredError(
                 'eventLogId',
@@ -1408,12 +1408,12 @@ export class WebhookControllerApi extends runtime.BaseAPI implements WebhookCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => WebhooksWebhookReplayResultDtoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => WebhookReplayResultDtoFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhooksWebhookReplayResultDto> {
+    async postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(requestParameters: PostApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WebhookReplayResultDto> {
         const response = await this.postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidRaw(requestParameters, initOverrides);
         return await response.value();
     }

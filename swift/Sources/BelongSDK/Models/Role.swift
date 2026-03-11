@@ -15,10 +15,10 @@ public struct Role: Codable, JSONEncodable, Hashable {
     public var name: String?
     public var scopeName: String?
     public var description: String?
-    public var allowedPermissions: [RolePermission]?
-    public var deniedPermissions: [RolePermission]?
+    public var allowedPermissions: [RolePermission2]?
+    public var deniedPermissions: [RolePermission2]?
 
-    public init(name: String? = nil, scopeName: String? = nil, description: String? = nil, allowedPermissions: [RolePermission]? = nil, deniedPermissions: [RolePermission]? = nil) {
+    public init(name: String? = nil, scopeName: String? = nil, description: String? = nil, allowedPermissions: [RolePermission2]? = nil, deniedPermissions: [RolePermission2]? = nil) {
         self.name = name
         self.scopeName = scopeName
         self.description = description

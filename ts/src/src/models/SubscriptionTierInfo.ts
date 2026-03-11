@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MarkDoc } from './MarkDoc';
+import {
+    MarkDocFromJSON,
+    MarkDocFromJSONTyped,
+    MarkDocToJSON,
+    MarkDocToJSONTyped,
+} from './MarkDoc';
 import type { StructuredDescription } from './StructuredDescription';
 import {
     StructuredDescriptionFromJSON,
@@ -20,13 +27,6 @@ import {
     StructuredDescriptionToJSON,
     StructuredDescriptionToJSONTyped,
 } from './StructuredDescription';
-import type { StructuredDescriptionMarkDoc } from './StructuredDescriptionMarkDoc';
-import {
-    StructuredDescriptionMarkDocFromJSON,
-    StructuredDescriptionMarkDocFromJSONTyped,
-    StructuredDescriptionMarkDocToJSON,
-    StructuredDescriptionMarkDocToJSONTyped,
-} from './StructuredDescriptionMarkDoc';
 import type { SubscriptionTierInfoMetaInfo } from './SubscriptionTierInfoMetaInfo';
 import {
     SubscriptionTierInfoMetaInfoFromJSON,
@@ -49,10 +49,10 @@ export interface SubscriptionTierInfo {
     structuredDescription?: StructuredDescription;
     /**
      * 
-     * @type {StructuredDescriptionMarkDoc}
+     * @type {MarkDoc}
      * @memberof SubscriptionTierInfo
      */
-    markDoc?: StructuredDescriptionMarkDoc;
+    markDoc?: MarkDoc;
     /**
      * 
      * @type {SubscriptionTierInfoMetaInfo}
@@ -91,7 +91,7 @@ export function SubscriptionTierInfoFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'structuredDescription': json['structuredDescription'] == null ? undefined : StructuredDescriptionFromJSON(json['structuredDescription']),
-        'markDoc': json['markDoc'] == null ? undefined : StructuredDescriptionMarkDocFromJSON(json['markDoc']),
+        'markDoc': json['markDoc'] == null ? undefined : MarkDocFromJSON(json['markDoc']),
         'meta': json['meta'] == null ? undefined : SubscriptionTierInfoMetaInfoFromJSON(json['meta']),
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -110,7 +110,7 @@ export function SubscriptionTierInfoToJSONTyped(value?: SubscriptionTierInfo | n
     return {
         
         'structuredDescription': StructuredDescriptionToJSON(value['structuredDescription']),
-        'markDoc': StructuredDescriptionMarkDocToJSON(value['markDoc']),
+        'markDoc': MarkDocToJSON(value['markDoc']),
         'meta': SubscriptionTierInfoMetaInfoToJSON(value['meta']),
         'metaError': value['metaError'],
         'description': value['description'],

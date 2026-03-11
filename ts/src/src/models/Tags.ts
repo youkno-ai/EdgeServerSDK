@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TagsTag } from './TagsTag';
+import type { Tag } from './Tag';
 import {
-    TagsTagFromJSON,
-    TagsTagFromJSONTyped,
-    TagsTagToJSON,
-    TagsTagToJSONTyped,
-} from './TagsTag';
+    TagFromJSON,
+    TagFromJSONTyped,
+    TagToJSON,
+    TagToJSONTyped,
+} from './Tag';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface Tags {
     /**
      * 
-     * @type {{ [key: string]: TagsTag; }}
+     * @type {{ [key: string]: Tag; }}
      * @memberof Tags
      */
-    tags?: { [key: string]: TagsTag; };
+    tags?: { [key: string]: Tag; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function TagsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Tags
     }
     return {
         
-        'tags': json['tags'] == null ? undefined : (mapValues(json['tags'], TagsTagFromJSON)),
+        'tags': json['tags'] == null ? undefined : (mapValues(json['tags'], TagFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function TagsToJSONTyped(value?: Tags | null, ignoreDiscriminator: boolea
 
     return {
         
-        'tags': value['tags'] == null ? undefined : (mapValues(value['tags'], TagsTagToJSON)),
+        'tags': value['tags'] == null ? undefined : (mapValues(value['tags'], TagToJSON)),
     };
 }
 

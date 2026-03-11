@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyResponseChoice } from './BountyResponseChoice';
+import type { Choice } from './Choice';
 import {
-    BountyResponseChoiceFromJSON,
-    BountyResponseChoiceFromJSONTyped,
-    BountyResponseChoiceToJSON,
-    BountyResponseChoiceToJSONTyped,
-} from './BountyResponseChoice';
+    ChoiceFromJSON,
+    ChoiceFromJSONTyped,
+    ChoiceToJSON,
+    ChoiceToJSONTyped,
+} from './Choice';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface BountyResponseSurveyAnswers {
     /**
      * 
-     * @type {{ [key: string]: BountyResponseChoice; }}
+     * @type {{ [key: string]: Choice; }}
      * @memberof BountyResponseSurveyAnswers
      */
-    choices?: { [key: string]: BountyResponseChoice; };
+    choices?: { [key: string]: Choice; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function BountyResponseSurveyAnswersFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'choices': json['choices'] == null ? undefined : (mapValues(json['choices'], BountyResponseChoiceFromJSON)),
+        'choices': json['choices'] == null ? undefined : (mapValues(json['choices'], ChoiceFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function BountyResponseSurveyAnswersToJSONTyped(value?: BountyResponseSur
 
     return {
         
-        'choices': value['choices'] == null ? undefined : (mapValues(value['choices'], BountyResponseChoiceToJSON)),
+        'choices': value['choices'] == null ? undefined : (mapValues(value['choices'], ChoiceToJSON)),
     };
 }
 

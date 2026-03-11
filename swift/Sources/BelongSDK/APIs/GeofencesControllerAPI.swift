@@ -67,10 +67,10 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageEdgeApiDataGeofencesResp
+     - returns: EdgeApiDataGeofencesResp2
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1Geofences(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageEdgeApiDataGeofencesResp {
+    open class func getApiV1Geofences(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataGeofencesResp2 {
         return try await getApiV1GeofencesWithRequestBuilder(start: start, length: length, ignoreCache: ignoreCache, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -85,9 +85,9 @@ open class GeofencesControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp> 
+     - returns: RequestBuilder<EdgeApiDataGeofencesResp2> 
      */
-    open class func getApiV1GeofencesWithRequestBuilder(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp> {
+    open class func getApiV1GeofencesWithRequestBuilder(start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataGeofencesResp2> {
         let localVariablePath = "/api/v1/geofences"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -107,7 +107,7 @@ open class GeofencesControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageEdgeApiDataGeofencesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataGeofencesResp2>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -162,6 +162,18 @@ export interface SubscriptionTierCardView {
      * @memberof SubscriptionTierCardView
      */
     primaryAction?: SubscriptionPrimaryActionView;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SubscriptionTierCardView
+     */
+    grantsAnyGatingKey?: boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SubscriptionTierCardView
+     */
+    gatingKeysGranted?: Array<string>;
 }
 
 
@@ -214,6 +226,8 @@ export function SubscriptionTierCardViewFromJSONTyped(json: any, ignoreDiscrimin
         'currentTier': json['currentTier'] == null ? undefined : json['currentTier'],
         'selectable': json['selectable'] == null ? undefined : json['selectable'],
         'primaryAction': json['primaryAction'] == null ? undefined : SubscriptionPrimaryActionViewFromJSON(json['primaryAction']),
+        'grantsAnyGatingKey': json['grantsAnyGatingKey'] == null ? undefined : json['grantsAnyGatingKey'],
+        'gatingKeysGranted': json['gatingKeysGranted'] == null ? undefined : json['gatingKeysGranted'],
     };
 }
 
@@ -247,6 +261,8 @@ export function SubscriptionTierCardViewToJSONTyped(value?: SubscriptionTierCard
         'currentTier': value['currentTier'],
         'selectable': value['selectable'],
         'primaryAction': SubscriptionPrimaryActionViewToJSON(value['primaryAction']),
+        'grantsAnyGatingKey': value['grantsAnyGatingKey'],
+        'gatingKeysGranted': value['gatingKeysGranted'],
     };
 }
 

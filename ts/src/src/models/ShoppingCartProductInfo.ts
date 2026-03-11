@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyProductProductSpecificInfoPricesTierPrice } from './BountyProductProductSpecificInfoPricesTierPrice';
-import {
-    BountyProductProductSpecificInfoPricesTierPriceFromJSON,
-    BountyProductProductSpecificInfoPricesTierPriceFromJSONTyped,
-    BountyProductProductSpecificInfoPricesTierPriceToJSON,
-    BountyProductProductSpecificInfoPricesTierPriceToJSONTyped,
-} from './BountyProductProductSpecificInfoPricesTierPrice';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -27,13 +20,6 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
-import type { AttachmentsAttachment } from './AttachmentsAttachment';
-import {
-    AttachmentsAttachmentFromJSON,
-    AttachmentsAttachmentFromJSONTyped,
-    AttachmentsAttachmentToJSON,
-    AttachmentsAttachmentToJSONTyped,
-} from './AttachmentsAttachment';
 import type { Price } from './Price';
 import {
     PriceFromJSON,
@@ -41,13 +27,20 @@ import {
     PriceToJSON,
     PriceToJSONTyped,
 } from './Price';
-import type { ShoppingCartBalanceCategoryInfo } from './ShoppingCartBalanceCategoryInfo';
+import type { BalanceCategoryInfo } from './BalanceCategoryInfo';
 import {
-    ShoppingCartBalanceCategoryInfoFromJSON,
-    ShoppingCartBalanceCategoryInfoFromJSONTyped,
-    ShoppingCartBalanceCategoryInfoToJSON,
-    ShoppingCartBalanceCategoryInfoToJSONTyped,
-} from './ShoppingCartBalanceCategoryInfo';
+    BalanceCategoryInfoFromJSON,
+    BalanceCategoryInfoFromJSONTyped,
+    BalanceCategoryInfoToJSON,
+    BalanceCategoryInfoToJSONTyped,
+} from './BalanceCategoryInfo';
+import type { Attachment } from './Attachment';
+import {
+    AttachmentFromJSON,
+    AttachmentFromJSONTyped,
+    AttachmentToJSON,
+    AttachmentToJSONTyped,
+} from './Attachment';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -55,6 +48,13 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
+import type { TierPrice } from './TierPrice';
+import {
+    TierPriceFromJSON,
+    TierPriceFromJSONTyped,
+    TierPriceToJSON,
+    TierPriceToJSONTyped,
+} from './TierPrice';
 
 /**
  * 
@@ -148,10 +148,10 @@ export interface ShoppingCartProductInfo {
     description?: string;
     /**
      * 
-     * @type {AttachmentsAttachment}
+     * @type {Attachment}
      * @memberof ShoppingCartProductInfo
      */
-    attachment?: AttachmentsAttachment;
+    attachment?: Attachment;
     /**
      * 
      * @type {Reward}
@@ -160,10 +160,10 @@ export interface ShoppingCartProductInfo {
     price?: Reward;
     /**
      * 
-     * @type {Array<BountyProductProductSpecificInfoPricesTierPrice>}
+     * @type {Array<TierPrice>}
      * @memberof ShoppingCartProductInfo
      */
-    tierPrices?: Array<BountyProductProductSpecificInfoPricesTierPrice>;
+    tierPrices?: Array<TierPrice>;
     /**
      * 
      * @type {string}
@@ -226,10 +226,10 @@ export interface ShoppingCartProductInfo {
     weightUnit?: string;
     /**
      * 
-     * @type {{ [key: string]: ShoppingCartBalanceCategoryInfo; }}
+     * @type {{ [key: string]: BalanceCategoryInfo; }}
      * @memberof ShoppingCartProductInfo
      */
-    balances?: { [key: string]: ShoppingCartBalanceCategoryInfo; };
+    balances?: { [key: string]: BalanceCategoryInfo; };
     /**
      * 
      * @type {number}
@@ -268,16 +268,16 @@ export interface ShoppingCartProductInfo {
     totalPice?: Reward;
     /**
      * 
-     * @type {number}
-     * @memberof ShoppingCartProductInfo
-     */
-    effectiveQuantity?: number;
-    /**
-     * 
      * @type {string}
      * @memberof ShoppingCartProductInfo
      */
     deliveryTypeAsEnum?: ShoppingCartProductInfoDeliveryTypeAsEnumEnum;
+    /**
+     * 
+     * @type {number}
+     * @memberof ShoppingCartProductInfo
+     */
+    effectiveQuantity?: number;
 }
 
 
@@ -336,9 +336,9 @@ export function ShoppingCartProductInfoFromJSONTyped(json: any, ignoreDiscrimina
         'promotionId': json['promotionId'] == null ? undefined : json['promotionId'],
         'name': json['name'] == null ? undefined : json['name'],
         'description': json['description'] == null ? undefined : json['description'],
-        'attachment': json['attachment'] == null ? undefined : AttachmentsAttachmentFromJSON(json['attachment']),
+        'attachment': json['attachment'] == null ? undefined : AttachmentFromJSON(json['attachment']),
         'price': json['price'] == null ? undefined : RewardFromJSON(json['price']),
-        'tierPrices': json['tierPrices'] == null ? undefined : ((json['tierPrices'] as Array<any>).map(BountyProductProductSpecificInfoPricesTierPriceFromJSON)),
+        'tierPrices': json['tierPrices'] == null ? undefined : ((json['tierPrices'] as Array<any>).map(TierPriceFromJSON)),
         'priceType': json['priceType'] == null ? undefined : json['priceType'],
         'msrp': json['msrp'] == null ? undefined : PriceFromJSON(json['msrp']),
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
@@ -349,15 +349,15 @@ export function ShoppingCartProductInfoFromJSONTyped(json: any, ignoreDiscrimina
         'maxAllowedQty': json['maxAllowedQty'] == null ? undefined : json['maxAllowedQty'],
         'availableQuantity': json['availableQuantity'] == null ? undefined : json['availableQuantity'],
         'weightUnit': json['weightUnit'] == null ? undefined : json['weightUnit'],
-        'balances': json['balances'] == null ? undefined : (mapValues(json['balances'], ShoppingCartBalanceCategoryInfoFromJSON)),
+        'balances': json['balances'] == null ? undefined : (mapValues(json['balances'], BalanceCategoryInfoFromJSON)),
         'addedAt': json['addedAt'] == null ? undefined : json['addedAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'recommendationToken': json['recommendationToken'] == null ? undefined : json['recommendationToken'],
         'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
         'priceTypeAsEnum': json['priceTypeAsEnum'] == null ? undefined : json['priceTypeAsEnum'],
         'totalPice': json['totalPice'] == null ? undefined : RewardFromJSON(json['totalPice']),
-        'effectiveQuantity': json['effectiveQuantity'] == null ? undefined : json['effectiveQuantity'],
         'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
+        'effectiveQuantity': json['effectiveQuantity'] == null ? undefined : json['effectiveQuantity'],
     };
 }
 
@@ -386,9 +386,9 @@ export function ShoppingCartProductInfoToJSONTyped(value?: ShoppingCartProductIn
         'promotionId': value['promotionId'],
         'name': value['name'],
         'description': value['description'],
-        'attachment': AttachmentsAttachmentToJSON(value['attachment']),
+        'attachment': AttachmentToJSON(value['attachment']),
         'price': RewardToJSON(value['price']),
-        'tierPrices': value['tierPrices'] == null ? undefined : ((value['tierPrices'] as Array<any>).map(BountyProductProductSpecificInfoPricesTierPriceToJSON)),
+        'tierPrices': value['tierPrices'] == null ? undefined : ((value['tierPrices'] as Array<any>).map(TierPriceToJSON)),
         'priceType': value['priceType'],
         'msrp': PriceToJSON(value['msrp']),
         'deliveryType': value['deliveryType'],
@@ -399,15 +399,15 @@ export function ShoppingCartProductInfoToJSONTyped(value?: ShoppingCartProductIn
         'maxAllowedQty': value['maxAllowedQty'],
         'availableQuantity': value['availableQuantity'],
         'weightUnit': value['weightUnit'],
-        'balances': value['balances'] == null ? undefined : (mapValues(value['balances'], ShoppingCartBalanceCategoryInfoToJSON)),
+        'balances': value['balances'] == null ? undefined : (mapValues(value['balances'], BalanceCategoryInfoToJSON)),
         'addedAt': value['addedAt'],
         'updatedAt': value['updatedAt'],
         'recommendationToken': value['recommendationToken'],
         'fastDelivery': value['fastDelivery'],
         'priceTypeAsEnum': value['priceTypeAsEnum'],
         'totalPice': RewardToJSON(value['totalPice']),
-        'effectiveQuantity': value['effectiveQuantity'],
         'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
+        'effectiveQuantity': value['effectiveQuantity'],
     };
 }
 

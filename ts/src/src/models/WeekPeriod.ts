@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { WeekPeriodDayPeriod } from './WeekPeriodDayPeriod';
+import type { DayPeriod } from './DayPeriod';
 import {
-    WeekPeriodDayPeriodFromJSON,
-    WeekPeriodDayPeriodFromJSONTyped,
-    WeekPeriodDayPeriodToJSON,
-    WeekPeriodDayPeriodToJSONTyped,
-} from './WeekPeriodDayPeriod';
+    DayPeriodFromJSON,
+    DayPeriodFromJSONTyped,
+    DayPeriodToJSON,
+    DayPeriodToJSONTyped,
+} from './DayPeriod';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface WeekPeriod {
     /**
      * 
-     * @type {{ [key: string]: WeekPeriodDayPeriod; }}
+     * @type {{ [key: string]: DayPeriod; }}
      * @memberof WeekPeriod
      */
-    dayPeriods?: { [key: string]: WeekPeriodDayPeriod; };
+    dayPeriods?: { [key: string]: DayPeriod; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function WeekPeriodFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'dayPeriods': json['dayPeriods'] == null ? undefined : (mapValues(json['dayPeriods'], WeekPeriodDayPeriodFromJSON)),
+        'dayPeriods': json['dayPeriods'] == null ? undefined : (mapValues(json['dayPeriods'], DayPeriodFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function WeekPeriodToJSONTyped(value?: WeekPeriod | null, ignoreDiscrimin
 
     return {
         
-        'dayPeriods': value['dayPeriods'] == null ? undefined : (mapValues(value['dayPeriods'], WeekPeriodDayPeriodToJSON)),
+        'dayPeriods': value['dayPeriods'] == null ? undefined : (mapValues(value['dayPeriods'], DayPeriodToJSON)),
     };
 }
 

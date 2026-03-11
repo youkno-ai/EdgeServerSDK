@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct Rejects: Codable, JSONEncodable, Hashable {
 
-    public var rejects: [String: RejectsReject]?
+    public var rejects: [String: Reject]?
 
-    public init(rejects: [String: RejectsReject]? = nil) {
+    public init(rejects: [String: Reject]? = nil) {
         self.rejects = rejects
     }
 

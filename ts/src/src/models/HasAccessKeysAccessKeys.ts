@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { HasAccessKeysAccessKeys2 } from './HasAccessKeysAccessKeys2';
+import {
+    HasAccessKeysAccessKeys2FromJSON,
+    HasAccessKeysAccessKeys2FromJSONTyped,
+    HasAccessKeysAccessKeys2ToJSON,
+    HasAccessKeysAccessKeys2ToJSONTyped,
+} from './HasAccessKeysAccessKeys2';
+
 /**
  * 
  * @export
@@ -21,22 +29,22 @@ import { mapValues } from '../runtime';
 export interface HasAccessKeysAccessKeys {
     /**
      * 
-     * @type {{ [key: string]: string; }}
+     * @type {HasAccessKeysAccessKeys2}
      * @memberof HasAccessKeysAccessKeys
      */
-    requiredAccessKeys?: { [key: string]: string; };
+    newValue?: HasAccessKeysAccessKeys2;
     /**
      * 
-     * @type {string}
+     * @type {HasAccessKeysAccessKeys2}
      * @memberof HasAccessKeysAccessKeys
      */
-    accessKeyEnforcement?: string;
+    oldValue?: HasAccessKeysAccessKeys2;
     /**
      * 
-     * @type {string}
+     * @type {boolean}
      * @memberof HasAccessKeysAccessKeys
      */
-    accessKeyCtaMode?: string;
+    empty?: boolean;
 }
 
 /**
@@ -56,9 +64,9 @@ export function HasAccessKeysAccessKeysFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'requiredAccessKeys': json['requiredAccessKeys'] == null ? undefined : json['requiredAccessKeys'],
-        'accessKeyEnforcement': json['accessKeyEnforcement'] == null ? undefined : json['accessKeyEnforcement'],
-        'accessKeyCtaMode': json['accessKeyCtaMode'] == null ? undefined : json['accessKeyCtaMode'],
+        'newValue': json['newValue'] == null ? undefined : HasAccessKeysAccessKeys2FromJSON(json['newValue']),
+        'oldValue': json['oldValue'] == null ? undefined : HasAccessKeysAccessKeys2FromJSON(json['oldValue']),
+        'empty': json['empty'] == null ? undefined : json['empty'],
     };
 }
 
@@ -73,9 +81,9 @@ export function HasAccessKeysAccessKeysToJSONTyped(value?: HasAccessKeysAccessKe
 
     return {
         
-        'requiredAccessKeys': value['requiredAccessKeys'],
-        'accessKeyEnforcement': value['accessKeyEnforcement'],
-        'accessKeyCtaMode': value['accessKeyCtaMode'],
+        'newValue': HasAccessKeysAccessKeys2ToJSON(value['newValue']),
+        'oldValue': HasAccessKeysAccessKeys2ToJSON(value['oldValue']),
+        'empty': value['empty'],
     };
 }
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Discount } from './Discount';
+import {
+    DiscountFromJSON,
+    DiscountFromJSONTyped,
+    DiscountToJSON,
+    DiscountToJSONTyped,
+} from './Discount';
 import type { Bounty } from './Bounty';
 import {
     BountyFromJSON,
@@ -27,13 +34,6 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
-import type { PromotionDiscount } from './PromotionDiscount';
-import {
-    PromotionDiscountFromJSON,
-    PromotionDiscountFromJSONTyped,
-    PromotionDiscountToJSON,
-    PromotionDiscountToJSONTyped,
-} from './PromotionDiscount';
 
 /**
  * 
@@ -67,10 +67,10 @@ export interface Promotion {
     couponCode?: string;
     /**
      * 
-     * @type {PromotionDiscount}
+     * @type {Discount}
      * @memberof Promotion
      */
-    discount?: PromotionDiscount;
+    discount?: Discount;
     /**
      * 
      * @type {number}
@@ -142,7 +142,7 @@ export function PromotionFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'type': json['type'] == null ? undefined : json['type'],
         'state': json['state'] == null ? undefined : json['state'],
         'couponCode': json['couponCode'] == null ? undefined : json['couponCode'],
-        'discount': json['discount'] == null ? undefined : PromotionDiscountFromJSON(json['discount']),
+        'discount': json['discount'] == null ? undefined : DiscountFromJSON(json['discount']),
         'startsAt': json['startsAt'] == null ? undefined : json['startsAt'],
         'endsAt': json['endsAt'] == null ? undefined : json['endsAt'],
         'ttl': json['ttl'] == null ? undefined : json['ttl'],
@@ -169,7 +169,7 @@ export function PromotionToJSONTyped(value?: Promotion | null, ignoreDiscriminat
         'type': value['type'],
         'state': value['state'],
         'couponCode': value['couponCode'],
-        'discount': PromotionDiscountToJSON(value['discount']),
+        'discount': DiscountToJSON(value['discount']),
         'startsAt': value['startsAt'],
         'endsAt': value['endsAt'],
         'ttl': value['ttl'],

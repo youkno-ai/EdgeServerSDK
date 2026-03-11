@@ -12,25 +12,37 @@ import AnyCodable
 
 public struct PosApiDataVendorResp: Codable, JSONEncodable, Hashable {
 
-    public var vendorId: String?
-    public var vendorName: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataVendorResp2]?
 
-    public init(vendorId: String? = nil, vendorName: String? = nil) {
-        self.vendorId = vendorId
-        self.vendorName = vendorName
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataVendorResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case vendorId
-        case vendorName
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(vendorId, forKey: .vendorId)
-        try container.encodeIfPresent(vendorName, forKey: .vendorName)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

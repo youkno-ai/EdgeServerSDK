@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataInventoryItemResp2 } from './PosApiDataInventoryItemResp2';
+import {
+    PosApiDataInventoryItemResp2FromJSON,
+    PosApiDataInventoryItemResp2FromJSONTyped,
+    PosApiDataInventoryItemResp2ToJSON,
+    PosApiDataInventoryItemResp2ToJSONTyped,
+} from './PosApiDataInventoryItemResp2';
+
 /**
  * 
  * @export
@@ -21,70 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataInventoryItemResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataInventoryItemResp
      */
-    itemId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    itemName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    categoryId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    categoryPath?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    barcode?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataInventoryItemResp
      */
-    priceRetail?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataInventoryItemResp
      */
-    priceRetailAdultUse?: number;
+    length?: number;
     /**
      * 
-     * @type {number}
+     * @type {boolean}
      * @memberof PosApiDataInventoryItemResp
      */
-    priceRetailMedicalUse?: number;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {number}
+     * @type {Array<PosApiDataInventoryItemResp2>}
      * @memberof PosApiDataInventoryItemResp
      */
-    priceSale?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    priceSaleAdultUse?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryItemResp
-     */
-    priceSaleMedicalUse?: number;
+    list?: Array<PosApiDataInventoryItemResp2>;
 }
 
 /**
@@ -104,17 +76,11 @@ export function PosApiDataInventoryItemRespFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'itemId': json['itemId'] == null ? undefined : json['itemId'],
-        'itemName': json['itemName'] == null ? undefined : json['itemName'],
-        'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
-        'categoryPath': json['categoryPath'] == null ? undefined : json['categoryPath'],
-        'barcode': json['barcode'] == null ? undefined : json['barcode'],
-        'priceRetail': json['priceRetail'] == null ? undefined : json['priceRetail'],
-        'priceRetailAdultUse': json['priceRetailAdultUse'] == null ? undefined : json['priceRetailAdultUse'],
-        'priceRetailMedicalUse': json['priceRetailMedicalUse'] == null ? undefined : json['priceRetailMedicalUse'],
-        'priceSale': json['priceSale'] == null ? undefined : json['priceSale'],
-        'priceSaleAdultUse': json['priceSaleAdultUse'] == null ? undefined : json['priceSaleAdultUse'],
-        'priceSaleMedicalUse': json['priceSaleMedicalUse'] == null ? undefined : json['priceSaleMedicalUse'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataInventoryItemResp2FromJSON)),
     };
 }
 
@@ -129,17 +95,11 @@ export function PosApiDataInventoryItemRespToJSONTyped(value?: PosApiDataInvento
 
     return {
         
-        'itemId': value['itemId'],
-        'itemName': value['itemName'],
-        'categoryId': value['categoryId'],
-        'categoryPath': value['categoryPath'],
-        'barcode': value['barcode'],
-        'priceRetail': value['priceRetail'],
-        'priceRetailAdultUse': value['priceRetailAdultUse'],
-        'priceRetailMedicalUse': value['priceRetailMedicalUse'],
-        'priceSale': value['priceSale'],
-        'priceSaleAdultUse': value['priceSaleAdultUse'],
-        'priceSaleMedicalUse': value['priceSaleMedicalUse'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataInventoryItemResp2ToJSON)),
     };
 }
 

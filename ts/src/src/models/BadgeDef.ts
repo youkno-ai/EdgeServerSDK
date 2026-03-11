@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BadgeDefEntityInfo } from './BadgeDefEntityInfo';
+import type { EntityInfo } from './EntityInfo';
 import {
-    BadgeDefEntityInfoFromJSON,
-    BadgeDefEntityInfoFromJSONTyped,
-    BadgeDefEntityInfoToJSON,
-    BadgeDefEntityInfoToJSONTyped,
-} from './BadgeDefEntityInfo';
+    EntityInfoFromJSON,
+    EntityInfoFromJSONTyped,
+    EntityInfoToJSON,
+    EntityInfoToJSONTyped,
+} from './EntityInfo';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -84,10 +84,10 @@ export interface BadgeDef {
     reward?: Reward;
     /**
      * 
-     * @type {{ [key: string]: BadgeDefEntityInfo; }}
+     * @type {{ [key: string]: EntityInfo; }}
      * @memberof BadgeDef
      */
-    entityTypes?: { [key: string]: BadgeDefEntityInfo; };
+    entityTypes?: { [key: string]: EntityInfo; };
     /**
      * 
      * @type {number}
@@ -139,7 +139,7 @@ export function BadgeDefFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'reputationCode': json['reputationCode'] == null ? undefined : json['reputationCode'],
         'idempotent': json['idempotent'] == null ? undefined : json['idempotent'],
         'reward': json['reward'] == null ? undefined : RewardFromJSON(json['reward']),
-        'entityTypes': json['entityTypes'] == null ? undefined : (mapValues(json['entityTypes'], BadgeDefEntityInfoFromJSON)),
+        'entityTypes': json['entityTypes'] == null ? undefined : (mapValues(json['entityTypes'], EntityInfoFromJSON)),
         'maxQty': json['maxQty'] == null ? undefined : json['maxQty'],
         'createdQty': json['createdQty'] == null ? undefined : json['createdQty'],
         'badgeDefType': json['badgeDefType'] == null ? undefined : json['badgeDefType'],
@@ -166,7 +166,7 @@ export function BadgeDefToJSONTyped(value?: BadgeDef | null, ignoreDiscriminator
         'reputationCode': value['reputationCode'],
         'idempotent': value['idempotent'],
         'reward': RewardToJSON(value['reward']),
-        'entityTypes': value['entityTypes'] == null ? undefined : (mapValues(value['entityTypes'], BadgeDefEntityInfoToJSON)),
+        'entityTypes': value['entityTypes'] == null ? undefined : (mapValues(value['entityTypes'], EntityInfoToJSON)),
         'maxQty': value['maxQty'],
         'createdQty': value['createdQty'],
         'badgeDefType': value['badgeDefType'],

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataCategoryResp2 } from './PosApiDataCategoryResp2';
+import {
+    PosApiDataCategoryResp2FromJSON,
+    PosApiDataCategoryResp2FromJSONTyped,
+    PosApiDataCategoryResp2ToJSON,
+    PosApiDataCategoryResp2ToJSONTyped,
+} from './PosApiDataCategoryResp2';
+
 /**
  * 
  * @export
@@ -21,22 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataCategoryResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataCategoryResp
      */
-    categoryId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataCategoryResp
      */
-    categoryName?: string;
+    start?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataCategoryResp
      */
-    categoryPath?: string;
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataCategoryResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataCategoryResp2>}
+     * @memberof PosApiDataCategoryResp
+     */
+    list?: Array<PosApiDataCategoryResp2>;
 }
 
 /**
@@ -56,9 +76,11 @@ export function PosApiDataCategoryRespFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
-        'categoryName': json['categoryName'] == null ? undefined : json['categoryName'],
-        'categoryPath': json['categoryPath'] == null ? undefined : json['categoryPath'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataCategoryResp2FromJSON)),
     };
 }
 
@@ -73,9 +95,11 @@ export function PosApiDataCategoryRespToJSONTyped(value?: PosApiDataCategoryResp
 
     return {
         
-        'categoryId': value['categoryId'],
-        'categoryName': value['categoryName'],
-        'categoryPath': value['categoryPath'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataCategoryResp2ToJSON)),
     };
 }
 

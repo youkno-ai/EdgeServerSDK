@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AttachmentsAttachment } from './AttachmentsAttachment';
+import type { Attachment } from './Attachment';
 import {
-    AttachmentsAttachmentFromJSON,
-    AttachmentsAttachmentFromJSONTyped,
-    AttachmentsAttachmentToJSON,
-    AttachmentsAttachmentToJSONTyped,
-} from './AttachmentsAttachment';
+    AttachmentFromJSON,
+    AttachmentFromJSONTyped,
+    AttachmentToJSON,
+    AttachmentToJSONTyped,
+} from './Attachment';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface Attachments {
     /**
      * 
-     * @type {{ [key: string]: AttachmentsAttachment; }}
+     * @type {{ [key: string]: Attachment; }}
      * @memberof Attachments
      */
-    attachments?: { [key: string]: AttachmentsAttachment; };
+    attachments?: { [key: string]: Attachment; };
     /**
      * 
      * @type {string}
@@ -41,10 +41,10 @@ export interface Attachments {
     autoTextMd5?: string;
     /**
      * 
-     * @type {{ [key: string]: AttachmentsAttachment; }}
+     * @type {{ [key: string]: Attachment; }}
      * @memberof Attachments
      */
-    autoAttachments?: { [key: string]: AttachmentsAttachment; };
+    autoAttachments?: { [key: string]: Attachment; };
 }
 
 /**
@@ -64,9 +64,9 @@ export function AttachmentsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'attachments': json['attachments'] == null ? undefined : (mapValues(json['attachments'], AttachmentsAttachmentFromJSON)),
+        'attachments': json['attachments'] == null ? undefined : (mapValues(json['attachments'], AttachmentFromJSON)),
         'autoTextMd5': json['autoTextMd5'] == null ? undefined : json['autoTextMd5'],
-        'autoAttachments': json['autoAttachments'] == null ? undefined : (mapValues(json['autoAttachments'], AttachmentsAttachmentFromJSON)),
+        'autoAttachments': json['autoAttachments'] == null ? undefined : (mapValues(json['autoAttachments'], AttachmentFromJSON)),
     };
 }
 
@@ -81,9 +81,9 @@ export function AttachmentsToJSONTyped(value?: Attachments | null, ignoreDiscrim
 
     return {
         
-        'attachments': value['attachments'] == null ? undefined : (mapValues(value['attachments'], AttachmentsAttachmentToJSON)),
+        'attachments': value['attachments'] == null ? undefined : (mapValues(value['attachments'], AttachmentToJSON)),
         'autoTextMd5': value['autoTextMd5'],
-        'autoAttachments': value['autoAttachments'] == null ? undefined : (mapValues(value['autoAttachments'], AttachmentsAttachmentToJSON)),
+        'autoAttachments': value['autoAttachments'] == null ? undefined : (mapValues(value['autoAttachments'], AttachmentToJSON)),
     };
 }
 

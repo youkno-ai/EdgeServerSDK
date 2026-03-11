@@ -27,13 +27,6 @@ import {
     PointsToJSON,
     PointsToJSONTyped,
 } from './Points';
-import type { BadgesBadge } from './BadgesBadge';
-import {
-    BadgesBadgeFromJSON,
-    BadgesBadgeFromJSONTyped,
-    BadgesBadgeToJSON,
-    BadgesBadgeToJSONTyped,
-} from './BadgesBadge';
 import type { AccessReward } from './AccessReward';
 import {
     AccessRewardFromJSON,
@@ -41,6 +34,13 @@ import {
     AccessRewardToJSON,
     AccessRewardToJSONTyped,
 } from './AccessReward';
+import type { Badge } from './Badge';
+import {
+    BadgeFromJSON,
+    BadgeFromJSONTyped,
+    BadgeToJSON,
+    BadgeToJSONTyped,
+} from './Badge';
 import type { Promotion } from './Promotion';
 import {
     PromotionFromJSON,
@@ -82,10 +82,10 @@ export interface Reward {
     vouchers?: { [key: string]: Voucher; };
     /**
      * 
-     * @type {{ [key: string]: BadgesBadge; }}
+     * @type {{ [key: string]: Badge; }}
      * @memberof Reward
      */
-    badges?: { [key: string]: BadgesBadge; };
+    badges?: { [key: string]: Badge; };
     /**
      * 
      * @type {{ [key: string]: Promotion; }}
@@ -120,7 +120,7 @@ export function RewardFromJSONTyped(json: any, ignoreDiscriminator: boolean): Re
         'money': json['money'] == null ? undefined : MoneyFromJSON(json['money']),
         'points': json['points'] == null ? undefined : (mapValues(json['points'], PointsFromJSON)),
         'vouchers': json['vouchers'] == null ? undefined : (mapValues(json['vouchers'], VoucherFromJSON)),
-        'badges': json['badges'] == null ? undefined : (mapValues(json['badges'], BadgesBadgeFromJSON)),
+        'badges': json['badges'] == null ? undefined : (mapValues(json['badges'], BadgeFromJSON)),
         'promotions': json['promotions'] == null ? undefined : (mapValues(json['promotions'], PromotionFromJSON)),
         'accessKeys': json['accessKeys'] == null ? undefined : (mapValues(json['accessKeys'], AccessRewardFromJSON)),
     };
@@ -140,7 +140,7 @@ export function RewardToJSONTyped(value?: Reward | null, ignoreDiscriminator: bo
         'money': MoneyToJSON(value['money']),
         'points': value['points'] == null ? undefined : (mapValues(value['points'], PointsToJSON)),
         'vouchers': value['vouchers'] == null ? undefined : (mapValues(value['vouchers'], VoucherToJSON)),
-        'badges': value['badges'] == null ? undefined : (mapValues(value['badges'], BadgesBadgeToJSON)),
+        'badges': value['badges'] == null ? undefined : (mapValues(value['badges'], BadgeToJSON)),
         'promotions': value['promotions'] == null ? undefined : (mapValues(value['promotions'], PromotionToJSON)),
         'accessKeys': value['accessKeys'] == null ? undefined : (mapValues(value['accessKeys'], AccessRewardToJSON)),
     };

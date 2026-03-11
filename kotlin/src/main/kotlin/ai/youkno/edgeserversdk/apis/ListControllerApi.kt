@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageListsListDef
 import ai.youkno.edgeserversdk.models.ListsListDef
+import ai.youkno.edgeserversdk.models.ListsListDef2
 
 interface ListControllerApi {
     /**
@@ -39,10 +39,10 @@ interface ListControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ListsListDef]>
+     * @return [Call]<[ListsListDef2]>
      */
     @GET("api/v1/lists/{listId}/{scopeName}")
-    fun getApiV1ListsByListidByScopename(@Path("listId") listId: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef>
+    fun getApiV1ListsByListidByScopename(@Path("listId") listId: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef2>
 
     /**
      * GET api/v1/lists/{scopeName}
@@ -55,10 +55,10 @@ interface ListControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageListsListDef]>
+     * @return [Call]<[ListsListDef]>
      */
     @GET("api/v1/lists/{scopeName}")
-    fun getApiV1ListsByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageListsListDef>
+    fun getApiV1ListsByScopename(@Path("scopeName") scopeName: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef>
 
     /**
      * POST api/v1/lists/{scopeName}
@@ -68,14 +68,14 @@ interface ListControllerApi {
      *  - 200: OK
      *
      * @param scopeName 
-     * @param listsListDef 
+     * @param listsListDef2 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ListsListDef]>
+     * @return [Call]<[ListsListDef2]>
      */
     @POST("api/v1/lists/{scopeName}")
-    fun postApiV1ListsByScopename(@Path("scopeName") scopeName: kotlin.String, @Body listsListDef: ListsListDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef>
+    fun postApiV1ListsByScopename(@Path("scopeName") scopeName: kotlin.String, @Body listsListDef2: ListsListDef2, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef2>
 
     /**
      * PUT api/v1/lists/{listId}/{scopeName}
@@ -86,13 +86,13 @@ interface ListControllerApi {
      *
      * @param listId 
      * @param scopeName 
-     * @param listsListDef 
+     * @param listsListDef2 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ListsListDef]>
+     * @return [Call]<[ListsListDef2]>
      */
     @PUT("api/v1/lists/{listId}/{scopeName}")
-    fun putApiV1ListsByListidByScopename(@Path("listId") listId: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Body listsListDef: ListsListDef, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef>
+    fun putApiV1ListsByListidByScopename(@Path("listId") listId: kotlin.String, @Path("scopeName") scopeName: kotlin.String, @Body listsListDef2: ListsListDef2, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef2>
 
 }

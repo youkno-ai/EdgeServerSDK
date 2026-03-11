@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MarkDoc } from './MarkDoc';
+import {
+    MarkDocFromJSON,
+    MarkDocFromJSONTyped,
+    MarkDocToJSON,
+    MarkDocToJSONTyped,
+} from './MarkDoc';
 import type { CalendarEventInfoMetaInfo } from './CalendarEventInfoMetaInfo';
 import {
     CalendarEventInfoMetaInfoFromJSON,
@@ -27,13 +34,6 @@ import {
     StructuredDescriptionToJSON,
     StructuredDescriptionToJSONTyped,
 } from './StructuredDescription';
-import type { StructuredDescriptionMarkDoc } from './StructuredDescriptionMarkDoc';
-import {
-    StructuredDescriptionMarkDocFromJSON,
-    StructuredDescriptionMarkDocFromJSONTyped,
-    StructuredDescriptionMarkDocToJSON,
-    StructuredDescriptionMarkDocToJSONTyped,
-} from './StructuredDescriptionMarkDoc';
 
 /**
  * 
@@ -49,10 +49,10 @@ export interface CalendarEventInfo {
     structuredDescription?: StructuredDescription;
     /**
      * 
-     * @type {StructuredDescriptionMarkDoc}
+     * @type {MarkDoc}
      * @memberof CalendarEventInfo
      */
-    markDoc?: StructuredDescriptionMarkDoc;
+    markDoc?: MarkDoc;
     /**
      * 
      * @type {CalendarEventInfoMetaInfo}
@@ -85,7 +85,7 @@ export function CalendarEventInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'structuredDescription': json['structuredDescription'] == null ? undefined : StructuredDescriptionFromJSON(json['structuredDescription']),
-        'markDoc': json['markDoc'] == null ? undefined : StructuredDescriptionMarkDocFromJSON(json['markDoc']),
+        'markDoc': json['markDoc'] == null ? undefined : MarkDocFromJSON(json['markDoc']),
         'meta': json['meta'] == null ? undefined : CalendarEventInfoMetaInfoFromJSON(json['meta']),
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
     };
@@ -103,7 +103,7 @@ export function CalendarEventInfoToJSONTyped(value?: CalendarEventInfo | null, i
     return {
         
         'structuredDescription': StructuredDescriptionToJSON(value['structuredDescription']),
-        'markDoc': StructuredDescriptionMarkDocToJSON(value['markDoc']),
+        'markDoc': MarkDocToJSON(value['markDoc']),
         'meta': CalendarEventInfoMetaInfoToJSON(value['meta']),
         'metaError': value['metaError'],
     };

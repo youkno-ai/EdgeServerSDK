@@ -6,60 +6,60 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AiBadgeBadgeGeneratorInput
-import ai.youkno.edgeserversdk.models.AiStickersStickerCollectionGeneratorInput
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerAiGeneratedEntitiesStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerBadgeGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerBountyGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerBountyGenerationStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCategoryGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCategoryGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCategoryTreeGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCategoryTreeGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerChatSimulationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerChatSimulationStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCompanyBatchGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerCompanyBatchGenerationStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerDemoFeedSeedingCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerDemoFeedSeedingStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerMenuGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerMenuGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerProductGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerProductGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartBadgeGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartBountyGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartBountyGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCategoryGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCategoryGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCategoryTreeGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCategoryTreeGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartChatSimulationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartChatSimulationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCompanyBatchGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartCompanyBatchGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartDemoFeedSeedingRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartDemoFeedSeedingResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartFullCatalogGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartFullCatalogGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartMenuGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartMenuGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartProductGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartProductGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartStickerGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserAvatarGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserAvatarGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserBatchGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserBatchGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserCoverGenerationRequest
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStartUserCoverGenerationResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStickerCollectionGeneratorStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerStickerGeneratorMeta
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserAvatarGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserAvatarGenerationStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserBatchGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserBatchGenerationStatus
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserCoverGenerationCleanupResponse
-import ai.youkno.edgeserversdk.models.RestControllerAIControllerUserCoverGenerationStatus
+import ai.youkno.edgeserversdk.models.AiGeneratedEntitiesStatus
+import ai.youkno.edgeserversdk.models.BadgeGeneratorInput
+import ai.youkno.edgeserversdk.models.BadgeGeneratorStatus
+import ai.youkno.edgeserversdk.models.BountyGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.BountyGenerationStatus
+import ai.youkno.edgeserversdk.models.CategoryGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.CategoryGeneratorStatus
+import ai.youkno.edgeserversdk.models.CategoryTreeGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.CategoryTreeGeneratorStatus
+import ai.youkno.edgeserversdk.models.ChatSimulationCleanupResponse
+import ai.youkno.edgeserversdk.models.ChatSimulationStatus
+import ai.youkno.edgeserversdk.models.CompanyBatchGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.CompanyBatchGenerationStatus
+import ai.youkno.edgeserversdk.models.DemoFeedSeedingCleanupResponse
+import ai.youkno.edgeserversdk.models.DemoFeedSeedingStatus
+import ai.youkno.edgeserversdk.models.MenuGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.MenuGeneratorStatus
+import ai.youkno.edgeserversdk.models.ProductGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.ProductGeneratorStatus
+import ai.youkno.edgeserversdk.models.StartBadgeGenerationResponse
+import ai.youkno.edgeserversdk.models.StartBountyGenerationRequest
+import ai.youkno.edgeserversdk.models.StartBountyGenerationResponse
+import ai.youkno.edgeserversdk.models.StartCategoryGenerationRequest
+import ai.youkno.edgeserversdk.models.StartCategoryGenerationResponse
+import ai.youkno.edgeserversdk.models.StartCategoryTreeGenerationRequest
+import ai.youkno.edgeserversdk.models.StartCategoryTreeGenerationResponse
+import ai.youkno.edgeserversdk.models.StartChatSimulationRequest
+import ai.youkno.edgeserversdk.models.StartChatSimulationResponse
+import ai.youkno.edgeserversdk.models.StartCompanyBatchGenerationRequest
+import ai.youkno.edgeserversdk.models.StartCompanyBatchGenerationResponse
+import ai.youkno.edgeserversdk.models.StartDemoFeedSeedingRequest
+import ai.youkno.edgeserversdk.models.StartDemoFeedSeedingResponse
+import ai.youkno.edgeserversdk.models.StartFullCatalogGenerationRequest
+import ai.youkno.edgeserversdk.models.StartFullCatalogGenerationResponse
+import ai.youkno.edgeserversdk.models.StartMenuGenerationRequest
+import ai.youkno.edgeserversdk.models.StartMenuGenerationResponse
+import ai.youkno.edgeserversdk.models.StartProductGenerationRequest
+import ai.youkno.edgeserversdk.models.StartProductGenerationResponse
+import ai.youkno.edgeserversdk.models.StartStickerGenerationResponse
+import ai.youkno.edgeserversdk.models.StartUserAvatarGenerationRequest
+import ai.youkno.edgeserversdk.models.StartUserAvatarGenerationResponse
+import ai.youkno.edgeserversdk.models.StartUserBatchGenerationRequest
+import ai.youkno.edgeserversdk.models.StartUserBatchGenerationResponse
+import ai.youkno.edgeserversdk.models.StartUserCoverGenerationRequest
+import ai.youkno.edgeserversdk.models.StartUserCoverGenerationResponse
+import ai.youkno.edgeserversdk.models.StickerCollectionGeneratorInput
+import ai.youkno.edgeserversdk.models.StickerCollectionGeneratorStatus
+import ai.youkno.edgeserversdk.models.StickerGeneratorMeta
+import ai.youkno.edgeserversdk.models.UserAvatarGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.UserAvatarGenerationStatus
+import ai.youkno.edgeserversdk.models.UserBatchGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.UserBatchGenerationStatus
+import ai.youkno.edgeserversdk.models.UserCoverGenerationCleanupResponse
+import ai.youkno.edgeserversdk.models.UserCoverGenerationStatus
 
 interface AiControllerApi {
     /**
@@ -73,10 +73,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerBadgeGeneratorStatus]>
+     * @return [Call]<[BadgeGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/badge/{companyId}")
-    fun getApiV1AiGenerateBadgeByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerBadgeGeneratorStatus>
+    fun getApiV1AiGenerateBadgeByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BadgeGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/bounty/{jobId}
@@ -89,10 +89,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerBountyGenerationStatus]>
+     * @return [Call]<[BountyGenerationStatus]>
      */
     @GET("api/v1/ai/generate/bounty/{jobId}")
-    fun getApiV1AiGenerateBountyByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerBountyGenerationStatus>
+    fun getApiV1AiGenerateBountyByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyGenerationStatus>
 
     /**
      * GET api/v1/ai/generate/categories/{companyId}
@@ -105,10 +105,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCategoryGeneratorStatus]>
+     * @return [Call]<[CategoryGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/categories/{companyId}")
-    fun getApiV1AiGenerateCategoriesByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCategoryGeneratorStatus>
+    fun getApiV1AiGenerateCategoriesByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CategoryGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/category-tree/{companyId}
@@ -121,10 +121,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCategoryTreeGeneratorStatus]>
+     * @return [Call]<[CategoryTreeGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/category-tree/{companyId}")
-    fun getApiV1AiGenerateCategoryTreeByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCategoryTreeGeneratorStatus>
+    fun getApiV1AiGenerateCategoryTreeByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CategoryTreeGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/chat/simulate/{jobId}
@@ -137,10 +137,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerChatSimulationStatus]>
+     * @return [Call]<[ChatSimulationStatus]>
      */
     @GET("api/v1/ai/generate/chat/simulate/{jobId}")
-    fun getApiV1AiGenerateChatSimulateByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerChatSimulationStatus>
+    fun getApiV1AiGenerateChatSimulateByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ChatSimulationStatus>
 
     /**
      * GET api/v1/ai/generate/companies/batch/{jobId}
@@ -153,10 +153,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCompanyBatchGenerationStatus]>
+     * @return [Call]<[CompanyBatchGenerationStatus]>
      */
     @GET("api/v1/ai/generate/companies/batch/{jobId}")
-    fun getApiV1AiGenerateCompaniesBatchByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCompanyBatchGenerationStatus>
+    fun getApiV1AiGenerateCompaniesBatchByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyBatchGenerationStatus>
 
     /**
      * GET api/v1/ai/generate/demo-feed/{jobId}
@@ -169,10 +169,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerDemoFeedSeedingStatus]>
+     * @return [Call]<[DemoFeedSeedingStatus]>
      */
     @GET("api/v1/ai/generate/demo-feed/{jobId}")
-    fun getApiV1AiGenerateDemoFeedByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerDemoFeedSeedingStatus>
+    fun getApiV1AiGenerateDemoFeedByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DemoFeedSeedingStatus>
 
     /**
      * GET api/v1/ai/generate/menu/{companyId}
@@ -185,10 +185,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerMenuGeneratorStatus]>
+     * @return [Call]<[MenuGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/menu/{companyId}")
-    fun getApiV1AiGenerateMenuByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerMenuGeneratorStatus>
+    fun getApiV1AiGenerateMenuByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<MenuGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/products/{companyId}
@@ -201,10 +201,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerProductGeneratorStatus]>
+     * @return [Call]<[ProductGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/products/{companyId}")
-    fun getApiV1AiGenerateProductsByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerProductGeneratorStatus>
+    fun getApiV1AiGenerateProductsByCompanyid(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ProductGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/provenance/{jobId}
@@ -217,10 +217,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerAiGeneratedEntitiesStatus]>
+     * @return [Call]<[AiGeneratedEntitiesStatus]>
      */
     @GET("api/v1/ai/generate/provenance/{jobId}")
-    fun getApiV1AiGenerateProvenanceByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerAiGeneratedEntitiesStatus>
+    fun getApiV1AiGenerateProvenanceByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AiGeneratedEntitiesStatus>
 
     /**
      * GET api/v1/ai/generate/stickers/{bountyId}
@@ -233,10 +233,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStickerCollectionGeneratorStatus]>
+     * @return [Call]<[StickerCollectionGeneratorStatus]>
      */
     @GET("api/v1/ai/generate/stickers/{bountyId}")
-    fun getApiV1AiGenerateStickersByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStickerCollectionGeneratorStatus>
+    fun getApiV1AiGenerateStickersByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StickerCollectionGeneratorStatus>
 
     /**
      * GET api/v1/ai/generate/stickers/meta
@@ -248,10 +248,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStickerGeneratorMeta]>
+     * @return [Call]<[StickerGeneratorMeta]>
      */
     @GET("api/v1/ai/generate/stickers/meta")
-    fun getApiV1AiGenerateStickersMeta(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStickerGeneratorMeta>
+    fun getApiV1AiGenerateStickersMeta(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StickerGeneratorMeta>
 
     /**
      * GET api/v1/ai/generate/user-avatar/{jobId}
@@ -264,10 +264,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserAvatarGenerationStatus]>
+     * @return [Call]<[UserAvatarGenerationStatus]>
      */
     @GET("api/v1/ai/generate/user-avatar/{jobId}")
-    fun getApiV1AiGenerateUserAvatarByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserAvatarGenerationStatus>
+    fun getApiV1AiGenerateUserAvatarByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserAvatarGenerationStatus>
 
     /**
      * GET api/v1/ai/generate/user-cover/{jobId}
@@ -280,10 +280,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserCoverGenerationStatus]>
+     * @return [Call]<[UserCoverGenerationStatus]>
      */
     @GET("api/v1/ai/generate/user-cover/{jobId}")
-    fun getApiV1AiGenerateUserCoverByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserCoverGenerationStatus>
+    fun getApiV1AiGenerateUserCoverByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserCoverGenerationStatus>
 
     /**
      * GET api/v1/ai/generate/users/batch/{jobId}
@@ -296,10 +296,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserBatchGenerationStatus]>
+     * @return [Call]<[UserBatchGenerationStatus]>
      */
     @GET("api/v1/ai/generate/users/batch/{jobId}")
-    fun getApiV1AiGenerateUsersBatchByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserBatchGenerationStatus>
+    fun getApiV1AiGenerateUsersBatchByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserBatchGenerationStatus>
 
     /**
      * POST api/v1/ai/generate/badge
@@ -308,14 +308,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param aiBadgeBadgeGeneratorInput 
+     * @param badgeGeneratorInput 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartBadgeGenerationResponse]>
+     * @return [Call]<[StartBadgeGenerationResponse]>
      */
     @POST("api/v1/ai/generate/badge")
-    fun postApiV1AiGenerateBadge(@Body aiBadgeBadgeGeneratorInput: AiBadgeBadgeGeneratorInput, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartBadgeGenerationResponse>
+    fun postApiV1AiGenerateBadge(@Body badgeGeneratorInput: BadgeGeneratorInput, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartBadgeGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/bounty
@@ -324,14 +324,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartBountyGenerationRequest 
+     * @param startBountyGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartBountyGenerationResponse]>
+     * @return [Call]<[StartBountyGenerationResponse]>
      */
     @POST("api/v1/ai/generate/bounty")
-    fun postApiV1AiGenerateBounty(@Body restControllerAIControllerStartBountyGenerationRequest: RestControllerAIControllerStartBountyGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartBountyGenerationResponse>
+    fun postApiV1AiGenerateBounty(@Body startBountyGenerationRequest: StartBountyGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartBountyGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/bounty/{jobId}/cleanup
@@ -345,10 +345,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerBountyGenerationCleanupResponse]>
+     * @return [Call]<[BountyGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/bounty/{jobId}/cleanup")
-    fun postApiV1AiGenerateBountyByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerBountyGenerationCleanupResponse>
+    fun postApiV1AiGenerateBountyByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/catalog
@@ -357,14 +357,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartFullCatalogGenerationRequest 
+     * @param startFullCatalogGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartFullCatalogGenerationResponse]>
+     * @return [Call]<[StartFullCatalogGenerationResponse]>
      */
     @POST("api/v1/ai/generate/catalog")
-    fun postApiV1AiGenerateCatalog(@Body restControllerAIControllerStartFullCatalogGenerationRequest: RestControllerAIControllerStartFullCatalogGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartFullCatalogGenerationResponse>
+    fun postApiV1AiGenerateCatalog(@Body startFullCatalogGenerationRequest: StartFullCatalogGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartFullCatalogGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/categories
@@ -373,14 +373,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartCategoryGenerationRequest 
+     * @param startCategoryGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartCategoryGenerationResponse]>
+     * @return [Call]<[StartCategoryGenerationResponse]>
      */
     @POST("api/v1/ai/generate/categories")
-    fun postApiV1AiGenerateCategories(@Body restControllerAIControllerStartCategoryGenerationRequest: RestControllerAIControllerStartCategoryGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartCategoryGenerationResponse>
+    fun postApiV1AiGenerateCategories(@Body startCategoryGenerationRequest: StartCategoryGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartCategoryGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/categories/{jobId}/cleanup
@@ -394,10 +394,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCategoryGenerationCleanupResponse]>
+     * @return [Call]<[CategoryGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/categories/{jobId}/cleanup")
-    fun postApiV1AiGenerateCategoriesByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCategoryGenerationCleanupResponse>
+    fun postApiV1AiGenerateCategoriesByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CategoryGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/category-tree
@@ -406,14 +406,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartCategoryTreeGenerationRequest 
+     * @param startCategoryTreeGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartCategoryTreeGenerationResponse]>
+     * @return [Call]<[StartCategoryTreeGenerationResponse]>
      */
     @POST("api/v1/ai/generate/category-tree")
-    fun postApiV1AiGenerateCategoryTree(@Body restControllerAIControllerStartCategoryTreeGenerationRequest: RestControllerAIControllerStartCategoryTreeGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartCategoryTreeGenerationResponse>
+    fun postApiV1AiGenerateCategoryTree(@Body startCategoryTreeGenerationRequest: StartCategoryTreeGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartCategoryTreeGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/category-tree/{jobId}/cleanup
@@ -427,10 +427,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCategoryTreeGenerationCleanupResponse]>
+     * @return [Call]<[CategoryTreeGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/category-tree/{jobId}/cleanup")
-    fun postApiV1AiGenerateCategoryTreeByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>
+    fun postApiV1AiGenerateCategoryTreeByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CategoryTreeGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/chat/simulate
@@ -439,14 +439,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartChatSimulationRequest 
+     * @param startChatSimulationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartChatSimulationResponse]>
+     * @return [Call]<[StartChatSimulationResponse]>
      */
     @POST("api/v1/ai/generate/chat/simulate")
-    fun postApiV1AiGenerateChatSimulate(@Body restControllerAIControllerStartChatSimulationRequest: RestControllerAIControllerStartChatSimulationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartChatSimulationResponse>
+    fun postApiV1AiGenerateChatSimulate(@Body startChatSimulationRequest: StartChatSimulationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartChatSimulationResponse>
 
     /**
      * POST api/v1/ai/generate/chat/simulate/{jobId}/cleanup
@@ -460,10 +460,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerChatSimulationCleanupResponse]>
+     * @return [Call]<[ChatSimulationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/chat/simulate/{jobId}/cleanup")
-    fun postApiV1AiGenerateChatSimulateByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerChatSimulationCleanupResponse>
+    fun postApiV1AiGenerateChatSimulateByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ChatSimulationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/companies/batch
@@ -472,14 +472,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartCompanyBatchGenerationRequest 
+     * @param startCompanyBatchGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartCompanyBatchGenerationResponse]>
+     * @return [Call]<[StartCompanyBatchGenerationResponse]>
      */
     @POST("api/v1/ai/generate/companies/batch")
-    fun postApiV1AiGenerateCompaniesBatch(@Body restControllerAIControllerStartCompanyBatchGenerationRequest: RestControllerAIControllerStartCompanyBatchGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartCompanyBatchGenerationResponse>
+    fun postApiV1AiGenerateCompaniesBatch(@Body startCompanyBatchGenerationRequest: StartCompanyBatchGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartCompanyBatchGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/companies/batch/{jobId}/cleanup
@@ -493,10 +493,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerCompanyBatchGenerationCleanupResponse]>
+     * @return [Call]<[CompanyBatchGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/companies/batch/{jobId}/cleanup")
-    fun postApiV1AiGenerateCompaniesBatchByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>
+    fun postApiV1AiGenerateCompaniesBatchByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyBatchGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/demo-feed
@@ -505,14 +505,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartDemoFeedSeedingRequest 
+     * @param startDemoFeedSeedingRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartDemoFeedSeedingResponse]>
+     * @return [Call]<[StartDemoFeedSeedingResponse]>
      */
     @POST("api/v1/ai/generate/demo-feed")
-    fun postApiV1AiGenerateDemoFeed(@Body restControllerAIControllerStartDemoFeedSeedingRequest: RestControllerAIControllerStartDemoFeedSeedingRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartDemoFeedSeedingResponse>
+    fun postApiV1AiGenerateDemoFeed(@Body startDemoFeedSeedingRequest: StartDemoFeedSeedingRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartDemoFeedSeedingResponse>
 
     /**
      * POST api/v1/ai/generate/demo-feed/{jobId}/cleanup
@@ -526,10 +526,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerDemoFeedSeedingCleanupResponse]>
+     * @return [Call]<[DemoFeedSeedingCleanupResponse]>
      */
     @POST("api/v1/ai/generate/demo-feed/{jobId}/cleanup")
-    fun postApiV1AiGenerateDemoFeedByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerDemoFeedSeedingCleanupResponse>
+    fun postApiV1AiGenerateDemoFeedByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<DemoFeedSeedingCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/menu
@@ -538,14 +538,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartMenuGenerationRequest 
+     * @param startMenuGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartMenuGenerationResponse]>
+     * @return [Call]<[StartMenuGenerationResponse]>
      */
     @POST("api/v1/ai/generate/menu")
-    fun postApiV1AiGenerateMenu(@Body restControllerAIControllerStartMenuGenerationRequest: RestControllerAIControllerStartMenuGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartMenuGenerationResponse>
+    fun postApiV1AiGenerateMenu(@Body startMenuGenerationRequest: StartMenuGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartMenuGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/menu/{jobId}/cleanup
@@ -559,10 +559,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerMenuGenerationCleanupResponse]>
+     * @return [Call]<[MenuGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/menu/{jobId}/cleanup")
-    fun postApiV1AiGenerateMenuByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerMenuGenerationCleanupResponse>
+    fun postApiV1AiGenerateMenuByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<MenuGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/products
@@ -571,14 +571,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartProductGenerationRequest 
+     * @param startProductGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartProductGenerationResponse]>
+     * @return [Call]<[StartProductGenerationResponse]>
      */
     @POST("api/v1/ai/generate/products")
-    fun postApiV1AiGenerateProducts(@Body restControllerAIControllerStartProductGenerationRequest: RestControllerAIControllerStartProductGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartProductGenerationResponse>
+    fun postApiV1AiGenerateProducts(@Body startProductGenerationRequest: StartProductGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartProductGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/products/{jobId}/cleanup
@@ -592,10 +592,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerProductGenerationCleanupResponse]>
+     * @return [Call]<[ProductGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/products/{jobId}/cleanup")
-    fun postApiV1AiGenerateProductsByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerProductGenerationCleanupResponse>
+    fun postApiV1AiGenerateProductsByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ProductGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/stickers
@@ -604,14 +604,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param aiStickersStickerCollectionGeneratorInput 
+     * @param stickerCollectionGeneratorInput 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartStickerGenerationResponse]>
+     * @return [Call]<[StartStickerGenerationResponse]>
      */
     @POST("api/v1/ai/generate/stickers")
-    fun postApiV1AiGenerateStickers(@Body aiStickersStickerCollectionGeneratorInput: AiStickersStickerCollectionGeneratorInput, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartStickerGenerationResponse>
+    fun postApiV1AiGenerateStickers(@Body stickerCollectionGeneratorInput: StickerCollectionGeneratorInput, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartStickerGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/user-avatar
@@ -620,14 +620,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartUserAvatarGenerationRequest 
+     * @param startUserAvatarGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartUserAvatarGenerationResponse]>
+     * @return [Call]<[StartUserAvatarGenerationResponse]>
      */
     @POST("api/v1/ai/generate/user-avatar")
-    fun postApiV1AiGenerateUserAvatar(@Body restControllerAIControllerStartUserAvatarGenerationRequest: RestControllerAIControllerStartUserAvatarGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartUserAvatarGenerationResponse>
+    fun postApiV1AiGenerateUserAvatar(@Body startUserAvatarGenerationRequest: StartUserAvatarGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartUserAvatarGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/user-avatar/{jobId}/cleanup
@@ -640,10 +640,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserAvatarGenerationCleanupResponse]>
+     * @return [Call]<[UserAvatarGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/user-avatar/{jobId}/cleanup")
-    fun postApiV1AiGenerateUserAvatarByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserAvatarGenerationCleanupResponse>
+    fun postApiV1AiGenerateUserAvatarByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserAvatarGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/user-cover
@@ -652,14 +652,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartUserCoverGenerationRequest 
+     * @param startUserCoverGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartUserCoverGenerationResponse]>
+     * @return [Call]<[StartUserCoverGenerationResponse]>
      */
     @POST("api/v1/ai/generate/user-cover")
-    fun postApiV1AiGenerateUserCover(@Body restControllerAIControllerStartUserCoverGenerationRequest: RestControllerAIControllerStartUserCoverGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartUserCoverGenerationResponse>
+    fun postApiV1AiGenerateUserCover(@Body startUserCoverGenerationRequest: StartUserCoverGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartUserCoverGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/user-cover/{jobId}/cleanup
@@ -672,10 +672,10 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserCoverGenerationCleanupResponse]>
+     * @return [Call]<[UserCoverGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/user-cover/{jobId}/cleanup")
-    fun postApiV1AiGenerateUserCoverByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserCoverGenerationCleanupResponse>
+    fun postApiV1AiGenerateUserCoverByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserCoverGenerationCleanupResponse>
 
     /**
      * POST api/v1/ai/generate/users/batch
@@ -684,14 +684,14 @@ interface AiControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAIControllerStartUserBatchGenerationRequest 
+     * @param startUserBatchGenerationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerStartUserBatchGenerationResponse]>
+     * @return [Call]<[StartUserBatchGenerationResponse]>
      */
     @POST("api/v1/ai/generate/users/batch")
-    fun postApiV1AiGenerateUsersBatch(@Body restControllerAIControllerStartUserBatchGenerationRequest: RestControllerAIControllerStartUserBatchGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerStartUserBatchGenerationResponse>
+    fun postApiV1AiGenerateUsersBatch(@Body startUserBatchGenerationRequest: StartUserBatchGenerationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartUserBatchGenerationResponse>
 
     /**
      * POST api/v1/ai/generate/users/batch/{jobId}/cleanup
@@ -705,9 +705,9 @@ interface AiControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAIControllerUserBatchGenerationCleanupResponse]>
+     * @return [Call]<[UserBatchGenerationCleanupResponse]>
      */
     @POST("api/v1/ai/generate/users/batch/{jobId}/cleanup")
-    fun postApiV1AiGenerateUsersBatchByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAIControllerUserBatchGenerationCleanupResponse>
+    fun postApiV1AiGenerateUsersBatchByJobidCleanup(@Path("jobId") jobId: java.util.UUID, @Query("force") force: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserBatchGenerationCleanupResponse>
 
 }

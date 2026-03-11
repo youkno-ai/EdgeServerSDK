@@ -16,13 +16,13 @@
 import * as runtime from '../runtime';
 import type {
   Avatar,
-  EdgeApiDataCreateAvatarRequest,
+  CreateAvatarRequest,
 } from '../models/index';
 import {
     AvatarFromJSON,
     AvatarToJSON,
-    EdgeApiDataCreateAvatarRequestFromJSON,
-    EdgeApiDataCreateAvatarRequestToJSON,
+    CreateAvatarRequestFromJSON,
+    CreateAvatarRequestToJSON,
 } from '../models/index';
 
 export interface GetApiV1AvatarsRequest {
@@ -41,7 +41,7 @@ export interface GetApiV1AvatarsByAvataridRequest {
 }
 
 export interface PostApiV1AvatarsRequest {
-    edgeApiDataCreateAvatarRequest: EdgeApiDataCreateAvatarRequest;
+    createAvatarRequest: CreateAvatarRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -89,7 +89,7 @@ export interface AvatarControllerApiInterface {
 
     /**
      * 
-     * @param {EdgeApiDataCreateAvatarRequest} edgeApiDataCreateAvatarRequest 
+     * @param {CreateAvatarRequest} createAvatarRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -222,10 +222,10 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
     /**
      */
     async postApiV1AvatarsRaw(requestParameters: PostApiV1AvatarsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Avatar>> {
-        if (requestParameters['edgeApiDataCreateAvatarRequest'] == null) {
+        if (requestParameters['createAvatarRequest'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataCreateAvatarRequest',
-                'Required parameter "edgeApiDataCreateAvatarRequest" was null or undefined when calling postApiV1Avatars().'
+                'createAvatarRequest',
+                'Required parameter "createAvatarRequest" was null or undefined when calling postApiV1Avatars().'
             );
         }
 
@@ -259,7 +259,7 @@ export class AvatarControllerApi extends runtime.BaseAPI implements AvatarContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataCreateAvatarRequestToJSON(requestParameters['edgeApiDataCreateAvatarRequest']),
+            body: CreateAvatarRequestToJSON(requestParameters['createAvatarRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AvatarFromJSON(jsonValue));

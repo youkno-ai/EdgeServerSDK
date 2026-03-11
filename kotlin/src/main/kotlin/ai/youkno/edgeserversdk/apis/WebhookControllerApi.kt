@@ -6,21 +6,21 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageWebhooksWebhookDeliverySummaryDto
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageWebhooksWebhookDlqSummaryDto
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageWebhooksWebhookEndpointSummaryDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookDeliveryDetailDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookDlqBulkRetryRequestDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookDlqBulkRetryResultDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookDlqDetailDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointDetailDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointHealthDetailDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookReplayRangeRequestDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookReplayResultDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookResendDeliveryResultDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookRotateSecretResultDto
-import ai.youkno.edgeserversdk.models.WebhooksWebhookTenantHealthSummaryDto
+import ai.youkno.edgeserversdk.models.WebhookDeliveryDetailDto
+import ai.youkno.edgeserversdk.models.WebhookDlqBulkRetryRequestDto
+import ai.youkno.edgeserversdk.models.WebhookDlqBulkRetryResultDto
+import ai.youkno.edgeserversdk.models.WebhookDlqDetailDto
+import ai.youkno.edgeserversdk.models.WebhookEndpointDetailDto
+import ai.youkno.edgeserversdk.models.WebhookEndpointHealthDetailDto
+import ai.youkno.edgeserversdk.models.WebhookReplayRangeRequestDto
+import ai.youkno.edgeserversdk.models.WebhookReplayResultDto
+import ai.youkno.edgeserversdk.models.WebhookResendDeliveryResultDto
+import ai.youkno.edgeserversdk.models.WebhookRotateSecretResultDto
+import ai.youkno.edgeserversdk.models.WebhookTenantHealthSummaryDto
+import ai.youkno.edgeserversdk.models.WebhooksWebhookDeliverySummaryDto
+import ai.youkno.edgeserversdk.models.WebhooksWebhookDlqSummaryDto
+import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointHealthSummaryDto
+import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointSummaryDto
 
 interface WebhookControllerApi {
     /**
@@ -34,10 +34,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookDeliveryDetailDto]>
+     * @return [Call]<[WebhookDeliveryDetailDto]>
      */
     @GET("api/v1/webhooks/deliveries/{deliveryId}")
-    fun getApiV1WebhooksDeliveriesByDeliveryid(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookDeliveryDetailDto>
+    fun getApiV1WebhooksDeliveriesByDeliveryid(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookDeliveryDetailDto>
 
     /**
      * GET api/v1/webhooks/dlq
@@ -56,10 +56,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageWebhooksWebhookDlqSummaryDto]>
+     * @return [Call]<[WebhooksWebhookDlqSummaryDto]>
      */
     @GET("api/v1/webhooks/dlq")
-    fun getApiV1WebhooksDlq(@Query("endpointId") endpointId: java.util.UUID? = null, @Query("deadReason") deadReason: kotlin.String? = null, @Query("eventType") eventType: kotlin.String? = null, @Query("from") from: kotlin.String? = null, @Query("to") to: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageWebhooksWebhookDlqSummaryDto>
+    fun getApiV1WebhooksDlq(@Query("endpointId") endpointId: java.util.UUID? = null, @Query("deadReason") deadReason: kotlin.String? = null, @Query("eventType") eventType: kotlin.String? = null, @Query("from") from: kotlin.String? = null, @Query("to") to: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookDlqSummaryDto>
 
     /**
      * GET api/v1/webhooks/dlq/{deliveryId}
@@ -72,10 +72,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookDlqDetailDto]>
+     * @return [Call]<[WebhookDlqDetailDto]>
      */
     @GET("api/v1/webhooks/dlq/{deliveryId}")
-    fun getApiV1WebhooksDlqByDeliveryid(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookDlqDetailDto>
+    fun getApiV1WebhooksDlqByDeliveryid(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookDlqDetailDto>
 
     /**
      * GET api/v1/webhooks/endpoints
@@ -87,10 +87,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageWebhooksWebhookEndpointSummaryDto]>
+     * @return [Call]<[WebhooksWebhookEndpointSummaryDto]>
      */
     @GET("api/v1/webhooks/endpoints")
-    fun getApiV1WebhooksEndpoints(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto>
+    fun getApiV1WebhooksEndpoints(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookEndpointSummaryDto>
 
     /**
      * GET api/v1/webhooks/endpoints/{endpointId}
@@ -103,10 +103,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookEndpointDetailDto]>
+     * @return [Call]<[WebhookEndpointDetailDto]>
      */
     @GET("api/v1/webhooks/endpoints/{endpointId}")
-    fun getApiV1WebhooksEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookEndpointDetailDto>
+    fun getApiV1WebhooksEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookEndpointDetailDto>
 
     /**
      * GET api/v1/webhooks/endpoints/{endpointId}/deliveries
@@ -124,10 +124,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageWebhooksWebhookDeliverySummaryDto]>
+     * @return [Call]<[WebhooksWebhookDeliverySummaryDto]>
      */
     @GET("api/v1/webhooks/endpoints/{endpointId}/deliveries")
-    fun getApiV1WebhooksEndpointsByEndpointidDeliveries(@Path("endpointId") endpointId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("deadOnly") deadOnly: kotlin.Boolean? = false, @Query("eventType") eventType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto>
+    fun getApiV1WebhooksEndpointsByEndpointidDeliveries(@Path("endpointId") endpointId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("deadOnly") deadOnly: kotlin.Boolean? = false, @Query("eventType") eventType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookDeliverySummaryDto>
 
     /**
      * GET api/v1/webhooks/health/endpoints
@@ -143,10 +143,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto]>
+     * @return [Call]<[WebhooksWebhookEndpointHealthSummaryDto]>
      */
     @GET("api/v1/webhooks/health/endpoints")
-    fun getApiV1WebhooksHealthEndpoints(@Query("enabled") enabled: kotlin.Boolean? = null, @Query("circuitState") circuitState: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto>
+    fun getApiV1WebhooksHealthEndpoints(@Query("enabled") enabled: kotlin.Boolean? = null, @Query("circuitState") circuitState: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookEndpointHealthSummaryDto>
 
     /**
      * GET api/v1/webhooks/health/endpoints/{endpointId}
@@ -159,10 +159,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookEndpointHealthDetailDto]>
+     * @return [Call]<[WebhookEndpointHealthDetailDto]>
      */
     @GET("api/v1/webhooks/health/endpoints/{endpointId}")
-    fun getApiV1WebhooksHealthEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookEndpointHealthDetailDto>
+    fun getApiV1WebhooksHealthEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookEndpointHealthDetailDto>
 
     /**
      * GET api/v1/webhooks/health/summary
@@ -174,10 +174,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookTenantHealthSummaryDto]>
+     * @return [Call]<[WebhookTenantHealthSummaryDto]>
      */
     @GET("api/v1/webhooks/health/summary")
-    fun getApiV1WebhooksHealthSummary(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookTenantHealthSummaryDto>
+    fun getApiV1WebhooksHealthSummary(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookTenantHealthSummaryDto>
 
     /**
      * POST api/v1/webhooks/deliveries/{deliveryId}/resend
@@ -190,10 +190,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookResendDeliveryResultDto]>
+     * @return [Call]<[WebhookResendDeliveryResultDto]>
      */
     @POST("api/v1/webhooks/deliveries/{deliveryId}/resend")
-    fun postApiV1WebhooksDeliveriesByDeliveryidResend(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookResendDeliveryResultDto>
+    fun postApiV1WebhooksDeliveriesByDeliveryidResend(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookResendDeliveryResultDto>
 
     /**
      * POST api/v1/webhooks/dlq/{deliveryId}/retry
@@ -206,10 +206,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookResendDeliveryResultDto]>
+     * @return [Call]<[WebhookResendDeliveryResultDto]>
      */
     @POST("api/v1/webhooks/dlq/{deliveryId}/retry")
-    fun postApiV1WebhooksDlqByDeliveryidRetry(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookResendDeliveryResultDto>
+    fun postApiV1WebhooksDlqByDeliveryidRetry(@Path("deliveryId") deliveryId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookResendDeliveryResultDto>
 
     /**
      * POST api/v1/webhooks/dlq/retry
@@ -218,14 +218,14 @@ interface WebhookControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param webhooksWebhookDlqBulkRetryRequestDto 
+     * @param webhookDlqBulkRetryRequestDto 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookDlqBulkRetryResultDto]>
+     * @return [Call]<[WebhookDlqBulkRetryResultDto]>
      */
     @POST("api/v1/webhooks/dlq/retry")
-    fun postApiV1WebhooksDlqRetry(@Body webhooksWebhookDlqBulkRetryRequestDto: WebhooksWebhookDlqBulkRetryRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookDlqBulkRetryResultDto>
+    fun postApiV1WebhooksDlqRetry(@Body webhookDlqBulkRetryRequestDto: WebhookDlqBulkRetryRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookDlqBulkRetryResultDto>
 
     /**
      * POST api/v1/webhooks/endpoints/{endpointId}/rotate-secret
@@ -238,10 +238,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookRotateSecretResultDto]>
+     * @return [Call]<[WebhookRotateSecretResultDto]>
      */
     @POST("api/v1/webhooks/endpoints/{endpointId}/rotate-secret")
-    fun postApiV1WebhooksEndpointsByEndpointidRotateSecret(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookRotateSecretResultDto>
+    fun postApiV1WebhooksEndpointsByEndpointidRotateSecret(@Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookRotateSecretResultDto>
 
     /**
      * POST api/v1/webhooks/replay
@@ -250,14 +250,14 @@ interface WebhookControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param webhooksWebhookReplayRangeRequestDto 
+     * @param webhookReplayRangeRequestDto 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookReplayResultDto]>
+     * @return [Call]<[WebhookReplayResultDto]>
      */
     @POST("api/v1/webhooks/replay")
-    fun postApiV1WebhooksReplay(@Body webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookReplayResultDto>
+    fun postApiV1WebhooksReplay(@Body webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookReplayResultDto>
 
     /**
      * POST api/v1/webhooks/replay/endpoints/{endpointId}
@@ -267,14 +267,14 @@ interface WebhookControllerApi {
      *  - 200: OK
      *
      * @param endpointId 
-     * @param webhooksWebhookReplayRangeRequestDto 
+     * @param webhookReplayRangeRequestDto 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookReplayResultDto]>
+     * @return [Call]<[WebhookReplayResultDto]>
      */
     @POST("api/v1/webhooks/replay/endpoints/{endpointId}")
-    fun postApiV1WebhooksReplayEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Body webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookReplayResultDto>
+    fun postApiV1WebhooksReplayEndpointsByEndpointid(@Path("endpointId") endpointId: java.util.UUID, @Body webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookReplayResultDto>
 
     /**
      * POST api/v1/webhooks/replay/event-log/{eventLogId}
@@ -287,10 +287,10 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookReplayResultDto]>
+     * @return [Call]<[WebhookReplayResultDto]>
      */
     @POST("api/v1/webhooks/replay/event-log/{eventLogId}")
-    fun postApiV1WebhooksReplayEventLogByEventlogid(@Path("eventLogId") eventLogId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookReplayResultDto>
+    fun postApiV1WebhooksReplayEventLogByEventlogid(@Path("eventLogId") eventLogId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookReplayResultDto>
 
     /**
      * POST api/v1/webhooks/replay/event-log/{eventLogId}/endpoints/{endpointId}
@@ -304,9 +304,9 @@ interface WebhookControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[WebhooksWebhookReplayResultDto]>
+     * @return [Call]<[WebhookReplayResultDto]>
      */
     @POST("api/v1/webhooks/replay/event-log/{eventLogId}/endpoints/{endpointId}")
-    fun postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(@Path("eventLogId") eventLogId: java.util.UUID, @Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhooksWebhookReplayResultDto>
+    fun postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(@Path("eventLogId") eventLogId: java.util.UUID, @Path("endpointId") endpointId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<WebhookReplayResultDto>
 
 }

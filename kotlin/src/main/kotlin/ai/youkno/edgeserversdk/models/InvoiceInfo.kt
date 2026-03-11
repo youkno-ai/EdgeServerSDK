@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyChargeInfo
-import ai.youkno.edgeserversdk.models.ShoppingCartOrderSummary
+import ai.youkno.edgeserversdk.models.ChargeInfo
+import ai.youkno.edgeserversdk.models.OrderSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -38,10 +38,10 @@ data class InvoiceInfo (
     val coupon: kotlin.String? = null,
 
     @Json(name = "summary")
-    val summary: ShoppingCartOrderSummary? = null,
+    val summary: OrderSummary? = null,
 
     @Json(name = "cardCharges")
-    val cardCharges: kotlin.collections.Map<kotlin.String, BountyChargeInfo>? = null,
+    val cardCharges: kotlin.collections.Map<kotlin.String, ChargeInfo>? = null,
 
     @Json(name = "paymentType")
     val paymentType: InvoiceInfo.PaymentType? = null,

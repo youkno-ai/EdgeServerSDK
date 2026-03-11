@@ -15,9 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyChangesChangesAttachments
-import ai.youkno.edgeserversdk.models.BountyChangesChangesLong
-import ai.youkno.edgeserversdk.models.BountyChangesChangesString
+import ai.youkno.edgeserversdk.models.ModelAttachments
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -37,19 +35,19 @@ import com.squareup.moshi.JsonClass
 data class ResponseChanges (
 
     @Json(name = "note")
-    val note: BountyChangesChangesString? = null,
+    val note: kotlin.Any? = null,
 
     @Json(name = "expiresAt")
-    val expiresAt: BountyChangesChangesLong? = null,
+    val expiresAt: kotlin.Any? = null,
 
     @Json(name = "attachments")
-    val attachments: BountyChangesChangesAttachments? = null,
+    val attachments: ModelAttachments? = null,
 
     @Json(name = "createdAt")
-    val createdAt: BountyChangesChangesLong? = null,
+    val createdAt: kotlin.Any? = null,
 
     @Json(name = "displayMode")
-    val displayMode: BountyChangesChangesString? = null,
+    val displayMode: kotlin.Any? = null,
 
     @Json(name = "editedAt")
     val editedAt: kotlin.Long? = null

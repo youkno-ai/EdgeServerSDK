@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.RolePermission
+import ai.youkno.edgeserversdk.models.RolePermission2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -43,10 +43,10 @@ data class Role (
     val description: kotlin.String? = null,
 
     @Json(name = "allowedPermissions")
-    val allowedPermissions: kotlin.collections.List<RolePermission>? = null,
+    val allowedPermissions: kotlin.collections.List<RolePermission2>? = null,
 
     @Json(name = "deniedPermissions")
-    val deniedPermissions: kotlin.collections.List<RolePermission>? = null
+    val deniedPermissions: kotlin.collections.List<RolePermission2>? = null
 
 ) {
 

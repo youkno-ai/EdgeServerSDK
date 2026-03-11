@@ -12,29 +12,37 @@ import AnyCodable
 
 public struct PosApiDataBrandResp: Codable, JSONEncodable, Hashable {
 
-    public var brandId: String?
-    public var brandName: String?
-    public var deleted: Bool?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataBrandResp2]?
 
-    public init(brandId: String? = nil, brandName: String? = nil, deleted: Bool? = nil) {
-        self.brandId = brandId
-        self.brandName = brandName
-        self.deleted = deleted
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataBrandResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case brandId
-        case brandName
-        case deleted
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(brandId, forKey: .brandId)
-        try container.encodeIfPresent(brandName, forKey: .brandName)
-        try container.encodeIfPresent(deleted, forKey: .deleted)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

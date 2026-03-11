@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ListsListDef } from './ListsListDef';
+import type { ListsListDef2 } from './ListsListDef2';
 import {
-    ListsListDefFromJSON,
-    ListsListDefFromJSONTyped,
-    ListsListDefToJSON,
-    ListsListDefToJSONTyped,
-} from './ListsListDef';
+    ListsListDef2FromJSON,
+    ListsListDef2FromJSONTyped,
+    ListsListDef2ToJSON,
+    ListsListDef2ToJSONTyped,
+} from './ListsListDef2';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface Lists {
     /**
      * 
-     * @type {{ [key: string]: ListsListDef; }}
+     * @type {{ [key: string]: ListsListDef2; }}
      * @memberof Lists
      */
-    lists?: { [key: string]: ListsListDef; };
+    lists?: { [key: string]: ListsListDef2; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function ListsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Lis
     }
     return {
         
-        'lists': json['lists'] == null ? undefined : (mapValues(json['lists'], ListsListDefFromJSON)),
+        'lists': json['lists'] == null ? undefined : (mapValues(json['lists'], ListsListDef2FromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function ListsToJSONTyped(value?: Lists | null, ignoreDiscriminator: bool
 
     return {
         
-        'lists': value['lists'] == null ? undefined : (mapValues(value['lists'], ListsListDefToJSON)),
+        'lists': value['lists'] == null ? undefined : (mapValues(value['lists'], ListsListDef2ToJSON)),
     };
 }
 

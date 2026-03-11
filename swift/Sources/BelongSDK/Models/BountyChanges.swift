@@ -12,53 +12,53 @@ import AnyCodable
 
 public struct BountyChanges: Codable, JSONEncodable, Hashable {
 
-    public var description: BountyChangesChangesBountyDescription?
-    public var reward: BountyChangesChangesReward?
-    public var distribution: BountyChangesChangesBountyDistribution?
-    public var listId: BountyChangesChangesString?
-    public var listCode: BountyChangesChangesString?
-    public var terms: BountyChangesChangesBountyTerms?
-    public var matchInfo: BountyChangesChangesBountyMatchInfo?
-    public var reservationInfo: BountyChangesChangesBountyReservationInfo?
-    public var contestInfo: BountyChangesChangesBountyContestInfo?
-    public var attachments: BountyChangesChangesAttachments?
-    public var interactions: BountyChangesChangesBountyInteractions?
-    public var identityMode: BountyChangesChangesIdentityMode?
-    public var responseVisibilityMode: BountyChangesChangesVisibilityMode?
-    public var visibility: BountyChangesChangesString?
-    public var product: BountyChangesChangesBountyProduct?
-    public var bountyCategories: BountyChangesChangesMapStringBountyBountyCategory?
-    public var order: BountyChangesOrderChanges?
-    public var broadcastInfo: BountyChangesBroadcastChanges?
-    public var expiresAt: BountyChangesChangesLong?
-    public var postedAt: BountyChangesChangesLong?
-    public var postAt: BountyChangesChangesLong?
-    public var timeLimit: BountyChangesChangesLong?
-    public var title: BountyChangesChangesString?
-    public var targetUrl: BountyChangesChangesString?
-    public var tags: BountyChangesChangesTags?
-    public var trustedTags: BountyChangesChangesTags?
-    public var theme: BountyChangesChangesBountyTheme?
-    public var sponsorship: BountyChangesChangesSponsorship?
-    public var geofences: BountyChangesChangesGeofences?
-    public var banner: BountyChangesChangesBountyBanner?
-    public var challengeInfo: BountyChangesChangesBountyChallengeInfo?
-    public var approvalInfo: BountyChangesChangesBountyApprovalInfo?
-    public var activities: BountyChangesChangesBountyActivities?
-    public var quickClaimInfo: BountyChangesChangesBountyQuickClaimInfo?
-    public var auctionInfo: BountyChangesChangesBountyAuctionInfo?
-    public var newsInfo: BountyChangesChangesBountyNewsInfo?
-    public var menuInfo: BountyChangesChangesBountyMenuInfo?
-    public var overallBudget: BountyChangesChangesBountyBudget?
-    public var accessKeys: BountyChangesChangesHasAccessKeysAccessKeys?
-    public var orderInParentSortKey: BountyChangesChangesString?
+    public var description: BountyDescription2?
+    public var reward: ModelReward?
+    public var distribution: BountyDistribution2?
+    public var listId: AnyCodable?
+    public var listCode: AnyCodable?
+    public var terms: BountyTerms2?
+    public var matchInfo: BountyMatchInfo2?
+    public var reservationInfo: BountyReservationInfo2?
+    public var contestInfo: BountyContestInfo2?
+    public var attachments: ModelAttachments?
+    public var interactions: BountyInteractions2?
+    public var identityMode: ModelIdentityMode?
+    public var responseVisibilityMode: ModelVisibilityMode?
+    public var visibility: AnyCodable?
+    public var product: BountyProduct2?
+    public var bountyCategories: BountyBountyCategory2?
+    public var order: OrderChanges?
+    public var broadcastInfo: BroadcastChanges?
+    public var expiresAt: AnyCodable?
+    public var postedAt: AnyCodable?
+    public var postAt: AnyCodable?
+    public var timeLimit: AnyCodable?
+    public var title: AnyCodable?
+    public var targetUrl: AnyCodable?
+    public var tags: ModelTags?
+    public var trustedTags: ModelTags?
+    public var theme: BountyTheme2?
+    public var sponsorship: ModelSponsorship?
+    public var geofences: ModelGeofences?
+    public var banner: BountyBanner2?
+    public var challengeInfo: BountyChallengeInfo2?
+    public var approvalInfo: BountyApprovalInfo2?
+    public var activities: BountyActivities2?
+    public var quickClaimInfo: BountyQuickClaimInfo2?
+    public var auctionInfo: BountyAuctionInfo2?
+    public var newsInfo: BountyNewsInfo2?
+    public var menuInfo: BountyMenuInfo2?
+    public var overallBudget: BountyBudget2?
+    public var accessKeys: HasAccessKeysAccessKeys?
+    public var orderInParentSortKey: AnyCodable?
     public var updateSortKeys: Bool?
     public var updateCompanyId: Bool?
     public var editedAt: Int64?
-    public var source: BountyChangesChangesString?
+    public var source: AnyCodable?
     public var notify: Bool?
 
-    public init(description: BountyChangesChangesBountyDescription? = nil, reward: BountyChangesChangesReward? = nil, distribution: BountyChangesChangesBountyDistribution? = nil, listId: BountyChangesChangesString? = nil, listCode: BountyChangesChangesString? = nil, terms: BountyChangesChangesBountyTerms? = nil, matchInfo: BountyChangesChangesBountyMatchInfo? = nil, reservationInfo: BountyChangesChangesBountyReservationInfo? = nil, contestInfo: BountyChangesChangesBountyContestInfo? = nil, attachments: BountyChangesChangesAttachments? = nil, interactions: BountyChangesChangesBountyInteractions? = nil, identityMode: BountyChangesChangesIdentityMode? = nil, responseVisibilityMode: BountyChangesChangesVisibilityMode? = nil, visibility: BountyChangesChangesString? = nil, product: BountyChangesChangesBountyProduct? = nil, bountyCategories: BountyChangesChangesMapStringBountyBountyCategory? = nil, order: BountyChangesOrderChanges? = nil, broadcastInfo: BountyChangesBroadcastChanges? = nil, expiresAt: BountyChangesChangesLong? = nil, postedAt: BountyChangesChangesLong? = nil, postAt: BountyChangesChangesLong? = nil, timeLimit: BountyChangesChangesLong? = nil, title: BountyChangesChangesString? = nil, targetUrl: BountyChangesChangesString? = nil, tags: BountyChangesChangesTags? = nil, trustedTags: BountyChangesChangesTags? = nil, theme: BountyChangesChangesBountyTheme? = nil, sponsorship: BountyChangesChangesSponsorship? = nil, geofences: BountyChangesChangesGeofences? = nil, banner: BountyChangesChangesBountyBanner? = nil, challengeInfo: BountyChangesChangesBountyChallengeInfo? = nil, approvalInfo: BountyChangesChangesBountyApprovalInfo? = nil, activities: BountyChangesChangesBountyActivities? = nil, quickClaimInfo: BountyChangesChangesBountyQuickClaimInfo? = nil, auctionInfo: BountyChangesChangesBountyAuctionInfo? = nil, newsInfo: BountyChangesChangesBountyNewsInfo? = nil, menuInfo: BountyChangesChangesBountyMenuInfo? = nil, overallBudget: BountyChangesChangesBountyBudget? = nil, accessKeys: BountyChangesChangesHasAccessKeysAccessKeys? = nil, orderInParentSortKey: BountyChangesChangesString? = nil, updateSortKeys: Bool? = nil, updateCompanyId: Bool? = nil, editedAt: Int64? = nil, source: BountyChangesChangesString? = nil, notify: Bool? = nil) {
+    public init(description: BountyDescription2? = nil, reward: ModelReward? = nil, distribution: BountyDistribution2? = nil, listId: AnyCodable? = nil, listCode: AnyCodable? = nil, terms: BountyTerms2? = nil, matchInfo: BountyMatchInfo2? = nil, reservationInfo: BountyReservationInfo2? = nil, contestInfo: BountyContestInfo2? = nil, attachments: ModelAttachments? = nil, interactions: BountyInteractions2? = nil, identityMode: ModelIdentityMode? = nil, responseVisibilityMode: ModelVisibilityMode? = nil, visibility: AnyCodable? = nil, product: BountyProduct2? = nil, bountyCategories: BountyBountyCategory2? = nil, order: OrderChanges? = nil, broadcastInfo: BroadcastChanges? = nil, expiresAt: AnyCodable? = nil, postedAt: AnyCodable? = nil, postAt: AnyCodable? = nil, timeLimit: AnyCodable? = nil, title: AnyCodable? = nil, targetUrl: AnyCodable? = nil, tags: ModelTags? = nil, trustedTags: ModelTags? = nil, theme: BountyTheme2? = nil, sponsorship: ModelSponsorship? = nil, geofences: ModelGeofences? = nil, banner: BountyBanner2? = nil, challengeInfo: BountyChallengeInfo2? = nil, approvalInfo: BountyApprovalInfo2? = nil, activities: BountyActivities2? = nil, quickClaimInfo: BountyQuickClaimInfo2? = nil, auctionInfo: BountyAuctionInfo2? = nil, newsInfo: BountyNewsInfo2? = nil, menuInfo: BountyMenuInfo2? = nil, overallBudget: BountyBudget2? = nil, accessKeys: HasAccessKeysAccessKeys? = nil, orderInParentSortKey: AnyCodable? = nil, updateSortKeys: Bool? = nil, updateCompanyId: Bool? = nil, editedAt: Int64? = nil, source: AnyCodable? = nil, notify: Bool? = nil) {
         self.description = description
         self.reward = reward
         self.distribution = distribution

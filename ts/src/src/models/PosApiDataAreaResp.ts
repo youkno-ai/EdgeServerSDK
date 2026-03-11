@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataAreaResp2 } from './PosApiDataAreaResp2';
+import {
+    PosApiDataAreaResp2FromJSON,
+    PosApiDataAreaResp2FromJSONTyped,
+    PosApiDataAreaResp2ToJSON,
+    PosApiDataAreaResp2ToJSONTyped,
+} from './PosApiDataAreaResp2';
+
 /**
  * 
  * @export
@@ -21,22 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataAreaResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataAreaResp
      */
-    areaId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataAreaResp
      */
-    areaName?: string;
+    start?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataAreaResp
      */
-    areaPath?: string;
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataAreaResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataAreaResp2>}
+     * @memberof PosApiDataAreaResp
+     */
+    list?: Array<PosApiDataAreaResp2>;
 }
 
 /**
@@ -56,9 +76,11 @@ export function PosApiDataAreaRespFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'areaId': json['areaId'] == null ? undefined : json['areaId'],
-        'areaName': json['areaName'] == null ? undefined : json['areaName'],
-        'areaPath': json['areaPath'] == null ? undefined : json['areaPath'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataAreaResp2FromJSON)),
     };
 }
 
@@ -73,9 +95,11 @@ export function PosApiDataAreaRespToJSONTyped(value?: PosApiDataAreaResp | null,
 
     return {
         
-        'areaId': value['areaId'],
-        'areaName': value['areaName'],
-        'areaPath': value['areaPath'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataAreaResp2ToJSON)),
     };
 }
 

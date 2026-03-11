@@ -15,20 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
+  AssignReputationReq,
   BaseSettingsReputationDef,
-  EdgeApiDataAssignReputationReq,
-  EdgeApiDataPageBaseSettingsReputationDef,
-  UserReputation,
+  BaseSettingsReputationDef2,
+  Reputation,
 } from '../models/index';
 import {
+    AssignReputationReqFromJSON,
+    AssignReputationReqToJSON,
     BaseSettingsReputationDefFromJSON,
     BaseSettingsReputationDefToJSON,
-    EdgeApiDataAssignReputationReqFromJSON,
-    EdgeApiDataAssignReputationReqToJSON,
-    EdgeApiDataPageBaseSettingsReputationDefFromJSON,
-    EdgeApiDataPageBaseSettingsReputationDefToJSON,
-    UserReputationFromJSON,
-    UserReputationToJSON,
+    BaseSettingsReputationDef2FromJSON,
+    BaseSettingsReputationDef2ToJSON,
+    ReputationFromJSON,
+    ReputationToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1ReputationsByReputationcodeByHolderidRequest {
@@ -68,7 +68,7 @@ export interface PostApiV1ReputationsDefsRequest {
 
 export interface PostApiV1ReputationsDefsByReputationcodeAssignRequest {
     reputationCode: string;
-    edgeApiDataAssignReputationReq: EdgeApiDataAssignReputationReq;
+    assignReputationReq: AssignReputationReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -130,11 +130,11 @@ export interface ReputationDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationDefControllerApiInterface
      */
-    getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBaseSettingsReputationDef>>;
+    getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef2>>;
 
     /**
      */
-    getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBaseSettingsReputationDef>;
+    getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef2>;
 
     /**
      * 
@@ -171,7 +171,7 @@ export interface ReputationDefControllerApiInterface {
     /**
      * 
      * @param {string} reputationCode 
-     * @param {EdgeApiDataAssignReputationReq} edgeApiDataAssignReputationReq 
+     * @param {AssignReputationReq} assignReputationReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -179,11 +179,11 @@ export interface ReputationDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ReputationDefControllerApiInterface
      */
-    postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserReputation>>;
+    postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>>;
 
     /**
      */
-    postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserReputation>;
+    postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation>;
 
     /**
      * 
@@ -320,7 +320,7 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
 
     /**
      */
-    async getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBaseSettingsReputationDef>> {
+    async getApiV1ReputationsDefsRaw(requestParameters: GetApiV1ReputationsDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BaseSettingsReputationDef2>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -351,12 +351,12 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBaseSettingsReputationDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BaseSettingsReputationDef2FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBaseSettingsReputationDef> {
+    async getApiV1ReputationsDefs(requestParameters: GetApiV1ReputationsDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BaseSettingsReputationDef2> {
         const response = await this.getApiV1ReputationsDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -467,7 +467,7 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
 
     /**
      */
-    async postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserReputation>> {
+    async postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reputation>> {
         if (requestParameters['reputationCode'] == null) {
             throw new runtime.RequiredError(
                 'reputationCode',
@@ -475,10 +475,10 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             );
         }
 
-        if (requestParameters['edgeApiDataAssignReputationReq'] == null) {
+        if (requestParameters['assignReputationReq'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataAssignReputationReq',
-                'Required parameter "edgeApiDataAssignReputationReq" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
+                'assignReputationReq',
+                'Required parameter "assignReputationReq" was null or undefined when calling postApiV1ReputationsDefsByReputationcodeAssign().'
             );
         }
 
@@ -513,15 +513,15 @@ export class ReputationDefControllerApi extends runtime.BaseAPI implements Reput
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataAssignReputationReqToJSON(requestParameters['edgeApiDataAssignReputationReq']),
+            body: AssignReputationReqToJSON(requestParameters['assignReputationReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserReputationFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReputationFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserReputation> {
+    async postApiV1ReputationsDefsByReputationcodeAssign(requestParameters: PostApiV1ReputationsDefsByReputationcodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reputation> {
         const response = await this.postApiV1ReputationsDefsByReputationcodeAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }

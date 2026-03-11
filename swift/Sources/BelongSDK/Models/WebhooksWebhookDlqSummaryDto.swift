@@ -12,98 +12,37 @@ import AnyCodable
 
 public struct WebhooksWebhookDlqSummaryDto: Codable, JSONEncodable, Hashable {
 
-    public enum Status: String, Codable, CaseIterable {
-        case pending = "PENDING"
-        case inProgress = "IN_PROGRESS"
-        case succeeded = "SUCCEEDED"
-        case retryScheduled = "RETRY_SCHEDULED"
-        case dead = "DEAD"
-        case unknown = "UNKNOWN"
-    }
-    public enum DeliveryOutcome: String, Codable, CaseIterable {
-        case success = "SUCCESS"
-        case retryableFailure = "RETRYABLE_FAILURE"
-        case terminalFailure = "TERMINAL_FAILURE"
-        case deferredRateLimit = "DEFERRED_RATE_LIMIT"
-        case deferredCircuitOpen = "DEFERRED_CIRCUIT_OPEN"
-        case skippedDisabledEndpoint = "SKIPPED_DISABLED_ENDPOINT"
-        case unknown = "UNKNOWN"
-    }
-    public var deliveryId: UUID?
-    public var rootDeliveryId: UUID?
-    public var resendOfDeliveryId: UUID?
-    public var endpointId: UUID?
-    public var endpointDescription: String?
-    public var targetUrl: String?
-    public var eventLogId: UUID?
-    public var eventType: String?
-    public var eventCreatedAt: Date?
-    public var status: Status?
-    public var deliveryOutcome: DeliveryOutcome?
-    public var attemptCount: Int?
-    public var deadReason: String?
-    public var deadAt: Date?
-    public var responseStatusCode: Int?
-    public var errorMessage: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [WebhooksWebhookDlqSummaryDto2]?
 
-    public init(deliveryId: UUID? = nil, rootDeliveryId: UUID? = nil, resendOfDeliveryId: UUID? = nil, endpointId: UUID? = nil, endpointDescription: String? = nil, targetUrl: String? = nil, eventLogId: UUID? = nil, eventType: String? = nil, eventCreatedAt: Date? = nil, status: Status? = nil, deliveryOutcome: DeliveryOutcome? = nil, attemptCount: Int? = nil, deadReason: String? = nil, deadAt: Date? = nil, responseStatusCode: Int? = nil, errorMessage: String? = nil) {
-        self.deliveryId = deliveryId
-        self.rootDeliveryId = rootDeliveryId
-        self.resendOfDeliveryId = resendOfDeliveryId
-        self.endpointId = endpointId
-        self.endpointDescription = endpointDescription
-        self.targetUrl = targetUrl
-        self.eventLogId = eventLogId
-        self.eventType = eventType
-        self.eventCreatedAt = eventCreatedAt
-        self.status = status
-        self.deliveryOutcome = deliveryOutcome
-        self.attemptCount = attemptCount
-        self.deadReason = deadReason
-        self.deadAt = deadAt
-        self.responseStatusCode = responseStatusCode
-        self.errorMessage = errorMessage
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [WebhooksWebhookDlqSummaryDto2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case deliveryId
-        case rootDeliveryId
-        case resendOfDeliveryId
-        case endpointId
-        case endpointDescription
-        case targetUrl
-        case eventLogId
-        case eventType
-        case eventCreatedAt
-        case status
-        case deliveryOutcome
-        case attemptCount
-        case deadReason
-        case deadAt
-        case responseStatusCode
-        case errorMessage
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(deliveryId, forKey: .deliveryId)
-        try container.encodeIfPresent(rootDeliveryId, forKey: .rootDeliveryId)
-        try container.encodeIfPresent(resendOfDeliveryId, forKey: .resendOfDeliveryId)
-        try container.encodeIfPresent(endpointId, forKey: .endpointId)
-        try container.encodeIfPresent(endpointDescription, forKey: .endpointDescription)
-        try container.encodeIfPresent(targetUrl, forKey: .targetUrl)
-        try container.encodeIfPresent(eventLogId, forKey: .eventLogId)
-        try container.encodeIfPresent(eventType, forKey: .eventType)
-        try container.encodeIfPresent(eventCreatedAt, forKey: .eventCreatedAt)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(deliveryOutcome, forKey: .deliveryOutcome)
-        try container.encodeIfPresent(attemptCount, forKey: .attemptCount)
-        try container.encodeIfPresent(deadReason, forKey: .deadReason)
-        try container.encodeIfPresent(deadAt, forKey: .deadAt)
-        try container.encodeIfPresent(responseStatusCode, forKey: .responseStatusCode)
-        try container.encodeIfPresent(errorMessage, forKey: .errorMessage)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

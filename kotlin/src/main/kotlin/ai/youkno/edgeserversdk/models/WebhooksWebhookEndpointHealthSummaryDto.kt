@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointHealthSummaryDto2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,107 +23,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param endpointId 
- * @param description 
- * @param targetUrl 
- * @param enabled 
- * @param circuitState 
- * @param consecutiveFailureCount 
- * @param nextDispatchAllowedAt 
- * @param lastDeliveryAt 
- * @param lastSuccessAt 
- * @param lastFailureAt 
- * @param deliveriesLast24h 
- * @param successesLast24h 
- * @param failuresLast24h 
- * @param deadLettersLast24h 
- * @param currentDlqCount 
- * @param lastDeliveryOutcome 
- * @param lastResponseStatusCode 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class WebhooksWebhookEndpointHealthSummaryDto (
 
-    @Json(name = "endpointId")
-    val endpointId: java.util.UUID? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "description")
-    val description: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "targetUrl")
-    val targetUrl: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "enabled")
-    val enabled: kotlin.Boolean? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "circuitState")
-    val circuitState: WebhooksWebhookEndpointHealthSummaryDto.CircuitState? = null,
-
-    @Json(name = "consecutiveFailureCount")
-    val consecutiveFailureCount: kotlin.Int? = null,
-
-    @Json(name = "nextDispatchAllowedAt")
-    val nextDispatchAllowedAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "lastDeliveryAt")
-    val lastDeliveryAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "lastSuccessAt")
-    val lastSuccessAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "lastFailureAt")
-    val lastFailureAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "deliveriesLast24h")
-    val deliveriesLast24h: kotlin.Int? = null,
-
-    @Json(name = "successesLast24h")
-    val successesLast24h: kotlin.Int? = null,
-
-    @Json(name = "failuresLast24h")
-    val failuresLast24h: kotlin.Int? = null,
-
-    @Json(name = "deadLettersLast24h")
-    val deadLettersLast24h: kotlin.Int? = null,
-
-    @Json(name = "currentDlqCount")
-    val currentDlqCount: kotlin.Int? = null,
-
-    @Json(name = "lastDeliveryOutcome")
-    val lastDeliveryOutcome: WebhooksWebhookEndpointHealthSummaryDto.LastDeliveryOutcome? = null,
-
-    @Json(name = "lastResponseStatusCode")
-    val lastResponseStatusCode: kotlin.Int? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<WebhooksWebhookEndpointHealthSummaryDto2>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: CLOSED,OPEN,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class CircuitState(val value: kotlin.String) {
-        @Json(name = "CLOSED") CLOSED("CLOSED"),
-        @Json(name = "OPEN") OPEN("OPEN"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: SUCCESS,RETRYABLE_FAILURE,TERMINAL_FAILURE,DEFERRED_RATE_LIMIT,DEFERRED_CIRCUIT_OPEN,SKIPPED_DISABLED_ENDPOINT,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class LastDeliveryOutcome(val value: kotlin.String) {
-        @Json(name = "SUCCESS") SUCCESS("SUCCESS"),
-        @Json(name = "RETRYABLE_FAILURE") RETRYABLE_FAILURE("RETRYABLE_FAILURE"),
-        @Json(name = "TERMINAL_FAILURE") TERMINAL_FAILURE("TERMINAL_FAILURE"),
-        @Json(name = "DEFERRED_RATE_LIMIT") DEFERRED_RATE_LIMIT("DEFERRED_RATE_LIMIT"),
-        @Json(name = "DEFERRED_CIRCUIT_OPEN") DEFERRED_CIRCUIT_OPEN("DEFERRED_CIRCUIT_OPEN"),
-        @Json(name = "SKIPPED_DISABLED_ENDPOINT") SKIPPED_DISABLED_ENDPOINT("SKIPPED_DISABLED_ENDPOINT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

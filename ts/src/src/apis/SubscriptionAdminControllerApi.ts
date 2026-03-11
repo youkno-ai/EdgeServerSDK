@@ -15,9 +15,9 @@
 
 import * as runtime from '../runtime';
 import type {
-  RestControllerSubscriptionAdminControllerReasonRequest,
-  RestControllerSubscriptionAdminControllerRepairRequest,
-  ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult,
+  AdminActionResult,
+  ReasonRequest,
+  RepairRequest,
   SubscriptionAdminView,
   SubscriptionDriftReportView,
   SubscriptionEntitlementDiffView,
@@ -25,12 +25,12 @@ import type {
   UserSubscriptionAdminView,
 } from '../models/index';
 import {
-    RestControllerSubscriptionAdminControllerReasonRequestFromJSON,
-    RestControllerSubscriptionAdminControllerReasonRequestToJSON,
-    RestControllerSubscriptionAdminControllerRepairRequestFromJSON,
-    RestControllerSubscriptionAdminControllerRepairRequestToJSON,
-    ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON,
-    ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultToJSON,
+    AdminActionResultFromJSON,
+    AdminActionResultToJSON,
+    ReasonRequestFromJSON,
+    ReasonRequestToJSON,
+    RepairRequestFromJSON,
+    RepairRequestToJSON,
     SubscriptionAdminViewFromJSON,
     SubscriptionAdminViewToJSON,
     SubscriptionDriftReportViewFromJSON,
@@ -81,7 +81,7 @@ export interface GetApiV1AdminUsersByUseridSubscriptionsRequest {
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest;
+    reasonRequest: ReasonRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -89,7 +89,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyReq
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest;
+    repairRequest: RepairRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -97,7 +97,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildR
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest;
+    reasonRequest: ReasonRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -105,7 +105,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequ
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest;
+    repairRequest: RepairRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -113,7 +113,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeR
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest;
+    repairRequest: RepairRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -121,7 +121,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage
 
 export interface PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest {
     subscriptionId: string;
-    restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest;
+    reasonRequest: ReasonRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -129,7 +129,7 @@ export interface PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest
 
 export interface PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest {
     userId: string;
-    restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest;
+    repairRequest: RepairRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -137,7 +137,7 @@ export interface PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequ
 
 export interface PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest {
     stripeEventId: string;
-    restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest;
+    reasonRequest: ReasonRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -234,7 +234,7 @@ export interface SubscriptionAdminControllerApiInterface {
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerReasonRequest} restControllerSubscriptionAdminControllerReasonRequest 
+     * @param {ReasonRequest} reasonRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -242,16 +242,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerRepairRequest} restControllerSubscriptionAdminControllerRepairRequest 
+     * @param {RepairRequest} repairRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -259,16 +259,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerReasonRequest} restControllerSubscriptionAdminControllerReasonRequest 
+     * @param {ReasonRequest} reasonRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -276,16 +276,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerRepairRequest} restControllerSubscriptionAdminControllerRepairRequest 
+     * @param {RepairRequest} repairRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -293,16 +293,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerRepairRequest} restControllerSubscriptionAdminControllerRepairRequest 
+     * @param {RepairRequest} repairRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -310,16 +310,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionAdminControllerReasonRequest} restControllerSubscriptionAdminControllerReasonRequest 
+     * @param {ReasonRequest} reasonRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -327,16 +327,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminSubscriptionsBySubscriptionidReverseCancelRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminSubscriptionsBySubscriptionidReverseCancelRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} userId 
-     * @param {RestControllerSubscriptionAdminControllerRepairRequest} restControllerSubscriptionAdminControllerRepairRequest 
+     * @param {RepairRequest} repairRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -344,16 +344,16 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRaw(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRaw(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
     /**
      * 
      * @param {string} stripeEventId 
-     * @param {RestControllerSubscriptionAdminControllerReasonRequest} restControllerSubscriptionAdminControllerReasonRequest 
+     * @param {ReasonRequest} reasonRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -361,11 +361,11 @@ export interface SubscriptionAdminControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionAdminControllerApiInterface
      */
-    postApiV1AdminWebhooksStripeByStripeeventidReplayRaw(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>>;
+    postApiV1AdminWebhooksStripeByStripeeventidReplayRaw(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>>;
 
     /**
      */
-    postApiV1AdminWebhooksStripeByStripeeventidReplay(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>;
+    postApiV1AdminWebhooksStripeByStripeeventidReplay(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult>;
 
 }
 
@@ -635,7 +635,7 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -643,10 +643,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerReasonRequest'] == null) {
+        if (requestParameters['reasonRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerReasonRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerReasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately().'
+                'reasonRequest',
+                'Required parameter "reasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately().'
             );
         }
 
@@ -681,22 +681,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerReasonRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerReasonRequest']),
+            body: ReasonRequestToJSON(requestParameters['reasonRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -704,10 +704,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerRepairRequest'] == null) {
+        if (requestParameters['repairRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerRepairRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerRepairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild().'
+                'repairRequest',
+                'Required parameter "repairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild().'
             );
         }
 
@@ -742,22 +742,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerRepairRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerRepairRequest']),
+            body: RepairRequestToJSON(requestParameters['repairRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -765,10 +765,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerReasonRequest'] == null) {
+        if (requestParameters['reasonRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerReasonRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerReasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync().'
+                'reasonRequest',
+                'Required parameter "reasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync().'
             );
         }
 
@@ -803,22 +803,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerReasonRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerReasonRequest']),
+            body: ReasonRequestToJSON(requestParameters['reasonRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -826,10 +826,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerRepairRequest'] == null) {
+        if (requestParameters['repairRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerRepairRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerRepairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe().'
+                'repairRequest',
+                'Required parameter "repairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe().'
             );
         }
 
@@ -864,22 +864,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerRepairRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerRepairRequest']),
+            body: RepairRequestToJSON(requestParameters['repairRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -887,10 +887,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerRepairRequest'] == null) {
+        if (requestParameters['repairRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerRepairRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerRepairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage().'
+                'repairRequest',
+                'Required parameter "repairRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage().'
             );
         }
 
@@ -925,22 +925,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerRepairRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerRepairRequest']),
+            body: RepairRequestToJSON(requestParameters['repairRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidReverseCancelRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminSubscriptionsBySubscriptionidReverseCancelRaw(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -948,10 +948,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerReasonRequest'] == null) {
+        if (requestParameters['reasonRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerReasonRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerReasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidReverseCancel().'
+                'reasonRequest',
+                'Required parameter "reasonRequest" was null or undefined when calling postApiV1AdminSubscriptionsBySubscriptionidReverseCancel().'
             );
         }
 
@@ -986,22 +986,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerReasonRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerReasonRequest']),
+            body: ReasonRequestToJSON(requestParameters['reasonRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(requestParameters: PostApiV1AdminSubscriptionsBySubscriptionidReverseCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminSubscriptionsBySubscriptionidReverseCancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRaw(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRaw(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1009,10 +1009,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerRepairRequest'] == null) {
+        if (requestParameters['repairRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerRepairRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerRepairRequest" was null or undefined when calling postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild().'
+                'repairRequest',
+                'Required parameter "repairRequest" was null or undefined when calling postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild().'
             );
         }
 
@@ -1047,22 +1047,22 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerRepairRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerRepairRequest']),
+            body: RepairRequestToJSON(requestParameters['repairRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(requestParameters: PostApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AdminWebhooksStripeByStripeeventidReplayRaw(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>> {
+    async postApiV1AdminWebhooksStripeByStripeeventidReplayRaw(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminActionResult>> {
         if (requestParameters['stripeEventId'] == null) {
             throw new runtime.RequiredError(
                 'stripeEventId',
@@ -1070,10 +1070,10 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             );
         }
 
-        if (requestParameters['restControllerSubscriptionAdminControllerReasonRequest'] == null) {
+        if (requestParameters['reasonRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionAdminControllerReasonRequest',
-                'Required parameter "restControllerSubscriptionAdminControllerReasonRequest" was null or undefined when calling postApiV1AdminWebhooksStripeByStripeeventidReplay().'
+                'reasonRequest',
+                'Required parameter "reasonRequest" was null or undefined when calling postApiV1AdminWebhooksStripeByStripeeventidReplay().'
             );
         }
 
@@ -1108,15 +1108,15 @@ export class SubscriptionAdminControllerApi extends runtime.BaseAPI implements S
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionAdminControllerReasonRequestToJSON(requestParameters['restControllerSubscriptionAdminControllerReasonRequest']),
+            body: ReasonRequestToJSON(requestParameters['reasonRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionRepairServiceAdminActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminActionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AdminWebhooksStripeByStripeeventidReplay(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    async postApiV1AdminWebhooksStripeByStripeeventidReplay(requestParameters: PostApiV1AdminWebhooksStripeByStripeeventidReplayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminActionResult> {
         const response = await this.postApiV1AdminWebhooksStripeByStripeeventidReplayRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -74,10 +74,10 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPagePaymentMethodInfo
+     - returns: ModelPaymentMethodInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PaymentsMethods(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePaymentMethodInfo {
+    open class func getApiV1PaymentsMethods(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelPaymentMethodInfo {
         return try await getApiV1PaymentsMethodsWithRequestBuilder(companyId: companyId, liveMode: liveMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -91,9 +91,9 @@ open class PaymentMethodsControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPagePaymentMethodInfo> 
+     - returns: RequestBuilder<ModelPaymentMethodInfo> 
      */
-    open class func getApiV1PaymentsMethodsWithRequestBuilder(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePaymentMethodInfo> {
+    open class func getApiV1PaymentsMethodsWithRequestBuilder(companyId: String? = nil, liveMode: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelPaymentMethodInfo> {
         let localVariablePath = "/api/v1/payments/methods"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -112,7 +112,7 @@ open class PaymentMethodsControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelPaymentMethodInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

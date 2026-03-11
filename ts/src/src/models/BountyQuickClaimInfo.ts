@@ -56,13 +56,13 @@ export interface BountyQuickClaimInfo {
      * @type {number}
      * @memberof BountyQuickClaimInfo
      */
-    effectiveClaimerResponseCount?: number;
+    effectiveClaimInterval?: number;
     /**
      * 
      * @type {number}
      * @memberof BountyQuickClaimInfo
      */
-    effectiveClaimInterval?: number;
+    effectiveClaimerResponseCount?: number;
 }
 
 /**
@@ -86,8 +86,8 @@ export function BountyQuickClaimInfoFromJSONTyped(json: any, ignoreDiscriminator
         'claimIntervalMs': json['claimIntervalMs'] == null ? undefined : json['claimIntervalMs'],
         'claimPeriod': json['claimPeriod'] == null ? undefined : WeekPeriodFromJSON(json['claimPeriod']),
         'autoClaim': json['autoClaim'] == null ? undefined : json['autoClaim'],
-        'effectiveClaimerResponseCount': json['effectiveClaimerResponseCount'] == null ? undefined : json['effectiveClaimerResponseCount'],
         'effectiveClaimInterval': json['effectiveClaimInterval'] == null ? undefined : json['effectiveClaimInterval'],
+        'effectiveClaimerResponseCount': json['effectiveClaimerResponseCount'] == null ? undefined : json['effectiveClaimerResponseCount'],
     };
 }
 
@@ -106,8 +106,8 @@ export function BountyQuickClaimInfoToJSONTyped(value?: BountyQuickClaimInfo | n
         'claimIntervalMs': value['claimIntervalMs'],
         'claimPeriod': WeekPeriodToJSON(value['claimPeriod']),
         'autoClaim': value['autoClaim'],
-        'effectiveClaimerResponseCount': value['effectiveClaimerResponseCount'],
         'effectiveClaimInterval': value['effectiveClaimInterval'],
+        'effectiveClaimerResponseCount': value['effectiveClaimerResponseCount'],
     };
 }
 

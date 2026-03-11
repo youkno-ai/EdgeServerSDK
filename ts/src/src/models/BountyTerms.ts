@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyTermsAdmissionRule } from './BountyTermsAdmissionRule';
+import type { Promise } from './Promise';
 import {
-    BountyTermsAdmissionRuleFromJSON,
-    BountyTermsAdmissionRuleFromJSONTyped,
-    BountyTermsAdmissionRuleToJSON,
-    BountyTermsAdmissionRuleToJSONTyped,
-} from './BountyTermsAdmissionRule';
+    PromiseFromJSON,
+    PromiseFromJSONTyped,
+    PromiseToJSON,
+    PromiseToJSONTyped,
+} from './Promise';
 import type { BountyBudget } from './BountyBudget';
 import {
     BountyBudgetFromJSON,
@@ -27,13 +27,13 @@ import {
     BountyBudgetToJSON,
     BountyBudgetToJSONTyped,
 } from './BountyBudget';
-import type { BountyTermsContentAccessRule } from './BountyTermsContentAccessRule';
+import type { ContentAccessRule } from './ContentAccessRule';
 import {
-    BountyTermsContentAccessRuleFromJSON,
-    BountyTermsContentAccessRuleFromJSONTyped,
-    BountyTermsContentAccessRuleToJSON,
-    BountyTermsContentAccessRuleToJSONTyped,
-} from './BountyTermsContentAccessRule';
+    ContentAccessRuleFromJSON,
+    ContentAccessRuleFromJSONTyped,
+    ContentAccessRuleToJSON,
+    ContentAccessRuleToJSONTyped,
+} from './ContentAccessRule';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -41,13 +41,13 @@ import {
     RewardToJSON,
     RewardToJSONTyped,
 } from './Reward';
-import type { BountyPromise } from './BountyPromise';
+import type { AdmissionRule } from './AdmissionRule';
 import {
-    BountyPromiseFromJSON,
-    BountyPromiseFromJSONTyped,
-    BountyPromiseToJSON,
-    BountyPromiseToJSONTyped,
-} from './BountyPromise';
+    AdmissionRuleFromJSON,
+    AdmissionRuleFromJSONTyped,
+    AdmissionRuleToJSON,
+    AdmissionRuleToJSONTyped,
+} from './AdmissionRule';
 
 /**
  * 
@@ -63,16 +63,16 @@ export interface BountyTerms {
     receiver?: string;
     /**
      * 
-     * @type {BountyTermsAdmissionRule}
+     * @type {AdmissionRule}
      * @memberof BountyTerms
      */
-    admissionRule?: BountyTermsAdmissionRule;
+    admissionRule?: AdmissionRule;
     /**
      * 
-     * @type {BountyTermsContentAccessRule}
+     * @type {ContentAccessRule}
      * @memberof BountyTerms
      */
-    contentAccessRule?: BountyTermsContentAccessRule;
+    contentAccessRule?: ContentAccessRule;
     /**
      * 
      * @type {number}
@@ -111,10 +111,10 @@ export interface BountyTerms {
     autoClose?: boolean;
     /**
      * 
-     * @type {{ [key: string]: BountyPromise; }}
+     * @type {{ [key: string]: Promise; }}
      * @memberof BountyTerms
      */
-    promises?: { [key: string]: BountyPromise; };
+    promises?: { [key: string]: Promise; };
     /**
      * 
      * @type {string}
@@ -175,15 +175,15 @@ export function BountyTermsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'receiver': json['receiver'] == null ? undefined : json['receiver'],
-        'admissionRule': json['admissionRule'] == null ? undefined : BountyTermsAdmissionRuleFromJSON(json['admissionRule']),
-        'contentAccessRule': json['contentAccessRule'] == null ? undefined : BountyTermsContentAccessRuleFromJSON(json['contentAccessRule']),
+        'admissionRule': json['admissionRule'] == null ? undefined : AdmissionRuleFromJSON(json['admissionRule']),
+        'contentAccessRule': json['contentAccessRule'] == null ? undefined : ContentAccessRuleFromJSON(json['contentAccessRule']),
         'allowedResponseCount': json['allowedResponseCount'] == null ? undefined : json['allowedResponseCount'],
         'participantResponseCount': json['participantResponseCount'] == null ? undefined : json['participantResponseCount'],
         'budget': json['budget'] == null ? undefined : BountyBudgetFromJSON(json['budget']),
         'minReward': json['minReward'] == null ? undefined : RewardFromJSON(json['minReward']),
         'goalReward': json['goalReward'] == null ? undefined : RewardFromJSON(json['goalReward']),
         'autoClose': json['autoClose'] == null ? undefined : json['autoClose'],
-        'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], BountyPromiseFromJSON)),
+        'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], PromiseFromJSON)),
         'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
         'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
         'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
@@ -202,15 +202,15 @@ export function BountyTermsToJSONTyped(value?: BountyTerms | null, ignoreDiscrim
     return {
         
         'receiver': value['receiver'],
-        'admissionRule': BountyTermsAdmissionRuleToJSON(value['admissionRule']),
-        'contentAccessRule': BountyTermsContentAccessRuleToJSON(value['contentAccessRule']),
+        'admissionRule': AdmissionRuleToJSON(value['admissionRule']),
+        'contentAccessRule': ContentAccessRuleToJSON(value['contentAccessRule']),
         'allowedResponseCount': value['allowedResponseCount'],
         'participantResponseCount': value['participantResponseCount'],
         'budget': BountyBudgetToJSON(value['budget']),
         'minReward': RewardToJSON(value['minReward']),
         'goalReward': RewardToJSON(value['goalReward']),
         'autoClose': value['autoClose'],
-        'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], BountyPromiseToJSON)),
+        'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], PromiseToJSON)),
         'receiverAsEnum': value['receiverAsEnum'],
         'distributionReward': RewardToJSON(value['distributionReward']),
         'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],

@@ -255,15 +255,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerReasonRequest: restControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: subscriptionId, reasonRequest: reasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -272,19 +272,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidCancelImmediatelyWithRequestBuilder(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/cancel-immediately"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerReasonRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reasonRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -297,7 +297,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -305,15 +305,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerRepairRequest: restControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildWithRequestBuilder(subscriptionId: subscriptionId, repairRequest: repairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -322,19 +322,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuildWithRequestBuilder(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/entitlements/rebuild"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerRepairRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: repairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -347,7 +347,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -355,15 +355,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerReasonRequest: restControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncWithRequestBuilder(subscriptionId: subscriptionId, reasonRequest: reasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -372,19 +372,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSyncWithRequestBuilder(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/entitlements/sync"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerReasonRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reasonRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -397,7 +397,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -405,15 +405,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerRepairRequest: restControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeWithRequestBuilder(subscriptionId: subscriptionId, repairRequest: repairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -422,19 +422,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripeWithRequestBuilder(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/reconcile-from-stripe"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerRepairRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: repairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -447,7 +447,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -455,15 +455,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerRepairRequest: restControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageWithRequestBuilder(subscriptionId: subscriptionId, repairRequest: repairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -472,19 +472,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkageWithRequestBuilder(subscriptionId: UUID, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/refresh-stripe-linkage"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerRepairRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: repairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -497,7 +497,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -505,15 +505,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminSubscriptionsBySubscriptionidReverseCancelWithRequestBuilder(subscriptionId: subscriptionId, restControllerSubscriptionAdminControllerReasonRequest: restControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminSubscriptionsBySubscriptionidReverseCancelWithRequestBuilder(subscriptionId: subscriptionId, reasonRequest: reasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -522,19 +522,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter subscriptionId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminSubscriptionsBySubscriptionidReverseCancelWithRequestBuilder(subscriptionId: UUID, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminSubscriptionsBySubscriptionidReverseCancelWithRequestBuilder(subscriptionId: UUID, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/subscriptions/{subscriptionId}/reverse-cancel"
         let subscriptionIdPreEscape = "\(APIHelper.mapValueToPathItem(subscriptionId))"
         let subscriptionIdPostEscape = subscriptionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{subscriptionId}", with: subscriptionIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerReasonRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reasonRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -547,7 +547,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -555,15 +555,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(userId: String, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildWithRequestBuilder(userId: userId, restControllerSubscriptionAdminControllerRepairRequest: restControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(userId: String, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildWithRequestBuilder(userId: userId, repairRequest: repairRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -572,19 +572,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter restControllerSubscriptionAdminControllerRepairRequest: (body)  
+     - parameter repairRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildWithRequestBuilder(userId: String, restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuildWithRequestBuilder(userId: String, repairRequest: RepairRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/users/{userId}/subscriptions/entitlements/rebuild"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerRepairRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: repairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -597,7 +597,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -605,15 +605,15 @@ open class SubscriptionAdminControllerAPI {
     /**
 
      - parameter stripeEventId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+     - returns: AdminActionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AdminWebhooksStripeByStripeeventidReplay(stripeEventId: String, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult {
-        return try await postApiV1AdminWebhooksStripeByStripeeventidReplayWithRequestBuilder(stripeEventId: stripeEventId, restControllerSubscriptionAdminControllerReasonRequest: restControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AdminWebhooksStripeByStripeeventidReplay(stripeEventId: String, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AdminActionResult {
+        return try await postApiV1AdminWebhooksStripeByStripeeventidReplayWithRequestBuilder(stripeEventId: stripeEventId, reasonRequest: reasonRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -622,19 +622,19 @@ open class SubscriptionAdminControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter stripeEventId: (path)  
-     - parameter restControllerSubscriptionAdminControllerReasonRequest: (body)  
+     - parameter reasonRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> 
+     - returns: RequestBuilder<AdminActionResult> 
      */
-    open class func postApiV1AdminWebhooksStripeByStripeeventidReplayWithRequestBuilder(stripeEventId: String, restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult> {
+    open class func postApiV1AdminWebhooksStripeByStripeeventidReplayWithRequestBuilder(stripeEventId: String, reasonRequest: ReasonRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AdminActionResult> {
         var localVariablePath = "/api/v1/admin/webhooks/stripe/{stripeEventId}/replay"
         let stripeEventIdPreEscape = "\(APIHelper.mapValueToPathItem(stripeEventId))"
         let stripeEventIdPostEscape = stripeEventIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stripeEventId}", with: stripeEventIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerSubscriptionAdminControllerReasonRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reasonRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -647,7 +647,7 @@ open class SubscriptionAdminControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AdminActionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

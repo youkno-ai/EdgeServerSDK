@@ -26,6 +26,10 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
         case cancelled = "CANCELLED"
         case unknown = "UNKNOWN"
     }
+    public enum ReceiptStatusAsEnum: String, Codable, CaseIterable {
+        case created = "CREATED"
+        case scanned = "SCANNED"
+    }
     public enum PaymentStatusAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case pendingPayment = "PENDING_PAYMENT"
@@ -34,10 +38,6 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
         case paid = "PAID"
         case paymentFailed = "PAYMENT_FAILED"
         case unknown = "UNKNOWN"
-    }
-    public enum ReceiptStatusAsEnum: String, Codable, CaseIterable {
-        case created = "CREATED"
-        case scanned = "SCANNED"
     }
     public var orderId: String?
     public var posOrderId: String?
@@ -48,27 +48,27 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
     public var shippingInfo: ShippingInfo?
     public var paymentMethodInfo: PaymentMethodInfo?
     public var invoiceInfo: InvoiceInfo?
-    public var productsInfo: ShoppingCartProductsInfo?
-    public var redemptionInfo: ShoppingCartRedemptionInfo?
+    public var productsInfo: ProductsInfo?
+    public var redemptionInfo: RedemptionInfo?
     public var orderTotal: Reward?
-    public var customerInfo: BountyOrderCustomerInfo?
-    public var paymentInfo: BountyOrderPaymentInfo?
-    public var chargebackInfo: BountyOrderChargebackInfo?
+    public var customerInfo: CustomerInfo?
+    public var paymentInfo: OrderPaymentInfo?
+    public var chargebackInfo: OrderChargebackInfo?
     public var orderedAt: Int64?
     public var receiptUrl: String?
     public var posUrl: String?
     public var merchantOrderUrl: String?
-    public var statusAsEnum: StatusAsEnum?
-    public var customerEmail: String?
-    public var merchant: User?
-    public var overallSection: ShoppingCartOrderSummaryOrderSection?
     public var merchantId: String?
     public var imageUrl: String?
-    public var paymentStatusAsEnum: PaymentStatusAsEnum?
-    public var receiptStatusAsEnum: ReceiptStatusAsEnum?
+    public var overallSection: OrderSection?
+    public var merchant: User?
+    public var statusAsEnum: StatusAsEnum?
+    public var customerEmail: String?
     public var vouchersToRedeem: Reward?
+    public var receiptStatusAsEnum: ReceiptStatusAsEnum?
+    public var paymentStatusAsEnum: PaymentStatusAsEnum?
 
-    public init(orderId: String? = nil, posOrderId: String? = nil, orderUid: String? = nil, status: String? = nil, billingAddress: MailingAddress? = nil, shippingAddress: MailingAddress? = nil, shippingInfo: ShippingInfo? = nil, paymentMethodInfo: PaymentMethodInfo? = nil, invoiceInfo: InvoiceInfo? = nil, productsInfo: ShoppingCartProductsInfo? = nil, redemptionInfo: ShoppingCartRedemptionInfo? = nil, orderTotal: Reward? = nil, customerInfo: BountyOrderCustomerInfo? = nil, paymentInfo: BountyOrderPaymentInfo? = nil, chargebackInfo: BountyOrderChargebackInfo? = nil, orderedAt: Int64? = nil, receiptUrl: String? = nil, posUrl: String? = nil, merchantOrderUrl: String? = nil, statusAsEnum: StatusAsEnum? = nil, customerEmail: String? = nil, merchant: User? = nil, overallSection: ShoppingCartOrderSummaryOrderSection? = nil, merchantId: String? = nil, imageUrl: String? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil, receiptStatusAsEnum: ReceiptStatusAsEnum? = nil, vouchersToRedeem: Reward? = nil) {
+    public init(orderId: String? = nil, posOrderId: String? = nil, orderUid: String? = nil, status: String? = nil, billingAddress: MailingAddress? = nil, shippingAddress: MailingAddress? = nil, shippingInfo: ShippingInfo? = nil, paymentMethodInfo: PaymentMethodInfo? = nil, invoiceInfo: InvoiceInfo? = nil, productsInfo: ProductsInfo? = nil, redemptionInfo: RedemptionInfo? = nil, orderTotal: Reward? = nil, customerInfo: CustomerInfo? = nil, paymentInfo: OrderPaymentInfo? = nil, chargebackInfo: OrderChargebackInfo? = nil, orderedAt: Int64? = nil, receiptUrl: String? = nil, posUrl: String? = nil, merchantOrderUrl: String? = nil, merchantId: String? = nil, imageUrl: String? = nil, overallSection: OrderSection? = nil, merchant: User? = nil, statusAsEnum: StatusAsEnum? = nil, customerEmail: String? = nil, vouchersToRedeem: Reward? = nil, receiptStatusAsEnum: ReceiptStatusAsEnum? = nil, paymentStatusAsEnum: PaymentStatusAsEnum? = nil) {
         self.orderId = orderId
         self.posOrderId = posOrderId
         self.orderUid = orderUid
@@ -88,15 +88,15 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
         self.receiptUrl = receiptUrl
         self.posUrl = posUrl
         self.merchantOrderUrl = merchantOrderUrl
-        self.statusAsEnum = statusAsEnum
-        self.customerEmail = customerEmail
-        self.merchant = merchant
-        self.overallSection = overallSection
         self.merchantId = merchantId
         self.imageUrl = imageUrl
-        self.paymentStatusAsEnum = paymentStatusAsEnum
-        self.receiptStatusAsEnum = receiptStatusAsEnum
+        self.overallSection = overallSection
+        self.merchant = merchant
+        self.statusAsEnum = statusAsEnum
+        self.customerEmail = customerEmail
         self.vouchersToRedeem = vouchersToRedeem
+        self.receiptStatusAsEnum = receiptStatusAsEnum
+        self.paymentStatusAsEnum = paymentStatusAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -119,15 +119,15 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
         case receiptUrl
         case posUrl
         case merchantOrderUrl
-        case statusAsEnum
-        case customerEmail
-        case merchant
-        case overallSection
         case merchantId
         case imageUrl
-        case paymentStatusAsEnum
-        case receiptStatusAsEnum
+        case overallSection
+        case merchant
+        case statusAsEnum
+        case customerEmail
         case vouchersToRedeem
+        case receiptStatusAsEnum
+        case paymentStatusAsEnum
     }
 
     // Encodable protocol methods
@@ -153,15 +153,15 @@ public struct BountyOrder: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(receiptUrl, forKey: .receiptUrl)
         try container.encodeIfPresent(posUrl, forKey: .posUrl)
         try container.encodeIfPresent(merchantOrderUrl, forKey: .merchantOrderUrl)
-        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
-        try container.encodeIfPresent(customerEmail, forKey: .customerEmail)
-        try container.encodeIfPresent(merchant, forKey: .merchant)
-        try container.encodeIfPresent(overallSection, forKey: .overallSection)
         try container.encodeIfPresent(merchantId, forKey: .merchantId)
         try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
-        try container.encodeIfPresent(paymentStatusAsEnum, forKey: .paymentStatusAsEnum)
-        try container.encodeIfPresent(receiptStatusAsEnum, forKey: .receiptStatusAsEnum)
+        try container.encodeIfPresent(overallSection, forKey: .overallSection)
+        try container.encodeIfPresent(merchant, forKey: .merchant)
+        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
+        try container.encodeIfPresent(customerEmail, forKey: .customerEmail)
         try container.encodeIfPresent(vouchersToRedeem, forKey: .vouchersToRedeem)
+        try container.encodeIfPresent(receiptStatusAsEnum, forKey: .receiptStatusAsEnum)
+        try container.encodeIfPresent(paymentStatusAsEnum, forKey: .paymentStatusAsEnum)
     }
 }
 

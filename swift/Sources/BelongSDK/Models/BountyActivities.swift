@@ -12,13 +12,13 @@ import AnyCodable
 
 public struct BountyActivities: Codable, JSONEncodable, Hashable {
 
-    public var nextActivity: BountyActivitiesActivity?
-    public var previousActivity: BountyActivitiesActivity?
-    public var highlightedActivities: [String: BountyActivitiesActivity]?
+    public var nextActivity: Activity?
+    public var previousActivity: Activity?
+    public var highlightedActivities: [String: Activity]?
     public var nextBountyId: String?
     public var previousBountyId: String?
 
-    public init(nextActivity: BountyActivitiesActivity? = nil, previousActivity: BountyActivitiesActivity? = nil, highlightedActivities: [String: BountyActivitiesActivity]? = nil, nextBountyId: String? = nil, previousBountyId: String? = nil) {
+    public init(nextActivity: Activity? = nil, previousActivity: Activity? = nil, highlightedActivities: [String: Activity]? = nil, nextBountyId: String? = nil, previousBountyId: String? = nil) {
         self.nextActivity = nextActivity
         self.previousActivity = previousActivity
         self.highlightedActivities = highlightedActivities

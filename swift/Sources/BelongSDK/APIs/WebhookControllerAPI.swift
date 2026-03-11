@@ -18,10 +18,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookDeliveryDetailDto
+     - returns: WebhookDeliveryDetailDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksDeliveriesByDeliveryid(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookDeliveryDetailDto {
+    open class func getApiV1WebhooksDeliveriesByDeliveryid(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookDeliveryDetailDto {
         return try await getApiV1WebhooksDeliveriesByDeliveryidWithRequestBuilder(deliveryId: deliveryId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookDeliveryDetailDto> 
+     - returns: RequestBuilder<WebhookDeliveryDetailDto> 
      */
-    open class func getApiV1WebhooksDeliveriesByDeliveryidWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookDeliveryDetailDto> {
+    open class func getApiV1WebhooksDeliveriesByDeliveryidWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookDeliveryDetailDto> {
         var localVariablePath = "/api/v1/webhooks/deliveries/{deliveryId}"
         let deliveryIdPreEscape = "\(APIHelper.mapValueToPathItem(deliveryId))"
         let deliveryIdPostEscape = deliveryIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -54,7 +54,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookDeliveryDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookDeliveryDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -71,10 +71,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageWebhooksWebhookDlqSummaryDto
+     - returns: WebhooksWebhookDlqSummaryDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksDlq(endpointId: UUID? = nil, deadReason: String? = nil, eventType: String? = nil, from: String? = nil, to: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageWebhooksWebhookDlqSummaryDto {
+    open class func getApiV1WebhooksDlq(endpointId: UUID? = nil, deadReason: String? = nil, eventType: String? = nil, from: String? = nil, to: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookDlqSummaryDto {
         return try await getApiV1WebhooksDlqWithRequestBuilder(endpointId: endpointId, deadReason: deadReason, eventType: eventType, from: from, to: to, limit: limit, offset: offset, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -93,9 +93,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageWebhooksWebhookDlqSummaryDto> 
+     - returns: RequestBuilder<WebhooksWebhookDlqSummaryDto> 
      */
-    open class func getApiV1WebhooksDlqWithRequestBuilder(endpointId: UUID? = nil, deadReason: String? = nil, eventType: String? = nil, from: String? = nil, to: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageWebhooksWebhookDlqSummaryDto> {
+    open class func getApiV1WebhooksDlqWithRequestBuilder(endpointId: UUID? = nil, deadReason: String? = nil, eventType: String? = nil, from: String? = nil, to: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookDlqSummaryDto> {
         let localVariablePath = "/api/v1/webhooks/dlq"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -119,7 +119,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageWebhooksWebhookDlqSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookDlqSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -130,10 +130,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookDlqDetailDto
+     - returns: WebhookDlqDetailDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksDlqByDeliveryid(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookDlqDetailDto {
+    open class func getApiV1WebhooksDlqByDeliveryid(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookDlqDetailDto {
         return try await getApiV1WebhooksDlqByDeliveryidWithRequestBuilder(deliveryId: deliveryId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -146,9 +146,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookDlqDetailDto> 
+     - returns: RequestBuilder<WebhookDlqDetailDto> 
      */
-    open class func getApiV1WebhooksDlqByDeliveryidWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookDlqDetailDto> {
+    open class func getApiV1WebhooksDlqByDeliveryidWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookDlqDetailDto> {
         var localVariablePath = "/api/v1/webhooks/dlq/{deliveryId}"
         let deliveryIdPreEscape = "\(APIHelper.mapValueToPathItem(deliveryId))"
         let deliveryIdPostEscape = deliveryIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -166,7 +166,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookDlqDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookDlqDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -176,10 +176,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageWebhooksWebhookEndpointSummaryDto
+     - returns: WebhooksWebhookEndpointSummaryDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksEndpoints(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageWebhooksWebhookEndpointSummaryDto {
+    open class func getApiV1WebhooksEndpoints(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookEndpointSummaryDto {
         return try await getApiV1WebhooksEndpointsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -191,9 +191,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto> 
+     - returns: RequestBuilder<WebhooksWebhookEndpointSummaryDto> 
      */
-    open class func getApiV1WebhooksEndpointsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto> {
+    open class func getApiV1WebhooksEndpointsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookEndpointSummaryDto> {
         let localVariablePath = "/api/v1/webhooks/endpoints"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -208,7 +208,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookEndpointSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -219,10 +219,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookEndpointDetailDto
+     - returns: WebhookEndpointDetailDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksEndpointsByEndpointid(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookEndpointDetailDto {
+    open class func getApiV1WebhooksEndpointsByEndpointid(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookEndpointDetailDto {
         return try await getApiV1WebhooksEndpointsByEndpointidWithRequestBuilder(endpointId: endpointId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -235,9 +235,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookEndpointDetailDto> 
+     - returns: RequestBuilder<WebhookEndpointDetailDto> 
      */
-    open class func getApiV1WebhooksEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookEndpointDetailDto> {
+    open class func getApiV1WebhooksEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookEndpointDetailDto> {
         var localVariablePath = "/api/v1/webhooks/endpoints/{endpointId}"
         let endpointIdPreEscape = "\(APIHelper.mapValueToPathItem(endpointId))"
         let endpointIdPostEscape = endpointIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -255,7 +255,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookEndpointDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookEndpointDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -271,10 +271,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageWebhooksWebhookDeliverySummaryDto
+     - returns: WebhooksWebhookDeliverySummaryDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksEndpointsByEndpointidDeliveries(endpointId: UUID, status: String? = nil, deadOnly: Bool? = nil, eventType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageWebhooksWebhookDeliverySummaryDto {
+    open class func getApiV1WebhooksEndpointsByEndpointidDeliveries(endpointId: UUID, status: String? = nil, deadOnly: Bool? = nil, eventType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookDeliverySummaryDto {
         return try await getApiV1WebhooksEndpointsByEndpointidDeliveriesWithRequestBuilder(endpointId: endpointId, status: status, deadOnly: deadOnly, eventType: eventType, limit: limit, offset: offset, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -292,9 +292,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto> 
+     - returns: RequestBuilder<WebhooksWebhookDeliverySummaryDto> 
      */
-    open class func getApiV1WebhooksEndpointsByEndpointidDeliveriesWithRequestBuilder(endpointId: UUID, status: String? = nil, deadOnly: Bool? = nil, eventType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto> {
+    open class func getApiV1WebhooksEndpointsByEndpointidDeliveriesWithRequestBuilder(endpointId: UUID, status: String? = nil, deadOnly: Bool? = nil, eventType: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookDeliverySummaryDto> {
         var localVariablePath = "/api/v1/webhooks/endpoints/{endpointId}/deliveries"
         let endpointIdPreEscape = "\(APIHelper.mapValueToPathItem(endpointId))"
         let endpointIdPostEscape = endpointIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -319,7 +319,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageWebhooksWebhookDeliverySummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookDeliverySummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -333,10 +333,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto
+     - returns: WebhooksWebhookEndpointHealthSummaryDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksHealthEndpoints(enabled: Bool? = nil, circuitState: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto {
+    open class func getApiV1WebhooksHealthEndpoints(enabled: Bool? = nil, circuitState: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookEndpointHealthSummaryDto {
         return try await getApiV1WebhooksHealthEndpointsWithRequestBuilder(enabled: enabled, circuitState: circuitState, limit: limit, offset: offset, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -352,9 +352,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto> 
+     - returns: RequestBuilder<WebhooksWebhookEndpointHealthSummaryDto> 
      */
-    open class func getApiV1WebhooksHealthEndpointsWithRequestBuilder(enabled: Bool? = nil, circuitState: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto> {
+    open class func getApiV1WebhooksHealthEndpointsWithRequestBuilder(enabled: Bool? = nil, circuitState: String? = nil, limit: Int? = nil, offset: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookEndpointHealthSummaryDto> {
         let localVariablePath = "/api/v1/webhooks/health/endpoints"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -375,7 +375,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageWebhooksWebhookEndpointHealthSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookEndpointHealthSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -386,10 +386,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookEndpointHealthDetailDto
+     - returns: WebhookEndpointHealthDetailDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksHealthEndpointsByEndpointid(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookEndpointHealthDetailDto {
+    open class func getApiV1WebhooksHealthEndpointsByEndpointid(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookEndpointHealthDetailDto {
         return try await getApiV1WebhooksHealthEndpointsByEndpointidWithRequestBuilder(endpointId: endpointId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -402,9 +402,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookEndpointHealthDetailDto> 
+     - returns: RequestBuilder<WebhookEndpointHealthDetailDto> 
      */
-    open class func getApiV1WebhooksHealthEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookEndpointHealthDetailDto> {
+    open class func getApiV1WebhooksHealthEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookEndpointHealthDetailDto> {
         var localVariablePath = "/api/v1/webhooks/health/endpoints/{endpointId}"
         let endpointIdPreEscape = "\(APIHelper.mapValueToPathItem(endpointId))"
         let endpointIdPostEscape = endpointIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -422,7 +422,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookEndpointHealthDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookEndpointHealthDetailDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -432,10 +432,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookTenantHealthSummaryDto
+     - returns: WebhookTenantHealthSummaryDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1WebhooksHealthSummary(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookTenantHealthSummaryDto {
+    open class func getApiV1WebhooksHealthSummary(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookTenantHealthSummaryDto {
         return try await getApiV1WebhooksHealthSummaryWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -447,9 +447,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookTenantHealthSummaryDto> 
+     - returns: RequestBuilder<WebhookTenantHealthSummaryDto> 
      */
-    open class func getApiV1WebhooksHealthSummaryWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookTenantHealthSummaryDto> {
+    open class func getApiV1WebhooksHealthSummaryWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookTenantHealthSummaryDto> {
         let localVariablePath = "/api/v1/webhooks/health/summary"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -464,7 +464,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookTenantHealthSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookTenantHealthSummaryDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -475,10 +475,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookResendDeliveryResultDto
+     - returns: WebhookResendDeliveryResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksDeliveriesByDeliveryidResend(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookResendDeliveryResultDto {
+    open class func postApiV1WebhooksDeliveriesByDeliveryidResend(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookResendDeliveryResultDto {
         return try await postApiV1WebhooksDeliveriesByDeliveryidResendWithRequestBuilder(deliveryId: deliveryId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -491,9 +491,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookResendDeliveryResultDto> 
+     - returns: RequestBuilder<WebhookResendDeliveryResultDto> 
      */
-    open class func postApiV1WebhooksDeliveriesByDeliveryidResendWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookResendDeliveryResultDto> {
+    open class func postApiV1WebhooksDeliveriesByDeliveryidResendWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookResendDeliveryResultDto> {
         var localVariablePath = "/api/v1/webhooks/deliveries/{deliveryId}/resend"
         let deliveryIdPreEscape = "\(APIHelper.mapValueToPathItem(deliveryId))"
         let deliveryIdPostEscape = deliveryIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -511,7 +511,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookResendDeliveryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookResendDeliveryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -522,10 +522,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookResendDeliveryResultDto
+     - returns: WebhookResendDeliveryResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksDlqByDeliveryidRetry(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookResendDeliveryResultDto {
+    open class func postApiV1WebhooksDlqByDeliveryidRetry(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookResendDeliveryResultDto {
         return try await postApiV1WebhooksDlqByDeliveryidRetryWithRequestBuilder(deliveryId: deliveryId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -538,9 +538,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookResendDeliveryResultDto> 
+     - returns: RequestBuilder<WebhookResendDeliveryResultDto> 
      */
-    open class func postApiV1WebhooksDlqByDeliveryidRetryWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookResendDeliveryResultDto> {
+    open class func postApiV1WebhooksDlqByDeliveryidRetryWithRequestBuilder(deliveryId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookResendDeliveryResultDto> {
         var localVariablePath = "/api/v1/webhooks/dlq/{deliveryId}/retry"
         let deliveryIdPreEscape = "\(APIHelper.mapValueToPathItem(deliveryId))"
         let deliveryIdPostEscape = deliveryIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -558,22 +558,22 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookResendDeliveryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookResendDeliveryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter webhooksWebhookDlqBulkRetryRequestDto: (body)  
+     - parameter webhookDlqBulkRetryRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookDlqBulkRetryResultDto
+     - returns: WebhookDlqBulkRetryResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksDlqRetry(webhooksWebhookDlqBulkRetryRequestDto: WebhooksWebhookDlqBulkRetryRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookDlqBulkRetryResultDto {
-        return try await postApiV1WebhooksDlqRetryWithRequestBuilder(webhooksWebhookDlqBulkRetryRequestDto: webhooksWebhookDlqBulkRetryRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1WebhooksDlqRetry(webhookDlqBulkRetryRequestDto: WebhookDlqBulkRetryRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookDlqBulkRetryResultDto {
+        return try await postApiV1WebhooksDlqRetryWithRequestBuilder(webhookDlqBulkRetryRequestDto: webhookDlqBulkRetryRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -581,16 +581,16 @@ open class WebhookControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter webhooksWebhookDlqBulkRetryRequestDto: (body)  
+     - parameter webhookDlqBulkRetryRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookDlqBulkRetryResultDto> 
+     - returns: RequestBuilder<WebhookDlqBulkRetryResultDto> 
      */
-    open class func postApiV1WebhooksDlqRetryWithRequestBuilder(webhooksWebhookDlqBulkRetryRequestDto: WebhooksWebhookDlqBulkRetryRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookDlqBulkRetryResultDto> {
+    open class func postApiV1WebhooksDlqRetryWithRequestBuilder(webhookDlqBulkRetryRequestDto: WebhookDlqBulkRetryRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookDlqBulkRetryResultDto> {
         let localVariablePath = "/api/v1/webhooks/dlq/retry"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhooksWebhookDlqBulkRetryRequestDto)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhookDlqBulkRetryRequestDto)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -603,7 +603,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookDlqBulkRetryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookDlqBulkRetryResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -614,10 +614,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookRotateSecretResultDto
+     - returns: WebhookRotateSecretResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksEndpointsByEndpointidRotateSecret(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookRotateSecretResultDto {
+    open class func postApiV1WebhooksEndpointsByEndpointidRotateSecret(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookRotateSecretResultDto {
         return try await postApiV1WebhooksEndpointsByEndpointidRotateSecretWithRequestBuilder(endpointId: endpointId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -630,9 +630,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookRotateSecretResultDto> 
+     - returns: RequestBuilder<WebhookRotateSecretResultDto> 
      */
-    open class func postApiV1WebhooksEndpointsByEndpointidRotateSecretWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookRotateSecretResultDto> {
+    open class func postApiV1WebhooksEndpointsByEndpointidRotateSecretWithRequestBuilder(endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookRotateSecretResultDto> {
         var localVariablePath = "/api/v1/webhooks/endpoints/{endpointId}/rotate-secret"
         let endpointIdPreEscape = "\(APIHelper.mapValueToPathItem(endpointId))"
         let endpointIdPostEscape = endpointIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -650,22 +650,22 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookRotateSecretResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookRotateSecretResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter webhooksWebhookReplayRangeRequestDto: (body)  
+     - parameter webhookReplayRangeRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookReplayResultDto
+     - returns: WebhookReplayResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksReplay(webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookReplayResultDto {
-        return try await postApiV1WebhooksReplayWithRequestBuilder(webhooksWebhookReplayRangeRequestDto: webhooksWebhookReplayRangeRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1WebhooksReplay(webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookReplayResultDto {
+        return try await postApiV1WebhooksReplayWithRequestBuilder(webhookReplayRangeRequestDto: webhookReplayRangeRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -673,16 +673,16 @@ open class WebhookControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter webhooksWebhookReplayRangeRequestDto: (body)  
+     - parameter webhookReplayRangeRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookReplayResultDto> 
+     - returns: RequestBuilder<WebhookReplayResultDto> 
      */
-    open class func postApiV1WebhooksReplayWithRequestBuilder(webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookReplayResultDto> {
+    open class func postApiV1WebhooksReplayWithRequestBuilder(webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookReplayResultDto> {
         let localVariablePath = "/api/v1/webhooks/replay"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhooksWebhookReplayRangeRequestDto)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhookReplayRangeRequestDto)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -695,7 +695,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -703,15 +703,15 @@ open class WebhookControllerAPI {
     /**
 
      - parameter endpointId: (path)  
-     - parameter webhooksWebhookReplayRangeRequestDto: (body)  
+     - parameter webhookReplayRangeRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookReplayResultDto
+     - returns: WebhookReplayResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksReplayEndpointsByEndpointid(endpointId: UUID, webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookReplayResultDto {
-        return try await postApiV1WebhooksReplayEndpointsByEndpointidWithRequestBuilder(endpointId: endpointId, webhooksWebhookReplayRangeRequestDto: webhooksWebhookReplayRangeRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1WebhooksReplayEndpointsByEndpointid(endpointId: UUID, webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookReplayResultDto {
+        return try await postApiV1WebhooksReplayEndpointsByEndpointidWithRequestBuilder(endpointId: endpointId, webhookReplayRangeRequestDto: webhookReplayRangeRequestDto, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -720,19 +720,19 @@ open class WebhookControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter endpointId: (path)  
-     - parameter webhooksWebhookReplayRangeRequestDto: (body)  
+     - parameter webhookReplayRangeRequestDto: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookReplayResultDto> 
+     - returns: RequestBuilder<WebhookReplayResultDto> 
      */
-    open class func postApiV1WebhooksReplayEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, webhooksWebhookReplayRangeRequestDto: WebhooksWebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookReplayResultDto> {
+    open class func postApiV1WebhooksReplayEndpointsByEndpointidWithRequestBuilder(endpointId: UUID, webhookReplayRangeRequestDto: WebhookReplayRangeRequestDto, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookReplayResultDto> {
         var localVariablePath = "/api/v1/webhooks/replay/endpoints/{endpointId}"
         let endpointIdPreEscape = "\(APIHelper.mapValueToPathItem(endpointId))"
         let endpointIdPostEscape = endpointIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{endpointId}", with: endpointIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhooksWebhookReplayRangeRequestDto)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhookReplayRangeRequestDto)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -745,7 +745,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -756,10 +756,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookReplayResultDto
+     - returns: WebhookReplayResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksReplayEventLogByEventlogid(eventLogId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookReplayResultDto {
+    open class func postApiV1WebhooksReplayEventLogByEventlogid(eventLogId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookReplayResultDto {
         return try await postApiV1WebhooksReplayEventLogByEventlogidWithRequestBuilder(eventLogId: eventLogId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -772,9 +772,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookReplayResultDto> 
+     - returns: RequestBuilder<WebhookReplayResultDto> 
      */
-    open class func postApiV1WebhooksReplayEventLogByEventlogidWithRequestBuilder(eventLogId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookReplayResultDto> {
+    open class func postApiV1WebhooksReplayEventLogByEventlogidWithRequestBuilder(eventLogId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookReplayResultDto> {
         var localVariablePath = "/api/v1/webhooks/replay/event-log/{eventLogId}"
         let eventLogIdPreEscape = "\(APIHelper.mapValueToPathItem(eventLogId))"
         let eventLogIdPostEscape = eventLogIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -792,7 +792,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -804,10 +804,10 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: WebhooksWebhookReplayResultDto
+     - returns: WebhookReplayResultDto
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(eventLogId: UUID, endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhooksWebhookReplayResultDto {
+    open class func postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointid(eventLogId: UUID, endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> WebhookReplayResultDto {
         return try await postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidWithRequestBuilder(eventLogId: eventLogId, endpointId: endpointId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -821,9 +821,9 @@ open class WebhookControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<WebhooksWebhookReplayResultDto> 
+     - returns: RequestBuilder<WebhookReplayResultDto> 
      */
-    open class func postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidWithRequestBuilder(eventLogId: UUID, endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhooksWebhookReplayResultDto> {
+    open class func postApiV1WebhooksReplayEventLogByEventlogidEndpointsByEndpointidWithRequestBuilder(eventLogId: UUID, endpointId: UUID, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<WebhookReplayResultDto> {
         var localVariablePath = "/api/v1/webhooks/replay/event-log/{eventLogId}/endpoints/{endpointId}"
         let eventLogIdPreEscape = "\(APIHelper.mapValueToPathItem(eventLogId))"
         let eventLogIdPostEscape = eventLogIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -844,7 +844,7 @@ open class WebhookControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhooksWebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookReplayResultDto>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

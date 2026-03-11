@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyDistributionAreas
+import ai.youkno.edgeserversdk.models.Areas
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -25,21 +25,24 @@ import com.squareup.moshi.JsonClass
  *
  * @param areasList 
  * @param empty 
+ * @param global 
  * @param includesEmpty 
  * @param excludesEmpty 
  * @param targetArea 
  * @param excludeArea 
- * @param global 
  */
 
 
 data class BountyDistribution (
 
     @Json(name = "areasList")
-    val areasList: kotlin.collections.List<BountyDistributionAreas>? = null,
+    val areasList: kotlin.collections.List<Areas>? = null,
 
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
+
+    @Json(name = "global")
+    val global: kotlin.Boolean? = null,
 
     @Json(name = "includesEmpty")
     val includesEmpty: kotlin.Boolean? = null,
@@ -51,10 +54,7 @@ data class BountyDistribution (
     val targetArea: kotlin.String? = null,
 
     @Json(name = "excludeArea")
-    val excludeArea: kotlin.String? = null,
-
-    @Json(name = "global")
-    val global: kotlin.Boolean? = null
+    val excludeArea: kotlin.String? = null
 
 ) {
 

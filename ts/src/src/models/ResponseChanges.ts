@@ -13,27 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyChangesChangesAttachments } from './BountyChangesChangesAttachments';
+import type { ModelAttachments } from './ModelAttachments';
 import {
-    BountyChangesChangesAttachmentsFromJSON,
-    BountyChangesChangesAttachmentsFromJSONTyped,
-    BountyChangesChangesAttachmentsToJSON,
-    BountyChangesChangesAttachmentsToJSONTyped,
-} from './BountyChangesChangesAttachments';
-import type { BountyChangesChangesString } from './BountyChangesChangesString';
-import {
-    BountyChangesChangesStringFromJSON,
-    BountyChangesChangesStringFromJSONTyped,
-    BountyChangesChangesStringToJSON,
-    BountyChangesChangesStringToJSONTyped,
-} from './BountyChangesChangesString';
-import type { BountyChangesChangesLong } from './BountyChangesChangesLong';
-import {
-    BountyChangesChangesLongFromJSON,
-    BountyChangesChangesLongFromJSONTyped,
-    BountyChangesChangesLongToJSON,
-    BountyChangesChangesLongToJSONTyped,
-} from './BountyChangesChangesLong';
+    ModelAttachmentsFromJSON,
+    ModelAttachmentsFromJSONTyped,
+    ModelAttachmentsToJSON,
+    ModelAttachmentsToJSONTyped,
+} from './ModelAttachments';
 
 /**
  * 
@@ -43,34 +29,34 @@ import {
 export interface ResponseChanges {
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof ResponseChanges
      */
-    note?: BountyChangesChangesString;
+    note?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof ResponseChanges
      */
-    expiresAt?: BountyChangesChangesLong;
+    expiresAt?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesAttachments}
+     * @type {ModelAttachments}
      * @memberof ResponseChanges
      */
-    attachments?: BountyChangesChangesAttachments;
+    attachments?: ModelAttachments;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof ResponseChanges
      */
-    createdAt?: BountyChangesChangesLong;
+    createdAt?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof ResponseChanges
      */
-    displayMode?: BountyChangesChangesString;
+    displayMode?: any | null;
     /**
      * 
      * @type {number}
@@ -96,11 +82,11 @@ export function ResponseChangesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'note': json['note'] == null ? undefined : BountyChangesChangesStringFromJSON(json['note']),
-        'expiresAt': json['expiresAt'] == null ? undefined : BountyChangesChangesLongFromJSON(json['expiresAt']),
-        'attachments': json['attachments'] == null ? undefined : BountyChangesChangesAttachmentsFromJSON(json['attachments']),
-        'createdAt': json['createdAt'] == null ? undefined : BountyChangesChangesLongFromJSON(json['createdAt']),
-        'displayMode': json['displayMode'] == null ? undefined : BountyChangesChangesStringFromJSON(json['displayMode']),
+        'note': json['note'] == null ? undefined : json['note'],
+        'expiresAt': json['expiresAt'] == null ? undefined : json['expiresAt'],
+        'attachments': json['attachments'] == null ? undefined : ModelAttachmentsFromJSON(json['attachments']),
+        'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
+        'displayMode': json['displayMode'] == null ? undefined : json['displayMode'],
         'editedAt': json['editedAt'] == null ? undefined : json['editedAt'],
     };
 }
@@ -116,11 +102,11 @@ export function ResponseChangesToJSONTyped(value?: ResponseChanges | null, ignor
 
     return {
         
-        'note': BountyChangesChangesStringToJSON(value['note']),
-        'expiresAt': BountyChangesChangesLongToJSON(value['expiresAt']),
-        'attachments': BountyChangesChangesAttachmentsToJSON(value['attachments']),
-        'createdAt': BountyChangesChangesLongToJSON(value['createdAt']),
-        'displayMode': BountyChangesChangesStringToJSON(value['displayMode']),
+        'note': value['note'],
+        'expiresAt': value['expiresAt'],
+        'attachments': ModelAttachmentsToJSON(value['attachments']),
+        'createdAt': value['createdAt'],
+        'displayMode': value['displayMode'],
         'editedAt': value['editedAt'],
     };
 }

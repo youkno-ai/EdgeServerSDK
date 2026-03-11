@@ -12,99 +12,37 @@ import AnyCodable
 
 public struct WebhooksWebhookEndpointHealthSummaryDto: Codable, JSONEncodable, Hashable {
 
-    public enum CircuitState: String, Codable, CaseIterable {
-        case closed = "CLOSED"
-        case _open = "OPEN"
-        case unknown = "UNKNOWN"
-    }
-    public enum LastDeliveryOutcome: String, Codable, CaseIterable {
-        case success = "SUCCESS"
-        case retryableFailure = "RETRYABLE_FAILURE"
-        case terminalFailure = "TERMINAL_FAILURE"
-        case deferredRateLimit = "DEFERRED_RATE_LIMIT"
-        case deferredCircuitOpen = "DEFERRED_CIRCUIT_OPEN"
-        case skippedDisabledEndpoint = "SKIPPED_DISABLED_ENDPOINT"
-        case unknown = "UNKNOWN"
-    }
-    public var endpointId: UUID?
-    public var description: String?
-    public var targetUrl: String?
-    public var enabled: Bool?
-    public var circuitState: CircuitState?
-    public var consecutiveFailureCount: Int?
-    public var nextDispatchAllowedAt: Date?
-    public var lastDeliveryAt: Date?
-    public var lastSuccessAt: Date?
-    public var lastFailureAt: Date?
-    public var deliveriesLast24h: Int?
-    public var successesLast24h: Int?
-    public var failuresLast24h: Int?
-    public var deadLettersLast24h: Int?
-    public var currentDlqCount: Int?
-    public var lastDeliveryOutcome: LastDeliveryOutcome?
-    public var lastResponseStatusCode: Int?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [WebhooksWebhookEndpointHealthSummaryDto2]?
 
-    public init(endpointId: UUID? = nil, description: String? = nil, targetUrl: String? = nil, enabled: Bool? = nil, circuitState: CircuitState? = nil, consecutiveFailureCount: Int? = nil, nextDispatchAllowedAt: Date? = nil, lastDeliveryAt: Date? = nil, lastSuccessAt: Date? = nil, lastFailureAt: Date? = nil, deliveriesLast24h: Int? = nil, successesLast24h: Int? = nil, failuresLast24h: Int? = nil, deadLettersLast24h: Int? = nil, currentDlqCount: Int? = nil, lastDeliveryOutcome: LastDeliveryOutcome? = nil, lastResponseStatusCode: Int? = nil) {
-        self.endpointId = endpointId
-        self.description = description
-        self.targetUrl = targetUrl
-        self.enabled = enabled
-        self.circuitState = circuitState
-        self.consecutiveFailureCount = consecutiveFailureCount
-        self.nextDispatchAllowedAt = nextDispatchAllowedAt
-        self.lastDeliveryAt = lastDeliveryAt
-        self.lastSuccessAt = lastSuccessAt
-        self.lastFailureAt = lastFailureAt
-        self.deliveriesLast24h = deliveriesLast24h
-        self.successesLast24h = successesLast24h
-        self.failuresLast24h = failuresLast24h
-        self.deadLettersLast24h = deadLettersLast24h
-        self.currentDlqCount = currentDlqCount
-        self.lastDeliveryOutcome = lastDeliveryOutcome
-        self.lastResponseStatusCode = lastResponseStatusCode
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [WebhooksWebhookEndpointHealthSummaryDto2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case endpointId
-        case description
-        case targetUrl
-        case enabled
-        case circuitState
-        case consecutiveFailureCount
-        case nextDispatchAllowedAt
-        case lastDeliveryAt
-        case lastSuccessAt
-        case lastFailureAt
-        case deliveriesLast24h
-        case successesLast24h
-        case failuresLast24h
-        case deadLettersLast24h
-        case currentDlqCount
-        case lastDeliveryOutcome
-        case lastResponseStatusCode
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(endpointId, forKey: .endpointId)
-        try container.encodeIfPresent(description, forKey: .description)
-        try container.encodeIfPresent(targetUrl, forKey: .targetUrl)
-        try container.encodeIfPresent(enabled, forKey: .enabled)
-        try container.encodeIfPresent(circuitState, forKey: .circuitState)
-        try container.encodeIfPresent(consecutiveFailureCount, forKey: .consecutiveFailureCount)
-        try container.encodeIfPresent(nextDispatchAllowedAt, forKey: .nextDispatchAllowedAt)
-        try container.encodeIfPresent(lastDeliveryAt, forKey: .lastDeliveryAt)
-        try container.encodeIfPresent(lastSuccessAt, forKey: .lastSuccessAt)
-        try container.encodeIfPresent(lastFailureAt, forKey: .lastFailureAt)
-        try container.encodeIfPresent(deliveriesLast24h, forKey: .deliveriesLast24h)
-        try container.encodeIfPresent(successesLast24h, forKey: .successesLast24h)
-        try container.encodeIfPresent(failuresLast24h, forKey: .failuresLast24h)
-        try container.encodeIfPresent(deadLettersLast24h, forKey: .deadLettersLast24h)
-        try container.encodeIfPresent(currentDlqCount, forKey: .currentDlqCount)
-        try container.encodeIfPresent(lastDeliveryOutcome, forKey: .lastDeliveryOutcome)
-        try container.encodeIfPresent(lastResponseStatusCode, forKey: .lastResponseStatusCode)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

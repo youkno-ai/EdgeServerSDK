@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.RejectsReject
+import ai.youkno.edgeserversdk.models.Reject
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class Rejects (
 
     @Json(name = "rejects")
-    val rejects: kotlin.collections.Map<kotlin.String, RejectsReject>? = null
+    val rejects: kotlin.collections.Map<kotlin.String, Reject>? = null
 
 ) {
 

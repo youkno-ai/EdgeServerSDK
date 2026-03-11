@@ -12,61 +12,37 @@ import AnyCodable
 
 public struct PosApiDataInventoryItemResp: Codable, JSONEncodable, Hashable {
 
-    public var itemId: String?
-    public var itemName: String?
-    public var categoryId: String?
-    public var categoryPath: String?
-    public var barcode: String?
-    public var priceRetail: Double?
-    public var priceRetailAdultUse: Double?
-    public var priceRetailMedicalUse: Double?
-    public var priceSale: Double?
-    public var priceSaleAdultUse: Double?
-    public var priceSaleMedicalUse: Double?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataInventoryItemResp2]?
 
-    public init(itemId: String? = nil, itemName: String? = nil, categoryId: String? = nil, categoryPath: String? = nil, barcode: String? = nil, priceRetail: Double? = nil, priceRetailAdultUse: Double? = nil, priceRetailMedicalUse: Double? = nil, priceSale: Double? = nil, priceSaleAdultUse: Double? = nil, priceSaleMedicalUse: Double? = nil) {
-        self.itemId = itemId
-        self.itemName = itemName
-        self.categoryId = categoryId
-        self.categoryPath = categoryPath
-        self.barcode = barcode
-        self.priceRetail = priceRetail
-        self.priceRetailAdultUse = priceRetailAdultUse
-        self.priceRetailMedicalUse = priceRetailMedicalUse
-        self.priceSale = priceSale
-        self.priceSaleAdultUse = priceSaleAdultUse
-        self.priceSaleMedicalUse = priceSaleMedicalUse
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataInventoryItemResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case itemId
-        case itemName
-        case categoryId
-        case categoryPath
-        case barcode
-        case priceRetail
-        case priceRetailAdultUse
-        case priceRetailMedicalUse
-        case priceSale
-        case priceSaleAdultUse
-        case priceSaleMedicalUse
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(itemId, forKey: .itemId)
-        try container.encodeIfPresent(itemName, forKey: .itemName)
-        try container.encodeIfPresent(categoryId, forKey: .categoryId)
-        try container.encodeIfPresent(categoryPath, forKey: .categoryPath)
-        try container.encodeIfPresent(barcode, forKey: .barcode)
-        try container.encodeIfPresent(priceRetail, forKey: .priceRetail)
-        try container.encodeIfPresent(priceRetailAdultUse, forKey: .priceRetailAdultUse)
-        try container.encodeIfPresent(priceRetailMedicalUse, forKey: .priceRetailMedicalUse)
-        try container.encodeIfPresent(priceSale, forKey: .priceSale)
-        try container.encodeIfPresent(priceSaleAdultUse, forKey: .priceSaleAdultUse)
-        try container.encodeIfPresent(priceSaleMedicalUse, forKey: .priceSaleMedicalUse)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

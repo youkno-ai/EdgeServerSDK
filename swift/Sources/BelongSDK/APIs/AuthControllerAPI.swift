@@ -17,12 +17,12 @@ open class AuthControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerAuthControllerExchangeRequest: (body)  (optional)
-     - returns: AuthAuthTokens
+     - parameter exchangeRequest: (body)  (optional)
+     - returns: AuthTokens
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AuthExchange(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerAuthControllerExchangeRequest: RestControllerAuthControllerExchangeRequest? = nil) async throws -> AuthAuthTokens {
-        return try await postApiV1AuthExchangeWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, restControllerAuthControllerExchangeRequest: restControllerAuthControllerExchangeRequest).execute().body
+    open class func postApiV1AuthExchange(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, exchangeRequest: ExchangeRequest? = nil) async throws -> AuthTokens {
+        return try await postApiV1AuthExchangeWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, exchangeRequest: exchangeRequest).execute().body
     }
 
     /**
@@ -33,13 +33,13 @@ open class AuthControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerAuthControllerExchangeRequest: (body)  (optional)
-     - returns: RequestBuilder<AuthAuthTokens> 
+     - parameter exchangeRequest: (body)  (optional)
+     - returns: RequestBuilder<AuthTokens> 
      */
-    open class func postApiV1AuthExchangeWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerAuthControllerExchangeRequest: RestControllerAuthControllerExchangeRequest? = nil) -> RequestBuilder<AuthAuthTokens> {
+    open class func postApiV1AuthExchangeWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, exchangeRequest: ExchangeRequest? = nil) -> RequestBuilder<AuthTokens> {
         let localVariablePath = "/api/v1/auth/exchange"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAuthControllerExchangeRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: exchangeRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -52,7 +52,7 @@ open class AuthControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthAuthTokens>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthTokens>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -62,12 +62,12 @@ open class AuthControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerAuthControllerLogoutRequest: (body)  (optional)
+     - parameter logoutRequest: (body)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AuthLogout(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerAuthControllerLogoutRequest: RestControllerAuthControllerLogoutRequest? = nil) async throws -> [String: String] {
-        return try await postApiV1AuthLogoutWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, restControllerAuthControllerLogoutRequest: restControllerAuthControllerLogoutRequest).execute().body
+    open class func postApiV1AuthLogout(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, logoutRequest: LogoutRequest? = nil) async throws -> [String: String] {
+        return try await postApiV1AuthLogoutWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, logoutRequest: logoutRequest).execute().body
     }
 
     /**
@@ -78,13 +78,13 @@ open class AuthControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerAuthControllerLogoutRequest: (body)  (optional)
+     - parameter logoutRequest: (body)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1AuthLogoutWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerAuthControllerLogoutRequest: RestControllerAuthControllerLogoutRequest? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1AuthLogoutWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, logoutRequest: LogoutRequest? = nil) -> RequestBuilder<[String: String]> {
         let localVariablePath = "/api/v1/auth/logout"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAuthControllerLogoutRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: logoutRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -146,15 +146,15 @@ open class AuthControllerAPI {
 
     /**
 
-     - parameter restControllerAuthControllerRefreshRequest: (body)  
+     - parameter refreshRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AuthAuthTokens
+     - returns: AuthTokens
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AuthRefresh(restControllerAuthControllerRefreshRequest: RestControllerAuthControllerRefreshRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AuthAuthTokens {
-        return try await postApiV1AuthRefreshWithRequestBuilder(restControllerAuthControllerRefreshRequest: restControllerAuthControllerRefreshRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AuthRefresh(refreshRequest: RefreshRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AuthTokens {
+        return try await postApiV1AuthRefreshWithRequestBuilder(refreshRequest: refreshRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -162,16 +162,16 @@ open class AuthControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter restControllerAuthControllerRefreshRequest: (body)  
+     - parameter refreshRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AuthAuthTokens> 
+     - returns: RequestBuilder<AuthTokens> 
      */
-    open class func postApiV1AuthRefreshWithRequestBuilder(restControllerAuthControllerRefreshRequest: RestControllerAuthControllerRefreshRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AuthAuthTokens> {
+    open class func postApiV1AuthRefreshWithRequestBuilder(refreshRequest: RefreshRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AuthTokens> {
         let localVariablePath = "/api/v1/auth/refresh"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerAuthControllerRefreshRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: refreshRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -184,7 +184,7 @@ open class AuthControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthAuthTokens>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthTokens>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

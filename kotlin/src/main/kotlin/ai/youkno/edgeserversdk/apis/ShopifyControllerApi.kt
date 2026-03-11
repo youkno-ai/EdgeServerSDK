@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataShopifyConnectResponse
-import ai.youkno.edgeserversdk.models.EdgeApiDataShopifyShopInfo
+import ai.youkno.edgeserversdk.models.ShopifyConnectResponse
+import ai.youkno.edgeserversdk.models.ShopifyShopInfo
 
 interface ShopifyControllerApi {
     /**
@@ -37,10 +37,10 @@ interface ShopifyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataShopifyConnectResponse]>
+     * @return [Call]<[ShopifyConnectResponse]>
      */
     @GET("api/v1/shopify/connect")
-    fun getApiV1ShopifyConnect(@Query("shop") shop: kotlin.String, @Query("redirectUrl") redirectUrl: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataShopifyConnectResponse>
+    fun getApiV1ShopifyConnect(@Query("shop") shop: kotlin.String, @Query("redirectUrl") redirectUrl: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShopifyConnectResponse>
 
     /**
      * GET api/v1/shopify/connect/complete
@@ -71,10 +71,10 @@ interface ShopifyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<EdgeApiDataShopifyShopInfo>]>
+     * @return [Call]<[kotlin.collections.List<ShopifyShopInfo>]>
      */
     @GET("api/v1/shopify/info")
-    fun getApiV1ShopifyInfo(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<EdgeApiDataShopifyShopInfo>>
+    fun getApiV1ShopifyInfo(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<ShopifyShopInfo>>
 
     /**
      * POST api/v1/shopify/gdpr/webhook

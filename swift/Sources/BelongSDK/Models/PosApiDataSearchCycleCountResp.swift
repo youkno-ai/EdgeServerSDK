@@ -12,53 +12,37 @@ import AnyCodable
 
 public struct PosApiDataSearchCycleCountResp: Codable, JSONEncodable, Hashable {
 
-    public var itemId: String?
-    public var item: String?
-    public var batchId: String?
-    public var batch: String?
-    public var areaId: String?
-    public var areaPath: String?
-    public var onHand: Double?
-    public var available: Double?
-    public var uom: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataSearchCycleCountResp2]?
 
-    public init(itemId: String? = nil, item: String? = nil, batchId: String? = nil, batch: String? = nil, areaId: String? = nil, areaPath: String? = nil, onHand: Double? = nil, available: Double? = nil, uom: String? = nil) {
-        self.itemId = itemId
-        self.item = item
-        self.batchId = batchId
-        self.batch = batch
-        self.areaId = areaId
-        self.areaPath = areaPath
-        self.onHand = onHand
-        self.available = available
-        self.uom = uom
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataSearchCycleCountResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case itemId
-        case item
-        case batchId
-        case batch
-        case areaId
-        case areaPath
-        case onHand
-        case available
-        case uom
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(itemId, forKey: .itemId)
-        try container.encodeIfPresent(item, forKey: .item)
-        try container.encodeIfPresent(batchId, forKey: .batchId)
-        try container.encodeIfPresent(batch, forKey: .batch)
-        try container.encodeIfPresent(areaId, forKey: .areaId)
-        try container.encodeIfPresent(areaPath, forKey: .areaPath)
-        try container.encodeIfPresent(onHand, forKey: .onHand)
-        try container.encodeIfPresent(available, forKey: .available)
-        try container.encodeIfPresent(uom, forKey: .uom)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

@@ -117,10 +117,10 @@ open class BadgeDefControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageBadgeDef
+     - returns: ModelBadgeDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BadgesDefs(badgeDefType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageBadgeDef {
+    open class func getApiV1BadgesDefs(badgeDefType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelBadgeDef {
         return try await getApiV1BadgesDefsWithRequestBuilder(badgeDefType: badgeDefType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -133,9 +133,9 @@ open class BadgeDefControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageBadgeDef> 
+     - returns: RequestBuilder<ModelBadgeDef> 
      */
-    open class func getApiV1BadgesDefsWithRequestBuilder(badgeDefType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageBadgeDef> {
+    open class func getApiV1BadgesDefsWithRequestBuilder(badgeDefType: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelBadgeDef> {
         let localVariablePath = "/api/v1/badges/defs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -153,7 +153,7 @@ open class BadgeDefControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBadgeDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelBadgeDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -253,15 +253,15 @@ open class BadgeDefControllerAPI {
     /**
 
      - parameter badgeCode: (path)  
-     - parameter edgeApiDataAssignBadgeReq: (body)  
+     - parameter assignBadgeReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: BadgesBadge
+     - returns: Badge
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BadgesDefsByBadgecodeAssign(badgeCode: String, edgeApiDataAssignBadgeReq: EdgeApiDataAssignBadgeReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BadgesBadge {
-        return try await postApiV1BadgesDefsByBadgecodeAssignWithRequestBuilder(badgeCode: badgeCode, edgeApiDataAssignBadgeReq: edgeApiDataAssignBadgeReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1BadgesDefsByBadgecodeAssign(badgeCode: String, assignBadgeReq: AssignBadgeReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Badge {
+        return try await postApiV1BadgesDefsByBadgecodeAssignWithRequestBuilder(badgeCode: badgeCode, assignBadgeReq: assignBadgeReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -270,19 +270,19 @@ open class BadgeDefControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter badgeCode: (path)  
-     - parameter edgeApiDataAssignBadgeReq: (body)  
+     - parameter assignBadgeReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<BadgesBadge> 
+     - returns: RequestBuilder<Badge> 
      */
-    open class func postApiV1BadgesDefsByBadgecodeAssignWithRequestBuilder(badgeCode: String, edgeApiDataAssignBadgeReq: EdgeApiDataAssignBadgeReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BadgesBadge> {
+    open class func postApiV1BadgesDefsByBadgecodeAssignWithRequestBuilder(badgeCode: String, assignBadgeReq: AssignBadgeReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Badge> {
         var localVariablePath = "/api/v1/badges/defs/{badgeCode}/assign"
         let badgeCodePreEscape = "\(APIHelper.mapValueToPathItem(badgeCode))"
         let badgeCodePostEscape = badgeCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{badgeCode}", with: badgeCodePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataAssignBadgeReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: assignBadgeReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -295,7 +295,7 @@ open class BadgeDefControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BadgesBadge>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Badge>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

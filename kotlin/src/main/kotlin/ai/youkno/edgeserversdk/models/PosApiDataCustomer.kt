@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataCustomer2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,82 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param firstName 
- * @param lastName 
- * @param customerName 
- * @param phone 
- * @param email 
- * @param dateOfBirth 
- * @param address1 
- * @param address2 
- * @param city 
- * @param state 
- * @param zip 
- * @param driversLicense 
- * @param driversLicenseSt 
- * @param driversLicenseExpires 
- * @param expirationDate 
- * @param patientNumber 
- * @param dateCreated 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataCustomer (
 
-    @Json(name = "id")
-    val id: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "firstName")
-    val firstName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "lastName")
-    val lastName: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "customerName")
-    val customerName: kotlin.String? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "phone")
-    val phone: kotlin.String? = null,
-
-    @Json(name = "email")
-    val email: kotlin.String? = null,
-
-    @Json(name = "dateOfBirth")
-    val dateOfBirth: kotlin.String? = null,
-
-    @Json(name = "address1")
-    val address1: kotlin.String? = null,
-
-    @Json(name = "address2")
-    val address2: kotlin.String? = null,
-
-    @Json(name = "city")
-    val city: kotlin.String? = null,
-
-    @Json(name = "state")
-    val state: kotlin.String? = null,
-
-    @Json(name = "zip")
-    val zip: kotlin.String? = null,
-
-    @Json(name = "driversLicense")
-    val driversLicense: kotlin.String? = null,
-
-    @Json(name = "driversLicenseSt")
-    val driversLicenseSt: kotlin.String? = null,
-
-    @Json(name = "driversLicenseExpires")
-    val driversLicenseExpires: kotlin.String? = null,
-
-    @Json(name = "expirationDate")
-    val expirationDate: kotlin.String? = null,
-
-    @Json(name = "patientNumber")
-    val patientNumber: kotlin.String? = null,
-
-    @Json(name = "dateCreated")
-    val dateCreated: kotlin.Long? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataCustomer2>? = null
 
 ) {
 

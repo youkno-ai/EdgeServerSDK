@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MarkDoc } from './MarkDoc';
+import {
+    MarkDocFromJSON,
+    MarkDocFromJSONTyped,
+    MarkDocToJSON,
+    MarkDocToJSONTyped,
+} from './MarkDoc';
 import type { StructuredDescription } from './StructuredDescription';
 import {
     StructuredDescriptionFromJSON,
@@ -27,13 +34,6 @@ import {
     DealInfoMetaInfoToJSON,
     DealInfoMetaInfoToJSONTyped,
 } from './DealInfoMetaInfo';
-import type { StructuredDescriptionMarkDoc } from './StructuredDescriptionMarkDoc';
-import {
-    StructuredDescriptionMarkDocFromJSON,
-    StructuredDescriptionMarkDocFromJSONTyped,
-    StructuredDescriptionMarkDocToJSON,
-    StructuredDescriptionMarkDocToJSONTyped,
-} from './StructuredDescriptionMarkDoc';
 
 /**
  * 
@@ -49,10 +49,10 @@ export interface DealInfo {
     structuredDescription?: StructuredDescription;
     /**
      * 
-     * @type {StructuredDescriptionMarkDoc}
+     * @type {MarkDoc}
      * @memberof DealInfo
      */
-    markDoc?: StructuredDescriptionMarkDoc;
+    markDoc?: MarkDoc;
     /**
      * 
      * @type {DealInfoMetaInfo}
@@ -91,7 +91,7 @@ export function DealInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'structuredDescription': json['structuredDescription'] == null ? undefined : StructuredDescriptionFromJSON(json['structuredDescription']),
-        'markDoc': json['markDoc'] == null ? undefined : StructuredDescriptionMarkDocFromJSON(json['markDoc']),
+        'markDoc': json['markDoc'] == null ? undefined : MarkDocFromJSON(json['markDoc']),
         'meta': json['meta'] == null ? undefined : DealInfoMetaInfoFromJSON(json['meta']),
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -110,7 +110,7 @@ export function DealInfoToJSONTyped(value?: DealInfo | null, ignoreDiscriminator
     return {
         
         'structuredDescription': StructuredDescriptionToJSON(value['structuredDescription']),
-        'markDoc': StructuredDescriptionMarkDocToJSON(value['markDoc']),
+        'markDoc': MarkDocToJSON(value['markDoc']),
         'meta': DealInfoMetaInfoToJSON(value['meta']),
         'metaError': value['metaError'],
         'description': value['description'],

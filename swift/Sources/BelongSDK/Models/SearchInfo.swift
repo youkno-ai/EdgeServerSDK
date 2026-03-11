@@ -14,9 +14,9 @@ public struct SearchInfo: Codable, JSONEncodable, Hashable {
 
     public var bucketKey: String?
     public var bucketingPolicy: String?
-    public var conf: SearchInfoSearchConf?
+    public var conf: SearchConf?
 
-    public init(bucketKey: String? = nil, bucketingPolicy: String? = nil, conf: SearchInfoSearchConf? = nil) {
+    public init(bucketKey: String? = nil, bucketingPolicy: String? = nil, conf: SearchConf? = nil) {
         self.bucketKey = bucketKey
         self.bucketingPolicy = bucketingPolicy
         self.conf = conf

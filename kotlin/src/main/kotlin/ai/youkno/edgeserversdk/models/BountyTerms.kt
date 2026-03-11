@@ -15,10 +15,10 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.AdmissionRule
 import ai.youkno.edgeserversdk.models.BountyBudget
-import ai.youkno.edgeserversdk.models.BountyPromise
-import ai.youkno.edgeserversdk.models.BountyTermsAdmissionRule
-import ai.youkno.edgeserversdk.models.BountyTermsContentAccessRule
+import ai.youkno.edgeserversdk.models.ContentAccessRule
+import ai.youkno.edgeserversdk.models.Promise
 import ai.youkno.edgeserversdk.models.Reward
 
 import com.squareup.moshi.Json
@@ -49,10 +49,10 @@ data class BountyTerms (
     val `receiver`: kotlin.String? = null,
 
     @Json(name = "admissionRule")
-    val admissionRule: BountyTermsAdmissionRule? = null,
+    val admissionRule: AdmissionRule? = null,
 
     @Json(name = "contentAccessRule")
-    val contentAccessRule: BountyTermsContentAccessRule? = null,
+    val contentAccessRule: ContentAccessRule? = null,
 
     @Json(name = "allowedResponseCount")
     val allowedResponseCount: kotlin.Int? = null,
@@ -73,7 +73,7 @@ data class BountyTerms (
     val autoClose: kotlin.Boolean? = null,
 
     @Json(name = "promises")
-    val promises: kotlin.collections.Map<kotlin.String, BountyPromise>? = null,
+    val promises: kotlin.collections.Map<kotlin.String, Promise>? = null,
 
     @Json(name = "receiverAsEnum")
     val receiverAsEnum: BountyTerms.ReceiverAsEnum? = null,

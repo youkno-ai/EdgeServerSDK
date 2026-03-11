@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SignInDecisionField } from './SignInDecisionField';
+import type { Field } from './Field';
 import {
-    SignInDecisionFieldFromJSON,
-    SignInDecisionFieldFromJSONTyped,
-    SignInDecisionFieldToJSON,
-    SignInDecisionFieldToJSONTyped,
-} from './SignInDecisionField';
+    FieldFromJSON,
+    FieldFromJSONTyped,
+    FieldToJSON,
+    FieldToJSONTyped,
+} from './Field';
 
 /**
  * 
@@ -41,10 +41,10 @@ export interface SignInDecision {
     link?: string;
     /**
      * 
-     * @type {Array<SignInDecisionField>}
+     * @type {Array<Field>}
      * @memberof SignInDecision
      */
-    fields?: Array<SignInDecisionField>;
+    fields?: Array<Field>;
     /**
      * 
      * @type {Array<string>}
@@ -102,7 +102,7 @@ export function SignInDecisionFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'nextStep': json['nextStep'] == null ? undefined : json['nextStep'],
         'link': json['link'] == null ? undefined : json['link'],
-        'fields': json['fields'] == null ? undefined : ((json['fields'] as Array<any>).map(SignInDecisionFieldFromJSON)),
+        'fields': json['fields'] == null ? undefined : ((json['fields'] as Array<any>).map(FieldFromJSON)),
         'missingFields': json['missingFields'] == null ? undefined : json['missingFields'],
     };
 }
@@ -120,7 +120,7 @@ export function SignInDecisionToJSONTyped(value?: SignInDecision | null, ignoreD
         
         'nextStep': value['nextStep'],
         'link': value['link'],
-        'fields': value['fields'] == null ? undefined : ((value['fields'] as Array<any>).map(SignInDecisionFieldToJSON)),
+        'fields': value['fields'] == null ? undefined : ((value['fields'] as Array<any>).map(FieldToJSON)),
         'missingFields': value['missingFields'],
     };
 }

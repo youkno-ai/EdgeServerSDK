@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { WebhooksWebhookEndpointSummaryDto2 } from './WebhooksWebhookEndpointSummaryDto2';
+import {
+    WebhooksWebhookEndpointSummaryDto2FromJSON,
+    WebhooksWebhookEndpointSummaryDto2FromJSONTyped,
+    WebhooksWebhookEndpointSummaryDto2ToJSON,
+    WebhooksWebhookEndpointSummaryDto2ToJSONTyped,
+} from './WebhooksWebhookEndpointSummaryDto2';
+
 /**
  * 
  * @export
@@ -21,46 +29,34 @@ import { mapValues } from '../runtime';
 export interface WebhooksWebhookEndpointSummaryDto {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointSummaryDto
      */
-    id?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointSummaryDto
      */
-    description?: string;
+    start?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookEndpointSummaryDto
      */
-    targetUrl?: string;
+    length?: number;
     /**
      * 
      * @type {boolean}
      * @memberof WebhooksWebhookEndpointSummaryDto
      */
-    enabled?: boolean;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<WebhooksWebhookEndpointSummaryDto2>}
      * @memberof WebhooksWebhookEndpointSummaryDto
      */
-    eventTypes?: Array<string>;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointSummaryDto
-     */
-    createdAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookEndpointSummaryDto
-     */
-    updatedAt?: Date;
+    list?: Array<WebhooksWebhookEndpointSummaryDto2>;
 }
 
 /**
@@ -80,13 +76,11 @@ export function WebhooksWebhookEndpointSummaryDtoFromJSONTyped(json: any, ignore
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'description': json['description'] == null ? undefined : json['description'],
-        'targetUrl': json['targetUrl'] == null ? undefined : json['targetUrl'],
-        'enabled': json['enabled'] == null ? undefined : json['enabled'],
-        'eventTypes': json['eventTypes'] == null ? undefined : json['eventTypes'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
-        'updatedAt': json['updatedAt'] == null ? undefined : (new Date(json['updatedAt'])),
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(WebhooksWebhookEndpointSummaryDto2FromJSON)),
     };
 }
 
@@ -101,13 +95,11 @@ export function WebhooksWebhookEndpointSummaryDtoToJSONTyped(value?: WebhooksWeb
 
     return {
         
-        'id': value['id'],
-        'description': value['description'],
-        'targetUrl': value['targetUrl'],
-        'enabled': value['enabled'],
-        'eventTypes': value['eventTypes'],
-        'createdAt': value['createdAt'] == null ? undefined : ((value['createdAt']).toISOString()),
-        'updatedAt': value['updatedAt'] == null ? undefined : ((value['updatedAt']).toISOString()),
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(WebhooksWebhookEndpointSummaryDto2ToJSON)),
     };
 }
 

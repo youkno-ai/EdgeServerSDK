@@ -35,7 +35,7 @@ public struct GeofencesArea: Codable, JSONEncodable, Hashable {
     public var id: String?
     public var name: String?
     public var areaType: String?
-    public var center: GeofencesGeoPoint?
+    public var center: GeoPoint?
     public var polygon: String?
     public var radiusInMeters: Double?
     public var displayRadiusUnit: String?
@@ -46,7 +46,7 @@ public struct GeofencesArea: Codable, JSONEncodable, Hashable {
     public var radiusUnitAsEnum: RadiusUnitAsEnum?
     public var referenceTypeAsEnum: ReferenceTypeAsEnum?
 
-    public init(id: String? = nil, name: String? = nil, areaType: String? = nil, center: GeofencesGeoPoint? = nil, polygon: String? = nil, radiusInMeters: Double? = nil, displayRadiusUnit: String? = nil, referenceType: String? = nil, reference: String? = nil, areaTypeAsEnum: AreaTypeAsEnum? = nil, referenceArea: Bool? = nil, radiusUnitAsEnum: RadiusUnitAsEnum? = nil, referenceTypeAsEnum: ReferenceTypeAsEnum? = nil) {
+    public init(id: String? = nil, name: String? = nil, areaType: String? = nil, center: GeoPoint? = nil, polygon: String? = nil, radiusInMeters: Double? = nil, displayRadiusUnit: String? = nil, referenceType: String? = nil, reference: String? = nil, areaTypeAsEnum: AreaTypeAsEnum? = nil, referenceArea: Bool? = nil, radiusUnitAsEnum: RadiusUnitAsEnum? = nil, referenceTypeAsEnum: ReferenceTypeAsEnum? = nil) {
         self.id = id
         self.name = name
         self.areaType = areaType

@@ -16,14 +16,14 @@
 import * as runtime from '../runtime';
 import type {
   EdgeApiDataGeofencesResp,
-  EdgeApiDataPageEdgeApiDataGeofencesResp,
+  EdgeApiDataGeofencesResp2,
   Geofences,
 } from '../models/index';
 import {
     EdgeApiDataGeofencesRespFromJSON,
     EdgeApiDataGeofencesRespToJSON,
-    EdgeApiDataPageEdgeApiDataGeofencesRespFromJSON,
-    EdgeApiDataPageEdgeApiDataGeofencesRespToJSON,
+    EdgeApiDataGeofencesResp2FromJSON,
+    EdgeApiDataGeofencesResp2ToJSON,
     GeofencesFromJSON,
     GeofencesToJSON,
 } from '../models/index';
@@ -101,11 +101,11 @@ export interface GeofencesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof GeofencesControllerApiInterface
      */
-    getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageEdgeApiDataGeofencesResp>>;
+    getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGeofencesResp2>>;
 
     /**
      */
-    getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageEdgeApiDataGeofencesResp>;
+    getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGeofencesResp2>;
 
     /**
      * 
@@ -216,7 +216,7 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
 
     /**
      */
-    async getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageEdgeApiDataGeofencesResp>> {
+    async getApiV1GeofencesRaw(requestParameters: GetApiV1GeofencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGeofencesResp2>> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -259,12 +259,12 @@ export class GeofencesControllerApi extends runtime.BaseAPI implements Geofences
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageEdgeApiDataGeofencesRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataGeofencesResp2FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageEdgeApiDataGeofencesResp> {
+    async getApiV1Geofences(requestParameters: GetApiV1GeofencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGeofencesResp2> {
         const response = await this.getApiV1GeofencesRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyBannerCountryFilter } from './BountyBannerCountryFilter';
+import type { CountryFilter } from './CountryFilter';
 import {
-    BountyBannerCountryFilterFromJSON,
-    BountyBannerCountryFilterFromJSONTyped,
-    BountyBannerCountryFilterToJSON,
-    BountyBannerCountryFilterToJSONTyped,
-} from './BountyBannerCountryFilter';
-import type { BountyBannerLocationFilter } from './BountyBannerLocationFilter';
+    CountryFilterFromJSON,
+    CountryFilterFromJSONTyped,
+    CountryFilterToJSON,
+    CountryFilterToJSONTyped,
+} from './CountryFilter';
+import type { LocationFilter } from './LocationFilter';
 import {
-    BountyBannerLocationFilterFromJSON,
-    BountyBannerLocationFilterFromJSONTyped,
-    BountyBannerLocationFilterToJSON,
-    BountyBannerLocationFilterToJSONTyped,
-} from './BountyBannerLocationFilter';
+    LocationFilterFromJSON,
+    LocationFilterFromJSONTyped,
+    LocationFilterToJSON,
+    LocationFilterToJSONTyped,
+} from './LocationFilter';
 import type { WeekPeriod } from './WeekPeriod';
 import {
     WeekPeriodFromJSON,
@@ -55,16 +55,16 @@ export interface BountyBanner {
     targetApp?: string;
     /**
      * 
-     * @type {{ [key: string]: BountyBannerCountryFilter; }}
+     * @type {{ [key: string]: CountryFilter; }}
      * @memberof BountyBanner
      */
-    countryFilters?: { [key: string]: BountyBannerCountryFilter; };
+    countryFilters?: { [key: string]: CountryFilter; };
     /**
      * 
-     * @type {{ [key: string]: BountyBannerLocationFilter; }}
+     * @type {{ [key: string]: LocationFilter; }}
      * @memberof BountyBanner
      */
-    locationFilters?: { [key: string]: BountyBannerLocationFilter; };
+    locationFilters?: { [key: string]: LocationFilter; };
     /**
      * 
      * @type {WeekPeriod}
@@ -100,13 +100,13 @@ export interface BountyBanner {
      * @type {string}
      * @memberof BountyBanner
      */
-    bannerTypeAsEnum?: BountyBannerBannerTypeAsEnumEnum;
+    userAuthStatusAsEnum?: BountyBannerUserAuthStatusAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BountyBanner
      */
-    userAuthStatusAsEnum?: BountyBannerUserAuthStatusAsEnumEnum;
+    bannerTypeAsEnum?: BountyBannerBannerTypeAsEnumEnum;
 }
 
 
@@ -129,6 +129,16 @@ export type BountyBannerTargetAppAsEnumEnum = typeof BountyBannerTargetAppAsEnum
 /**
  * @export
  */
+export const BountyBannerUserAuthStatusAsEnumEnum = {
+    ANY: 'ANY',
+    AUTHED: 'AUTHED',
+    ANON: 'ANON'
+} as const;
+export type BountyBannerUserAuthStatusAsEnumEnum = typeof BountyBannerUserAuthStatusAsEnumEnum[keyof typeof BountyBannerUserAuthStatusAsEnumEnum];
+
+/**
+ * @export
+ */
 export const BountyBannerBannerTypeAsEnumEnum = {
     NONE: 'NONE',
     HERO: 'HERO',
@@ -138,16 +148,6 @@ export const BountyBannerBannerTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyBannerBannerTypeAsEnumEnum = typeof BountyBannerBannerTypeAsEnumEnum[keyof typeof BountyBannerBannerTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyBannerUserAuthStatusAsEnumEnum = {
-    ANY: 'ANY',
-    AUTHED: 'AUTHED',
-    ANON: 'ANON'
-} as const;
-export type BountyBannerUserAuthStatusAsEnumEnum = typeof BountyBannerUserAuthStatusAsEnumEnum[keyof typeof BountyBannerUserAuthStatusAsEnumEnum];
 
 
 /**
@@ -169,15 +169,15 @@ export function BountyBannerFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'bannerType': json['bannerType'] == null ? undefined : json['bannerType'],
         'targetApp': json['targetApp'] == null ? undefined : json['targetApp'],
-        'countryFilters': json['countryFilters'] == null ? undefined : (mapValues(json['countryFilters'], BountyBannerCountryFilterFromJSON)),
-        'locationFilters': json['locationFilters'] == null ? undefined : (mapValues(json['locationFilters'], BountyBannerLocationFilterFromJSON)),
+        'countryFilters': json['countryFilters'] == null ? undefined : (mapValues(json['countryFilters'], CountryFilterFromJSON)),
+        'locationFilters': json['locationFilters'] == null ? undefined : (mapValues(json['locationFilters'], LocationFilterFromJSON)),
         'dayOfWeekFilters': json['dayOfWeekFilters'] == null ? undefined : WeekPeriodFromJSON(json['dayOfWeekFilters']),
         'userAuthStatus': json['userAuthStatus'] == null ? undefined : json['userAuthStatus'],
         'priority': json['priority'] == null ? undefined : json['priority'],
         'weight': json['weight'] == null ? undefined : json['weight'],
         'targetAppAsEnum': json['targetAppAsEnum'] == null ? undefined : json['targetAppAsEnum'],
-        'bannerTypeAsEnum': json['bannerTypeAsEnum'] == null ? undefined : json['bannerTypeAsEnum'],
         'userAuthStatusAsEnum': json['userAuthStatusAsEnum'] == null ? undefined : json['userAuthStatusAsEnum'],
+        'bannerTypeAsEnum': json['bannerTypeAsEnum'] == null ? undefined : json['bannerTypeAsEnum'],
     };
 }
 
@@ -194,15 +194,15 @@ export function BountyBannerToJSONTyped(value?: BountyBanner | null, ignoreDiscr
         
         'bannerType': value['bannerType'],
         'targetApp': value['targetApp'],
-        'countryFilters': value['countryFilters'] == null ? undefined : (mapValues(value['countryFilters'], BountyBannerCountryFilterToJSON)),
-        'locationFilters': value['locationFilters'] == null ? undefined : (mapValues(value['locationFilters'], BountyBannerLocationFilterToJSON)),
+        'countryFilters': value['countryFilters'] == null ? undefined : (mapValues(value['countryFilters'], CountryFilterToJSON)),
+        'locationFilters': value['locationFilters'] == null ? undefined : (mapValues(value['locationFilters'], LocationFilterToJSON)),
         'dayOfWeekFilters': WeekPeriodToJSON(value['dayOfWeekFilters']),
         'userAuthStatus': value['userAuthStatus'],
         'priority': value['priority'],
         'weight': value['weight'],
         'targetAppAsEnum': value['targetAppAsEnum'],
-        'bannerTypeAsEnum': value['bannerTypeAsEnum'],
         'userAuthStatusAsEnum': value['userAuthStatusAsEnum'],
+        'bannerTypeAsEnum': value['bannerTypeAsEnum'],
     };
 }
 

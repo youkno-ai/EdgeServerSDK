@@ -12,29 +12,29 @@ import AnyCodable
 
 public struct HasAccessKeysAccessKeys: Codable, JSONEncodable, Hashable {
 
-    public var requiredAccessKeys: [String: String]?
-    public var accessKeyEnforcement: String?
-    public var accessKeyCtaMode: String?
+    public var newValue: HasAccessKeysAccessKeys2?
+    public var oldValue: HasAccessKeysAccessKeys2?
+    public var empty: Bool?
 
-    public init(requiredAccessKeys: [String: String]? = nil, accessKeyEnforcement: String? = nil, accessKeyCtaMode: String? = nil) {
-        self.requiredAccessKeys = requiredAccessKeys
-        self.accessKeyEnforcement = accessKeyEnforcement
-        self.accessKeyCtaMode = accessKeyCtaMode
+    public init(newValue: HasAccessKeysAccessKeys2? = nil, oldValue: HasAccessKeysAccessKeys2? = nil, empty: Bool? = nil) {
+        self.newValue = newValue
+        self.oldValue = oldValue
+        self.empty = empty
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case requiredAccessKeys
-        case accessKeyEnforcement
-        case accessKeyCtaMode
+        case newValue
+        case oldValue
+        case empty
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(requiredAccessKeys, forKey: .requiredAccessKeys)
-        try container.encodeIfPresent(accessKeyEnforcement, forKey: .accessKeyEnforcement)
-        try container.encodeIfPresent(accessKeyCtaMode, forKey: .accessKeyCtaMode)
+        try container.encodeIfPresent(newValue, forKey: .newValue)
+        try container.encodeIfPresent(oldValue, forKey: .oldValue)
+        try container.encodeIfPresent(empty, forKey: .empty)
     }
 }
 

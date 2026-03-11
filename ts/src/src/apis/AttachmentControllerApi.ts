@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  AttachmentsAttachment,
+  Attachment,
   StorageRefResponse,
 } from '../models/index';
 import {
-    AttachmentsAttachmentFromJSON,
-    AttachmentsAttachmentToJSON,
+    AttachmentFromJSON,
+    AttachmentToJSON,
     StorageRefResponseFromJSON,
     StorageRefResponseToJSON,
 } from '../models/index';
@@ -37,7 +37,7 @@ export interface GetApiV1AttachmentsByAnchortypeByAnchoridStorageRefRequest {
 export interface PostApiV1AttachmentsByAnchortypeByAnchoridRequest {
     anchorType: PostApiV1AttachmentsByAnchortypeByAnchoridAnchorTypeEnum;
     anchorId: string;
-    attachmentsAttachment: AttachmentsAttachment;
+    attachment: Attachment;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -72,7 +72,7 @@ export interface AttachmentControllerApiInterface {
      * 
      * @param {'NONE' | 'USER' | 'BOUNTY' | 'RESPONSE' | 'MESSAGE' | 'VOUCHER' | 'SETTINGS' | 'UNKNOWN'} anchorType 
      * @param {string} anchorId 
-     * @param {AttachmentsAttachment} attachmentsAttachment 
+     * @param {Attachment} attachment 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -80,11 +80,11 @@ export interface AttachmentControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AttachmentControllerApiInterface
      */
-    postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>>;
+    postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
 
     /**
      */
-    postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment>;
+    postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
 
 }
 
@@ -165,7 +165,7 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
 
     /**
      */
-    async postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsAttachment>> {
+    async postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
         if (requestParameters['anchorType'] == null) {
             throw new runtime.RequiredError(
                 'anchorType',
@@ -180,10 +180,10 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
             );
         }
 
-        if (requestParameters['attachmentsAttachment'] == null) {
+        if (requestParameters['attachment'] == null) {
             throw new runtime.RequiredError(
-                'attachmentsAttachment',
-                'Required parameter "attachmentsAttachment" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
+                'attachment',
+                'Required parameter "attachment" was null or undefined when calling postApiV1AttachmentsByAnchortypeByAnchorid().'
             );
         }
 
@@ -219,15 +219,15 @@ export class AttachmentControllerApi extends runtime.BaseAPI implements Attachme
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AttachmentsAttachmentToJSON(requestParameters['attachmentsAttachment']),
+            body: AttachmentToJSON(requestParameters['attachment']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsAttachmentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsAttachment> {
+    async postApiV1AttachmentsByAnchortypeByAnchorid(requestParameters: PostApiV1AttachmentsByAnchortypeByAnchoridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
         const response = await this.postApiV1AttachmentsByAnchortypeByAnchoridRaw(requestParameters, initOverrides);
         return await response.value();
     }

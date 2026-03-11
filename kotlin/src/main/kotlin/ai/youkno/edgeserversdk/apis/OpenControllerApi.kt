@@ -6,61 +6,61 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
+import ai.youkno.edgeserversdk.models.AccessBountyContentReq
 import ai.youkno.edgeserversdk.models.AccessBountyContentResult
-import ai.youkno.edgeserversdk.models.AttachmentsAttachment
-import ai.youkno.edgeserversdk.models.BaseSettingsPolicy
-import ai.youkno.edgeserversdk.models.BaseSettingsShopSettings
+import ai.youkno.edgeserversdk.models.Advert
+import ai.youkno.edgeserversdk.models.AllowedIntegrationsResponse
+import ai.youkno.edgeserversdk.models.Attachment
+import ai.youkno.edgeserversdk.models.Availability
 import ai.youkno.edgeserversdk.models.Bounty
 import ai.youkno.edgeserversdk.models.BountyBudget
+import ai.youkno.edgeserversdk.models.BountyInfoResult
 import ai.youkno.edgeserversdk.models.BountyResponse
+import ai.youkno.edgeserversdk.models.BountyResponseRequest
+import ai.youkno.edgeserversdk.models.BountyResponseResponse
+import ai.youkno.edgeserversdk.models.BusinessTypesResp
+import ai.youkno.edgeserversdk.models.ClientGuessResult
 import ai.youkno.edgeserversdk.models.ClientInfo
 import ai.youkno.edgeserversdk.models.Comment
-import ai.youkno.edgeserversdk.models.EdgeApiDataAccessBountyContentReq
-import ai.youkno.edgeserversdk.models.EdgeApiDataAdvertsResultAdvert
-import ai.youkno.edgeserversdk.models.EdgeApiDataAllowedIntegrationsResponse
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyInfoResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyResponseRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyResponseResponse
-import ai.youkno.edgeserversdk.models.EdgeApiDataBusinessTypesResp
+import ai.youkno.edgeserversdk.models.CommentResp
+import ai.youkno.edgeserversdk.models.CompanyInfoAgentCompanyInfo
+import ai.youkno.edgeserversdk.models.CurrenciesResponse
 import ai.youkno.edgeserversdk.models.EdgeApiDataCategory
-import ai.youkno.edgeserversdk.models.EdgeApiDataClientGuessResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataCommentResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataCurrenciesResponse
-import ai.youkno.edgeserversdk.models.EdgeApiDataExchangeTokenResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataExplainSelfLinkResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataGetFiltersResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataKioskEntryPointResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataLikeRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataLocationGuessResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataLocationsResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataLookupResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataOrderPaymentResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataOrderResponse
-import ai.youkno.edgeserversdk.models.EdgeApiDataOrderUpdate
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageAccessBountyContentResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageBounty
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageComment
-import ai.youkno.edgeserversdk.models.EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageServiceUserHandleKioskInfo
-import ai.youkno.edgeserversdk.models.EdgeApiDataPayOrderReq
-import ai.youkno.edgeserversdk.models.EdgeApiDataPickupOrdersResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataPlaceBidReq
-import ai.youkno.edgeserversdk.models.EdgeApiDataProductExtras
 import ai.youkno.edgeserversdk.models.EdgeApiDataSurveyAnswers
-import ai.youkno.edgeserversdk.models.EdgeApiDataSurveyBundleResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserEarningsResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserProfileEx
+import ai.youkno.edgeserversdk.models.ExchangeTokenResp
+import ai.youkno.edgeserversdk.models.ExplainSelfLinkResp
 import ai.youkno.edgeserversdk.models.Filter
+import ai.youkno.edgeserversdk.models.GetFiltersResult
+import ai.youkno.edgeserversdk.models.InviteInfoResult
+import ai.youkno.edgeserversdk.models.KioskEntryPointResult
+import ai.youkno.edgeserversdk.models.LikeRequest
+import ai.youkno.edgeserversdk.models.ListResult
+import ai.youkno.edgeserversdk.models.LocationGuessResult
+import ai.youkno.edgeserversdk.models.LocationsResult
+import ai.youkno.edgeserversdk.models.LookupResult
+import ai.youkno.edgeserversdk.models.ModelAccessBountyContentResult
+import ai.youkno.edgeserversdk.models.ModelBounty
+import ai.youkno.edgeserversdk.models.ModelComment
+import ai.youkno.edgeserversdk.models.OrderPaymentResult
+import ai.youkno.edgeserversdk.models.OrderResponse
+import ai.youkno.edgeserversdk.models.OrderUpdate
 import ai.youkno.edgeserversdk.models.PageFilter
+import ai.youkno.edgeserversdk.models.PayOrderReq
+import ai.youkno.edgeserversdk.models.PickupOrdersResult
+import ai.youkno.edgeserversdk.models.PlaceBidReq
 import ai.youkno.edgeserversdk.models.PointCurrency
+import ai.youkno.edgeserversdk.models.PointOfSaleInfoLocationInfo
+import ai.youkno.edgeserversdk.models.Policy
+import ai.youkno.edgeserversdk.models.ProductExtras
 import ai.youkno.edgeserversdk.models.ResponseChanges
-import ai.youkno.edgeserversdk.models.RestControllerOpenControllerInviteInfoResult
-import ai.youkno.edgeserversdk.models.RestControllerOpenControllerStatesResult
 import ai.youkno.edgeserversdk.models.Reward
-import ai.youkno.edgeserversdk.models.ServiceUserOpListResult
-import ai.youkno.edgeserversdk.models.ServiceUserOpSectionsResult
-import ai.youkno.edgeserversdk.models.ThirdpartiesCompanyInfoAgentCompanyInfo
-import ai.youkno.edgeserversdk.models.ThirdpartiesOpentableConsumerAPIAPIAvailability
+import ai.youkno.edgeserversdk.models.SectionsResult
+import ai.youkno.edgeserversdk.models.ShopSettings
+import ai.youkno.edgeserversdk.models.StatesResult
+import ai.youkno.edgeserversdk.models.SurveyBundleResp
+import ai.youkno.edgeserversdk.models.UserEarningsResult
+import ai.youkno.edgeserversdk.models.UserHandleKioskInfo
+import ai.youkno.edgeserversdk.models.UserProfileEx
 
 import ai.youkno.edgeserversdk.models.*
 
@@ -124,10 +124,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<EdgeApiDataAdvertsResultAdvert>]>
+     * @return [Call]<[kotlin.collections.List<Advert>]>
      */
     @GET("api/v1/open/adverts/{targetApp}/{bannerType}")
-    fun getApiV1OpenAdvertsByTargetappByBannertype(@Path("targetApp") targetApp: kotlin.String, @Path("bannerType") bannerType: kotlin.String, @Query("locationCompanyId") locationCompanyId: kotlin.String? = null, @Query("locationPin") locationPin: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<EdgeApiDataAdvertsResultAdvert>>
+    fun getApiV1OpenAdvertsByTargetappByBannertype(@Path("targetApp") targetApp: kotlin.String, @Path("bannerType") bannerType: kotlin.String, @Query("locationCompanyId") locationCompanyId: kotlin.String? = null, @Query("locationPin") locationPin: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<Advert>>
 
     /**
      * GET api/v1/open/attachments/{anchorType}/{anchorId}/{attachmentId}
@@ -142,10 +142,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AttachmentsAttachment]>
+     * @return [Call]<[Attachment]>
      */
     @GET("api/v1/open/attachments/{anchorType}/{anchorId}/{attachmentId}")
-    fun getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Path("attachmentId") attachmentId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AttachmentsAttachment>
+    fun getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Path("attachmentId") attachmentId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Attachment>
 
     /**
      * GET api/v1/open/bounties/{bounty_id}/activities/chain
@@ -158,10 +158,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/open/bounties/{bounty_id}/activities/chain")
-    fun getApiV1OpenBountiesByBountyIdActivitiesChain(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1OpenBountiesByBountyIdActivitiesChain(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/open/bounties/{bounty_id}/budget
@@ -224,10 +224,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyInfoResult]>
+     * @return [Call]<[BountyInfoResult]>
      */
     @GET("api/v1/open/bounties/{bounty_id}/info")
-    fun getApiV1OpenBountiesByBountyIdInfo(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyInfoResult>
+    fun getApiV1OpenBountiesByBountyIdInfo(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyInfoResult>
 
     /**
      * GET api/v1/open/bounties/{bountyId}/content/access/status
@@ -241,10 +241,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageAccessBountyContentResult]>
+     * @return [Call]<[ModelAccessBountyContentResult]>
      */
     @GET("api/v1/open/bounties/{bountyId}/content/access/status")
-    fun getApiV1OpenBountiesByBountyidContentAccessStatus(@Path("bountyId") bountyId: kotlin.String, @Query("includSubbounties") includSubbounties: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageAccessBountyContentResult>
+    fun getApiV1OpenBountiesByBountyidContentAccessStatus(@Path("bountyId") bountyId: kotlin.String, @Query("includSubbounties") includSubbounties: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelAccessBountyContentResult>
 
     /**
      * GET api/v1/open/bounty_fetch/{bounty_id}
@@ -296,10 +296,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/open/{user_id}/suborders/{parent_order_id}")
-    fun getApiV1OpenByUserIdSubordersByParentOrderId(@Path("user_id") userId: kotlin.String, @Path("parent_order_id") parentOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1OpenByUserIdSubordersByParentOrderId(@Path("user_id") userId: kotlin.String, @Path("parent_order_id") parentOrderId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
 
     /**
@@ -476,7 +476,7 @@ interface OpenControllerApi {
      * @return [Call]<[EdgeApiDataCategory]>
      */
     @GET("api/v1/open/categories/{category_type}")
-    fun getApiV1OpenCategoriesByCategoryType(@Path("category_type") categoryType: kotlin.String, @Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterFilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: FilterDateRange? = null, @Query("expiresRange") expiresRange: FilterDateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zoneClient: kotlin.String? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("q") q: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCategory>
+    fun getApiV1OpenCategoriesByCategoryType(@Path("category_type") categoryType: kotlin.String, @Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: DateRange? = null, @Query("expiresRange") expiresRange: DateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zoneClient: kotlin.String? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("q") q: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCategory>
 
     /**
      * GET api/v1/open/clients/{client_id}
@@ -507,10 +507,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataClientGuessResult]>
+     * @return [Call]<[ClientGuessResult]>
      */
     @GET("api/v1/open/clients/guess")
-    fun getApiV1OpenClientsGuess(@Query("url") url: kotlin.String, @Query("clientId") clientId: kotlin.String? = null, @Query("kiosk") kiosk: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataClientGuessResult>
+    fun getApiV1OpenClientsGuess(@Query("url") url: kotlin.String, @Query("clientId") clientId: kotlin.String? = null, @Query("kiosk") kiosk: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ClientGuessResult>
 
     /**
      * GET api/v1/open/comments/{commentId}
@@ -523,10 +523,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCommentResp]>
+     * @return [Call]<[CommentResp]>
      */
     @GET("api/v1/open/comments/{commentId}")
-    fun getApiV1OpenCommentsByCommentid(@Path("commentId") commentId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCommentResp>
+    fun getApiV1OpenCommentsByCommentid(@Path("commentId") commentId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CommentResp>
 
     /**
      * GET api/v1/open/comments/{entityType}/{entityId}
@@ -542,10 +542,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageComment]>
+     * @return [Call]<[ModelComment]>
      */
     @GET("api/v1/open/comments/{entityType}/{entityId}")
-    fun getApiV1OpenCommentsByEntitytypeByEntityid(@Path("entityId") entityId: kotlin.String, @Path("entityType") entityType: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageComment>
+    fun getApiV1OpenCommentsByEntitytypeByEntityid(@Path("entityId") entityId: kotlin.String, @Path("entityType") entityType: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelComment>
 
     /**
      * GET api/v1/open/companies/{companyId}/kiosks
@@ -558,10 +558,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageServiceUserHandleKioskInfo]>
+     * @return [Call]<[UserHandleKioskInfo]>
      */
     @GET("api/v1/open/companies/{companyId}/kiosks")
-    fun getApiV1OpenCompaniesByCompanyidKiosks(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageServiceUserHandleKioskInfo>
+    fun getApiV1OpenCompaniesByCompanyidKiosks(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserHandleKioskInfo>
 
     /**
      * GET api/v1/open/companies/{companyId}/locations
@@ -574,10 +574,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo]>
+     * @return [Call]<[PointOfSaleInfoLocationInfo]>
      */
     @GET("api/v1/open/companies/{companyId}/locations")
-    fun getApiV1OpenCompaniesByCompanyidLocations(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo>
+    fun getApiV1OpenCompaniesByCompanyidLocations(@Path("companyId") companyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PointOfSaleInfoLocationInfo>
 
     /**
      * GET api/v1/open/company/info
@@ -590,10 +590,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ThirdpartiesCompanyInfoAgentCompanyInfo]>
+     * @return [Call]<[CompanyInfoAgentCompanyInfo]>
      */
     @GET("api/v1/open/company/info")
-    fun getApiV1OpenCompanyInfo(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ThirdpartiesCompanyInfoAgentCompanyInfo>
+    fun getApiV1OpenCompanyInfo(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyInfoAgentCompanyInfo>
 
     /**
      * GET api/v1/open/currencies
@@ -605,10 +605,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCurrenciesResponse]>
+     * @return [Call]<[CurrenciesResponse]>
      */
     @GET("api/v1/open/currencies")
-    fun getApiV1OpenCurrencies(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCurrenciesResponse>
+    fun getApiV1OpenCurrencies(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CurrenciesResponse>
 
     /**
      * GET api/v1/open/currency/{code}
@@ -658,10 +658,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataGetFiltersResult]>
+     * @return [Call]<[GetFiltersResult]>
      */
     @GET("api/v1/open/filters/{list_id}")
-    fun getApiV1OpenFiltersByListId(@Path("list_id") listId: kotlin.String, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("q") q: kotlin.String? = null, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataGetFiltersResult>
+    fun getApiV1OpenFiltersByListId(@Path("list_id") listId: kotlin.String, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("q") q: kotlin.String? = null, @Query("clientId") clientId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<GetFiltersResult>
 
     /**
      * GET api/v1/open/integrations
@@ -673,10 +673,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataAllowedIntegrationsResponse]>
+     * @return [Call]<[AllowedIntegrationsResponse]>
      */
     @GET("api/v1/open/integrations")
-    fun getApiV1OpenIntegrations(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataAllowedIntegrationsResponse>
+    fun getApiV1OpenIntegrations(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AllowedIntegrationsResponse>
 
     /**
      * GET api/v1/open/invites/{inviteId}/info
@@ -689,10 +689,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerOpenControllerInviteInfoResult]>
+     * @return [Call]<[InviteInfoResult]>
      */
     @GET("api/v1/open/invites/{inviteId}/info")
-    fun getApiV1OpenInvitesByInviteidInfo(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerOpenControllerInviteInfoResult>
+    fun getApiV1OpenInvitesByInviteidInfo(@Path("inviteId") inviteId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<InviteInfoResult>
 
     /**
      * GET api/v1/open/locations
@@ -705,10 +705,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataLocationsResult]>
+     * @return [Call]<[LocationsResult]>
      */
     @GET("api/v1/open/locations")
-    fun getApiV1OpenLocations(@Query("deliveryZipcode") deliveryZipcode: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataLocationsResult>
+    fun getApiV1OpenLocations(@Query("deliveryZipcode") deliveryZipcode: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<LocationsResult>
 
     /**
      * GET api/v1/open/locations/guess
@@ -720,10 +720,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataLocationGuessResult]>
+     * @return [Call]<[LocationGuessResult]>
      */
     @GET("api/v1/open/locations/guess")
-    fun getApiV1OpenLocationsGuess(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataLocationGuessResult>
+    fun getApiV1OpenLocationsGuess(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<LocationGuessResult>
 
 
     /**
@@ -751,10 +751,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataLookupResult]>
+     * @return [Call]<[LookupResult]>
      */
     @GET("api/v1/open/lookups/{lookup_type}")
-    fun getApiV1OpenLookupsByLookupType(@Path("lookup_type") lookupType: kotlin.String, @Query("q") q: kotlin.String? = null, @Query("limit") limit: kotlin.String? = null, @Query("query") query: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetApiV1OpenLookupsByLookupType? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataLookupResult>
+    fun getApiV1OpenLookupsByLookupType(@Path("lookup_type") lookupType: kotlin.String, @Query("q") q: kotlin.String? = null, @Query("limit") limit: kotlin.String? = null, @Query("query") query: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("searchMode") searchMode: SearchModeGetApiV1OpenLookupsByLookupType? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<LookupResult>
 
     /**
      * GET api/v1/open/lookups/countries/{country}/states
@@ -768,10 +768,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerOpenControllerStatesResult]>
+     * @return [Call]<[StatesResult]>
      */
     @GET("api/v1/open/lookups/countries/{country}/states")
-    fun getApiV1OpenLookupsCountriesByCountryStates(@Path("country") country: kotlin.String, @Query("administrative") administrative: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerOpenControllerStatesResult>
+    fun getApiV1OpenLookupsCountriesByCountryStates(@Path("country") country: kotlin.String, @Query("administrative") administrative: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StatesResult>
 
     /**
      * GET api/v1/open/meta/tablet/entrypoint
@@ -784,10 +784,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataKioskEntryPointResult]>
+     * @return [Call]<[KioskEntryPointResult]>
      */
     @GET("api/v1/open/meta/tablet/entrypoint")
-    fun getApiV1OpenMetaTabletEntrypoint(@Query("test") test: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataKioskEntryPointResult>
+    fun getApiV1OpenMetaTabletEntrypoint(@Query("test") test: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<KioskEntryPointResult>
 
     /**
      * GET api/v1/open/orders/{bountyId}/receipt
@@ -819,10 +819,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<EdgeApiDataPickupOrdersResult>]>
+     * @return [Call]<[kotlin.collections.List<PickupOrdersResult>]>
      */
     @GET("api/v1/open/pickup_orders/{client}")
-    fun getApiV1OpenPickupOrdersByClient(@Path("client") client: kotlin.String, @Query("pickup_date") pickupDate: kotlin.String, @Query("delivery_method") deliveryMethod: kotlin.String? = "PICKUP", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<EdgeApiDataPickupOrdersResult>>
+    fun getApiV1OpenPickupOrdersByClient(@Path("client") client: kotlin.String, @Query("pickup_date") pickupDate: kotlin.String, @Query("delivery_method") deliveryMethod: kotlin.String? = "PICKUP", @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<PickupOrdersResult>>
 
     /**
      * GET api/v1/open/products
@@ -937,10 +937,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/open/products")
-    fun getApiV1OpenProducts(@Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterFilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: FilterDateRange? = null, @Query("expiresRange") expiresRange: FilterDateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("zone") zoneSearch: kotlin.String? = null, @Query("q") q: kotlin.String? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1OpenProducts(@Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: DateRange? = null, @Query("expiresRange") expiresRange: DateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("category") category: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("tag") tag: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("zone") zoneSearch: kotlin.String? = null, @Query("q") q: kotlin.String? = null, @Query("start") start: kotlin.Int? = null, @Query("length") length: kotlin.Int? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/open/products/{productId}/extras
@@ -953,10 +953,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataProductExtras]>
+     * @return [Call]<[ProductExtras]>
      */
     @GET("api/v1/open/products/{productId}/extras")
-    fun getApiV1OpenProductsByProductidExtras(@Path("productId") productId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataProductExtras>
+    fun getApiV1OpenProductsByProductidExtras(@Path("productId") productId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ProductExtras>
 
     /**
      * GET api/v1/open/products/recommendations
@@ -974,10 +974,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/open/products/recommendations")
-    fun getApiV1OpenProductsRecommendations(@Query("actionVerb") actionVerb: kotlin.String? = null, @Query("actionObjectType") actionObjectType: kotlin.String? = null, @Query("actionObjectId") actionObjectId: kotlin.String? = null, @Query("actionSearchQuery") actionSearchQuery: kotlin.String? = null, @Query("actionRecommendationToken") actionRecommendationToken: kotlin.String? = null, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1OpenProductsRecommendations(@Query("actionVerb") actionVerb: kotlin.String? = null, @Query("actionObjectType") actionObjectType: kotlin.String? = null, @Query("actionObjectId") actionObjectId: kotlin.String? = null, @Query("actionSearchQuery") actionSearchQuery: kotlin.String? = null, @Query("actionRecommendationToken") actionRecommendationToken: kotlin.String? = null, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/open/report/content/types
@@ -1103,10 +1103,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/open/reservations")
-    fun getApiV1OpenReservations(@Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterFilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: FilterDateRange? = null, @Query("expiresRange") expiresRange: FilterDateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1OpenReservations(@Query("order") order: kotlin.String? = null, @Query("orderPickupDateFrom") orderPickupDateFrom: kotlin.Long? = null, @Query("orderPickupDateTo") orderPickupDateTo: kotlin.Long? = null, @Query("orderDeliveryMethods") orderDeliveryMethods: kotlin.collections.List<kotlin.String>? = null, @Query("calendarEventDateFrom") calendarEventDateFrom: kotlin.Long? = null, @Query("calendarEventDateTo") calendarEventDateTo: kotlin.Long? = null, @Query("marketMode") marketMode: kotlin.String? = null, @Query("merchantId") merchantId: kotlin.String? = null, @Query("merchantIds") merchantIds: kotlin.collections.Set<kotlin.String>? = null, @Query("zone") zone: kotlin.String? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("ownerId") ownerId: kotlin.String? = null, @Query("creatorId") creatorId: kotlin.String? = null, @Query("bountyCreatorId") bountyCreatorId: kotlin.String? = null, @Query("userId") userId: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("minQuantity") minQuantity: kotlin.Double? = null, @Query("userStatuses") userStatuses: kotlin.collections.List<kotlin.String>? = null, @Query("bountyIds") bountyIds: kotlin.collections.List<kotlin.String>? = null, @Query("inviterIds") inviterIds: kotlin.collections.List<kotlin.String>? = null, @Query("productId") productId: kotlin.String? = null, @Query("applicantId") applicantId: kotlin.String? = null, @Query("bountyResponseId") bountyResponseId: kotlin.String? = null, @Query("withPriceTag") withPriceTag: kotlin.Boolean? = null, @Query("minPrice") minPrice: java.math.BigDecimal? = null, @Query("maxPrice") maxPrice: java.math.BigDecimal? = null, @Query("minThc") minThc: kotlin.Int? = null, @Query("maxThc") maxThc: kotlin.Int? = null, @Query("withFreeDelivery") withFreeDelivery: kotlin.Boolean? = null, @Query("responseState") responseState: kotlin.String? = null, @Query("countries") countries: kotlin.collections.List<kotlin.String>? = null, @Query("genders") genders: kotlin.collections.List<kotlin.String>? = null, @Query("age") age: kotlin.Int? = null, @Query("languages") languages: kotlin.collections.List<kotlin.String>? = null, @Query("withCertificates") withCertificates: kotlin.Boolean? = null, @Query("responseStates") responseStates: kotlin.collections.List<kotlin.String>? = null, @Query("categories") categories: kotlin.collections.List<BountyBountyCategory>? = null, @Query("categoryCodes") categoryCodes: kotlin.collections.List<kotlin.String>? = null, @Query("tags") tags: kotlin.collections.List<kotlin.String>? = null, @Query("trustedTags") trustedTags: kotlin.collections.List<kotlin.String>? = null, @Query("extras") extras: kotlin.collections.List<FilterVal>? = null, @Query("lookups") lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null, @Query("listId") listId: kotlin.String? = null, @Query("groupId") groupId: kotlin.String? = null, @Query("loadStrategy") loadStrategy: kotlin.String? = null, @Query("loadDirection") loadDirection: kotlin.String? = null, @Query("postedAt") postedAt: kotlin.Long? = null, @Query("sublistIds") sublistIds: kotlin.collections.List<kotlin.String>? = null, @Query("searchCriteria") searchCriteria: kotlin.String? = null, @Query("searchFields") searchFields: kotlin.collections.Set<kotlin.String>? = null, @Query("skipAgeFilter") skipAgeFilter: kotlin.Boolean? = null, @Query("skipCountryFilter") skipCountryFilter: kotlin.Boolean? = null, @Query("shared") shared: kotlin.Boolean? = null, @Query("searchMode") searchMode: kotlin.String? = null, @Query("bountyStates") bountyStates: kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: kotlin.collections.List<kotlin.String>? = null, @Query("email") email: kotlin.collections.List<kotlin.String>? = null, @Query("roles") roles: kotlin.collections.List<kotlin.String>? = null, @Query("includeAllUsers") includeAllUsers: kotlin.Boolean? = null, @Query("profiled") profiled: kotlin.Boolean? = null, @Query("payPeriod") payPeriod: kotlin.String? = null, @Query("includeBlacklisted") includeBlacklisted: kotlin.Boolean? = null, @Query("inviteCodes") inviteCodes: kotlin.collections.List<kotlin.String>? = null, @Query("defaultApp") defaultApp: kotlin.Boolean? = null, @Query("locations") locations: kotlin.collections.List<kotlin.String>? = null, @Query("rewardCurrency") rewardCurrency: kotlin.String? = null, @Query("hasPointsReward") hasPointsReward: kotlin.Boolean? = null, @Query("scheduledRange") scheduledRange: DateRange? = null, @Query("expiresRange") expiresRange: DateRange? = null, @Query("scheme") scheme: kotlin.collections.List<kotlin.String>? = null, @Query("showByLinkVisibility") showByLinkVisibility: kotlin.Boolean? = null, @Query("section") section: kotlin.String? = null, @Query("bountyTypes") bountyTypes: kotlin.collections.List<kotlin.String>? = null, @Query("reservationCreatedFrom") reservationCreatedFrom: kotlin.Long? = null, @Query("reservationCreatedTo") reservationCreatedTo: kotlin.Long? = null, @Query("restaurantId") restaurantId: kotlin.collections.List<kotlin.String>? = null, @Query("reservationStatus") reservationStatus: kotlin.collections.List<kotlin.String>? = null, @Query("creatorIds") creatorIds: kotlin.collections.List<kotlin.String>? = null, @Query("partySizeFrom") partySizeFrom: kotlin.Int? = null, @Query("partySizeTo") partySizeTo: kotlin.Int? = null, @Query("ghostEmail") ghostEmail: kotlin.String? = null, @Query("ghostPhone") ghostPhone: kotlin.String? = null, @Query("supportGroupId") supportGroupId: kotlin.String? = null, @Query("entityOwnerId") entityOwnerId: kotlin.collections.List<kotlin.String>? = null, @Query("publisherText") publisherText: kotlin.String? = null, @Query("publisherName") publisherName: kotlin.String? = null, @Query("publisherId") publisherId: kotlin.String? = null, @Query("bountyId") bountyId: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("visibility") visibility: kotlin.String? = null, @Query("voucherStates") voucherStates: kotlin.collections.List<kotlin.String>? = null, @Query("voucherIds") voucherIds: kotlin.collections.List<kotlin.String>? = null, @Query("excludeWithExpDate") excludeWithExpDate: kotlin.Boolean? = null, @Query("newsPriority") newsPriority: kotlin.String? = null, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
 
     /**
@@ -1138,10 +1138,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ThirdpartiesOpentableConsumerAPIAPIAvailability]>
+     * @return [Call]<[Availability]>
      */
     @GET("api/v1/open/reservations/availability")
-    fun getApiV1OpenReservationsAvailability(@Query("date") date: kotlin.Long, @Query("partySize") partySize: kotlin.Int, @Query("restaurantId") restaurantId: kotlin.Int? = null, @Query("forwardMinutes") forwardMinutes: kotlin.Int? = 30, @Query("backwardMinutes") backwardMinutes: kotlin.Int? = 30, @Query("includeCcResults") includeCcResults: kotlin.Boolean? = true, @Query("includeExperiences") includeExperiences: kotlin.Boolean? = true, @Query("reservationAttribute") reservationAttribute: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ThirdpartiesOpentableConsumerAPIAPIAvailability>
+    fun getApiV1OpenReservationsAvailability(@Query("date") date: kotlin.Long, @Query("partySize") partySize: kotlin.Int, @Query("restaurantId") restaurantId: kotlin.Int? = null, @Query("forwardMinutes") forwardMinutes: kotlin.Int? = 30, @Query("backwardMinutes") backwardMinutes: kotlin.Int? = 30, @Query("includeCcResults") includeCcResults: kotlin.Boolean? = true, @Query("includeExperiences") includeExperiences: kotlin.Boolean? = true, @Query("reservationAttribute") reservationAttribute: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Availability>
 
     /**
      * GET api/v1/open/restaurants
@@ -1153,10 +1153,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataLocationsResult]>
+     * @return [Call]<[LocationsResult]>
      */
     @GET("api/v1/open/restaurants")
-    fun getApiV1OpenRestaurants(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataLocationsResult>
+    fun getApiV1OpenRestaurants(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<LocationsResult>
 
     /**
      * GET api/v1/open/selfLinks/explain
@@ -1169,10 +1169,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataExplainSelfLinkResp]>
+     * @return [Call]<[ExplainSelfLinkResp]>
      */
     @GET("api/v1/open/selfLinks/explain")
-    fun getApiV1OpenSelflinksExplain(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataExplainSelfLinkResp>
+    fun getApiV1OpenSelflinksExplain(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ExplainSelfLinkResp>
 
     /**
      * GET api/v1/open/selfonboarding/businessTypes
@@ -1184,10 +1184,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBusinessTypesResp]>
+     * @return [Call]<[BusinessTypesResp]>
      */
     @GET("api/v1/open/selfonboarding/businessTypes")
-    fun getApiV1OpenSelfonboardingBusinesstypes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBusinessTypesResp>
+    fun getApiV1OpenSelfonboardingBusinesstypes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BusinessTypesResp>
 
     /**
      * GET api/v1/open/settings/shopSettings
@@ -1200,10 +1200,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[BaseSettingsShopSettings]>
+     * @return [Call]<[ShopSettings]>
      */
     @GET("api/v1/open/settings/shopSettings")
-    fun getApiV1OpenSettingsShopsettings(@Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BaseSettingsShopSettings>
+    fun getApiV1OpenSettingsShopsettings(@Query("companyId") companyId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShopSettings>
 
     /**
      * GET api/v1/open/states/{client_id}
@@ -1217,10 +1217,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerOpenControllerStatesResult]>
+     * @return [Call]<[StatesResult]>
      */
     @GET("api/v1/open/states/{client_id}")
-    fun getApiV1OpenStatesByClientId(@Path("client_id") clientId: kotlin.String, @Query("administrative") administrative: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerOpenControllerStatesResult>
+    fun getApiV1OpenStatesByClientId(@Path("client_id") clientId: kotlin.String, @Query("administrative") administrative: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StatesResult>
 
     /**
      * GET api/v1/open/surveys/{bountyId}
@@ -1233,10 +1233,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataSurveyBundleResp]>
+     * @return [Call]<[SurveyBundleResp]>
      */
     @GET("api/v1/open/surveys/{bountyId}")
-    fun getApiV1OpenSurveysByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataSurveyBundleResp>
+    fun getApiV1OpenSurveysByBountyid(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SurveyBundleResp>
 
     /**
      * GET api/v1/open/surveys/{bountyId}/answer
@@ -1267,10 +1267,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataExchangeTokenResp]>
+     * @return [Call]<[ExchangeTokenResp]>
      */
     @GET("api/v1/open/tokens/{currencyFrom}/exchange")
-    fun getApiV1OpenTokensByCurrencyfromExchange(@Path("currencyFrom") currencyFrom: kotlin.String, @Query("amountFrom") amountFrom: kotlin.Long, @Query("currencyTo") currencyTo: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataExchangeTokenResp>
+    fun getApiV1OpenTokensByCurrencyfromExchange(@Path("currencyFrom") currencyFrom: kotlin.String, @Query("amountFrom") amountFrom: kotlin.Long, @Query("currencyTo") currencyTo: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ExchangeTokenResp>
 
 
     /**
@@ -1324,10 +1324,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageBounty]>
+     * @return [Call]<[ModelBounty]>
      */
     @GET("api/v1/open/user/stream/{listId}")
-    fun getApiV1OpenUserStreamByListid(@Path("listId") listId: kotlin.String, @Query("user_id") userId: kotlin.String? = null, @Query("group_id") groupId: kotlin.String? = null, @Query("company_id") companyId: kotlin.String? = null, @Query("posted_at") postedAt: kotlin.Long? = null, @Query("search_direction") searchDirection: SearchDirectionGetApiV1OpenUserStreamByListid? = SearchDirectionGetApiV1OpenUserStreamByListid.DOWN, @Query("search_mode") searchMode: SearchModeGetApiV1OpenUserStreamByListid? = null, @Query("strategy") strategy: StrategyGetApiV1OpenUserStreamByListid? = StrategyGetApiV1OpenUserStreamByListid.FULL, @Query("order") order: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageBounty>
+    fun getApiV1OpenUserStreamByListid(@Path("listId") listId: kotlin.String, @Query("user_id") userId: kotlin.String? = null, @Query("group_id") groupId: kotlin.String? = null, @Query("company_id") companyId: kotlin.String? = null, @Query("posted_at") postedAt: kotlin.Long? = null, @Query("search_direction") searchDirection: SearchDirectionGetApiV1OpenUserStreamByListid? = SearchDirectionGetApiV1OpenUserStreamByListid.DOWN, @Query("search_mode") searchMode: SearchModeGetApiV1OpenUserStreamByListid? = null, @Query("strategy") strategy: StrategyGetApiV1OpenUserStreamByListid? = StrategyGetApiV1OpenUserStreamByListid.FULL, @Query("order") order: kotlin.String? = null, @Query("displayScreen") displayScreen: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelBounty>
 
     /**
      * GET api/v1/open/users/{user_id}/earnings
@@ -1341,10 +1341,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserEarningsResult]>
+     * @return [Call]<[UserEarningsResult]>
      */
     @GET("api/v1/open/users/{user_id}/earnings")
-    fun getApiV1OpenUsersByUserIdEarnings(@Path("user_id") userId: kotlin.String, @Query("bounty_id") bountyId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserEarningsResult>
+    fun getApiV1OpenUsersByUserIdEarnings(@Path("user_id") userId: kotlin.String, @Query("bounty_id") bountyId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserEarningsResult>
 
     /**
      * GET api/v1/open/users/{user_id}/profile
@@ -1357,10 +1357,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserProfileEx]>
+     * @return [Call]<[UserProfileEx]>
      */
     @GET("api/v1/open/users/{user_id}/profile")
-    fun getApiV1OpenUsersByUserIdProfile(@Path("user_id") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserProfileEx>
+    fun getApiV1OpenUsersByUserIdProfile(@Path("user_id") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfileEx>
 
 
     /**
@@ -1387,10 +1387,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.Map<kotlin.String, BaseSettingsPolicy>]>
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, Policy>]>
      */
     @GET("api/v1/open/vendor/{userId}/policy")
-    fun getApiV1OpenVendorByUseridPolicy(@Path("userId") userId: kotlin.String, @Query("policyType") policyType: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, BaseSettingsPolicy>>
+    fun getApiV1OpenVendorByUseridPolicy(@Path("userId") userId: kotlin.String, @Query("policyType") policyType: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, Policy>>
 
     /**
      * PATCH api/v1/open/orders/{orderId}
@@ -1400,14 +1400,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param orderId 
-     * @param edgeApiDataOrderUpdate 
+     * @param orderUpdate 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataOrderResponse]>
+     * @return [Call]<[OrderResponse]>
      */
     @PATCH("api/v1/open/orders/{orderId}")
-    fun patchApiV1OpenOrdersByOrderid(@Path("orderId") orderId: kotlin.String, @Body edgeApiDataOrderUpdate: EdgeApiDataOrderUpdate, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataOrderResponse>
+    fun patchApiV1OpenOrdersByOrderid(@Path("orderId") orderId: kotlin.String, @Body orderUpdate: OrderUpdate, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<OrderResponse>
 
     /**
      * POST api/v1/open/bounties/{bountyId}/content/access
@@ -1417,14 +1417,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param edgeApiDataAccessBountyContentReq 
+     * @param accessBountyContentReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[AccessBountyContentResult]>
      */
     @POST("api/v1/open/bounties/{bountyId}/content/access")
-    fun postApiV1OpenBountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Body edgeApiDataAccessBountyContentReq: EdgeApiDataAccessBountyContentReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessBountyContentResult>
+    fun postApiV1OpenBountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Body accessBountyContentReq: AccessBountyContentReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessBountyContentResult>
 
     /**
      * POST api/v1/open/bounty/{bountyId}/bid
@@ -1434,14 +1434,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param edgeApiDataPlaceBidReq 
+     * @param placeBidReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyResponseResponse]>
+     * @return [Call]<[BountyResponseResponse]>
      */
     @POST("api/v1/open/bounty/{bountyId}/bid")
-    fun postApiV1OpenBountyByBountyidBid(@Path("bountyId") bountyId: kotlin.String, @Body edgeApiDataPlaceBidReq: EdgeApiDataPlaceBidReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyResponseResponse>
+    fun postApiV1OpenBountyByBountyidBid(@Path("bountyId") bountyId: kotlin.String, @Body placeBidReq: PlaceBidReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyResponseResponse>
 
     /**
      * POST api/v1/open/bounty/{bountyId}/quick_claim
@@ -1451,14 +1451,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param edgeApiDataBountyResponseRequest 
+     * @param bountyResponseRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyResponseResponse]>
+     * @return [Call]<[BountyResponseResponse]>
      */
     @POST("api/v1/open/bounty/{bountyId}/quick_claim")
-    fun postApiV1OpenBountyByBountyidQuickClaim(@Path("bountyId") bountyId: kotlin.String, @Body edgeApiDataBountyResponseRequest: EdgeApiDataBountyResponseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyResponseResponse>
+    fun postApiV1OpenBountyByBountyidQuickClaim(@Path("bountyId") bountyId: kotlin.String, @Body bountyResponseRequest: BountyResponseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyResponseResponse>
 
     /**
      * POST api/v1/open/bounty/{bountyId}/response
@@ -1472,10 +1472,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyResponseResponse]>
+     * @return [Call]<[BountyResponseResponse]>
      */
     @POST("api/v1/open/bounty/{bountyId}/response")
-    fun postApiV1OpenBountyByBountyidResponse(@Path("bountyId") bountyId: kotlin.String, @Body bountyResponse: BountyResponse, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyResponseResponse>
+    fun postApiV1OpenBountyByBountyidResponse(@Path("bountyId") bountyId: kotlin.String, @Body bountyResponse: BountyResponse, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyResponseResponse>
 
     /**
      * POST api/v1/open/{entityType}/{entityId}/like
@@ -1486,14 +1486,14 @@ interface OpenControllerApi {
      *
      * @param entityType 
      * @param entityId 
-     * @param edgeApiDataLikeRequest 
+     * @param likeRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/open/{entityType}/{entityId}/like")
-    fun postApiV1OpenByEntitytypeByEntityidLike(@Path("entityType") entityType: kotlin.String, @Path("entityId") entityId: kotlin.String, @Body edgeApiDataLikeRequest: EdgeApiDataLikeRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1OpenByEntitytypeByEntityidLike(@Path("entityType") entityType: kotlin.String, @Path("entityId") entityId: kotlin.String, @Body likeRequest: LikeRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/open/campaigns
@@ -1506,10 +1506,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @POST("api/v1/open/campaigns")
-    fun postApiV1OpenCampaigns(@Body pageFilter: PageFilter, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun postApiV1OpenCampaigns(@Body pageFilter: PageFilter, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * POST api/v1/open/campaigns/sections
@@ -1522,10 +1522,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpSectionsResult]>
+     * @return [Call]<[SectionsResult]>
      */
     @POST("api/v1/open/campaigns/sections")
-    fun postApiV1OpenCampaignsSections(@Body pageFilter: PageFilter, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpSectionsResult>
+    fun postApiV1OpenCampaignsSections(@Body pageFilter: PageFilter, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SectionsResult>
 
     /**
      * POST api/v1/open/comments
@@ -1538,10 +1538,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCommentResp]>
+     * @return [Call]<[CommentResp]>
      */
     @POST("api/v1/open/comments")
-    fun postApiV1OpenComments(@Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCommentResp>
+    fun postApiV1OpenComments(@Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CommentResp>
 
     /**
      * POST api/v1/open/comments/{commentId}/promote
@@ -1555,10 +1555,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCommentResp]>
+     * @return [Call]<[CommentResp]>
      */
     @POST("api/v1/open/comments/{commentId}/promote")
-    fun postApiV1OpenCommentsByCommentidPromote(@Path("commentId") commentId: kotlin.String, @Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCommentResp>
+    fun postApiV1OpenCommentsByCommentidPromote(@Path("commentId") commentId: kotlin.String, @Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CommentResp>
 
     /**
      * POST api/v1/open/orders/{orderId}/pay
@@ -1568,14 +1568,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param orderId 
-     * @param edgeApiDataPayOrderReq 
+     * @param payOrderReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataOrderResponse]>
+     * @return [Call]<[OrderResponse]>
      */
     @POST("api/v1/open/orders/{orderId}/pay")
-    fun postApiV1OpenOrdersByOrderidPay(@Path("orderId") orderId: kotlin.String, @Body edgeApiDataPayOrderReq: EdgeApiDataPayOrderReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataOrderResponse>
+    fun postApiV1OpenOrdersByOrderidPay(@Path("orderId") orderId: kotlin.String, @Body payOrderReq: PayOrderReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<OrderResponse>
 
     /**
      * POST api/v1/open/orders/{orderId}/payment/result
@@ -1585,14 +1585,14 @@ interface OpenControllerApi {
      *  - 200: OK
      *
      * @param orderId 
-     * @param edgeApiDataOrderPaymentResult 
+     * @param orderPaymentResult 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Unit]>
      */
     @POST("api/v1/open/orders/{orderId}/payment/result")
-    fun postApiV1OpenOrdersByOrderidPaymentResult(@Path("orderId") orderId: kotlin.String, @Body edgeApiDataOrderPaymentResult: EdgeApiDataOrderPaymentResult, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
+    fun postApiV1OpenOrdersByOrderidPaymentResult(@Path("orderId") orderId: kotlin.String, @Body orderPaymentResult: OrderPaymentResult, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Unit>
 
     /**
      * POST api/v1/open/orders/{orderId}/status/{status}
@@ -1641,10 +1641,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyResponseResponse]>
+     * @return [Call]<[BountyResponseResponse]>
      */
     @PUT("api/v1/open/bounty/{bountyId}/response/{responseId}")
-    fun putApiV1OpenBountyByBountyidResponseByResponseid(@Path("bountyId") bountyId: kotlin.String, @Path("responseId") responseId: kotlin.String, @Body responseChanges: ResponseChanges, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyResponseResponse>
+    fun putApiV1OpenBountyByBountyidResponseByResponseid(@Path("bountyId") bountyId: kotlin.String, @Path("responseId") responseId: kotlin.String, @Body responseChanges: ResponseChanges, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyResponseResponse>
 
     /**
      * PUT api/v1/open/comments/{commentId}
@@ -1658,10 +1658,10 @@ interface OpenControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCommentResp]>
+     * @return [Call]<[CommentResp]>
      */
     @PUT("api/v1/open/comments/{commentId}")
-    fun putApiV1OpenCommentsByCommentid(@Path("commentId") commentId: kotlin.String, @Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCommentResp>
+    fun putApiV1OpenCommentsByCommentid(@Path("commentId") commentId: kotlin.String, @Body comment: Comment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CommentResp>
 
     /**
      * PUT api/v1/open/reservations/{bountyId}/cancel

@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.SearchInfoSearchConf
+import ai.youkno.edgeserversdk.models.SearchConf
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -38,7 +38,7 @@ data class SearchInfo (
     val bucketingPolicy: kotlin.String? = null,
 
     @Json(name = "conf")
-    val conf: SearchInfoSearchConf? = null
+    val conf: SearchConf? = null
 
 ) {
 

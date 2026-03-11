@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.MarkDoc
 import ai.youkno.edgeserversdk.models.StructuredDescription
-import ai.youkno.edgeserversdk.models.StructuredDescriptionMarkDoc
 import ai.youkno.edgeserversdk.models.SubscriptionBountyInfoMetaInfo
 
 import com.squareup.moshi.Json
@@ -39,7 +39,7 @@ data class SubscriptionBountyInfo (
     val structuredDescription: StructuredDescription? = null,
 
     @Json(name = "markDoc")
-    val markDoc: StructuredDescriptionMarkDoc? = null,
+    val markDoc: MarkDoc? = null,
 
     @Json(name = "meta")
     val meta: SubscriptionBountyInfoMetaInfo? = null,

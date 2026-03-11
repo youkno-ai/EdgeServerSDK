@@ -28,17 +28,17 @@ public struct UserProfile: Codable, JSONEncodable, Hashable {
     public var badges: Badges?
     public var stats: UserProfileStats?
     public var createdAt: Int64?
-    public var basicInfo: UserProfileBasicInfo?
-    public var medicalInfo: UserProfileMedicalInfo?
-    public var driverLicenseInfo: UserProfileDriverLicenseInfo?
-    public var interestsInfo: UserProfileInterestsInfo?
-    public var ageRange: UserProfileAgeRange?
-    public var selfOnboardingInfo: UserProfileSelfOnboardingInfo?
+    public var basicInfo: BasicInfo?
+    public var medicalInfo: MedicalInfo?
+    public var driverLicenseInfo: DriverLicenseInfo?
+    public var interestsInfo: InterestsInfo?
+    public var ageRange: AgeRange?
+    public var selfOnboardingInfo: SelfOnboardingInfo?
     public var livePaymentMode: Bool?
     public var segment: String?
     public var entityId: String?
 
-    public init(user: User? = nil, shortId: String? = nil, description: String? = nil, rating: Double? = nil, avgStartRating: Double? = nil, linkedInAccountLink: String? = nil, joiningStrategy: String? = nil, streamKey: String? = nil, visibilityRoles: String? = nil, userType: String? = nil, coverImageUrl: String? = nil, attachments: Attachments? = nil, websites: [String: UserProfileWebsiteInfo]? = nil, badges: Badges? = nil, stats: UserProfileStats? = nil, createdAt: Int64? = nil, basicInfo: UserProfileBasicInfo? = nil, medicalInfo: UserProfileMedicalInfo? = nil, driverLicenseInfo: UserProfileDriverLicenseInfo? = nil, interestsInfo: UserProfileInterestsInfo? = nil, ageRange: UserProfileAgeRange? = nil, selfOnboardingInfo: UserProfileSelfOnboardingInfo? = nil, livePaymentMode: Bool? = nil, segment: String? = nil, entityId: String? = nil) {
+    public init(user: User? = nil, shortId: String? = nil, description: String? = nil, rating: Double? = nil, avgStartRating: Double? = nil, linkedInAccountLink: String? = nil, joiningStrategy: String? = nil, streamKey: String? = nil, visibilityRoles: String? = nil, userType: String? = nil, coverImageUrl: String? = nil, attachments: Attachments? = nil, websites: [String: UserProfileWebsiteInfo]? = nil, badges: Badges? = nil, stats: UserProfileStats? = nil, createdAt: Int64? = nil, basicInfo: BasicInfo? = nil, medicalInfo: MedicalInfo? = nil, driverLicenseInfo: DriverLicenseInfo? = nil, interestsInfo: InterestsInfo? = nil, ageRange: AgeRange? = nil, selfOnboardingInfo: SelfOnboardingInfo? = nil, livePaymentMode: Bool? = nil, segment: String? = nil, entityId: String? = nil) {
         self.user = user
         self.shortId = shortId
         self.description = description

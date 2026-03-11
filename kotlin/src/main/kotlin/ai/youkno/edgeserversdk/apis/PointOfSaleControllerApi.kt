@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataCreatePosCustomerRequest
-import ai.youkno.edgeserversdk.models.ThirdpartiesPosPointOfSaleCustomer
+import ai.youkno.edgeserversdk.models.CreatePosCustomerRequest
+import ai.youkno.edgeserversdk.models.PointOfSaleCustomer
 
 interface PointOfSaleControllerApi {
     /**
@@ -22,10 +22,10 @@ interface PointOfSaleControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ThirdpartiesPosPointOfSaleCustomer]>
+     * @return [Call]<[PointOfSaleCustomer]>
      */
     @GET("api/v1/pointOfSale/customer/{customerId}")
-    fun getApiV1PointofsaleCustomerByCustomerid(@Path("customerId") customerId: kotlin.String, @Query("merchantId") merchantId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ThirdpartiesPosPointOfSaleCustomer>
+    fun getApiV1PointofsaleCustomerByCustomerid(@Path("customerId") customerId: kotlin.String, @Query("merchantId") merchantId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PointOfSaleCustomer>
 
     /**
      * POST api/v1/pointOfSale/customer/{customerId}
@@ -36,13 +36,13 @@ interface PointOfSaleControllerApi {
      *
      * @param customerId 
      * @param merchantId 
-     * @param edgeApiDataCreatePosCustomerRequest 
+     * @param createPosCustomerRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/pointOfSale/customer/{customerId}")
-    fun postApiV1PointofsaleCustomerByCustomerid(@Path("customerId") customerId: kotlin.String, @Query("merchantId") merchantId: kotlin.String, @Body edgeApiDataCreatePosCustomerRequest: EdgeApiDataCreatePosCustomerRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1PointofsaleCustomerByCustomerid(@Path("customerId") customerId: kotlin.String, @Query("merchantId") merchantId: kotlin.String, @Body createPosCustomerRequest: CreatePosCustomerRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

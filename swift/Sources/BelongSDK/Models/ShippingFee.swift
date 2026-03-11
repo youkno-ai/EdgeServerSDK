@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct ShippingFee: Codable, JSONEncodable, Hashable {
 
-    public var domesticFees: [String: ShippingFeeFee]?
-    public var internationalFee: ShippingFeeFee?
+    public var domesticFees: [String: Fee]?
+    public var internationalFee: Fee?
 
-    public init(domesticFees: [String: ShippingFeeFee]? = nil, internationalFee: ShippingFeeFee? = nil) {
+    public init(domesticFees: [String: Fee]? = nil, internationalFee: Fee? = nil) {
         self.domesticFees = domesticFees
         self.internationalFee = internationalFee
     }

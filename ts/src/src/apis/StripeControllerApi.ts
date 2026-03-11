@@ -15,32 +15,32 @@
 
 import * as runtime from '../runtime';
 import type {
-  RestControllerStripeControllerCreateSetupIntentRequest,
-  RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequest,
-  RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse,
-  RestControllerStripeControllerStripeAccountResponse,
-  RestControllerStripeControllerStripeConfigResponse,
-  RestControllerStripeControllerStripeConnectResponse,
-  ServiceStripeServiceCreatePaymentIntentResponse,
-  ServiceStripeServiceCreateSetupIntentResponse,
+  CreatePaymentIntentResponse,
+  CreateSetupIntentRequest,
+  CreateSetupIntentResponse,
+  CreateSubscriptionCheckoutSessionRequest,
+  CreateSubscriptionCheckoutSessionResponse,
+  StripeAccountResponse,
+  StripeConfigResponse,
+  StripeConnectResponse,
 } from '../models/index';
 import {
-    RestControllerStripeControllerCreateSetupIntentRequestFromJSON,
-    RestControllerStripeControllerCreateSetupIntentRequestToJSON,
-    RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequestFromJSON,
-    RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequestToJSON,
-    RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponseFromJSON,
-    RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponseToJSON,
-    RestControllerStripeControllerStripeAccountResponseFromJSON,
-    RestControllerStripeControllerStripeAccountResponseToJSON,
-    RestControllerStripeControllerStripeConfigResponseFromJSON,
-    RestControllerStripeControllerStripeConfigResponseToJSON,
-    RestControllerStripeControllerStripeConnectResponseFromJSON,
-    RestControllerStripeControllerStripeConnectResponseToJSON,
-    ServiceStripeServiceCreatePaymentIntentResponseFromJSON,
-    ServiceStripeServiceCreatePaymentIntentResponseToJSON,
-    ServiceStripeServiceCreateSetupIntentResponseFromJSON,
-    ServiceStripeServiceCreateSetupIntentResponseToJSON,
+    CreatePaymentIntentResponseFromJSON,
+    CreatePaymentIntentResponseToJSON,
+    CreateSetupIntentRequestFromJSON,
+    CreateSetupIntentRequestToJSON,
+    CreateSetupIntentResponseFromJSON,
+    CreateSetupIntentResponseToJSON,
+    CreateSubscriptionCheckoutSessionRequestFromJSON,
+    CreateSubscriptionCheckoutSessionRequestToJSON,
+    CreateSubscriptionCheckoutSessionResponseFromJSON,
+    CreateSubscriptionCheckoutSessionResponseToJSON,
+    StripeAccountResponseFromJSON,
+    StripeAccountResponseToJSON,
+    StripeConfigResponseFromJSON,
+    StripeConfigResponseToJSON,
+    StripeConnectResponseFromJSON,
+    StripeConnectResponseToJSON,
 } from '../models/index';
 
 export interface GetApiV1StripeAccountRequest {
@@ -74,11 +74,11 @@ export interface PostApiV1StripeSetupIntentRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    restControllerStripeControllerCreateSetupIntentRequest?: RestControllerStripeControllerCreateSetupIntentRequest;
+    createSetupIntentRequest?: CreateSetupIntentRequest;
 }
 
 export interface PostApiV1StripeSubscriptionsCheckoutSessionRequest {
-    restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest: RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequest;
+    createSubscriptionCheckoutSessionRequest: CreateSubscriptionCheckoutSessionRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -108,11 +108,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeAccountResponse>>;
+    getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>>;
 
     /**
      */
-    getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeAccountResponse>;
+    getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse>;
 
     /**
      * 
@@ -123,11 +123,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeConfigResponse>>;
+    getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>>;
 
     /**
      */
-    getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeConfigResponse>;
+    getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse>;
 
     /**
      * 
@@ -139,11 +139,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeConnectResponse>>;
+    getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>>;
 
     /**
      */
-    getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeConnectResponse>;
+    getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse>;
 
     /**
      * 
@@ -156,31 +156,31 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceStripeServiceCreatePaymentIntentResponse>>;
+    postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>>;
 
     /**
      */
-    postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceStripeServiceCreatePaymentIntentResponse>;
+    postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse>;
 
     /**
      * 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {RestControllerStripeControllerCreateSetupIntentRequest} [restControllerStripeControllerCreateSetupIntentRequest] 
+     * @param {CreateSetupIntentRequest} [createSetupIntentRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceStripeServiceCreateSetupIntentResponse>>;
+    postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>>;
 
     /**
      */
-    postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceStripeServiceCreateSetupIntentResponse>;
+    postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse>;
 
     /**
      * 
-     * @param {RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequest} restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest 
+     * @param {CreateSubscriptionCheckoutSessionRequest} createSubscriptionCheckoutSessionRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -188,11 +188,11 @@ export interface StripeControllerApiInterface {
      * @throws {RequiredError}
      * @memberof StripeControllerApiInterface
      */
-    postApiV1StripeSubscriptionsCheckoutSessionRaw(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse>>;
+    postApiV1StripeSubscriptionsCheckoutSessionRaw(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSubscriptionCheckoutSessionResponse>>;
 
     /**
      */
-    postApiV1StripeSubscriptionsCheckoutSession(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse>;
+    postApiV1StripeSubscriptionsCheckoutSession(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSubscriptionCheckoutSessionResponse>;
 
     /**
      * 
@@ -220,7 +220,7 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
 
     /**
      */
-    async getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeAccountResponse>> {
+    async getApiV1StripeAccountRaw(requestParameters: GetApiV1StripeAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeAccountResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -251,19 +251,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerStripeControllerStripeAccountResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StripeAccountResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeAccountResponse> {
+    async getApiV1StripeAccount(requestParameters: GetApiV1StripeAccountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeAccountResponse> {
         const response = await this.getApiV1StripeAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeConfigResponse>> {
+    async getApiV1StripeConfigRaw(requestParameters: GetApiV1StripeConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConfigResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -294,19 +294,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerStripeControllerStripeConfigResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StripeConfigResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeConfigResponse> {
+    async getApiV1StripeConfig(requestParameters: GetApiV1StripeConfigRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConfigResponse> {
         const response = await this.getApiV1StripeConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerStripeConnectResponse>> {
+    async getApiV1StripeConnectRaw(requestParameters: GetApiV1StripeConnectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StripeConnectResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['redirectUrl'] != null) {
@@ -341,19 +341,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerStripeControllerStripeConnectResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StripeConnectResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerStripeConnectResponse> {
+    async getApiV1StripeConnect(requestParameters: GetApiV1StripeConnectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StripeConnectResponse> {
         const response = await this.getApiV1StripeConnectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceStripeServiceCreatePaymentIntentResponse>> {
+    async postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePaymentIntentResponse>> {
         if (requestParameters['paymentId'] == null) {
             throw new runtime.RequiredError(
                 'paymentId',
@@ -402,19 +402,19 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             body: requestParameters['body'] as any,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceStripeServiceCreatePaymentIntentResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreatePaymentIntentResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceStripeServiceCreatePaymentIntentResponse> {
+    async postApiV1StripePaymentsByPaymentidPaymentIntent(requestParameters: PostApiV1StripePaymentsByPaymentidPaymentIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePaymentIntentResponse> {
         const response = await this.postApiV1StripePaymentsByPaymentidPaymentIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceStripeServiceCreateSetupIntentResponse>> {
+    async postApiV1StripeSetupIntentRaw(requestParameters: PostApiV1StripeSetupIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSetupIntentResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -445,26 +445,26 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerStripeControllerCreateSetupIntentRequestToJSON(requestParameters['restControllerStripeControllerCreateSetupIntentRequest']),
+            body: CreateSetupIntentRequestToJSON(requestParameters['createSetupIntentRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceStripeServiceCreateSetupIntentResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateSetupIntentResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceStripeServiceCreateSetupIntentResponse> {
+    async postApiV1StripeSetupIntent(requestParameters: PostApiV1StripeSetupIntentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSetupIntentResponse> {
         const response = await this.postApiV1StripeSetupIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1StripeSubscriptionsCheckoutSessionRaw(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse>> {
-        if (requestParameters['restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest'] == null) {
+    async postApiV1StripeSubscriptionsCheckoutSessionRaw(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateSubscriptionCheckoutSessionResponse>> {
+        if (requestParameters['createSubscriptionCheckoutSessionRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest',
-                'Required parameter "restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest" was null or undefined when calling postApiV1StripeSubscriptionsCheckoutSession().'
+                'createSubscriptionCheckoutSessionRequest',
+                'Required parameter "createSubscriptionCheckoutSessionRequest" was null or undefined when calling postApiV1StripeSubscriptionsCheckoutSession().'
             );
         }
 
@@ -498,15 +498,15 @@ export class StripeControllerApi extends runtime.BaseAPI implements StripeContro
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerStripeControllerCreateSubscriptionCheckoutSessionRequestToJSON(requestParameters['restControllerStripeControllerCreateSubscriptionCheckoutSessionRequest']),
+            body: CreateSubscriptionCheckoutSessionRequestToJSON(requestParameters['createSubscriptionCheckoutSessionRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateSubscriptionCheckoutSessionResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1StripeSubscriptionsCheckoutSession(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerStripeControllerCreateSubscriptionCheckoutSessionResponse> {
+    async postApiV1StripeSubscriptionsCheckoutSession(requestParameters: PostApiV1StripeSubscriptionsCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateSubscriptionCheckoutSessionResponse> {
         const response = await this.postApiV1StripeSubscriptionsCheckoutSessionRaw(requestParameters, initOverrides);
         return await response.value();
     }

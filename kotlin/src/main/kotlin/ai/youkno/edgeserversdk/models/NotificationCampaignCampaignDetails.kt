@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.NotificationCampaignCampaignDetailsMessage
+import ai.youkno.edgeserversdk.models.CampaignDetailsMessage
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ data class NotificationCampaignCampaignDetails (
     val bountyIds: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "messages")
-    val messages: kotlin.collections.List<NotificationCampaignCampaignDetailsMessage>? = null
+    val messages: kotlin.collections.List<CampaignDetailsMessage>? = null
 
 ) {
 

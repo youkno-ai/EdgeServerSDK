@@ -16,7 +16,7 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.AccessReward
-import ai.youkno.edgeserversdk.models.BadgesBadge
+import ai.youkno.edgeserversdk.models.Badge
 import ai.youkno.edgeserversdk.models.Money
 import ai.youkno.edgeserversdk.models.Points
 import ai.youkno.edgeserversdk.models.Promotion
@@ -49,7 +49,7 @@ data class Reward (
     val vouchers: kotlin.collections.Map<kotlin.String, Voucher>? = null,
 
     @Json(name = "badges")
-    val badges: kotlin.collections.Map<kotlin.String, BadgesBadge>? = null,
+    val badges: kotlin.collections.Map<kotlin.String, Badge>? = null,
 
     @Json(name = "promotions")
     val promotions: kotlin.collections.Map<kotlin.String, Promotion>? = null,

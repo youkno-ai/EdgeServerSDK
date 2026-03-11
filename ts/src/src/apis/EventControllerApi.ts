@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataNewId,
   Event,
+  NewId,
 } from '../models/index';
 import {
-    EdgeApiDataNewIdFromJSON,
-    EdgeApiDataNewIdToJSON,
     EventFromJSON,
     EventToJSON,
+    NewIdFromJSON,
+    NewIdToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1ActsEventsByEventidRequest {
@@ -164,11 +164,11 @@ export interface EventControllerApiInterface {
      * @throws {RequiredError}
      * @memberof EventControllerApiInterface
      */
-    postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
 }
 
@@ -436,7 +436,7 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
 
     /**
      */
-    async postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1ActsEventsRaw(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['event'] == null) {
             throw new runtime.RequiredError(
                 'event',
@@ -477,12 +477,12 @@ export class EventControllerApi extends runtime.BaseAPI implements EventControll
             body: EventToJSON(requestParameters['event']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1ActsEvents(requestParameters: PostApiV1ActsEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1ActsEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }

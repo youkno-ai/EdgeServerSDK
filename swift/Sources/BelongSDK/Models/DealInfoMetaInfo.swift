@@ -16,12 +16,12 @@ public struct DealInfoMetaInfo: Codable, JSONEncodable, Hashable {
     public var maxUseCount: Int?
     public var inviteRefCount: Int?
     public var inviteeReward: String?
-    public var liabilities: [DealInfoLiability]?
+    public var liabilities: [Liability]?
     public var promotionId: String?
     public var ttl: Int64?
     public var ttlExpiresAt: Int64?
 
-    public init(dealType: String? = nil, maxUseCount: Int? = nil, inviteRefCount: Int? = nil, inviteeReward: String? = nil, liabilities: [DealInfoLiability]? = nil, promotionId: String? = nil, ttl: Int64? = nil, ttlExpiresAt: Int64? = nil) {
+    public init(dealType: String? = nil, maxUseCount: Int? = nil, inviteRefCount: Int? = nil, inviteeReward: String? = nil, liabilities: [Liability]? = nil, promotionId: String? = nil, ttl: Int64? = nil, ttlExpiresAt: Int64? = nil) {
         self.dealType = dealType
         self.maxUseCount = maxUseCount
         self.inviteRefCount = inviteRefCount

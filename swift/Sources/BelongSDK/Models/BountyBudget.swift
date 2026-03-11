@@ -12,11 +12,11 @@ import AnyCodable
 
 public struct BountyBudget: Codable, JSONEncodable, Hashable {
 
-    public var currencies: [String: BountyBudgetBudgetCurrency]?
+    public var currencies: [String: BudgetCurrency]?
     public var empty: Bool?
     public var positive: Bool?
 
-    public init(currencies: [String: BountyBudgetBudgetCurrency]? = nil, empty: Bool? = nil, positive: Bool? = nil) {
+    public init(currencies: [String: BudgetCurrency]? = nil, empty: Bool? = nil, positive: Bool? = nil) {
         self.currencies = currencies
         self.empty = empty
         self.positive = positive

@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.GeofencesGeoPoint
+import ai.youkno.edgeserversdk.models.GeoPoint
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -51,7 +51,7 @@ data class GeofencesArea (
     val areaType: kotlin.String? = null,
 
     @Json(name = "center")
-    val center: GeofencesGeoPoint? = null,
+    val center: GeoPoint? = null,
 
     @Json(name = "polygon")
     val polygon: kotlin.String? = null,

@@ -13,34 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PosApiDataOrderOrderItem } from './PosApiDataOrderOrderItem';
+import type { PosApiDataOrder2 } from './PosApiDataOrder2';
 import {
-    PosApiDataOrderOrderItemFromJSON,
-    PosApiDataOrderOrderItemFromJSONTyped,
-    PosApiDataOrderOrderItemToJSON,
-    PosApiDataOrderOrderItemToJSONTyped,
-} from './PosApiDataOrderOrderItem';
-import type { PosApiDataOrderDiscountResp } from './PosApiDataOrderDiscountResp';
-import {
-    PosApiDataOrderDiscountRespFromJSON,
-    PosApiDataOrderDiscountRespFromJSONTyped,
-    PosApiDataOrderDiscountRespToJSON,
-    PosApiDataOrderDiscountRespToJSONTyped,
-} from './PosApiDataOrderDiscountResp';
-import type { PosApiDataOrderFeeResp } from './PosApiDataOrderFeeResp';
-import {
-    PosApiDataOrderFeeRespFromJSON,
-    PosApiDataOrderFeeRespFromJSONTyped,
-    PosApiDataOrderFeeRespToJSON,
-    PosApiDataOrderFeeRespToJSONTyped,
-} from './PosApiDataOrderFeeResp';
-import type { MailingAddress } from './MailingAddress';
-import {
-    MailingAddressFromJSON,
-    MailingAddressFromJSONTyped,
-    MailingAddressToJSON,
-    MailingAddressToJSONTyped,
-} from './MailingAddress';
+    PosApiDataOrder2FromJSON,
+    PosApiDataOrder2FromJSONTyped,
+    PosApiDataOrder2ToJSON,
+    PosApiDataOrder2ToJSONTyped,
+} from './PosApiDataOrder2';
 
 /**
  * 
@@ -50,250 +29,34 @@ import {
 export interface PosApiDataOrder {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataOrder
      */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    customerId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    type?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataOrder
      */
-    subtotal?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataOrder
      */
-    discount?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    total?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    lineItemCount?: number;
+    length?: number;
     /**
      * 
      * @type {boolean}
      * @memberof PosApiDataOrder
      */
-    isChangePaid?: boolean;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {Array<PosApiDataOrder2>}
      * @memberof PosApiDataOrder
      */
-    paidInFull?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    pickupCustomerArrived?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    pickupOrderIncoming?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupVehicleMake?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupVehicleColor?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    rn?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    onlineOrderId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    statusId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    status?: string;
-    /**
-     * 
-     * @type {Array<PosApiDataOrderOrderItem>}
-     * @memberof PosApiDataOrder
-     */
-    items?: Array<PosApiDataOrderOrderItem>;
-    /**
-     * 
-     * @type {MailingAddress}
-     * @memberof PosApiDataOrder
-     */
-    deliveryAddress?: MailingAddress;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupDate?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupTime?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupPhone?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    pickupEmail?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    complete?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    voided?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    canceled?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    voidReason?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    createdByUser?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    createdAt?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    paidAt?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    deliveryFee?: number;
-    /**
-     * 
-     * @type {Array<PosApiDataOrderDiscountResp>}
-     * @memberof PosApiDataOrder
-     */
-    discounts?: Array<PosApiDataOrderDiscountResp>;
-    /**
-     * 
-     * @type {Array<PosApiDataOrderFeeResp>}
-     * @memberof PosApiDataOrder
-     */
-    fees?: Array<PosApiDataOrderFeeResp>;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    locationId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    location?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataOrder
-     */
-    loyalty?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    firstName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    lastName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    timezone?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataOrder
-     */
-    useType?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PosApiDataOrder
-     */
-    verified?: boolean;
+    list?: Array<PosApiDataOrder2>;
 }
 
 /**
@@ -313,47 +76,11 @@ export function PosApiDataOrderFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'customerId': json['customerId'] == null ? undefined : json['customerId'],
-        'type': json['type'] == null ? undefined : json['type'],
-        'subtotal': json['subtotal'] == null ? undefined : json['subtotal'],
-        'discount': json['discount'] == null ? undefined : json['discount'],
-        'total': json['total'] == null ? undefined : json['total'],
-        'lineItemCount': json['lineItemCount'] == null ? undefined : json['lineItemCount'],
-        'isChangePaid': json['isChangePaid'] == null ? undefined : json['isChangePaid'],
-        'paidInFull': json['paidInFull'] == null ? undefined : json['paidInFull'],
-        'pickupCustomerArrived': json['pickupCustomerArrived'] == null ? undefined : json['pickupCustomerArrived'],
-        'pickupOrderIncoming': json['pickupOrderIncoming'] == null ? undefined : json['pickupOrderIncoming'],
-        'pickupVehicleMake': json['pickupVehicleMake'] == null ? undefined : json['pickupVehicleMake'],
-        'pickupVehicleColor': json['pickupVehicleColor'] == null ? undefined : json['pickupVehicleColor'],
-        'rn': json['rn'] == null ? undefined : json['rn'],
-        'onlineOrderId': json['onlineOrderId'] == null ? undefined : json['onlineOrderId'],
-        'statusId': json['statusId'] == null ? undefined : json['statusId'],
-        'status': json['status'] == null ? undefined : json['status'],
-        'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(PosApiDataOrderOrderItemFromJSON)),
-        'deliveryAddress': json['deliveryAddress'] == null ? undefined : MailingAddressFromJSON(json['deliveryAddress']),
-        'pickupDate': json['pickupDate'] == null ? undefined : json['pickupDate'],
-        'pickupTime': json['pickupTime'] == null ? undefined : json['pickupTime'],
-        'pickupPhone': json['pickupPhone'] == null ? undefined : json['pickupPhone'],
-        'pickupEmail': json['pickupEmail'] == null ? undefined : json['pickupEmail'],
-        'complete': json['complete'] == null ? undefined : json['complete'],
-        'voided': json['voided'] == null ? undefined : json['voided'],
-        'canceled': json['canceled'] == null ? undefined : json['canceled'],
-        'voidReason': json['voidReason'] == null ? undefined : json['voidReason'],
-        'createdByUser': json['createdByUser'] == null ? undefined : json['createdByUser'],
-        'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'paidAt': json['paidAt'] == null ? undefined : json['paidAt'],
-        'deliveryFee': json['deliveryFee'] == null ? undefined : json['deliveryFee'],
-        'discounts': json['discounts'] == null ? undefined : ((json['discounts'] as Array<any>).map(PosApiDataOrderDiscountRespFromJSON)),
-        'fees': json['fees'] == null ? undefined : ((json['fees'] as Array<any>).map(PosApiDataOrderFeeRespFromJSON)),
-        'locationId': json['locationId'] == null ? undefined : json['locationId'],
-        'location': json['location'] == null ? undefined : json['location'],
-        'loyalty': json['loyalty'] == null ? undefined : json['loyalty'],
-        'firstName': json['firstName'] == null ? undefined : json['firstName'],
-        'lastName': json['lastName'] == null ? undefined : json['lastName'],
-        'timezone': json['timezone'] == null ? undefined : json['timezone'],
-        'useType': json['useType'] == null ? undefined : json['useType'],
-        'verified': json['verified'] == null ? undefined : json['verified'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataOrder2FromJSON)),
     };
 }
 
@@ -368,47 +95,11 @@ export function PosApiDataOrderToJSONTyped(value?: PosApiDataOrder | null, ignor
 
     return {
         
-        'id': value['id'],
-        'customerId': value['customerId'],
-        'type': value['type'],
-        'subtotal': value['subtotal'],
-        'discount': value['discount'],
-        'total': value['total'],
-        'lineItemCount': value['lineItemCount'],
-        'isChangePaid': value['isChangePaid'],
-        'paidInFull': value['paidInFull'],
-        'pickupCustomerArrived': value['pickupCustomerArrived'],
-        'pickupOrderIncoming': value['pickupOrderIncoming'],
-        'pickupVehicleMake': value['pickupVehicleMake'],
-        'pickupVehicleColor': value['pickupVehicleColor'],
-        'rn': value['rn'],
-        'onlineOrderId': value['onlineOrderId'],
-        'statusId': value['statusId'],
-        'status': value['status'],
-        'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(PosApiDataOrderOrderItemToJSON)),
-        'deliveryAddress': MailingAddressToJSON(value['deliveryAddress']),
-        'pickupDate': value['pickupDate'],
-        'pickupTime': value['pickupTime'],
-        'pickupPhone': value['pickupPhone'],
-        'pickupEmail': value['pickupEmail'],
-        'complete': value['complete'],
-        'voided': value['voided'],
-        'canceled': value['canceled'],
-        'voidReason': value['voidReason'],
-        'createdByUser': value['createdByUser'],
-        'createdAt': value['createdAt'],
-        'paidAt': value['paidAt'],
-        'deliveryFee': value['deliveryFee'],
-        'discounts': value['discounts'] == null ? undefined : ((value['discounts'] as Array<any>).map(PosApiDataOrderDiscountRespToJSON)),
-        'fees': value['fees'] == null ? undefined : ((value['fees'] as Array<any>).map(PosApiDataOrderFeeRespToJSON)),
-        'locationId': value['locationId'],
-        'location': value['location'],
-        'loyalty': value['loyalty'],
-        'firstName': value['firstName'],
-        'lastName': value['lastName'],
-        'timezone': value['timezone'],
-        'useType': value['useType'],
-        'verified': value['verified'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataOrder2ToJSON)),
     };
 }
 

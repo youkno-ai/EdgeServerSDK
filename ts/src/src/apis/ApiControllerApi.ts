@@ -15,59 +15,59 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataAuditLogResult,
-  EdgeApiDataCannedResponseResult,
-  EdgeApiDataFollowResult,
-  EdgeApiDataGetFiltersResult,
-  EdgeApiDataLeaderboardResult,
-  EdgeApiDataListPromotionsResult,
-  EdgeApiDataLookupResult,
-  EdgeApiDataMemberDeletePermissionResult,
-  EdgeApiDataReferralCodeResult,
-  EdgeApiDataResolveAttachmentResult,
-  EdgeApiDataResponseListResult,
-  EdgeApiDataUserInfoResult,
-  EdgeApiDataUserPrivateInfo,
-  EdgeApiDataValidateAddressResult,
+  AuditLogResult,
+  CannedResponseResult,
+  FollowResult,
   GeoIPInfo,
-  RestModelNotification,
+  GetFiltersResult,
+  LeaderboardResult,
+  ListPromotionsResult,
+  LookupResult,
+  MemberDeletePermissionResult,
+  Notification,
+  ReferralCodeResult,
+  ResolveAttachmentResult,
+  ResponseListResult,
   Tags,
+  UserInfoResult,
+  UserPrivateInfo,
+  ValidateAddressResult,
 } from '../models/index';
 import {
-    EdgeApiDataAuditLogResultFromJSON,
-    EdgeApiDataAuditLogResultToJSON,
-    EdgeApiDataCannedResponseResultFromJSON,
-    EdgeApiDataCannedResponseResultToJSON,
-    EdgeApiDataFollowResultFromJSON,
-    EdgeApiDataFollowResultToJSON,
-    EdgeApiDataGetFiltersResultFromJSON,
-    EdgeApiDataGetFiltersResultToJSON,
-    EdgeApiDataLeaderboardResultFromJSON,
-    EdgeApiDataLeaderboardResultToJSON,
-    EdgeApiDataListPromotionsResultFromJSON,
-    EdgeApiDataListPromotionsResultToJSON,
-    EdgeApiDataLookupResultFromJSON,
-    EdgeApiDataLookupResultToJSON,
-    EdgeApiDataMemberDeletePermissionResultFromJSON,
-    EdgeApiDataMemberDeletePermissionResultToJSON,
-    EdgeApiDataReferralCodeResultFromJSON,
-    EdgeApiDataReferralCodeResultToJSON,
-    EdgeApiDataResolveAttachmentResultFromJSON,
-    EdgeApiDataResolveAttachmentResultToJSON,
-    EdgeApiDataResponseListResultFromJSON,
-    EdgeApiDataResponseListResultToJSON,
-    EdgeApiDataUserInfoResultFromJSON,
-    EdgeApiDataUserInfoResultToJSON,
-    EdgeApiDataUserPrivateInfoFromJSON,
-    EdgeApiDataUserPrivateInfoToJSON,
-    EdgeApiDataValidateAddressResultFromJSON,
-    EdgeApiDataValidateAddressResultToJSON,
+    AuditLogResultFromJSON,
+    AuditLogResultToJSON,
+    CannedResponseResultFromJSON,
+    CannedResponseResultToJSON,
+    FollowResultFromJSON,
+    FollowResultToJSON,
     GeoIPInfoFromJSON,
     GeoIPInfoToJSON,
-    RestModelNotificationFromJSON,
-    RestModelNotificationToJSON,
+    GetFiltersResultFromJSON,
+    GetFiltersResultToJSON,
+    LeaderboardResultFromJSON,
+    LeaderboardResultToJSON,
+    ListPromotionsResultFromJSON,
+    ListPromotionsResultToJSON,
+    LookupResultFromJSON,
+    LookupResultToJSON,
+    MemberDeletePermissionResultFromJSON,
+    MemberDeletePermissionResultToJSON,
+    NotificationFromJSON,
+    NotificationToJSON,
+    ReferralCodeResultFromJSON,
+    ReferralCodeResultToJSON,
+    ResolveAttachmentResultFromJSON,
+    ResolveAttachmentResultToJSON,
+    ResponseListResultFromJSON,
+    ResponseListResultToJSON,
     TagsFromJSON,
     TagsToJSON,
+    UserInfoResultFromJSON,
+    UserInfoResultToJSON,
+    UserPrivateInfoFromJSON,
+    UserPrivateInfoToJSON,
+    ValidateAddressResultFromJSON,
+    ValidateAddressResultToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1EntitiesByEntityTypeByEntityIdTagsRequest {
@@ -242,7 +242,7 @@ export interface PostApiV1EntitiesByEntityTypeByEntityIdTagsRequest {
 }
 
 export interface PostApiV1NotifyRequest {
-    restModelNotification: RestModelNotification;
+    notification: Notification;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -306,11 +306,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataResolveAttachmentResult>>;
+    getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>>;
 
     /**
      */
-    getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataResolveAttachmentResult>;
+    getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult>;
 
     /**
      * 
@@ -340,11 +340,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLeaderboardResult>>;
+    getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>>;
 
     /**
      */
-    getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLeaderboardResult>;
+    getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult>;
 
     /**
      * 
@@ -359,11 +359,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAuditLogResult>>;
+    getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>>;
 
     /**
      */
-    getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAuditLogResult>;
+    getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult>;
 
     /**
      * 
@@ -380,11 +380,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGetFiltersResult>>;
+    getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>>;
 
     /**
      */
-    getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGetFiltersResult>;
+    getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult>;
 
     /**
      * 
@@ -418,11 +418,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLookupResult>>;
+    getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>>;
 
     /**
      */
-    getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLookupResult>;
+    getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult>;
 
     /**
      * 
@@ -435,11 +435,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataMemberDeletePermissionResult>>;
+    getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>>;
 
     /**
      */
-    getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataMemberDeletePermissionResult>;
+    getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult>;
 
     /**
      * 
@@ -455,11 +455,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataListPromotionsResult>>;
+    getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>>;
 
     /**
      */
-    getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataListPromotionsResult>;
+    getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult>;
 
     /**
      * 
@@ -474,11 +474,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCannedResponseResult>>;
+    getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>>;
 
     /**
      */
-    getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCannedResponseResult>;
+    getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult>;
 
     /**
      * 
@@ -500,11 +500,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataResponseListResult>>;
+    getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>>;
 
     /**
      */
-    getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataResponseListResult>;
+    getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult>;
 
     /**
      * 
@@ -516,27 +516,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserInfoResult>>;
+    getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>>;
 
     /**
      */
-    getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserInfoResult>;
-
-    /**
-     * 
-     * @param {string} userId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApiControllerApiInterface
-     */
-    getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserPrivateInfo>>;
-
-    /**
-     */
-    getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserPrivateInfo>;
+    getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult>;
 
     /**
      * 
@@ -548,11 +532,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFollowResult>>;
+    getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>>;
 
     /**
      */
-    getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFollowResult>;
+    getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo>;
 
     /**
      * 
@@ -564,11 +548,27 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFollowResult>>;
+    getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
 
     /**
      */
-    getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFollowResult>;
+    getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
+
+    /**
+     * 
+     * @param {string} userId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiControllerApiInterface
+     */
+    getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>>;
+
+    /**
+     */
+    getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult>;
 
     /**
      * 
@@ -579,11 +579,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataValidateAddressResult>>;
+    postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>>;
 
     /**
      */
-    postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataValidateAddressResult>;
+    postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult>;
 
     /**
      * 
@@ -606,7 +606,7 @@ export interface ApiControllerApiInterface {
 
     /**
      * 
-     * @param {RestModelNotification} restModelNotification 
+     * @param {Notification} notification 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -630,11 +630,11 @@ export interface ApiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ApiControllerApiInterface
      */
-    postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataReferralCodeResult>>;
+    postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>>;
 
     /**
      */
-    postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataReferralCodeResult>;
+    postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult>;
 
 }
 
@@ -761,7 +761,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataResolveAttachmentResult>> {
+    async getApiV1AttachmentsResolveRaw(requestParameters: GetApiV1AttachmentsResolveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolveAttachmentResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['url'] != null) {
@@ -796,12 +796,12 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataResolveAttachmentResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResolveAttachmentResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataResolveAttachmentResult> {
+    async getApiV1AttachmentsResolve(requestParameters: GetApiV1AttachmentsResolveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolveAttachmentResult> {
         const response = await this.getApiV1AttachmentsResolveRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -855,7 +855,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLeaderboardResult>> {
+    async getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaderboardResult>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -902,19 +902,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLeaderboardResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => LeaderboardResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLeaderboardResult> {
+    async getApiV1EntitiesByBountyIdLeaderboard(requestParameters: GetApiV1EntitiesByBountyIdLeaderboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaderboardResult> {
         const response = await this.getApiV1EntitiesByBountyIdLeaderboardRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataAuditLogResult>> {
+    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditLogResult>> {
         if (requestParameters['entityId'] == null) {
             throw new runtime.RequiredError(
                 'entityId',
@@ -969,19 +969,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataAuditLogResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuditLogResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataAuditLogResult> {
+    async getApiV1EntitiesByEntityTypeByEntityIdTagsHistory(requestParameters: GetApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditLogResult> {
         const response = await this.getApiV1EntitiesByEntityTypeByEntityIdTagsHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataGetFiltersResult>> {
+    async getApiV1FiltersByListidRaw(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFiltersResult>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
@@ -1040,12 +1040,12 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataGetFiltersResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFiltersResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataGetFiltersResult> {
+    async getApiV1FiltersByListid(requestParameters: GetApiV1FiltersByListidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFiltersResult> {
         const response = await this.getApiV1FiltersByListidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1107,7 +1107,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataLookupResult>> {
+    async getApiV1LookupsByLookupTypeRaw(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LookupResult>> {
         if (requestParameters['lookupType'] == null) {
             throw new runtime.RequiredError(
                 'lookupType',
@@ -1162,19 +1162,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataLookupResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => LookupResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataLookupResult> {
+    async getApiV1LookupsByLookupType(requestParameters: GetApiV1LookupsByLookupTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LookupResult> {
         const response = await this.getApiV1LookupsByLookupTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataMemberDeletePermissionResult>> {
+    async getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberDeletePermissionResult>> {
         if (requestParameters['groupId'] == null) {
             throw new runtime.RequiredError(
                 'groupId',
@@ -1221,19 +1221,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataMemberDeletePermissionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberDeletePermissionResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataMemberDeletePermissionResult> {
+    async getApiV1PermissionByGroupidDeleteMemberByMemberid(requestParameters: GetApiV1PermissionByGroupidDeleteMemberByMemberidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberDeletePermissionResult> {
         const response = await this.getApiV1PermissionByGroupidDeleteMemberByMemberidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataListPromotionsResult>> {
+    async getApiV1PromotionsRaw(requestParameters: GetApiV1PromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPromotionsResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['entityType'] != null) {
@@ -1284,19 +1284,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataListPromotionsResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListPromotionsResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataListPromotionsResult> {
+    async getApiV1Promotions(requestParameters: GetApiV1PromotionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPromotionsResult> {
         const response = await this.getApiV1PromotionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCannedResponseResult>> {
+    async getApiV1RepliesSmartRaw(requestParameters: GetApiV1RepliesSmartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CannedResponseResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['bountyId'] != null) {
@@ -1343,19 +1343,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCannedResponseResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CannedResponseResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCannedResponseResult> {
+    async getApiV1RepliesSmart(requestParameters: GetApiV1RepliesSmartRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CannedResponseResult> {
         const response = await this.getApiV1RepliesSmartRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataResponseListResult>> {
+    async getApiV1ResponsesByBountyTypeRaw(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseListResult>> {
         if (requestParameters['bountyType'] == null) {
             throw new runtime.RequiredError(
                 'bountyType',
@@ -1434,19 +1434,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataResponseListResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseListResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataResponseListResult> {
+    async getApiV1ResponsesByBountyType(requestParameters: GetApiV1ResponsesByBountyTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseListResult> {
         const response = await this.getApiV1ResponsesByBountyTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserInfoResult>> {
+    async getApiV1UserInfoRaw(requestParameters: GetApiV1UserInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['clientId'] != null) {
@@ -1481,19 +1481,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserInfoResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserInfoResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserInfoResult> {
+    async getApiV1UserInfo(requestParameters: GetApiV1UserInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserInfoResult> {
         const response = await this.getApiV1UserInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataUserPrivateInfo>> {
+    async getApiV1UsersByUserIdPrivateRaw(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPrivateInfo>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1532,19 +1532,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataUserPrivateInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPrivateInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataUserPrivateInfo> {
+    async getApiV1UsersByUserIdPrivate(requestParameters: GetApiV1UsersByUserIdPrivateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPrivateInfo> {
         const response = await this.getApiV1UsersByUserIdPrivateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFollowResult>> {
+    async getApiV1UsersByUseridFollowersRaw(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1583,19 +1583,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataFollowResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFollowResult> {
+    async getApiV1UsersByUseridFollowers(requestParameters: GetApiV1UsersByUseridFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
         const response = await this.getApiV1UsersByUseridFollowersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataFollowResult>> {
+    async getApiV1UsersByUseridFollowingRaw(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowResult>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1634,19 +1634,19 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataFollowResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataFollowResult> {
+    async getApiV1UsersByUseridFollowing(requestParameters: GetApiV1UsersByUseridFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowResult> {
         const response = await this.getApiV1UsersByUseridFollowingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataValidateAddressResult>> {
+    async postApiV1AddressesValidateRaw(requestParameters: PostApiV1AddressesValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateAddressResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1677,12 +1677,12 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataValidateAddressResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ValidateAddressResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataValidateAddressResult> {
+    async postApiV1AddressesValidate(requestParameters: PostApiV1AddressesValidateRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateAddressResult> {
         const response = await this.postApiV1AddressesValidateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1763,10 +1763,10 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
     /**
      */
     async postApiV1NotifyRaw(requestParameters: PostApiV1NotifyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['restModelNotification'] == null) {
+        if (requestParameters['notification'] == null) {
             throw new runtime.RequiredError(
-                'restModelNotification',
-                'Required parameter "restModelNotification" was null or undefined when calling postApiV1Notify().'
+                'notification',
+                'Required parameter "notification" was null or undefined when calling postApiV1Notify().'
             );
         }
 
@@ -1800,7 +1800,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestModelNotificationToJSON(requestParameters['restModelNotification']),
+            body: NotificationToJSON(requestParameters['notification']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -1815,7 +1815,7 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
 
     /**
      */
-    async postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataReferralCodeResult>> {
+    async postApiV1ReferralsRaw(requestParameters: PostApiV1ReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferralCodeResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['code'] != null) {
@@ -1850,12 +1850,12 @@ export class ApiControllerApi extends runtime.BaseAPI implements ApiControllerAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataReferralCodeResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReferralCodeResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataReferralCodeResult> {
+    async postApiV1Referrals(requestParameters: PostApiV1ReferralsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferralCodeResult> {
         const response = await this.postApiV1ReferralsRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataNewId
 import ai.youkno.edgeserversdk.models.Event
+import ai.youkno.edgeserversdk.models.NewId
 
 interface EventControllerApi {
     /**
@@ -101,9 +101,9 @@ interface EventControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataNewId]>
+     * @return [Call]<[NewId]>
      */
     @POST("api/v1/acts/events")
-    fun postApiV1ActsEvents(@Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
+    fun postApiV1ActsEvents(@Body event: Event, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
 }

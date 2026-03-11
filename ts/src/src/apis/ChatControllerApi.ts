@@ -15,33 +15,33 @@
 
 import * as runtime from '../runtime';
 import type {
+  ChatCommand,
+  ChatMessageRead,
+  ChatOobWatching,
   ChatSlashResult,
-  EdgeApiDataChatCommand,
+  CreateChat,
   EdgeApiDataChatMessage,
-  EdgeApiDataChatMessageRead,
-  EdgeApiDataChatOobWatching,
-  EdgeApiDataCreateChat,
-  EdgeApiDataNewId,
-  EdgeApiDataSupportChartResult,
+  NewId,
+  SupportChartResult,
   UserChat,
 } from '../models/index';
 import {
+    ChatCommandFromJSON,
+    ChatCommandToJSON,
+    ChatMessageReadFromJSON,
+    ChatMessageReadToJSON,
+    ChatOobWatchingFromJSON,
+    ChatOobWatchingToJSON,
     ChatSlashResultFromJSON,
     ChatSlashResultToJSON,
-    EdgeApiDataChatCommandFromJSON,
-    EdgeApiDataChatCommandToJSON,
+    CreateChatFromJSON,
+    CreateChatToJSON,
     EdgeApiDataChatMessageFromJSON,
     EdgeApiDataChatMessageToJSON,
-    EdgeApiDataChatMessageReadFromJSON,
-    EdgeApiDataChatMessageReadToJSON,
-    EdgeApiDataChatOobWatchingFromJSON,
-    EdgeApiDataChatOobWatchingToJSON,
-    EdgeApiDataCreateChatFromJSON,
-    EdgeApiDataCreateChatToJSON,
-    EdgeApiDataNewIdFromJSON,
-    EdgeApiDataNewIdToJSON,
-    EdgeApiDataSupportChartResultFromJSON,
-    EdgeApiDataSupportChartResultToJSON,
+    NewIdFromJSON,
+    NewIdToJSON,
+    SupportChartResultFromJSON,
+    SupportChartResultToJSON,
     UserChatFromJSON,
     UserChatToJSON,
 } from '../models/index';
@@ -67,7 +67,7 @@ export interface GetApiV1ChatsSupportRequest {
 }
 
 export interface PostApiV1ChatsRequest {
-    edgeApiDataCreateChat: EdgeApiDataCreateChat;
+    createChat: CreateChat;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -75,7 +75,7 @@ export interface PostApiV1ChatsRequest {
 
 export interface PostApiV1ChatsByRoomIdCommandsRequest {
     roomId: string;
-    edgeApiDataChatCommand: EdgeApiDataChatCommand;
+    chatCommand: ChatCommand;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -100,7 +100,7 @@ export interface PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest {
 export interface PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest {
     roomId: string;
     msgId: string;
-    edgeApiDataChatOobWatching: EdgeApiDataChatOobWatching;
+    chatOobWatching: ChatOobWatching;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -108,7 +108,7 @@ export interface PostApiV1ChatsByRoomIdMessagesByMsgIdReactionsRequest {
 
 export interface PostApiV1ChatsByRoomIdMessagesReadRequest {
     roomId: string;
-    edgeApiDataChatMessageRead: EdgeApiDataChatMessageRead;
+    chatMessageRead: ChatMessageRead;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -116,7 +116,7 @@ export interface PostApiV1ChatsByRoomIdMessagesReadRequest {
 
 export interface PostApiV1ChatsByRoomIdOobReadRequest {
     roomId: string;
-    edgeApiDataChatMessageRead: EdgeApiDataChatMessageRead;
+    chatMessageRead: ChatMessageRead;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -124,7 +124,7 @@ export interface PostApiV1ChatsByRoomIdOobReadRequest {
 
 export interface PostApiV1ChatsByRoomIdOobWatchingRequest {
     roomId: string;
-    edgeApiDataChatOobWatching: EdgeApiDataChatOobWatching;
+    chatOobWatching: ChatOobWatching;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -155,11 +155,11 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>>;
+    getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
 
     /**
      */
-    getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult>;
+    getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
@@ -177,15 +177,15 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>>;
+    getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
 
     /**
      */
-    getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult>;
+    getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
-     * @param {EdgeApiDataCreateChat} edgeApiDataCreateChat 
+     * @param {CreateChat} createChat 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -202,7 +202,7 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {string} roomId 
-     * @param {EdgeApiDataChatCommand} edgeApiDataChatCommand 
+     * @param {ChatCommand} chatCommand 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -227,11 +227,11 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -244,17 +244,17 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>>;
+    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>>;
 
     /**
      */
-    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult>;
+    postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult>;
 
     /**
      * 
      * @param {string} roomId 
      * @param {string} msgId 
-     * @param {EdgeApiDataChatOobWatching} edgeApiDataChatOobWatching 
+     * @param {ChatOobWatching} chatOobWatching 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -271,7 +271,7 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {string} roomId 
-     * @param {EdgeApiDataChatMessageRead} edgeApiDataChatMessageRead 
+     * @param {ChatMessageRead} chatMessageRead 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -288,7 +288,7 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {string} roomId 
-     * @param {EdgeApiDataChatMessageRead} edgeApiDataChatMessageRead 
+     * @param {ChatMessageRead} chatMessageRead 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -305,7 +305,7 @@ export interface ChatControllerApiInterface {
     /**
      * 
      * @param {string} roomId 
-     * @param {EdgeApiDataChatOobWatching} edgeApiDataChatOobWatching 
+     * @param {ChatOobWatching} chatOobWatching 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -313,11 +313,11 @@ export interface ChatControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ChatControllerApiInterface
      */
-    postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
     /**
      * 
@@ -345,7 +345,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>> {
+    async getApiV1ChatsAiBotRaw(requestParameters: GetApiV1ChatsAiBotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['botName'] != null) {
@@ -380,19 +380,19 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSupportChartResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupportChartResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult> {
+    async getApiV1ChatsAiBot(requestParameters: GetApiV1ChatsAiBotRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
         const response = await this.getApiV1ChatsAiBotRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>> {
+    async getApiV1ChatsSupportRaw(requestParameters: GetApiV1ChatsSupportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -451,12 +451,12 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSupportChartResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupportChartResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult> {
+    async getApiV1ChatsSupport(requestParameters: GetApiV1ChatsSupportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
         const response = await this.getApiV1ChatsSupportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -464,10 +464,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
     /**
      */
     async postApiV1ChatsRaw(requestParameters: PostApiV1ChatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserChat>> {
-        if (requestParameters['edgeApiDataCreateChat'] == null) {
+        if (requestParameters['createChat'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataCreateChat',
-                'Required parameter "edgeApiDataCreateChat" was null or undefined when calling postApiV1Chats().'
+                'createChat',
+                'Required parameter "createChat" was null or undefined when calling postApiV1Chats().'
             );
         }
 
@@ -501,7 +501,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataCreateChatToJSON(requestParameters['edgeApiDataCreateChat']),
+            body: CreateChatToJSON(requestParameters['createChat']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UserChatFromJSON(jsonValue));
@@ -524,10 +524,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             );
         }
 
-        if (requestParameters['edgeApiDataChatCommand'] == null) {
+        if (requestParameters['chatCommand'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataChatCommand',
-                'Required parameter "edgeApiDataChatCommand" was null or undefined when calling postApiV1ChatsByRoomIdCommands().'
+                'chatCommand',
+                'Required parameter "chatCommand" was null or undefined when calling postApiV1ChatsByRoomIdCommands().'
             );
         }
 
@@ -562,7 +562,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataChatCommandToJSON(requestParameters['edgeApiDataChatCommand']),
+            body: ChatCommandToJSON(requestParameters['chatCommand']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChatSlashResultFromJSON(jsonValue));
@@ -577,7 +577,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1ChatsByRoomIdMessagesRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
@@ -626,19 +626,19 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             body: EdgeApiDataChatMessageToJSON(requestParameters['edgeApiDataChatMessage']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1ChatsByRoomIdMessages(requestParameters: PostApiV1ChatsByRoomIdMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1ChatsByRoomIdMessagesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataSupportChartResult>> {
+    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupportChartResult>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
@@ -685,12 +685,12 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataSupportChartResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupportChartResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataSupportChartResult> {
+    async postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessage(requestParameters: PostApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupportChartResult> {
         const response = await this.postApiV1ChatsByRoomIdMessagesByMsgIdHandleMessageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -712,10 +712,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             );
         }
 
-        if (requestParameters['edgeApiDataChatOobWatching'] == null) {
+        if (requestParameters['chatOobWatching'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataChatOobWatching',
-                'Required parameter "edgeApiDataChatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdReactions().'
+                'chatOobWatching',
+                'Required parameter "chatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdMessagesByMsgIdReactions().'
             );
         }
 
@@ -751,7 +751,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataChatOobWatchingToJSON(requestParameters['edgeApiDataChatOobWatching']),
+            body: ChatOobWatchingToJSON(requestParameters['chatOobWatching']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -773,10 +773,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             );
         }
 
-        if (requestParameters['edgeApiDataChatMessageRead'] == null) {
+        if (requestParameters['chatMessageRead'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataChatMessageRead',
-                'Required parameter "edgeApiDataChatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdMessagesRead().'
+                'chatMessageRead',
+                'Required parameter "chatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdMessagesRead().'
             );
         }
 
@@ -811,7 +811,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataChatMessageReadToJSON(requestParameters['edgeApiDataChatMessageRead']),
+            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -833,10 +833,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             );
         }
 
-        if (requestParameters['edgeApiDataChatMessageRead'] == null) {
+        if (requestParameters['chatMessageRead'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataChatMessageRead',
-                'Required parameter "edgeApiDataChatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdOobRead().'
+                'chatMessageRead',
+                'Required parameter "chatMessageRead" was null or undefined when calling postApiV1ChatsByRoomIdOobRead().'
             );
         }
 
@@ -871,7 +871,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataChatMessageReadToJSON(requestParameters['edgeApiDataChatMessageRead']),
+            body: ChatMessageReadToJSON(requestParameters['chatMessageRead']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -885,7 +885,7 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
 
     /**
      */
-    async postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['roomId'] == null) {
             throw new runtime.RequiredError(
                 'roomId',
@@ -893,10 +893,10 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             );
         }
 
-        if (requestParameters['edgeApiDataChatOobWatching'] == null) {
+        if (requestParameters['chatOobWatching'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataChatOobWatching',
-                'Required parameter "edgeApiDataChatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdOobWatching().'
+                'chatOobWatching',
+                'Required parameter "chatOobWatching" was null or undefined when calling postApiV1ChatsByRoomIdOobWatching().'
             );
         }
 
@@ -931,15 +931,15 @@ export class ChatControllerApi extends runtime.BaseAPI implements ChatController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataChatOobWatchingToJSON(requestParameters['edgeApiDataChatOobWatching']),
+            body: ChatOobWatchingToJSON(requestParameters['chatOobWatching']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1ChatsByRoomIdOobWatching(requestParameters: PostApiV1ChatsByRoomIdOobWatchingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1ChatsByRoomIdOobWatchingRaw(requestParameters, initOverrides);
         return await response.value();
     }

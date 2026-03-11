@@ -12,25 +12,37 @@ import AnyCodable
 
 public struct PosApiDataDeliveryRouteResp: Codable, JSONEncodable, Hashable {
 
-    public var deliveryRouteId: String?
-    public var deliveryRouteName: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataDeliveryRouteResp2]?
 
-    public init(deliveryRouteId: String? = nil, deliveryRouteName: String? = nil) {
-        self.deliveryRouteId = deliveryRouteId
-        self.deliveryRouteName = deliveryRouteName
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataDeliveryRouteResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case deliveryRouteId
-        case deliveryRouteName
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(deliveryRouteId, forKey: .deliveryRouteId)
-        try container.encodeIfPresent(deliveryRouteName, forKey: .deliveryRouteName)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

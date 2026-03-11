@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyActivitiesActivity } from './BountyActivitiesActivity';
+import type { Activity } from './Activity';
 import {
-    BountyActivitiesActivityFromJSON,
-    BountyActivitiesActivityFromJSONTyped,
-    BountyActivitiesActivityToJSON,
-    BountyActivitiesActivityToJSONTyped,
-} from './BountyActivitiesActivity';
+    ActivityFromJSON,
+    ActivityFromJSONTyped,
+    ActivityToJSON,
+    ActivityToJSONTyped,
+} from './Activity';
 
 /**
  * 
@@ -29,22 +29,22 @@ import {
 export interface BountyActivities {
     /**
      * 
-     * @type {BountyActivitiesActivity}
+     * @type {Activity}
      * @memberof BountyActivities
      */
-    nextActivity?: BountyActivitiesActivity;
+    nextActivity?: Activity;
     /**
      * 
-     * @type {BountyActivitiesActivity}
+     * @type {Activity}
      * @memberof BountyActivities
      */
-    previousActivity?: BountyActivitiesActivity;
+    previousActivity?: Activity;
     /**
      * 
-     * @type {{ [key: string]: BountyActivitiesActivity; }}
+     * @type {{ [key: string]: Activity; }}
      * @memberof BountyActivities
      */
-    highlightedActivities?: { [key: string]: BountyActivitiesActivity; };
+    highlightedActivities?: { [key: string]: Activity; };
     /**
      * 
      * @type {string}
@@ -76,9 +76,9 @@ export function BountyActivitiesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'nextActivity': json['nextActivity'] == null ? undefined : BountyActivitiesActivityFromJSON(json['nextActivity']),
-        'previousActivity': json['previousActivity'] == null ? undefined : BountyActivitiesActivityFromJSON(json['previousActivity']),
-        'highlightedActivities': json['highlightedActivities'] == null ? undefined : (mapValues(json['highlightedActivities'], BountyActivitiesActivityFromJSON)),
+        'nextActivity': json['nextActivity'] == null ? undefined : ActivityFromJSON(json['nextActivity']),
+        'previousActivity': json['previousActivity'] == null ? undefined : ActivityFromJSON(json['previousActivity']),
+        'highlightedActivities': json['highlightedActivities'] == null ? undefined : (mapValues(json['highlightedActivities'], ActivityFromJSON)),
         'nextBountyId': json['nextBountyId'] == null ? undefined : json['nextBountyId'],
         'previousBountyId': json['previousBountyId'] == null ? undefined : json['previousBountyId'],
     };
@@ -95,9 +95,9 @@ export function BountyActivitiesToJSONTyped(value?: BountyActivities | null, ign
 
     return {
         
-        'nextActivity': BountyActivitiesActivityToJSON(value['nextActivity']),
-        'previousActivity': BountyActivitiesActivityToJSON(value['previousActivity']),
-        'highlightedActivities': value['highlightedActivities'] == null ? undefined : (mapValues(value['highlightedActivities'], BountyActivitiesActivityToJSON)),
+        'nextActivity': ActivityToJSON(value['nextActivity']),
+        'previousActivity': ActivityToJSON(value['previousActivity']),
+        'highlightedActivities': value['highlightedActivities'] == null ? undefined : (mapValues(value['highlightedActivities'], ActivityToJSON)),
         'nextBountyId': value['nextBountyId'],
         'previousBountyId': value['previousBountyId'],
     };

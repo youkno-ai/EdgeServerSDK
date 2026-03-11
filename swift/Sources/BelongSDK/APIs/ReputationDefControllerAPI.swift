@@ -116,10 +116,10 @@ open class ReputationDefControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageBaseSettingsReputationDef
+     - returns: BaseSettingsReputationDef2
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1ReputationsDefs(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageBaseSettingsReputationDef {
+    open class func getApiV1ReputationsDefs(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BaseSettingsReputationDef2 {
         return try await getApiV1ReputationsDefsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -131,9 +131,9 @@ open class ReputationDefControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageBaseSettingsReputationDef> 
+     - returns: RequestBuilder<BaseSettingsReputationDef2> 
      */
-    open class func getApiV1ReputationsDefsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageBaseSettingsReputationDef> {
+    open class func getApiV1ReputationsDefsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BaseSettingsReputationDef2> {
         let localVariablePath = "/api/v1/reputations/defs"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -148,7 +148,7 @@ open class ReputationDefControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBaseSettingsReputationDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BaseSettingsReputationDef2>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -248,15 +248,15 @@ open class ReputationDefControllerAPI {
     /**
 
      - parameter reputationCode: (path)  
-     - parameter edgeApiDataAssignReputationReq: (body)  
+     - parameter assignReputationReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserReputation
+     - returns: Reputation
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1ReputationsDefsByReputationcodeAssign(reputationCode: String, edgeApiDataAssignReputationReq: EdgeApiDataAssignReputationReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserReputation {
-        return try await postApiV1ReputationsDefsByReputationcodeAssignWithRequestBuilder(reputationCode: reputationCode, edgeApiDataAssignReputationReq: edgeApiDataAssignReputationReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1ReputationsDefsByReputationcodeAssign(reputationCode: String, assignReputationReq: AssignReputationReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Reputation {
+        return try await postApiV1ReputationsDefsByReputationcodeAssignWithRequestBuilder(reputationCode: reputationCode, assignReputationReq: assignReputationReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -265,19 +265,19 @@ open class ReputationDefControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter reputationCode: (path)  
-     - parameter edgeApiDataAssignReputationReq: (body)  
+     - parameter assignReputationReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserReputation> 
+     - returns: RequestBuilder<Reputation> 
      */
-    open class func postApiV1ReputationsDefsByReputationcodeAssignWithRequestBuilder(reputationCode: String, edgeApiDataAssignReputationReq: EdgeApiDataAssignReputationReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserReputation> {
+    open class func postApiV1ReputationsDefsByReputationcodeAssignWithRequestBuilder(reputationCode: String, assignReputationReq: AssignReputationReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Reputation> {
         var localVariablePath = "/api/v1/reputations/defs/{reputationCode}/assign"
         let reputationCodePreEscape = "\(APIHelper.mapValueToPathItem(reputationCode))"
         let reputationCodePostEscape = reputationCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{reputationCode}", with: reputationCodePostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataAssignReputationReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: assignReputationReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -290,7 +290,7 @@ open class ReputationDefControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserReputation>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Reputation>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

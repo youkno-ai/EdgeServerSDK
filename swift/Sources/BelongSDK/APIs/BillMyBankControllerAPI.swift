@@ -14,15 +14,15 @@ open class BillMyBankControllerAPI {
 
     /**
 
-     - parameter thirdpartiesBillMyBankAPISignedPayload: (body)  
+     - parameter signedPayload: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BmbPaymentsWebhook(thirdpartiesBillMyBankAPISignedPayload: ThirdpartiesBillMyBankAPISignedPayload, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1BmbPaymentsWebhookWithRequestBuilder(thirdpartiesBillMyBankAPISignedPayload: thirdpartiesBillMyBankAPISignedPayload, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1BmbPaymentsWebhook(signedPayload: SignedPayload, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1BmbPaymentsWebhookWithRequestBuilder(signedPayload: signedPayload, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -30,16 +30,16 @@ open class BillMyBankControllerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: JWT
-     - parameter thirdpartiesBillMyBankAPISignedPayload: (body)  
+     - parameter signedPayload: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1BmbPaymentsWebhookWithRequestBuilder(thirdpartiesBillMyBankAPISignedPayload: ThirdpartiesBillMyBankAPISignedPayload, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1BmbPaymentsWebhookWithRequestBuilder(signedPayload: SignedPayload, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         let localVariablePath = "/api/v1/bmb/payments/webhook"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: thirdpartiesBillMyBankAPISignedPayload)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signedPayload)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

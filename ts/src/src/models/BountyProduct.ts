@@ -13,6 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Options } from './Options';
+import {
+    OptionsFromJSON,
+    OptionsFromJSONTyped,
+    OptionsToJSON,
+    OptionsToJSONTyped,
+} from './Options';
+import type { PrivateListingInfo } from './PrivateListingInfo';
+import {
+    PrivateListingInfoFromJSON,
+    PrivateListingInfoFromJSONTyped,
+    PrivateListingInfoToJSON,
+    PrivateListingInfoToJSONTyped,
+} from './PrivateListingInfo';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -20,34 +34,20 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
-import type { BountyProductProductSpecificInfoChemicalInfo } from './BountyProductProductSpecificInfoChemicalInfo';
+import type { ProductSpecificInfo } from './ProductSpecificInfo';
 import {
-    BountyProductProductSpecificInfoChemicalInfoFromJSON,
-    BountyProductProductSpecificInfoChemicalInfoFromJSONTyped,
-    BountyProductProductSpecificInfoChemicalInfoToJSON,
-    BountyProductProductSpecificInfoChemicalInfoToJSONTyped,
-} from './BountyProductProductSpecificInfoChemicalInfo';
-import type { BountyProductProductSpecificInfo } from './BountyProductProductSpecificInfo';
+    ProductSpecificInfoFromJSON,
+    ProductSpecificInfoFromJSONTyped,
+    ProductSpecificInfoToJSON,
+    ProductSpecificInfoToJSONTyped,
+} from './ProductSpecificInfo';
+import type { ProductSpecificInfoChemicalInfo } from './ProductSpecificInfoChemicalInfo';
 import {
-    BountyProductProductSpecificInfoFromJSON,
-    BountyProductProductSpecificInfoFromJSONTyped,
-    BountyProductProductSpecificInfoToJSON,
-    BountyProductProductSpecificInfoToJSONTyped,
-} from './BountyProductProductSpecificInfo';
-import type { PrivateListingPrivateListingInfo } from './PrivateListingPrivateListingInfo';
-import {
-    PrivateListingPrivateListingInfoFromJSON,
-    PrivateListingPrivateListingInfoFromJSONTyped,
-    PrivateListingPrivateListingInfoToJSON,
-    PrivateListingPrivateListingInfoToJSONTyped,
-} from './PrivateListingPrivateListingInfo';
-import type { BountyProductOptions } from './BountyProductOptions';
-import {
-    BountyProductOptionsFromJSON,
-    BountyProductOptionsFromJSONTyped,
-    BountyProductOptionsToJSON,
-    BountyProductOptionsToJSONTyped,
-} from './BountyProductOptions';
+    ProductSpecificInfoChemicalInfoFromJSON,
+    ProductSpecificInfoChemicalInfoFromJSONTyped,
+    ProductSpecificInfoChemicalInfoToJSON,
+    ProductSpecificInfoChemicalInfoToJSONTyped,
+} from './ProductSpecificInfoChemicalInfo';
 
 /**
  * 
@@ -93,10 +93,10 @@ export interface BountyProduct {
     shopifyStoreName?: string;
     /**
      * 
-     * @type {PrivateListingPrivateListingInfo}
+     * @type {PrivateListingInfo}
      * @memberof BountyProduct
      */
-    privateListingInfo?: PrivateListingPrivateListingInfo;
+    privateListingInfo?: PrivateListingInfo;
     /**
      * 
      * @type {string}
@@ -141,10 +141,10 @@ export interface BountyProduct {
     published?: boolean;
     /**
      * 
-     * @type {BountyProductOptions}
+     * @type {Options}
      * @memberof BountyProduct
      */
-    options?: BountyProductOptions;
+    options?: Options;
     /**
      * 
      * @type {string}
@@ -177,10 +177,10 @@ export interface BountyProduct {
     deliveryType?: string;
     /**
      * 
-     * @type {{ [key: string]: BountyProductProductSpecificInfo; }}
+     * @type {{ [key: string]: ProductSpecificInfo; }}
      * @memberof BountyProduct
      */
-    variants?: { [key: string]: BountyProductProductSpecificInfo; };
+    variants?: { [key: string]: ProductSpecificInfo; };
     /**
      * 
      * @type {any}
@@ -201,46 +201,16 @@ export interface BountyProduct {
     categoryOrder?: number;
     /**
      * 
-     * @type {{ [key: string]: BountyProductProductSpecificInfoChemicalInfo; }}
+     * @type {{ [key: string]: ProductSpecificInfoChemicalInfo; }}
      * @memberof BountyProduct
      */
-    chemicalCompositions?: { [key: string]: BountyProductProductSpecificInfoChemicalInfo; };
+    chemicalCompositions?: { [key: string]: ProductSpecificInfoChemicalInfo; };
     /**
      * 
      * @type {boolean}
      * @memberof BountyProduct
      */
     valid?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyProduct
-     */
-    zoneAsEnum?: BountyProductZoneAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyProduct
-     */
-    fastDelivery?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof BountyProduct
-     */
-    totalQuantity?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof BountyProduct
-     */
-    optionCount?: number;
-    /**
-     * 
-     * @type {BountyProductProductSpecificInfo}
-     * @memberof BountyProduct
-     */
-    topLevelVariant?: BountyProductProductSpecificInfo;
     /**
      * 
      * @type {string}
@@ -255,28 +225,48 @@ export interface BountyProduct {
     kindAsEnum?: BountyProductKindAsEnumEnum;
     /**
      * 
+     * @type {ProductSpecificInfo}
+     * @memberof BountyProduct
+     */
+    topLevelVariant?: ProductSpecificInfo;
+    /**
+     * 
+     * @type {number}
+     * @memberof BountyProduct
+     */
+    optionCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof BountyProduct
+     */
+    totalQuantity?: number;
+    /**
+     * 
      * @type {string}
      * @memberof BountyProduct
      */
-    effectiveZoneAsEnum?: BountyProductEffectiveZoneAsEnumEnum;
+    zoneAsEnum?: BountyProductZoneAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof BountyProduct
+     */
+    fastDelivery?: boolean;
     /**
      * 
      * @type {string}
      * @memberof BountyProduct
      */
     deliveryTypeAsEnum?: BountyProductDeliveryTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BountyProduct
+     */
+    effectiveZoneAsEnum?: BountyProductEffectiveZoneAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const BountyProductZoneAsEnumEnum = {
-    SHOP: 'SHOP',
-    FNB: 'FNB',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyProductZoneAsEnumEnum = typeof BountyProductZoneAsEnumEnum[keyof typeof BountyProductZoneAsEnumEnum];
 
 /**
  * @export
@@ -295,12 +285,12 @@ export type BountyProductKindAsEnumEnum = typeof BountyProductKindAsEnumEnum[key
 /**
  * @export
  */
-export const BountyProductEffectiveZoneAsEnumEnum = {
+export const BountyProductZoneAsEnumEnum = {
     SHOP: 'SHOP',
     FNB: 'FNB',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type BountyProductEffectiveZoneAsEnumEnum = typeof BountyProductEffectiveZoneAsEnumEnum[keyof typeof BountyProductEffectiveZoneAsEnumEnum];
+export type BountyProductZoneAsEnumEnum = typeof BountyProductZoneAsEnumEnum[keyof typeof BountyProductZoneAsEnumEnum];
 
 /**
  * @export
@@ -312,6 +302,16 @@ export const BountyProductDeliveryTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyProductDeliveryTypeAsEnumEnum = typeof BountyProductDeliveryTypeAsEnumEnum[keyof typeof BountyProductDeliveryTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BountyProductEffectiveZoneAsEnumEnum = {
+    SHOP: 'SHOP',
+    FNB: 'FNB',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BountyProductEffectiveZoneAsEnumEnum = typeof BountyProductEffectiveZoneAsEnumEnum[keyof typeof BountyProductEffectiveZoneAsEnumEnum];
 
 
 /**
@@ -337,7 +337,7 @@ export function BountyProductFromJSONTyped(json: any, ignoreDiscriminator: boole
         'merchantSku': json['merchantSku'] == null ? undefined : json['merchantSku'],
         'shopifyId': json['shopifyId'] == null ? undefined : json['shopifyId'],
         'shopifyStoreName': json['shopifyStoreName'] == null ? undefined : json['shopifyStoreName'],
-        'privateListingInfo': json['privateListingInfo'] == null ? undefined : PrivateListingPrivateListingInfoFromJSON(json['privateListingInfo']),
+        'privateListingInfo': json['privateListingInfo'] == null ? undefined : PrivateListingInfoFromJSON(json['privateListingInfo']),
         'handle': json['handle'] == null ? undefined : json['handle'],
         'kind': json['kind'] == null ? undefined : json['kind'],
         'type': json['type'] == null ? undefined : json['type'],
@@ -345,27 +345,27 @@ export function BountyProductFromJSONTyped(json: any, ignoreDiscriminator: boole
         'description': json['description'] == null ? undefined : json['description'],
         'additionalInfo': json['additionalInfo'] == null ? undefined : json['additionalInfo'],
         'published': json['published'] == null ? undefined : json['published'],
-        'options': json['options'] == null ? undefined : BountyProductOptionsFromJSON(json['options']),
+        'options': json['options'] == null ? undefined : OptionsFromJSON(json['options']),
         'attachmentIds': json['attachmentIds'] == null ? undefined : json['attachmentIds'],
         'imageAltText': json['imageAltText'] == null ? undefined : json['imageAltText'],
         'seoTitle': json['seoTitle'] == null ? undefined : json['seoTitle'],
         'seoDescription': json['seoDescription'] == null ? undefined : json['seoDescription'],
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
-        'variants': json['variants'] == null ? undefined : (mapValues(json['variants'], BountyProductProductSpecificInfoFromJSON)),
+        'variants': json['variants'] == null ? undefined : (mapValues(json['variants'], ProductSpecificInfoFromJSON)),
         'googleMetafields': json['googleMetafields'] == null ? undefined : json['googleMetafields'],
         'promotionId': json['promotionId'] == null ? undefined : json['promotionId'],
         'categoryOrder': json['categoryOrder'] == null ? undefined : json['categoryOrder'],
-        'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], BountyProductProductSpecificInfoChemicalInfoFromJSON)),
+        'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ProductSpecificInfoChemicalInfoFromJSON)),
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'zoneAsEnum': json['zoneAsEnum'] == null ? undefined : json['zoneAsEnum'],
-        'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
-        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
-        'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
-        'topLevelVariant': json['topLevelVariant'] == null ? undefined : BountyProductProductSpecificInfoFromJSON(json['topLevelVariant']),
         'effectiveZone': json['effectiveZone'] == null ? undefined : json['effectiveZone'],
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'effectiveZoneAsEnum': json['effectiveZoneAsEnum'] == null ? undefined : json['effectiveZoneAsEnum'],
+        'topLevelVariant': json['topLevelVariant'] == null ? undefined : ProductSpecificInfoFromJSON(json['topLevelVariant']),
+        'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
+        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
+        'zoneAsEnum': json['zoneAsEnum'] == null ? undefined : json['zoneAsEnum'],
+        'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
         'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
+        'effectiveZoneAsEnum': json['effectiveZoneAsEnum'] == null ? undefined : json['effectiveZoneAsEnum'],
     };
 }
 
@@ -386,7 +386,7 @@ export function BountyProductToJSONTyped(value?: BountyProduct | null, ignoreDis
         'merchantSku': value['merchantSku'],
         'shopifyId': value['shopifyId'],
         'shopifyStoreName': value['shopifyStoreName'],
-        'privateListingInfo': PrivateListingPrivateListingInfoToJSON(value['privateListingInfo']),
+        'privateListingInfo': PrivateListingInfoToJSON(value['privateListingInfo']),
         'handle': value['handle'],
         'kind': value['kind'],
         'type': value['type'],
@@ -394,27 +394,27 @@ export function BountyProductToJSONTyped(value?: BountyProduct | null, ignoreDis
         'description': value['description'],
         'additionalInfo': value['additionalInfo'],
         'published': value['published'],
-        'options': BountyProductOptionsToJSON(value['options']),
+        'options': OptionsToJSON(value['options']),
         'attachmentIds': value['attachmentIds'],
         'imageAltText': value['imageAltText'],
         'seoTitle': value['seoTitle'],
         'seoDescription': value['seoDescription'],
         'deliveryType': value['deliveryType'],
-        'variants': value['variants'] == null ? undefined : (mapValues(value['variants'], BountyProductProductSpecificInfoToJSON)),
+        'variants': value['variants'] == null ? undefined : (mapValues(value['variants'], ProductSpecificInfoToJSON)),
         'googleMetafields': value['googleMetafields'],
         'promotionId': value['promotionId'],
         'categoryOrder': value['categoryOrder'],
-        'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], BountyProductProductSpecificInfoChemicalInfoToJSON)),
+        'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ProductSpecificInfoChemicalInfoToJSON)),
         'valid': value['valid'],
-        'zoneAsEnum': value['zoneAsEnum'],
-        'fastDelivery': value['fastDelivery'],
-        'totalQuantity': value['totalQuantity'],
-        'optionCount': value['optionCount'],
-        'topLevelVariant': BountyProductProductSpecificInfoToJSON(value['topLevelVariant']),
         'effectiveZone': value['effectiveZone'],
         'kindAsEnum': value['kindAsEnum'],
-        'effectiveZoneAsEnum': value['effectiveZoneAsEnum'],
+        'topLevelVariant': ProductSpecificInfoToJSON(value['topLevelVariant']),
+        'optionCount': value['optionCount'],
+        'totalQuantity': value['totalQuantity'],
+        'zoneAsEnum': value['zoneAsEnum'],
+        'fastDelivery': value['fastDelivery'],
         'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
+        'effectiveZoneAsEnum': value['effectiveZoneAsEnum'],
     };
 }
 

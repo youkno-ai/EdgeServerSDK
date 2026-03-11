@@ -17,9 +17,9 @@ public struct Transaction: Codable, JSONEncodable, Hashable {
     public var bountyType: String?
     public var livePayment: Bool?
     public var createdAt: Int64?
-    public var lines: [TransactionTransactionLine]?
+    public var lines: [TransactionLine]?
 
-    public init(transactionId: String? = nil, bountyId: String? = nil, bountyType: String? = nil, livePayment: Bool? = nil, createdAt: Int64? = nil, lines: [TransactionTransactionLine]? = nil) {
+    public init(transactionId: String? = nil, bountyId: String? = nil, bountyType: String? = nil, livePayment: Bool? = nil, createdAt: Int64? = nil, lines: [TransactionLine]? = nil) {
         self.transactionId = transactionId
         self.bountyId = bountyId
         self.bountyType = bountyType

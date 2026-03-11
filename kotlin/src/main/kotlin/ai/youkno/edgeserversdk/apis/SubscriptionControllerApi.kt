@@ -6,15 +6,15 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
+import ai.youkno.edgeserversdk.models.AdminCancelSubscriptionRequest
+import ai.youkno.edgeserversdk.models.ChangeSubscriptionTierRequest
 import ai.youkno.edgeserversdk.models.ChangeSubscriptionTierResult
-import ai.youkno.edgeserversdk.models.RestControllerSubscriptionControllerAdminCancelSubscriptionRequest
-import ai.youkno.edgeserversdk.models.RestControllerSubscriptionControllerChangeSubscriptionTierRequest
-import ai.youkno.edgeserversdk.models.RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest
-import ai.youkno.edgeserversdk.models.ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult
+import ai.youkno.edgeserversdk.models.StartSubscriptionCheckoutRequest
 import ai.youkno.edgeserversdk.models.StartSubscriptionCheckoutResult
 import ai.youkno.edgeserversdk.models.SubscriptionCatalogPageView
 import ai.youkno.edgeserversdk.models.SubscriptionCatalogView
 import ai.youkno.edgeserversdk.models.SubscriptionMutationResult
+import ai.youkno.edgeserversdk.models.SyncResult
 import ai.youkno.edgeserversdk.models.UserSubscriptionView
 
 interface SubscriptionControllerApi {
@@ -123,11 +123,11 @@ interface SubscriptionControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param restControllerSubscriptionControllerAdminCancelSubscriptionRequest  (optional)
+     * @param adminCancelSubscriptionRequest  (optional)
      * @return [Call]<[SubscriptionMutationResult]>
      */
     @POST("api/v1/subscriptions/admin/{subscriptionId}/cancel-immediately")
-    fun postApiV1SubscriptionsAdminBySubscriptionidCancelImmediately(@Path("subscriptionId") subscriptionId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body restControllerSubscriptionControllerAdminCancelSubscriptionRequest: RestControllerSubscriptionControllerAdminCancelSubscriptionRequest? = null): Call<SubscriptionMutationResult>
+    fun postApiV1SubscriptionsAdminBySubscriptionidCancelImmediately(@Path("subscriptionId") subscriptionId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body adminCancelSubscriptionRequest: AdminCancelSubscriptionRequest? = null): Call<SubscriptionMutationResult>
 
     /**
      * POST api/v1/subscriptions/admin/{subscriptionId}/rebuild-entitlements
@@ -140,10 +140,10 @@ interface SubscriptionControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult]>
+     * @return [Call]<[SyncResult]>
      */
     @POST("api/v1/subscriptions/admin/{subscriptionId}/rebuild-entitlements")
-    fun postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(@Path("subscriptionId") subscriptionId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>
+    fun postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(@Path("subscriptionId") subscriptionId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SyncResult>
 
     /**
      * POST api/v1/subscriptions/admin/users/{userId}/rebuild-entitlements
@@ -156,10 +156,10 @@ interface SubscriptionControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>]>
+     * @return [Call]<[kotlin.collections.List<SyncResult>]>
      */
     @POST("api/v1/subscriptions/admin/users/{userId}/rebuild-entitlements")
-    fun postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>>
+    fun postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<SyncResult>>
 
     /**
      * POST api/v1/subscriptions/me/{subscriptionId}/cancel-at-period-end
@@ -185,14 +185,14 @@ interface SubscriptionControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionControllerChangeSubscriptionTierRequest 
+     * @param changeSubscriptionTierRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[ChangeSubscriptionTierResult]>
      */
     @POST("api/v1/subscriptions/me/{subscriptionId}/change-tier")
-    fun postApiV1SubscriptionsMeBySubscriptionidChangeTier(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionControllerChangeSubscriptionTierRequest: RestControllerSubscriptionControllerChangeSubscriptionTierRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ChangeSubscriptionTierResult>
+    fun postApiV1SubscriptionsMeBySubscriptionidChangeTier(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body changeSubscriptionTierRequest: ChangeSubscriptionTierRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ChangeSubscriptionTierResult>
 
     /**
      * POST api/v1/subscriptions/me/{subscriptionId}/reverse-cancel
@@ -217,13 +217,13 @@ interface SubscriptionControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerSubscriptionControllerStartSubscriptionCheckoutRequest 
+     * @param startSubscriptionCheckoutRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[StartSubscriptionCheckoutResult]>
      */
     @POST("api/v1/subscriptions/me/checkout")
-    fun postApiV1SubscriptionsMeCheckout(@Body restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartSubscriptionCheckoutResult>
+    fun postApiV1SubscriptionsMeCheckout(@Body startSubscriptionCheckoutRequest: StartSubscriptionCheckoutRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<StartSubscriptionCheckoutResult>
 
 }

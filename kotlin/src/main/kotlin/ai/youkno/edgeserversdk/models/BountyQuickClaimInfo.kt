@@ -27,8 +27,8 @@ import com.squareup.moshi.JsonClass
  * @param claimIntervalMs 
  * @param claimPeriod 
  * @param autoClaim 
- * @param effectiveClaimerResponseCount 
  * @param effectiveClaimInterval 
+ * @param effectiveClaimerResponseCount 
  */
 
 
@@ -46,11 +46,11 @@ data class BountyQuickClaimInfo (
     @Json(name = "autoClaim")
     val autoClaim: kotlin.Boolean? = null,
 
-    @Json(name = "effectiveClaimerResponseCount")
-    val effectiveClaimerResponseCount: kotlin.Int? = null,
-
     @Json(name = "effectiveClaimInterval")
-    val effectiveClaimInterval: kotlin.Long? = null
+    val effectiveClaimInterval: kotlin.Long? = null,
+
+    @Json(name = "effectiveClaimerResponseCount")
+    val effectiveClaimerResponseCount: kotlin.Int? = null
 
 ) {
 

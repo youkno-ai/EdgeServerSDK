@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { UserProfileSelfOnboardingInfo } from './UserProfileSelfOnboardingInfo';
+import type { SelfOnboardingInfo } from './SelfOnboardingInfo';
 import {
-    UserProfileSelfOnboardingInfoFromJSON,
-    UserProfileSelfOnboardingInfoFromJSONTyped,
-    UserProfileSelfOnboardingInfoToJSON,
-    UserProfileSelfOnboardingInfoToJSONTyped,
-} from './UserProfileSelfOnboardingInfo';
-import type { UserProfileMedicalInfo } from './UserProfileMedicalInfo';
+    SelfOnboardingInfoFromJSON,
+    SelfOnboardingInfoFromJSONTyped,
+    SelfOnboardingInfoToJSON,
+    SelfOnboardingInfoToJSONTyped,
+} from './SelfOnboardingInfo';
+import type { MedicalInfo } from './MedicalInfo';
 import {
-    UserProfileMedicalInfoFromJSON,
-    UserProfileMedicalInfoFromJSONTyped,
-    UserProfileMedicalInfoToJSON,
-    UserProfileMedicalInfoToJSONTyped,
-} from './UserProfileMedicalInfo';
+    MedicalInfoFromJSON,
+    MedicalInfoFromJSONTyped,
+    MedicalInfoToJSON,
+    MedicalInfoToJSONTyped,
+} from './MedicalInfo';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -34,13 +34,6 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
-import type { UserProfileBasicInfo } from './UserProfileBasicInfo';
-import {
-    UserProfileBasicInfoFromJSON,
-    UserProfileBasicInfoFromJSONTyped,
-    UserProfileBasicInfoToJSON,
-    UserProfileBasicInfoToJSONTyped,
-} from './UserProfileBasicInfo';
 import type { Badges } from './Badges';
 import {
     BadgesFromJSON,
@@ -48,13 +41,27 @@ import {
     BadgesToJSON,
     BadgesToJSONTyped,
 } from './Badges';
-import type { UserProfileDriverLicenseInfo } from './UserProfileDriverLicenseInfo';
+import type { InterestsInfo } from './InterestsInfo';
 import {
-    UserProfileDriverLicenseInfoFromJSON,
-    UserProfileDriverLicenseInfoFromJSONTyped,
-    UserProfileDriverLicenseInfoToJSON,
-    UserProfileDriverLicenseInfoToJSONTyped,
-} from './UserProfileDriverLicenseInfo';
+    InterestsInfoFromJSON,
+    InterestsInfoFromJSONTyped,
+    InterestsInfoToJSON,
+    InterestsInfoToJSONTyped,
+} from './InterestsInfo';
+import type { AgeRange } from './AgeRange';
+import {
+    AgeRangeFromJSON,
+    AgeRangeFromJSONTyped,
+    AgeRangeToJSON,
+    AgeRangeToJSONTyped,
+} from './AgeRange';
+import type { BasicInfo } from './BasicInfo';
+import {
+    BasicInfoFromJSON,
+    BasicInfoFromJSONTyped,
+    BasicInfoToJSON,
+    BasicInfoToJSONTyped,
+} from './BasicInfo';
 import type { UserProfileWebsiteInfo } from './UserProfileWebsiteInfo';
 import {
     UserProfileWebsiteInfoFromJSON,
@@ -69,20 +76,13 @@ import {
     AttachmentsToJSON,
     AttachmentsToJSONTyped,
 } from './Attachments';
-import type { UserProfileAgeRange } from './UserProfileAgeRange';
+import type { DriverLicenseInfo } from './DriverLicenseInfo';
 import {
-    UserProfileAgeRangeFromJSON,
-    UserProfileAgeRangeFromJSONTyped,
-    UserProfileAgeRangeToJSON,
-    UserProfileAgeRangeToJSONTyped,
-} from './UserProfileAgeRange';
-import type { UserProfileInterestsInfo } from './UserProfileInterestsInfo';
-import {
-    UserProfileInterestsInfoFromJSON,
-    UserProfileInterestsInfoFromJSONTyped,
-    UserProfileInterestsInfoToJSON,
-    UserProfileInterestsInfoToJSONTyped,
-} from './UserProfileInterestsInfo';
+    DriverLicenseInfoFromJSON,
+    DriverLicenseInfoFromJSONTyped,
+    DriverLicenseInfoToJSON,
+    DriverLicenseInfoToJSONTyped,
+} from './DriverLicenseInfo';
 import type { UserProfileStats } from './UserProfileStats';
 import {
     UserProfileStatsFromJSON,
@@ -195,40 +195,40 @@ export interface UserProfile {
     createdAt?: number;
     /**
      * 
-     * @type {UserProfileBasicInfo}
+     * @type {BasicInfo}
      * @memberof UserProfile
      */
-    basicInfo?: UserProfileBasicInfo;
+    basicInfo?: BasicInfo;
     /**
      * 
-     * @type {UserProfileMedicalInfo}
+     * @type {MedicalInfo}
      * @memberof UserProfile
      */
-    medicalInfo?: UserProfileMedicalInfo;
+    medicalInfo?: MedicalInfo;
     /**
      * 
-     * @type {UserProfileDriverLicenseInfo}
+     * @type {DriverLicenseInfo}
      * @memberof UserProfile
      */
-    driverLicenseInfo?: UserProfileDriverLicenseInfo;
+    driverLicenseInfo?: DriverLicenseInfo;
     /**
      * 
-     * @type {UserProfileInterestsInfo}
+     * @type {InterestsInfo}
      * @memberof UserProfile
      */
-    interestsInfo?: UserProfileInterestsInfo;
+    interestsInfo?: InterestsInfo;
     /**
      * 
-     * @type {UserProfileAgeRange}
+     * @type {AgeRange}
      * @memberof UserProfile
      */
-    ageRange?: UserProfileAgeRange;
+    ageRange?: AgeRange;
     /**
      * 
-     * @type {UserProfileSelfOnboardingInfo}
+     * @type {SelfOnboardingInfo}
      * @memberof UserProfile
      */
-    selfOnboardingInfo?: UserProfileSelfOnboardingInfo;
+    selfOnboardingInfo?: SelfOnboardingInfo;
     /**
      * 
      * @type {boolean}
@@ -282,12 +282,12 @@ export function UserProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'badges': json['badges'] == null ? undefined : BadgesFromJSON(json['badges']),
         'stats': json['stats'] == null ? undefined : UserProfileStatsFromJSON(json['stats']),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'basicInfo': json['basicInfo'] == null ? undefined : UserProfileBasicInfoFromJSON(json['basicInfo']),
-        'medicalInfo': json['medicalInfo'] == null ? undefined : UserProfileMedicalInfoFromJSON(json['medicalInfo']),
-        'driverLicenseInfo': json['driverLicenseInfo'] == null ? undefined : UserProfileDriverLicenseInfoFromJSON(json['driverLicenseInfo']),
-        'interestsInfo': json['interestsInfo'] == null ? undefined : UserProfileInterestsInfoFromJSON(json['interestsInfo']),
-        'ageRange': json['ageRange'] == null ? undefined : UserProfileAgeRangeFromJSON(json['ageRange']),
-        'selfOnboardingInfo': json['selfOnboardingInfo'] == null ? undefined : UserProfileSelfOnboardingInfoFromJSON(json['selfOnboardingInfo']),
+        'basicInfo': json['basicInfo'] == null ? undefined : BasicInfoFromJSON(json['basicInfo']),
+        'medicalInfo': json['medicalInfo'] == null ? undefined : MedicalInfoFromJSON(json['medicalInfo']),
+        'driverLicenseInfo': json['driverLicenseInfo'] == null ? undefined : DriverLicenseInfoFromJSON(json['driverLicenseInfo']),
+        'interestsInfo': json['interestsInfo'] == null ? undefined : InterestsInfoFromJSON(json['interestsInfo']),
+        'ageRange': json['ageRange'] == null ? undefined : AgeRangeFromJSON(json['ageRange']),
+        'selfOnboardingInfo': json['selfOnboardingInfo'] == null ? undefined : SelfOnboardingInfoFromJSON(json['selfOnboardingInfo']),
         'livePaymentMode': json['livePaymentMode'] == null ? undefined : json['livePaymentMode'],
         'segment': json['segment'] == null ? undefined : json['segment'],
         'entityId': json['entityId'] == null ? undefined : json['entityId'],
@@ -321,12 +321,12 @@ export function UserProfileToJSONTyped(value?: UserProfile | null, ignoreDiscrim
         'badges': BadgesToJSON(value['badges']),
         'stats': UserProfileStatsToJSON(value['stats']),
         'createdAt': value['createdAt'],
-        'basicInfo': UserProfileBasicInfoToJSON(value['basicInfo']),
-        'medicalInfo': UserProfileMedicalInfoToJSON(value['medicalInfo']),
-        'driverLicenseInfo': UserProfileDriverLicenseInfoToJSON(value['driverLicenseInfo']),
-        'interestsInfo': UserProfileInterestsInfoToJSON(value['interestsInfo']),
-        'ageRange': UserProfileAgeRangeToJSON(value['ageRange']),
-        'selfOnboardingInfo': UserProfileSelfOnboardingInfoToJSON(value['selfOnboardingInfo']),
+        'basicInfo': BasicInfoToJSON(value['basicInfo']),
+        'medicalInfo': MedicalInfoToJSON(value['medicalInfo']),
+        'driverLicenseInfo': DriverLicenseInfoToJSON(value['driverLicenseInfo']),
+        'interestsInfo': InterestsInfoToJSON(value['interestsInfo']),
+        'ageRange': AgeRangeToJSON(value['ageRange']),
+        'selfOnboardingInfo': SelfOnboardingInfoToJSON(value['selfOnboardingInfo']),
         'livePaymentMode': value['livePaymentMode'],
         'segment': value['segment'],
         'entityId': value['entityId'],

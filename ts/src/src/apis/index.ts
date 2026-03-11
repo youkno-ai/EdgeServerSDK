@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './AccessGateControllerApi';
 export * from './AccessKeyControllerApi';
 export * from './AccountControllerApi';
 export * from './AiControllerApi';

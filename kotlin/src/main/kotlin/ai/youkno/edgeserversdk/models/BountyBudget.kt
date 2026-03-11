@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyBudgetBudgetCurrency
+import ai.youkno.edgeserversdk.models.BudgetCurrency
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
 data class BountyBudget (
 
     @Json(name = "currencies")
-    val currencies: kotlin.collections.Map<kotlin.String, BountyBudgetBudgetCurrency>? = null,
+    val currencies: kotlin.collections.Map<kotlin.String, BudgetCurrency>? = null,
 
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,

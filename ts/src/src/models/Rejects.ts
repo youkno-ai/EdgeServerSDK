@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { RejectsReject } from './RejectsReject';
+import type { Reject } from './Reject';
 import {
-    RejectsRejectFromJSON,
-    RejectsRejectFromJSONTyped,
-    RejectsRejectToJSON,
-    RejectsRejectToJSONTyped,
-} from './RejectsReject';
+    RejectFromJSON,
+    RejectFromJSONTyped,
+    RejectToJSON,
+    RejectToJSONTyped,
+} from './Reject';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface Rejects {
     /**
      * 
-     * @type {{ [key: string]: RejectsReject; }}
+     * @type {{ [key: string]: Reject; }}
      * @memberof Rejects
      */
-    rejects?: { [key: string]: RejectsReject; };
+    rejects?: { [key: string]: Reject; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function RejectsFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
     }
     return {
         
-        'rejects': json['rejects'] == null ? undefined : (mapValues(json['rejects'], RejectsRejectFromJSON)),
+        'rejects': json['rejects'] == null ? undefined : (mapValues(json['rejects'], RejectFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function RejectsToJSONTyped(value?: Rejects | null, ignoreDiscriminator: 
 
     return {
         
-        'rejects': value['rejects'] == null ? undefined : (mapValues(value['rejects'], RejectsRejectToJSON)),
+        'rejects': value['rejects'] == null ? undefined : (mapValues(value['rejects'], RejectToJSON)),
     };
 }
 

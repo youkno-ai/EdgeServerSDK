@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection,
-  EdgeApiDataTranslateTextResult,
+  DetectedDataDetection,
+  TranslateTextResult,
 } from '../models/index';
 import {
-    EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON,
-    EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionToJSON,
-    EdgeApiDataTranslateTextResultFromJSON,
-    EdgeApiDataTranslateTextResultToJSON,
+    DetectedDataDetectionFromJSON,
+    DetectedDataDetectionToJSON,
+    TranslateTextResultFromJSON,
+    TranslateTextResultToJSON,
 } from '../models/index';
 
 export interface GetApiV1DetectRequest {
@@ -58,11 +58,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>>;
+    getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedDataDetection>>;
 
     /**
      */
-    getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>;
+    getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedDataDetection>;
 
     /**
      * 
@@ -76,11 +76,11 @@ export interface SupportControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SupportControllerApiInterface
      */
-    getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataTranslateTextResult>>;
+    getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>>;
 
     /**
      */
-    getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataTranslateTextResult>;
+    getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult>;
 
 }
 
@@ -91,7 +91,7 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
 
     /**
      */
-    async getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection>> {
+    async getApiV1DetectRaw(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DetectedDataDetection>> {
         if (requestParameters['text'] == null) {
             throw new runtime.RequiredError(
                 'text',
@@ -133,19 +133,19 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetectionFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DetectedDataDetectionFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataDetectedLanguageResultListListThirdpartiesGoogleTranslateAPIDetectedDataDetection> {
+    async getApiV1Detect(requestParameters: GetApiV1DetectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DetectedDataDetection> {
         const response = await this.getApiV1DetectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataTranslateTextResult>> {
+    async getApiV1TranslateRaw(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TranslateTextResult>> {
         if (requestParameters['source'] == null) {
             throw new runtime.RequiredError(
                 'source',
@@ -209,12 +209,12 @@ export class SupportControllerApi extends runtime.BaseAPI implements SupportCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataTranslateTextResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TranslateTextResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataTranslateTextResult> {
+    async getApiV1Translate(requestParameters: GetApiV1TranslateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TranslateTextResult> {
         const response = await this.getApiV1TranslateRaw(requestParameters, initOverrides);
         return await response.value();
     }

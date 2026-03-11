@@ -16,7 +16,7 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.Bounty
-import ai.youkno.edgeserversdk.models.PromotionDiscount
+import ai.youkno.edgeserversdk.models.Discount
 import ai.youkno.edgeserversdk.models.Reward
 
 import com.squareup.moshi.Json
@@ -56,7 +56,7 @@ data class Promotion (
     val couponCode: kotlin.String? = null,
 
     @Json(name = "discount")
-    val discount: PromotionDiscount? = null,
+    val discount: Discount? = null,
 
     @Json(name = "startsAt")
     val startsAt: kotlin.Long? = null,

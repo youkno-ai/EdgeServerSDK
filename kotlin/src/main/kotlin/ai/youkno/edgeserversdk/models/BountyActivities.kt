@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyActivitiesActivity
+import ai.youkno.edgeserversdk.models.Activity
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,13 +34,13 @@ import com.squareup.moshi.JsonClass
 data class BountyActivities (
 
     @Json(name = "nextActivity")
-    val nextActivity: BountyActivitiesActivity? = null,
+    val nextActivity: Activity? = null,
 
     @Json(name = "previousActivity")
-    val previousActivity: BountyActivitiesActivity? = null,
+    val previousActivity: Activity? = null,
 
     @Json(name = "highlightedActivities")
-    val highlightedActivities: kotlin.collections.Map<kotlin.String, BountyActivitiesActivity>? = null,
+    val highlightedActivities: kotlin.collections.Map<kotlin.String, Activity>? = null,
 
     @Json(name = "nextBountyId")
     val nextBountyId: kotlin.String? = null,

@@ -18,10 +18,10 @@ open class MerchantControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserProfileSelfOnboardingInfo
+     - returns: SelfOnboardingInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1MerchantByUseridSelfonboarding(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfileSelfOnboardingInfo {
+    open class func getApiV1MerchantByUseridSelfonboarding(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SelfOnboardingInfo {
         return try await getApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -34,9 +34,9 @@ open class MerchantControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserProfileSelfOnboardingInfo> 
+     - returns: RequestBuilder<SelfOnboardingInfo> 
      */
-    open class func getApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfileSelfOnboardingInfo> {
+    open class func getApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SelfOnboardingInfo> {
         var localVariablePath = "/api/v1/merchant/{userId}/selfOnboarding"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -54,7 +54,7 @@ open class MerchantControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserProfileSelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -109,15 +109,15 @@ open class MerchantControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserProfileSelfOnboardingInfo
+     - returns: SelfOnboardingInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func patchApiV1MerchantByUseridSelfonboarding(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfileSelfOnboardingInfo {
-        return try await patchApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: userId, userProfileSelfOnboardingInfo: userProfileSelfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func patchApiV1MerchantByUseridSelfonboarding(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SelfOnboardingInfo {
+        return try await patchApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: userId, selfOnboardingInfo: selfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -126,19 +126,19 @@ open class MerchantControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserProfileSelfOnboardingInfo> 
+     - returns: RequestBuilder<SelfOnboardingInfo> 
      */
-    open class func patchApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfileSelfOnboardingInfo> {
+    open class func patchApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SelfOnboardingInfo> {
         var localVariablePath = "/api/v1/merchant/{userId}/selfOnboarding"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userProfileSelfOnboardingInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: selfOnboardingInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -151,7 +151,7 @@ open class MerchantControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserProfileSelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -159,15 +159,15 @@ open class MerchantControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: UserProfileSelfOnboardingInfo
+     - returns: SelfOnboardingInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1MerchantByUseridSelfonboarding(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfileSelfOnboardingInfo {
-        return try await postApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: userId, userProfileSelfOnboardingInfo: userProfileSelfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1MerchantByUseridSelfonboarding(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SelfOnboardingInfo {
+        return try await postApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: userId, selfOnboardingInfo: selfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -176,19 +176,19 @@ open class MerchantControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<UserProfileSelfOnboardingInfo> 
+     - returns: RequestBuilder<SelfOnboardingInfo> 
      */
-    open class func postApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfileSelfOnboardingInfo> {
+    open class func postApiV1MerchantByUseridSelfonboardingWithRequestBuilder(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SelfOnboardingInfo> {
         var localVariablePath = "/api/v1/merchant/{userId}/selfOnboarding"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userProfileSelfOnboardingInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: selfOnboardingInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -201,7 +201,7 @@ open class MerchantControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserProfileSelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SelfOnboardingInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -209,15 +209,15 @@ open class MerchantControllerAPI {
     /**
 
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCompleteSelfOnboardingResponse
+     - returns: CompleteSelfOnboardingResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1MerchantByUseridSelfonboardingComplete(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCompleteSelfOnboardingResponse {
-        return try await postApiV1MerchantByUseridSelfonboardingCompleteWithRequestBuilder(userId: userId, userProfileSelfOnboardingInfo: userProfileSelfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1MerchantByUseridSelfonboardingComplete(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompleteSelfOnboardingResponse {
+        return try await postApiV1MerchantByUseridSelfonboardingCompleteWithRequestBuilder(userId: userId, selfOnboardingInfo: selfOnboardingInfo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -226,19 +226,19 @@ open class MerchantControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter userId: (path)  
-     - parameter userProfileSelfOnboardingInfo: (body)  
+     - parameter selfOnboardingInfo: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCompleteSelfOnboardingResponse> 
+     - returns: RequestBuilder<CompleteSelfOnboardingResponse> 
      */
-    open class func postApiV1MerchantByUseridSelfonboardingCompleteWithRequestBuilder(userId: String, userProfileSelfOnboardingInfo: UserProfileSelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCompleteSelfOnboardingResponse> {
+    open class func postApiV1MerchantByUseridSelfonboardingCompleteWithRequestBuilder(userId: String, selfOnboardingInfo: SelfOnboardingInfo, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompleteSelfOnboardingResponse> {
         var localVariablePath = "/api/v1/merchant/{userId}/selfOnboarding/complete"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{userId}", with: userIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userProfileSelfOnboardingInfo)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: selfOnboardingInfo)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -251,7 +251,7 @@ open class MerchantControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCompleteSelfOnboardingResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CompleteSelfOnboardingResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

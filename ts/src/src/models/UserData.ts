@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { UserDataLegal } from './UserDataLegal';
-import {
-    UserDataLegalFromJSON,
-    UserDataLegalFromJSONTyped,
-    UserDataLegalToJSON,
-    UserDataLegalToJSONTyped,
-} from './UserDataLegal';
 import type { SearchInfo } from './SearchInfo';
 import {
     SearchInfoFromJSON,
@@ -27,13 +20,6 @@ import {
     SearchInfoToJSON,
     SearchInfoToJSONTyped,
 } from './SearchInfo';
-import type { UserDataFlows } from './UserDataFlows';
-import {
-    UserDataFlowsFromJSON,
-    UserDataFlowsFromJSONTyped,
-    UserDataFlowsToJSON,
-    UserDataFlowsToJSONTyped,
-} from './UserDataFlows';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -48,20 +34,13 @@ import {
     UserDataPromotionInfoToJSON,
     UserDataPromotionInfoToJSONTyped,
 } from './UserDataPromotionInfo';
-import type { UserDataSocialNetworkState } from './UserDataSocialNetworkState';
+import type { SocialNetworkState } from './SocialNetworkState';
 import {
-    UserDataSocialNetworkStateFromJSON,
-    UserDataSocialNetworkStateFromJSONTyped,
-    UserDataSocialNetworkStateToJSON,
-    UserDataSocialNetworkStateToJSONTyped,
-} from './UserDataSocialNetworkState';
-import type { UserDataAccessKeyChain } from './UserDataAccessKeyChain';
-import {
-    UserDataAccessKeyChainFromJSON,
-    UserDataAccessKeyChainFromJSONTyped,
-    UserDataAccessKeyChainToJSON,
-    UserDataAccessKeyChainToJSONTyped,
-} from './UserDataAccessKeyChain';
+    SocialNetworkStateFromJSON,
+    SocialNetworkStateFromJSONTyped,
+    SocialNetworkStateToJSON,
+    SocialNetworkStateToJSONTyped,
+} from './SocialNetworkState';
 import type { UserSettings } from './UserSettings';
 import {
     UserSettingsFromJSON,
@@ -69,6 +48,20 @@ import {
     UserSettingsToJSON,
     UserSettingsToJSONTyped,
 } from './UserSettings';
+import type { Legal } from './Legal';
+import {
+    LegalFromJSON,
+    LegalFromJSONTyped,
+    LegalToJSON,
+    LegalToJSONTyped,
+} from './Legal';
+import type { Flows } from './Flows';
+import {
+    FlowsFromJSON,
+    FlowsFromJSONTyped,
+    FlowsToJSON,
+    FlowsToJSONTyped,
+} from './Flows';
 import type { MailingAddress } from './MailingAddress';
 import {
     MailingAddressFromJSON,
@@ -76,6 +69,13 @@ import {
     MailingAddressToJSON,
     MailingAddressToJSONTyped,
 } from './MailingAddress';
+import type { AccessKeyChain } from './AccessKeyChain';
+import {
+    AccessKeyChainFromJSON,
+    AccessKeyChainFromJSONTyped,
+    AccessKeyChainToJSON,
+    AccessKeyChainToJSONTyped,
+} from './AccessKeyChain';
 import type { PaymentMethodInfo } from './PaymentMethodInfo';
 import {
     PaymentMethodInfoFromJSON,
@@ -146,10 +146,10 @@ export interface UserData {
     ageAt?: number;
     /**
      * 
-     * @type {UserDataLegal}
+     * @type {Legal}
      * @memberof UserData
      */
-    legal?: UserDataLegal;
+    legal?: Legal;
     /**
      * 
      * @type {string}
@@ -218,11 +218,11 @@ export interface UserData {
     searchInfo?: SearchInfo;
     /**
      * 
-     * @type {UserDataFlows}
+     * @type {Flows}
      * @memberof UserData
      * @deprecated
      */
-    flows?: UserDataFlows;
+    flows?: Flows;
     /**
      * 
      * @type {string}
@@ -243,10 +243,10 @@ export interface UserData {
     payments?: { [key: string]: PaymentMethodInfo; };
     /**
      * 
-     * @type {{ [key: string]: UserDataSocialNetworkState; }}
+     * @type {{ [key: string]: SocialNetworkState; }}
      * @memberof UserData
      */
-    socialNetworks?: { [key: string]: UserDataSocialNetworkState; };
+    socialNetworks?: { [key: string]: SocialNetworkState; };
     /**
      * 
      * @type {{ [key: string]: UserDataPromotionInfo; }}
@@ -255,10 +255,10 @@ export interface UserData {
     promotionInfos?: { [key: string]: UserDataPromotionInfo; };
     /**
      * 
-     * @type {{ [key: string]: UserDataAccessKeyChain; }}
+     * @type {{ [key: string]: AccessKeyChain; }}
      * @memberof UserData
      */
-    accessKeyChains?: { [key: string]: UserDataAccessKeyChain; };
+    accessKeyChains?: { [key: string]: AccessKeyChain; };
     /**
      * 
      * @type {UserSettings}
@@ -299,7 +299,7 @@ export function UserDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'age': json['age'] == null ? undefined : json['age'],
         'gender': json['gender'] == null ? undefined : json['gender'],
         'ageAt': json['ageAt'] == null ? undefined : json['ageAt'],
-        'legal': json['legal'] == null ? undefined : UserDataLegalFromJSON(json['legal']),
+        'legal': json['legal'] == null ? undefined : LegalFromJSON(json['legal']),
         'countryCode': json['countryCode'] == null ? undefined : json['countryCode'],
         'locale': json['locale'] == null ? undefined : json['locale'],
         'timeZone': json['timeZone'] == null ? undefined : json['timeZone'],
@@ -311,13 +311,13 @@ export function UserDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'connectionTypes': json['connectionTypes'] == null ? undefined : json['connectionTypes'],
         'defaultInviteDealId': json['defaultInviteDealId'] == null ? undefined : json['defaultInviteDealId'],
         'searchInfo': json['searchInfo'] == null ? undefined : SearchInfoFromJSON(json['searchInfo']),
-        'flows': json['flows'] == null ? undefined : UserDataFlowsFromJSON(json['flows']),
+        'flows': json['flows'] == null ? undefined : FlowsFromJSON(json['flows']),
         'roles': json['roles'] == null ? undefined : json['roles'],
         'addresses': json['addresses'] == null ? undefined : (mapValues(json['addresses'], MailingAddressFromJSON)),
         'payments': json['payments'] == null ? undefined : (mapValues(json['payments'], PaymentMethodInfoFromJSON)),
-        'socialNetworks': json['socialNetworks'] == null ? undefined : (mapValues(json['socialNetworks'], UserDataSocialNetworkStateFromJSON)),
+        'socialNetworks': json['socialNetworks'] == null ? undefined : (mapValues(json['socialNetworks'], SocialNetworkStateFromJSON)),
         'promotionInfos': json['promotionInfos'] == null ? undefined : (mapValues(json['promotionInfos'], UserDataPromotionInfoFromJSON)),
-        'accessKeyChains': json['accessKeyChains'] == null ? undefined : (mapValues(json['accessKeyChains'], UserDataAccessKeyChainFromJSON)),
+        'accessKeyChains': json['accessKeyChains'] == null ? undefined : (mapValues(json['accessKeyChains'], AccessKeyChainFromJSON)),
         'settings': json['settings'] == null ? undefined : UserSettingsFromJSON(json['settings']),
         'signUpMethod': json['signUpMethod'] == null ? undefined : json['signUpMethod'],
     };
@@ -343,7 +343,7 @@ export function UserDataToJSONTyped(value?: UserData | null, ignoreDiscriminator
         'age': value['age'],
         'gender': value['gender'],
         'ageAt': value['ageAt'],
-        'legal': UserDataLegalToJSON(value['legal']),
+        'legal': LegalToJSON(value['legal']),
         'countryCode': value['countryCode'],
         'locale': value['locale'],
         'timeZone': value['timeZone'],
@@ -355,13 +355,13 @@ export function UserDataToJSONTyped(value?: UserData | null, ignoreDiscriminator
         'connectionTypes': value['connectionTypes'],
         'defaultInviteDealId': value['defaultInviteDealId'],
         'searchInfo': SearchInfoToJSON(value['searchInfo']),
-        'flows': UserDataFlowsToJSON(value['flows']),
+        'flows': FlowsToJSON(value['flows']),
         'roles': value['roles'],
         'addresses': value['addresses'] == null ? undefined : (mapValues(value['addresses'], MailingAddressToJSON)),
         'payments': value['payments'] == null ? undefined : (mapValues(value['payments'], PaymentMethodInfoToJSON)),
-        'socialNetworks': value['socialNetworks'] == null ? undefined : (mapValues(value['socialNetworks'], UserDataSocialNetworkStateToJSON)),
+        'socialNetworks': value['socialNetworks'] == null ? undefined : (mapValues(value['socialNetworks'], SocialNetworkStateToJSON)),
         'promotionInfos': value['promotionInfos'] == null ? undefined : (mapValues(value['promotionInfos'], UserDataPromotionInfoToJSON)),
-        'accessKeyChains': value['accessKeyChains'] == null ? undefined : (mapValues(value['accessKeyChains'], UserDataAccessKeyChainToJSON)),
+        'accessKeyChains': value['accessKeyChains'] == null ? undefined : (mapValues(value['accessKeyChains'], AccessKeyChainToJSON)),
         'settings': UserSettingsToJSON(value['settings']),
         'signUpMethod': value['signUpMethod'],
     };

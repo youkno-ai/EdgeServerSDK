@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.RolePermission2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,22 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param op 
- * @param label 
- * @param description 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class RolePermission (
 
-    @Json(name = "op")
-    val op: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "label")
-    val label: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "description")
-    val description: kotlin.String? = null
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
+
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
+
+    @Json(name = "list")
+    val list: kotlin.collections.List<RolePermission2>? = null
 
 ) {
 

@@ -22,19 +22,19 @@ public struct ShoppingCart: Codable, JSONEncodable, Hashable {
     public var vouchers: [String: Voucher]?
     public var redemptionAmount: String?
     public var products: [String: ShoppingCartProductInfo]?
-    public var redemptionInfo: ShoppingCartRedemptionInfo?
+    public var redemptionInfo: RedemptionInfo?
     public var posOrderId: String?
-    public var customer: BountyOrderCustomer?
-    public var driverLicense: BountyOrderDriverLicense?
-    public var medical: BountyOrderMedical?
-    public var payment: BountyOrderPaymentInfo?
-    public var delivery: BountyOrderDelivery?
+    public var customer: OrderCustomer?
+    public var driverLicense: DriverLicense?
+    public var medical: Medical?
+    public var payment: OrderPaymentInfo?
+    public var delivery: Delivery?
     public var useType: String?
     public var kioskId: String?
     public var printReceipt: String?
-    public var discounts: [ShoppingCartDiscountRule]?
+    public var discounts: [DiscountRule]?
 
-    public init(id: String? = nil, uid: String? = nil, marketId: String? = nil, status: String? = nil, paymentInfo: PaymentMethodInfo? = nil, paymentType: String? = nil, coupon: String? = nil, vouchers: [String: Voucher]? = nil, redemptionAmount: String? = nil, products: [String: ShoppingCartProductInfo]? = nil, redemptionInfo: ShoppingCartRedemptionInfo? = nil, posOrderId: String? = nil, customer: BountyOrderCustomer? = nil, driverLicense: BountyOrderDriverLicense? = nil, medical: BountyOrderMedical? = nil, payment: BountyOrderPaymentInfo? = nil, delivery: BountyOrderDelivery? = nil, useType: String? = nil, kioskId: String? = nil, printReceipt: String? = nil, discounts: [ShoppingCartDiscountRule]? = nil) {
+    public init(id: String? = nil, uid: String? = nil, marketId: String? = nil, status: String? = nil, paymentInfo: PaymentMethodInfo? = nil, paymentType: String? = nil, coupon: String? = nil, vouchers: [String: Voucher]? = nil, redemptionAmount: String? = nil, products: [String: ShoppingCartProductInfo]? = nil, redemptionInfo: RedemptionInfo? = nil, posOrderId: String? = nil, customer: OrderCustomer? = nil, driverLicense: DriverLicense? = nil, medical: Medical? = nil, payment: OrderPaymentInfo? = nil, delivery: Delivery? = nil, useType: String? = nil, kioskId: String? = nil, printReceipt: String? = nil, discounts: [DiscountRule]? = nil) {
         self.id = id
         self.uid = uid
         self.marketId = marketId

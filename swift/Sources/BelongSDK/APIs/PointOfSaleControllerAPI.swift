@@ -19,10 +19,10 @@ open class PointOfSaleControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ThirdpartiesPosPointOfSaleCustomer
+     - returns: PointOfSaleCustomer
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1PointofsaleCustomerByCustomerid(customerId: String, merchantId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ThirdpartiesPosPointOfSaleCustomer {
+    open class func getApiV1PointofsaleCustomerByCustomerid(customerId: String, merchantId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PointOfSaleCustomer {
         return try await getApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: customerId, merchantId: merchantId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -36,9 +36,9 @@ open class PointOfSaleControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ThirdpartiesPosPointOfSaleCustomer> 
+     - returns: RequestBuilder<PointOfSaleCustomer> 
      */
-    open class func getApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: String, merchantId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ThirdpartiesPosPointOfSaleCustomer> {
+    open class func getApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: String, merchantId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PointOfSaleCustomer> {
         var localVariablePath = "/api/v1/pointOfSale/customer/{customerId}"
         let customerIdPreEscape = "\(APIHelper.mapValueToPathItem(customerId))"
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -59,7 +59,7 @@ open class PointOfSaleControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ThirdpartiesPosPointOfSaleCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PointOfSaleCustomer>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -68,15 +68,15 @@ open class PointOfSaleControllerAPI {
 
      - parameter customerId: (path)  
      - parameter merchantId: (query)  
-     - parameter edgeApiDataCreatePosCustomerRequest: (body)  
+     - parameter createPosCustomerRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1PointofsaleCustomerByCustomerid(customerId: String, merchantId: String, edgeApiDataCreatePosCustomerRequest: EdgeApiDataCreatePosCustomerRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: customerId, merchantId: merchantId, edgeApiDataCreatePosCustomerRequest: edgeApiDataCreatePosCustomerRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1PointofsaleCustomerByCustomerid(customerId: String, merchantId: String, createPosCustomerRequest: CreatePosCustomerRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: customerId, merchantId: merchantId, createPosCustomerRequest: createPosCustomerRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -86,19 +86,19 @@ open class PointOfSaleControllerAPI {
        - name: JWT
      - parameter customerId: (path)  
      - parameter merchantId: (query)  
-     - parameter edgeApiDataCreatePosCustomerRequest: (body)  
+     - parameter createPosCustomerRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: String, merchantId: String, edgeApiDataCreatePosCustomerRequest: EdgeApiDataCreatePosCustomerRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1PointofsaleCustomerByCustomeridWithRequestBuilder(customerId: String, merchantId: String, createPosCustomerRequest: CreatePosCustomerRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/pointOfSale/customer/{customerId}"
         let customerIdPreEscape = "\(APIHelper.mapValueToPathItem(customerId))"
         let customerIdPostEscape = customerIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{customerId}", with: customerIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataCreatePosCustomerRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createPosCustomerRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([

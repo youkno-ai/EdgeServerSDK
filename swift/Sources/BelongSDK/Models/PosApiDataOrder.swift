@@ -12,184 +12,37 @@ import AnyCodable
 
 public struct PosApiDataOrder: Codable, JSONEncodable, Hashable {
 
-    public var id: String?
-    public var customerId: String?
-    public var type: String?
-    public var subtotal: Double?
-    public var discount: Double?
-    public var total: Double?
-    public var lineItemCount: Int?
-    public var isChangePaid: Bool?
-    public var paidInFull: Bool?
-    public var pickupCustomerArrived: Bool?
-    public var pickupOrderIncoming: Bool?
-    public var pickupVehicleMake: String?
-    public var pickupVehicleColor: String?
-    public var rn: String?
-    public var onlineOrderId: String?
-    public var statusId: String?
-    public var status: String?
-    public var items: [PosApiDataOrderOrderItem]?
-    public var deliveryAddress: MailingAddress?
-    public var pickupDate: String?
-    public var pickupTime: String?
-    public var pickupPhone: String?
-    public var pickupEmail: String?
-    public var complete: Bool?
-    public var voided: Bool?
-    public var canceled: Bool?
-    public var voidReason: String?
-    public var createdByUser: String?
-    public var createdAt: Int64?
-    public var paidAt: Int64?
-    public var deliveryFee: Double?
-    public var discounts: [PosApiDataOrderDiscountResp]?
-    public var fees: [PosApiDataOrderFeeResp]?
-    public var locationId: String?
-    public var location: String?
-    public var loyalty: Double?
-    public var firstName: String?
-    public var lastName: String?
-    public var timezone: String?
-    public var useType: String?
-    public var verified: Bool?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataOrder2]?
 
-    public init(id: String? = nil, customerId: String? = nil, type: String? = nil, subtotal: Double? = nil, discount: Double? = nil, total: Double? = nil, lineItemCount: Int? = nil, isChangePaid: Bool? = nil, paidInFull: Bool? = nil, pickupCustomerArrived: Bool? = nil, pickupOrderIncoming: Bool? = nil, pickupVehicleMake: String? = nil, pickupVehicleColor: String? = nil, rn: String? = nil, onlineOrderId: String? = nil, statusId: String? = nil, status: String? = nil, items: [PosApiDataOrderOrderItem]? = nil, deliveryAddress: MailingAddress? = nil, pickupDate: String? = nil, pickupTime: String? = nil, pickupPhone: String? = nil, pickupEmail: String? = nil, complete: Bool? = nil, voided: Bool? = nil, canceled: Bool? = nil, voidReason: String? = nil, createdByUser: String? = nil, createdAt: Int64? = nil, paidAt: Int64? = nil, deliveryFee: Double? = nil, discounts: [PosApiDataOrderDiscountResp]? = nil, fees: [PosApiDataOrderFeeResp]? = nil, locationId: String? = nil, location: String? = nil, loyalty: Double? = nil, firstName: String? = nil, lastName: String? = nil, timezone: String? = nil, useType: String? = nil, verified: Bool? = nil) {
-        self.id = id
-        self.customerId = customerId
-        self.type = type
-        self.subtotal = subtotal
-        self.discount = discount
-        self.total = total
-        self.lineItemCount = lineItemCount
-        self.isChangePaid = isChangePaid
-        self.paidInFull = paidInFull
-        self.pickupCustomerArrived = pickupCustomerArrived
-        self.pickupOrderIncoming = pickupOrderIncoming
-        self.pickupVehicleMake = pickupVehicleMake
-        self.pickupVehicleColor = pickupVehicleColor
-        self.rn = rn
-        self.onlineOrderId = onlineOrderId
-        self.statusId = statusId
-        self.status = status
-        self.items = items
-        self.deliveryAddress = deliveryAddress
-        self.pickupDate = pickupDate
-        self.pickupTime = pickupTime
-        self.pickupPhone = pickupPhone
-        self.pickupEmail = pickupEmail
-        self.complete = complete
-        self.voided = voided
-        self.canceled = canceled
-        self.voidReason = voidReason
-        self.createdByUser = createdByUser
-        self.createdAt = createdAt
-        self.paidAt = paidAt
-        self.deliveryFee = deliveryFee
-        self.discounts = discounts
-        self.fees = fees
-        self.locationId = locationId
-        self.location = location
-        self.loyalty = loyalty
-        self.firstName = firstName
-        self.lastName = lastName
-        self.timezone = timezone
-        self.useType = useType
-        self.verified = verified
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataOrder2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case id
-        case customerId
-        case type
-        case subtotal
-        case discount
-        case total
-        case lineItemCount
-        case isChangePaid
-        case paidInFull
-        case pickupCustomerArrived
-        case pickupOrderIncoming
-        case pickupVehicleMake
-        case pickupVehicleColor
-        case rn
-        case onlineOrderId
-        case statusId
-        case status
-        case items
-        case deliveryAddress
-        case pickupDate
-        case pickupTime
-        case pickupPhone
-        case pickupEmail
-        case complete
-        case voided
-        case canceled
-        case voidReason
-        case createdByUser
-        case createdAt
-        case paidAt
-        case deliveryFee
-        case discounts
-        case fees
-        case locationId
-        case location
-        case loyalty
-        case firstName
-        case lastName
-        case timezone
-        case useType
-        case verified
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(id, forKey: .id)
-        try container.encodeIfPresent(customerId, forKey: .customerId)
-        try container.encodeIfPresent(type, forKey: .type)
-        try container.encodeIfPresent(subtotal, forKey: .subtotal)
-        try container.encodeIfPresent(discount, forKey: .discount)
-        try container.encodeIfPresent(total, forKey: .total)
-        try container.encodeIfPresent(lineItemCount, forKey: .lineItemCount)
-        try container.encodeIfPresent(isChangePaid, forKey: .isChangePaid)
-        try container.encodeIfPresent(paidInFull, forKey: .paidInFull)
-        try container.encodeIfPresent(pickupCustomerArrived, forKey: .pickupCustomerArrived)
-        try container.encodeIfPresent(pickupOrderIncoming, forKey: .pickupOrderIncoming)
-        try container.encodeIfPresent(pickupVehicleMake, forKey: .pickupVehicleMake)
-        try container.encodeIfPresent(pickupVehicleColor, forKey: .pickupVehicleColor)
-        try container.encodeIfPresent(rn, forKey: .rn)
-        try container.encodeIfPresent(onlineOrderId, forKey: .onlineOrderId)
-        try container.encodeIfPresent(statusId, forKey: .statusId)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(items, forKey: .items)
-        try container.encodeIfPresent(deliveryAddress, forKey: .deliveryAddress)
-        try container.encodeIfPresent(pickupDate, forKey: .pickupDate)
-        try container.encodeIfPresent(pickupTime, forKey: .pickupTime)
-        try container.encodeIfPresent(pickupPhone, forKey: .pickupPhone)
-        try container.encodeIfPresent(pickupEmail, forKey: .pickupEmail)
-        try container.encodeIfPresent(complete, forKey: .complete)
-        try container.encodeIfPresent(voided, forKey: .voided)
-        try container.encodeIfPresent(canceled, forKey: .canceled)
-        try container.encodeIfPresent(voidReason, forKey: .voidReason)
-        try container.encodeIfPresent(createdByUser, forKey: .createdByUser)
-        try container.encodeIfPresent(createdAt, forKey: .createdAt)
-        try container.encodeIfPresent(paidAt, forKey: .paidAt)
-        try container.encodeIfPresent(deliveryFee, forKey: .deliveryFee)
-        try container.encodeIfPresent(discounts, forKey: .discounts)
-        try container.encodeIfPresent(fees, forKey: .fees)
-        try container.encodeIfPresent(locationId, forKey: .locationId)
-        try container.encodeIfPresent(location, forKey: .location)
-        try container.encodeIfPresent(loyalty, forKey: .loyalty)
-        try container.encodeIfPresent(firstName, forKey: .firstName)
-        try container.encodeIfPresent(lastName, forKey: .lastName)
-        try container.encodeIfPresent(timezone, forKey: .timezone)
-        try container.encodeIfPresent(useType, forKey: .useType)
-        try container.encodeIfPresent(verified, forKey: .verified)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 
-
-@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
-extension PosApiDataOrder: Identifiable {}

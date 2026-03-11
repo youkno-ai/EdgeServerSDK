@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { DealInfoLiability } from './DealInfoLiability';
+import type { Liability } from './Liability';
 import {
-    DealInfoLiabilityFromJSON,
-    DealInfoLiabilityFromJSONTyped,
-    DealInfoLiabilityToJSON,
-    DealInfoLiabilityToJSONTyped,
-} from './DealInfoLiability';
+    LiabilityFromJSON,
+    LiabilityFromJSONTyped,
+    LiabilityToJSON,
+    LiabilityToJSONTyped,
+} from './Liability';
 
 /**
  * 
@@ -53,10 +53,10 @@ export interface DealInfoMetaInfo {
     inviteeReward?: string;
     /**
      * 
-     * @type {Array<DealInfoLiability>}
+     * @type {Array<Liability>}
      * @memberof DealInfoMetaInfo
      */
-    liabilities?: Array<DealInfoLiability>;
+    liabilities?: Array<Liability>;
     /**
      * 
      * @type {string}
@@ -98,7 +98,7 @@ export function DealInfoMetaInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
         'maxUseCount': json['maxUseCount'] == null ? undefined : json['maxUseCount'],
         'inviteRefCount': json['inviteRefCount'] == null ? undefined : json['inviteRefCount'],
         'inviteeReward': json['inviteeReward'] == null ? undefined : json['inviteeReward'],
-        'liabilities': json['liabilities'] == null ? undefined : ((json['liabilities'] as Array<any>).map(DealInfoLiabilityFromJSON)),
+        'liabilities': json['liabilities'] == null ? undefined : ((json['liabilities'] as Array<any>).map(LiabilityFromJSON)),
         'promotionId': json['promotionId'] == null ? undefined : json['promotionId'],
         'ttl': json['ttl'] == null ? undefined : json['ttl'],
         'ttlExpiresAt': json['ttlExpiresAt'] == null ? undefined : json['ttlExpiresAt'],
@@ -120,7 +120,7 @@ export function DealInfoMetaInfoToJSONTyped(value?: DealInfoMetaInfo | null, ign
         'maxUseCount': value['maxUseCount'],
         'inviteRefCount': value['inviteRefCount'],
         'inviteeReward': value['inviteeReward'],
-        'liabilities': value['liabilities'] == null ? undefined : ((value['liabilities'] as Array<any>).map(DealInfoLiabilityToJSON)),
+        'liabilities': value['liabilities'] == null ? undefined : ((value['liabilities'] as Array<any>).map(LiabilityToJSON)),
         'promotionId': value['promotionId'],
         'ttl': value['ttl'],
         'ttlExpiresAt': value['ttlExpiresAt'],

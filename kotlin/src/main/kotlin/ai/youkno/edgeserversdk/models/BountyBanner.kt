@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyBannerCountryFilter
-import ai.youkno.edgeserversdk.models.BountyBannerLocationFilter
+import ai.youkno.edgeserversdk.models.CountryFilter
+import ai.youkno.edgeserversdk.models.LocationFilter
 import ai.youkno.edgeserversdk.models.WeekPeriod
 
 import com.squareup.moshi.Json
@@ -34,8 +34,8 @@ import com.squareup.moshi.JsonClass
  * @param priority 
  * @param weight 
  * @param targetAppAsEnum 
- * @param bannerTypeAsEnum 
  * @param userAuthStatusAsEnum 
+ * @param bannerTypeAsEnum 
  */
 
 
@@ -48,10 +48,10 @@ data class BountyBanner (
     val targetApp: kotlin.String? = null,
 
     @Json(name = "countryFilters")
-    val countryFilters: kotlin.collections.Map<kotlin.String, BountyBannerCountryFilter>? = null,
+    val countryFilters: kotlin.collections.Map<kotlin.String, CountryFilter>? = null,
 
     @Json(name = "locationFilters")
-    val locationFilters: kotlin.collections.Map<kotlin.String, BountyBannerLocationFilter>? = null,
+    val locationFilters: kotlin.collections.Map<kotlin.String, LocationFilter>? = null,
 
     @Json(name = "dayOfWeekFilters")
     val dayOfWeekFilters: WeekPeriod? = null,
@@ -68,11 +68,11 @@ data class BountyBanner (
     @Json(name = "targetAppAsEnum")
     val targetAppAsEnum: BountyBanner.TargetAppAsEnum? = null,
 
-    @Json(name = "bannerTypeAsEnum")
-    val bannerTypeAsEnum: BountyBanner.BannerTypeAsEnum? = null,
-
     @Json(name = "userAuthStatusAsEnum")
-    val userAuthStatusAsEnum: BountyBanner.UserAuthStatusAsEnum? = null
+    val userAuthStatusAsEnum: BountyBanner.UserAuthStatusAsEnum? = null,
+
+    @Json(name = "bannerTypeAsEnum")
+    val bannerTypeAsEnum: BountyBanner.BannerTypeAsEnum? = null
 
 ) {
 
@@ -96,6 +96,17 @@ data class BountyBanner (
     /**
      * 
      *
+     * Values: ANY,AUTHED,ANON
+     */
+    @JsonClass(generateAdapter = false)
+    enum class UserAuthStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "ANY") ANY("ANY"),
+        @Json(name = "AUTHED") AUTHED("AUTHED"),
+        @Json(name = "ANON") ANON("ANON");
+    }
+    /**
+     * 
+     *
      * Values: NONE,HERO,HIGHLIGHTS,RECOMMENDATIONS,SPECIALS,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
@@ -106,17 +117,6 @@ data class BountyBanner (
         @Json(name = "RECOMMENDATIONS") RECOMMENDATIONS("RECOMMENDATIONS"),
         @Json(name = "SPECIALS") SPECIALS("SPECIALS"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ANY,AUTHED,ANON
-     */
-    @JsonClass(generateAdapter = false)
-    enum class UserAuthStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "ANY") ANY("ANY"),
-        @Json(name = "AUTHED") AUTHED("AUTHED"),
-        @Json(name = "ANON") ANON("ANON");
     }
 
 }

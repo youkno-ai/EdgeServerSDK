@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.TransactionTransactionLine
+import ai.youkno.edgeserversdk.models.TransactionLine
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -50,7 +50,7 @@ data class Transaction (
     val createdAt: kotlin.Long? = null,
 
     @Json(name = "lines")
-    val lines: kotlin.collections.List<TransactionTransactionLine>? = null
+    val lines: kotlin.collections.List<TransactionLine>? = null
 
 ) {
 

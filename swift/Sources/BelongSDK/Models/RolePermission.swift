@@ -12,29 +12,37 @@ import AnyCodable
 
 public struct RolePermission: Codable, JSONEncodable, Hashable {
 
-    public var op: String?
-    public var label: String?
-    public var description: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [RolePermission2]?
 
-    public init(op: String? = nil, label: String? = nil, description: String? = nil) {
-        self.op = op
-        self.label = label
-        self.description = description
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [RolePermission2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case op
-        case label
-        case description
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(op, forKey: .op)
-        try container.encodeIfPresent(label, forKey: .label)
-        try container.encodeIfPresent(description, forKey: .description)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

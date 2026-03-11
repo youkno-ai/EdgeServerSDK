@@ -13,12 +13,12 @@ import AnyCodable
 public struct DealInfo: Codable, JSONEncodable, Hashable {
 
     public var structuredDescription: StructuredDescription?
-    public var markDoc: StructuredDescriptionMarkDoc?
+    public var markDoc: MarkDoc?
     public var meta: DealInfoMetaInfo?
     public var metaError: String?
     public var description: String?
 
-    public init(structuredDescription: StructuredDescription? = nil, markDoc: StructuredDescriptionMarkDoc? = nil, meta: DealInfoMetaInfo? = nil, metaError: String? = nil, description: String? = nil) {
+    public init(structuredDescription: StructuredDescription? = nil, markDoc: MarkDoc? = nil, meta: DealInfoMetaInfo? = nil, metaError: String? = nil, description: String? = nil) {
         self.structuredDescription = structuredDescription
         self.markDoc = markDoc
         self.meta = meta

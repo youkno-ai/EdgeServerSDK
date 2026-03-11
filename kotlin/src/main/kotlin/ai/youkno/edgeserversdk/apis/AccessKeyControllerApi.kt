@@ -7,16 +7,16 @@ import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
 import ai.youkno.edgeserversdk.models.AccessKey
-import ai.youkno.edgeserversdk.models.AccessKeyApiAccessKeyRequirement
-import ai.youkno.edgeserversdk.models.AccessKeyApiKeychainAcquireRequest
-import ai.youkno.edgeserversdk.models.AccessKeyApiKeychainUseRequest
-import ai.youkno.edgeserversdk.models.AccessKeyApiKeychainUseResponse
-import ai.youkno.edgeserversdk.models.AccessKeyApiRequirementEvaluationResponse
 import ai.youkno.edgeserversdk.models.AccessKeyDef
 import ai.youkno.edgeserversdk.models.AccessKeyDefMetaData
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageAccessKey
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageAccessKeyDef
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageScope
+import ai.youkno.edgeserversdk.models.AccessKeyRequirement
+import ai.youkno.edgeserversdk.models.KeychainAcquireRequest
+import ai.youkno.edgeserversdk.models.KeychainUseRequest
+import ai.youkno.edgeserversdk.models.KeychainUseResponse
+import ai.youkno.edgeserversdk.models.ModelAccessKey
+import ai.youkno.edgeserversdk.models.ModelAccessKeyDef
+import ai.youkno.edgeserversdk.models.ModelScope
+import ai.youkno.edgeserversdk.models.RequirementEvaluationResponse
 
 interface AccessKeyControllerApi {
     /**
@@ -101,10 +101,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageAccessKey]>
+     * @return [Call]<[ModelAccessKey]>
      */
     @GET("api/v1/accessKeys/{userId}")
-    fun getApiV1AccesskeysByUserid(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageAccessKey>
+    fun getApiV1AccesskeysByUserid(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelAccessKey>
 
     /**
      * GET api/v1/accessKeys/{userId}/{accessKeyDefId}
@@ -118,10 +118,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageAccessKey]>
+     * @return [Call]<[ModelAccessKey]>
      */
     @GET("api/v1/accessKeys/{userId}/{accessKeyDefId}")
-    fun getApiV1AccesskeysByUseridByAccesskeydefid(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageAccessKey>
+    fun getApiV1AccesskeysByUseridByAccesskeydefid(@Path("userId") userId: kotlin.String, @Path("accessKeyDefId") accessKeyDefId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelAccessKey>
 
     /**
      * GET api/v1/accessKeys/defs/{scopeName}
@@ -136,10 +136,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageAccessKeyDef]>
+     * @return [Call]<[ModelAccessKeyDef]>
      */
     @GET("api/v1/accessKeys/defs/{scopeName}")
-    fun getApiV1AccesskeysDefsByScopename(@Path("scopeName") scopeName: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageAccessKeyDef>
+    fun getApiV1AccesskeysDefsByScopename(@Path("scopeName") scopeName: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelAccessKeyDef>
 
     /**
      * GET api/v1/accessKeys/defs/id/{accessKeyDefId}
@@ -167,10 +167,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageScope]>
+     * @return [Call]<[ModelScope]>
      */
     @GET("api/v1/accessKeys/defs/scopes")
-    fun getApiV1AccesskeysDefsScopes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageScope>
+    fun getApiV1AccesskeysDefsScopes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelScope>
 
     /**
      * GET api/v1/accessKeys/requirements/{objectType}/{objectId}
@@ -184,10 +184,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccessKeyApiAccessKeyRequirement]>
+     * @return [Call]<[AccessKeyRequirement]>
      */
     @GET("api/v1/accessKeys/requirements/{objectType}/{objectId}")
-    fun getApiV1AccesskeysRequirementsByObjecttypeByObjectid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyApiAccessKeyRequirement>
+    fun getApiV1AccesskeysRequirementsByObjecttypeByObjectid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyRequirement>
 
     /**
      * GET api/v1/accessKeys/requirements/{objectType}/{objectId}/evaluate/{userId}/{virtualUserId}
@@ -203,10 +203,10 @@ interface AccessKeyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccessKeyApiRequirementEvaluationResponse]>
+     * @return [Call]<[RequirementEvaluationResponse]>
      */
     @GET("api/v1/accessKeys/requirements/{objectType}/{objectId}/evaluate/{userId}/{virtualUserId}")
-    fun getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyApiRequirementEvaluationResponse>
+    fun getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RequirementEvaluationResponse>
 
     /**
      * POST api/v1/accessKeys/{userId}/grant/{accessKeyDefId}
@@ -267,14 +267,14 @@ interface AccessKeyControllerApi {
      *
      * @param userId 
      * @param virtualUserId 
-     * @param accessKeyApiKeychainAcquireRequest 
+     * @param keychainAcquireRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[AccessKey]>
      */
     @POST("api/v1/accessKeys/keychain/{userId}/{virtualUserId}/acquire")
-    fun postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(@Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Body accessKeyApiKeychainAcquireRequest: AccessKeyApiKeychainAcquireRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKey>
+    fun postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire(@Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Body keychainAcquireRequest: KeychainAcquireRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKey>
 
     /**
      * POST api/v1/accessKeys/keychain/{userId}/{virtualUserId}/use
@@ -285,14 +285,14 @@ interface AccessKeyControllerApi {
      *
      * @param userId 
      * @param virtualUserId 
-     * @param accessKeyApiKeychainUseRequest 
+     * @param keychainUseRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccessKeyApiKeychainUseResponse]>
+     * @return [Call]<[KeychainUseResponse]>
      */
     @POST("api/v1/accessKeys/keychain/{userId}/{virtualUserId}/use")
-    fun postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(@Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Body accessKeyApiKeychainUseRequest: AccessKeyApiKeychainUseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyApiKeychainUseResponse>
+    fun postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(@Path("userId") userId: kotlin.String, @Path("virtualUserId") virtualUserId: kotlin.String, @Body keychainUseRequest: KeychainUseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<KeychainUseResponse>
 
     /**
      * PUT api/v1/accessKeys/defs/{accessKeyDefId}/{scopeName}
@@ -321,13 +321,13 @@ interface AccessKeyControllerApi {
      *
      * @param objectType 
      * @param objectId 
-     * @param accessKeyApiAccessKeyRequirement 
+     * @param accessKeyRequirement 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AccessKeyApiAccessKeyRequirement]>
+     * @return [Call]<[AccessKeyRequirement]>
      */
     @PUT("api/v1/accessKeys/requirements/{objectType}/{objectId}")
-    fun putApiV1AccesskeysRequirementsByObjecttypeByObjectid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Body accessKeyApiAccessKeyRequirement: AccessKeyApiAccessKeyRequirement, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyApiAccessKeyRequirement>
+    fun putApiV1AccesskeysRequirementsByObjecttypeByObjectid(@Path("objectType") objectType: kotlin.String, @Path("objectId") objectId: kotlin.String, @Body accessKeyRequirement: AccessKeyRequirement, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AccessKeyRequirement>
 
 }

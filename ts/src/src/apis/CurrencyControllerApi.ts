@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPageEdgeApiDataCurrencyReportRecord,
+  EdgeApiDataCurrencyReportRecord2,
 } from '../models/index';
 import {
-    EdgeApiDataPageEdgeApiDataCurrencyReportRecordFromJSON,
-    EdgeApiDataPageEdgeApiDataCurrencyReportRecordToJSON,
+    EdgeApiDataCurrencyReportRecord2FromJSON,
+    EdgeApiDataCurrencyReportRecord2ToJSON,
 } from '../models/index';
 
 export interface GetApiV1CurrenciesByCodeReportRequest {
@@ -59,11 +59,11 @@ export interface CurrencyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CurrencyControllerApiInterface
      */
-    getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageEdgeApiDataCurrencyReportRecord>>;
+    getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCurrencyReportRecord2>>;
 
     /**
      */
-    getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageEdgeApiDataCurrencyReportRecord>;
+    getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCurrencyReportRecord2>;
 
     /**
      * 
@@ -90,7 +90,7 @@ export class CurrencyControllerApi extends runtime.BaseAPI implements CurrencyCo
 
     /**
      */
-    async getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageEdgeApiDataCurrencyReportRecord>> {
+    async getApiV1CurrenciesByCodeReportRaw(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCurrencyReportRecord2>> {
         if (requestParameters['code'] == null) {
             throw new runtime.RequiredError(
                 'code',
@@ -141,12 +141,12 @@ export class CurrencyControllerApi extends runtime.BaseAPI implements CurrencyCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageEdgeApiDataCurrencyReportRecordFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCurrencyReportRecord2FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageEdgeApiDataCurrencyReportRecord> {
+    async getApiV1CurrenciesByCodeReport(requestParameters: GetApiV1CurrenciesByCodeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCurrencyReportRecord2> {
         const response = await this.getApiV1CurrenciesByCodeReportRaw(requestParameters, initOverrides);
         return await response.value();
     }

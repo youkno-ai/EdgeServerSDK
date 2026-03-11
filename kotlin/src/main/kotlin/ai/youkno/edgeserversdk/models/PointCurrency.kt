@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.PointCurrencyCurrencyMeta
+import ai.youkno.edgeserversdk.models.CurrencyMeta
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class PointCurrency (
 
     @Json(name = "meta")
-    val meta: PointCurrencyCurrencyMeta? = null
+    val meta: CurrencyMeta? = null
 
 ) {
 

@@ -21,10 +21,10 @@ open class CurrencyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageEdgeApiDataCurrencyReportRecord
+     - returns: EdgeApiDataCurrencyReportRecord2
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1CurrenciesByCodeReport(code: String, order: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageEdgeApiDataCurrencyReportRecord {
+    open class func getApiV1CurrenciesByCodeReport(code: String, order: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCurrencyReportRecord2 {
         return try await getApiV1CurrenciesByCodeReportWithRequestBuilder(code: code, order: order, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -40,9 +40,9 @@ open class CurrencyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageEdgeApiDataCurrencyReportRecord> 
+     - returns: RequestBuilder<EdgeApiDataCurrencyReportRecord2> 
      */
-    open class func getApiV1CurrenciesByCodeReportWithRequestBuilder(code: String, order: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageEdgeApiDataCurrencyReportRecord> {
+    open class func getApiV1CurrenciesByCodeReportWithRequestBuilder(code: String, order: String? = nil, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCurrencyReportRecord2> {
         var localVariablePath = "/api/v1/currencies/{code}/report"
         let codePreEscape = "\(APIHelper.mapValueToPathItem(code))"
         let codePostEscape = codePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -65,7 +65,7 @@ open class CurrencyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageEdgeApiDataCurrencyReportRecord>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCurrencyReportRecord2>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

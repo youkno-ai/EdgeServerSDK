@@ -13,9 +13,9 @@ import AnyCodable
 public struct NotificationCampaignCampaignDetails: Codable, JSONEncodable, Hashable {
 
     public var bountyIds: [String]?
-    public var messages: [NotificationCampaignCampaignDetailsMessage]?
+    public var messages: [CampaignDetailsMessage]?
 
-    public init(bountyIds: [String]? = nil, messages: [NotificationCampaignCampaignDetailsMessage]? = nil) {
+    public init(bountyIds: [String]? = nil, messages: [CampaignDetailsMessage]? = nil) {
         self.bountyIds = bountyIds
         self.messages = messages
     }

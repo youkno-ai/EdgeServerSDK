@@ -12,11 +12,11 @@ import AnyCodable
 
 public struct Attachments: Codable, JSONEncodable, Hashable {
 
-    public var attachments: [String: AttachmentsAttachment]?
+    public var attachments: [String: Attachment]?
     public var autoTextMd5: String?
-    public var autoAttachments: [String: AttachmentsAttachment]?
+    public var autoAttachments: [String: Attachment]?
 
-    public init(attachments: [String: AttachmentsAttachment]? = nil, autoTextMd5: String? = nil, autoAttachments: [String: AttachmentsAttachment]? = nil) {
+    public init(attachments: [String: Attachment]? = nil, autoTextMd5: String? = nil, autoAttachments: [String: Attachment]? = nil) {
         self.attachments = attachments
         self.autoTextMd5 = autoTextMd5
         self.autoAttachments = autoAttachments

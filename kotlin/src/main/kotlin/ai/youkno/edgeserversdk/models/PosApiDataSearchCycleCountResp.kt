@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataSearchCycleCountResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,46 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param itemId 
- * @param item 
- * @param batchId 
- * @param batch 
- * @param areaId 
- * @param areaPath 
- * @param onHand 
- * @param available 
- * @param uom 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataSearchCycleCountResp (
 
-    @Json(name = "itemId")
-    val itemId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "item")
-    val item: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "batchId")
-    val batchId: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "batch")
-    val batch: kotlin.String? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "areaId")
-    val areaId: kotlin.String? = null,
-
-    @Json(name = "areaPath")
-    val areaPath: kotlin.String? = null,
-
-    @Json(name = "onHand")
-    val onHand: kotlin.Double? = null,
-
-    @Json(name = "available")
-    val available: kotlin.Double? = null,
-
-    @Json(name = "uom")
-    val uom: kotlin.String? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataSearchCycleCountResp2>? = null
 
 ) {
 

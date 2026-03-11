@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ClientInfoBackend } from './ClientInfoBackend';
+import type { Backend } from './Backend';
 import {
-    ClientInfoBackendFromJSON,
-    ClientInfoBackendFromJSONTyped,
-    ClientInfoBackendToJSON,
-    ClientInfoBackendToJSONTyped,
-} from './ClientInfoBackend';
-import type { ClientInfoBranding } from './ClientInfoBranding';
+    BackendFromJSON,
+    BackendFromJSONTyped,
+    BackendToJSON,
+    BackendToJSONTyped,
+} from './Backend';
+import type { Branding } from './Branding';
 import {
-    ClientInfoBrandingFromJSON,
-    ClientInfoBrandingFromJSONTyped,
-    ClientInfoBrandingToJSON,
-    ClientInfoBrandingToJSONTyped,
-} from './ClientInfoBranding';
+    BrandingFromJSON,
+    BrandingFromJSONTyped,
+    BrandingToJSON,
+    BrandingToJSONTyped,
+} from './Branding';
 
 /**
  * 
@@ -84,16 +84,16 @@ export interface ClientInfo {
     ssoInfo?: string;
     /**
      * 
-     * @type {ClientInfoBackend}
+     * @type {Backend}
      * @memberof ClientInfo
      */
-    backend?: ClientInfoBackend;
+    backend?: Backend;
     /**
      * 
-     * @type {ClientInfoBranding}
+     * @type {Branding}
      * @memberof ClientInfo
      */
-    branding?: ClientInfoBranding;
+    branding?: Branding;
     /**
      * 
      * @type {string}
@@ -163,8 +163,8 @@ export function ClientInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'logins': json['logins'] == null ? undefined : json['logins'],
         'validateEmail': json['validateEmail'] == null ? undefined : json['validateEmail'],
         'ssoInfo': json['ssoInfo'] == null ? undefined : json['ssoInfo'],
-        'backend': json['backend'] == null ? undefined : ClientInfoBackendFromJSON(json['backend']),
-        'branding': json['branding'] == null ? undefined : ClientInfoBrandingFromJSON(json['branding']),
+        'backend': json['backend'] == null ? undefined : BackendFromJSON(json['backend']),
+        'branding': json['branding'] == null ? undefined : BrandingFromJSON(json['branding']),
         'status': json['status'] == null ? undefined : json['status'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'avatarUrl': json['avatarUrl'] == null ? undefined : json['avatarUrl'],
@@ -194,8 +194,8 @@ export function ClientInfoToJSONTyped(value?: ClientInfo | null, ignoreDiscrimin
         'logins': value['logins'],
         'validateEmail': value['validateEmail'],
         'ssoInfo': value['ssoInfo'],
-        'backend': ClientInfoBackendToJSON(value['backend']),
-        'branding': ClientInfoBrandingToJSON(value['branding']),
+        'backend': BackendToJSON(value['backend']),
+        'branding': BrandingToJSON(value['branding']),
         'status': value['status'],
         'createdAt': value['createdAt'],
         'avatarUrl': value['avatarUrl'],

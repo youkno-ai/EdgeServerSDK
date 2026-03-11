@@ -20,6 +20,13 @@ import {
     SeriesInfoMetaInfoToJSON,
     SeriesInfoMetaInfoToJSONTyped,
 } from './SeriesInfoMetaInfo';
+import type { MarkDoc } from './MarkDoc';
+import {
+    MarkDocFromJSON,
+    MarkDocFromJSONTyped,
+    MarkDocToJSON,
+    MarkDocToJSONTyped,
+} from './MarkDoc';
 import type { StructuredDescription } from './StructuredDescription';
 import {
     StructuredDescriptionFromJSON,
@@ -27,13 +34,6 @@ import {
     StructuredDescriptionToJSON,
     StructuredDescriptionToJSONTyped,
 } from './StructuredDescription';
-import type { StructuredDescriptionMarkDoc } from './StructuredDescriptionMarkDoc';
-import {
-    StructuredDescriptionMarkDocFromJSON,
-    StructuredDescriptionMarkDocFromJSONTyped,
-    StructuredDescriptionMarkDocToJSON,
-    StructuredDescriptionMarkDocToJSONTyped,
-} from './StructuredDescriptionMarkDoc';
 
 /**
  * 
@@ -49,10 +49,10 @@ export interface SeriesInfo {
     structuredDescription?: StructuredDescription;
     /**
      * 
-     * @type {StructuredDescriptionMarkDoc}
+     * @type {MarkDoc}
      * @memberof SeriesInfo
      */
-    markDoc?: StructuredDescriptionMarkDoc;
+    markDoc?: MarkDoc;
     /**
      * 
      * @type {SeriesInfoMetaInfo}
@@ -91,7 +91,7 @@ export function SeriesInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'structuredDescription': json['structuredDescription'] == null ? undefined : StructuredDescriptionFromJSON(json['structuredDescription']),
-        'markDoc': json['markDoc'] == null ? undefined : StructuredDescriptionMarkDocFromJSON(json['markDoc']),
+        'markDoc': json['markDoc'] == null ? undefined : MarkDocFromJSON(json['markDoc']),
         'meta': json['meta'] == null ? undefined : SeriesInfoMetaInfoFromJSON(json['meta']),
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -110,7 +110,7 @@ export function SeriesInfoToJSONTyped(value?: SeriesInfo | null, ignoreDiscrimin
     return {
         
         'structuredDescription': StructuredDescriptionToJSON(value['structuredDescription']),
-        'markDoc': StructuredDescriptionMarkDocToJSON(value['markDoc']),
+        'markDoc': MarkDocToJSON(value['markDoc']),
         'meta': SeriesInfoMetaInfoToJSON(value['meta']),
         'metaError': value['metaError'],
         'description': value['description'],

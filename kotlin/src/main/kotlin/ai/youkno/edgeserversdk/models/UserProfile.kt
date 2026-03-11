@@ -15,15 +15,15 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.AgeRange
 import ai.youkno.edgeserversdk.models.Attachments
 import ai.youkno.edgeserversdk.models.Badges
+import ai.youkno.edgeserversdk.models.BasicInfo
+import ai.youkno.edgeserversdk.models.DriverLicenseInfo
+import ai.youkno.edgeserversdk.models.InterestsInfo
+import ai.youkno.edgeserversdk.models.MedicalInfo
+import ai.youkno.edgeserversdk.models.SelfOnboardingInfo
 import ai.youkno.edgeserversdk.models.User
-import ai.youkno.edgeserversdk.models.UserProfileAgeRange
-import ai.youkno.edgeserversdk.models.UserProfileBasicInfo
-import ai.youkno.edgeserversdk.models.UserProfileDriverLicenseInfo
-import ai.youkno.edgeserversdk.models.UserProfileInterestsInfo
-import ai.youkno.edgeserversdk.models.UserProfileMedicalInfo
-import ai.youkno.edgeserversdk.models.UserProfileSelfOnboardingInfo
 import ai.youkno.edgeserversdk.models.UserProfileStats
 import ai.youkno.edgeserversdk.models.UserProfileWebsiteInfo
 
@@ -112,22 +112,22 @@ data class UserProfile (
     val createdAt: kotlin.Long? = null,
 
     @Json(name = "basicInfo")
-    val basicInfo: UserProfileBasicInfo? = null,
+    val basicInfo: BasicInfo? = null,
 
     @Json(name = "medicalInfo")
-    val medicalInfo: UserProfileMedicalInfo? = null,
+    val medicalInfo: MedicalInfo? = null,
 
     @Json(name = "driverLicenseInfo")
-    val driverLicenseInfo: UserProfileDriverLicenseInfo? = null,
+    val driverLicenseInfo: DriverLicenseInfo? = null,
 
     @Json(name = "interestsInfo")
-    val interestsInfo: UserProfileInterestsInfo? = null,
+    val interestsInfo: InterestsInfo? = null,
 
     @Json(name = "ageRange")
-    val ageRange: UserProfileAgeRange? = null,
+    val ageRange: AgeRange? = null,
 
     @Json(name = "selfOnboardingInfo")
-    val selfOnboardingInfo: UserProfileSelfOnboardingInfo? = null,
+    val selfOnboardingInfo: SelfOnboardingInfo? = null,
 
     @Json(name = "livePaymentMode")
     val livePaymentMode: kotlin.Boolean? = null,

@@ -15,15 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
-  ThirdpartiesBillMyBankAPISignedPayload,
+  SignedPayload,
 } from '../models/index';
 import {
-    ThirdpartiesBillMyBankAPISignedPayloadFromJSON,
-    ThirdpartiesBillMyBankAPISignedPayloadToJSON,
+    SignedPayloadFromJSON,
+    SignedPayloadToJSON,
 } from '../models/index';
 
 export interface PostApiV1BmbPaymentsWebhookRequest {
-    thirdpartiesBillMyBankAPISignedPayload: ThirdpartiesBillMyBankAPISignedPayload;
+    signedPayload: SignedPayload;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -38,7 +38,7 @@ export interface PostApiV1BmbPaymentsWebhookRequest {
 export interface BillMyBankControllerApiInterface {
     /**
      * 
-     * @param {ThirdpartiesBillMyBankAPISignedPayload} thirdpartiesBillMyBankAPISignedPayload 
+     * @param {SignedPayload} signedPayload 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -62,10 +62,10 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
     /**
      */
     async postApiV1BmbPaymentsWebhookRaw(requestParameters: PostApiV1BmbPaymentsWebhookRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
-        if (requestParameters['thirdpartiesBillMyBankAPISignedPayload'] == null) {
+        if (requestParameters['signedPayload'] == null) {
             throw new runtime.RequiredError(
-                'thirdpartiesBillMyBankAPISignedPayload',
-                'Required parameter "thirdpartiesBillMyBankAPISignedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
+                'signedPayload',
+                'Required parameter "signedPayload" was null or undefined when calling postApiV1BmbPaymentsWebhook().'
             );
         }
 
@@ -99,7 +99,7 @@ export class BillMyBankControllerApi extends runtime.BaseAPI implements BillMyBa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ThirdpartiesBillMyBankAPISignedPayloadToJSON(requestParameters['thirdpartiesBillMyBankAPISignedPayload']),
+            body: SignedPayloadToJSON(requestParameters['signedPayload']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);

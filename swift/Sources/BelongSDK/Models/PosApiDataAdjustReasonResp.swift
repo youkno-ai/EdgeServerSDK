@@ -12,33 +12,37 @@ import AnyCodable
 
 public struct PosApiDataAdjustReasonResp: Codable, JSONEncodable, Hashable {
 
-    public var reasonId: String?
-    public var reasonName: String?
-    public var system: Bool?
-    public var noteRequired: Bool?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataAdjustReasonResp2]?
 
-    public init(reasonId: String? = nil, reasonName: String? = nil, system: Bool? = nil, noteRequired: Bool? = nil) {
-        self.reasonId = reasonId
-        self.reasonName = reasonName
-        self.system = system
-        self.noteRequired = noteRequired
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataAdjustReasonResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case reasonId
-        case reasonName
-        case system
-        case noteRequired
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(reasonId, forKey: .reasonId)
-        try container.encodeIfPresent(reasonName, forKey: .reasonName)
-        try container.encodeIfPresent(system, forKey: .system)
-        try container.encodeIfPresent(noteRequired, forKey: .noteRequired)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

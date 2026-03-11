@@ -16,8 +16,8 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.BountyBountyCategory
-import ai.youkno.edgeserversdk.models.FilterDateRange
-import ai.youkno.edgeserversdk.models.FilterFilterVal
+import ai.youkno.edgeserversdk.models.DateRange
+import ai.youkno.edgeserversdk.models.FilterVal
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -250,7 +250,7 @@ data class PageFilter (
     val trustedTags: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "extras")
-    val extras: kotlin.collections.List<FilterFilterVal>? = null,
+    val extras: kotlin.collections.List<FilterVal>? = null,
 
     @Json(name = "lookups")
     val lookups: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null,
@@ -337,10 +337,10 @@ data class PageFilter (
     val hasPointsReward: kotlin.Boolean? = null,
 
     @Json(name = "scheduledRange")
-    val scheduledRange: FilterDateRange? = null,
+    val scheduledRange: DateRange? = null,
 
     @Json(name = "expiresRange")
-    val expiresRange: FilterDateRange? = null,
+    val expiresRange: DateRange? = null,
 
     @Json(name = "scheme")
     val scheme: kotlin.collections.List<kotlin.String>? = null,

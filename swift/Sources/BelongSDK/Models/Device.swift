@@ -29,11 +29,11 @@ public struct Device: Codable, JSONEncodable, Hashable {
     public var rooted: Bool?
     public var status: String?
     public var ownership: String?
-    public var useInfo: DeviceUseInfo?
-    public var collectionInfo: DeviceCollectionInfo?
-    public var lossInfo: DeviceLossInfo?
+    public var useInfo: UseInfo?
+    public var collectionInfo: CollectionInfo?
+    public var lossInfo: LossInfo?
 
-    public init(id: String? = nil, platform: String? = nil, platformLevel: String? = nil, manufacturer: String? = nil, model: String? = nil, marketName: String? = nil, osVersion: String? = nil, apiVersion: Int? = nil, appVersion: String? = nil, appVersionCode: Int? = nil, locale: String? = nil, timezoneId: String? = nil, timezoneOffset: Int? = nil, tablet: Bool? = nil, rooted: Bool? = nil, status: String? = nil, ownership: String? = nil, useInfo: DeviceUseInfo? = nil, collectionInfo: DeviceCollectionInfo? = nil, lossInfo: DeviceLossInfo? = nil) {
+    public init(id: String? = nil, platform: String? = nil, platformLevel: String? = nil, manufacturer: String? = nil, model: String? = nil, marketName: String? = nil, osVersion: String? = nil, apiVersion: Int? = nil, appVersion: String? = nil, appVersionCode: Int? = nil, locale: String? = nil, timezoneId: String? = nil, timezoneOffset: Int? = nil, tablet: Bool? = nil, rooted: Bool? = nil, status: String? = nil, ownership: String? = nil, useInfo: UseInfo? = nil, collectionInfo: CollectionInfo? = nil, lossInfo: LossInfo? = nil) {
         self.id = id
         self.platform = platform
         self.platformLevel = platformLevel

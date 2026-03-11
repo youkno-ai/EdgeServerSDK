@@ -6,27 +6,27 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
+import ai.youkno.edgeserversdk.models.ActivateMenuRequest
+import ai.youkno.edgeserversdk.models.AnswerCallResult
 import ai.youkno.edgeserversdk.models.Bounty
 import ai.youkno.edgeserversdk.models.BountyChanges
+import ai.youkno.edgeserversdk.models.BountyControllerPaymentSummary
+import ai.youkno.edgeserversdk.models.BountyRecipientResp
 import ai.youkno.edgeserversdk.models.BountyResponse
-import ai.youkno.edgeserversdk.models.BountyTermsContentAccessRule
-import ai.youkno.edgeserversdk.models.EdgeApiDataAnswerCallResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyRecipientResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountySectionResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyStatisticsResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataBountyStatisticsResultOld
-import ai.youkno.edgeserversdk.models.EdgeApiDataColorSchemeResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataFeedbackReportResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageBounty
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageListsListDef
-import ai.youkno.edgeserversdk.models.EdgeApiDataPlaceCallResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataSponsorshipRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataSubBountiesResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataUpdateBountyStateReq
-import ai.youkno.edgeserversdk.models.RestControllerBountyControllerActivateMenuRequest
-import ai.youkno.edgeserversdk.models.RestControllerBountyControllerPaymentSummary
-import ai.youkno.edgeserversdk.models.RestControllerBountyControllerShareLinkResult
-import ai.youkno.edgeserversdk.models.ShoppingCartOrderSummary
+import ai.youkno.edgeserversdk.models.BountySectionResult
+import ai.youkno.edgeserversdk.models.BountyStatisticsResult
+import ai.youkno.edgeserversdk.models.BountyStatisticsResultOld
+import ai.youkno.edgeserversdk.models.ColorSchemeResult
+import ai.youkno.edgeserversdk.models.ContentAccessRule
+import ai.youkno.edgeserversdk.models.FeedbackReportResp
+import ai.youkno.edgeserversdk.models.ListsListDef
+import ai.youkno.edgeserversdk.models.ModelBounty
+import ai.youkno.edgeserversdk.models.OrderSummary
+import ai.youkno.edgeserversdk.models.PlaceCallResult
+import ai.youkno.edgeserversdk.models.ShareLinkResult
+import ai.youkno.edgeserversdk.models.SponsorshipRequest
+import ai.youkno.edgeserversdk.models.SubBountiesResp
+import ai.youkno.edgeserversdk.models.UpdateBountyStateReq
 import ai.youkno.edgeserversdk.models.UserInvite
 
 interface BountyControllerApi {
@@ -57,11 +57,11 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyStatisticsResultOld]>
+     * @return [Call]<[BountyStatisticsResultOld]>
      */
     @Deprecated("This api was deprecated")
     @GET("api/v1/bounties/{bounty_id}/statistics")
-    fun getApiV1BountiesByBountyIdStatistics(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyStatisticsResultOld>
+    fun getApiV1BountiesByBountyIdStatistics(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyStatisticsResultOld>
 
     /**
      * GET api/v1/bounties/{bounty_id}/statistics_new
@@ -74,10 +74,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyStatisticsResult]>
+     * @return [Call]<[BountyStatisticsResult]>
      */
     @GET("api/v1/bounties/{bounty_id}/statistics_new")
-    fun getApiV1BountiesByBountyIdStatisticsNew(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyStatisticsResult>
+    fun getApiV1BountiesByBountyIdStatisticsNew(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyStatisticsResult>
 
     /**
      * GET api/v1/bounties/{bounty_id}/statistics_old
@@ -90,11 +90,11 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyStatisticsResultOld]>
+     * @return [Call]<[BountyStatisticsResultOld]>
      */
     @Deprecated("This api was deprecated")
     @GET("api/v1/bounties/{bounty_id}/statistics_old")
-    fun getApiV1BountiesByBountyIdStatisticsOld(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyStatisticsResultOld>
+    fun getApiV1BountiesByBountyIdStatisticsOld(@Path("bounty_id") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyStatisticsResultOld>
 
     /**
      * GET api/v1/bounties/{bountyId}/content/access
@@ -107,10 +107,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[BountyTermsContentAccessRule]>
+     * @return [Call]<[ContentAccessRule]>
      */
     @GET("api/v1/bounties/{bountyId}/content/access")
-    fun getApiV1BountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyTermsContentAccessRule>
+    fun getApiV1BountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ContentAccessRule>
 
     /**
      * GET api/v1/bounties/{bountyId}/feedback/report
@@ -125,10 +125,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataFeedbackReportResp]>
+     * @return [Call]<[FeedbackReportResp]>
      */
     @GET("api/v1/bounties/{bountyId}/feedback/report")
-    fun getApiV1BountiesByBountyidFeedbackReport(@Path("bountyId") bountyId: kotlin.String, @Query("answeredFrom") answeredFrom: kotlin.Long? = null, @Query("answeredTo") answeredTo: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataFeedbackReportResp>
+    fun getApiV1BountiesByBountyidFeedbackReport(@Path("bountyId") bountyId: kotlin.String, @Query("answeredFrom") answeredFrom: kotlin.Long? = null, @Query("answeredTo") answeredTo: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<FeedbackReportResp>
 
     /**
      * GET api/v1/bounties/{bountyId}/nextWinner
@@ -157,10 +157,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerBountyControllerPaymentSummary]>
+     * @return [Call]<[BountyControllerPaymentSummary]>
      */
     @GET("api/v1/bounties/{bountyId}/payment-summary")
-    fun getApiV1BountiesByBountyidPaymentSummary(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerBountyControllerPaymentSummary>
+    fun getApiV1BountiesByBountyidPaymentSummary(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyControllerPaymentSummary>
 
     /**
      * GET api/v1/bounties/{bountyId}/recipient
@@ -173,10 +173,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountyRecipientResp]>
+     * @return [Call]<[BountyRecipientResp]>
      */
     @GET("api/v1/bounties/{bountyId}/recipient")
-    fun getApiV1BountiesByBountyidRecipient(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountyRecipientResp>
+    fun getApiV1BountiesByBountyidRecipient(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyRecipientResp>
 
     /**
      * GET api/v1/bounties/{bountyId}/share
@@ -189,10 +189,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerBountyControllerShareLinkResult]>
+     * @return [Call]<[ShareLinkResult]>
      */
     @GET("api/v1/bounties/{bountyId}/share")
-    fun getApiV1BountiesByBountyidShare(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerBountyControllerShareLinkResult>
+    fun getApiV1BountiesByBountyidShare(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShareLinkResult>
 
     /**
      * GET api/v1/bounties/{bountyId}/shares
@@ -205,10 +205,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerBountyControllerShareLinkResult]>
+     * @return [Call]<[ShareLinkResult]>
      */
     @GET("api/v1/bounties/{bountyId}/shares")
-    fun getApiV1BountiesByBountyidShares(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerBountyControllerShareLinkResult>
+    fun getApiV1BountiesByBountyidShares(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShareLinkResult>
 
     /**
      * GET api/v1/bounties/{dealId}/inviteLinks/{inviteId}
@@ -241,10 +241,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataSubBountiesResp]>
+     * @return [Call]<[SubBountiesResp]>
      */
     @GET("api/v1/bounties/{parent_id}/subbounties")
-    fun getApiV1BountiesByParentIdSubbounties(@Path("parent_id") parentId: kotlin.String, @Query("inbound") inbound: kotlin.Boolean? = false, @Query("outbound") outbound: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataSubBountiesResp>
+    fun getApiV1BountiesByParentIdSubbounties(@Path("parent_id") parentId: kotlin.String, @Query("inbound") inbound: kotlin.Boolean? = false, @Query("outbound") outbound: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<SubBountiesResp>
 
     /**
      * GET api/v1/bounties/colorSchemes
@@ -256,10 +256,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataColorSchemeResult]>
+     * @return [Call]<[ColorSchemeResult]>
      */
     @GET("api/v1/bounties/colorSchemes")
-    fun getApiV1BountiesColorschemes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataColorSchemeResult>
+    fun getApiV1BountiesColorschemes(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ColorSchemeResult>
 
     /**
      * GET api/v1/bounties/menus/active
@@ -274,10 +274,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageBounty]>
+     * @return [Call]<[ModelBounty]>
      */
     @GET("api/v1/bounties/menus/active")
-    fun getApiV1BountiesMenusActive(@Query("merchantId") merchantId: kotlin.String? = null, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zone: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageBounty>
+    fun getApiV1BountiesMenusActive(@Query("merchantId") merchantId: kotlin.String? = null, @Query("clientId") clientId: kotlin.String? = null, @Query("zone") zone: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelBounty>
 
     /**
      * GET api/v1/bounties/publish/lists
@@ -289,10 +289,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageListsListDef]>
+     * @return [Call]<[ListsListDef]>
      */
     @GET("api/v1/bounties/publish/lists")
-    fun getApiV1BountiesPublishLists(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageListsListDef>
+    fun getApiV1BountiesPublishLists(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListsListDef>
 
     /**
      * GET api/v1/bounties/sections
@@ -305,10 +305,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBountySectionResult]>
+     * @return [Call]<[BountySectionResult]>
      */
     @GET("api/v1/bounties/sections")
-    fun getApiV1BountiesSections(@Query("type") type: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBountySectionResult>
+    fun getApiV1BountiesSections(@Query("type") type: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountySectionResult>
 
     /**
      * POST api/v1/bounties/{bountyId}/calls/answer
@@ -322,10 +322,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataAnswerCallResult]>
+     * @return [Call]<[AnswerCallResult]>
      */
     @POST("api/v1/bounties/{bountyId}/calls/answer")
-    fun postApiV1BountiesByBountyidCallsAnswer(@Path("bountyId") bountyId: kotlin.String, @Query("roomId") roomId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataAnswerCallResult>
+    fun postApiV1BountiesByBountyidCallsAnswer(@Path("bountyId") bountyId: kotlin.String, @Query("roomId") roomId: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AnswerCallResult>
 
     /**
      * POST api/v1/bounties/{bountyId}/calls/place
@@ -338,10 +338,10 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPlaceCallResult]>
+     * @return [Call]<[PlaceCallResult]>
      */
     @POST("api/v1/bounties/{bountyId}/calls/place")
-    fun postApiV1BountiesByBountyidCallsPlace(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPlaceCallResult>
+    fun postApiV1BountiesByBountyidCallsPlace(@Path("bountyId") bountyId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PlaceCallResult>
 
     /**
      * POST api/v1/bounties/{bountyId}/closeAuction
@@ -387,11 +387,11 @@ interface BountyControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param restControllerBountyControllerActivateMenuRequest  (optional)
+     * @param activateMenuRequest  (optional)
      * @return [Call]<[Bounty]>
      */
     @POST("api/v1/bounties/{bountyId}/menu/activate")
-    fun postApiV1BountiesByBountyidMenuActivate(@Path("bountyId") bountyId: kotlin.String, @Query("deactivateOthers") deactivateOthers: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body restControllerBountyControllerActivateMenuRequest: RestControllerBountyControllerActivateMenuRequest? = null): Call<Bounty>
+    fun postApiV1BountiesByBountyidMenuActivate(@Path("bountyId") bountyId: kotlin.String, @Query("deactivateOthers") deactivateOthers: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body activateMenuRequest: ActivateMenuRequest? = null): Call<Bounty>
 
     /**
      * POST api/v1/bounties/{bountyId}/nextWinner
@@ -451,14 +451,14 @@ interface BountyControllerApi {
      *
      * @param bountyId 
      * @param avatarId 
-     * @param edgeApiDataSponsorshipRequest 
+     * @param sponsorshipRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/bounties/{bountyId}/sponsorships/{avatarId}/accept")
-    fun postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(@Path("bountyId") bountyId: kotlin.String, @Path("avatarId") avatarId: kotlin.String, @Body edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(@Path("bountyId") bountyId: kotlin.String, @Path("avatarId") avatarId: kotlin.String, @Body sponsorshipRequest: SponsorshipRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/bounties/{bountyId}/sponsorships/{avatarId}/reject
@@ -469,14 +469,14 @@ interface BountyControllerApi {
      *
      * @param bountyId 
      * @param avatarId 
-     * @param edgeApiDataSponsorshipRequest 
+     * @param sponsorshipRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ShoppingCartOrderSummary]>
+     * @return [Call]<[OrderSummary]>
      */
     @POST("api/v1/bounties/{bountyId}/sponsorships/{avatarId}/reject")
-    fun postApiV1BountiesByBountyidSponsorshipsByAvataridReject(@Path("bountyId") bountyId: kotlin.String, @Path("avatarId") avatarId: kotlin.String, @Body edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ShoppingCartOrderSummary>
+    fun postApiV1BountiesByBountyidSponsorshipsByAvataridReject(@Path("bountyId") bountyId: kotlin.String, @Path("avatarId") avatarId: kotlin.String, @Body sponsorshipRequest: SponsorshipRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<OrderSummary>
 
     /**
      * POST api/v1/bounties/{bountyId}/unparticipate
@@ -518,15 +518,15 @@ interface BountyControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param bountyTermsContentAccessRule 
+     * @param contentAccessRule 
      * @param refreshPin  (optional)
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[BountyTermsContentAccessRule]>
+     * @return [Call]<[ContentAccessRule]>
      */
     @PUT("api/v1/bounties/{bountyId}/content/access")
-    fun putApiV1BountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Body bountyTermsContentAccessRule: BountyTermsContentAccessRule, @Query("refreshPin") refreshPin: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BountyTermsContentAccessRule>
+    fun putApiV1BountiesByBountyidContentAccess(@Path("bountyId") bountyId: kotlin.String, @Body contentAccessRule: ContentAccessRule, @Query("refreshPin") refreshPin: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ContentAccessRule>
 
     /**
      * PUT api/v1/bounties/{bountyId}/flags
@@ -570,13 +570,13 @@ interface BountyControllerApi {
      *  - 200: OK
      *
      * @param bountyId 
-     * @param edgeApiDataUpdateBountyStateReq 
+     * @param updateBountyStateReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @PUT("api/v1/bounties/{bountyId}/update/state")
-    fun putApiV1BountiesByBountyidUpdateState(@Path("bountyId") bountyId: kotlin.String, @Body edgeApiDataUpdateBountyStateReq: EdgeApiDataUpdateBountyStateReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1BountiesByBountyidUpdateState(@Path("bountyId") bountyId: kotlin.String, @Body updateBountyStateReq: UpdateBountyStateReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 }

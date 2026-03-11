@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { WebhooksWebhookDeliverySummaryDto2 } from './WebhooksWebhookDeliverySummaryDto2';
+import {
+    WebhooksWebhookDeliverySummaryDto2FromJSON,
+    WebhooksWebhookDeliverySummaryDto2FromJSONTyped,
+    WebhooksWebhookDeliverySummaryDto2ToJSON,
+    WebhooksWebhookDeliverySummaryDto2ToJSONTyped,
+} from './WebhooksWebhookDeliverySummaryDto2';
+
 /**
  * 
  * @export
@@ -21,118 +29,35 @@ import { mapValues } from '../runtime';
 export interface WebhooksWebhookDeliverySummaryDto {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof WebhooksWebhookDeliverySummaryDto
      */
-    deliveryId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    eventLogId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    eventType?: string;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    eventCreatedAt?: Date;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    status?: WebhooksWebhookDeliverySummaryDtoStatusEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    deliveryOutcome?: WebhooksWebhookDeliverySummaryDtoDeliveryOutcomeEnum;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof WebhooksWebhookDeliverySummaryDto
      */
-    attemptCount?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof WebhooksWebhookDeliverySummaryDto
      */
-    responseStatusCode?: number;
+    length?: number;
     /**
      * 
-     * @type {Date}
+     * @type {boolean}
      * @memberof WebhooksWebhookDeliverySummaryDto
      */
-    lastAttemptAt?: Date;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {Date}
+     * @type {Array<WebhooksWebhookDeliverySummaryDto2>}
      * @memberof WebhooksWebhookDeliverySummaryDto
      */
-    nextAttemptAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    createdAt?: Date;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    deadReason?: string;
-    /**
-     * 
-     * @type {Date}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    deadAt?: Date;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhooksWebhookDeliverySummaryDto
-     */
-    errorMessage?: string;
+    list?: Array<WebhooksWebhookDeliverySummaryDto2>;
 }
-
-
-/**
- * @export
- */
-export const WebhooksWebhookDeliverySummaryDtoStatusEnum = {
-    PENDING: 'PENDING',
-    IN_PROGRESS: 'IN_PROGRESS',
-    SUCCEEDED: 'SUCCEEDED',
-    RETRY_SCHEDULED: 'RETRY_SCHEDULED',
-    DEAD: 'DEAD',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type WebhooksWebhookDeliverySummaryDtoStatusEnum = typeof WebhooksWebhookDeliverySummaryDtoStatusEnum[keyof typeof WebhooksWebhookDeliverySummaryDtoStatusEnum];
-
-/**
- * @export
- */
-export const WebhooksWebhookDeliverySummaryDtoDeliveryOutcomeEnum = {
-    SUCCESS: 'SUCCESS',
-    RETRYABLE_FAILURE: 'RETRYABLE_FAILURE',
-    TERMINAL_FAILURE: 'TERMINAL_FAILURE',
-    DEFERRED_RATE_LIMIT: 'DEFERRED_RATE_LIMIT',
-    DEFERRED_CIRCUIT_OPEN: 'DEFERRED_CIRCUIT_OPEN',
-    SKIPPED_DISABLED_ENDPOINT: 'SKIPPED_DISABLED_ENDPOINT',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type WebhooksWebhookDeliverySummaryDtoDeliveryOutcomeEnum = typeof WebhooksWebhookDeliverySummaryDtoDeliveryOutcomeEnum[keyof typeof WebhooksWebhookDeliverySummaryDtoDeliveryOutcomeEnum];
-
 
 /**
  * Check if a given object implements the WebhooksWebhookDeliverySummaryDto interface.
@@ -151,20 +76,11 @@ export function WebhooksWebhookDeliverySummaryDtoFromJSONTyped(json: any, ignore
     }
     return {
         
-        'deliveryId': json['deliveryId'] == null ? undefined : json['deliveryId'],
-        'eventLogId': json['eventLogId'] == null ? undefined : json['eventLogId'],
-        'eventType': json['eventType'] == null ? undefined : json['eventType'],
-        'eventCreatedAt': json['eventCreatedAt'] == null ? undefined : (new Date(json['eventCreatedAt'])),
-        'status': json['status'] == null ? undefined : json['status'],
-        'deliveryOutcome': json['deliveryOutcome'] == null ? undefined : json['deliveryOutcome'],
-        'attemptCount': json['attemptCount'] == null ? undefined : json['attemptCount'],
-        'responseStatusCode': json['responseStatusCode'] == null ? undefined : json['responseStatusCode'],
-        'lastAttemptAt': json['lastAttemptAt'] == null ? undefined : (new Date(json['lastAttemptAt'])),
-        'nextAttemptAt': json['nextAttemptAt'] == null ? undefined : (new Date(json['nextAttemptAt'])),
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
-        'deadReason': json['deadReason'] == null ? undefined : json['deadReason'],
-        'deadAt': json['deadAt'] == null ? undefined : (new Date(json['deadAt'])),
-        'errorMessage': json['errorMessage'] == null ? undefined : json['errorMessage'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(WebhooksWebhookDeliverySummaryDto2FromJSON)),
     };
 }
 
@@ -179,20 +95,11 @@ export function WebhooksWebhookDeliverySummaryDtoToJSONTyped(value?: WebhooksWeb
 
     return {
         
-        'deliveryId': value['deliveryId'],
-        'eventLogId': value['eventLogId'],
-        'eventType': value['eventType'],
-        'eventCreatedAt': value['eventCreatedAt'] == null ? undefined : ((value['eventCreatedAt']).toISOString()),
-        'status': value['status'],
-        'deliveryOutcome': value['deliveryOutcome'],
-        'attemptCount': value['attemptCount'],
-        'responseStatusCode': value['responseStatusCode'],
-        'lastAttemptAt': value['lastAttemptAt'] == null ? undefined : ((value['lastAttemptAt']).toISOString()),
-        'nextAttemptAt': value['nextAttemptAt'] == null ? undefined : ((value['nextAttemptAt']).toISOString()),
-        'createdAt': value['createdAt'] == null ? undefined : ((value['createdAt']).toISOString()),
-        'deadReason': value['deadReason'],
-        'deadAt': value['deadAt'] == null ? undefined : ((value['deadAt']).toISOString()),
-        'errorMessage': value['errorMessage'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(WebhooksWebhookDeliverySummaryDto2ToJSON)),
     };
 }
 

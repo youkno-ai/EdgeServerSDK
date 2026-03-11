@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,22 +23,22 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param requiredAccessKeys 
- * @param accessKeyEnforcement 
- * @param accessKeyCtaMode 
+ * @param newValue 
+ * @param oldValue 
+ * @param empty 
  */
 
 
 data class HasAccessKeysAccessKeys (
 
-    @Json(name = "requiredAccessKeys")
-    val requiredAccessKeys: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
+    @Json(name = "newValue")
+    val newValue: HasAccessKeysAccessKeys2? = null,
 
-    @Json(name = "accessKeyEnforcement")
-    val accessKeyEnforcement: kotlin.String? = null,
+    @Json(name = "oldValue")
+    val oldValue: HasAccessKeysAccessKeys2? = null,
 
-    @Json(name = "accessKeyCtaMode")
-    val accessKeyCtaMode: kotlin.String? = null
+    @Json(name = "empty")
+    val empty: kotlin.Boolean? = null
 
 ) {
 

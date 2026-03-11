@@ -30,17 +30,17 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var creator: User?
     public var author: User?
     public var onBehalfOf: User?
-    public var agentInfo: BountyAgentInfo?
+    public var agentInfo: AgentInfo?
     public var identityMode: IdentityMode?
     public var replyIdentityMode: IdentityMode?
-    public var to: BountyAddressedTo?
-    public var parentBounty: BountyParentBounty?
+    public var to: AddressedTo?
+    public var parentBounty: ParentBounty?
     public var title: String?
     public var description: BountyDescription?
     public var reward: Reward?
     public var terms: BountyTerms?
-    public var accessKeys: HasAccessKeysAccessKeys?
-    public var varTerms: BountyVarTerms?
+    public var accessKeys: HasAccessKeysAccessKeys2?
+    public var varTerms: VarTerms?
     public var targetUrl: String?
     public var responseKey: String?
     public var intent: String?
@@ -49,7 +49,7 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var snippets: BountySnippets?
     public var responseVisibilityMode: VisibilityMode?
     public var attachments: Attachments?
-    public var broadcastInfo: BountyBroadcastInfo?
+    public var broadcastInfo: BroadcastInfo?
     public var badges: Badges?
     public var product: BountyProduct?
     public var order: BountyOrder?
@@ -58,7 +58,7 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var timeLimit: Int64?
     public var listId: String?
     public var listCode: String?
-    public var locationGeo: BountyLatLng?
+    public var locationGeo: LatLng?
     public var visibility: String?
     public var bountyCategories: [String: BountyBountyCategory]?
     public var matchInfo: BountyMatchInfo?
@@ -84,8 +84,8 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var activateAt: Int64?
     public var postAt: Int64?
     public var pinnedAt: Int64?
-    public var summary: BountySummary?
-    public var stats: BountyBountyStats?
+    public var summary: Summary?
+    public var stats: BountyStats?
     public var rating: Rating?
     public var orderInParentSortKey: String?
     public var creatorUpdatedAtSortKey: String?
@@ -99,7 +99,7 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var streamPopularitySortKey: String?
     public var streamDiscussedSortKey: String?
     public var entitySource: String?
-    public var work: BountyWork?
+    public var work: Work?
     public var interactions: BountyInteractions?
     public var outboundResponses: [String: BountyResponse]?
     public var favoritedAt: Int64?
@@ -107,12 +107,12 @@ public struct Bounty: Codable, JSONEncodable, Hashable {
     public var report: EntityReportInfo?
     public var metaInfo: BountyMetaInfo?
     public var recommendationToken: String?
-    public var listDef: ListsListDef?
+    public var listDef: ListsListDef2?
     public var entityId: String?
     public var accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum?
     public var accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum?
 
-    public init(id: String? = nil, shortId: String? = nil, type: String? = nil, createdAt: Int64? = nil, owner: User? = nil, creator: User? = nil, author: User? = nil, onBehalfOf: User? = nil, agentInfo: BountyAgentInfo? = nil, identityMode: IdentityMode? = nil, replyIdentityMode: IdentityMode? = nil, to: BountyAddressedTo? = nil, parentBounty: BountyParentBounty? = nil, title: String? = nil, description: BountyDescription? = nil, reward: Reward? = nil, terms: BountyTerms? = nil, accessKeys: HasAccessKeysAccessKeys? = nil, varTerms: BountyVarTerms? = nil, targetUrl: String? = nil, responseKey: String? = nil, intent: String? = nil, state: String? = nil, distribution: BountyDistribution? = nil, snippets: BountySnippets? = nil, responseVisibilityMode: VisibilityMode? = nil, attachments: Attachments? = nil, broadcastInfo: BountyBroadcastInfo? = nil, badges: Badges? = nil, product: BountyProduct? = nil, order: BountyOrder? = nil, banner: BountyBanner? = nil, sponsorship: Sponsorship? = nil, timeLimit: Int64? = nil, listId: String? = nil, listCode: String? = nil, locationGeo: BountyLatLng? = nil, visibility: String? = nil, bountyCategories: [String: BountyBountyCategory]? = nil, matchInfo: BountyMatchInfo? = nil, reservationInfo: BountyReservationInfo? = nil, challengeInfo: BountyChallengeInfo? = nil, approvalInfo: BountyApprovalInfo? = nil, tags: Tags? = nil, trustedTags: Tags? = nil, contestInfo: BountyContestInfo? = nil, theme: BountyTheme? = nil, rejectInfo: Rejects? = nil, activities: BountyActivities? = nil, geofences: Geofences? = nil, quickClaimInfo: BountyQuickClaimInfo? = nil, auctionInfo: BountyAuctionInfo? = nil, newsInfo: BountyNewsInfo? = nil, menuInfo: BountyMenuInfo? = nil, overallBudget: BountyBudget? = nil, updatedAt: Int64? = nil, expiresAt: Int64? = nil, editedAt: Int64? = nil, postedAt: Int64? = nil, activateAt: Int64? = nil, postAt: Int64? = nil, pinnedAt: Int64? = nil, summary: BountySummary? = nil, stats: BountyBountyStats? = nil, rating: Rating? = nil, orderInParentSortKey: String? = nil, creatorUpdatedAtSortKey: String? = nil, typeCreatedAtSortKey: String? = nil, typePopularitySortKey: String? = nil, typeDiscussedSortKey: String? = nil, listCreatedAtSortKey: String? = nil, listPopularitySortKey: String? = nil, listDiscussedSortKey: String? = nil, streamCreatedAtSortKey: String? = nil, streamPopularitySortKey: String? = nil, streamDiscussedSortKey: String? = nil, entitySource: String? = nil, work: BountyWork? = nil, interactions: BountyInteractions? = nil, outboundResponses: [String: BountyResponse]? = nil, favoritedAt: Int64? = nil, likedAt: Int64? = nil, report: EntityReportInfo? = nil, metaInfo: BountyMetaInfo? = nil, recommendationToken: String? = nil, listDef: ListsListDef? = nil, entityId: String? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
+    public init(id: String? = nil, shortId: String? = nil, type: String? = nil, createdAt: Int64? = nil, owner: User? = nil, creator: User? = nil, author: User? = nil, onBehalfOf: User? = nil, agentInfo: AgentInfo? = nil, identityMode: IdentityMode? = nil, replyIdentityMode: IdentityMode? = nil, to: AddressedTo? = nil, parentBounty: ParentBounty? = nil, title: String? = nil, description: BountyDescription? = nil, reward: Reward? = nil, terms: BountyTerms? = nil, accessKeys: HasAccessKeysAccessKeys2? = nil, varTerms: VarTerms? = nil, targetUrl: String? = nil, responseKey: String? = nil, intent: String? = nil, state: String? = nil, distribution: BountyDistribution? = nil, snippets: BountySnippets? = nil, responseVisibilityMode: VisibilityMode? = nil, attachments: Attachments? = nil, broadcastInfo: BroadcastInfo? = nil, badges: Badges? = nil, product: BountyProduct? = nil, order: BountyOrder? = nil, banner: BountyBanner? = nil, sponsorship: Sponsorship? = nil, timeLimit: Int64? = nil, listId: String? = nil, listCode: String? = nil, locationGeo: LatLng? = nil, visibility: String? = nil, bountyCategories: [String: BountyBountyCategory]? = nil, matchInfo: BountyMatchInfo? = nil, reservationInfo: BountyReservationInfo? = nil, challengeInfo: BountyChallengeInfo? = nil, approvalInfo: BountyApprovalInfo? = nil, tags: Tags? = nil, trustedTags: Tags? = nil, contestInfo: BountyContestInfo? = nil, theme: BountyTheme? = nil, rejectInfo: Rejects? = nil, activities: BountyActivities? = nil, geofences: Geofences? = nil, quickClaimInfo: BountyQuickClaimInfo? = nil, auctionInfo: BountyAuctionInfo? = nil, newsInfo: BountyNewsInfo? = nil, menuInfo: BountyMenuInfo? = nil, overallBudget: BountyBudget? = nil, updatedAt: Int64? = nil, expiresAt: Int64? = nil, editedAt: Int64? = nil, postedAt: Int64? = nil, activateAt: Int64? = nil, postAt: Int64? = nil, pinnedAt: Int64? = nil, summary: Summary? = nil, stats: BountyStats? = nil, rating: Rating? = nil, orderInParentSortKey: String? = nil, creatorUpdatedAtSortKey: String? = nil, typeCreatedAtSortKey: String? = nil, typePopularitySortKey: String? = nil, typeDiscussedSortKey: String? = nil, listCreatedAtSortKey: String? = nil, listPopularitySortKey: String? = nil, listDiscussedSortKey: String? = nil, streamCreatedAtSortKey: String? = nil, streamPopularitySortKey: String? = nil, streamDiscussedSortKey: String? = nil, entitySource: String? = nil, work: Work? = nil, interactions: BountyInteractions? = nil, outboundResponses: [String: BountyResponse]? = nil, favoritedAt: Int64? = nil, likedAt: Int64? = nil, report: EntityReportInfo? = nil, metaInfo: BountyMetaInfo? = nil, recommendationToken: String? = nil, listDef: ListsListDef2? = nil, entityId: String? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
         self.id = id
         self.shortId = shortId
         self.type = type

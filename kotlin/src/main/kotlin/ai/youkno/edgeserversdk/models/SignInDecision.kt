@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.SignInDecisionField
+import ai.youkno.edgeserversdk.models.Field
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -39,7 +39,7 @@ data class SignInDecision (
     val link: kotlin.String? = null,
 
     @Json(name = "fields")
-    val fields: kotlin.collections.List<SignInDecisionField>? = null,
+    val fields: kotlin.collections.List<Field>? = null,
 
     @Json(name = "missingFields")
     val missingFields: kotlin.collections.List<SignInDecision.MissingFields>? = null

@@ -15,10 +15,10 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyProductOptions
-import ai.youkno.edgeserversdk.models.BountyProductProductSpecificInfo
-import ai.youkno.edgeserversdk.models.BountyProductProductSpecificInfoChemicalInfo
-import ai.youkno.edgeserversdk.models.PrivateListingPrivateListingInfo
+import ai.youkno.edgeserversdk.models.Options
+import ai.youkno.edgeserversdk.models.PrivateListingInfo
+import ai.youkno.edgeserversdk.models.ProductSpecificInfo
+import ai.youkno.edgeserversdk.models.ProductSpecificInfoChemicalInfo
 import ai.youkno.edgeserversdk.models.User
 
 import com.squareup.moshi.Json
@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param categoryOrder 
  * @param chemicalCompositions 
  * @param valid 
- * @param zoneAsEnum 
- * @param fastDelivery 
- * @param totalQuantity 
- * @param optionCount 
- * @param topLevelVariant 
  * @param effectiveZone 
  * @param kindAsEnum 
- * @param effectiveZoneAsEnum 
+ * @param topLevelVariant 
+ * @param optionCount 
+ * @param totalQuantity 
+ * @param zoneAsEnum 
+ * @param fastDelivery 
  * @param deliveryTypeAsEnum 
+ * @param effectiveZoneAsEnum 
  */
 
 
@@ -86,7 +86,7 @@ data class BountyProduct (
     val shopifyStoreName: kotlin.String? = null,
 
     @Json(name = "privateListingInfo")
-    val privateListingInfo: PrivateListingPrivateListingInfo? = null,
+    val privateListingInfo: PrivateListingInfo? = null,
 
     @Json(name = "handle")
     val handle: kotlin.String? = null,
@@ -110,7 +110,7 @@ data class BountyProduct (
     val published: kotlin.Boolean? = null,
 
     @Json(name = "options")
-    val options: BountyProductOptions? = null,
+    val options: Options? = null,
 
     @Json(name = "attachmentIds")
     val attachmentIds: kotlin.String? = null,
@@ -128,7 +128,7 @@ data class BountyProduct (
     val deliveryType: kotlin.String? = null,
 
     @Json(name = "variants")
-    val variants: kotlin.collections.Map<kotlin.String, BountyProductProductSpecificInfo>? = null,
+    val variants: kotlin.collections.Map<kotlin.String, ProductSpecificInfo>? = null,
 
     @Json(name = "googleMetafields")
     val googleMetafields: kotlin.Any? = null,
@@ -140,25 +140,10 @@ data class BountyProduct (
     val categoryOrder: kotlin.Int? = null,
 
     @Json(name = "chemicalCompositions")
-    val chemicalCompositions: kotlin.collections.Map<kotlin.String, BountyProductProductSpecificInfoChemicalInfo>? = null,
+    val chemicalCompositions: kotlin.collections.Map<kotlin.String, ProductSpecificInfoChemicalInfo>? = null,
 
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
-
-    @Json(name = "zoneAsEnum")
-    val zoneAsEnum: BountyProduct.ZoneAsEnum? = null,
-
-    @Json(name = "fastDelivery")
-    val fastDelivery: kotlin.Boolean? = null,
-
-    @Json(name = "totalQuantity")
-    val totalQuantity: kotlin.Double? = null,
-
-    @Json(name = "optionCount")
-    val optionCount: kotlin.Int? = null,
-
-    @Json(name = "topLevelVariant")
-    val topLevelVariant: BountyProductProductSpecificInfo? = null,
 
     @Json(name = "effectiveZone")
     val effectiveZone: kotlin.String? = null,
@@ -166,25 +151,29 @@ data class BountyProduct (
     @Json(name = "kindAsEnum")
     val kindAsEnum: BountyProduct.KindAsEnum? = null,
 
-    @Json(name = "effectiveZoneAsEnum")
-    val effectiveZoneAsEnum: BountyProduct.EffectiveZoneAsEnum? = null,
+    @Json(name = "topLevelVariant")
+    val topLevelVariant: ProductSpecificInfo? = null,
+
+    @Json(name = "optionCount")
+    val optionCount: kotlin.Int? = null,
+
+    @Json(name = "totalQuantity")
+    val totalQuantity: kotlin.Double? = null,
+
+    @Json(name = "zoneAsEnum")
+    val zoneAsEnum: BountyProduct.ZoneAsEnum? = null,
+
+    @Json(name = "fastDelivery")
+    val fastDelivery: kotlin.Boolean? = null,
 
     @Json(name = "deliveryTypeAsEnum")
-    val deliveryTypeAsEnum: BountyProduct.DeliveryTypeAsEnum? = null
+    val deliveryTypeAsEnum: BountyProduct.DeliveryTypeAsEnum? = null,
+
+    @Json(name = "effectiveZoneAsEnum")
+    val effectiveZoneAsEnum: BountyProduct.EffectiveZoneAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: SHOP,FNB,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ZoneAsEnum(val value: kotlin.String) {
-        @Json(name = "SHOP") SHOP("SHOP"),
-        @Json(name = "FNB") FNB("FNB"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
     /**
      * 
      *
@@ -206,7 +195,7 @@ data class BountyProduct (
      * Values: SHOP,FNB,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
-    enum class EffectiveZoneAsEnum(val value: kotlin.String) {
+    enum class ZoneAsEnum(val value: kotlin.String) {
         @Json(name = "SHOP") SHOP("SHOP"),
         @Json(name = "FNB") FNB("FNB"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
@@ -221,6 +210,17 @@ data class BountyProduct (
         @Json(name = "STANDARD") STANDARD("STANDARD"),
         @Json(name = "DRIVER") DRIVER("DRIVER"),
         @Json(name = "NO_DELIVERY") NO_DELIVERY("NO_DELIVERY"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: SHOP,FNB,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class EffectiveZoneAsEnum(val value: kotlin.String) {
+        @Json(name = "SHOP") SHOP("SHOP"),
+        @Json(name = "FNB") FNB("FNB"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
 

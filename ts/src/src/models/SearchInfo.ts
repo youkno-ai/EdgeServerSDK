@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SearchInfoSearchConf } from './SearchInfoSearchConf';
+import type { SearchConf } from './SearchConf';
 import {
-    SearchInfoSearchConfFromJSON,
-    SearchInfoSearchConfFromJSONTyped,
-    SearchInfoSearchConfToJSON,
-    SearchInfoSearchConfToJSONTyped,
-} from './SearchInfoSearchConf';
+    SearchConfFromJSON,
+    SearchConfFromJSONTyped,
+    SearchConfToJSON,
+    SearchConfToJSONTyped,
+} from './SearchConf';
 
 /**
  * 
@@ -41,10 +41,10 @@ export interface SearchInfo {
     bucketingPolicy?: string;
     /**
      * 
-     * @type {SearchInfoSearchConf}
+     * @type {SearchConf}
      * @memberof SearchInfo
      */
-    conf?: SearchInfoSearchConf;
+    conf?: SearchConf;
 }
 
 /**
@@ -66,7 +66,7 @@ export function SearchInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         
         'bucketKey': json['bucketKey'] == null ? undefined : json['bucketKey'],
         'bucketingPolicy': json['bucketingPolicy'] == null ? undefined : json['bucketingPolicy'],
-        'conf': json['conf'] == null ? undefined : SearchInfoSearchConfFromJSON(json['conf']),
+        'conf': json['conf'] == null ? undefined : SearchConfFromJSON(json['conf']),
     };
 }
 
@@ -83,7 +83,7 @@ export function SearchInfoToJSONTyped(value?: SearchInfo | null, ignoreDiscrimin
         
         'bucketKey': value['bucketKey'],
         'bucketingPolicy': value['bucketingPolicy'],
-        'conf': SearchInfoSearchConfToJSON(value['conf']),
+        'conf': SearchConfToJSON(value['conf']),
     };
 }
 

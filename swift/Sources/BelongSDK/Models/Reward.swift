@@ -15,11 +15,11 @@ public struct Reward: Codable, JSONEncodable, Hashable {
     public var money: Money?
     public var points: [String: Points]?
     public var vouchers: [String: Voucher]?
-    public var badges: [String: BadgesBadge]?
+    public var badges: [String: Badge]?
     public var promotions: [String: Promotion]?
     public var accessKeys: [String: AccessReward]?
 
-    public init(money: Money? = nil, points: [String: Points]? = nil, vouchers: [String: Voucher]? = nil, badges: [String: BadgesBadge]? = nil, promotions: [String: Promotion]? = nil, accessKeys: [String: AccessReward]? = nil) {
+    public init(money: Money? = nil, points: [String: Points]? = nil, vouchers: [String: Voucher]? = nil, badges: [String: Badge]? = nil, promotions: [String: Promotion]? = nil, accessKeys: [String: AccessReward]? = nil) {
         self.money = money
         self.points = points
         self.vouchers = vouchers

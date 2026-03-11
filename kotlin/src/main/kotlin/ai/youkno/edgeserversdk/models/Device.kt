@@ -15,9 +15,9 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.DeviceCollectionInfo
-import ai.youkno.edgeserversdk.models.DeviceLossInfo
-import ai.youkno.edgeserversdk.models.DeviceUseInfo
+import ai.youkno.edgeserversdk.models.CollectionInfo
+import ai.youkno.edgeserversdk.models.LossInfo
+import ai.youkno.edgeserversdk.models.UseInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -102,13 +102,13 @@ data class Device (
     val ownership: kotlin.String? = null,
 
     @Json(name = "useInfo")
-    val useInfo: DeviceUseInfo? = null,
+    val useInfo: UseInfo? = null,
 
     @Json(name = "collectionInfo")
-    val collectionInfo: DeviceCollectionInfo? = null,
+    val collectionInfo: CollectionInfo? = null,
 
     @Json(name = "lossInfo")
-    val lossInfo: DeviceLossInfo? = null
+    val lossInfo: LossInfo? = null
 
 ) {
 

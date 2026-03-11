@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct SeriesInfoMetaInfo: Codable, JSONEncodable, Hashable {
 
-    public var displayInfos: [String: SeriesInfoDisplayInfo]?
+    public var displayInfos: [String: DisplayInfo]?
 
-    public init(displayInfos: [String: SeriesInfoDisplayInfo]? = nil) {
+    public init(displayInfos: [String: DisplayInfo]? = nil) {
         self.displayInfos = displayInfos
     }
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MarkDoc } from './MarkDoc';
+import {
+    MarkDocFromJSON,
+    MarkDocFromJSONTyped,
+    MarkDocToJSON,
+    MarkDocToJSONTyped,
+} from './MarkDoc';
 import type { StructuredDescription } from './StructuredDescription';
 import {
     StructuredDescriptionFromJSON,
@@ -27,13 +34,6 @@ import {
     SurveyOptionToJSON,
     SurveyOptionToJSONTyped,
 } from './SurveyOption';
-import type { StructuredDescriptionMarkDoc } from './StructuredDescriptionMarkDoc';
-import {
-    StructuredDescriptionMarkDocFromJSON,
-    StructuredDescriptionMarkDocFromJSONTyped,
-    StructuredDescriptionMarkDocToJSON,
-    StructuredDescriptionMarkDocToJSONTyped,
-} from './StructuredDescriptionMarkDoc';
 
 /**
  * 
@@ -49,10 +49,10 @@ export interface Survey {
     structuredDescription?: StructuredDescription;
     /**
      * 
-     * @type {StructuredDescriptionMarkDoc}
+     * @type {MarkDoc}
      * @memberof Survey
      */
-    markDoc?: StructuredDescriptionMarkDoc;
+    markDoc?: MarkDoc;
     /**
      * 
      * @type {any}
@@ -121,7 +121,7 @@ export function SurveyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
     return {
         
         'structuredDescription': json['structuredDescription'] == null ? undefined : StructuredDescriptionFromJSON(json['structuredDescription']),
-        'markDoc': json['markDoc'] == null ? undefined : StructuredDescriptionMarkDocFromJSON(json['markDoc']),
+        'markDoc': json['markDoc'] == null ? undefined : MarkDocFromJSON(json['markDoc']),
         'meta': json['meta'] == null ? undefined : json['meta'],
         'metaError': json['metaError'] == null ? undefined : json['metaError'],
         'type': json['type'] == null ? undefined : json['type'],
@@ -145,7 +145,7 @@ export function SurveyToJSONTyped(value?: Survey | null, ignoreDiscriminator: bo
     return {
         
         'structuredDescription': StructuredDescriptionToJSON(value['structuredDescription']),
-        'markDoc': StructuredDescriptionMarkDocToJSON(value['markDoc']),
+        'markDoc': MarkDocToJSON(value['markDoc']),
         'meta': value['meta'],
         'metaError': value['metaError'],
         'type': value['type'],

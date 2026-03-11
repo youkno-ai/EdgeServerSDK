@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.WebhooksWebhookDlqSummaryDto2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,106 +23,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param deliveryId 
- * @param rootDeliveryId 
- * @param resendOfDeliveryId 
- * @param endpointId 
- * @param endpointDescription 
- * @param targetUrl 
- * @param eventLogId 
- * @param eventType 
- * @param eventCreatedAt 
- * @param status 
- * @param deliveryOutcome 
- * @param attemptCount 
- * @param deadReason 
- * @param deadAt 
- * @param responseStatusCode 
- * @param errorMessage 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class WebhooksWebhookDlqSummaryDto (
 
-    @Json(name = "deliveryId")
-    val deliveryId: java.util.UUID? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "rootDeliveryId")
-    val rootDeliveryId: java.util.UUID? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "resendOfDeliveryId")
-    val resendOfDeliveryId: java.util.UUID? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "endpointId")
-    val endpointId: java.util.UUID? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "endpointDescription")
-    val endpointDescription: kotlin.String? = null,
-
-    @Json(name = "targetUrl")
-    val targetUrl: kotlin.String? = null,
-
-    @Json(name = "eventLogId")
-    val eventLogId: java.util.UUID? = null,
-
-    @Json(name = "eventType")
-    val eventType: kotlin.String? = null,
-
-    @Json(name = "eventCreatedAt")
-    val eventCreatedAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "status")
-    val status: WebhooksWebhookDlqSummaryDto.Status? = null,
-
-    @Json(name = "deliveryOutcome")
-    val deliveryOutcome: WebhooksWebhookDlqSummaryDto.DeliveryOutcome? = null,
-
-    @Json(name = "attemptCount")
-    val attemptCount: kotlin.Int? = null,
-
-    @Json(name = "deadReason")
-    val deadReason: kotlin.String? = null,
-
-    @Json(name = "deadAt")
-    val deadAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "responseStatusCode")
-    val responseStatusCode: kotlin.Int? = null,
-
-    @Json(name = "errorMessage")
-    val errorMessage: kotlin.String? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<WebhooksWebhookDlqSummaryDto2>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: PENDING,IN_PROGRESS,SUCCEEDED,RETRY_SCHEDULED,DEAD,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Status(val value: kotlin.String) {
-        @Json(name = "PENDING") PENDING("PENDING"),
-        @Json(name = "IN_PROGRESS") IN_PROGRESS("IN_PROGRESS"),
-        @Json(name = "SUCCEEDED") SUCCEEDED("SUCCEEDED"),
-        @Json(name = "RETRY_SCHEDULED") RETRY_SCHEDULED("RETRY_SCHEDULED"),
-        @Json(name = "DEAD") DEAD("DEAD"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: SUCCESS,RETRYABLE_FAILURE,TERMINAL_FAILURE,DEFERRED_RATE_LIMIT,DEFERRED_CIRCUIT_OPEN,SKIPPED_DISABLED_ENDPOINT,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DeliveryOutcome(val value: kotlin.String) {
-        @Json(name = "SUCCESS") SUCCESS("SUCCESS"),
-        @Json(name = "RETRYABLE_FAILURE") RETRYABLE_FAILURE("RETRYABLE_FAILURE"),
-        @Json(name = "TERMINAL_FAILURE") TERMINAL_FAILURE("TERMINAL_FAILURE"),
-        @Json(name = "DEFERRED_RATE_LIMIT") DEFERRED_RATE_LIMIT("DEFERRED_RATE_LIMIT"),
-        @Json(name = "DEFERRED_CIRCUIT_OPEN") DEFERRED_CIRCUIT_OPEN("DEFERRED_CIRCUIT_OPEN"),
-        @Json(name = "SKIPPED_DISABLED_ENDPOINT") SKIPPED_DISABLED_ENDPOINT("SKIPPED_DISABLED_ENDPOINT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
 
 }
 

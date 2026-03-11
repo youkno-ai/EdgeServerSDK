@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPagePaymentMethodInfo,
+  ModelPaymentMethodInfo,
   PaymentMethodInfo,
 } from '../models/index';
 import {
-    EdgeApiDataPagePaymentMethodInfoFromJSON,
-    EdgeApiDataPagePaymentMethodInfoToJSON,
+    ModelPaymentMethodInfoFromJSON,
+    ModelPaymentMethodInfoToJSON,
     PaymentMethodInfoFromJSON,
     PaymentMethodInfoToJSON,
 } from '../models/index';
@@ -103,11 +103,11 @@ export interface PaymentMethodsControllerApiInterface {
      * @throws {RequiredError}
      * @memberof PaymentMethodsControllerApiInterface
      */
-    getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePaymentMethodInfo>>;
+    getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelPaymentMethodInfo>>;
 
     /**
      */
-    getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePaymentMethodInfo>;
+    getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelPaymentMethodInfo>;
 
     /**
      * 
@@ -228,7 +228,7 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
 
     /**
      */
-    async getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPagePaymentMethodInfo>> {
+    async getApiV1PaymentsMethodsRaw(requestParameters: GetApiV1PaymentsMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelPaymentMethodInfo>> {
         const queryParameters: any = {};
 
         if (requestParameters['companyId'] != null) {
@@ -267,12 +267,12 @@ export class PaymentMethodsControllerApi extends runtime.BaseAPI implements Paym
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPagePaymentMethodInfoFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelPaymentMethodInfoFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPagePaymentMethodInfo> {
+    async getApiV1PaymentsMethods(requestParameters: GetApiV1PaymentsMethodsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelPaymentMethodInfo> {
         const response = await this.getApiV1PaymentsMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }

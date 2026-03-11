@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct PaymentMethodInfo: Codable, JSONEncodable, Hashable {
 
+    public var id: String?
     public var providerType: String?
     public var cardType: String?
     public var redactedNumber: String?
@@ -21,7 +22,8 @@ public struct PaymentMethodInfo: Codable, JSONEncodable, Hashable {
     public var status: String?
     public var paymentMethodId: String?
 
-    public init(providerType: String? = nil, cardType: String? = nil, redactedNumber: String? = nil, expMonth: Int? = nil, expYear: Int? = nil, liveMode: Bool? = nil, status: String? = nil, paymentMethodId: String? = nil) {
+    public init(id: String? = nil, providerType: String? = nil, cardType: String? = nil, redactedNumber: String? = nil, expMonth: Int? = nil, expYear: Int? = nil, liveMode: Bool? = nil, status: String? = nil, paymentMethodId: String? = nil) {
+        self.id = id
         self.providerType = providerType
         self.cardType = cardType
         self.redactedNumber = redactedNumber
@@ -33,6 +35,7 @@ public struct PaymentMethodInfo: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case id
         case providerType
         case cardType
         case redactedNumber
@@ -47,6 +50,7 @@ public struct PaymentMethodInfo: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(providerType, forKey: .providerType)
         try container.encodeIfPresent(cardType, forKey: .cardType)
         try container.encodeIfPresent(redactedNumber, forKey: .redactedNumber)
@@ -58,3 +62,6 @@ public struct PaymentMethodInfo: Codable, JSONEncodable, Hashable {
     }
 }
 
+
+@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
+extension PaymentMethodInfo: Identifiable {}

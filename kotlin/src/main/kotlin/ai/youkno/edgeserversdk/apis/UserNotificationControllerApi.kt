@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageUserNotificationConfig
+import ai.youkno.edgeserversdk.models.ModelUserNotificationConfig
 import ai.youkno.edgeserversdk.models.UserNotificationConfig
 
 interface UserNotificationControllerApi {
@@ -59,10 +59,10 @@ interface UserNotificationControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageUserNotificationConfig]>
+     * @return [Call]<[ModelUserNotificationConfig]>
      */
     @GET("api/v1/user/{userId}/notifications")
-    fun getApiV1UserByUseridNotifications(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUserNotificationConfig>
+    fun getApiV1UserByUseridNotifications(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelUserNotificationConfig>
 
     /**
      * PUT api/v1/user/{userId}/notification

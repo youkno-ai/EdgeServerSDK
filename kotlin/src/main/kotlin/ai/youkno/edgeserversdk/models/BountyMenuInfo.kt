@@ -15,10 +15,10 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyMenuInfoMenuOptions
-import ai.youkno.edgeserversdk.models.BountyMenuInfoMenuSection
-import ai.youkno.edgeserversdk.models.BountyMenuInfoMenuTagDefinition
-import ai.youkno.edgeserversdk.models.BountyMenuInfoUpsellPresentation
+import ai.youkno.edgeserversdk.models.MenuOptions
+import ai.youkno.edgeserversdk.models.MenuSection
+import ai.youkno.edgeserversdk.models.MenuTagDefinition
+import ai.youkno.edgeserversdk.models.UpsellPresentation
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -56,16 +56,16 @@ data class BountyMenuInfo (
     val currencyCode: kotlin.String? = null,
 
     @Json(name = "sections")
-    val sections: kotlin.collections.Map<kotlin.String, BountyMenuInfoMenuSection>? = null,
+    val sections: kotlin.collections.Map<kotlin.String, MenuSection>? = null,
 
     @Json(name = "tagDefinitions")
-    val tagDefinitions: kotlin.collections.Map<kotlin.String, BountyMenuInfoMenuTagDefinition>? = null,
+    val tagDefinitions: kotlin.collections.Map<kotlin.String, MenuTagDefinition>? = null,
 
     @Json(name = "upsellGroups")
-    val upsellGroups: kotlin.collections.Map<kotlin.String, BountyMenuInfoUpsellPresentation>? = null,
+    val upsellGroups: kotlin.collections.Map<kotlin.String, UpsellPresentation>? = null,
 
     @Json(name = "options")
-    val options: BountyMenuInfoMenuOptions? = null
+    val options: MenuOptions? = null
 
 ) {
 

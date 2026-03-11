@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AccessBountyContentResultStrategyResult } from './AccessBountyContentResultStrategyResult';
+import type { StrategyResult } from './StrategyResult';
 import {
-    AccessBountyContentResultStrategyResultFromJSON,
-    AccessBountyContentResultStrategyResultFromJSONTyped,
-    AccessBountyContentResultStrategyResultToJSON,
-    AccessBountyContentResultStrategyResultToJSONTyped,
-} from './AccessBountyContentResultStrategyResult';
+    StrategyResultFromJSON,
+    StrategyResultFromJSONTyped,
+    StrategyResultToJSON,
+    StrategyResultToJSONTyped,
+} from './StrategyResult';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface AccessBountyContentResult {
     bountyId?: string;
     /**
      * 
-     * @type {{ [key: string]: AccessBountyContentResultStrategyResult; }}
+     * @type {{ [key: string]: StrategyResult; }}
      * @memberof AccessBountyContentResult
      */
-    results?: { [key: string]: AccessBountyContentResultStrategyResult; };
+    results?: { [key: string]: StrategyResult; };
 }
 
 /**
@@ -59,7 +59,7 @@ export function AccessBountyContentResultFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
-        'results': json['results'] == null ? undefined : (mapValues(json['results'], AccessBountyContentResultStrategyResultFromJSON)),
+        'results': json['results'] == null ? undefined : (mapValues(json['results'], StrategyResultFromJSON)),
     };
 }
 
@@ -75,7 +75,7 @@ export function AccessBountyContentResultToJSONTyped(value?: AccessBountyContent
     return {
         
         'bountyId': value['bountyId'],
-        'results': value['results'] == null ? undefined : (mapValues(value['results'], AccessBountyContentResultStrategyResultToJSON)),
+        'results': value['results'] == null ? undefined : (mapValues(value['results'], StrategyResultToJSON)),
     };
 }
 

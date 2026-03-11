@@ -17,7 +17,7 @@ package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.Bounty
 import ai.youkno.edgeserversdk.models.BountyBountyCategory
-import ai.youkno.edgeserversdk.models.TagsTag
+import ai.youkno.edgeserversdk.models.Tag
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -40,7 +40,7 @@ data class VoucherTarget (
     val categories: kotlin.collections.Map<kotlin.String, BountyBountyCategory>? = null,
 
     @Json(name = "tags")
-    val tags: kotlin.collections.Map<kotlin.String, TagsTag>? = null
+    val tags: kotlin.collections.Map<kotlin.String, Tag>? = null
 
 ) {
 

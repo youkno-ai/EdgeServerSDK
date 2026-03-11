@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.NewId
 import ai.youkno.edgeserversdk.models.WebSnippet
 
 interface WebSnippetControllerApi {
@@ -86,10 +86,10 @@ interface WebSnippetControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataNewId]>
+     * @return [Call]<[NewId]>
      */
     @POST("api/v1/web-snippets")
-    fun postApiV1WebSnippets(@Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
+    fun postApiV1WebSnippets(@Body webSnippet: WebSnippet, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * PUT api/v1/web-snippets/{id}

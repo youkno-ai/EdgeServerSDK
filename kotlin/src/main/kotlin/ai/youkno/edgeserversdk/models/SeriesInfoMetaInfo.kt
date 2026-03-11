@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.SeriesInfoDisplayInfo
+import ai.youkno.edgeserversdk.models.DisplayInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class SeriesInfoMetaInfo (
 
     @Json(name = "displayInfos")
-    val displayInfos: kotlin.collections.Map<kotlin.String, SeriesInfoDisplayInfo>? = null
+    val displayInfos: kotlin.collections.Map<kotlin.String, DisplayInfo>? = null
 
 ) {
 

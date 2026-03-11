@@ -15,26 +15,26 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPageVoucher,
-  EdgeApiDataPageVoucherDef,
-  EdgeApiDataRedeemVoucherReq,
-  EdgeApiDataVoucherHolder,
+  ModelVoucher,
+  ModelVoucherDef,
+  RedeemVoucherReq,
   Voucher,
   VoucherDef,
+  VoucherHolder,
 } from '../models/index';
 import {
-    EdgeApiDataPageVoucherFromJSON,
-    EdgeApiDataPageVoucherToJSON,
-    EdgeApiDataPageVoucherDefFromJSON,
-    EdgeApiDataPageVoucherDefToJSON,
-    EdgeApiDataRedeemVoucherReqFromJSON,
-    EdgeApiDataRedeemVoucherReqToJSON,
-    EdgeApiDataVoucherHolderFromJSON,
-    EdgeApiDataVoucherHolderToJSON,
+    ModelVoucherFromJSON,
+    ModelVoucherToJSON,
+    ModelVoucherDefFromJSON,
+    ModelVoucherDefToJSON,
+    RedeemVoucherReqFromJSON,
+    RedeemVoucherReqToJSON,
     VoucherFromJSON,
     VoucherToJSON,
     VoucherDefFromJSON,
     VoucherDefToJSON,
+    VoucherHolderFromJSON,
+    VoucherHolderToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1VouchersDefsByVoucherdefidRequest {
@@ -94,7 +94,7 @@ export interface GetApiV1VouchersScannedRequest {
 
 export interface PostApiV1VouchersByVoucherdefidRequest {
     voucherDefId: string;
-    edgeApiDataVoucherHolder: EdgeApiDataVoucherHolder;
+    voucherHolder: VoucherHolder;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -102,7 +102,7 @@ export interface PostApiV1VouchersByVoucherdefidRequest {
 
 export interface PostApiV1VouchersByVoucheridRedeemRequest {
     voucherId: string;
-    edgeApiDataRedeemVoucherReq: EdgeApiDataRedeemVoucherReq;
+    redeemVoucherReq: RedeemVoucherReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -154,11 +154,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucher>>;
+    getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucher>>;
 
     /**
      */
-    getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucher>;
+    getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucher>;
 
     /**
      * 
@@ -191,11 +191,11 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucherDef>>;
+    getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucherDef>>;
 
     /**
      */
-    getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucherDef>;
+    getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucherDef>;
 
     /**
      * 
@@ -225,16 +225,16 @@ export interface VoucherControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VoucherControllerApiInterface
      */
-    getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucher>>;
+    getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucher>>;
 
     /**
      */
-    getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucher>;
+    getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucher>;
 
     /**
      * 
      * @param {string} voucherDefId 
-     * @param {EdgeApiDataVoucherHolder} edgeApiDataVoucherHolder 
+     * @param {VoucherHolder} voucherHolder 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -251,7 +251,7 @@ export interface VoucherControllerApiInterface {
     /**
      * 
      * @param {string} voucherId 
-     * @param {EdgeApiDataRedeemVoucherReq} edgeApiDataRedeemVoucherReq 
+     * @param {RedeemVoucherReq} redeemVoucherReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -341,7 +341,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucher>> {
+    async getApiV1VouchersRaw(requestParameters: GetApiV1VouchersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucher>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -400,12 +400,12 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageVoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucher> {
+    async getApiV1Vouchers(requestParameters: GetApiV1VouchersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucher> {
         const response = await this.getApiV1VouchersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -463,7 +463,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucherDef>> {
+    async getApiV1VouchersDefsRaw(requestParameters: GetApiV1VouchersDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucherDef>> {
         const queryParameters: any = {};
 
         if (requestParameters['state'] != null) {
@@ -518,12 +518,12 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageVoucherDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelVoucherDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucherDef> {
+    async getApiV1VouchersDefs(requestParameters: GetApiV1VouchersDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucherDef> {
         const response = await this.getApiV1VouchersDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -581,7 +581,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
 
     /**
      */
-    async getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageVoucher>> {
+    async getApiV1VouchersScannedRaw(requestParameters: GetApiV1VouchersScannedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelVoucher>> {
         const queryParameters: any = {};
 
         if (requestParameters['order'] != null) {
@@ -624,12 +624,12 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageVoucherFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelVoucherFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageVoucher> {
+    async getApiV1VouchersScanned(requestParameters: GetApiV1VouchersScannedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelVoucher> {
         const response = await this.getApiV1VouchersScannedRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -644,10 +644,10 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             );
         }
 
-        if (requestParameters['edgeApiDataVoucherHolder'] == null) {
+        if (requestParameters['voucherHolder'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataVoucherHolder',
-                'Required parameter "edgeApiDataVoucherHolder" was null or undefined when calling postApiV1VouchersByVoucherdefid().'
+                'voucherHolder',
+                'Required parameter "voucherHolder" was null or undefined when calling postApiV1VouchersByVoucherdefid().'
             );
         }
 
@@ -682,7 +682,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataVoucherHolderToJSON(requestParameters['edgeApiDataVoucherHolder']),
+            body: VoucherHolderToJSON(requestParameters['voucherHolder']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VoucherFromJSON(jsonValue));
@@ -705,10 +705,10 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             );
         }
 
-        if (requestParameters['edgeApiDataRedeemVoucherReq'] == null) {
+        if (requestParameters['redeemVoucherReq'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataRedeemVoucherReq',
-                'Required parameter "edgeApiDataRedeemVoucherReq" was null or undefined when calling postApiV1VouchersByVoucheridRedeem().'
+                'redeemVoucherReq',
+                'Required parameter "redeemVoucherReq" was null or undefined when calling postApiV1VouchersByVoucheridRedeem().'
             );
         }
 
@@ -743,7 +743,7 @@ export class VoucherControllerApi extends runtime.BaseAPI implements VoucherCont
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataRedeemVoucherReqToJSON(requestParameters['edgeApiDataRedeemVoucherReq']),
+            body: RedeemVoucherReqToJSON(requestParameters['redeemVoucherReq']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VoucherFromJSON(jsonValue));

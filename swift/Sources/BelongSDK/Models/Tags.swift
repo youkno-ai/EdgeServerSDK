@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct Tags: Codable, JSONEncodable, Hashable {
 
-    public var tags: [String: TagsTag]?
+    public var tags: [String: Tag]?
 
-    public init(tags: [String: TagsTag]? = nil) {
+    public init(tags: [String: Tag]? = nil) {
         self.tags = tags
     }
 

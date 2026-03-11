@@ -6,13 +6,13 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageGroupSearchResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageMember
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageUser
 import ai.youkno.edgeserversdk.models.Group
 import ai.youkno.edgeserversdk.models.GroupSearchResult
 import ai.youkno.edgeserversdk.models.Member
-import ai.youkno.edgeserversdk.models.RestControllerGroupControllerUpdateMemberRolesReq
+import ai.youkno.edgeserversdk.models.ModelGroupSearchResult
+import ai.youkno.edgeserversdk.models.ModelMember
+import ai.youkno.edgeserversdk.models.ModelUser
+import ai.youkno.edgeserversdk.models.UpdateMemberRolesReq
 
 interface GroupControllerApi {
     /**
@@ -77,10 +77,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageGroupSearchResult]>
+     * @return [Call]<[ModelGroupSearchResult]>
      */
     @GET("api/v1/groups")
-    fun getApiV1Groups(@Query("clientId") clientId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageGroupSearchResult>
+    fun getApiV1Groups(@Query("clientId") clientId: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelGroupSearchResult>
 
     /**
      * GET api/v1/groups/{groupId}
@@ -112,10 +112,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageUser]>
+     * @return [Call]<[ModelUser]>
      */
     @GET("api/v1/groups/{groupId}/candidates")
-    fun getApiV1GroupsByGroupidCandidates(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageUser>
+    fun getApiV1GroupsByGroupidCandidates(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelUser>
 
 
     /**
@@ -144,10 +144,10 @@ interface GroupControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageMember]>
+     * @return [Call]<[ModelMember]>
      */
     @GET("api/v1/groups/{groupId}/members")
-    fun getApiV1GroupsByGroupidMembers(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("state") state: StateGetApiV1GroupsByGroupidMembers? = StateGetApiV1GroupsByGroupidMembers.ACTIVE, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageMember>
+    fun getApiV1GroupsByGroupidMembers(@Path("groupId") groupId: kotlin.String, @Query("query") query: kotlin.String? = null, @Query("state") state: StateGetApiV1GroupsByGroupidMembers? = StateGetApiV1GroupsByGroupidMembers.ACTIVE, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelMember>
 
     /**
      * GET api/v1/groups/{groupId}/members/{memberId}
@@ -225,14 +225,14 @@ interface GroupControllerApi {
      *
      * @param groupId 
      * @param memberId 
-     * @param restControllerGroupControllerUpdateMemberRolesReq 
+     * @param updateMemberRolesReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Member]>
      */
     @POST("api/v1/groups/{groupId}/members/{memberId}/roles")
-    fun postApiV1GroupsByGroupidMembersByMemberidRoles(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Body restControllerGroupControllerUpdateMemberRolesReq: RestControllerGroupControllerUpdateMemberRolesReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
+    fun postApiV1GroupsByGroupidMembersByMemberidRoles(@Path("groupId") groupId: kotlin.String, @Path("memberId") memberId: kotlin.String, @Body updateMemberRolesReq: UpdateMemberRolesReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Member>
 
     /**
      * PUT api/v1/groups/{groupId}

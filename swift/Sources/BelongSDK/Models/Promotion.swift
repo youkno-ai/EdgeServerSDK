@@ -16,7 +16,7 @@ public struct Promotion: Codable, JSONEncodable, Hashable {
     public var type: String?
     public var state: String?
     public var couponCode: String?
-    public var discount: PromotionDiscount?
+    public var discount: Discount?
     public var startsAt: Int64?
     public var endsAt: Int64?
     public var ttl: Int64?
@@ -26,7 +26,7 @@ public struct Promotion: Codable, JSONEncodable, Hashable {
     public var maxUsageQty: Int?
     public var maxOverallUsageQty: Int?
 
-    public init(id: String? = nil, type: String? = nil, state: String? = nil, couponCode: String? = nil, discount: PromotionDiscount? = nil, startsAt: Int64? = nil, endsAt: Int64? = nil, ttl: Int64? = nil, description: String? = nil, products: [String: Bounty]? = nil, deliveryFee: Reward? = nil, maxUsageQty: Int? = nil, maxOverallUsageQty: Int? = nil) {
+    public init(id: String? = nil, type: String? = nil, state: String? = nil, couponCode: String? = nil, discount: Discount? = nil, startsAt: Int64? = nil, endsAt: Int64? = nil, ttl: Int64? = nil, description: String? = nil, products: [String: Bounty]? = nil, deliveryFee: Reward? = nil, maxUsageQty: Int? = nil, maxOverallUsageQty: Int? = nil) {
         self.id = id
         self.type = type
         self.state = state

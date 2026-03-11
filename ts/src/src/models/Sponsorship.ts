@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SponsorshipSponsor } from './SponsorshipSponsor';
+import type { Sponsor } from './Sponsor';
 import {
-    SponsorshipSponsorFromJSON,
-    SponsorshipSponsorFromJSONTyped,
-    SponsorshipSponsorToJSON,
-    SponsorshipSponsorToJSONTyped,
-} from './SponsorshipSponsor';
+    SponsorFromJSON,
+    SponsorFromJSONTyped,
+    SponsorToJSON,
+    SponsorToJSONTyped,
+} from './Sponsor';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface Sponsorship {
     /**
      * 
-     * @type {{ [key: string]: SponsorshipSponsor; }}
+     * @type {{ [key: string]: Sponsor; }}
      * @memberof Sponsorship
      */
-    sponsors?: { [key: string]: SponsorshipSponsor; };
+    sponsors?: { [key: string]: Sponsor; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function SponsorshipFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'sponsors': json['sponsors'] == null ? undefined : (mapValues(json['sponsors'], SponsorshipSponsorFromJSON)),
+        'sponsors': json['sponsors'] == null ? undefined : (mapValues(json['sponsors'], SponsorFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function SponsorshipToJSONTyped(value?: Sponsorship | null, ignoreDiscrim
 
     return {
         
-        'sponsors': value['sponsors'] == null ? undefined : (mapValues(value['sponsors'], SponsorshipSponsorToJSON)),
+        'sponsors': value['sponsors'] == null ? undefined : (mapValues(value['sponsors'], SponsorToJSON)),
     };
 }
 

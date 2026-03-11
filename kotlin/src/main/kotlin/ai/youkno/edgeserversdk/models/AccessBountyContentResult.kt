@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.AccessBountyContentResultStrategyResult
+import ai.youkno.edgeserversdk.models.StrategyResult
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ data class AccessBountyContentResult (
     val bountyId: kotlin.String? = null,
 
     @Json(name = "results")
-    val results: kotlin.collections.Map<kotlin.String, AccessBountyContentResultStrategyResult>? = null
+    val results: kotlin.collections.Map<kotlin.String, StrategyResult>? = null
 
 ) {
 

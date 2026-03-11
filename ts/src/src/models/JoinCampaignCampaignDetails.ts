@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { JoinCampaignIndirectInfo } from './JoinCampaignIndirectInfo';
+import type { IndirectInfo } from './IndirectInfo';
 import {
-    JoinCampaignIndirectInfoFromJSON,
-    JoinCampaignIndirectInfoFromJSONTyped,
-    JoinCampaignIndirectInfoToJSON,
-    JoinCampaignIndirectInfoToJSONTyped,
-} from './JoinCampaignIndirectInfo';
+    IndirectInfoFromJSON,
+    IndirectInfoFromJSONTyped,
+    IndirectInfoToJSON,
+    IndirectInfoToJSONTyped,
+} from './IndirectInfo';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface JoinCampaignCampaignDetails {
     bountyIds?: Array<string>;
     /**
      * 
-     * @type {Array<JoinCampaignIndirectInfo>}
+     * @type {Array<IndirectInfo>}
      * @memberof JoinCampaignCampaignDetails
      */
-    infos?: Array<JoinCampaignIndirectInfo>;
+    infos?: Array<IndirectInfo>;
 }
 
 /**
@@ -59,7 +59,7 @@ export function JoinCampaignCampaignDetailsFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'bountyIds': json['bountyIds'] == null ? undefined : json['bountyIds'],
-        'infos': json['infos'] == null ? undefined : ((json['infos'] as Array<any>).map(JoinCampaignIndirectInfoFromJSON)),
+        'infos': json['infos'] == null ? undefined : ((json['infos'] as Array<any>).map(IndirectInfoFromJSON)),
     };
 }
 
@@ -75,7 +75,7 @@ export function JoinCampaignCampaignDetailsToJSONTyped(value?: JoinCampaignCampa
     return {
         
         'bountyIds': value['bountyIds'],
-        'infos': value['infos'] == null ? undefined : ((value['infos'] as Array<any>).map(JoinCampaignIndirectInfoToJSON)),
+        'infos': value['infos'] == null ? undefined : ((value['infos'] as Array<any>).map(IndirectInfoToJSON)),
     };
 }
 

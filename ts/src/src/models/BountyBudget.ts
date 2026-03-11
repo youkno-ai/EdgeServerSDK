@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyBudgetBudgetCurrency } from './BountyBudgetBudgetCurrency';
+import type { BudgetCurrency } from './BudgetCurrency';
 import {
-    BountyBudgetBudgetCurrencyFromJSON,
-    BountyBudgetBudgetCurrencyFromJSONTyped,
-    BountyBudgetBudgetCurrencyToJSON,
-    BountyBudgetBudgetCurrencyToJSONTyped,
-} from './BountyBudgetBudgetCurrency';
+    BudgetCurrencyFromJSON,
+    BudgetCurrencyFromJSONTyped,
+    BudgetCurrencyToJSON,
+    BudgetCurrencyToJSONTyped,
+} from './BudgetCurrency';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface BountyBudget {
     /**
      * 
-     * @type {{ [key: string]: BountyBudgetBudgetCurrency; }}
+     * @type {{ [key: string]: BudgetCurrency; }}
      * @memberof BountyBudget
      */
-    currencies?: { [key: string]: BountyBudgetBudgetCurrency; };
+    currencies?: { [key: string]: BudgetCurrency; };
     /**
      * 
      * @type {boolean}
@@ -64,7 +64,7 @@ export function BountyBudgetFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'currencies': json['currencies'] == null ? undefined : (mapValues(json['currencies'], BountyBudgetBudgetCurrencyFromJSON)),
+        'currencies': json['currencies'] == null ? undefined : (mapValues(json['currencies'], BudgetCurrencyFromJSON)),
         'empty': json['empty'] == null ? undefined : json['empty'],
         'positive': json['positive'] == null ? undefined : json['positive'],
     };
@@ -81,7 +81,7 @@ export function BountyBudgetToJSONTyped(value?: BountyBudget | null, ignoreDiscr
 
     return {
         
-        'currencies': value['currencies'] == null ? undefined : (mapValues(value['currencies'], BountyBudgetBudgetCurrencyToJSON)),
+        'currencies': value['currencies'] == null ? undefined : (mapValues(value['currencies'], BudgetCurrencyToJSON)),
         'empty': value['empty'],
         'positive': value['positive'],
     };

@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.MarkDoc
 import ai.youkno.edgeserversdk.models.StructuredDescription
-import ai.youkno.edgeserversdk.models.StructuredDescriptionMarkDoc
 import ai.youkno.edgeserversdk.models.SurveyOption
 
 import com.squareup.moshi.Json
@@ -44,7 +44,7 @@ data class Survey (
     val structuredDescription: StructuredDescription? = null,
 
     @Json(name = "markDoc")
-    val markDoc: StructuredDescriptionMarkDoc? = null,
+    val markDoc: MarkDoc? = null,
 
     @Json(name = "meta")
     val meta: kotlin.Any? = null,

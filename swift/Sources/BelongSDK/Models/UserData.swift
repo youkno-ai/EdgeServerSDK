@@ -21,7 +21,7 @@ public struct UserData: Codable, JSONEncodable, Hashable {
     public var age: Int?
     public var gender: String?
     public var ageAt: Int64?
-    public var legal: UserDataLegal?
+    public var legal: Legal?
     public var countryCode: String?
     public var locale: String?
     public var timeZone: String?
@@ -34,17 +34,17 @@ public struct UserData: Codable, JSONEncodable, Hashable {
     public var defaultInviteDealId: String?
     public var searchInfo: SearchInfo?
     @available(*, deprecated, message: "This property is deprecated.")
-    public var flows: UserDataFlows?
+    public var flows: Flows?
     public var roles: String?
     public var addresses: [String: MailingAddress]?
     public var payments: [String: PaymentMethodInfo]?
-    public var socialNetworks: [String: UserDataSocialNetworkState]?
+    public var socialNetworks: [String: SocialNetworkState]?
     public var promotionInfos: [String: UserDataPromotionInfo]?
-    public var accessKeyChains: [String: UserDataAccessKeyChain]?
+    public var accessKeyChains: [String: AccessKeyChain]?
     public var settings: UserSettings?
     public var signUpMethod: String?
 
-    public init(company: User? = nil, owner: User? = nil, influencers: User? = nil, myself: User? = nil, email: String? = nil, dob: String? = nil, age: Int? = nil, gender: String? = nil, ageAt: Int64? = nil, legal: UserDataLegal? = nil, countryCode: String? = nil, locale: String? = nil, timeZone: String? = nil, city: String? = nil, accountId: String? = nil, validatedPhone: String? = nil, newBountyPushStrategy: String? = nil, paypalEmail: String? = nil, connectionTypes: String? = nil, defaultInviteDealId: String? = nil, searchInfo: SearchInfo? = nil, flows: UserDataFlows? = nil, roles: String? = nil, addresses: [String: MailingAddress]? = nil, payments: [String: PaymentMethodInfo]? = nil, socialNetworks: [String: UserDataSocialNetworkState]? = nil, promotionInfos: [String: UserDataPromotionInfo]? = nil, accessKeyChains: [String: UserDataAccessKeyChain]? = nil, settings: UserSettings? = nil, signUpMethod: String? = nil) {
+    public init(company: User? = nil, owner: User? = nil, influencers: User? = nil, myself: User? = nil, email: String? = nil, dob: String? = nil, age: Int? = nil, gender: String? = nil, ageAt: Int64? = nil, legal: Legal? = nil, countryCode: String? = nil, locale: String? = nil, timeZone: String? = nil, city: String? = nil, accountId: String? = nil, validatedPhone: String? = nil, newBountyPushStrategy: String? = nil, paypalEmail: String? = nil, connectionTypes: String? = nil, defaultInviteDealId: String? = nil, searchInfo: SearchInfo? = nil, flows: Flows? = nil, roles: String? = nil, addresses: [String: MailingAddress]? = nil, payments: [String: PaymentMethodInfo]? = nil, socialNetworks: [String: SocialNetworkState]? = nil, promotionInfos: [String: UserDataPromotionInfo]? = nil, accessKeyChains: [String: AccessKeyChain]? = nil, settings: UserSettings? = nil, signUpMethod: String? = nil) {
         self.company = company
         self.owner = owner
         self.influencers = influencers

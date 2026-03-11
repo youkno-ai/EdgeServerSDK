@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct BountyResponseSurveyAnswers: Codable, JSONEncodable, Hashable {
 
-    public var choices: [String: BountyResponseChoice]?
+    public var choices: [String: Choice]?
 
-    public init(choices: [String: BountyResponseChoice]? = nil) {
+    public init(choices: [String: Choice]? = nil) {
         self.choices = choices
     }
 

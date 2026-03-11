@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataAdjustReasonResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,26 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param reasonId 
- * @param reasonName 
- * @param system 
- * @param noteRequired 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataAdjustReasonResp (
 
-    @Json(name = "reasonId")
-    val reasonId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "reasonName")
-    val reasonName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "system")
-    val system: kotlin.Boolean? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "noteRequired")
-    val noteRequired: kotlin.Boolean? = null
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
+
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataAdjustReasonResp2>? = null
 
 ) {
 

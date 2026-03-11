@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AttachmentsAttachment
+import ai.youkno.edgeserversdk.models.Attachment
 import ai.youkno.edgeserversdk.models.StorageRefResponse
 
 interface AttachmentControllerApi {
@@ -67,13 +67,13 @@ interface AttachmentControllerApi {
      *
      * @param anchorType 
      * @param anchorId 
-     * @param attachmentsAttachment 
+     * @param attachment 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AttachmentsAttachment]>
+     * @return [Call]<[Attachment]>
      */
     @POST("api/v1/attachments/{anchorType}/{anchorId}")
-    fun postApiV1AttachmentsByAnchortypeByAnchorid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body attachmentsAttachment: AttachmentsAttachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AttachmentsAttachment>
+    fun postApiV1AttachmentsByAnchortypeByAnchorid(@Path("anchorType") anchorType: kotlin.String, @Path("anchorId") anchorId: kotlin.String, @Body attachment: Attachment, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Attachment>
 
 }

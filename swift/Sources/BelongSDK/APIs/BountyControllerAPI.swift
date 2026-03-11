@@ -65,11 +65,11 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyStatisticsResultOld
+     - returns: BountyStatisticsResultOld
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyIdStatistics(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyStatisticsResultOld {
+    open class func getApiV1BountiesByBountyIdStatistics(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyStatisticsResultOld {
         return try await getApiV1BountiesByBountyIdStatisticsWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -82,10 +82,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyStatisticsResultOld> 
+     - returns: RequestBuilder<BountyStatisticsResultOld> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func getApiV1BountiesByBountyIdStatisticsWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyStatisticsResultOld> {
+    open class func getApiV1BountiesByBountyIdStatisticsWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyStatisticsResultOld> {
         var localVariablePath = "/api/v1/bounties/{bounty_id}/statistics"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -103,7 +103,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyStatisticsResultOld>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyStatisticsResultOld>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -114,10 +114,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyStatisticsResult
+     - returns: BountyStatisticsResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyIdStatisticsNew(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyStatisticsResult {
+    open class func getApiV1BountiesByBountyIdStatisticsNew(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyStatisticsResult {
         return try await getApiV1BountiesByBountyIdStatisticsNewWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -130,9 +130,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyStatisticsResult> 
+     - returns: RequestBuilder<BountyStatisticsResult> 
      */
-    open class func getApiV1BountiesByBountyIdStatisticsNewWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyStatisticsResult> {
+    open class func getApiV1BountiesByBountyIdStatisticsNewWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyStatisticsResult> {
         var localVariablePath = "/api/v1/bounties/{bounty_id}/statistics_new"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -150,7 +150,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyStatisticsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyStatisticsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -161,11 +161,11 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyStatisticsResultOld
+     - returns: BountyStatisticsResultOld
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyIdStatisticsOld(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyStatisticsResultOld {
+    open class func getApiV1BountiesByBountyIdStatisticsOld(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyStatisticsResultOld {
         return try await getApiV1BountiesByBountyIdStatisticsOldWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -178,10 +178,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyStatisticsResultOld> 
+     - returns: RequestBuilder<BountyStatisticsResultOld> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func getApiV1BountiesByBountyIdStatisticsOldWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyStatisticsResultOld> {
+    open class func getApiV1BountiesByBountyIdStatisticsOldWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyStatisticsResultOld> {
         var localVariablePath = "/api/v1/bounties/{bounty_id}/statistics_old"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -199,7 +199,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyStatisticsResultOld>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyStatisticsResultOld>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -210,10 +210,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: BountyTermsContentAccessRule
+     - returns: ContentAccessRule
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidContentAccess(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyTermsContentAccessRule {
+    open class func getApiV1BountiesByBountyidContentAccess(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ContentAccessRule {
         return try await getApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -226,9 +226,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<BountyTermsContentAccessRule> 
+     - returns: RequestBuilder<ContentAccessRule> 
      */
-    open class func getApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyTermsContentAccessRule> {
+    open class func getApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ContentAccessRule> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/content/access"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -246,7 +246,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BountyTermsContentAccessRule>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ContentAccessRule>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -259,10 +259,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataFeedbackReportResp
+     - returns: FeedbackReportResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidFeedbackReport(bountyId: String, answeredFrom: Int64? = nil, answeredTo: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataFeedbackReportResp {
+    open class func getApiV1BountiesByBountyidFeedbackReport(bountyId: String, answeredFrom: Int64? = nil, answeredTo: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> FeedbackReportResp {
         return try await getApiV1BountiesByBountyidFeedbackReportWithRequestBuilder(bountyId: bountyId, answeredFrom: answeredFrom, answeredTo: answeredTo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -277,9 +277,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataFeedbackReportResp> 
+     - returns: RequestBuilder<FeedbackReportResp> 
      */
-    open class func getApiV1BountiesByBountyidFeedbackReportWithRequestBuilder(bountyId: String, answeredFrom: Int64? = nil, answeredTo: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataFeedbackReportResp> {
+    open class func getApiV1BountiesByBountyidFeedbackReportWithRequestBuilder(bountyId: String, answeredFrom: Int64? = nil, answeredTo: Int64? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<FeedbackReportResp> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/feedback/report"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -301,7 +301,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataFeedbackReportResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FeedbackReportResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -359,10 +359,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerBountyControllerPaymentSummary
+     - returns: BountyControllerPaymentSummary
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidPaymentSummary(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerBountyControllerPaymentSummary {
+    open class func getApiV1BountiesByBountyidPaymentSummary(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyControllerPaymentSummary {
         return try await getApiV1BountiesByBountyidPaymentSummaryWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -375,9 +375,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerBountyControllerPaymentSummary> 
+     - returns: RequestBuilder<BountyControllerPaymentSummary> 
      */
-    open class func getApiV1BountiesByBountyidPaymentSummaryWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerBountyControllerPaymentSummary> {
+    open class func getApiV1BountiesByBountyidPaymentSummaryWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyControllerPaymentSummary> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/payment-summary"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -395,7 +395,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerBountyControllerPaymentSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyControllerPaymentSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -406,10 +406,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyRecipientResp
+     - returns: BountyRecipientResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidRecipient(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyRecipientResp {
+    open class func getApiV1BountiesByBountyidRecipient(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyRecipientResp {
         return try await getApiV1BountiesByBountyidRecipientWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -422,9 +422,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyRecipientResp> 
+     - returns: RequestBuilder<BountyRecipientResp> 
      */
-    open class func getApiV1BountiesByBountyidRecipientWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyRecipientResp> {
+    open class func getApiV1BountiesByBountyidRecipientWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyRecipientResp> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/recipient"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -442,7 +442,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyRecipientResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyRecipientResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -453,10 +453,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerBountyControllerShareLinkResult
+     - returns: ShareLinkResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidShare(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerBountyControllerShareLinkResult {
+    open class func getApiV1BountiesByBountyidShare(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShareLinkResult {
         return try await getApiV1BountiesByBountyidShareWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -469,9 +469,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerBountyControllerShareLinkResult> 
+     - returns: RequestBuilder<ShareLinkResult> 
      */
-    open class func getApiV1BountiesByBountyidShareWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerBountyControllerShareLinkResult> {
+    open class func getApiV1BountiesByBountyidShareWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShareLinkResult> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/share"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -489,7 +489,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerBountyControllerShareLinkResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShareLinkResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -500,10 +500,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerBountyControllerShareLinkResult
+     - returns: ShareLinkResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByBountyidShares(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerBountyControllerShareLinkResult {
+    open class func getApiV1BountiesByBountyidShares(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShareLinkResult {
         return try await getApiV1BountiesByBountyidSharesWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -516,9 +516,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerBountyControllerShareLinkResult> 
+     - returns: RequestBuilder<ShareLinkResult> 
      */
-    open class func getApiV1BountiesByBountyidSharesWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerBountyControllerShareLinkResult> {
+    open class func getApiV1BountiesByBountyidSharesWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShareLinkResult> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/shares"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -536,7 +536,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerBountyControllerShareLinkResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShareLinkResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -603,10 +603,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataSubBountiesResp
+     - returns: SubBountiesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesByParentIdSubbounties(parentId: String, inbound: Bool? = nil, outbound: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataSubBountiesResp {
+    open class func getApiV1BountiesByParentIdSubbounties(parentId: String, inbound: Bool? = nil, outbound: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SubBountiesResp {
         return try await getApiV1BountiesByParentIdSubbountiesWithRequestBuilder(parentId: parentId, inbound: inbound, outbound: outbound, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -621,9 +621,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataSubBountiesResp> 
+     - returns: RequestBuilder<SubBountiesResp> 
      */
-    open class func getApiV1BountiesByParentIdSubbountiesWithRequestBuilder(parentId: String, inbound: Bool? = nil, outbound: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataSubBountiesResp> {
+    open class func getApiV1BountiesByParentIdSubbountiesWithRequestBuilder(parentId: String, inbound: Bool? = nil, outbound: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SubBountiesResp> {
         var localVariablePath = "/api/v1/bounties/{parent_id}/subbounties"
         let parentIdPreEscape = "\(APIHelper.mapValueToPathItem(parentId))"
         let parentIdPostEscape = parentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -645,7 +645,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataSubBountiesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SubBountiesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -655,10 +655,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataColorSchemeResult
+     - returns: ColorSchemeResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesColorschemes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataColorSchemeResult {
+    open class func getApiV1BountiesColorschemes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ColorSchemeResult {
         return try await getApiV1BountiesColorschemesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -670,9 +670,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataColorSchemeResult> 
+     - returns: RequestBuilder<ColorSchemeResult> 
      */
-    open class func getApiV1BountiesColorschemesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataColorSchemeResult> {
+    open class func getApiV1BountiesColorschemesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ColorSchemeResult> {
         let localVariablePath = "/api/v1/bounties/colorSchemes"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -687,7 +687,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataColorSchemeResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ColorSchemeResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -700,10 +700,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageBounty
+     - returns: ModelBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesMenusActive(merchantId: String? = nil, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageBounty {
+    open class func getApiV1BountiesMenusActive(merchantId: String? = nil, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelBounty {
         return try await getApiV1BountiesMenusActiveWithRequestBuilder(merchantId: merchantId, clientId: clientId, zone: zone, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -718,9 +718,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageBounty> 
+     - returns: RequestBuilder<ModelBounty> 
      */
-    open class func getApiV1BountiesMenusActiveWithRequestBuilder(merchantId: String? = nil, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageBounty> {
+    open class func getApiV1BountiesMenusActiveWithRequestBuilder(merchantId: String? = nil, clientId: String? = nil, zone: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelBounty> {
         let localVariablePath = "/api/v1/bounties/menus/active"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -740,7 +740,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -750,10 +750,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageListsListDef
+     - returns: ListsListDef
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesPublishLists(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageListsListDef {
+    open class func getApiV1BountiesPublishLists(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListsListDef {
         return try await getApiV1BountiesPublishListsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -765,9 +765,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageListsListDef> 
+     - returns: RequestBuilder<ListsListDef> 
      */
-    open class func getApiV1BountiesPublishListsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageListsListDef> {
+    open class func getApiV1BountiesPublishListsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListsListDef> {
         let localVariablePath = "/api/v1/bounties/publish/lists"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -782,7 +782,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListsListDef>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -793,10 +793,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountySectionResult
+     - returns: BountySectionResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1BountiesSections(type: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountySectionResult {
+    open class func getApiV1BountiesSections(type: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountySectionResult {
         return try await getApiV1BountiesSectionsWithRequestBuilder(type: type, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -809,9 +809,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountySectionResult> 
+     - returns: RequestBuilder<BountySectionResult> 
      */
-    open class func getApiV1BountiesSectionsWithRequestBuilder(type: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountySectionResult> {
+    open class func getApiV1BountiesSectionsWithRequestBuilder(type: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountySectionResult> {
         let localVariablePath = "/api/v1/bounties/sections"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -829,7 +829,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountySectionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountySectionResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -841,10 +841,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataAnswerCallResult
+     - returns: AnswerCallResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BountiesByBountyidCallsAnswer(bountyId: String, roomId: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAnswerCallResult {
+    open class func postApiV1BountiesByBountyidCallsAnswer(bountyId: String, roomId: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AnswerCallResult {
         return try await postApiV1BountiesByBountyidCallsAnswerWithRequestBuilder(bountyId: bountyId, roomId: roomId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -858,9 +858,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataAnswerCallResult> 
+     - returns: RequestBuilder<AnswerCallResult> 
      */
-    open class func postApiV1BountiesByBountyidCallsAnswerWithRequestBuilder(bountyId: String, roomId: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAnswerCallResult> {
+    open class func postApiV1BountiesByBountyidCallsAnswerWithRequestBuilder(bountyId: String, roomId: [String]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AnswerCallResult> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/calls/answer"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -881,7 +881,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAnswerCallResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AnswerCallResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -892,10 +892,10 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPlaceCallResult
+     - returns: PlaceCallResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BountiesByBountyidCallsPlace(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPlaceCallResult {
+    open class func postApiV1BountiesByBountyidCallsPlace(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PlaceCallResult {
         return try await postApiV1BountiesByBountyidCallsPlaceWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -908,9 +908,9 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPlaceCallResult> 
+     - returns: RequestBuilder<PlaceCallResult> 
      */
-    open class func postApiV1BountiesByBountyidCallsPlaceWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPlaceCallResult> {
+    open class func postApiV1BountiesByBountyidCallsPlaceWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PlaceCallResult> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/calls/place"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -928,7 +928,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPlaceCallResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlaceCallResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1034,12 +1034,12 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerBountyControllerActivateMenuRequest: (body)  (optional)
+     - parameter activateMenuRequest: (body)  (optional)
      - returns: Bounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BountiesByBountyidMenuActivate(bountyId: String, deactivateOthers: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerBountyControllerActivateMenuRequest: RestControllerBountyControllerActivateMenuRequest? = nil) async throws -> Bounty {
-        return try await postApiV1BountiesByBountyidMenuActivateWithRequestBuilder(bountyId: bountyId, deactivateOthers: deactivateOthers, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, restControllerBountyControllerActivateMenuRequest: restControllerBountyControllerActivateMenuRequest).execute().body
+    open class func postApiV1BountiesByBountyidMenuActivate(bountyId: String, deactivateOthers: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, activateMenuRequest: ActivateMenuRequest? = nil) async throws -> Bounty {
+        return try await postApiV1BountiesByBountyidMenuActivateWithRequestBuilder(bountyId: bountyId, deactivateOthers: deactivateOthers, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId, activateMenuRequest: activateMenuRequest).execute().body
     }
 
     /**
@@ -1052,16 +1052,16 @@ open class BountyControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - parameter restControllerBountyControllerActivateMenuRequest: (body)  (optional)
+     - parameter activateMenuRequest: (body)  (optional)
      - returns: RequestBuilder<Bounty> 
      */
-    open class func postApiV1BountiesByBountyidMenuActivateWithRequestBuilder(bountyId: String, deactivateOthers: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, restControllerBountyControllerActivateMenuRequest: RestControllerBountyControllerActivateMenuRequest? = nil) -> RequestBuilder<Bounty> {
+    open class func postApiV1BountiesByBountyidMenuActivateWithRequestBuilder(bountyId: String, deactivateOthers: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil, activateMenuRequest: ActivateMenuRequest? = nil) -> RequestBuilder<Bounty> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/menu/activate"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: restControllerBountyControllerActivateMenuRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: activateMenuRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -1232,15 +1232,15 @@ open class BountyControllerAPI {
 
      - parameter bountyId: (path)  
      - parameter avatarId: (path)  
-     - parameter edgeApiDataSponsorshipRequest: (body)  
+     - parameter sponsorshipRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(bountyId: String, avatarId: String, edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptWithRequestBuilder(bountyId: bountyId, avatarId: avatarId, edgeApiDataSponsorshipRequest: edgeApiDataSponsorshipRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridAccept(bountyId: String, avatarId: String, sponsorshipRequest: SponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptWithRequestBuilder(bountyId: bountyId, avatarId: avatarId, sponsorshipRequest: sponsorshipRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1250,13 +1250,13 @@ open class BountyControllerAPI {
        - name: JWT
      - parameter bountyId: (path)  
      - parameter avatarId: (path)  
-     - parameter edgeApiDataSponsorshipRequest: (body)  
+     - parameter sponsorshipRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptWithRequestBuilder(bountyId: String, avatarId: String, edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridAcceptWithRequestBuilder(bountyId: String, avatarId: String, sponsorshipRequest: SponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/sponsorships/{avatarId}/accept"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1265,7 +1265,7 @@ open class BountyControllerAPI {
         let avatarIdPostEscape = avatarIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{avatarId}", with: avatarIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataSponsorshipRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sponsorshipRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1287,15 +1287,15 @@ open class BountyControllerAPI {
 
      - parameter bountyId: (path)  
      - parameter avatarId: (path)  
-     - parameter edgeApiDataSponsorshipRequest: (body)  
+     - parameter sponsorshipRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ShoppingCartOrderSummary
+     - returns: OrderSummary
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridReject(bountyId: String, avatarId: String, edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShoppingCartOrderSummary {
-        return try await postApiV1BountiesByBountyidSponsorshipsByAvataridRejectWithRequestBuilder(bountyId: bountyId, avatarId: avatarId, edgeApiDataSponsorshipRequest: edgeApiDataSponsorshipRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridReject(bountyId: String, avatarId: String, sponsorshipRequest: SponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> OrderSummary {
+        return try await postApiV1BountiesByBountyidSponsorshipsByAvataridRejectWithRequestBuilder(bountyId: bountyId, avatarId: avatarId, sponsorshipRequest: sponsorshipRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1305,13 +1305,13 @@ open class BountyControllerAPI {
        - name: JWT
      - parameter bountyId: (path)  
      - parameter avatarId: (path)  
-     - parameter edgeApiDataSponsorshipRequest: (body)  
+     - parameter sponsorshipRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ShoppingCartOrderSummary> 
+     - returns: RequestBuilder<OrderSummary> 
      */
-    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridRejectWithRequestBuilder(bountyId: String, avatarId: String, edgeApiDataSponsorshipRequest: EdgeApiDataSponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShoppingCartOrderSummary> {
+    open class func postApiV1BountiesByBountyidSponsorshipsByAvataridRejectWithRequestBuilder(bountyId: String, avatarId: String, sponsorshipRequest: SponsorshipRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<OrderSummary> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/sponsorships/{avatarId}/reject"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1320,7 +1320,7 @@ open class BountyControllerAPI {
         let avatarIdPostEscape = avatarIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{avatarId}", with: avatarIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataSponsorshipRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sponsorshipRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1333,7 +1333,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ShoppingCartOrderSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OrderSummary>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1433,16 +1433,16 @@ open class BountyControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter bountyTermsContentAccessRule: (body)  
+     - parameter contentAccessRule: (body)  
      - parameter refreshPin: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: BountyTermsContentAccessRule
+     - returns: ContentAccessRule
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1BountiesByBountyidContentAccess(bountyId: String, bountyTermsContentAccessRule: BountyTermsContentAccessRule, refreshPin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyTermsContentAccessRule {
-        return try await putApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: bountyId, bountyTermsContentAccessRule: bountyTermsContentAccessRule, refreshPin: refreshPin, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1BountiesByBountyidContentAccess(bountyId: String, contentAccessRule: ContentAccessRule, refreshPin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ContentAccessRule {
+        return try await putApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: bountyId, contentAccessRule: contentAccessRule, refreshPin: refreshPin, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1451,20 +1451,20 @@ open class BountyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter bountyTermsContentAccessRule: (body)  
+     - parameter contentAccessRule: (body)  
      - parameter refreshPin: (query)  (optional)
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<BountyTermsContentAccessRule> 
+     - returns: RequestBuilder<ContentAccessRule> 
      */
-    open class func putApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, bountyTermsContentAccessRule: BountyTermsContentAccessRule, refreshPin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyTermsContentAccessRule> {
+    open class func putApiV1BountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, contentAccessRule: ContentAccessRule, refreshPin: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ContentAccessRule> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/content/access"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bountyTermsContentAccessRule)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: contentAccessRule)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
@@ -1480,7 +1480,7 @@ open class BountyControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BountyTermsContentAccessRule>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ContentAccessRule>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1590,15 +1590,15 @@ open class BountyControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter edgeApiDataUpdateBountyStateReq: (body)  
+     - parameter updateBountyStateReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1BountiesByBountyidUpdateState(bountyId: String, edgeApiDataUpdateBountyStateReq: EdgeApiDataUpdateBountyStateReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await putApiV1BountiesByBountyidUpdateStateWithRequestBuilder(bountyId: bountyId, edgeApiDataUpdateBountyStateReq: edgeApiDataUpdateBountyStateReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func putApiV1BountiesByBountyidUpdateState(bountyId: String, updateBountyStateReq: UpdateBountyStateReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await putApiV1BountiesByBountyidUpdateStateWithRequestBuilder(bountyId: bountyId, updateBountyStateReq: updateBountyStateReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -1607,19 +1607,19 @@ open class BountyControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter edgeApiDataUpdateBountyStateReq: (body)  
+     - parameter updateBountyStateReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func putApiV1BountiesByBountyidUpdateStateWithRequestBuilder(bountyId: String, edgeApiDataUpdateBountyStateReq: EdgeApiDataUpdateBountyStateReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func putApiV1BountiesByBountyidUpdateStateWithRequestBuilder(bountyId: String, updateBountyStateReq: UpdateBountyStateReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/bounties/{bountyId}/update/state"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataUpdateBountyStateReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateBountyStateReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

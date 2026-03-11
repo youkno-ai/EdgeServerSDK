@@ -14,9 +14,9 @@ public struct VoucherTarget: Codable, JSONEncodable, Hashable {
 
     public var bounties: [String: Bounty]?
     public var categories: [String: BountyBountyCategory]?
-    public var tags: [String: TagsTag]?
+    public var tags: [String: Tag]?
 
-    public init(bounties: [String: Bounty]? = nil, categories: [String: BountyBountyCategory]? = nil, tags: [String: TagsTag]? = nil) {
+    public init(bounties: [String: Bounty]? = nil, categories: [String: BountyBountyCategory]? = nil, tags: [String: Tag]? = nil) {
         self.bounties = bounties
         self.categories = categories
         self.tags = tags

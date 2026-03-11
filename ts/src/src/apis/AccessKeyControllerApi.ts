@@ -16,40 +16,40 @@
 import * as runtime from '../runtime';
 import type {
   AccessKey,
-  AccessKeyApiAccessKeyRequirement,
-  AccessKeyApiKeychainAcquireRequest,
-  AccessKeyApiKeychainUseRequest,
-  AccessKeyApiKeychainUseResponse,
-  AccessKeyApiRequirementEvaluationResponse,
   AccessKeyDef,
   AccessKeyDefMetaData,
-  EdgeApiDataPageAccessKey,
-  EdgeApiDataPageAccessKeyDef,
-  EdgeApiDataPageScope,
+  AccessKeyRequirement,
+  KeychainAcquireRequest,
+  KeychainUseRequest,
+  KeychainUseResponse,
+  ModelAccessKey,
+  ModelAccessKeyDef,
+  ModelScope,
+  RequirementEvaluationResponse,
 } from '../models/index';
 import {
     AccessKeyFromJSON,
     AccessKeyToJSON,
-    AccessKeyApiAccessKeyRequirementFromJSON,
-    AccessKeyApiAccessKeyRequirementToJSON,
-    AccessKeyApiKeychainAcquireRequestFromJSON,
-    AccessKeyApiKeychainAcquireRequestToJSON,
-    AccessKeyApiKeychainUseRequestFromJSON,
-    AccessKeyApiKeychainUseRequestToJSON,
-    AccessKeyApiKeychainUseResponseFromJSON,
-    AccessKeyApiKeychainUseResponseToJSON,
-    AccessKeyApiRequirementEvaluationResponseFromJSON,
-    AccessKeyApiRequirementEvaluationResponseToJSON,
     AccessKeyDefFromJSON,
     AccessKeyDefToJSON,
     AccessKeyDefMetaDataFromJSON,
     AccessKeyDefMetaDataToJSON,
-    EdgeApiDataPageAccessKeyFromJSON,
-    EdgeApiDataPageAccessKeyToJSON,
-    EdgeApiDataPageAccessKeyDefFromJSON,
-    EdgeApiDataPageAccessKeyDefToJSON,
-    EdgeApiDataPageScopeFromJSON,
-    EdgeApiDataPageScopeToJSON,
+    AccessKeyRequirementFromJSON,
+    AccessKeyRequirementToJSON,
+    KeychainAcquireRequestFromJSON,
+    KeychainAcquireRequestToJSON,
+    KeychainUseRequestFromJSON,
+    KeychainUseRequestToJSON,
+    KeychainUseResponseFromJSON,
+    KeychainUseResponseToJSON,
+    ModelAccessKeyFromJSON,
+    ModelAccessKeyToJSON,
+    ModelAccessKeyDefFromJSON,
+    ModelAccessKeyDefToJSON,
+    ModelScopeFromJSON,
+    ModelScopeToJSON,
+    RequirementEvaluationResponseFromJSON,
+    RequirementEvaluationResponseToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1AccesskeysByUseridRevokeByAccesskeyidRequest {
@@ -168,7 +168,7 @@ export interface PostApiV1AccesskeysDefsStandardSyncRequest {
 export interface PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireRequest {
     userId: string;
     virtualUserId: string;
-    accessKeyApiKeychainAcquireRequest: AccessKeyApiKeychainAcquireRequest;
+    keychainAcquireRequest: KeychainAcquireRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -177,7 +177,7 @@ export interface PostApiV1AccesskeysKeychainByUseridByVirtualuseridAcquireReques
 export interface PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest {
     userId: string;
     virtualUserId: string;
-    accessKeyApiKeychainUseRequest: AccessKeyApiKeychainUseRequest;
+    keychainUseRequest: KeychainUseRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -195,7 +195,7 @@ export interface PutApiV1AccesskeysDefsByAccesskeydefidByScopenameRequest {
 export interface PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest {
     objectType: string;
     objectId: string;
-    accessKeyApiAccessKeyRequirement: AccessKeyApiAccessKeyRequirement;
+    accessKeyRequirement: AccessKeyRequirement;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -289,11 +289,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKey>>;
+    getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKey>>;
 
     /**
      */
-    getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKey>;
+    getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKey>;
 
     /**
      * 
@@ -306,11 +306,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKey>>;
+    getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKey>>;
 
     /**
      */
-    getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKey>;
+    getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKey>;
 
     /**
      * 
@@ -324,11 +324,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKeyDef>>;
+    getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKeyDef>>;
 
     /**
      */
-    getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKeyDef>;
+    getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKeyDef>;
 
     /**
      * 
@@ -355,11 +355,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageScope>>;
+    getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelScope>>;
 
     /**
      */
-    getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageScope>;
+    getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelScope>;
 
     /**
      * 
@@ -372,11 +372,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiAccessKeyRequirement>>;
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyRequirement>>;
 
     /**
      */
-    getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiAccessKeyRequirement>;
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyRequirement>;
 
     /**
      * 
@@ -391,11 +391,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiRequirementEvaluationResponse>>;
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequirementEvaluationResponse>>;
 
     /**
      */
-    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiRequirementEvaluationResponse>;
+    getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequirementEvaluationResponse>;
 
     /**
      * 
@@ -451,7 +451,7 @@ export interface AccessKeyControllerApiInterface {
      * 
      * @param {string} userId 
      * @param {string} virtualUserId 
-     * @param {AccessKeyApiKeychainAcquireRequest} accessKeyApiKeychainAcquireRequest 
+     * @param {KeychainAcquireRequest} keychainAcquireRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -469,7 +469,7 @@ export interface AccessKeyControllerApiInterface {
      * 
      * @param {string} userId 
      * @param {string} virtualUserId 
-     * @param {AccessKeyApiKeychainUseRequest} accessKeyApiKeychainUseRequest 
+     * @param {KeychainUseRequest} keychainUseRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -477,11 +477,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiKeychainUseResponse>>;
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeychainUseResponse>>;
 
     /**
      */
-    postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiKeychainUseResponse>;
+    postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KeychainUseResponse>;
 
     /**
      * 
@@ -505,7 +505,7 @@ export interface AccessKeyControllerApiInterface {
      * 
      * @param {string} objectType 
      * @param {string} objectId 
-     * @param {AccessKeyApiAccessKeyRequirement} accessKeyApiAccessKeyRequirement 
+     * @param {AccessKeyRequirement} accessKeyRequirement 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -513,11 +513,11 @@ export interface AccessKeyControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AccessKeyControllerApiInterface
      */
-    putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiAccessKeyRequirement>>;
+    putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyRequirement>>;
 
     /**
      */
-    putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiAccessKeyRequirement>;
+    putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyRequirement>;
 
 }
 
@@ -772,7 +772,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKey>> {
+    async getApiV1AccesskeysByUseridRaw(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -819,19 +819,19 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageAccessKeyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelAccessKeyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKey> {
+    async getApiV1AccesskeysByUserid(requestParameters: GetApiV1AccesskeysByUseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKey> {
         const response = await this.getApiV1AccesskeysByUseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKey>> {
+    async getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKey>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -878,19 +878,19 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageAccessKeyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelAccessKeyFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKey> {
+    async getApiV1AccesskeysByUseridByAccesskeydefid(requestParameters: GetApiV1AccesskeysByUseridByAccesskeydefidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKey> {
         const response = await this.getApiV1AccesskeysByUseridByAccesskeydefidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageAccessKeyDef>> {
+    async getApiV1AccesskeysDefsByScopenameRaw(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelAccessKeyDef>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -937,12 +937,12 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageAccessKeyDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelAccessKeyDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageAccessKeyDef> {
+    async getApiV1AccesskeysDefsByScopename(requestParameters: GetApiV1AccesskeysDefsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelAccessKeyDef> {
         const response = await this.getApiV1AccesskeysDefsByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1000,7 +1000,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageScope>> {
+    async getApiV1AccesskeysDefsScopesRaw(requestParameters: GetApiV1AccesskeysDefsScopesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelScope>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1031,19 +1031,19 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageScopeFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelScopeFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageScope> {
+    async getApiV1AccesskeysDefsScopes(requestParameters: GetApiV1AccesskeysDefsScopesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelScope> {
         const response = await this.getApiV1AccesskeysDefsScopesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiAccessKeyRequirement>> {
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyRequirement>> {
         if (requestParameters['objectType'] == null) {
             throw new runtime.RequiredError(
                 'objectType',
@@ -1090,19 +1090,19 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyApiAccessKeyRequirementFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyRequirementFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiAccessKeyRequirement> {
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyRequirement> {
         const response = await this.getApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiRequirementEvaluationResponse>> {
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequirementEvaluationResponse>> {
         if (requestParameters['objectType'] == null) {
             throw new runtime.RequiredError(
                 'objectType',
@@ -1165,12 +1165,12 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyApiRequirementEvaluationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RequirementEvaluationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiRequirementEvaluationResponse> {
+    async getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuserid(requestParameters: GetApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequirementEvaluationResponse> {
         const response = await this.getApiV1AccesskeysRequirementsByObjecttypeByObjectidEvaluateByUseridByVirtualuseridRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1365,10 +1365,10 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             );
         }
 
-        if (requestParameters['accessKeyApiKeychainAcquireRequest'] == null) {
+        if (requestParameters['keychainAcquireRequest'] == null) {
             throw new runtime.RequiredError(
-                'accessKeyApiKeychainAcquireRequest',
-                'Required parameter "accessKeyApiKeychainAcquireRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire().'
+                'keychainAcquireRequest',
+                'Required parameter "keychainAcquireRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridAcquire().'
             );
         }
 
@@ -1404,7 +1404,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AccessKeyApiKeychainAcquireRequestToJSON(requestParameters['accessKeyApiKeychainAcquireRequest']),
+            body: KeychainAcquireRequestToJSON(requestParameters['keychainAcquireRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyFromJSON(jsonValue));
@@ -1419,7 +1419,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiKeychainUseResponse>> {
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeychainUseResponse>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -1434,10 +1434,10 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             );
         }
 
-        if (requestParameters['accessKeyApiKeychainUseRequest'] == null) {
+        if (requestParameters['keychainUseRequest'] == null) {
             throw new runtime.RequiredError(
-                'accessKeyApiKeychainUseRequest',
-                'Required parameter "accessKeyApiKeychainUseRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridUse().'
+                'keychainUseRequest',
+                'Required parameter "keychainUseRequest" was null or undefined when calling postApiV1AccesskeysKeychainByUseridByVirtualuseridUse().'
             );
         }
 
@@ -1473,15 +1473,15 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AccessKeyApiKeychainUseRequestToJSON(requestParameters['accessKeyApiKeychainUseRequest']),
+            body: KeychainUseRequestToJSON(requestParameters['keychainUseRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyApiKeychainUseResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => KeychainUseResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiKeychainUseResponse> {
+    async postApiV1AccesskeysKeychainByUseridByVirtualuseridUse(requestParameters: PostApiV1AccesskeysKeychainByUseridByVirtualuseridUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<KeychainUseResponse> {
         const response = await this.postApiV1AccesskeysKeychainByUseridByVirtualuseridUseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1557,7 +1557,7 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
 
     /**
      */
-    async putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyApiAccessKeyRequirement>> {
+    async putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccessKeyRequirement>> {
         if (requestParameters['objectType'] == null) {
             throw new runtime.RequiredError(
                 'objectType',
@@ -1572,10 +1572,10 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             );
         }
 
-        if (requestParameters['accessKeyApiAccessKeyRequirement'] == null) {
+        if (requestParameters['accessKeyRequirement'] == null) {
             throw new runtime.RequiredError(
-                'accessKeyApiAccessKeyRequirement',
-                'Required parameter "accessKeyApiAccessKeyRequirement" was null or undefined when calling putApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
+                'accessKeyRequirement',
+                'Required parameter "accessKeyRequirement" was null or undefined when calling putApiV1AccesskeysRequirementsByObjecttypeByObjectid().'
             );
         }
 
@@ -1611,15 +1611,15 @@ export class AccessKeyControllerApi extends runtime.BaseAPI implements AccessKey
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AccessKeyApiAccessKeyRequirementToJSON(requestParameters['accessKeyApiAccessKeyRequirement']),
+            body: AccessKeyRequirementToJSON(requestParameters['accessKeyRequirement']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyApiAccessKeyRequirementFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessKeyRequirementFromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyApiAccessKeyRequirement> {
+    async putApiV1AccesskeysRequirementsByObjecttypeByObjectid(requestParameters: PutApiV1AccesskeysRequirementsByObjecttypeByObjectidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccessKeyRequirement> {
         const response = await this.putApiV1AccesskeysRequirementsByObjecttypeByObjectidRaw(requestParameters, initOverrides);
         return await response.value();
     }

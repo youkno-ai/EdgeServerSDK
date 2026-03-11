@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataCompanyEmployeesResult,
-  EdgeApiDataPageUser,
+  CompanyEmployeesResult,
+  ModelUser,
 } from '../models/index';
 import {
-    EdgeApiDataCompanyEmployeesResultFromJSON,
-    EdgeApiDataCompanyEmployeesResultToJSON,
-    EdgeApiDataPageUserFromJSON,
-    EdgeApiDataPageUserToJSON,
+    CompanyEmployeesResultFromJSON,
+    CompanyEmployeesResultToJSON,
+    ModelUserFromJSON,
+    ModelUserToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1CompaniesByCompanyidRequest {
@@ -112,11 +112,11 @@ export interface CompaniesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCompanyEmployeesResult>>;
+    getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>>;
 
     /**
      */
-    getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCompanyEmployeesResult>;
+    getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult>;
 
     /**
      * 
@@ -156,11 +156,11 @@ export interface CompaniesControllerApiInterface {
      * @throws {RequiredError}
      * @memberof CompaniesControllerApiInterface
      */
-    getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUser>>;
+    getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelUser>>;
 
     /**
      */
-    getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUser>;
+    getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelUser>;
 
 }
 
@@ -222,7 +222,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataCompanyEmployeesResult>> {
+    async getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyEmployeesResult>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -289,12 +289,12 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataCompanyEmployeesResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyEmployeesResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataCompanyEmployeesResult> {
+    async getApiV1CompaniesByCompanyIdEmployees(requestParameters: GetApiV1CompaniesByCompanyIdEmployeesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyEmployeesResult> {
         const response = await this.getApiV1CompaniesByCompanyIdEmployeesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -388,7 +388,7 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
 
     /**
      */
-    async getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUser>> {
+    async getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelUser>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -439,12 +439,12 @@ export class CompaniesControllerApi extends runtime.BaseAPI implements Companies
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelUserFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUser> {
+    async getApiV1CompaniesByCompanyIdInviters(requestParameters: GetApiV1CompaniesByCompanyIdInvitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelUser> {
         const response = await this.getApiV1CompaniesByCompanyIdInvitersRaw(requestParameters, initOverrides);
         return await response.value();
     }

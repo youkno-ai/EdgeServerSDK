@@ -28,7 +28,7 @@ public struct BountyResponse: Codable, JSONEncodable, Hashable {
     public var note: String?
     public var surveyAnswers: BountyResponseSurveyAnswers?
     public var attachments: Attachments?
-    public var extraInfo: BountyResponseExtraInfo?
+    public var extraInfo: ExtraInfo?
     public var badges: Badges?
     public var updatedAt: Int64?
     public var createdAt: Int64?
@@ -39,7 +39,7 @@ public struct BountyResponse: Codable, JSONEncodable, Hashable {
     public var bountyCreatedAtSortKey: String?
     public var bountyPopularitySortKey: String?
     public var bountyDiscussedSortKey: String?
-    public var stats: BountyResponseResponseStats?
+    public var stats: ResponseStats?
     public var rating: Rating?
     public var favoritedAt: Int64?
     public var likedAt: Int64?
@@ -49,10 +49,10 @@ public struct BountyResponse: Codable, JSONEncodable, Hashable {
     @available(*, deprecated, message: "This property is deprecated.")
     public var timeSpentInMs: Int?
     @available(*, deprecated, message: "This property is deprecated.")
-    public var choiceExtras: BountyResponseChoiceExtras?
+    public var choiceExtras: ChoiceExtras?
     public var entityId: String?
 
-    public init(id: String? = nil, shortId: String? = nil, creator: User? = nil, author: User? = nil, identityMode: IdentityMode? = nil, visibilityMode: VisibilityMode? = nil, bountyInfo: BountyResponseBountyInfo? = nil, type: String? = nil, displayMode: String? = nil, state: String? = nil, milestone: String? = nil, refusalReason: String? = nil, snippets: BountyResponseSnippets? = nil, note: String? = nil, surveyAnswers: BountyResponseSurveyAnswers? = nil, attachments: Attachments? = nil, extraInfo: BountyResponseExtraInfo? = nil, badges: Badges? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil, editedAt: Int64? = nil, pinnedAt: Int64? = nil, creatorUpdatedAtSortKey: String? = nil, bountyCreatedAtSortKey: String? = nil, bountyPopularitySortKey: String? = nil, bountyDiscussedSortKey: String? = nil, stats: BountyResponseResponseStats? = nil, rating: Rating? = nil, favoritedAt: Int64? = nil, likedAt: Int64? = nil, report: EntityReportInfo? = nil, choice: String? = nil, timeSpentInMs: Int? = nil, choiceExtras: BountyResponseChoiceExtras? = nil, entityId: String? = nil) {
+    public init(id: String? = nil, shortId: String? = nil, creator: User? = nil, author: User? = nil, identityMode: IdentityMode? = nil, visibilityMode: VisibilityMode? = nil, bountyInfo: BountyResponseBountyInfo? = nil, type: String? = nil, displayMode: String? = nil, state: String? = nil, milestone: String? = nil, refusalReason: String? = nil, snippets: BountyResponseSnippets? = nil, note: String? = nil, surveyAnswers: BountyResponseSurveyAnswers? = nil, attachments: Attachments? = nil, extraInfo: ExtraInfo? = nil, badges: Badges? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil, editedAt: Int64? = nil, pinnedAt: Int64? = nil, creatorUpdatedAtSortKey: String? = nil, bountyCreatedAtSortKey: String? = nil, bountyPopularitySortKey: String? = nil, bountyDiscussedSortKey: String? = nil, stats: ResponseStats? = nil, rating: Rating? = nil, favoritedAt: Int64? = nil, likedAt: Int64? = nil, report: EntityReportInfo? = nil, choice: String? = nil, timeSpentInMs: Int? = nil, choiceExtras: ChoiceExtras? = nil, entityId: String? = nil) {
         self.id = id
         self.shortId = shortId
         self.creator = creator

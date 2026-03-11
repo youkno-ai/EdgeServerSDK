@@ -15,19 +15,19 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataJoinCampaignRequest,
   JoinCampaign,
+  JoinCampaignRequest,
 } from '../models/index';
 import {
-    EdgeApiDataJoinCampaignRequestFromJSON,
-    EdgeApiDataJoinCampaignRequestToJSON,
     JoinCampaignFromJSON,
     JoinCampaignToJSON,
+    JoinCampaignRequestFromJSON,
+    JoinCampaignRequestToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1CampaignsByClientJoinRequest {
     client: string;
-    edgeApiDataJoinCampaignRequest: EdgeApiDataJoinCampaignRequest;
+    joinCampaignRequest: JoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -50,7 +50,7 @@ export interface GetApiV1CampaignsByClientJoinByCampaignidRequest {
 
 export interface PostApiV1CampaignsByClientJoinRequest {
     client: string;
-    edgeApiDataJoinCampaignRequest: EdgeApiDataJoinCampaignRequest;
+    joinCampaignRequest: JoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -58,7 +58,7 @@ export interface PostApiV1CampaignsByClientJoinRequest {
 
 export interface PutApiV1CampaignsByClientJoinRequest {
     client: string;
-    edgeApiDataJoinCampaignRequest: EdgeApiDataJoinCampaignRequest;
+    joinCampaignRequest: JoinCampaignRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -74,7 +74,7 @@ export interface CampaignControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {EdgeApiDataJoinCampaignRequest} edgeApiDataJoinCampaignRequest 
+     * @param {JoinCampaignRequest} joinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -124,7 +124,7 @@ export interface CampaignControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {EdgeApiDataJoinCampaignRequest} edgeApiDataJoinCampaignRequest 
+     * @param {JoinCampaignRequest} joinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -141,7 +141,7 @@ export interface CampaignControllerApiInterface {
     /**
      * 
      * @param {string} client 
-     * @param {EdgeApiDataJoinCampaignRequest} edgeApiDataJoinCampaignRequest 
+     * @param {JoinCampaignRequest} joinCampaignRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -172,10 +172,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['edgeApiDataJoinCampaignRequest'] == null) {
+        if (requestParameters['joinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataJoinCampaignRequest',
-                'Required parameter "edgeApiDataJoinCampaignRequest" was null or undefined when calling deleteApiV1CampaignsByClientJoin().'
+                'joinCampaignRequest',
+                'Required parameter "joinCampaignRequest" was null or undefined when calling deleteApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -210,7 +210,7 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataJoinCampaignRequestToJSON(requestParameters['edgeApiDataJoinCampaignRequest']),
+            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -343,10 +343,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['edgeApiDataJoinCampaignRequest'] == null) {
+        if (requestParameters['joinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataJoinCampaignRequest',
-                'Required parameter "edgeApiDataJoinCampaignRequest" was null or undefined when calling postApiV1CampaignsByClientJoin().'
+                'joinCampaignRequest',
+                'Required parameter "joinCampaignRequest" was null or undefined when calling postApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -381,7 +381,7 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataJoinCampaignRequestToJSON(requestParameters['edgeApiDataJoinCampaignRequest']),
+            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => JoinCampaignFromJSON(jsonValue));
@@ -404,10 +404,10 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             );
         }
 
-        if (requestParameters['edgeApiDataJoinCampaignRequest'] == null) {
+        if (requestParameters['joinCampaignRequest'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataJoinCampaignRequest',
-                'Required parameter "edgeApiDataJoinCampaignRequest" was null or undefined when calling putApiV1CampaignsByClientJoin().'
+                'joinCampaignRequest',
+                'Required parameter "joinCampaignRequest" was null or undefined when calling putApiV1CampaignsByClientJoin().'
             );
         }
 
@@ -442,7 +442,7 @@ export class CampaignControllerApi extends runtime.BaseAPI implements CampaignCo
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataJoinCampaignRequestToJSON(requestParameters['edgeApiDataJoinCampaignRequest']),
+            body: JoinCampaignRequestToJSON(requestParameters['joinCampaignRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => JoinCampaignFromJSON(jsonValue));

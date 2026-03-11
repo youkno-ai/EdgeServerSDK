@@ -12,101 +12,37 @@ import AnyCodable
 
 public struct PosApiDataInventoryResp: Codable, JSONEncodable, Hashable {
 
-    public var itemId: String?
-    public var itemName: String?
-    public var locationId: String?
-    public var batchId: String?
-    public var batchName: String?
-    public var status: String?
-    public var brand: String?
-    public var barcodeId: String?
-    public var thc: Int?
-    public var thcMg: Int?
-    public var cbd: Int?
-    public var cbdMg: Int?
-    public var areaId: String?
-    public var areaName: String?
-    public var onHand: Double?
-    public var available: Double?
-    public var uom: String?
-    public var expireDate: Int64?
-    public var allOnHandPerLocation: Double?
-    public var locationLowInventoryThresholdBatch: Double?
-    public var areaPath: String?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataInventoryResp2]?
 
-    public init(itemId: String? = nil, itemName: String? = nil, locationId: String? = nil, batchId: String? = nil, batchName: String? = nil, status: String? = nil, brand: String? = nil, barcodeId: String? = nil, thc: Int? = nil, thcMg: Int? = nil, cbd: Int? = nil, cbdMg: Int? = nil, areaId: String? = nil, areaName: String? = nil, onHand: Double? = nil, available: Double? = nil, uom: String? = nil, expireDate: Int64? = nil, allOnHandPerLocation: Double? = nil, locationLowInventoryThresholdBatch: Double? = nil, areaPath: String? = nil) {
-        self.itemId = itemId
-        self.itemName = itemName
-        self.locationId = locationId
-        self.batchId = batchId
-        self.batchName = batchName
-        self.status = status
-        self.brand = brand
-        self.barcodeId = barcodeId
-        self.thc = thc
-        self.thcMg = thcMg
-        self.cbd = cbd
-        self.cbdMg = cbdMg
-        self.areaId = areaId
-        self.areaName = areaName
-        self.onHand = onHand
-        self.available = available
-        self.uom = uom
-        self.expireDate = expireDate
-        self.allOnHandPerLocation = allOnHandPerLocation
-        self.locationLowInventoryThresholdBatch = locationLowInventoryThresholdBatch
-        self.areaPath = areaPath
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataInventoryResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case itemId
-        case itemName
-        case locationId
-        case batchId
-        case batchName
-        case status
-        case brand
-        case barcodeId
-        case thc
-        case thcMg
-        case cbd
-        case cbdMg
-        case areaId
-        case areaName
-        case onHand
-        case available
-        case uom
-        case expireDate
-        case allOnHandPerLocation
-        case locationLowInventoryThresholdBatch
-        case areaPath
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(itemId, forKey: .itemId)
-        try container.encodeIfPresent(itemName, forKey: .itemName)
-        try container.encodeIfPresent(locationId, forKey: .locationId)
-        try container.encodeIfPresent(batchId, forKey: .batchId)
-        try container.encodeIfPresent(batchName, forKey: .batchName)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(brand, forKey: .brand)
-        try container.encodeIfPresent(barcodeId, forKey: .barcodeId)
-        try container.encodeIfPresent(thc, forKey: .thc)
-        try container.encodeIfPresent(thcMg, forKey: .thcMg)
-        try container.encodeIfPresent(cbd, forKey: .cbd)
-        try container.encodeIfPresent(cbdMg, forKey: .cbdMg)
-        try container.encodeIfPresent(areaId, forKey: .areaId)
-        try container.encodeIfPresent(areaName, forKey: .areaName)
-        try container.encodeIfPresent(onHand, forKey: .onHand)
-        try container.encodeIfPresent(available, forKey: .available)
-        try container.encodeIfPresent(uom, forKey: .uom)
-        try container.encodeIfPresent(expireDate, forKey: .expireDate)
-        try container.encodeIfPresent(allOnHandPerLocation, forKey: .allOnHandPerLocation)
-        try container.encodeIfPresent(locationLowInventoryThresholdBatch, forKey: .locationLowInventoryThresholdBatch)
-        try container.encodeIfPresent(areaPath, forKey: .areaPath)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

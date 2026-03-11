@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TagsTag } from './TagsTag';
-import {
-    TagsTagFromJSON,
-    TagsTagFromJSONTyped,
-    TagsTagToJSON,
-    TagsTagToJSONTyped,
-} from './TagsTag';
 import type { BountyBountyCategory } from './BountyBountyCategory';
 import {
     BountyBountyCategoryFromJSON,
@@ -34,6 +27,13 @@ import {
     BountyToJSON,
     BountyToJSONTyped,
 } from './Bounty';
+import type { Tag } from './Tag';
+import {
+    TagFromJSON,
+    TagFromJSONTyped,
+    TagToJSON,
+    TagToJSONTyped,
+} from './Tag';
 
 /**
  * 
@@ -55,10 +55,10 @@ export interface VoucherTarget {
     categories?: { [key: string]: BountyBountyCategory; };
     /**
      * 
-     * @type {{ [key: string]: TagsTag; }}
+     * @type {{ [key: string]: Tag; }}
      * @memberof VoucherTarget
      */
-    tags?: { [key: string]: TagsTag; };
+    tags?: { [key: string]: Tag; };
 }
 
 /**
@@ -80,7 +80,7 @@ export function VoucherTargetFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'bounties': json['bounties'] == null ? undefined : (mapValues(json['bounties'], BountyFromJSON)),
         'categories': json['categories'] == null ? undefined : (mapValues(json['categories'], BountyBountyCategoryFromJSON)),
-        'tags': json['tags'] == null ? undefined : (mapValues(json['tags'], TagsTagFromJSON)),
+        'tags': json['tags'] == null ? undefined : (mapValues(json['tags'], TagFromJSON)),
     };
 }
 
@@ -97,7 +97,7 @@ export function VoucherTargetToJSONTyped(value?: VoucherTarget | null, ignoreDis
         
         'bounties': value['bounties'] == null ? undefined : (mapValues(value['bounties'], BountyToJSON)),
         'categories': value['categories'] == null ? undefined : (mapValues(value['categories'], BountyBountyCategoryToJSON)),
-        'tags': value['tags'] == null ? undefined : (mapValues(value['tags'], TagsTagToJSON)),
+        'tags': value['tags'] == null ? undefined : (mapValues(value['tags'], TagToJSON)),
     };
 }
 

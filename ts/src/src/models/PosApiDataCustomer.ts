@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataCustomer2 } from './PosApiDataCustomer2';
+import {
+    PosApiDataCustomer2FromJSON,
+    PosApiDataCustomer2FromJSONTyped,
+    PosApiDataCustomer2ToJSON,
+    PosApiDataCustomer2ToJSONTyped,
+} from './PosApiDataCustomer2';
+
 /**
  * 
  * @export
@@ -21,112 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataCustomer {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataCustomer
      */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    firstName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    lastName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    customerName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    phone?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    dateOfBirth?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    address1?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    address2?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    city?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    state?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    zip?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    driversLicense?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    driversLicenseSt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    driversLicenseExpires?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    expirationDate?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataCustomer
-     */
-    patientNumber?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataCustomer
      */
-    dateCreated?: number;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataCustomer
+     */
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataCustomer
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataCustomer2>}
+     * @memberof PosApiDataCustomer
+     */
+    list?: Array<PosApiDataCustomer2>;
 }
 
 /**
@@ -146,24 +76,11 @@ export function PosApiDataCustomerFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'firstName': json['firstName'] == null ? undefined : json['firstName'],
-        'lastName': json['lastName'] == null ? undefined : json['lastName'],
-        'customerName': json['customerName'] == null ? undefined : json['customerName'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
-        'email': json['email'] == null ? undefined : json['email'],
-        'dateOfBirth': json['dateOfBirth'] == null ? undefined : json['dateOfBirth'],
-        'address1': json['address1'] == null ? undefined : json['address1'],
-        'address2': json['address2'] == null ? undefined : json['address2'],
-        'city': json['city'] == null ? undefined : json['city'],
-        'state': json['state'] == null ? undefined : json['state'],
-        'zip': json['zip'] == null ? undefined : json['zip'],
-        'driversLicense': json['driversLicense'] == null ? undefined : json['driversLicense'],
-        'driversLicenseSt': json['driversLicenseSt'] == null ? undefined : json['driversLicenseSt'],
-        'driversLicenseExpires': json['driversLicenseExpires'] == null ? undefined : json['driversLicenseExpires'],
-        'expirationDate': json['expirationDate'] == null ? undefined : json['expirationDate'],
-        'patientNumber': json['patientNumber'] == null ? undefined : json['patientNumber'],
-        'dateCreated': json['dateCreated'] == null ? undefined : json['dateCreated'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataCustomer2FromJSON)),
     };
 }
 
@@ -178,24 +95,11 @@ export function PosApiDataCustomerToJSONTyped(value?: PosApiDataCustomer | null,
 
     return {
         
-        'id': value['id'],
-        'firstName': value['firstName'],
-        'lastName': value['lastName'],
-        'customerName': value['customerName'],
-        'phone': value['phone'],
-        'email': value['email'],
-        'dateOfBirth': value['dateOfBirth'],
-        'address1': value['address1'],
-        'address2': value['address2'],
-        'city': value['city'],
-        'state': value['state'],
-        'zip': value['zip'],
-        'driversLicense': value['driversLicense'],
-        'driversLicenseSt': value['driversLicenseSt'],
-        'driversLicenseExpires': value['driversLicenseExpires'],
-        'expirationDate': value['expirationDate'],
-        'patientNumber': value['patientNumber'],
-        'dateCreated': value['dateCreated'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataCustomer2ToJSON)),
     };
 }
 

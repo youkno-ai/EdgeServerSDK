@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct PointCurrency: Codable, JSONEncodable, Hashable {
 
-    public var meta: PointCurrencyCurrencyMeta?
+    public var meta: CurrencyMeta?
 
-    public init(meta: PointCurrencyCurrencyMeta? = nil) {
+    public init(meta: CurrencyMeta? = nil) {
         self.meta = meta
     }
 

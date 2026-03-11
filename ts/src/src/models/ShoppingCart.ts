@@ -13,27 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyOrderDriverLicense } from './BountyOrderDriverLicense';
+import type { DiscountRule } from './DiscountRule';
 import {
-    BountyOrderDriverLicenseFromJSON,
-    BountyOrderDriverLicenseFromJSONTyped,
-    BountyOrderDriverLicenseToJSON,
-    BountyOrderDriverLicenseToJSONTyped,
-} from './BountyOrderDriverLicense';
-import type { BountyOrderMedical } from './BountyOrderMedical';
+    DiscountRuleFromJSON,
+    DiscountRuleFromJSONTyped,
+    DiscountRuleToJSON,
+    DiscountRuleToJSONTyped,
+} from './DiscountRule';
+import type { OrderCustomer } from './OrderCustomer';
 import {
-    BountyOrderMedicalFromJSON,
-    BountyOrderMedicalFromJSONTyped,
-    BountyOrderMedicalToJSON,
-    BountyOrderMedicalToJSONTyped,
-} from './BountyOrderMedical';
-import type { ShoppingCartDiscountRule } from './ShoppingCartDiscountRule';
-import {
-    ShoppingCartDiscountRuleFromJSON,
-    ShoppingCartDiscountRuleFromJSONTyped,
-    ShoppingCartDiscountRuleToJSON,
-    ShoppingCartDiscountRuleToJSONTyped,
-} from './ShoppingCartDiscountRule';
+    OrderCustomerFromJSON,
+    OrderCustomerFromJSONTyped,
+    OrderCustomerToJSON,
+    OrderCustomerToJSONTyped,
+} from './OrderCustomer';
 import type { ShoppingCartProductInfo } from './ShoppingCartProductInfo';
 import {
     ShoppingCartProductInfoFromJSON,
@@ -41,34 +34,41 @@ import {
     ShoppingCartProductInfoToJSON,
     ShoppingCartProductInfoToJSONTyped,
 } from './ShoppingCartProductInfo';
-import type { BountyOrderDelivery } from './BountyOrderDelivery';
+import type { DriverLicense } from './DriverLicense';
 import {
-    BountyOrderDeliveryFromJSON,
-    BountyOrderDeliveryFromJSONTyped,
-    BountyOrderDeliveryToJSON,
-    BountyOrderDeliveryToJSONTyped,
-} from './BountyOrderDelivery';
-import type { ShoppingCartRedemptionInfo } from './ShoppingCartRedemptionInfo';
+    DriverLicenseFromJSON,
+    DriverLicenseFromJSONTyped,
+    DriverLicenseToJSON,
+    DriverLicenseToJSONTyped,
+} from './DriverLicense';
+import type { Medical } from './Medical';
 import {
-    ShoppingCartRedemptionInfoFromJSON,
-    ShoppingCartRedemptionInfoFromJSONTyped,
-    ShoppingCartRedemptionInfoToJSON,
-    ShoppingCartRedemptionInfoToJSONTyped,
-} from './ShoppingCartRedemptionInfo';
-import type { BountyOrderPaymentInfo } from './BountyOrderPaymentInfo';
+    MedicalFromJSON,
+    MedicalFromJSONTyped,
+    MedicalToJSON,
+    MedicalToJSONTyped,
+} from './Medical';
+import type { OrderPaymentInfo } from './OrderPaymentInfo';
 import {
-    BountyOrderPaymentInfoFromJSON,
-    BountyOrderPaymentInfoFromJSONTyped,
-    BountyOrderPaymentInfoToJSON,
-    BountyOrderPaymentInfoToJSONTyped,
-} from './BountyOrderPaymentInfo';
-import type { BountyOrderCustomer } from './BountyOrderCustomer';
+    OrderPaymentInfoFromJSON,
+    OrderPaymentInfoFromJSONTyped,
+    OrderPaymentInfoToJSON,
+    OrderPaymentInfoToJSONTyped,
+} from './OrderPaymentInfo';
+import type { Delivery } from './Delivery';
 import {
-    BountyOrderCustomerFromJSON,
-    BountyOrderCustomerFromJSONTyped,
-    BountyOrderCustomerToJSON,
-    BountyOrderCustomerToJSONTyped,
-} from './BountyOrderCustomer';
+    DeliveryFromJSON,
+    DeliveryFromJSONTyped,
+    DeliveryToJSON,
+    DeliveryToJSONTyped,
+} from './Delivery';
+import type { RedemptionInfo } from './RedemptionInfo';
+import {
+    RedemptionInfoFromJSON,
+    RedemptionInfoFromJSONTyped,
+    RedemptionInfoToJSON,
+    RedemptionInfoToJSONTyped,
+} from './RedemptionInfo';
 import type { PaymentMethodInfo } from './PaymentMethodInfo';
 import {
     PaymentMethodInfoFromJSON,
@@ -152,10 +152,10 @@ export interface ShoppingCart {
     products?: { [key: string]: ShoppingCartProductInfo; };
     /**
      * 
-     * @type {ShoppingCartRedemptionInfo}
+     * @type {RedemptionInfo}
      * @memberof ShoppingCart
      */
-    redemptionInfo?: ShoppingCartRedemptionInfo;
+    redemptionInfo?: RedemptionInfo;
     /**
      * 
      * @type {string}
@@ -164,34 +164,34 @@ export interface ShoppingCart {
     posOrderId?: string;
     /**
      * 
-     * @type {BountyOrderCustomer}
+     * @type {OrderCustomer}
      * @memberof ShoppingCart
      */
-    customer?: BountyOrderCustomer;
+    customer?: OrderCustomer;
     /**
      * 
-     * @type {BountyOrderDriverLicense}
+     * @type {DriverLicense}
      * @memberof ShoppingCart
      */
-    driverLicense?: BountyOrderDriverLicense;
+    driverLicense?: DriverLicense;
     /**
      * 
-     * @type {BountyOrderMedical}
+     * @type {Medical}
      * @memberof ShoppingCart
      */
-    medical?: BountyOrderMedical;
+    medical?: Medical;
     /**
      * 
-     * @type {BountyOrderPaymentInfo}
+     * @type {OrderPaymentInfo}
      * @memberof ShoppingCart
      */
-    payment?: BountyOrderPaymentInfo;
+    payment?: OrderPaymentInfo;
     /**
      * 
-     * @type {BountyOrderDelivery}
+     * @type {Delivery}
      * @memberof ShoppingCart
      */
-    delivery?: BountyOrderDelivery;
+    delivery?: Delivery;
     /**
      * 
      * @type {string}
@@ -212,10 +212,10 @@ export interface ShoppingCart {
     printReceipt?: string;
     /**
      * 
-     * @type {Array<ShoppingCartDiscountRule>}
+     * @type {Array<DiscountRule>}
      * @memberof ShoppingCart
      */
-    discounts?: Array<ShoppingCartDiscountRule>;
+    discounts?: Array<DiscountRule>;
 }
 
 /**
@@ -245,17 +245,17 @@ export function ShoppingCartFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'vouchers': json['vouchers'] == null ? undefined : (mapValues(json['vouchers'], VoucherFromJSON)),
         'redemptionAmount': json['redemptionAmount'] == null ? undefined : json['redemptionAmount'],
         'products': json['products'] == null ? undefined : (mapValues(json['products'], ShoppingCartProductInfoFromJSON)),
-        'redemptionInfo': json['redemptionInfo'] == null ? undefined : ShoppingCartRedemptionInfoFromJSON(json['redemptionInfo']),
+        'redemptionInfo': json['redemptionInfo'] == null ? undefined : RedemptionInfoFromJSON(json['redemptionInfo']),
         'posOrderId': json['posOrderId'] == null ? undefined : json['posOrderId'],
-        'customer': json['customer'] == null ? undefined : BountyOrderCustomerFromJSON(json['customer']),
-        'driverLicense': json['driverLicense'] == null ? undefined : BountyOrderDriverLicenseFromJSON(json['driverLicense']),
-        'medical': json['medical'] == null ? undefined : BountyOrderMedicalFromJSON(json['medical']),
-        'payment': json['payment'] == null ? undefined : BountyOrderPaymentInfoFromJSON(json['payment']),
-        'delivery': json['delivery'] == null ? undefined : BountyOrderDeliveryFromJSON(json['delivery']),
+        'customer': json['customer'] == null ? undefined : OrderCustomerFromJSON(json['customer']),
+        'driverLicense': json['driverLicense'] == null ? undefined : DriverLicenseFromJSON(json['driverLicense']),
+        'medical': json['medical'] == null ? undefined : MedicalFromJSON(json['medical']),
+        'payment': json['payment'] == null ? undefined : OrderPaymentInfoFromJSON(json['payment']),
+        'delivery': json['delivery'] == null ? undefined : DeliveryFromJSON(json['delivery']),
         'useType': json['useType'] == null ? undefined : json['useType'],
         'kioskId': json['kioskId'] == null ? undefined : json['kioskId'],
         'printReceipt': json['printReceipt'] == null ? undefined : json['printReceipt'],
-        'discounts': json['discounts'] == null ? undefined : ((json['discounts'] as Array<any>).map(ShoppingCartDiscountRuleFromJSON)),
+        'discounts': json['discounts'] == null ? undefined : ((json['discounts'] as Array<any>).map(DiscountRuleFromJSON)),
     };
 }
 
@@ -280,17 +280,17 @@ export function ShoppingCartToJSONTyped(value?: ShoppingCart | null, ignoreDiscr
         'vouchers': value['vouchers'] == null ? undefined : (mapValues(value['vouchers'], VoucherToJSON)),
         'redemptionAmount': value['redemptionAmount'],
         'products': value['products'] == null ? undefined : (mapValues(value['products'], ShoppingCartProductInfoToJSON)),
-        'redemptionInfo': ShoppingCartRedemptionInfoToJSON(value['redemptionInfo']),
+        'redemptionInfo': RedemptionInfoToJSON(value['redemptionInfo']),
         'posOrderId': value['posOrderId'],
-        'customer': BountyOrderCustomerToJSON(value['customer']),
-        'driverLicense': BountyOrderDriverLicenseToJSON(value['driverLicense']),
-        'medical': BountyOrderMedicalToJSON(value['medical']),
-        'payment': BountyOrderPaymentInfoToJSON(value['payment']),
-        'delivery': BountyOrderDeliveryToJSON(value['delivery']),
+        'customer': OrderCustomerToJSON(value['customer']),
+        'driverLicense': DriverLicenseToJSON(value['driverLicense']),
+        'medical': MedicalToJSON(value['medical']),
+        'payment': OrderPaymentInfoToJSON(value['payment']),
+        'delivery': DeliveryToJSON(value['delivery']),
         'useType': value['useType'],
         'kioskId': value['kioskId'],
         'printReceipt': value['printReceipt'],
-        'discounts': value['discounts'] == null ? undefined : ((value['discounts'] as Array<any>).map(ShoppingCartDiscountRuleToJSON)),
+        'discounts': value['discounts'] == null ? undefined : ((value['discounts'] as Array<any>).map(DiscountRuleToJSON)),
     };
 }
 

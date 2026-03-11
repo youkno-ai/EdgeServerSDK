@@ -22,6 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
  * @param providerType 
  * @param cardType 
  * @param redactedNumber 
@@ -34,6 +35,9 @@ import com.squareup.moshi.JsonClass
 
 
 data class PaymentMethodInfo (
+
+    @Json(name = "id")
+    val id: kotlin.String? = null,
 
     @Json(name = "providerType")
     val providerType: kotlin.String? = null,

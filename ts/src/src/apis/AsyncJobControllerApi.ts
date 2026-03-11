@@ -15,29 +15,29 @@
 
 import * as runtime from '../runtime';
 import type {
-  AsyncAsyncEventOrgJooqJSONB,
-  AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB,
-  AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB,
-  AsyncQueueStats,
-  RestControllerAsyncJobControllerJobProgressResponse,
-  RestControllerAsyncJobControllerReleaseRequest,
-  RestControllerAsyncJobControllerRenewLeaseRequest,
+  JobProgressResponse,
+  JooqJSONB,
+  JooqJSONB2,
+  JooqJSONB3,
+  QueueStats,
+  ReleaseRequest,
+  RenewLeaseRequest,
 } from '../models/index';
 import {
-    AsyncAsyncEventOrgJooqJSONBFromJSON,
-    AsyncAsyncEventOrgJooqJSONBToJSON,
-    AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON,
-    AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBToJSON,
-    AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON,
-    AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBToJSON,
-    AsyncQueueStatsFromJSON,
-    AsyncQueueStatsToJSON,
-    RestControllerAsyncJobControllerJobProgressResponseFromJSON,
-    RestControllerAsyncJobControllerJobProgressResponseToJSON,
-    RestControllerAsyncJobControllerReleaseRequestFromJSON,
-    RestControllerAsyncJobControllerReleaseRequestToJSON,
-    RestControllerAsyncJobControllerRenewLeaseRequestFromJSON,
-    RestControllerAsyncJobControllerRenewLeaseRequestToJSON,
+    JobProgressResponseFromJSON,
+    JobProgressResponseToJSON,
+    JooqJSONBFromJSON,
+    JooqJSONBToJSON,
+    JooqJSONB2FromJSON,
+    JooqJSONB2ToJSON,
+    JooqJSONB3FromJSON,
+    JooqJSONB3ToJSON,
+    QueueStatsFromJSON,
+    QueueStatsToJSON,
+    ReleaseRequestFromJSON,
+    ReleaseRequestToJSON,
+    RenewLeaseRequestFromJSON,
+    RenewLeaseRequestToJSON,
 } from '../models/index';
 
 export interface GetApiV1AsyncJobsJobsRequest {
@@ -137,7 +137,7 @@ export interface PostApiV1AsyncJobsJobsByJobidStartRequest {
 export interface PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest {
     jobId: string;
     taskId: string;
-    restControllerAsyncJobControllerReleaseRequest: RestControllerAsyncJobControllerReleaseRequest;
+    releaseRequest: ReleaseRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -146,7 +146,7 @@ export interface PostApiV1AsyncJobsJobsByJobidTasksByTaskidReleaseRequest {
 export interface PostApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLeaseRequest {
     jobId: string;
     taskId: string;
-    restControllerAsyncJobControllerRenewLeaseRequest: RestControllerAsyncJobControllerRenewLeaseRequest;
+    renewLeaseRequest: RenewLeaseRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -174,11 +174,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>>;
+    getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB2>>>;
 
     /**
      */
-    getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>;
+    getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB2>>;
 
     /**
      * 
@@ -190,11 +190,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>;
+    getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JooqJSONB2>>;
 
     /**
      */
-    getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>;
+    getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JooqJSONB2>;
 
     /**
      * 
@@ -208,11 +208,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncEventOrgJooqJSONB>>>;
+    getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB>>>;
 
     /**
      */
-    getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncEventOrgJooqJSONB>>;
+    getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB>>;
 
     /**
      * 
@@ -224,11 +224,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAsyncJobControllerJobProgressResponse>>;
+    getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
 
     /**
      */
-    getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAsyncJobControllerJobProgressResponse>;
+    getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
 
     /**
      * 
@@ -244,11 +244,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>>;
+    getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB3>>>;
 
     /**
      */
-    getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>;
+    getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB3>>;
 
     /**
      * 
@@ -261,11 +261,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>;
+    getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JooqJSONB3>>;
 
     /**
      */
-    getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>;
+    getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JooqJSONB3>;
 
     /**
      * 
@@ -279,11 +279,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAsyncJobControllerJobProgressResponse>>;
+    getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>>;
 
     /**
      */
-    getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAsyncJobControllerJobProgressResponse>;
+    getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse>;
 
     /**
      * 
@@ -298,11 +298,11 @@ export interface AsyncJobControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AsyncJobControllerApiInterface
      */
-    getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncQueueStats>>>;
+    getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>>;
 
     /**
      */
-    getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncQueueStats>>;
+    getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>>;
 
     /**
      * 
@@ -356,7 +356,7 @@ export interface AsyncJobControllerApiInterface {
      * 
      * @param {string} jobId 
      * @param {string} taskId 
-     * @param {RestControllerAsyncJobControllerReleaseRequest} restControllerAsyncJobControllerReleaseRequest 
+     * @param {ReleaseRequest} releaseRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -374,7 +374,7 @@ export interface AsyncJobControllerApiInterface {
      * 
      * @param {string} jobId 
      * @param {string} taskId 
-     * @param {RestControllerAsyncJobControllerRenewLeaseRequest} restControllerAsyncJobControllerRenewLeaseRequest 
+     * @param {RenewLeaseRequest} renewLeaseRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -397,7 +397,7 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
 
     /**
      */
-    async getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>> {
+    async getApiV1AsyncJobsJobsRaw(requestParameters: GetApiV1AsyncJobsJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB2>>> {
         const queryParameters: any = {};
 
         if (requestParameters['status'] != null) {
@@ -452,19 +452,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(JooqJSONB2FromJSON));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>> {
+    async getApiV1AsyncJobsJobs(requestParameters: GetApiV1AsyncJobsJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB2>> {
         const response = await this.getApiV1AsyncJobsJobsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>> {
+    async getApiV1AsyncJobsJobsByJobidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JooqJSONB2>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -503,19 +503,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => JooqJSONB2FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
+    async getApiV1AsyncJobsJobsByJobid(requestParameters: GetApiV1AsyncJobsJobsByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JooqJSONB2> {
         const response = await this.getApiV1AsyncJobsJobsByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncEventOrgJooqJSONB>>> {
+    async getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB>>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -562,19 +562,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncAsyncEventOrgJooqJSONBFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(JooqJSONBFromJSON));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncEventOrgJooqJSONB>> {
+    async getApiV1AsyncJobsJobsByJobidEvents(requestParameters: GetApiV1AsyncJobsJobsByJobidEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB>> {
         const response = await this.getApiV1AsyncJobsJobsByJobidEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAsyncJobControllerJobProgressResponse>> {
+    async getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -613,19 +613,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAsyncJobControllerJobProgressResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAsyncJobControllerJobProgressResponse> {
+    async getApiV1AsyncJobsJobsByJobidProgress(requestParameters: GetApiV1AsyncJobsJobsByJobidProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
         const response = await this.getApiV1AsyncJobsJobsByJobidProgressRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>> {
+    async getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<JooqJSONB3>>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -680,19 +680,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(JooqJSONB3FromJSON));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>> {
+    async getApiV1AsyncJobsJobsByJobidTasks(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<JooqJSONB3>> {
         const response = await this.getApiV1AsyncJobsJobsByJobidTasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>> {
+    async getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JooqJSONB3>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -739,19 +739,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => JooqJSONB3FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB> {
+    async getApiV1AsyncJobsJobsByJobidTasksByTaskid(requestParameters: GetApiV1AsyncJobsJobsByJobidTasksByTaskidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JooqJSONB3> {
         const response = await this.getApiV1AsyncJobsJobsByJobidTasksByTaskidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAsyncJobControllerJobProgressResponse>> {
+    async getApiV1AsyncJobsProgressRaw(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobProgressResponse>> {
         if (requestParameters['entityType'] == null) {
             throw new runtime.RequiredError(
                 'entityType',
@@ -815,19 +815,19 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAsyncJobControllerJobProgressResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobProgressResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAsyncJobControllerJobProgressResponse> {
+    async getApiV1AsyncJobsProgress(requestParameters: GetApiV1AsyncJobsProgressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobProgressResponse> {
         const response = await this.getApiV1AsyncJobsProgressRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AsyncQueueStats>>> {
+    async getApiV1AsyncJobsQueuesRaw(requestParameters: GetApiV1AsyncJobsQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<QueueStats>>> {
         const queryParameters: any = {};
 
         if (requestParameters['jobId'] != null) {
@@ -874,12 +874,12 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AsyncQueueStatsFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(QueueStatsFromJSON));
     }
 
     /**
      */
-    async getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AsyncQueueStats>> {
+    async getApiV1AsyncJobsQueues(requestParameters: GetApiV1AsyncJobsQueuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<QueueStats>> {
         const response = await this.getApiV1AsyncJobsQueuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1066,10 +1066,10 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             );
         }
 
-        if (requestParameters['restControllerAsyncJobControllerReleaseRequest'] == null) {
+        if (requestParameters['releaseRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAsyncJobControllerReleaseRequest',
-                'Required parameter "restControllerAsyncJobControllerReleaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease().'
+                'releaseRequest',
+                'Required parameter "releaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease().'
             );
         }
 
@@ -1105,7 +1105,7 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAsyncJobControllerReleaseRequestToJSON(requestParameters['restControllerAsyncJobControllerReleaseRequest']),
+            body: ReleaseRequestToJSON(requestParameters['releaseRequest']),
         }, initOverrides);
 
         if (this.isJsonMime(response.headers.get('content-type'))) {
@@ -1139,10 +1139,10 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             );
         }
 
-        if (requestParameters['restControllerAsyncJobControllerRenewLeaseRequest'] == null) {
+        if (requestParameters['renewLeaseRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAsyncJobControllerRenewLeaseRequest',
-                'Required parameter "restControllerAsyncJobControllerRenewLeaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease().'
+                'renewLeaseRequest',
+                'Required parameter "renewLeaseRequest" was null or undefined when calling postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease().'
             );
         }
 
@@ -1178,7 +1178,7 @@ export class AsyncJobControllerApi extends runtime.BaseAPI implements AsyncJobCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAsyncJobControllerRenewLeaseRequestToJSON(requestParameters['restControllerAsyncJobControllerRenewLeaseRequest']),
+            body: RenewLeaseRequestToJSON(requestParameters['renewLeaseRequest']),
         }, initOverrides);
 
         if (this.isJsonMime(response.headers.get('content-type'))) {

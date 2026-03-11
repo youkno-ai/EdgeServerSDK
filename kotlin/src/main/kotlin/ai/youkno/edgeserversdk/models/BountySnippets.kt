@@ -15,11 +15,11 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyChatSnippet
-import ai.youkno.edgeserversdk.models.BountyClaimSnippet
 import ai.youkno.edgeserversdk.models.BountyPaymentRecvSnippet
 import ai.youkno.edgeserversdk.models.BountyRejectSnippet
 import ai.youkno.edgeserversdk.models.BountyReviewSnippet
+import ai.youkno.edgeserversdk.models.ChatSnippet
+import ai.youkno.edgeserversdk.models.ClaimSnippet
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,8 +32,8 @@ import com.squareup.moshi.JsonClass
  * @param paymentsRecv 
  * @param review 
  * @param reject 
- * @param paymentReceived 
  * @param lastChatSnippet 
+ * @param paymentReceived 
  * @param firstPaymentRecv 
  */
 
@@ -41,10 +41,10 @@ import com.squareup.moshi.JsonClass
 data class BountySnippets (
 
     @Json(name = "chats")
-    val chats: kotlin.collections.Map<kotlin.String, BountyChatSnippet>? = null,
+    val chats: kotlin.collections.Map<kotlin.String, ChatSnippet>? = null,
 
     @Json(name = "claims")
-    val claims: kotlin.collections.Map<kotlin.String, BountyClaimSnippet>? = null,
+    val claims: kotlin.collections.Map<kotlin.String, ClaimSnippet>? = null,
 
     @Json(name = "paymentsRecv")
     val paymentsRecv: kotlin.collections.Map<kotlin.String, BountyPaymentRecvSnippet>? = null,
@@ -55,11 +55,11 @@ data class BountySnippets (
     @Json(name = "reject")
     val reject: BountyRejectSnippet? = null,
 
+    @Json(name = "lastChatSnippet")
+    val lastChatSnippet: ChatSnippet? = null,
+
     @Json(name = "paymentReceived")
     val paymentReceived: kotlin.Boolean? = null,
-
-    @Json(name = "lastChatSnippet")
-    val lastChatSnippet: BountyChatSnippet? = null,
 
     @Json(name = "firstPaymentRecv")
     val firstPaymentRecv: BountyPaymentRecvSnippet? = null

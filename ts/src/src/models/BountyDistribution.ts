@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyDistributionAreas } from './BountyDistributionAreas';
+import type { Areas } from './Areas';
 import {
-    BountyDistributionAreasFromJSON,
-    BountyDistributionAreasFromJSONTyped,
-    BountyDistributionAreasToJSON,
-    BountyDistributionAreasToJSONTyped,
-} from './BountyDistributionAreas';
+    AreasFromJSON,
+    AreasFromJSONTyped,
+    AreasToJSON,
+    AreasToJSONTyped,
+} from './Areas';
 
 /**
  * 
@@ -29,16 +29,22 @@ import {
 export interface BountyDistribution {
     /**
      * 
-     * @type {Array<BountyDistributionAreas>}
+     * @type {Array<Areas>}
      * @memberof BountyDistribution
      */
-    areasList?: Array<BountyDistributionAreas>;
+    areasList?: Array<Areas>;
     /**
      * 
      * @type {boolean}
      * @memberof BountyDistribution
      */
     empty?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof BountyDistribution
+     */
+    global?: boolean;
     /**
      * 
      * @type {boolean}
@@ -63,12 +69,6 @@ export interface BountyDistribution {
      * @memberof BountyDistribution
      */
     excludeArea?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyDistribution
-     */
-    global?: boolean;
 }
 
 /**
@@ -88,13 +88,13 @@ export function BountyDistributionFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'areasList': json['areasList'] == null ? undefined : ((json['areasList'] as Array<any>).map(BountyDistributionAreasFromJSON)),
+        'areasList': json['areasList'] == null ? undefined : ((json['areasList'] as Array<any>).map(AreasFromJSON)),
         'empty': json['empty'] == null ? undefined : json['empty'],
+        'global': json['global'] == null ? undefined : json['global'],
         'includesEmpty': json['includesEmpty'] == null ? undefined : json['includesEmpty'],
         'excludesEmpty': json['excludesEmpty'] == null ? undefined : json['excludesEmpty'],
         'targetArea': json['targetArea'] == null ? undefined : json['targetArea'],
         'excludeArea': json['excludeArea'] == null ? undefined : json['excludeArea'],
-        'global': json['global'] == null ? undefined : json['global'],
     };
 }
 
@@ -109,13 +109,13 @@ export function BountyDistributionToJSONTyped(value?: BountyDistribution | null,
 
     return {
         
-        'areasList': value['areasList'] == null ? undefined : ((value['areasList'] as Array<any>).map(BountyDistributionAreasToJSON)),
+        'areasList': value['areasList'] == null ? undefined : ((value['areasList'] as Array<any>).map(AreasToJSON)),
         'empty': value['empty'],
+        'global': value['global'],
         'includesEmpty': value['includesEmpty'],
         'excludesEmpty': value['excludesEmpty'],
         'targetArea': value['targetArea'],
         'excludeArea': value['excludeArea'],
-        'global': value['global'],
     };
 }
 

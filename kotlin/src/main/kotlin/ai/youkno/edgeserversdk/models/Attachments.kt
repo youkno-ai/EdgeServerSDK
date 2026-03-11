@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.AttachmentsAttachment
+import ai.youkno.edgeserversdk.models.Attachment
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,13 +32,13 @@ import com.squareup.moshi.JsonClass
 data class Attachments (
 
     @Json(name = "attachments")
-    val attachments: kotlin.collections.Map<kotlin.String, AttachmentsAttachment>? = null,
+    val attachments: kotlin.collections.Map<kotlin.String, Attachment>? = null,
 
     @Json(name = "autoTextMd5")
     val autoTextMd5: kotlin.String? = null,
 
     @Json(name = "autoAttachments")
-    val autoAttachments: kotlin.collections.Map<kotlin.String, AttachmentsAttachment>? = null
+    val autoAttachments: kotlin.collections.Map<kotlin.String, Attachment>? = null
 
 ) {
 

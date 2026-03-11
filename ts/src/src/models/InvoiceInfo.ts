@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ShoppingCartOrderSummary } from './ShoppingCartOrderSummary';
+import type { ChargeInfo } from './ChargeInfo';
 import {
-    ShoppingCartOrderSummaryFromJSON,
-    ShoppingCartOrderSummaryFromJSONTyped,
-    ShoppingCartOrderSummaryToJSON,
-    ShoppingCartOrderSummaryToJSONTyped,
-} from './ShoppingCartOrderSummary';
-import type { BountyChargeInfo } from './BountyChargeInfo';
+    ChargeInfoFromJSON,
+    ChargeInfoFromJSONTyped,
+    ChargeInfoToJSON,
+    ChargeInfoToJSONTyped,
+} from './ChargeInfo';
+import type { OrderSummary } from './OrderSummary';
 import {
-    BountyChargeInfoFromJSON,
-    BountyChargeInfoFromJSONTyped,
-    BountyChargeInfoToJSON,
-    BountyChargeInfoToJSONTyped,
-} from './BountyChargeInfo';
+    OrderSummaryFromJSON,
+    OrderSummaryFromJSONTyped,
+    OrderSummaryToJSON,
+    OrderSummaryToJSONTyped,
+} from './OrderSummary';
 
 /**
  * 
@@ -42,16 +42,16 @@ export interface InvoiceInfo {
     coupon?: string;
     /**
      * 
-     * @type {ShoppingCartOrderSummary}
+     * @type {OrderSummary}
      * @memberof InvoiceInfo
      */
-    summary?: ShoppingCartOrderSummary;
+    summary?: OrderSummary;
     /**
      * 
-     * @type {{ [key: string]: BountyChargeInfo; }}
+     * @type {{ [key: string]: ChargeInfo; }}
      * @memberof InvoiceInfo
      */
-    cardCharges?: { [key: string]: BountyChargeInfo; };
+    cardCharges?: { [key: string]: ChargeInfo; };
     /**
      * 
      * @type {string}
@@ -97,8 +97,8 @@ export function InvoiceInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'coupon': json['coupon'] == null ? undefined : json['coupon'],
-        'summary': json['summary'] == null ? undefined : ShoppingCartOrderSummaryFromJSON(json['summary']),
-        'cardCharges': json['cardCharges'] == null ? undefined : (mapValues(json['cardCharges'], BountyChargeInfoFromJSON)),
+        'summary': json['summary'] == null ? undefined : OrderSummaryFromJSON(json['summary']),
+        'cardCharges': json['cardCharges'] == null ? undefined : (mapValues(json['cardCharges'], ChargeInfoFromJSON)),
         'paymentType': json['paymentType'] == null ? undefined : json['paymentType'],
         'livePayment': json['livePayment'] == null ? undefined : json['livePayment'],
     };
@@ -116,8 +116,8 @@ export function InvoiceInfoToJSONTyped(value?: InvoiceInfo | null, ignoreDiscrim
     return {
         
         'coupon': value['coupon'],
-        'summary': ShoppingCartOrderSummaryToJSON(value['summary']),
-        'cardCharges': value['cardCharges'] == null ? undefined : (mapValues(value['cardCharges'], BountyChargeInfoToJSON)),
+        'summary': OrderSummaryToJSON(value['summary']),
+        'cardCharges': value['cardCharges'] == null ? undefined : (mapValues(value['cardCharges'], ChargeInfoToJSON)),
         'paymentType': value['paymentType'],
         'livePayment': value['livePayment'],
     };

@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataPagePaymentMethodInfo
+import ai.youkno.edgeserversdk.models.ModelPaymentMethodInfo
 import ai.youkno.edgeserversdk.models.PaymentMethodInfo
 
 interface PaymentMethodsControllerApi {
@@ -40,10 +40,10 @@ interface PaymentMethodsControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPagePaymentMethodInfo]>
+     * @return [Call]<[ModelPaymentMethodInfo]>
      */
     @GET("api/v1/payments/methods")
-    fun getApiV1PaymentsMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPagePaymentMethodInfo>
+    fun getApiV1PaymentsMethods(@Query("companyId") companyId: kotlin.String? = null, @Query("liveMode") liveMode: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelPaymentMethodInfo>
 
     /**
      * GET api/v1/payments/methods/{paymentMethodId}

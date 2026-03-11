@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { GeofencesGeoPoint } from './GeofencesGeoPoint';
+import type { GeoPoint } from './GeoPoint';
 import {
-    GeofencesGeoPointFromJSON,
-    GeofencesGeoPointFromJSONTyped,
-    GeofencesGeoPointToJSON,
-    GeofencesGeoPointToJSONTyped,
-} from './GeofencesGeoPoint';
+    GeoPointFromJSON,
+    GeoPointFromJSONTyped,
+    GeoPointToJSON,
+    GeoPointToJSONTyped,
+} from './GeoPoint';
 
 /**
  * 
@@ -47,10 +47,10 @@ export interface GeofencesArea {
     areaType?: string;
     /**
      * 
-     * @type {GeofencesGeoPoint}
+     * @type {GeoPoint}
      * @memberof GeofencesArea
      */
-    center?: GeofencesGeoPoint;
+    center?: GeoPoint;
     /**
      * 
      * @type {string}
@@ -164,7 +164,7 @@ export function GeofencesAreaFromJSONTyped(json: any, ignoreDiscriminator: boole
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
         'areaType': json['areaType'] == null ? undefined : json['areaType'],
-        'center': json['center'] == null ? undefined : GeofencesGeoPointFromJSON(json['center']),
+        'center': json['center'] == null ? undefined : GeoPointFromJSON(json['center']),
         'polygon': json['polygon'] == null ? undefined : json['polygon'],
         'radiusInMeters': json['radiusInMeters'] == null ? undefined : json['radiusInMeters'],
         'displayRadiusUnit': json['displayRadiusUnit'] == null ? undefined : json['displayRadiusUnit'],
@@ -191,7 +191,7 @@ export function GeofencesAreaToJSONTyped(value?: GeofencesArea | null, ignoreDis
         'id': value['id'],
         'name': value['name'],
         'areaType': value['areaType'],
-        'center': GeofencesGeoPointToJSON(value['center']),
+        'center': GeoPointToJSON(value['center']),
         'polygon': value['polygon'],
         'radiusInMeters': value['radiusInMeters'],
         'displayRadiusUnit': value['displayRadiusUnit'],

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataDeliveryRouteResp2 } from './PosApiDataDeliveryRouteResp2';
+import {
+    PosApiDataDeliveryRouteResp2FromJSON,
+    PosApiDataDeliveryRouteResp2FromJSONTyped,
+    PosApiDataDeliveryRouteResp2ToJSON,
+    PosApiDataDeliveryRouteResp2ToJSONTyped,
+} from './PosApiDataDeliveryRouteResp2';
+
 /**
  * 
  * @export
@@ -21,16 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataDeliveryRouteResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataDeliveryRouteResp
      */
-    deliveryRouteId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataDeliveryRouteResp
      */
-    deliveryRouteName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataDeliveryRouteResp
+     */
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataDeliveryRouteResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataDeliveryRouteResp2>}
+     * @memberof PosApiDataDeliveryRouteResp
+     */
+    list?: Array<PosApiDataDeliveryRouteResp2>;
 }
 
 /**
@@ -50,8 +76,11 @@ export function PosApiDataDeliveryRouteRespFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'deliveryRouteId': json['deliveryRouteId'] == null ? undefined : json['deliveryRouteId'],
-        'deliveryRouteName': json['deliveryRouteName'] == null ? undefined : json['deliveryRouteName'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataDeliveryRouteResp2FromJSON)),
     };
 }
 
@@ -66,8 +95,11 @@ export function PosApiDataDeliveryRouteRespToJSONTyped(value?: PosApiDataDeliver
 
     return {
         
-        'deliveryRouteId': value['deliveryRouteId'],
-        'deliveryRouteName': value['deliveryRouteName'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataDeliveryRouteResp2ToJSON)),
     };
 }
 

@@ -19,12 +19,12 @@ public struct InvoiceInfo: Codable, JSONEncodable, Hashable {
         case unknown = "UNKNOWN"
     }
     public var coupon: String?
-    public var summary: ShoppingCartOrderSummary?
-    public var cardCharges: [String: BountyChargeInfo]?
+    public var summary: OrderSummary?
+    public var cardCharges: [String: ChargeInfo]?
     public var paymentType: PaymentType?
     public var livePayment: Bool?
 
-    public init(coupon: String? = nil, summary: ShoppingCartOrderSummary? = nil, cardCharges: [String: BountyChargeInfo]? = nil, paymentType: PaymentType? = nil, livePayment: Bool? = nil) {
+    public init(coupon: String? = nil, summary: OrderSummary? = nil, cardCharges: [String: ChargeInfo]? = nil, paymentType: PaymentType? = nil, livePayment: Bool? = nil) {
         self.coupon = coupon
         self.summary = summary
         self.cardCharges = cardCharges

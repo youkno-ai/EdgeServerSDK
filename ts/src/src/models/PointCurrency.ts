@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PointCurrencyCurrencyMeta } from './PointCurrencyCurrencyMeta';
+import type { CurrencyMeta } from './CurrencyMeta';
 import {
-    PointCurrencyCurrencyMetaFromJSON,
-    PointCurrencyCurrencyMetaFromJSONTyped,
-    PointCurrencyCurrencyMetaToJSON,
-    PointCurrencyCurrencyMetaToJSONTyped,
-} from './PointCurrencyCurrencyMeta';
+    CurrencyMetaFromJSON,
+    CurrencyMetaFromJSONTyped,
+    CurrencyMetaToJSON,
+    CurrencyMetaToJSONTyped,
+} from './CurrencyMeta';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PointCurrency {
     /**
      * 
-     * @type {PointCurrencyCurrencyMeta}
+     * @type {CurrencyMeta}
      * @memberof PointCurrency
      */
-    meta?: PointCurrencyCurrencyMeta;
+    meta?: CurrencyMeta;
 }
 
 /**
@@ -52,7 +52,7 @@ export function PointCurrencyFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'meta': json['meta'] == null ? undefined : PointCurrencyCurrencyMetaFromJSON(json['meta']),
+        'meta': json['meta'] == null ? undefined : CurrencyMetaFromJSON(json['meta']),
     };
 }
 
@@ -67,7 +67,7 @@ export function PointCurrencyToJSONTyped(value?: PointCurrency | null, ignoreDis
 
     return {
         
-        'meta': PointCurrencyCurrencyMetaToJSON(value['meta']),
+        'meta': CurrencyMetaToJSON(value['meta']),
     };
 }
 

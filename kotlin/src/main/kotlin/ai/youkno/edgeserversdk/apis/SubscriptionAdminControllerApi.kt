@@ -6,9 +6,9 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.RestControllerSubscriptionAdminControllerReasonRequest
-import ai.youkno.edgeserversdk.models.RestControllerSubscriptionAdminControllerRepairRequest
-import ai.youkno.edgeserversdk.models.ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult
+import ai.youkno.edgeserversdk.models.AdminActionResult
+import ai.youkno.edgeserversdk.models.ReasonRequest
+import ai.youkno.edgeserversdk.models.RepairRequest
 import ai.youkno.edgeserversdk.models.SubscriptionAdminView
 import ai.youkno.edgeserversdk.models.SubscriptionDriftReportView
 import ai.youkno.edgeserversdk.models.SubscriptionEntitlementDiffView
@@ -105,14 +105,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerReasonRequest 
+     * @param reasonRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/cancel-immediately")
-    fun postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidCancelImmediately(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body reasonRequest: ReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/subscriptions/{subscriptionId}/entitlements/rebuild
@@ -122,14 +122,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerRepairRequest 
+     * @param repairRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/entitlements/rebuild")
-    fun postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidEntitlementsRebuild(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body repairRequest: RepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/subscriptions/{subscriptionId}/entitlements/sync
@@ -139,14 +139,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerReasonRequest 
+     * @param reasonRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/entitlements/sync")
-    fun postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidEntitlementsSync(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body reasonRequest: ReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/subscriptions/{subscriptionId}/reconcile-from-stripe
@@ -156,14 +156,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerRepairRequest 
+     * @param repairRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/reconcile-from-stripe")
-    fun postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidReconcileFromStripe(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body repairRequest: RepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/subscriptions/{subscriptionId}/refresh-stripe-linkage
@@ -173,14 +173,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerRepairRequest 
+     * @param repairRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/refresh-stripe-linkage")
-    fun postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidRefreshStripeLinkage(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body repairRequest: RepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/subscriptions/{subscriptionId}/reverse-cancel
@@ -190,14 +190,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param subscriptionId 
-     * @param restControllerSubscriptionAdminControllerReasonRequest 
+     * @param reasonRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/subscriptions/{subscriptionId}/reverse-cancel")
-    fun postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminSubscriptionsBySubscriptionidReverseCancel(@Path("subscriptionId") subscriptionId: java.util.UUID, @Body reasonRequest: ReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/users/{userId}/subscriptions/entitlements/rebuild
@@ -207,14 +207,14 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param restControllerSubscriptionAdminControllerRepairRequest 
+     * @param repairRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/users/{userId}/subscriptions/entitlements/rebuild")
-    fun postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(@Path("userId") userId: kotlin.String, @Body restControllerSubscriptionAdminControllerRepairRequest: RestControllerSubscriptionAdminControllerRepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminUsersByUseridSubscriptionsEntitlementsRebuild(@Path("userId") userId: kotlin.String, @Body repairRequest: RepairRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
     /**
      * POST api/v1/admin/webhooks/stripe/{stripeEventId}/replay
@@ -224,13 +224,13 @@ interface SubscriptionAdminControllerApi {
      *  - 200: OK
      *
      * @param stripeEventId 
-     * @param restControllerSubscriptionAdminControllerReasonRequest 
+     * @param reasonRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult]>
+     * @return [Call]<[AdminActionResult]>
      */
     @POST("api/v1/admin/webhooks/stripe/{stripeEventId}/replay")
-    fun postApiV1AdminWebhooksStripeByStripeeventidReplay(@Path("stripeEventId") stripeEventId: kotlin.String, @Body restControllerSubscriptionAdminControllerReasonRequest: RestControllerSubscriptionAdminControllerReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceSubscriptionsSubscriptionRepairServiceAdminActionResult>
+    fun postApiV1AdminWebhooksStripeByStripeeventidReplay(@Path("stripeEventId") stripeEventId: kotlin.String, @Body reasonRequest: ReasonRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AdminActionResult>
 
 }

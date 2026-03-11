@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { NotificationCampaignCampaignDetailsMessage } from './NotificationCampaignCampaignDetailsMessage';
+import type { CampaignDetailsMessage } from './CampaignDetailsMessage';
 import {
-    NotificationCampaignCampaignDetailsMessageFromJSON,
-    NotificationCampaignCampaignDetailsMessageFromJSONTyped,
-    NotificationCampaignCampaignDetailsMessageToJSON,
-    NotificationCampaignCampaignDetailsMessageToJSONTyped,
-} from './NotificationCampaignCampaignDetailsMessage';
+    CampaignDetailsMessageFromJSON,
+    CampaignDetailsMessageFromJSONTyped,
+    CampaignDetailsMessageToJSON,
+    CampaignDetailsMessageToJSONTyped,
+} from './CampaignDetailsMessage';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface NotificationCampaignCampaignDetails {
     bountyIds?: Array<string>;
     /**
      * 
-     * @type {Array<NotificationCampaignCampaignDetailsMessage>}
+     * @type {Array<CampaignDetailsMessage>}
      * @memberof NotificationCampaignCampaignDetails
      */
-    messages?: Array<NotificationCampaignCampaignDetailsMessage>;
+    messages?: Array<CampaignDetailsMessage>;
 }
 
 /**
@@ -59,7 +59,7 @@ export function NotificationCampaignCampaignDetailsFromJSONTyped(json: any, igno
     return {
         
         'bountyIds': json['bountyIds'] == null ? undefined : json['bountyIds'],
-        'messages': json['messages'] == null ? undefined : ((json['messages'] as Array<any>).map(NotificationCampaignCampaignDetailsMessageFromJSON)),
+        'messages': json['messages'] == null ? undefined : ((json['messages'] as Array<any>).map(CampaignDetailsMessageFromJSON)),
     };
 }
 
@@ -75,7 +75,7 @@ export function NotificationCampaignCampaignDetailsToJSONTyped(value?: Notificat
     return {
         
         'bountyIds': value['bountyIds'],
-        'messages': value['messages'] == null ? undefined : ((value['messages'] as Array<any>).map(NotificationCampaignCampaignDetailsMessageToJSON)),
+        'messages': value['messages'] == null ? undefined : ((value['messages'] as Array<any>).map(CampaignDetailsMessageToJSON)),
     };
 }
 

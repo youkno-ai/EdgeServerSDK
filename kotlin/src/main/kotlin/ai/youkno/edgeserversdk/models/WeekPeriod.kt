@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.WeekPeriodDayPeriod
+import ai.youkno.edgeserversdk.models.DayPeriod
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class WeekPeriod (
 
     @Json(name = "dayPeriods")
-    val dayPeriods: kotlin.collections.Map<kotlin.String, WeekPeriodDayPeriod>? = null
+    val dayPeriods: kotlin.collections.Map<kotlin.String, DayPeriod>? = null
 
 ) {
 

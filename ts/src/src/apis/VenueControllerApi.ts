@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataNewId,
+  NewId,
   Venue,
 } from '../models/index';
 import {
-    EdgeApiDataNewIdFromJSON,
-    EdgeApiDataNewIdToJSON,
+    NewIdFromJSON,
+    NewIdToJSON,
     VenueFromJSON,
     VenueToJSON,
 } from '../models/index';
@@ -164,11 +164,11 @@ export interface VenueControllerApiInterface {
      * @throws {RequiredError}
      * @memberof VenueControllerApiInterface
      */
-    postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>>;
+    postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>>;
 
     /**
      */
-    postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId>;
+    postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId>;
 
 }
 
@@ -436,7 +436,7 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
 
     /**
      */
-    async postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataNewId>> {
+    async postApiV1VenuesRaw(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewId>> {
         if (requestParameters['venue'] == null) {
             throw new runtime.RequiredError(
                 'venue',
@@ -477,12 +477,12 @@ export class VenueControllerApi extends runtime.BaseAPI implements VenueControll
             body: VenueToJSON(requestParameters['venue']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataNewIdFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewIdFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataNewId> {
+    async postApiV1Venues(requestParameters: PostApiV1VenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewId> {
         const response = await this.postApiV1VenuesRaw(requestParameters, initOverrides);
         return await response.value();
     }

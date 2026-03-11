@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataStrainResp2 } from './PosApiDataStrainResp2';
+import {
+    PosApiDataStrainResp2FromJSON,
+    PosApiDataStrainResp2FromJSONTyped,
+    PosApiDataStrainResp2ToJSON,
+    PosApiDataStrainResp2ToJSONTyped,
+} from './PosApiDataStrainResp2';
+
 /**
  * 
  * @export
@@ -21,16 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataStrainResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataStrainResp
      */
-    strainId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataStrainResp
      */
-    strainName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataStrainResp
+     */
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataStrainResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataStrainResp2>}
+     * @memberof PosApiDataStrainResp
+     */
+    list?: Array<PosApiDataStrainResp2>;
 }
 
 /**
@@ -50,8 +76,11 @@ export function PosApiDataStrainRespFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'strainId': json['strainId'] == null ? undefined : json['strainId'],
-        'strainName': json['strainName'] == null ? undefined : json['strainName'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataStrainResp2FromJSON)),
     };
 }
 
@@ -66,8 +95,11 @@ export function PosApiDataStrainRespToJSONTyped(value?: PosApiDataStrainResp | n
 
     return {
         
-        'strainId': value['strainId'],
-        'strainName': value['strainName'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataStrainResp2ToJSON)),
     };
 }
 

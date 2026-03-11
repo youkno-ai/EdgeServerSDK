@@ -13,6 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FilterVal } from './FilterVal';
+import {
+    FilterValFromJSON,
+    FilterValFromJSONTyped,
+    FilterValToJSON,
+    FilterValToJSONTyped,
+} from './FilterVal';
+import type { DateRange } from './DateRange';
+import {
+    DateRangeFromJSON,
+    DateRangeFromJSONTyped,
+    DateRangeToJSON,
+    DateRangeToJSONTyped,
+} from './DateRange';
 import type { BountyBountyCategory } from './BountyBountyCategory';
 import {
     BountyBountyCategoryFromJSON,
@@ -20,20 +34,6 @@ import {
     BountyBountyCategoryToJSON,
     BountyBountyCategoryToJSONTyped,
 } from './BountyBountyCategory';
-import type { FilterFilterVal } from './FilterFilterVal';
-import {
-    FilterFilterValFromJSON,
-    FilterFilterValFromJSONTyped,
-    FilterFilterValToJSON,
-    FilterFilterValToJSONTyped,
-} from './FilterFilterVal';
-import type { FilterDateRange } from './FilterDateRange';
-import {
-    FilterDateRangeFromJSON,
-    FilterDateRangeFromJSONTyped,
-    FilterDateRangeToJSON,
-    FilterDateRangeToJSONTyped,
-} from './FilterDateRange';
 
 /**
  * 
@@ -283,10 +283,10 @@ export interface Filter {
     trustedTags?: Array<string>;
     /**
      * 
-     * @type {Array<FilterFilterVal>}
+     * @type {Array<FilterVal>}
      * @memberof Filter
      */
-    extras?: Array<FilterFilterVal>;
+    extras?: Array<FilterVal>;
     /**
      * 
      * @type {{ [key: string]: Array<string>; }}
@@ -457,16 +457,16 @@ export interface Filter {
     hasPointsReward?: boolean;
     /**
      * 
-     * @type {FilterDateRange}
+     * @type {DateRange}
      * @memberof Filter
      */
-    scheduledRange?: FilterDateRange;
+    scheduledRange?: DateRange;
     /**
      * 
-     * @type {FilterDateRange}
+     * @type {DateRange}
      * @memberof Filter
      */
-    expiresRange?: FilterDateRange;
+    expiresRange?: DateRange;
     /**
      * 
      * @type {Array<string>}
@@ -959,7 +959,7 @@ export function FilterFromJSONTyped(json: any, ignoreDiscriminator: boolean): Fi
         'categoryCodes': json['categoryCodes'] == null ? undefined : json['categoryCodes'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'trustedTags': json['trustedTags'] == null ? undefined : json['trustedTags'],
-        'extras': json['extras'] == null ? undefined : ((json['extras'] as Array<any>).map(FilterFilterValFromJSON)),
+        'extras': json['extras'] == null ? undefined : ((json['extras'] as Array<any>).map(FilterValFromJSON)),
         'lookups': json['lookups'] == null ? undefined : json['lookups'],
         'listId': json['listId'] == null ? undefined : json['listId'],
         'groupId': json['groupId'] == null ? undefined : json['groupId'],
@@ -988,8 +988,8 @@ export function FilterFromJSONTyped(json: any, ignoreDiscriminator: boolean): Fi
         'locations': json['locations'] == null ? undefined : json['locations'],
         'rewardCurrency': json['rewardCurrency'] == null ? undefined : json['rewardCurrency'],
         'hasPointsReward': json['hasPointsReward'] == null ? undefined : json['hasPointsReward'],
-        'scheduledRange': json['scheduledRange'] == null ? undefined : FilterDateRangeFromJSON(json['scheduledRange']),
-        'expiresRange': json['expiresRange'] == null ? undefined : FilterDateRangeFromJSON(json['expiresRange']),
+        'scheduledRange': json['scheduledRange'] == null ? undefined : DateRangeFromJSON(json['scheduledRange']),
+        'expiresRange': json['expiresRange'] == null ? undefined : DateRangeFromJSON(json['expiresRange']),
         'scheme': json['scheme'] == null ? undefined : json['scheme'],
         'showByLinkVisibility': json['showByLinkVisibility'] == null ? undefined : json['showByLinkVisibility'],
         'section': json['section'] == null ? undefined : json['section'],
@@ -1070,7 +1070,7 @@ export function FilterToJSONTyped(value?: Filter | null, ignoreDiscriminator: bo
         'categoryCodes': value['categoryCodes'],
         'tags': value['tags'],
         'trustedTags': value['trustedTags'],
-        'extras': value['extras'] == null ? undefined : ((value['extras'] as Array<any>).map(FilterFilterValToJSON)),
+        'extras': value['extras'] == null ? undefined : ((value['extras'] as Array<any>).map(FilterValToJSON)),
         'lookups': value['lookups'],
         'listId': value['listId'],
         'groupId': value['groupId'],
@@ -1099,8 +1099,8 @@ export function FilterToJSONTyped(value?: Filter | null, ignoreDiscriminator: bo
         'locations': value['locations'],
         'rewardCurrency': value['rewardCurrency'],
         'hasPointsReward': value['hasPointsReward'],
-        'scheduledRange': FilterDateRangeToJSON(value['scheduledRange']),
-        'expiresRange': FilterDateRangeToJSON(value['expiresRange']),
+        'scheduledRange': DateRangeToJSON(value['scheduledRange']),
+        'expiresRange': DateRangeToJSON(value['expiresRange']),
         'scheme': value['scheme'],
         'showByLinkVisibility': value['showByLinkVisibility'],
         'section': value['section'],

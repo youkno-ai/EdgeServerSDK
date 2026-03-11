@@ -15,15 +15,15 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.AccessKeyChain
+import ai.youkno.edgeserversdk.models.Flows
+import ai.youkno.edgeserversdk.models.Legal
 import ai.youkno.edgeserversdk.models.MailingAddress
 import ai.youkno.edgeserversdk.models.PaymentMethodInfo
 import ai.youkno.edgeserversdk.models.SearchInfo
+import ai.youkno.edgeserversdk.models.SocialNetworkState
 import ai.youkno.edgeserversdk.models.User
-import ai.youkno.edgeserversdk.models.UserDataAccessKeyChain
-import ai.youkno.edgeserversdk.models.UserDataFlows
-import ai.youkno.edgeserversdk.models.UserDataLegal
 import ai.youkno.edgeserversdk.models.UserDataPromotionInfo
-import ai.youkno.edgeserversdk.models.UserDataSocialNetworkState
 import ai.youkno.edgeserversdk.models.UserSettings
 
 import com.squareup.moshi.Json
@@ -95,7 +95,7 @@ data class UserData (
     val ageAt: kotlin.Long? = null,
 
     @Json(name = "legal")
-    val legal: UserDataLegal? = null,
+    val legal: Legal? = null,
 
     @Json(name = "countryCode")
     val countryCode: kotlin.String? = null,
@@ -132,7 +132,7 @@ data class UserData (
 
     @Json(name = "flows")
     @Deprecated(message = "This property is deprecated.")
-    val flows: UserDataFlows? = null,
+    val flows: Flows? = null,
 
     @Json(name = "roles")
     val roles: kotlin.String? = null,
@@ -144,13 +144,13 @@ data class UserData (
     val payments: kotlin.collections.Map<kotlin.String, PaymentMethodInfo>? = null,
 
     @Json(name = "socialNetworks")
-    val socialNetworks: kotlin.collections.Map<kotlin.String, UserDataSocialNetworkState>? = null,
+    val socialNetworks: kotlin.collections.Map<kotlin.String, SocialNetworkState>? = null,
 
     @Json(name = "promotionInfos")
     val promotionInfos: kotlin.collections.Map<kotlin.String, UserDataPromotionInfo>? = null,
 
     @Json(name = "accessKeyChains")
-    val accessKeyChains: kotlin.collections.Map<kotlin.String, UserDataAccessKeyChain>? = null,
+    val accessKeyChains: kotlin.collections.Map<kotlin.String, AccessKeyChain>? = null,
 
     @Json(name = "settings")
     val settings: UserSettings? = null,

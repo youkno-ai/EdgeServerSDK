@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.ShippingFeeFee
+import ai.youkno.edgeserversdk.models.Fee
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,10 +31,10 @@ import com.squareup.moshi.JsonClass
 data class ShippingFee (
 
     @Json(name = "domesticFees")
-    val domesticFees: kotlin.collections.Map<kotlin.String, ShippingFeeFee>? = null,
+    val domesticFees: kotlin.collections.Map<kotlin.String, Fee>? = null,
 
     @Json(name = "internationalFee")
-    val internationalFee: ShippingFeeFee? = null
+    val internationalFee: Fee? = null
 
 ) {
 

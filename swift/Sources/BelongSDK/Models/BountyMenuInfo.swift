@@ -17,12 +17,12 @@ public struct BountyMenuInfo: Codable, JSONEncodable, Hashable {
     public var zone: String?
     public var name: String?
     public var currencyCode: String?
-    public var sections: [String: BountyMenuInfoMenuSection]?
-    public var tagDefinitions: [String: BountyMenuInfoMenuTagDefinition]?
-    public var upsellGroups: [String: BountyMenuInfoUpsellPresentation]?
-    public var options: BountyMenuInfoMenuOptions?
+    public var sections: [String: MenuSection]?
+    public var tagDefinitions: [String: MenuTagDefinition]?
+    public var upsellGroups: [String: UpsellPresentation]?
+    public var options: MenuOptions?
 
-    public init(schemaVersion: Int? = nil, merchantId: String? = nil, zone: String? = nil, name: String? = nil, currencyCode: String? = nil, sections: [String: BountyMenuInfoMenuSection]? = nil, tagDefinitions: [String: BountyMenuInfoMenuTagDefinition]? = nil, upsellGroups: [String: BountyMenuInfoUpsellPresentation]? = nil, options: BountyMenuInfoMenuOptions? = nil) {
+    public init(schemaVersion: Int? = nil, merchantId: String? = nil, zone: String? = nil, name: String? = nil, currencyCode: String? = nil, sections: [String: MenuSection]? = nil, tagDefinitions: [String: MenuTagDefinition]? = nil, upsellGroups: [String: UpsellPresentation]? = nil, options: MenuOptions? = nil) {
         self.schemaVersion = schemaVersion
         self.merchantId = merchantId
         self.zone = zone

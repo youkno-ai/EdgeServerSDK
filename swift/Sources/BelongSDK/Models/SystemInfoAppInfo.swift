@@ -18,12 +18,12 @@ public struct SystemInfoAppInfo: Codable, JSONEncodable, Hashable {
     public var enforceAt: Int64?
     public var notifyDelayInHours: Int64?
     public var enforceDelayInHours: Int64?
-    public var curVersionAsObj: ComLatticaVernumVersionNumber?
-    public var minVersionAsObj: ComLatticaVernumVersionNumber?
+    public var curVersionAsObj: VersionNumber?
+    public var minVersionAsObj: VersionNumber?
     public var notificationStartingAt: Int64?
     public var enforcementStartingAt: Int64?
 
-    public init(minVersion: String? = nil, curVersion: String? = nil, curReleasedAt: Int64? = nil, enforceAt: Int64? = nil, notifyDelayInHours: Int64? = nil, enforceDelayInHours: Int64? = nil, curVersionAsObj: ComLatticaVernumVersionNumber? = nil, minVersionAsObj: ComLatticaVernumVersionNumber? = nil, notificationStartingAt: Int64? = nil, enforcementStartingAt: Int64? = nil) {
+    public init(minVersion: String? = nil, curVersion: String? = nil, curReleasedAt: Int64? = nil, enforceAt: Int64? = nil, notifyDelayInHours: Int64? = nil, enforceDelayInHours: Int64? = nil, curVersionAsObj: VersionNumber? = nil, minVersionAsObj: VersionNumber? = nil, notificationStartingAt: Int64? = nil, enforcementStartingAt: Int64? = nil) {
         self.minVersion = minVersion
         self.curVersion = curVersion
         self.curReleasedAt = curReleasedAt

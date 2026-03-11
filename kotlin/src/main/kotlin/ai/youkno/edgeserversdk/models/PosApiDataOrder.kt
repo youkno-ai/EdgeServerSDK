@@ -15,10 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.MailingAddress
-import ai.youkno.edgeserversdk.models.PosApiDataOrderDiscountResp
-import ai.youkno.edgeserversdk.models.PosApiDataOrderFeeResp
-import ai.youkno.edgeserversdk.models.PosApiDataOrderOrderItem
+import ai.youkno.edgeserversdk.models.PosApiDataOrder2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -26,174 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param customerId 
- * @param type 
- * @param subtotal 
- * @param discount 
- * @param total 
- * @param lineItemCount 
- * @param isChangePaid 
- * @param paidInFull 
- * @param pickupCustomerArrived 
- * @param pickupOrderIncoming 
- * @param pickupVehicleMake 
- * @param pickupVehicleColor 
- * @param rn 
- * @param onlineOrderId 
- * @param statusId 
- * @param status 
- * @param items 
- * @param deliveryAddress 
- * @param pickupDate 
- * @param pickupTime 
- * @param pickupPhone 
- * @param pickupEmail 
- * @param complete 
- * @param voided 
- * @param canceled 
- * @param voidReason 
- * @param createdByUser 
- * @param createdAt 
- * @param paidAt 
- * @param deliveryFee 
- * @param discounts 
- * @param fees 
- * @param locationId 
- * @param location 
- * @param loyalty 
- * @param firstName 
- * @param lastName 
- * @param timezone 
- * @param useType 
- * @param verified 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataOrder (
 
-    @Json(name = "id")
-    val id: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "customerId")
-    val customerId: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "type")
-    val type: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "subtotal")
-    val subtotal: kotlin.Double? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "discount")
-    val discount: kotlin.Double? = null,
-
-    @Json(name = "total")
-    val total: kotlin.Double? = null,
-
-    @Json(name = "lineItemCount")
-    val lineItemCount: kotlin.Int? = null,
-
-    @Json(name = "isChangePaid")
-    val isChangePaid: kotlin.Boolean? = null,
-
-    @Json(name = "paidInFull")
-    val paidInFull: kotlin.Boolean? = null,
-
-    @Json(name = "pickupCustomerArrived")
-    val pickupCustomerArrived: kotlin.Boolean? = null,
-
-    @Json(name = "pickupOrderIncoming")
-    val pickupOrderIncoming: kotlin.Boolean? = null,
-
-    @Json(name = "pickupVehicleMake")
-    val pickupVehicleMake: kotlin.String? = null,
-
-    @Json(name = "pickupVehicleColor")
-    val pickupVehicleColor: kotlin.String? = null,
-
-    @Json(name = "rn")
-    val rn: kotlin.String? = null,
-
-    @Json(name = "onlineOrderId")
-    val onlineOrderId: kotlin.String? = null,
-
-    @Json(name = "statusId")
-    val statusId: kotlin.String? = null,
-
-    @Json(name = "status")
-    val status: kotlin.String? = null,
-
-    @Json(name = "items")
-    val items: kotlin.collections.List<PosApiDataOrderOrderItem>? = null,
-
-    @Json(name = "deliveryAddress")
-    val deliveryAddress: MailingAddress? = null,
-
-    @Json(name = "pickupDate")
-    val pickupDate: kotlin.String? = null,
-
-    @Json(name = "pickupTime")
-    val pickupTime: kotlin.String? = null,
-
-    @Json(name = "pickupPhone")
-    val pickupPhone: kotlin.String? = null,
-
-    @Json(name = "pickupEmail")
-    val pickupEmail: kotlin.String? = null,
-
-    @Json(name = "complete")
-    val complete: kotlin.Boolean? = null,
-
-    @Json(name = "voided")
-    val voided: kotlin.Boolean? = null,
-
-    @Json(name = "canceled")
-    val canceled: kotlin.Boolean? = null,
-
-    @Json(name = "voidReason")
-    val voidReason: kotlin.String? = null,
-
-    @Json(name = "createdByUser")
-    val createdByUser: kotlin.String? = null,
-
-    @Json(name = "createdAt")
-    val createdAt: kotlin.Long? = null,
-
-    @Json(name = "paidAt")
-    val paidAt: kotlin.Long? = null,
-
-    @Json(name = "deliveryFee")
-    val deliveryFee: kotlin.Double? = null,
-
-    @Json(name = "discounts")
-    val discounts: kotlin.collections.List<PosApiDataOrderDiscountResp>? = null,
-
-    @Json(name = "fees")
-    val fees: kotlin.collections.List<PosApiDataOrderFeeResp>? = null,
-
-    @Json(name = "locationId")
-    val locationId: kotlin.String? = null,
-
-    @Json(name = "location")
-    val location: kotlin.String? = null,
-
-    @Json(name = "loyalty")
-    val loyalty: kotlin.Double? = null,
-
-    @Json(name = "firstName")
-    val firstName: kotlin.String? = null,
-
-    @Json(name = "lastName")
-    val lastName: kotlin.String? = null,
-
-    @Json(name = "timezone")
-    val timezone: kotlin.String? = null,
-
-    @Json(name = "useType")
-    val useType: kotlin.String? = null,
-
-    @Json(name = "verified")
-    val verified: kotlin.Boolean? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataOrder2>? = null
 
 ) {
 

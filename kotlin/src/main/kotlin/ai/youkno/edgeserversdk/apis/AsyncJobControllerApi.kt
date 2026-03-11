@@ -6,13 +6,13 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AsyncAsyncEventOrgJooqJSONB
-import ai.youkno.edgeserversdk.models.AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
-import ai.youkno.edgeserversdk.models.AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB
-import ai.youkno.edgeserversdk.models.AsyncQueueStats
-import ai.youkno.edgeserversdk.models.RestControllerAsyncJobControllerJobProgressResponse
-import ai.youkno.edgeserversdk.models.RestControllerAsyncJobControllerReleaseRequest
-import ai.youkno.edgeserversdk.models.RestControllerAsyncJobControllerRenewLeaseRequest
+import ai.youkno.edgeserversdk.models.JobProgressResponse
+import ai.youkno.edgeserversdk.models.JooqJSONB
+import ai.youkno.edgeserversdk.models.JooqJSONB2
+import ai.youkno.edgeserversdk.models.JooqJSONB3
+import ai.youkno.edgeserversdk.models.QueueStats
+import ai.youkno.edgeserversdk.models.ReleaseRequest
+import ai.youkno.edgeserversdk.models.RenewLeaseRequest
 
 interface AsyncJobControllerApi {
 
@@ -46,10 +46,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>]>
+     * @return [Call]<[kotlin.collections.List<JooqJSONB2>]>
      */
     @GET("api/v1/async-jobs/jobs")
-    fun getApiV1AsyncJobsJobs(@Query("status") status: StatusGetApiV1AsyncJobsJobs? = null, @Query("jobType") jobType: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>
+    fun getApiV1AsyncJobsJobs(@Query("status") status: StatusGetApiV1AsyncJobsJobs? = null, @Query("jobType") jobType: kotlin.String? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 50, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JooqJSONB2>>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}
@@ -62,10 +62,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>
+     * @return [Call]<[JooqJSONB2]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}")
-    fun getApiV1AsyncJobsJobsByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AsyncAsyncJobOrgJooqJSONBOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>
+    fun getApiV1AsyncJobsJobsByJobid(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JooqJSONB2>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/events
@@ -80,10 +80,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<AsyncAsyncEventOrgJooqJSONB>]>
+     * @return [Call]<[kotlin.collections.List<JooqJSONB>]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/events")
-    fun getApiV1AsyncJobsJobsByJobidEvents(@Path("jobId") jobId: java.util.UUID, @Query("limit") limit: kotlin.Int? = 200, @Query("afterCreatedAt") afterCreatedAt: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncAsyncEventOrgJooqJSONB>>
+    fun getApiV1AsyncJobsJobsByJobidEvents(@Path("jobId") jobId: java.util.UUID, @Query("limit") limit: kotlin.Int? = 200, @Query("afterCreatedAt") afterCreatedAt: kotlin.Long? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JooqJSONB>>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/progress
@@ -96,10 +96,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAsyncJobControllerJobProgressResponse]>
+     * @return [Call]<[JobProgressResponse]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/progress")
-    fun getApiV1AsyncJobsJobsByJobidProgress(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAsyncJobControllerJobProgressResponse>
+    fun getApiV1AsyncJobsJobsByJobidProgress(@Path("jobId") jobId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JobProgressResponse>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/tasks
@@ -116,10 +116,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>]>
+     * @return [Call]<[kotlin.collections.List<JooqJSONB3>]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/tasks")
-    fun getApiV1AsyncJobsJobsByJobidTasks(@Path("jobId") jobId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 200, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>>
+    fun getApiV1AsyncJobsJobsByJobidTasks(@Path("jobId") jobId: java.util.UUID, @Query("status") status: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Query("limit") limit: kotlin.Int? = 200, @Query("offset") offset: kotlin.Int? = 0, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<JooqJSONB3>>
 
     /**
      * GET api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}
@@ -133,10 +133,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB]>
+     * @return [Call]<[JooqJSONB3]>
      */
     @GET("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}")
-    fun getApiV1AsyncJobsJobsByJobidTasksByTaskid(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AsyncAsyncTaskOrgJooqJSONBOrgJooqJSONBOrgJooqJSONB>
+    fun getApiV1AsyncJobsJobsByJobidTasksByTaskid(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JooqJSONB3>
 
     /**
      * GET api/v1/async-jobs/progress
@@ -151,10 +151,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[RestControllerAsyncJobControllerJobProgressResponse]>
+     * @return [Call]<[JobProgressResponse]>
      */
     @GET("api/v1/async-jobs/progress")
-    fun getApiV1AsyncJobsProgress(@Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Query("jobType") jobType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<RestControllerAsyncJobControllerJobProgressResponse>
+    fun getApiV1AsyncJobsProgress(@Query("entityType") entityType: kotlin.String, @Query("entityId") entityId: kotlin.String, @Query("jobType") jobType: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<JobProgressResponse>
 
     /**
      * GET api/v1/async-jobs/queues
@@ -170,10 +170,10 @@ interface AsyncJobControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<AsyncQueueStats>]>
+     * @return [Call]<[kotlin.collections.List<QueueStats>]>
      */
     @GET("api/v1/async-jobs/queues")
-    fun getApiV1AsyncJobsQueues(@Query("jobId") jobId: java.util.UUID? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<AsyncQueueStats>>
+    fun getApiV1AsyncJobsQueues(@Query("jobId") jobId: java.util.UUID? = null, @Query("entityType") entityType: kotlin.String? = null, @Query("entityId") entityId: kotlin.String? = null, @Query("taskType") taskType: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<QueueStats>>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}:cancel
@@ -232,14 +232,14 @@ interface AsyncJobControllerApi {
      *
      * @param jobId 
      * @param taskId 
-     * @param restControllerAsyncJobControllerReleaseRequest 
+     * @param releaseRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:release")
-    fun postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body restControllerAsyncJobControllerReleaseRequest: RestControllerAsyncJobControllerReleaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
+    fun postApiV1AsyncJobsJobsByJobidTasksByTaskidRelease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body releaseRequest: ReleaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
     /**
      * POST api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:renew-lease
@@ -250,13 +250,13 @@ interface AsyncJobControllerApi {
      *
      * @param jobId 
      * @param taskId 
-     * @param restControllerAsyncJobControllerRenewLeaseRequest 
+     * @param renewLeaseRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.Boolean]>
      */
     @POST("api/v1/async-jobs/jobs/{jobId}/tasks/{taskId}:renew-lease")
-    fun postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body restControllerAsyncJobControllerRenewLeaseRequest: RestControllerAsyncJobControllerRenewLeaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
+    fun postApiV1AsyncJobsJobsByJobidTasksByTaskidRenewLease(@Path("jobId") jobId: java.util.UUID, @Path("taskId") taskId: java.util.UUID, @Body renewLeaseRequest: RenewLeaseRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.Boolean>
 
 }

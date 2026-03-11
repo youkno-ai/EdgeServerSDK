@@ -39,9 +39,9 @@ public struct UserInvite: Codable, JSONEncodable, Hashable {
     public var lastSentAt: Int64?
     public var updatedAt: Int64?
     public var createdAt: Int64?
-    public var stats: UserInviteInviteStats?
+    public var stats: InviteStats?
 
-    public init(id: String? = nil, code: String? = nil, creator: User? = nil, invitee: User? = nil, group: User? = nil, type: String? = nil, status: String? = nil, channel: String? = nil, target: String? = nil, name: String? = nil, email: String? = nil, phone: String? = nil, note: String? = nil, description: String? = nil, roles: String? = nil, bountyId: String? = nil, responseId: String? = nil, badgeDefId: String? = nil, badgeCode: String? = nil, companyId: String? = nil, dealBountyId: String? = nil, linkUrl: String? = nil, maxInvitees: Int? = nil, expiresAt: Int64? = nil, lastSentAt: Int64? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, stats: UserInviteInviteStats? = nil) {
+    public init(id: String? = nil, code: String? = nil, creator: User? = nil, invitee: User? = nil, group: User? = nil, type: String? = nil, status: String? = nil, channel: String? = nil, target: String? = nil, name: String? = nil, email: String? = nil, phone: String? = nil, note: String? = nil, description: String? = nil, roles: String? = nil, bountyId: String? = nil, responseId: String? = nil, badgeDefId: String? = nil, badgeCode: String? = nil, companyId: String? = nil, dealBountyId: String? = nil, linkUrl: String? = nil, maxInvitees: Int? = nil, expiresAt: Int64? = nil, lastSentAt: Int64? = nil, updatedAt: Int64? = nil, createdAt: Int64? = nil, stats: InviteStats? = nil) {
         self.id = id
         self.code = code
         self.creator = creator

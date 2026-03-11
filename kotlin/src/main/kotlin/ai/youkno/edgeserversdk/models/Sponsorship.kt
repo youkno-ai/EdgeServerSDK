@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.SponsorshipSponsor
+import ai.youkno.edgeserversdk.models.Sponsor
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class Sponsorship (
 
     @Json(name = "sponsors")
-    val sponsors: kotlin.collections.Map<kotlin.String, SponsorshipSponsor>? = null
+    val sponsors: kotlin.collections.Map<kotlin.String, Sponsor>? = null
 
 ) {
 

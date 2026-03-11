@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataAdjustReasonResp2 } from './PosApiDataAdjustReasonResp2';
+import {
+    PosApiDataAdjustReasonResp2FromJSON,
+    PosApiDataAdjustReasonResp2FromJSONTyped,
+    PosApiDataAdjustReasonResp2ToJSON,
+    PosApiDataAdjustReasonResp2ToJSONTyped,
+} from './PosApiDataAdjustReasonResp2';
+
 /**
  * 
  * @export
@@ -21,28 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataAdjustReasonResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataAdjustReasonResp
      */
-    reasonId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataAdjustReasonResp
      */
-    reasonName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataAdjustReasonResp
+     */
+    length?: number;
     /**
      * 
      * @type {boolean}
      * @memberof PosApiDataAdjustReasonResp
      */
-    system?: boolean;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {Array<PosApiDataAdjustReasonResp2>}
      * @memberof PosApiDataAdjustReasonResp
      */
-    noteRequired?: boolean;
+    list?: Array<PosApiDataAdjustReasonResp2>;
 }
 
 /**
@@ -62,10 +76,11 @@ export function PosApiDataAdjustReasonRespFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'reasonId': json['reasonId'] == null ? undefined : json['reasonId'],
-        'reasonName': json['reasonName'] == null ? undefined : json['reasonName'],
-        'system': json['system'] == null ? undefined : json['system'],
-        'noteRequired': json['noteRequired'] == null ? undefined : json['noteRequired'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataAdjustReasonResp2FromJSON)),
     };
 }
 
@@ -80,10 +95,11 @@ export function PosApiDataAdjustReasonRespToJSONTyped(value?: PosApiDataAdjustRe
 
     return {
         
-        'reasonId': value['reasonId'],
-        'reasonName': value['reasonName'],
-        'system': value['system'],
-        'noteRequired': value['noteRequired'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataAdjustReasonResp2ToJSON)),
     };
 }
 

@@ -20,6 +20,13 @@ import {
     BountyNewsInfoToJSON,
     BountyNewsInfoToJSONTyped,
 } from './BountyNewsInfo';
+import type { BroadcastInfo } from './BroadcastInfo';
+import {
+    BroadcastInfoFromJSON,
+    BroadcastInfoFromJSONTyped,
+    BroadcastInfoToJSON,
+    BroadcastInfoToJSONTyped,
+} from './BroadcastInfo';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -34,13 +41,6 @@ import {
     VisibilityModeToJSON,
     VisibilityModeToJSONTyped,
 } from './VisibilityMode';
-import type { BountyVarTerms } from './BountyVarTerms';
-import {
-    BountyVarTermsFromJSON,
-    BountyVarTermsFromJSONTyped,
-    BountyVarTermsToJSON,
-    BountyVarTermsToJSONTyped,
-} from './BountyVarTerms';
 import type { Rating } from './Rating';
 import {
     RatingFromJSON,
@@ -55,13 +55,6 @@ import {
     BountyResponseToJSON,
     BountyResponseToJSONTyped,
 } from './BountyResponse';
-import type { BountySummary } from './BountySummary';
-import {
-    BountySummaryFromJSON,
-    BountySummaryFromJSONTyped,
-    BountySummaryToJSON,
-    BountySummaryToJSONTyped,
-} from './BountySummary';
 import type { Rejects } from './Rejects';
 import {
     RejectsFromJSON,
@@ -69,13 +62,6 @@ import {
     RejectsToJSON,
     RejectsToJSONTyped,
 } from './Rejects';
-import type { BountyWork } from './BountyWork';
-import {
-    BountyWorkFromJSON,
-    BountyWorkFromJSONTyped,
-    BountyWorkToJSON,
-    BountyWorkToJSONTyped,
-} from './BountyWork';
 import type { Attachments } from './Attachments';
 import {
     AttachmentsFromJSON,
@@ -97,13 +83,13 @@ import {
     BountyTermsToJSON,
     BountyTermsToJSONTyped,
 } from './BountyTerms';
-import type { ListsListDef } from './ListsListDef';
+import type { HasAccessKeysAccessKeys2 } from './HasAccessKeysAccessKeys2';
 import {
-    ListsListDefFromJSON,
-    ListsListDefFromJSONTyped,
-    ListsListDefToJSON,
-    ListsListDefToJSONTyped,
-} from './ListsListDef';
+    HasAccessKeysAccessKeys2FromJSON,
+    HasAccessKeysAccessKeys2FromJSONTyped,
+    HasAccessKeysAccessKeys2ToJSON,
+    HasAccessKeysAccessKeys2ToJSONTyped,
+} from './HasAccessKeysAccessKeys2';
 import type { BountyInteractions } from './BountyInteractions';
 import {
     BountyInteractionsFromJSON,
@@ -118,6 +104,13 @@ import {
     BountyChallengeInfoToJSON,
     BountyChallengeInfoToJSONTyped,
 } from './BountyChallengeInfo';
+import type { AddressedTo } from './AddressedTo';
+import {
+    AddressedToFromJSON,
+    AddressedToFromJSONTyped,
+    AddressedToToJSON,
+    AddressedToToJSONTyped,
+} from './AddressedTo';
 import type { BountyMatchInfo } from './BountyMatchInfo';
 import {
     BountyMatchInfoFromJSON,
@@ -125,6 +118,13 @@ import {
     BountyMatchInfoToJSON,
     BountyMatchInfoToJSONTyped,
 } from './BountyMatchInfo';
+import type { Work } from './Work';
+import {
+    WorkFromJSON,
+    WorkFromJSONTyped,
+    WorkToJSON,
+    WorkToJSONTyped,
+} from './Work';
 import type { BountyAuctionInfo } from './BountyAuctionInfo';
 import {
     BountyAuctionInfoFromJSON,
@@ -139,20 +139,13 @@ import {
     BountyDistributionToJSON,
     BountyDistributionToJSONTyped,
 } from './BountyDistribution';
-import type { BountyAgentInfo } from './BountyAgentInfo';
+import type { LatLng } from './LatLng';
 import {
-    BountyAgentInfoFromJSON,
-    BountyAgentInfoFromJSONTyped,
-    BountyAgentInfoToJSON,
-    BountyAgentInfoToJSONTyped,
-} from './BountyAgentInfo';
-import type { HasAccessKeysAccessKeys } from './HasAccessKeysAccessKeys';
-import {
-    HasAccessKeysAccessKeysFromJSON,
-    HasAccessKeysAccessKeysFromJSONTyped,
-    HasAccessKeysAccessKeysToJSON,
-    HasAccessKeysAccessKeysToJSONTyped,
-} from './HasAccessKeysAccessKeys';
+    LatLngFromJSON,
+    LatLngFromJSONTyped,
+    LatLngToJSON,
+    LatLngToJSONTyped,
+} from './LatLng';
 import type { BountyQuickClaimInfo } from './BountyQuickClaimInfo';
 import {
     BountyQuickClaimInfoFromJSON,
@@ -188,20 +181,6 @@ import {
     GeofencesToJSON,
     GeofencesToJSONTyped,
 } from './Geofences';
-import type { BountyParentBounty } from './BountyParentBounty';
-import {
-    BountyParentBountyFromJSON,
-    BountyParentBountyFromJSONTyped,
-    BountyParentBountyToJSON,
-    BountyParentBountyToJSONTyped,
-} from './BountyParentBounty';
-import type { BountyBroadcastInfo } from './BountyBroadcastInfo';
-import {
-    BountyBroadcastInfoFromJSON,
-    BountyBroadcastInfoFromJSONTyped,
-    BountyBroadcastInfoToJSON,
-    BountyBroadcastInfoToJSONTyped,
-} from './BountyBroadcastInfo';
 import type { BountySnippets } from './BountySnippets';
 import {
     BountySnippetsFromJSON,
@@ -209,13 +188,13 @@ import {
     BountySnippetsToJSON,
     BountySnippetsToJSONTyped,
 } from './BountySnippets';
-import type { BountyAddressedTo } from './BountyAddressedTo';
+import type { ListsListDef2 } from './ListsListDef2';
 import {
-    BountyAddressedToFromJSON,
-    BountyAddressedToFromJSONTyped,
-    BountyAddressedToToJSON,
-    BountyAddressedToToJSONTyped,
-} from './BountyAddressedTo';
+    ListsListDef2FromJSON,
+    ListsListDef2FromJSONTyped,
+    ListsListDef2ToJSON,
+    ListsListDef2ToJSONTyped,
+} from './ListsListDef2';
 import type { BountyMetaInfo } from './BountyMetaInfo';
 import {
     BountyMetaInfoFromJSON,
@@ -251,6 +230,13 @@ import {
     BountyMenuInfoToJSON,
     BountyMenuInfoToJSONTyped,
 } from './BountyMenuInfo';
+import type { ParentBounty } from './ParentBounty';
+import {
+    ParentBountyFromJSON,
+    ParentBountyFromJSONTyped,
+    ParentBountyToJSON,
+    ParentBountyToJSONTyped,
+} from './ParentBounty';
 import type { BountyActivities } from './BountyActivities';
 import {
     BountyActivitiesFromJSON,
@@ -258,13 +244,6 @@ import {
     BountyActivitiesToJSON,
     BountyActivitiesToJSONTyped,
 } from './BountyActivities';
-import type { BountyLatLng } from './BountyLatLng';
-import {
-    BountyLatLngFromJSON,
-    BountyLatLngFromJSONTyped,
-    BountyLatLngToJSON,
-    BountyLatLngToJSONTyped,
-} from './BountyLatLng';
 import type { IdentityMode } from './IdentityMode';
 import {
     IdentityModeFromJSON,
@@ -286,13 +265,6 @@ import {
     BountyBountyCategoryToJSON,
     BountyBountyCategoryToJSONTyped,
 } from './BountyBountyCategory';
-import type { BountyBountyStats } from './BountyBountyStats';
-import {
-    BountyBountyStatsFromJSON,
-    BountyBountyStatsFromJSONTyped,
-    BountyBountyStatsToJSON,
-    BountyBountyStatsToJSONTyped,
-} from './BountyBountyStats';
 import type { BountyBudget } from './BountyBudget';
 import {
     BountyBudgetFromJSON,
@@ -307,6 +279,27 @@ import {
     BountyContestInfoToJSON,
     BountyContestInfoToJSONTyped,
 } from './BountyContestInfo';
+import type { Summary } from './Summary';
+import {
+    SummaryFromJSON,
+    SummaryFromJSONTyped,
+    SummaryToJSON,
+    SummaryToJSONTyped,
+} from './Summary';
+import type { VarTerms } from './VarTerms';
+import {
+    VarTermsFromJSON,
+    VarTermsFromJSONTyped,
+    VarTermsToJSON,
+    VarTermsToJSONTyped,
+} from './VarTerms';
+import type { AgentInfo } from './AgentInfo';
+import {
+    AgentInfoFromJSON,
+    AgentInfoFromJSONTyped,
+    AgentInfoToJSON,
+    AgentInfoToJSONTyped,
+} from './AgentInfo';
 import type { Reward } from './Reward';
 import {
     RewardFromJSON,
@@ -335,6 +328,13 @@ import {
     BountyApprovalInfoToJSON,
     BountyApprovalInfoToJSONTyped,
 } from './BountyApprovalInfo';
+import type { BountyStats } from './BountyStats';
+import {
+    BountyStatsFromJSON,
+    BountyStatsFromJSONTyped,
+    BountyStatsToJSON,
+    BountyStatsToJSONTyped,
+} from './BountyStats';
 
 /**
  * 
@@ -392,10 +392,10 @@ export interface Bounty {
     onBehalfOf?: User;
     /**
      * 
-     * @type {BountyAgentInfo}
+     * @type {AgentInfo}
      * @memberof Bounty
      */
-    agentInfo?: BountyAgentInfo;
+    agentInfo?: AgentInfo;
     /**
      * 
      * @type {IdentityMode}
@@ -410,16 +410,16 @@ export interface Bounty {
     replyIdentityMode?: IdentityMode;
     /**
      * 
-     * @type {BountyAddressedTo}
+     * @type {AddressedTo}
      * @memberof Bounty
      */
-    to?: BountyAddressedTo;
+    to?: AddressedTo;
     /**
      * 
-     * @type {BountyParentBounty}
+     * @type {ParentBounty}
      * @memberof Bounty
      */
-    parentBounty?: BountyParentBounty;
+    parentBounty?: ParentBounty;
     /**
      * 
      * @type {string}
@@ -446,16 +446,16 @@ export interface Bounty {
     terms?: BountyTerms;
     /**
      * 
-     * @type {HasAccessKeysAccessKeys}
+     * @type {HasAccessKeysAccessKeys2}
      * @memberof Bounty
      */
-    accessKeys?: HasAccessKeysAccessKeys;
+    accessKeys?: HasAccessKeysAccessKeys2;
     /**
      * 
-     * @type {BountyVarTerms}
+     * @type {VarTerms}
      * @memberof Bounty
      */
-    varTerms?: BountyVarTerms;
+    varTerms?: VarTerms;
     /**
      * 
      * @type {string}
@@ -506,10 +506,10 @@ export interface Bounty {
     attachments?: Attachments;
     /**
      * 
-     * @type {BountyBroadcastInfo}
+     * @type {BroadcastInfo}
      * @memberof Bounty
      */
-    broadcastInfo?: BountyBroadcastInfo;
+    broadcastInfo?: BroadcastInfo;
     /**
      * 
      * @type {Badges}
@@ -560,10 +560,10 @@ export interface Bounty {
     listCode?: string;
     /**
      * 
-     * @type {BountyLatLng}
+     * @type {LatLng}
      * @memberof Bounty
      */
-    locationGeo?: BountyLatLng;
+    locationGeo?: LatLng;
     /**
      * 
      * @type {string}
@@ -716,16 +716,16 @@ export interface Bounty {
     pinnedAt?: number;
     /**
      * 
-     * @type {BountySummary}
+     * @type {Summary}
      * @memberof Bounty
      */
-    summary?: BountySummary;
+    summary?: Summary;
     /**
      * 
-     * @type {BountyBountyStats}
+     * @type {BountyStats}
      * @memberof Bounty
      */
-    stats?: BountyBountyStats;
+    stats?: BountyStats;
     /**
      * 
      * @type {Rating}
@@ -806,10 +806,10 @@ export interface Bounty {
     entitySource?: string;
     /**
      * 
-     * @type {BountyWork}
+     * @type {Work}
      * @memberof Bounty
      */
-    work?: BountyWork;
+    work?: Work;
     /**
      * 
      * @type {BountyInteractions}
@@ -854,10 +854,10 @@ export interface Bounty {
     recommendationToken?: string;
     /**
      * 
-     * @type {ListsListDef}
+     * @type {ListsListDef2}
      * @memberof Bounty
      */
-    listDef?: ListsListDef;
+    listDef?: ListsListDef2;
     /**
      * 
      * @type {string}
@@ -925,17 +925,17 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'creator': json['creator'] == null ? undefined : UserFromJSON(json['creator']),
         'author': json['author'] == null ? undefined : UserFromJSON(json['author']),
         'onBehalfOf': json['onBehalfOf'] == null ? undefined : UserFromJSON(json['onBehalfOf']),
-        'agentInfo': json['agentInfo'] == null ? undefined : BountyAgentInfoFromJSON(json['agentInfo']),
+        'agentInfo': json['agentInfo'] == null ? undefined : AgentInfoFromJSON(json['agentInfo']),
         'identityMode': json['identityMode'] == null ? undefined : IdentityModeFromJSON(json['identityMode']),
         'replyIdentityMode': json['replyIdentityMode'] == null ? undefined : IdentityModeFromJSON(json['replyIdentityMode']),
-        'to': json['to'] == null ? undefined : BountyAddressedToFromJSON(json['to']),
-        'parentBounty': json['parentBounty'] == null ? undefined : BountyParentBountyFromJSON(json['parentBounty']),
+        'to': json['to'] == null ? undefined : AddressedToFromJSON(json['to']),
+        'parentBounty': json['parentBounty'] == null ? undefined : ParentBountyFromJSON(json['parentBounty']),
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : BountyDescriptionFromJSON(json['description']),
         'reward': json['reward'] == null ? undefined : RewardFromJSON(json['reward']),
         'terms': json['terms'] == null ? undefined : BountyTermsFromJSON(json['terms']),
-        'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeysFromJSON(json['accessKeys']),
-        'varTerms': json['varTerms'] == null ? undefined : BountyVarTermsFromJSON(json['varTerms']),
+        'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeys2FromJSON(json['accessKeys']),
+        'varTerms': json['varTerms'] == null ? undefined : VarTermsFromJSON(json['varTerms']),
         'targetUrl': json['targetUrl'] == null ? undefined : json['targetUrl'],
         'responseKey': json['responseKey'] == null ? undefined : json['responseKey'],
         'intent': json['intent'] == null ? undefined : json['intent'],
@@ -944,7 +944,7 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'snippets': json['snippets'] == null ? undefined : BountySnippetsFromJSON(json['snippets']),
         'responseVisibilityMode': json['responseVisibilityMode'] == null ? undefined : VisibilityModeFromJSON(json['responseVisibilityMode']),
         'attachments': json['attachments'] == null ? undefined : AttachmentsFromJSON(json['attachments']),
-        'broadcastInfo': json['broadcastInfo'] == null ? undefined : BountyBroadcastInfoFromJSON(json['broadcastInfo']),
+        'broadcastInfo': json['broadcastInfo'] == null ? undefined : BroadcastInfoFromJSON(json['broadcastInfo']),
         'badges': json['badges'] == null ? undefined : BadgesFromJSON(json['badges']),
         'product': json['product'] == null ? undefined : BountyProductFromJSON(json['product']),
         'order': json['order'] == null ? undefined : BountyOrderFromJSON(json['order']),
@@ -953,7 +953,7 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'timeLimit': json['timeLimit'] == null ? undefined : json['timeLimit'],
         'listId': json['listId'] == null ? undefined : json['listId'],
         'listCode': json['listCode'] == null ? undefined : json['listCode'],
-        'locationGeo': json['locationGeo'] == null ? undefined : BountyLatLngFromJSON(json['locationGeo']),
+        'locationGeo': json['locationGeo'] == null ? undefined : LatLngFromJSON(json['locationGeo']),
         'visibility': json['visibility'] == null ? undefined : json['visibility'],
         'bountyCategories': json['bountyCategories'] == null ? undefined : (mapValues(json['bountyCategories'], BountyBountyCategoryFromJSON)),
         'matchInfo': json['matchInfo'] == null ? undefined : BountyMatchInfoFromJSON(json['matchInfo']),
@@ -979,8 +979,8 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'activateAt': json['activateAt'] == null ? undefined : json['activateAt'],
         'postAt': json['postAt'] == null ? undefined : json['postAt'],
         'pinnedAt': json['pinnedAt'] == null ? undefined : json['pinnedAt'],
-        'summary': json['summary'] == null ? undefined : BountySummaryFromJSON(json['summary']),
-        'stats': json['stats'] == null ? undefined : BountyBountyStatsFromJSON(json['stats']),
+        'summary': json['summary'] == null ? undefined : SummaryFromJSON(json['summary']),
+        'stats': json['stats'] == null ? undefined : BountyStatsFromJSON(json['stats']),
         'rating': json['rating'] == null ? undefined : RatingFromJSON(json['rating']),
         'orderInParentSortKey': json['orderInParentSortKey'] == null ? undefined : json['orderInParentSortKey'],
         'creatorUpdatedAtSortKey': json['creatorUpdatedAtSortKey'] == null ? undefined : json['creatorUpdatedAtSortKey'],
@@ -994,7 +994,7 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'streamPopularitySortKey': json['streamPopularitySortKey'] == null ? undefined : json['streamPopularitySortKey'],
         'streamDiscussedSortKey': json['streamDiscussedSortKey'] == null ? undefined : json['streamDiscussedSortKey'],
         'entitySource': json['entitySource'] == null ? undefined : json['entitySource'],
-        'work': json['work'] == null ? undefined : BountyWorkFromJSON(json['work']),
+        'work': json['work'] == null ? undefined : WorkFromJSON(json['work']),
         'interactions': json['interactions'] == null ? undefined : BountyInteractionsFromJSON(json['interactions']),
         'outboundResponses': json['outboundResponses'] == null ? undefined : (mapValues(json['outboundResponses'], BountyResponseFromJSON)),
         'favoritedAt': json['favoritedAt'] == null ? undefined : json['favoritedAt'],
@@ -1002,7 +1002,7 @@ export function BountyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Bo
         'report': json['report'] == null ? undefined : EntityReportInfoFromJSON(json['report']),
         'metaInfo': json['metaInfo'] == null ? undefined : BountyMetaInfoFromJSON(json['metaInfo']),
         'recommendationToken': json['recommendationToken'] == null ? undefined : json['recommendationToken'],
-        'listDef': json['listDef'] == null ? undefined : ListsListDefFromJSON(json['listDef']),
+        'listDef': json['listDef'] == null ? undefined : ListsListDef2FromJSON(json['listDef']),
         'entityId': json['entityId'] == null ? undefined : json['entityId'],
         'accessKeyEnforcementAsEnum': json['accessKeyEnforcementAsEnum'] == null ? undefined : json['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': json['accessKeyCtaModeAsEnum'] == null ? undefined : json['accessKeyCtaModeAsEnum'],
@@ -1028,17 +1028,17 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'creator': UserToJSON(value['creator']),
         'author': UserToJSON(value['author']),
         'onBehalfOf': UserToJSON(value['onBehalfOf']),
-        'agentInfo': BountyAgentInfoToJSON(value['agentInfo']),
+        'agentInfo': AgentInfoToJSON(value['agentInfo']),
         'identityMode': IdentityModeToJSON(value['identityMode']),
         'replyIdentityMode': IdentityModeToJSON(value['replyIdentityMode']),
-        'to': BountyAddressedToToJSON(value['to']),
-        'parentBounty': BountyParentBountyToJSON(value['parentBounty']),
+        'to': AddressedToToJSON(value['to']),
+        'parentBounty': ParentBountyToJSON(value['parentBounty']),
         'title': value['title'],
         'description': BountyDescriptionToJSON(value['description']),
         'reward': RewardToJSON(value['reward']),
         'terms': BountyTermsToJSON(value['terms']),
-        'accessKeys': HasAccessKeysAccessKeysToJSON(value['accessKeys']),
-        'varTerms': BountyVarTermsToJSON(value['varTerms']),
+        'accessKeys': HasAccessKeysAccessKeys2ToJSON(value['accessKeys']),
+        'varTerms': VarTermsToJSON(value['varTerms']),
         'targetUrl': value['targetUrl'],
         'responseKey': value['responseKey'],
         'intent': value['intent'],
@@ -1047,7 +1047,7 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'snippets': BountySnippetsToJSON(value['snippets']),
         'responseVisibilityMode': VisibilityModeToJSON(value['responseVisibilityMode']),
         'attachments': AttachmentsToJSON(value['attachments']),
-        'broadcastInfo': BountyBroadcastInfoToJSON(value['broadcastInfo']),
+        'broadcastInfo': BroadcastInfoToJSON(value['broadcastInfo']),
         'badges': BadgesToJSON(value['badges']),
         'product': BountyProductToJSON(value['product']),
         'order': BountyOrderToJSON(value['order']),
@@ -1056,7 +1056,7 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'timeLimit': value['timeLimit'],
         'listId': value['listId'],
         'listCode': value['listCode'],
-        'locationGeo': BountyLatLngToJSON(value['locationGeo']),
+        'locationGeo': LatLngToJSON(value['locationGeo']),
         'visibility': value['visibility'],
         'bountyCategories': value['bountyCategories'] == null ? undefined : (mapValues(value['bountyCategories'], BountyBountyCategoryToJSON)),
         'matchInfo': BountyMatchInfoToJSON(value['matchInfo']),
@@ -1082,8 +1082,8 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'activateAt': value['activateAt'],
         'postAt': value['postAt'],
         'pinnedAt': value['pinnedAt'],
-        'summary': BountySummaryToJSON(value['summary']),
-        'stats': BountyBountyStatsToJSON(value['stats']),
+        'summary': SummaryToJSON(value['summary']),
+        'stats': BountyStatsToJSON(value['stats']),
         'rating': RatingToJSON(value['rating']),
         'orderInParentSortKey': value['orderInParentSortKey'],
         'creatorUpdatedAtSortKey': value['creatorUpdatedAtSortKey'],
@@ -1097,7 +1097,7 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'streamPopularitySortKey': value['streamPopularitySortKey'],
         'streamDiscussedSortKey': value['streamDiscussedSortKey'],
         'entitySource': value['entitySource'],
-        'work': BountyWorkToJSON(value['work']),
+        'work': WorkToJSON(value['work']),
         'interactions': BountyInteractionsToJSON(value['interactions']),
         'outboundResponses': value['outboundResponses'] == null ? undefined : (mapValues(value['outboundResponses'], BountyResponseToJSON)),
         'favoritedAt': value['favoritedAt'],
@@ -1105,7 +1105,7 @@ export function BountyToJSONTyped(value?: Bounty | null, ignoreDiscriminator: bo
         'report': EntityReportInfoToJSON(value['report']),
         'metaInfo': BountyMetaInfoToJSON(value['metaInfo']),
         'recommendationToken': value['recommendationToken'],
-        'listDef': ListsListDefToJSON(value['listDef']),
+        'listDef': ListsListDef2ToJSON(value['listDef']),
         'entityId': value['entityId'],
         'accessKeyEnforcementAsEnum': value['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': value['accessKeyCtaModeAsEnum'],

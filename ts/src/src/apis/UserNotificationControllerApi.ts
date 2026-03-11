@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPageUserNotificationConfig,
+  ModelUserNotificationConfig,
   UserNotificationConfig,
 } from '../models/index';
 import {
-    EdgeApiDataPageUserNotificationConfigFromJSON,
-    EdgeApiDataPageUserNotificationConfigToJSON,
+    ModelUserNotificationConfigFromJSON,
+    ModelUserNotificationConfigToJSON,
     UserNotificationConfigFromJSON,
     UserNotificationConfigToJSON,
 } from '../models/index';
@@ -115,11 +115,11 @@ export interface UserNotificationControllerApiInterface {
      * @throws {RequiredError}
      * @memberof UserNotificationControllerApiInterface
      */
-    getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserNotificationConfig>>;
+    getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelUserNotificationConfig>>;
 
     /**
      */
-    getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserNotificationConfig>;
+    getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelUserNotificationConfig>;
 
     /**
      * 
@@ -293,7 +293,7 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
 
     /**
      */
-    async getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageUserNotificationConfig>> {
+    async getApiV1UserByUseridNotificationsRaw(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelUserNotificationConfig>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -340,12 +340,12 @@ export class UserNotificationControllerApi extends runtime.BaseAPI implements Us
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageUserNotificationConfigFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelUserNotificationConfigFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageUserNotificationConfig> {
+    async getApiV1UserByUseridNotifications(requestParameters: GetApiV1UserByUseridNotificationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelUserNotificationConfig> {
         const response = await this.getApiV1UserByUseridNotificationsRaw(requestParameters, initOverrides);
         return await response.value();
     }

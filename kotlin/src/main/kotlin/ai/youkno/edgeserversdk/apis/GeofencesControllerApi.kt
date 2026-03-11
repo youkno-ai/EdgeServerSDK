@@ -7,7 +7,7 @@ import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
 import ai.youkno.edgeserversdk.models.EdgeApiDataGeofencesResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageEdgeApiDataGeofencesResp
+import ai.youkno.edgeserversdk.models.EdgeApiDataGeofencesResp2
 import ai.youkno.edgeserversdk.models.Geofences
 
 interface GeofencesControllerApi {
@@ -40,10 +40,10 @@ interface GeofencesControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageEdgeApiDataGeofencesResp]>
+     * @return [Call]<[EdgeApiDataGeofencesResp2]>
      */
     @GET("api/v1/geofences")
-    fun getApiV1Geofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageEdgeApiDataGeofencesResp>
+    fun getApiV1Geofences(@Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Query("ignoreCache") ignoreCache: kotlin.Boolean? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataGeofencesResp2>
 
     /**
      * GET api/v1/geofences/{bountyId}

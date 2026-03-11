@@ -6,10 +6,10 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.AuthAuthTokens
-import ai.youkno.edgeserversdk.models.RestControllerAuthControllerExchangeRequest
-import ai.youkno.edgeserversdk.models.RestControllerAuthControllerLogoutRequest
-import ai.youkno.edgeserversdk.models.RestControllerAuthControllerRefreshRequest
+import ai.youkno.edgeserversdk.models.AuthTokens
+import ai.youkno.edgeserversdk.models.ExchangeRequest
+import ai.youkno.edgeserversdk.models.LogoutRequest
+import ai.youkno.edgeserversdk.models.RefreshRequest
 
 interface AuthControllerApi {
     /**
@@ -22,11 +22,11 @@ interface AuthControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param restControllerAuthControllerExchangeRequest  (optional)
-     * @return [Call]<[AuthAuthTokens]>
+     * @param exchangeRequest  (optional)
+     * @return [Call]<[AuthTokens]>
      */
     @POST("api/v1/auth/exchange")
-    fun postApiV1AuthExchange(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body restControllerAuthControllerExchangeRequest: RestControllerAuthControllerExchangeRequest? = null): Call<AuthAuthTokens>
+    fun postApiV1AuthExchange(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body exchangeRequest: ExchangeRequest? = null): Call<AuthTokens>
 
     /**
      * POST api/v1/auth/logout
@@ -38,11 +38,11 @@ interface AuthControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @param restControllerAuthControllerLogoutRequest  (optional)
+     * @param logoutRequest  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/auth/logout")
-    fun postApiV1AuthLogout(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body restControllerAuthControllerLogoutRequest: RestControllerAuthControllerLogoutRequest? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1AuthLogout(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null, @Body logoutRequest: LogoutRequest? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/auth/logout-all
@@ -66,13 +66,13 @@ interface AuthControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param restControllerAuthControllerRefreshRequest 
+     * @param refreshRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[AuthAuthTokens]>
+     * @return [Call]<[AuthTokens]>
      */
     @POST("api/v1/auth/refresh")
-    fun postApiV1AuthRefresh(@Body restControllerAuthControllerRefreshRequest: RestControllerAuthControllerRefreshRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AuthAuthTokens>
+    fun postApiV1AuthRefresh(@Body refreshRequest: RefreshRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AuthTokens>
 
 }

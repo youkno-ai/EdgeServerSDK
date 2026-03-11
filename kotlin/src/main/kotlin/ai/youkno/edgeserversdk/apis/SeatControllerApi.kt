@@ -6,7 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataNewId
+import ai.youkno.edgeserversdk.models.NewId
 import ai.youkno.edgeserversdk.models.Seat
 
 interface SeatControllerApi {
@@ -101,10 +101,10 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataNewId]>
+     * @return [Call]<[NewId]>
      */
     @POST("api/v1/seats")
-    fun postApiV1Seats(@Body seat: Seat, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
+    fun postApiV1Seats(@Body seat: Seat, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
     /**
      * POST api/v1/seats/{seatId}/buy
@@ -117,9 +117,9 @@ interface SeatControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataNewId]>
+     * @return [Call]<[NewId]>
      */
     @POST("api/v1/seats/{seatId}/buy")
-    fun postApiV1SeatsBySeatidBuy(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataNewId>
+    fun postApiV1SeatsBySeatidBuy(@Path("seatId") seatId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<NewId>
 
 }

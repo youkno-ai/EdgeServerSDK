@@ -18,14 +18,14 @@ package ai.youkno.edgeserversdk.models
 import ai.youkno.edgeserversdk.models.Attachments
 import ai.youkno.edgeserversdk.models.Badges
 import ai.youkno.edgeserversdk.models.BountyResponseBountyInfo
-import ai.youkno.edgeserversdk.models.BountyResponseChoiceExtras
-import ai.youkno.edgeserversdk.models.BountyResponseExtraInfo
-import ai.youkno.edgeserversdk.models.BountyResponseResponseStats
 import ai.youkno.edgeserversdk.models.BountyResponseSnippets
 import ai.youkno.edgeserversdk.models.BountyResponseSurveyAnswers
+import ai.youkno.edgeserversdk.models.ChoiceExtras
 import ai.youkno.edgeserversdk.models.EntityReportInfo
+import ai.youkno.edgeserversdk.models.ExtraInfo
 import ai.youkno.edgeserversdk.models.IdentityMode
 import ai.youkno.edgeserversdk.models.Rating
+import ai.youkno.edgeserversdk.models.ResponseStats
 import ai.youkno.edgeserversdk.models.User
 import ai.youkno.edgeserversdk.models.VisibilityMode
 
@@ -125,7 +125,7 @@ data class BountyResponse (
     val attachments: Attachments? = null,
 
     @Json(name = "extraInfo")
-    val extraInfo: BountyResponseExtraInfo? = null,
+    val extraInfo: ExtraInfo? = null,
 
     @Json(name = "badges")
     val badges: Badges? = null,
@@ -158,7 +158,7 @@ data class BountyResponse (
     val bountyDiscussedSortKey: kotlin.String? = null,
 
     @Json(name = "stats")
-    val stats: BountyResponseResponseStats? = null,
+    val stats: ResponseStats? = null,
 
     @Json(name = "rating")
     val rating: Rating? = null,
@@ -182,7 +182,7 @@ data class BountyResponse (
 
     @Json(name = "choiceExtras")
     @Deprecated(message = "This property is deprecated.")
-    val choiceExtras: BountyResponseChoiceExtras? = null,
+    val choiceExtras: ChoiceExtras? = null,
 
     @Json(name = "entityId")
     val entityId: kotlin.String? = null

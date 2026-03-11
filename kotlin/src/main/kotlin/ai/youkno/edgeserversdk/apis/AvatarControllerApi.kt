@@ -7,7 +7,7 @@ import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
 import ai.youkno.edgeserversdk.models.Avatar
-import ai.youkno.edgeserversdk.models.EdgeApiDataCreateAvatarRequest
+import ai.youkno.edgeserversdk.models.CreateAvatarRequest
 
 interface AvatarControllerApi {
     /**
@@ -50,13 +50,13 @@ interface AvatarControllerApi {
      * Responses:
      *  - 200: OK
      *
-     * @param edgeApiDataCreateAvatarRequest 
+     * @param createAvatarRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Avatar]>
      */
     @POST("api/v1/avatars")
-    fun postApiV1Avatars(@Body edgeApiDataCreateAvatarRequest: EdgeApiDataCreateAvatarRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Avatar>
+    fun postApiV1Avatars(@Body createAvatarRequest: CreateAvatarRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Avatar>
 
 }

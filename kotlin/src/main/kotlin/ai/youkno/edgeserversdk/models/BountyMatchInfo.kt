@@ -15,13 +15,13 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyMatchInfoExtraTime
-import ai.youkno.edgeserversdk.models.BountyMatchInfoInjury
-import ai.youkno.edgeserversdk.models.BountyMatchInfoLineups
-import ai.youkno.edgeserversdk.models.BountyMatchInfoLiveText
-import ai.youkno.edgeserversdk.models.BountyMatchInfoMatchEvent
-import ai.youkno.edgeserversdk.models.BountyMatchInfoStats
-import ai.youkno.edgeserversdk.models.BountyMatchInfoTeamInfo
+import ai.youkno.edgeserversdk.models.ExtraTime
+import ai.youkno.edgeserversdk.models.Injury
+import ai.youkno.edgeserversdk.models.Lineups
+import ai.youkno.edgeserversdk.models.LiveText
+import ai.youkno.edgeserversdk.models.MatchEvent
+import ai.youkno.edgeserversdk.models.MatchInfoStats
+import ai.youkno.edgeserversdk.models.MatchInfoTeamInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -170,31 +170,31 @@ data class BountyMatchInfo (
     val explain: kotlin.String? = null,
 
     @Json(name = "extraTime")
-    val extraTime: BountyMatchInfoExtraTime? = null,
+    val extraTime: ExtraTime? = null,
 
     @Json(name = "neutral")
     val neutral: kotlin.Boolean? = null,
 
     @Json(name = "events")
-    val events: kotlin.collections.Map<kotlin.String, BountyMatchInfoMatchEvent>? = null,
+    val events: kotlin.collections.Map<kotlin.String, MatchEvent>? = null,
 
     @Json(name = "liveTexts")
-    val liveTexts: kotlin.collections.Map<kotlin.String, BountyMatchInfoLiveText>? = null,
+    val liveTexts: kotlin.collections.Map<kotlin.String, LiveText>? = null,
 
     @Json(name = "stats")
-    val stats: kotlin.collections.Map<kotlin.String, BountyMatchInfoStats>? = null,
+    val stats: kotlin.collections.Map<kotlin.String, MatchInfoStats>? = null,
 
     @Json(name = "injury")
-    val injury: kotlin.collections.Map<kotlin.String, BountyMatchInfoInjury>? = null,
+    val injury: kotlin.collections.Map<kotlin.String, Injury>? = null,
 
     @Json(name = "lineups")
-    val lineups: BountyMatchInfoLineups? = null,
+    val lineups: Lineups? = null,
 
     @Json(name = "homeTeam")
-    val homeTeam: BountyMatchInfoTeamInfo? = null,
+    val homeTeam: MatchInfoTeamInfo? = null,
 
     @Json(name = "awayTeam")
-    val awayTeam: BountyMatchInfoTeamInfo? = null,
+    val awayTeam: MatchInfoTeamInfo? = null,
 
     @Json(name = "ticketsAvailableAt")
     val ticketsAvailableAt: kotlin.Long? = null,

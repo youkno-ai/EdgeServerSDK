@@ -18,7 +18,7 @@ public struct BountyReservationInfo: Codable, JSONEncodable, Hashable {
     public var firstName: String?
     public var lastName: String?
     public var email: String?
-    public var phone: BountyReservationInfoPhone?
+    public var phone: Phone?
     public var reservationAttribute: String?
     public var specialRequest: String?
     public var restaurantName: String?
@@ -29,10 +29,10 @@ public struct BountyReservationInfo: Codable, JSONEncodable, Hashable {
     public var confirmationNumber: Int?
     public var message: String?
     public var notes: String?
-    public var spending: BountyReservationInfoSpending?
+    public var spending: Spending?
     public var validForReservation: Bool?
 
-    public init(restaurantId: Int? = nil, date: Int64? = nil, partySize: Int? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, phone: BountyReservationInfoPhone? = nil, reservationAttribute: String? = nil, specialRequest: String? = nil, restaurantName: String? = nil, updatedAt: Int64? = nil, guestId: String? = nil, reservationId: String? = nil, status: String? = nil, confirmationNumber: Int? = nil, message: String? = nil, notes: String? = nil, spending: BountyReservationInfoSpending? = nil, validForReservation: Bool? = nil) {
+    public init(restaurantId: Int? = nil, date: Int64? = nil, partySize: Int? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, phone: Phone? = nil, reservationAttribute: String? = nil, specialRequest: String? = nil, restaurantName: String? = nil, updatedAt: Int64? = nil, guestId: String? = nil, reservationId: String? = nil, status: String? = nil, confirmationNumber: Int? = nil, message: String? = nil, notes: String? = nil, spending: Spending? = nil, validForReservation: Bool? = nil) {
         self.restaurantId = restaurantId
         self.date = date
         self.partySize = partySize

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { RolePermission2 } from './RolePermission2';
+import {
+    RolePermission2FromJSON,
+    RolePermission2FromJSONTyped,
+    RolePermission2ToJSON,
+    RolePermission2ToJSONTyped,
+} from './RolePermission2';
+
 /**
  * 
  * @export
@@ -21,22 +29,34 @@ import { mapValues } from '../runtime';
 export interface RolePermission {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof RolePermission
      */
-    op?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof RolePermission
      */
-    label?: string;
+    start?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof RolePermission
      */
-    description?: string;
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RolePermission
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<RolePermission2>}
+     * @memberof RolePermission
+     */
+    list?: Array<RolePermission2>;
 }
 
 /**
@@ -56,9 +76,11 @@ export function RolePermissionFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'op': json['op'] == null ? undefined : json['op'],
-        'label': json['label'] == null ? undefined : json['label'],
-        'description': json['description'] == null ? undefined : json['description'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(RolePermission2FromJSON)),
     };
 }
 
@@ -73,9 +95,11 @@ export function RolePermissionToJSONTyped(value?: RolePermission | null, ignoreD
 
     return {
         
-        'op': value['op'],
-        'label': value['label'],
-        'description': value['description'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(RolePermission2ToJSON)),
     };
 }
 

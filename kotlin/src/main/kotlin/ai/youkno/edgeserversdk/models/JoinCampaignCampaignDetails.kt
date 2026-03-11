@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.JoinCampaignIndirectInfo
+import ai.youkno.edgeserversdk.models.IndirectInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ data class JoinCampaignCampaignDetails (
     val bountyIds: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "infos")
-    val infos: kotlin.collections.List<JoinCampaignIndirectInfo>? = null
+    val infos: kotlin.collections.List<IndirectInfo>? = null
 
 ) {
 

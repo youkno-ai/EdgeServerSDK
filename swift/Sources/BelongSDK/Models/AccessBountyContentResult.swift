@@ -13,9 +13,9 @@ import AnyCodable
 public struct AccessBountyContentResult: Codable, JSONEncodable, Hashable {
 
     public var bountyId: String?
-    public var results: [String: AccessBountyContentResultStrategyResult]?
+    public var results: [String: StrategyResult]?
 
-    public init(bountyId: String? = nil, results: [String: AccessBountyContentResultStrategyResult]? = nil) {
+    public init(bountyId: String? = nil, results: [String: StrategyResult]? = nil) {
         self.bountyId = bountyId
         self.results = results
     }

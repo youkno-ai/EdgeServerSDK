@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataStrainResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,18 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param strainId 
- * @param strainName 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataStrainResp (
 
-    @Json(name = "strainId")
-    val strainId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "strainName")
-    val strainName: kotlin.String? = null
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
+
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
+
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
+
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataStrainResp2>? = null
 
 ) {
 

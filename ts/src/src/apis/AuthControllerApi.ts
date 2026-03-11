@@ -15,34 +15,34 @@
 
 import * as runtime from '../runtime';
 import type {
-  AuthAuthTokens,
-  RestControllerAuthControllerExchangeRequest,
-  RestControllerAuthControllerLogoutRequest,
-  RestControllerAuthControllerRefreshRequest,
+  AuthTokens,
+  ExchangeRequest,
+  LogoutRequest,
+  RefreshRequest,
 } from '../models/index';
 import {
-    AuthAuthTokensFromJSON,
-    AuthAuthTokensToJSON,
-    RestControllerAuthControllerExchangeRequestFromJSON,
-    RestControllerAuthControllerExchangeRequestToJSON,
-    RestControllerAuthControllerLogoutRequestFromJSON,
-    RestControllerAuthControllerLogoutRequestToJSON,
-    RestControllerAuthControllerRefreshRequestFromJSON,
-    RestControllerAuthControllerRefreshRequestToJSON,
+    AuthTokensFromJSON,
+    AuthTokensToJSON,
+    ExchangeRequestFromJSON,
+    ExchangeRequestToJSON,
+    LogoutRequestFromJSON,
+    LogoutRequestToJSON,
+    RefreshRequestFromJSON,
+    RefreshRequestToJSON,
 } from '../models/index';
 
 export interface PostApiV1AuthExchangeRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    restControllerAuthControllerExchangeRequest?: RestControllerAuthControllerExchangeRequest;
+    exchangeRequest?: ExchangeRequest;
 }
 
 export interface PostApiV1AuthLogoutRequest {
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    restControllerAuthControllerLogoutRequest?: RestControllerAuthControllerLogoutRequest;
+    logoutRequest?: LogoutRequest;
 }
 
 export interface PostApiV1AuthLogoutAllRequest {
@@ -52,7 +52,7 @@ export interface PostApiV1AuthLogoutAllRequest {
 }
 
 export interface PostApiV1AuthRefreshRequest {
-    restControllerAuthControllerRefreshRequest: RestControllerAuthControllerRefreshRequest;
+    refreshRequest: RefreshRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -70,23 +70,23 @@ export interface AuthControllerApiInterface {
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {RestControllerAuthControllerExchangeRequest} [restControllerAuthControllerExchangeRequest] 
+     * @param {ExchangeRequest} [exchangeRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
      */
-    postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>>;
+    postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthTokens>>;
 
     /**
      */
-    postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens>;
+    postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthTokens>;
 
     /**
      * 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {RestControllerAuthControllerLogoutRequest} [restControllerAuthControllerLogoutRequest] 
+     * @param {LogoutRequest} [logoutRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
@@ -114,7 +114,7 @@ export interface AuthControllerApiInterface {
 
     /**
      * 
-     * @param {RestControllerAuthControllerRefreshRequest} restControllerAuthControllerRefreshRequest 
+     * @param {RefreshRequest} refreshRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -122,11 +122,11 @@ export interface AuthControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AuthControllerApiInterface
      */
-    postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>>;
+    postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthTokens>>;
 
     /**
      */
-    postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens>;
+    postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthTokens>;
 
 }
 
@@ -137,7 +137,7 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
 
     /**
      */
-    async postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>> {
+    async postApiV1AuthExchangeRaw(requestParameters: PostApiV1AuthExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthTokens>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -168,15 +168,15 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAuthControllerExchangeRequestToJSON(requestParameters['restControllerAuthControllerExchangeRequest']),
+            body: ExchangeRequestToJSON(requestParameters['exchangeRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AuthAuthTokensFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthTokensFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens> {
+    async postApiV1AuthExchange(requestParameters: PostApiV1AuthExchangeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthTokens> {
         const response = await this.postApiV1AuthExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -214,7 +214,7 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAuthControllerLogoutRequestToJSON(requestParameters['restControllerAuthControllerLogoutRequest']),
+            body: LogoutRequestToJSON(requestParameters['logoutRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
@@ -272,11 +272,11 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
 
     /**
      */
-    async postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthAuthTokens>> {
-        if (requestParameters['restControllerAuthControllerRefreshRequest'] == null) {
+    async postApiV1AuthRefreshRaw(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthTokens>> {
+        if (requestParameters['refreshRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAuthControllerRefreshRequest',
-                'Required parameter "restControllerAuthControllerRefreshRequest" was null or undefined when calling postApiV1AuthRefresh().'
+                'refreshRequest',
+                'Required parameter "refreshRequest" was null or undefined when calling postApiV1AuthRefresh().'
             );
         }
 
@@ -310,15 +310,15 @@ export class AuthControllerApi extends runtime.BaseAPI implements AuthController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAuthControllerRefreshRequestToJSON(requestParameters['restControllerAuthControllerRefreshRequest']),
+            body: RefreshRequestToJSON(requestParameters['refreshRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AuthAuthTokensFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthTokensFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthAuthTokens> {
+    async postApiV1AuthRefresh(requestParameters: PostApiV1AuthRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthTokens> {
         const response = await this.postApiV1AuthRefreshRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -15,11 +15,11 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.AttachmentsAttachment
-import ai.youkno.edgeserversdk.models.BountyProductProductSpecificInfoPricesTierPrice
+import ai.youkno.edgeserversdk.models.Attachment
+import ai.youkno.edgeserversdk.models.BalanceCategoryInfo
 import ai.youkno.edgeserversdk.models.Price
 import ai.youkno.edgeserversdk.models.Reward
-import ai.youkno.edgeserversdk.models.ShoppingCartBalanceCategoryInfo
+import ai.youkno.edgeserversdk.models.TierPrice
 import ai.youkno.edgeserversdk.models.User
 
 import com.squareup.moshi.Json
@@ -62,8 +62,8 @@ import com.squareup.moshi.JsonClass
  * @param fastDelivery 
  * @param priceTypeAsEnum 
  * @param totalPice 
- * @param effectiveQuantity 
  * @param deliveryTypeAsEnum 
+ * @param effectiveQuantity 
  */
 
 
@@ -112,13 +112,13 @@ data class ShoppingCartProductInfo (
     val description: kotlin.String? = null,
 
     @Json(name = "attachment")
-    val attachment: AttachmentsAttachment? = null,
+    val attachment: Attachment? = null,
 
     @Json(name = "price")
     val price: Reward? = null,
 
     @Json(name = "tierPrices")
-    val tierPrices: kotlin.collections.List<BountyProductProductSpecificInfoPricesTierPrice>? = null,
+    val tierPrices: kotlin.collections.List<TierPrice>? = null,
 
     @Json(name = "priceType")
     val priceType: kotlin.String? = null,
@@ -151,7 +151,7 @@ data class ShoppingCartProductInfo (
     val weightUnit: kotlin.String? = null,
 
     @Json(name = "balances")
-    val balances: kotlin.collections.Map<kotlin.String, ShoppingCartBalanceCategoryInfo>? = null,
+    val balances: kotlin.collections.Map<kotlin.String, BalanceCategoryInfo>? = null,
 
     @Json(name = "addedAt")
     val addedAt: kotlin.Long? = null,
@@ -171,11 +171,11 @@ data class ShoppingCartProductInfo (
     @Json(name = "totalPice")
     val totalPice: Reward? = null,
 
-    @Json(name = "effectiveQuantity")
-    val effectiveQuantity: kotlin.Double? = null,
-
     @Json(name = "deliveryTypeAsEnum")
-    val deliveryTypeAsEnum: ShoppingCartProductInfo.DeliveryTypeAsEnum? = null
+    val deliveryTypeAsEnum: ShoppingCartProductInfo.DeliveryTypeAsEnum? = null,
+
+    @Json(name = "effectiveQuantity")
+    val effectiveQuantity: kotlin.Double? = null
 
 ) {
 

@@ -15,28 +15,26 @@
 
 import * as runtime from '../runtime';
 import type {
+  AdminCancelSubscriptionRequest,
+  ChangeSubscriptionTierRequest,
   ChangeSubscriptionTierResult,
-  RestControllerSubscriptionControllerAdminCancelSubscriptionRequest,
-  RestControllerSubscriptionControllerChangeSubscriptionTierRequest,
-  RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest,
-  ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult,
+  StartSubscriptionCheckoutRequest,
   StartSubscriptionCheckoutResult,
   SubscriptionCatalogPageView,
   SubscriptionCatalogView,
   SubscriptionMutationResult,
+  SyncResult,
   UserSubscriptionView,
 } from '../models/index';
 import {
+    AdminCancelSubscriptionRequestFromJSON,
+    AdminCancelSubscriptionRequestToJSON,
+    ChangeSubscriptionTierRequestFromJSON,
+    ChangeSubscriptionTierRequestToJSON,
     ChangeSubscriptionTierResultFromJSON,
     ChangeSubscriptionTierResultToJSON,
-    RestControllerSubscriptionControllerAdminCancelSubscriptionRequestFromJSON,
-    RestControllerSubscriptionControllerAdminCancelSubscriptionRequestToJSON,
-    RestControllerSubscriptionControllerChangeSubscriptionTierRequestFromJSON,
-    RestControllerSubscriptionControllerChangeSubscriptionTierRequestToJSON,
-    RestControllerSubscriptionControllerStartSubscriptionCheckoutRequestFromJSON,
-    RestControllerSubscriptionControllerStartSubscriptionCheckoutRequestToJSON,
-    ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResultFromJSON,
-    ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResultToJSON,
+    StartSubscriptionCheckoutRequestFromJSON,
+    StartSubscriptionCheckoutRequestToJSON,
     StartSubscriptionCheckoutResultFromJSON,
     StartSubscriptionCheckoutResultToJSON,
     SubscriptionCatalogPageViewFromJSON,
@@ -45,6 +43,8 @@ import {
     SubscriptionCatalogViewToJSON,
     SubscriptionMutationResultFromJSON,
     SubscriptionMutationResultToJSON,
+    SyncResultFromJSON,
+    SyncResultToJSON,
     UserSubscriptionViewFromJSON,
     UserSubscriptionViewToJSON,
 } from '../models/index';
@@ -94,7 +94,7 @@ export interface PostApiV1SubscriptionsAdminBySubscriptionidCancelImmediatelyReq
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
-    restControllerSubscriptionControllerAdminCancelSubscriptionRequest?: RestControllerSubscriptionControllerAdminCancelSubscriptionRequest;
+    adminCancelSubscriptionRequest?: AdminCancelSubscriptionRequest;
 }
 
 export interface PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest {
@@ -120,7 +120,7 @@ export interface PostApiV1SubscriptionsMeBySubscriptionidCancelAtPeriodEndReques
 
 export interface PostApiV1SubscriptionsMeBySubscriptionidChangeTierRequest {
     subscriptionId: string;
-    restControllerSubscriptionControllerChangeSubscriptionTierRequest: RestControllerSubscriptionControllerChangeSubscriptionTierRequest;
+    changeSubscriptionTierRequest: ChangeSubscriptionTierRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -134,7 +134,7 @@ export interface PostApiV1SubscriptionsMeBySubscriptionidReverseCancelRequest {
 }
 
 export interface PostApiV1SubscriptionsMeCheckoutRequest {
-    restControllerSubscriptionControllerStartSubscriptionCheckoutRequest: RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest;
+    startSubscriptionCheckoutRequest: StartSubscriptionCheckoutRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -247,7 +247,7 @@ export interface SubscriptionControllerApiInterface {
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
-     * @param {RestControllerSubscriptionControllerAdminCancelSubscriptionRequest} [restControllerSubscriptionControllerAdminCancelSubscriptionRequest] 
+     * @param {AdminCancelSubscriptionRequest} [adminCancelSubscriptionRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SubscriptionControllerApiInterface
@@ -268,11 +268,11 @@ export interface SubscriptionControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionControllerApiInterface
      */
-    postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>>;
+    postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SyncResult>>;
 
     /**
      */
-    postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>;
+    postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SyncResult>;
 
     /**
      * 
@@ -284,11 +284,11 @@ export interface SubscriptionControllerApiInterface {
      * @throws {RequiredError}
      * @memberof SubscriptionControllerApiInterface
      */
-    postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>>>;
+    postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SyncResult>>>;
 
     /**
      */
-    postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>>;
+    postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SyncResult>>;
 
     /**
      * 
@@ -309,7 +309,7 @@ export interface SubscriptionControllerApiInterface {
     /**
      * 
      * @param {string} subscriptionId 
-     * @param {RestControllerSubscriptionControllerChangeSubscriptionTierRequest} restControllerSubscriptionControllerChangeSubscriptionTierRequest 
+     * @param {ChangeSubscriptionTierRequest} changeSubscriptionTierRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -341,7 +341,7 @@ export interface SubscriptionControllerApiInterface {
 
     /**
      * 
-     * @param {RestControllerSubscriptionControllerStartSubscriptionCheckoutRequest} restControllerSubscriptionControllerStartSubscriptionCheckoutRequest 
+     * @param {StartSubscriptionCheckoutRequest} startSubscriptionCheckoutRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -693,7 +693,7 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionControllerAdminCancelSubscriptionRequestToJSON(requestParameters['restControllerSubscriptionControllerAdminCancelSubscriptionRequest']),
+            body: AdminCancelSubscriptionRequestToJSON(requestParameters['adminCancelSubscriptionRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionMutationResultFromJSON(jsonValue));
@@ -708,7 +708,7 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
 
     /**
      */
-    async postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>> {
+    async postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SyncResult>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -747,19 +747,19 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SyncResultFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult> {
+    async postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SyncResult> {
         const response = await this.postApiV1SubscriptionsAdminBySubscriptionidRebuildEntitlementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>>> {
+    async postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRaw(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SyncResult>>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -798,12 +798,12 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResultFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SyncResultFromJSON));
     }
 
     /**
      */
-    async postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ServiceSubscriptionsSubscriptionEntitlementSyncServiceSyncResult>> {
+    async postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlements(requestParameters: PostApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SyncResult>> {
         const response = await this.postApiV1SubscriptionsAdminUsersByUseridRebuildEntitlementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -869,10 +869,10 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             );
         }
 
-        if (requestParameters['restControllerSubscriptionControllerChangeSubscriptionTierRequest'] == null) {
+        if (requestParameters['changeSubscriptionTierRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionControllerChangeSubscriptionTierRequest',
-                'Required parameter "restControllerSubscriptionControllerChangeSubscriptionTierRequest" was null or undefined when calling postApiV1SubscriptionsMeBySubscriptionidChangeTier().'
+                'changeSubscriptionTierRequest',
+                'Required parameter "changeSubscriptionTierRequest" was null or undefined when calling postApiV1SubscriptionsMeBySubscriptionidChangeTier().'
             );
         }
 
@@ -907,7 +907,7 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionControllerChangeSubscriptionTierRequestToJSON(requestParameters['restControllerSubscriptionControllerChangeSubscriptionTierRequest']),
+            body: ChangeSubscriptionTierRequestToJSON(requestParameters['changeSubscriptionTierRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeSubscriptionTierResultFromJSON(jsonValue));
@@ -974,10 +974,10 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
     /**
      */
     async postApiV1SubscriptionsMeCheckoutRaw(requestParameters: PostApiV1SubscriptionsMeCheckoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartSubscriptionCheckoutResult>> {
-        if (requestParameters['restControllerSubscriptionControllerStartSubscriptionCheckoutRequest'] == null) {
+        if (requestParameters['startSubscriptionCheckoutRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerSubscriptionControllerStartSubscriptionCheckoutRequest',
-                'Required parameter "restControllerSubscriptionControllerStartSubscriptionCheckoutRequest" was null or undefined when calling postApiV1SubscriptionsMeCheckout().'
+                'startSubscriptionCheckoutRequest',
+                'Required parameter "startSubscriptionCheckoutRequest" was null or undefined when calling postApiV1SubscriptionsMeCheckout().'
             );
         }
 
@@ -1011,7 +1011,7 @@ export class SubscriptionControllerApi extends runtime.BaseAPI implements Subscr
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerSubscriptionControllerStartSubscriptionCheckoutRequestToJSON(requestParameters['restControllerSubscriptionControllerStartSubscriptionCheckoutRequest']),
+            body: StartSubscriptionCheckoutRequestToJSON(requestParameters['startSubscriptionCheckoutRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StartSubscriptionCheckoutResultFromJSON(jsonValue));

@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct Sponsorship: Codable, JSONEncodable, Hashable {
 
-    public var sponsors: [String: SponsorshipSponsor]?
+    public var sponsors: [String: Sponsor]?
 
-    public init(sponsors: [String: SponsorshipSponsor]? = nil) {
+    public init(sponsors: [String: Sponsor]? = nil) {
         self.sponsors = sponsors
     }
 

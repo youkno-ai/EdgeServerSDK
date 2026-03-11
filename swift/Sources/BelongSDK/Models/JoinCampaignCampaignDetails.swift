@@ -13,9 +13,9 @@ import AnyCodable
 public struct JoinCampaignCampaignDetails: Codable, JSONEncodable, Hashable {
 
     public var bountyIds: [String]?
-    public var infos: [JoinCampaignIndirectInfo]?
+    public var infos: [IndirectInfo]?
 
-    public init(bountyIds: [String]? = nil, infos: [JoinCampaignIndirectInfo]? = nil) {
+    public init(bountyIds: [String]? = nil, infos: [IndirectInfo]? = nil) {
         self.bountyIds = bountyIds
         self.infos = infos
     }

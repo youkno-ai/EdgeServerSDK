@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SeriesInfoDisplayInfo } from './SeriesInfoDisplayInfo';
+import type { DisplayInfo } from './DisplayInfo';
 import {
-    SeriesInfoDisplayInfoFromJSON,
-    SeriesInfoDisplayInfoFromJSONTyped,
-    SeriesInfoDisplayInfoToJSON,
-    SeriesInfoDisplayInfoToJSONTyped,
-} from './SeriesInfoDisplayInfo';
+    DisplayInfoFromJSON,
+    DisplayInfoFromJSONTyped,
+    DisplayInfoToJSON,
+    DisplayInfoToJSONTyped,
+} from './DisplayInfo';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface SeriesInfoMetaInfo {
     /**
      * 
-     * @type {{ [key: string]: SeriesInfoDisplayInfo; }}
+     * @type {{ [key: string]: DisplayInfo; }}
      * @memberof SeriesInfoMetaInfo
      */
-    displayInfos?: { [key: string]: SeriesInfoDisplayInfo; };
+    displayInfos?: { [key: string]: DisplayInfo; };
 }
 
 /**
@@ -52,7 +52,7 @@ export function SeriesInfoMetaInfoFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'displayInfos': json['displayInfos'] == null ? undefined : (mapValues(json['displayInfos'], SeriesInfoDisplayInfoFromJSON)),
+        'displayInfos': json['displayInfos'] == null ? undefined : (mapValues(json['displayInfos'], DisplayInfoFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function SeriesInfoMetaInfoToJSONTyped(value?: SeriesInfoMetaInfo | null,
 
     return {
         
-        'displayInfos': value['displayInfos'] == null ? undefined : (mapValues(value['displayInfos'], SeriesInfoDisplayInfoToJSON)),
+        'displayInfos': value['displayInfos'] == null ? undefined : (mapValues(value['displayInfos'], DisplayInfoToJSON)),
     };
 }
 

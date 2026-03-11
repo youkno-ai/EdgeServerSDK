@@ -15,14 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  EdgeApiDataPageListsListDef,
   ListsListDef,
+  ListsListDef2,
 } from '../models/index';
 import {
-    EdgeApiDataPageListsListDefFromJSON,
-    EdgeApiDataPageListsListDefToJSON,
     ListsListDefFromJSON,
     ListsListDefToJSON,
+    ListsListDef2FromJSON,
+    ListsListDef2ToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1ListsByListidByScopenameRequest {
@@ -50,7 +50,7 @@ export interface GetApiV1ListsByScopenameRequest {
 
 export interface PostApiV1ListsByScopenameRequest {
     scopeName: string;
-    listsListDef: ListsListDef;
+    listsListDef2: ListsListDef2;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -59,7 +59,7 @@ export interface PostApiV1ListsByScopenameRequest {
 export interface PutApiV1ListsByListidByScopenameRequest {
     listId: string;
     scopeName: string;
-    listsListDef: ListsListDef;
+    listsListDef2: ListsListDef2;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -100,11 +100,11 @@ export interface ListControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ListControllerApiInterface
      */
-    getApiV1ListsByListidByScopenameRaw(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>>;
+    getApiV1ListsByListidByScopenameRaw(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>>;
 
     /**
      */
-    getApiV1ListsByListidByScopename(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef>;
+    getApiV1ListsByListidByScopename(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2>;
 
     /**
      * 
@@ -116,16 +116,16 @@ export interface ListControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ListControllerApiInterface
      */
-    getApiV1ListsByScopenameRaw(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageListsListDef>>;
+    getApiV1ListsByScopenameRaw(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>>;
 
     /**
      */
-    getApiV1ListsByScopename(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageListsListDef>;
+    getApiV1ListsByScopename(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef>;
 
     /**
      * 
      * @param {string} scopeName 
-     * @param {ListsListDef} listsListDef 
+     * @param {ListsListDef2} listsListDef2 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -133,17 +133,17 @@ export interface ListControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ListControllerApiInterface
      */
-    postApiV1ListsByScopenameRaw(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>>;
+    postApiV1ListsByScopenameRaw(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>>;
 
     /**
      */
-    postApiV1ListsByScopename(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef>;
+    postApiV1ListsByScopename(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2>;
 
     /**
      * 
      * @param {string} listId 
      * @param {string} scopeName 
-     * @param {ListsListDef} listsListDef 
+     * @param {ListsListDef2} listsListDef2 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -151,11 +151,11 @@ export interface ListControllerApiInterface {
      * @throws {RequiredError}
      * @memberof ListControllerApiInterface
      */
-    putApiV1ListsByListidByScopenameRaw(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>>;
+    putApiV1ListsByListidByScopenameRaw(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>>;
 
     /**
      */
-    putApiV1ListsByListidByScopename(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef>;
+    putApiV1ListsByListidByScopename(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2>;
 
 }
 
@@ -225,7 +225,7 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
 
     /**
      */
-    async getApiV1ListsByListidByScopenameRaw(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>> {
+    async getApiV1ListsByListidByScopenameRaw(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
@@ -272,19 +272,19 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDef2FromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ListsByListidByScopename(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef> {
+    async getApiV1ListsByListidByScopename(requestParameters: GetApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2> {
         const response = await this.getApiV1ListsByListidByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1ListsByScopenameRaw(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageListsListDef>> {
+    async getApiV1ListsByScopenameRaw(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -323,19 +323,19 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageListsListDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1ListsByScopename(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageListsListDef> {
+    async getApiV1ListsByScopename(requestParameters: GetApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef> {
         const response = await this.getApiV1ListsByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1ListsByScopenameRaw(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>> {
+    async postApiV1ListsByScopenameRaw(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>> {
         if (requestParameters['scopeName'] == null) {
             throw new runtime.RequiredError(
                 'scopeName',
@@ -343,10 +343,10 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             );
         }
 
-        if (requestParameters['listsListDef'] == null) {
+        if (requestParameters['listsListDef2'] == null) {
             throw new runtime.RequiredError(
-                'listsListDef',
-                'Required parameter "listsListDef" was null or undefined when calling postApiV1ListsByScopename().'
+                'listsListDef2',
+                'Required parameter "listsListDef2" was null or undefined when calling postApiV1ListsByScopename().'
             );
         }
 
@@ -381,22 +381,22 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ListsListDefToJSON(requestParameters['listsListDef']),
+            body: ListsListDef2ToJSON(requestParameters['listsListDef2']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDef2FromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1ListsByScopename(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef> {
+    async postApiV1ListsByScopename(requestParameters: PostApiV1ListsByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2> {
         const response = await this.postApiV1ListsByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async putApiV1ListsByListidByScopenameRaw(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef>> {
+    async putApiV1ListsByListidByScopenameRaw(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListsListDef2>> {
         if (requestParameters['listId'] == null) {
             throw new runtime.RequiredError(
                 'listId',
@@ -411,10 +411,10 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             );
         }
 
-        if (requestParameters['listsListDef'] == null) {
+        if (requestParameters['listsListDef2'] == null) {
             throw new runtime.RequiredError(
-                'listsListDef',
-                'Required parameter "listsListDef" was null or undefined when calling putApiV1ListsByListidByScopename().'
+                'listsListDef2',
+                'Required parameter "listsListDef2" was null or undefined when calling putApiV1ListsByListidByScopename().'
             );
         }
 
@@ -450,15 +450,15 @@ export class ListControllerApi extends runtime.BaseAPI implements ListController
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ListsListDefToJSON(requestParameters['listsListDef']),
+            body: ListsListDef2ToJSON(requestParameters['listsListDef2']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListsListDef2FromJSON(jsonValue));
     }
 
     /**
      */
-    async putApiV1ListsByListidByScopename(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef> {
+    async putApiV1ListsByListidByScopename(requestParameters: PutApiV1ListsByListidByScopenameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListsListDef2> {
         const response = await this.putApiV1ListsByListidByScopenameRaw(requestParameters, initOverrides);
         return await response.value();
     }

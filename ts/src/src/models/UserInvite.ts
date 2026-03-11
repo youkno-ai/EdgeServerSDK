@@ -20,13 +20,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
-import type { UserInviteInviteStats } from './UserInviteInviteStats';
+import type { InviteStats } from './InviteStats';
 import {
-    UserInviteInviteStatsFromJSON,
-    UserInviteInviteStatsFromJSONTyped,
-    UserInviteInviteStatsToJSON,
-    UserInviteInviteStatsToJSONTyped,
-} from './UserInviteInviteStats';
+    InviteStatsFromJSON,
+    InviteStatsFromJSONTyped,
+    InviteStatsToJSON,
+    InviteStatsToJSONTyped,
+} from './InviteStats';
 
 /**
  * 
@@ -198,10 +198,10 @@ export interface UserInvite {
     createdAt?: number;
     /**
      * 
-     * @type {UserInviteInviteStats}
+     * @type {InviteStats}
      * @memberof UserInvite
      */
-    stats?: UserInviteInviteStats;
+    stats?: InviteStats;
 }
 
 /**
@@ -248,7 +248,7 @@ export function UserInviteFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'lastSentAt': json['lastSentAt'] == null ? undefined : json['lastSentAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'stats': json['stats'] == null ? undefined : UserInviteInviteStatsFromJSON(json['stats']),
+        'stats': json['stats'] == null ? undefined : InviteStatsFromJSON(json['stats']),
     };
 }
 
@@ -290,7 +290,7 @@ export function UserInviteToJSONTyped(value?: UserInvite | null, ignoreDiscrimin
         'lastSentAt': value['lastSentAt'],
         'updatedAt': value['updatedAt'],
         'createdAt': value['createdAt'],
-        'stats': UserInviteInviteStatsToJSON(value['stats']),
+        'stats': InviteStatsToJSON(value['stats']),
     };
 }
 

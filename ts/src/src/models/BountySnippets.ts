@@ -27,20 +27,20 @@ import {
     BountyReviewSnippetToJSON,
     BountyReviewSnippetToJSONTyped,
 } from './BountyReviewSnippet';
-import type { BountyClaimSnippet } from './BountyClaimSnippet';
+import type { ClaimSnippet } from './ClaimSnippet';
 import {
-    BountyClaimSnippetFromJSON,
-    BountyClaimSnippetFromJSONTyped,
-    BountyClaimSnippetToJSON,
-    BountyClaimSnippetToJSONTyped,
-} from './BountyClaimSnippet';
-import type { BountyChatSnippet } from './BountyChatSnippet';
+    ClaimSnippetFromJSON,
+    ClaimSnippetFromJSONTyped,
+    ClaimSnippetToJSON,
+    ClaimSnippetToJSONTyped,
+} from './ClaimSnippet';
+import type { ChatSnippet } from './ChatSnippet';
 import {
-    BountyChatSnippetFromJSON,
-    BountyChatSnippetFromJSONTyped,
-    BountyChatSnippetToJSON,
-    BountyChatSnippetToJSONTyped,
-} from './BountyChatSnippet';
+    ChatSnippetFromJSON,
+    ChatSnippetFromJSONTyped,
+    ChatSnippetToJSON,
+    ChatSnippetToJSONTyped,
+} from './ChatSnippet';
 import type { BountyRejectSnippet } from './BountyRejectSnippet';
 import {
     BountyRejectSnippetFromJSON,
@@ -57,16 +57,16 @@ import {
 export interface BountySnippets {
     /**
      * 
-     * @type {{ [key: string]: BountyChatSnippet; }}
+     * @type {{ [key: string]: ChatSnippet; }}
      * @memberof BountySnippets
      */
-    chats?: { [key: string]: BountyChatSnippet; };
+    chats?: { [key: string]: ChatSnippet; };
     /**
      * 
-     * @type {{ [key: string]: BountyClaimSnippet; }}
+     * @type {{ [key: string]: ClaimSnippet; }}
      * @memberof BountySnippets
      */
-    claims?: { [key: string]: BountyClaimSnippet; };
+    claims?: { [key: string]: ClaimSnippet; };
     /**
      * 
      * @type {{ [key: string]: BountyPaymentRecvSnippet; }}
@@ -87,16 +87,16 @@ export interface BountySnippets {
     reject?: BountyRejectSnippet;
     /**
      * 
+     * @type {ChatSnippet}
+     * @memberof BountySnippets
+     */
+    lastChatSnippet?: ChatSnippet;
+    /**
+     * 
      * @type {boolean}
      * @memberof BountySnippets
      */
     paymentReceived?: boolean;
-    /**
-     * 
-     * @type {BountyChatSnippet}
-     * @memberof BountySnippets
-     */
-    lastChatSnippet?: BountyChatSnippet;
     /**
      * 
      * @type {BountyPaymentRecvSnippet}
@@ -122,13 +122,13 @@ export function BountySnippetsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'chats': json['chats'] == null ? undefined : (mapValues(json['chats'], BountyChatSnippetFromJSON)),
-        'claims': json['claims'] == null ? undefined : (mapValues(json['claims'], BountyClaimSnippetFromJSON)),
+        'chats': json['chats'] == null ? undefined : (mapValues(json['chats'], ChatSnippetFromJSON)),
+        'claims': json['claims'] == null ? undefined : (mapValues(json['claims'], ClaimSnippetFromJSON)),
         'paymentsRecv': json['paymentsRecv'] == null ? undefined : (mapValues(json['paymentsRecv'], BountyPaymentRecvSnippetFromJSON)),
         'review': json['review'] == null ? undefined : BountyReviewSnippetFromJSON(json['review']),
         'reject': json['reject'] == null ? undefined : BountyRejectSnippetFromJSON(json['reject']),
+        'lastChatSnippet': json['lastChatSnippet'] == null ? undefined : ChatSnippetFromJSON(json['lastChatSnippet']),
         'paymentReceived': json['paymentReceived'] == null ? undefined : json['paymentReceived'],
-        'lastChatSnippet': json['lastChatSnippet'] == null ? undefined : BountyChatSnippetFromJSON(json['lastChatSnippet']),
         'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyPaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
     };
 }
@@ -144,13 +144,13 @@ export function BountySnippetsToJSONTyped(value?: BountySnippets | null, ignoreD
 
     return {
         
-        'chats': value['chats'] == null ? undefined : (mapValues(value['chats'], BountyChatSnippetToJSON)),
-        'claims': value['claims'] == null ? undefined : (mapValues(value['claims'], BountyClaimSnippetToJSON)),
+        'chats': value['chats'] == null ? undefined : (mapValues(value['chats'], ChatSnippetToJSON)),
+        'claims': value['claims'] == null ? undefined : (mapValues(value['claims'], ClaimSnippetToJSON)),
         'paymentsRecv': value['paymentsRecv'] == null ? undefined : (mapValues(value['paymentsRecv'], BountyPaymentRecvSnippetToJSON)),
         'review': BountyReviewSnippetToJSON(value['review']),
         'reject': BountyRejectSnippetToJSON(value['reject']),
+        'lastChatSnippet': ChatSnippetToJSON(value['lastChatSnippet']),
         'paymentReceived': value['paymentReceived'],
-        'lastChatSnippet': BountyChatSnippetToJSON(value['lastChatSnippet']),
         'firstPaymentRecv': BountyPaymentRecvSnippetToJSON(value['firstPaymentRecv']),
     };
 }

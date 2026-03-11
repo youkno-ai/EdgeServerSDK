@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataInventoryResp2 } from './PosApiDataInventoryResp2';
+import {
+    PosApiDataInventoryResp2FromJSON,
+    PosApiDataInventoryResp2FromJSONTyped,
+    PosApiDataInventoryResp2ToJSON,
+    PosApiDataInventoryResp2ToJSONTyped,
+} from './PosApiDataInventoryResp2';
+
 /**
  * 
  * @export
@@ -21,130 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataInventoryResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataInventoryResp
      */
-    itemId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    itemName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    locationId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    batchId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    batchName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    status?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    brand?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    barcodeId?: string;
+    totalCount?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataInventoryResp
      */
-    thc?: number;
+    start?: number;
     /**
      * 
      * @type {number}
      * @memberof PosApiDataInventoryResp
      */
-    thcMg?: number;
+    length?: number;
     /**
      * 
-     * @type {number}
+     * @type {boolean}
      * @memberof PosApiDataInventoryResp
      */
-    cbd?: number;
+    hasNextPage?: boolean;
     /**
      * 
-     * @type {number}
+     * @type {Array<PosApiDataInventoryResp2>}
      * @memberof PosApiDataInventoryResp
      */
-    cbdMg?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    areaId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    areaName?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryResp
-     */
-    onHand?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryResp
-     */
-    available?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    uom?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryResp
-     */
-    expireDate?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryResp
-     */
-    allOnHandPerLocation?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PosApiDataInventoryResp
-     */
-    locationLowInventoryThresholdBatch?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof PosApiDataInventoryResp
-     */
-    areaPath?: string;
+    list?: Array<PosApiDataInventoryResp2>;
 }
 
 /**
@@ -164,27 +76,11 @@ export function PosApiDataInventoryRespFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'itemId': json['itemId'] == null ? undefined : json['itemId'],
-        'itemName': json['itemName'] == null ? undefined : json['itemName'],
-        'locationId': json['locationId'] == null ? undefined : json['locationId'],
-        'batchId': json['batchId'] == null ? undefined : json['batchId'],
-        'batchName': json['batchName'] == null ? undefined : json['batchName'],
-        'status': json['status'] == null ? undefined : json['status'],
-        'brand': json['brand'] == null ? undefined : json['brand'],
-        'barcodeId': json['barcodeId'] == null ? undefined : json['barcodeId'],
-        'thc': json['thc'] == null ? undefined : json['thc'],
-        'thcMg': json['thcMg'] == null ? undefined : json['thcMg'],
-        'cbd': json['cbd'] == null ? undefined : json['cbd'],
-        'cbdMg': json['cbdMg'] == null ? undefined : json['cbdMg'],
-        'areaId': json['areaId'] == null ? undefined : json['areaId'],
-        'areaName': json['areaName'] == null ? undefined : json['areaName'],
-        'onHand': json['onHand'] == null ? undefined : json['onHand'],
-        'available': json['available'] == null ? undefined : json['available'],
-        'uom': json['uom'] == null ? undefined : json['uom'],
-        'expireDate': json['expireDate'] == null ? undefined : json['expireDate'],
-        'allOnHandPerLocation': json['allOnHandPerLocation'] == null ? undefined : json['allOnHandPerLocation'],
-        'locationLowInventoryThresholdBatch': json['locationLowInventoryThresholdBatch'] == null ? undefined : json['locationLowInventoryThresholdBatch'],
-        'areaPath': json['areaPath'] == null ? undefined : json['areaPath'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataInventoryResp2FromJSON)),
     };
 }
 
@@ -199,27 +95,11 @@ export function PosApiDataInventoryRespToJSONTyped(value?: PosApiDataInventoryRe
 
     return {
         
-        'itemId': value['itemId'],
-        'itemName': value['itemName'],
-        'locationId': value['locationId'],
-        'batchId': value['batchId'],
-        'batchName': value['batchName'],
-        'status': value['status'],
-        'brand': value['brand'],
-        'barcodeId': value['barcodeId'],
-        'thc': value['thc'],
-        'thcMg': value['thcMg'],
-        'cbd': value['cbd'],
-        'cbdMg': value['cbdMg'],
-        'areaId': value['areaId'],
-        'areaName': value['areaName'],
-        'onHand': value['onHand'],
-        'available': value['available'],
-        'uom': value['uom'],
-        'expireDate': value['expireDate'],
-        'allOnHandPerLocation': value['allOnHandPerLocation'],
-        'locationLowInventoryThresholdBatch': value['locationLowInventoryThresholdBatch'],
-        'areaPath': value['areaPath'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataInventoryResp2ToJSON)),
     };
 }
 

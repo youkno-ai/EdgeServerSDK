@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyResponseChoice
+import ai.youkno.edgeserversdk.models.Choice
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class BountyResponseSurveyAnswers (
 
     @Json(name = "choices")
-    val choices: kotlin.collections.Map<kotlin.String, BountyResponseChoice>? = null
+    val choices: kotlin.collections.Map<kotlin.String, Choice>? = null
 
 ) {
 

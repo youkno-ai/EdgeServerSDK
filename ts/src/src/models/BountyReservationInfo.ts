@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyReservationInfoSpending } from './BountyReservationInfoSpending';
+import type { Phone } from './Phone';
 import {
-    BountyReservationInfoSpendingFromJSON,
-    BountyReservationInfoSpendingFromJSONTyped,
-    BountyReservationInfoSpendingToJSON,
-    BountyReservationInfoSpendingToJSONTyped,
-} from './BountyReservationInfoSpending';
-import type { BountyReservationInfoPhone } from './BountyReservationInfoPhone';
+    PhoneFromJSON,
+    PhoneFromJSONTyped,
+    PhoneToJSON,
+    PhoneToJSONTyped,
+} from './Phone';
+import type { Spending } from './Spending';
 import {
-    BountyReservationInfoPhoneFromJSON,
-    BountyReservationInfoPhoneFromJSONTyped,
-    BountyReservationInfoPhoneToJSON,
-    BountyReservationInfoPhoneToJSONTyped,
-} from './BountyReservationInfoPhone';
+    SpendingFromJSON,
+    SpendingFromJSONTyped,
+    SpendingToJSON,
+    SpendingToJSONTyped,
+} from './Spending';
 
 /**
  * 
@@ -72,10 +72,10 @@ export interface BountyReservationInfo {
     email?: string;
     /**
      * 
-     * @type {BountyReservationInfoPhone}
+     * @type {Phone}
      * @memberof BountyReservationInfo
      */
-    phone?: BountyReservationInfoPhone;
+    phone?: Phone;
     /**
      * 
      * @type {string}
@@ -138,10 +138,10 @@ export interface BountyReservationInfo {
     notes?: string;
     /**
      * 
-     * @type {BountyReservationInfoSpending}
+     * @type {Spending}
      * @memberof BountyReservationInfo
      */
-    spending?: BountyReservationInfoSpending;
+    spending?: Spending;
     /**
      * 
      * @type {boolean}
@@ -173,7 +173,7 @@ export function BountyReservationInfoFromJSONTyped(json: any, ignoreDiscriminato
         'firstName': json['firstName'] == null ? undefined : json['firstName'],
         'lastName': json['lastName'] == null ? undefined : json['lastName'],
         'email': json['email'] == null ? undefined : json['email'],
-        'phone': json['phone'] == null ? undefined : BountyReservationInfoPhoneFromJSON(json['phone']),
+        'phone': json['phone'] == null ? undefined : PhoneFromJSON(json['phone']),
         'reservationAttribute': json['reservationAttribute'] == null ? undefined : json['reservationAttribute'],
         'specialRequest': json['specialRequest'] == null ? undefined : json['specialRequest'],
         'restaurantName': json['restaurantName'] == null ? undefined : json['restaurantName'],
@@ -184,7 +184,7 @@ export function BountyReservationInfoFromJSONTyped(json: any, ignoreDiscriminato
         'confirmationNumber': json['confirmationNumber'] == null ? undefined : json['confirmationNumber'],
         'message': json['message'] == null ? undefined : json['message'],
         'notes': json['notes'] == null ? undefined : json['notes'],
-        'spending': json['spending'] == null ? undefined : BountyReservationInfoSpendingFromJSON(json['spending']),
+        'spending': json['spending'] == null ? undefined : SpendingFromJSON(json['spending']),
         'validForReservation': json['validForReservation'] == null ? undefined : json['validForReservation'],
     };
 }
@@ -206,7 +206,7 @@ export function BountyReservationInfoToJSONTyped(value?: BountyReservationInfo |
         'firstName': value['firstName'],
         'lastName': value['lastName'],
         'email': value['email'],
-        'phone': BountyReservationInfoPhoneToJSON(value['phone']),
+        'phone': PhoneToJSON(value['phone']),
         'reservationAttribute': value['reservationAttribute'],
         'specialRequest': value['specialRequest'],
         'restaurantName': value['restaurantName'],
@@ -217,7 +217,7 @@ export function BountyReservationInfoToJSONTyped(value?: BountyReservationInfo |
         'confirmationNumber': value['confirmationNumber'],
         'message': value['message'],
         'notes': value['notes'],
-        'spending': BountyReservationInfoSpendingToJSON(value['spending']),
+        'spending': SpendingToJSON(value['spending']),
         'validForReservation': value['validForReservation'],
     };
 }

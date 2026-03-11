@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.ListsListDef
+import ai.youkno.edgeserversdk.models.ListsListDef2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class Lists (
 
     @Json(name = "lists")
-    val lists: kotlin.collections.Map<kotlin.String, ListsListDef>? = null
+    val lists: kotlin.collections.Map<kotlin.String, ListsListDef2>? = null
 
 ) {
 

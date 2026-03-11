@@ -101,15 +101,15 @@ open class AttachmentControllerAPI {
 
      - parameter anchorType: (path)  
      - parameter anchorId: (path)  
-     - parameter attachmentsAttachment: (body)  
+     - parameter attachment: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AttachmentsAttachment
+     - returns: Attachment
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1AttachmentsByAnchortypeByAnchorid(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachmentsAttachment: AttachmentsAttachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AttachmentsAttachment {
-        return try await postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachmentsAttachment: attachmentsAttachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1AttachmentsByAnchortypeByAnchorid(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Attachment {
+        return try await postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachment: attachment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -119,13 +119,13 @@ open class AttachmentControllerAPI {
        - name: JWT
      - parameter anchorType: (path)  
      - parameter anchorId: (path)  
-     - parameter attachmentsAttachment: (body)  
+     - parameter attachment: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AttachmentsAttachment> 
+     - returns: RequestBuilder<Attachment> 
      */
-    open class func postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachmentsAttachment: AttachmentsAttachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AttachmentsAttachment> {
+    open class func postApiV1AttachmentsByAnchortypeByAnchoridWithRequestBuilder(anchorType: AnchorType_postApiV1AttachmentsByAnchortypeByAnchorid, anchorId: String, attachment: Attachment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Attachment> {
         var localVariablePath = "/api/v1/attachments/{anchorType}/{anchorId}"
         let anchorTypePreEscape = "\(anchorType.rawValue)"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -134,7 +134,7 @@ open class AttachmentControllerAPI {
         let anchorIdPostEscape = anchorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{anchorId}", with: anchorIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentsAttachment)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachment)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -147,7 +147,7 @@ open class AttachmentControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AttachmentsAttachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Attachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

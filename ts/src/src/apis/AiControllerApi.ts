@@ -15,170 +15,170 @@
 
 import * as runtime from '../runtime';
 import type {
-  AiBadgeBadgeGeneratorInput,
-  AiStickersStickerCollectionGeneratorInput,
-  RestControllerAIControllerAiGeneratedEntitiesStatus,
-  RestControllerAIControllerBadgeGeneratorStatus,
-  RestControllerAIControllerBountyGenerationCleanupResponse,
-  RestControllerAIControllerBountyGenerationStatus,
-  RestControllerAIControllerCategoryGenerationCleanupResponse,
-  RestControllerAIControllerCategoryGeneratorStatus,
-  RestControllerAIControllerCategoryTreeGenerationCleanupResponse,
-  RestControllerAIControllerCategoryTreeGeneratorStatus,
-  RestControllerAIControllerChatSimulationCleanupResponse,
-  RestControllerAIControllerChatSimulationStatus,
-  RestControllerAIControllerCompanyBatchGenerationCleanupResponse,
-  RestControllerAIControllerCompanyBatchGenerationStatus,
-  RestControllerAIControllerDemoFeedSeedingCleanupResponse,
-  RestControllerAIControllerDemoFeedSeedingStatus,
-  RestControllerAIControllerMenuGenerationCleanupResponse,
-  RestControllerAIControllerMenuGeneratorStatus,
-  RestControllerAIControllerProductGenerationCleanupResponse,
-  RestControllerAIControllerProductGeneratorStatus,
-  RestControllerAIControllerStartBadgeGenerationResponse,
-  RestControllerAIControllerStartBountyGenerationRequest,
-  RestControllerAIControllerStartBountyGenerationResponse,
-  RestControllerAIControllerStartCategoryGenerationRequest,
-  RestControllerAIControllerStartCategoryGenerationResponse,
-  RestControllerAIControllerStartCategoryTreeGenerationRequest,
-  RestControllerAIControllerStartCategoryTreeGenerationResponse,
-  RestControllerAIControllerStartChatSimulationRequest,
-  RestControllerAIControllerStartChatSimulationResponse,
-  RestControllerAIControllerStartCompanyBatchGenerationRequest,
-  RestControllerAIControllerStartCompanyBatchGenerationResponse,
-  RestControllerAIControllerStartDemoFeedSeedingRequest,
-  RestControllerAIControllerStartDemoFeedSeedingResponse,
-  RestControllerAIControllerStartFullCatalogGenerationRequest,
-  RestControllerAIControllerStartFullCatalogGenerationResponse,
-  RestControllerAIControllerStartMenuGenerationRequest,
-  RestControllerAIControllerStartMenuGenerationResponse,
-  RestControllerAIControllerStartProductGenerationRequest,
-  RestControllerAIControllerStartProductGenerationResponse,
-  RestControllerAIControllerStartStickerGenerationResponse,
-  RestControllerAIControllerStartUserAvatarGenerationRequest,
-  RestControllerAIControllerStartUserAvatarGenerationResponse,
-  RestControllerAIControllerStartUserBatchGenerationRequest,
-  RestControllerAIControllerStartUserBatchGenerationResponse,
-  RestControllerAIControllerStartUserCoverGenerationRequest,
-  RestControllerAIControllerStartUserCoverGenerationResponse,
-  RestControllerAIControllerStickerCollectionGeneratorStatus,
-  RestControllerAIControllerStickerGeneratorMeta,
-  RestControllerAIControllerUserAvatarGenerationCleanupResponse,
-  RestControllerAIControllerUserAvatarGenerationStatus,
-  RestControllerAIControllerUserBatchGenerationCleanupResponse,
-  RestControllerAIControllerUserBatchGenerationStatus,
-  RestControllerAIControllerUserCoverGenerationCleanupResponse,
-  RestControllerAIControllerUserCoverGenerationStatus,
+  AiGeneratedEntitiesStatus,
+  BadgeGeneratorInput,
+  BadgeGeneratorStatus,
+  BountyGenerationCleanupResponse,
+  BountyGenerationStatus,
+  CategoryGenerationCleanupResponse,
+  CategoryGeneratorStatus,
+  CategoryTreeGenerationCleanupResponse,
+  CategoryTreeGeneratorStatus,
+  ChatSimulationCleanupResponse,
+  ChatSimulationStatus,
+  CompanyBatchGenerationCleanupResponse,
+  CompanyBatchGenerationStatus,
+  DemoFeedSeedingCleanupResponse,
+  DemoFeedSeedingStatus,
+  MenuGenerationCleanupResponse,
+  MenuGeneratorStatus,
+  ProductGenerationCleanupResponse,
+  ProductGeneratorStatus,
+  StartBadgeGenerationResponse,
+  StartBountyGenerationRequest,
+  StartBountyGenerationResponse,
+  StartCategoryGenerationRequest,
+  StartCategoryGenerationResponse,
+  StartCategoryTreeGenerationRequest,
+  StartCategoryTreeGenerationResponse,
+  StartChatSimulationRequest,
+  StartChatSimulationResponse,
+  StartCompanyBatchGenerationRequest,
+  StartCompanyBatchGenerationResponse,
+  StartDemoFeedSeedingRequest,
+  StartDemoFeedSeedingResponse,
+  StartFullCatalogGenerationRequest,
+  StartFullCatalogGenerationResponse,
+  StartMenuGenerationRequest,
+  StartMenuGenerationResponse,
+  StartProductGenerationRequest,
+  StartProductGenerationResponse,
+  StartStickerGenerationResponse,
+  StartUserAvatarGenerationRequest,
+  StartUserAvatarGenerationResponse,
+  StartUserBatchGenerationRequest,
+  StartUserBatchGenerationResponse,
+  StartUserCoverGenerationRequest,
+  StartUserCoverGenerationResponse,
+  StickerCollectionGeneratorInput,
+  StickerCollectionGeneratorStatus,
+  StickerGeneratorMeta,
+  UserAvatarGenerationCleanupResponse,
+  UserAvatarGenerationStatus,
+  UserBatchGenerationCleanupResponse,
+  UserBatchGenerationStatus,
+  UserCoverGenerationCleanupResponse,
+  UserCoverGenerationStatus,
 } from '../models/index';
 import {
-    AiBadgeBadgeGeneratorInputFromJSON,
-    AiBadgeBadgeGeneratorInputToJSON,
-    AiStickersStickerCollectionGeneratorInputFromJSON,
-    AiStickersStickerCollectionGeneratorInputToJSON,
-    RestControllerAIControllerAiGeneratedEntitiesStatusFromJSON,
-    RestControllerAIControllerAiGeneratedEntitiesStatusToJSON,
-    RestControllerAIControllerBadgeGeneratorStatusFromJSON,
-    RestControllerAIControllerBadgeGeneratorStatusToJSON,
-    RestControllerAIControllerBountyGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerBountyGenerationCleanupResponseToJSON,
-    RestControllerAIControllerBountyGenerationStatusFromJSON,
-    RestControllerAIControllerBountyGenerationStatusToJSON,
-    RestControllerAIControllerCategoryGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerCategoryGenerationCleanupResponseToJSON,
-    RestControllerAIControllerCategoryGeneratorStatusFromJSON,
-    RestControllerAIControllerCategoryGeneratorStatusToJSON,
-    RestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerCategoryTreeGenerationCleanupResponseToJSON,
-    RestControllerAIControllerCategoryTreeGeneratorStatusFromJSON,
-    RestControllerAIControllerCategoryTreeGeneratorStatusToJSON,
-    RestControllerAIControllerChatSimulationCleanupResponseFromJSON,
-    RestControllerAIControllerChatSimulationCleanupResponseToJSON,
-    RestControllerAIControllerChatSimulationStatusFromJSON,
-    RestControllerAIControllerChatSimulationStatusToJSON,
-    RestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerCompanyBatchGenerationCleanupResponseToJSON,
-    RestControllerAIControllerCompanyBatchGenerationStatusFromJSON,
-    RestControllerAIControllerCompanyBatchGenerationStatusToJSON,
-    RestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON,
-    RestControllerAIControllerDemoFeedSeedingCleanupResponseToJSON,
-    RestControllerAIControllerDemoFeedSeedingStatusFromJSON,
-    RestControllerAIControllerDemoFeedSeedingStatusToJSON,
-    RestControllerAIControllerMenuGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerMenuGenerationCleanupResponseToJSON,
-    RestControllerAIControllerMenuGeneratorStatusFromJSON,
-    RestControllerAIControllerMenuGeneratorStatusToJSON,
-    RestControllerAIControllerProductGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerProductGenerationCleanupResponseToJSON,
-    RestControllerAIControllerProductGeneratorStatusFromJSON,
-    RestControllerAIControllerProductGeneratorStatusToJSON,
-    RestControllerAIControllerStartBadgeGenerationResponseFromJSON,
-    RestControllerAIControllerStartBadgeGenerationResponseToJSON,
-    RestControllerAIControllerStartBountyGenerationRequestFromJSON,
-    RestControllerAIControllerStartBountyGenerationRequestToJSON,
-    RestControllerAIControllerStartBountyGenerationResponseFromJSON,
-    RestControllerAIControllerStartBountyGenerationResponseToJSON,
-    RestControllerAIControllerStartCategoryGenerationRequestFromJSON,
-    RestControllerAIControllerStartCategoryGenerationRequestToJSON,
-    RestControllerAIControllerStartCategoryGenerationResponseFromJSON,
-    RestControllerAIControllerStartCategoryGenerationResponseToJSON,
-    RestControllerAIControllerStartCategoryTreeGenerationRequestFromJSON,
-    RestControllerAIControllerStartCategoryTreeGenerationRequestToJSON,
-    RestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON,
-    RestControllerAIControllerStartCategoryTreeGenerationResponseToJSON,
-    RestControllerAIControllerStartChatSimulationRequestFromJSON,
-    RestControllerAIControllerStartChatSimulationRequestToJSON,
-    RestControllerAIControllerStartChatSimulationResponseFromJSON,
-    RestControllerAIControllerStartChatSimulationResponseToJSON,
-    RestControllerAIControllerStartCompanyBatchGenerationRequestFromJSON,
-    RestControllerAIControllerStartCompanyBatchGenerationRequestToJSON,
-    RestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON,
-    RestControllerAIControllerStartCompanyBatchGenerationResponseToJSON,
-    RestControllerAIControllerStartDemoFeedSeedingRequestFromJSON,
-    RestControllerAIControllerStartDemoFeedSeedingRequestToJSON,
-    RestControllerAIControllerStartDemoFeedSeedingResponseFromJSON,
-    RestControllerAIControllerStartDemoFeedSeedingResponseToJSON,
-    RestControllerAIControllerStartFullCatalogGenerationRequestFromJSON,
-    RestControllerAIControllerStartFullCatalogGenerationRequestToJSON,
-    RestControllerAIControllerStartFullCatalogGenerationResponseFromJSON,
-    RestControllerAIControllerStartFullCatalogGenerationResponseToJSON,
-    RestControllerAIControllerStartMenuGenerationRequestFromJSON,
-    RestControllerAIControllerStartMenuGenerationRequestToJSON,
-    RestControllerAIControllerStartMenuGenerationResponseFromJSON,
-    RestControllerAIControllerStartMenuGenerationResponseToJSON,
-    RestControllerAIControllerStartProductGenerationRequestFromJSON,
-    RestControllerAIControllerStartProductGenerationRequestToJSON,
-    RestControllerAIControllerStartProductGenerationResponseFromJSON,
-    RestControllerAIControllerStartProductGenerationResponseToJSON,
-    RestControllerAIControllerStartStickerGenerationResponseFromJSON,
-    RestControllerAIControllerStartStickerGenerationResponseToJSON,
-    RestControllerAIControllerStartUserAvatarGenerationRequestFromJSON,
-    RestControllerAIControllerStartUserAvatarGenerationRequestToJSON,
-    RestControllerAIControllerStartUserAvatarGenerationResponseFromJSON,
-    RestControllerAIControllerStartUserAvatarGenerationResponseToJSON,
-    RestControllerAIControllerStartUserBatchGenerationRequestFromJSON,
-    RestControllerAIControllerStartUserBatchGenerationRequestToJSON,
-    RestControllerAIControllerStartUserBatchGenerationResponseFromJSON,
-    RestControllerAIControllerStartUserBatchGenerationResponseToJSON,
-    RestControllerAIControllerStartUserCoverGenerationRequestFromJSON,
-    RestControllerAIControllerStartUserCoverGenerationRequestToJSON,
-    RestControllerAIControllerStartUserCoverGenerationResponseFromJSON,
-    RestControllerAIControllerStartUserCoverGenerationResponseToJSON,
-    RestControllerAIControllerStickerCollectionGeneratorStatusFromJSON,
-    RestControllerAIControllerStickerCollectionGeneratorStatusToJSON,
-    RestControllerAIControllerStickerGeneratorMetaFromJSON,
-    RestControllerAIControllerStickerGeneratorMetaToJSON,
-    RestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerUserAvatarGenerationCleanupResponseToJSON,
-    RestControllerAIControllerUserAvatarGenerationStatusFromJSON,
-    RestControllerAIControllerUserAvatarGenerationStatusToJSON,
-    RestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerUserBatchGenerationCleanupResponseToJSON,
-    RestControllerAIControllerUserBatchGenerationStatusFromJSON,
-    RestControllerAIControllerUserBatchGenerationStatusToJSON,
-    RestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON,
-    RestControllerAIControllerUserCoverGenerationCleanupResponseToJSON,
-    RestControllerAIControllerUserCoverGenerationStatusFromJSON,
-    RestControllerAIControllerUserCoverGenerationStatusToJSON,
+    AiGeneratedEntitiesStatusFromJSON,
+    AiGeneratedEntitiesStatusToJSON,
+    BadgeGeneratorInputFromJSON,
+    BadgeGeneratorInputToJSON,
+    BadgeGeneratorStatusFromJSON,
+    BadgeGeneratorStatusToJSON,
+    BountyGenerationCleanupResponseFromJSON,
+    BountyGenerationCleanupResponseToJSON,
+    BountyGenerationStatusFromJSON,
+    BountyGenerationStatusToJSON,
+    CategoryGenerationCleanupResponseFromJSON,
+    CategoryGenerationCleanupResponseToJSON,
+    CategoryGeneratorStatusFromJSON,
+    CategoryGeneratorStatusToJSON,
+    CategoryTreeGenerationCleanupResponseFromJSON,
+    CategoryTreeGenerationCleanupResponseToJSON,
+    CategoryTreeGeneratorStatusFromJSON,
+    CategoryTreeGeneratorStatusToJSON,
+    ChatSimulationCleanupResponseFromJSON,
+    ChatSimulationCleanupResponseToJSON,
+    ChatSimulationStatusFromJSON,
+    ChatSimulationStatusToJSON,
+    CompanyBatchGenerationCleanupResponseFromJSON,
+    CompanyBatchGenerationCleanupResponseToJSON,
+    CompanyBatchGenerationStatusFromJSON,
+    CompanyBatchGenerationStatusToJSON,
+    DemoFeedSeedingCleanupResponseFromJSON,
+    DemoFeedSeedingCleanupResponseToJSON,
+    DemoFeedSeedingStatusFromJSON,
+    DemoFeedSeedingStatusToJSON,
+    MenuGenerationCleanupResponseFromJSON,
+    MenuGenerationCleanupResponseToJSON,
+    MenuGeneratorStatusFromJSON,
+    MenuGeneratorStatusToJSON,
+    ProductGenerationCleanupResponseFromJSON,
+    ProductGenerationCleanupResponseToJSON,
+    ProductGeneratorStatusFromJSON,
+    ProductGeneratorStatusToJSON,
+    StartBadgeGenerationResponseFromJSON,
+    StartBadgeGenerationResponseToJSON,
+    StartBountyGenerationRequestFromJSON,
+    StartBountyGenerationRequestToJSON,
+    StartBountyGenerationResponseFromJSON,
+    StartBountyGenerationResponseToJSON,
+    StartCategoryGenerationRequestFromJSON,
+    StartCategoryGenerationRequestToJSON,
+    StartCategoryGenerationResponseFromJSON,
+    StartCategoryGenerationResponseToJSON,
+    StartCategoryTreeGenerationRequestFromJSON,
+    StartCategoryTreeGenerationRequestToJSON,
+    StartCategoryTreeGenerationResponseFromJSON,
+    StartCategoryTreeGenerationResponseToJSON,
+    StartChatSimulationRequestFromJSON,
+    StartChatSimulationRequestToJSON,
+    StartChatSimulationResponseFromJSON,
+    StartChatSimulationResponseToJSON,
+    StartCompanyBatchGenerationRequestFromJSON,
+    StartCompanyBatchGenerationRequestToJSON,
+    StartCompanyBatchGenerationResponseFromJSON,
+    StartCompanyBatchGenerationResponseToJSON,
+    StartDemoFeedSeedingRequestFromJSON,
+    StartDemoFeedSeedingRequestToJSON,
+    StartDemoFeedSeedingResponseFromJSON,
+    StartDemoFeedSeedingResponseToJSON,
+    StartFullCatalogGenerationRequestFromJSON,
+    StartFullCatalogGenerationRequestToJSON,
+    StartFullCatalogGenerationResponseFromJSON,
+    StartFullCatalogGenerationResponseToJSON,
+    StartMenuGenerationRequestFromJSON,
+    StartMenuGenerationRequestToJSON,
+    StartMenuGenerationResponseFromJSON,
+    StartMenuGenerationResponseToJSON,
+    StartProductGenerationRequestFromJSON,
+    StartProductGenerationRequestToJSON,
+    StartProductGenerationResponseFromJSON,
+    StartProductGenerationResponseToJSON,
+    StartStickerGenerationResponseFromJSON,
+    StartStickerGenerationResponseToJSON,
+    StartUserAvatarGenerationRequestFromJSON,
+    StartUserAvatarGenerationRequestToJSON,
+    StartUserAvatarGenerationResponseFromJSON,
+    StartUserAvatarGenerationResponseToJSON,
+    StartUserBatchGenerationRequestFromJSON,
+    StartUserBatchGenerationRequestToJSON,
+    StartUserBatchGenerationResponseFromJSON,
+    StartUserBatchGenerationResponseToJSON,
+    StartUserCoverGenerationRequestFromJSON,
+    StartUserCoverGenerationRequestToJSON,
+    StartUserCoverGenerationResponseFromJSON,
+    StartUserCoverGenerationResponseToJSON,
+    StickerCollectionGeneratorInputFromJSON,
+    StickerCollectionGeneratorInputToJSON,
+    StickerCollectionGeneratorStatusFromJSON,
+    StickerCollectionGeneratorStatusToJSON,
+    StickerGeneratorMetaFromJSON,
+    StickerGeneratorMetaToJSON,
+    UserAvatarGenerationCleanupResponseFromJSON,
+    UserAvatarGenerationCleanupResponseToJSON,
+    UserAvatarGenerationStatusFromJSON,
+    UserAvatarGenerationStatusToJSON,
+    UserBatchGenerationCleanupResponseFromJSON,
+    UserBatchGenerationCleanupResponseToJSON,
+    UserBatchGenerationStatusFromJSON,
+    UserBatchGenerationStatusToJSON,
+    UserCoverGenerationCleanupResponseFromJSON,
+    UserCoverGenerationCleanupResponseToJSON,
+    UserCoverGenerationStatusFromJSON,
+    UserCoverGenerationStatusToJSON,
 } from '../models/index';
 
 export interface GetApiV1AiGenerateBadgeByCompanyidRequest {
@@ -286,14 +286,14 @@ export interface GetApiV1AiGenerateUsersBatchByJobidRequest {
 }
 
 export interface PostApiV1AiGenerateBadgeRequest {
-    aiBadgeBadgeGeneratorInput: AiBadgeBadgeGeneratorInput;
+    badgeGeneratorInput: BadgeGeneratorInput;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateBountyRequest {
-    restControllerAIControllerStartBountyGenerationRequest: RestControllerAIControllerStartBountyGenerationRequest;
+    startBountyGenerationRequest: StartBountyGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -308,14 +308,14 @@ export interface PostApiV1AiGenerateBountyByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCatalogRequest {
-    restControllerAIControllerStartFullCatalogGenerationRequest: RestControllerAIControllerStartFullCatalogGenerationRequest;
+    startFullCatalogGenerationRequest: StartFullCatalogGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateCategoriesRequest {
-    restControllerAIControllerStartCategoryGenerationRequest: RestControllerAIControllerStartCategoryGenerationRequest;
+    startCategoryGenerationRequest: StartCategoryGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -330,7 +330,7 @@ export interface PostApiV1AiGenerateCategoriesByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCategoryTreeRequest {
-    restControllerAIControllerStartCategoryTreeGenerationRequest: RestControllerAIControllerStartCategoryTreeGenerationRequest;
+    startCategoryTreeGenerationRequest: StartCategoryTreeGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -345,7 +345,7 @@ export interface PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateChatSimulateRequest {
-    restControllerAIControllerStartChatSimulationRequest: RestControllerAIControllerStartChatSimulationRequest;
+    startChatSimulationRequest: StartChatSimulationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -360,7 +360,7 @@ export interface PostApiV1AiGenerateChatSimulateByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateCompaniesBatchRequest {
-    restControllerAIControllerStartCompanyBatchGenerationRequest: RestControllerAIControllerStartCompanyBatchGenerationRequest;
+    startCompanyBatchGenerationRequest: StartCompanyBatchGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -375,7 +375,7 @@ export interface PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateDemoFeedRequest {
-    restControllerAIControllerStartDemoFeedSeedingRequest: RestControllerAIControllerStartDemoFeedSeedingRequest;
+    startDemoFeedSeedingRequest: StartDemoFeedSeedingRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -390,7 +390,7 @@ export interface PostApiV1AiGenerateDemoFeedByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateMenuRequest {
-    restControllerAIControllerStartMenuGenerationRequest: RestControllerAIControllerStartMenuGenerationRequest;
+    startMenuGenerationRequest: StartMenuGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -405,7 +405,7 @@ export interface PostApiV1AiGenerateMenuByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateProductsRequest {
-    restControllerAIControllerStartProductGenerationRequest: RestControllerAIControllerStartProductGenerationRequest;
+    startProductGenerationRequest: StartProductGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -420,14 +420,14 @@ export interface PostApiV1AiGenerateProductsByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateStickersRequest {
-    aiStickersStickerCollectionGeneratorInput: AiStickersStickerCollectionGeneratorInput;
+    stickerCollectionGeneratorInput: StickerCollectionGeneratorInput;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
 }
 
 export interface PostApiV1AiGenerateUserAvatarRequest {
-    restControllerAIControllerStartUserAvatarGenerationRequest: RestControllerAIControllerStartUserAvatarGenerationRequest;
+    startUserAvatarGenerationRequest: StartUserAvatarGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -441,7 +441,7 @@ export interface PostApiV1AiGenerateUserAvatarByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateUserCoverRequest {
-    restControllerAIControllerStartUserCoverGenerationRequest: RestControllerAIControllerStartUserCoverGenerationRequest;
+    startUserCoverGenerationRequest: StartUserCoverGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -455,7 +455,7 @@ export interface PostApiV1AiGenerateUserCoverByJobidCleanupRequest {
 }
 
 export interface PostApiV1AiGenerateUsersBatchRequest {
-    restControllerAIControllerStartUserBatchGenerationRequest: RestControllerAIControllerStartUserBatchGenerationRequest;
+    startUserBatchGenerationRequest: StartUserBatchGenerationRequest;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -486,11 +486,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBadgeGeneratorStatus>>;
+    getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBadgeGeneratorStatus>;
+    getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeGeneratorStatus>;
 
     /**
      * 
@@ -502,11 +502,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationStatus>>;
+    getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationStatus>;
+    getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyGenerationStatus>;
 
     /**
      * 
@@ -518,75 +518,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGeneratorStatus>>;
+    getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGeneratorStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationStatus>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingStatus>;
+    getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryGeneratorStatus>;
 
     /**
      * 
@@ -598,27 +534,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGeneratorStatus>>;
+    getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryTreeGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGeneratorStatus>;
-
-    /**
-     * 
-     * @param {string} companyId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGeneratorStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGeneratorStatus>;
+    getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryTreeGeneratorStatus>;
 
     /**
      * 
@@ -630,11 +550,91 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerAiGeneratedEntitiesStatus>>;
+    getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSimulationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerAiGeneratedEntitiesStatus>;
+    getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSimulationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyBatchGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyBatchGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DemoFeedSeedingStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DemoFeedSeedingStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MenuGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MenuGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} companyId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductGeneratorStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductGeneratorStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AiGeneratedEntitiesStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AiGeneratedEntitiesStatus>;
 
     /**
      * 
@@ -646,11 +646,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerCollectionGeneratorStatus>>;
+    getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>>;
 
     /**
      */
-    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerCollectionGeneratorStatus>;
+    getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus>;
 
     /**
      * 
@@ -661,27 +661,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerGeneratorMeta>>;
+    getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>>;
 
     /**
      */
-    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerGeneratorMeta>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationStatus>>;
-
-    /**
-     */
-    getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationStatus>;
+    getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta>;
 
     /**
      * 
@@ -693,11 +677,27 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationStatus>>;
+    getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAvatarGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationStatus>;
+    getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAvatarGenerationStatus>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCoverGenerationStatus>>;
+
+    /**
+     */
+    getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCoverGenerationStatus>;
 
     /**
      * 
@@ -709,15 +709,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationStatus>>;
+    getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserBatchGenerationStatus>>;
 
     /**
      */
-    getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationStatus>;
+    getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserBatchGenerationStatus>;
 
     /**
      * 
-     * @param {AiBadgeBadgeGeneratorInput} aiBadgeBadgeGeneratorInput 
+     * @param {BadgeGeneratorInput} badgeGeneratorInput 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -725,15 +725,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBadgeGenerationResponse>>;
+    postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartBadgeGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBadgeGenerationResponse>;
+    postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartBadgeGenerationResponse>;
 
     /**
      * 
-     * @param {RestControllerAIControllerStartBountyGenerationRequest} restControllerAIControllerStartBountyGenerationRequest 
+     * @param {StartBountyGenerationRequest} startBountyGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -741,60 +741,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBountyGenerationResponse>>;
+    postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartBountyGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBountyGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartFullCatalogGenerationRequest} restControllerAIControllerStartFullCatalogGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartFullCatalogGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartFullCatalogGenerationResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartCategoryGenerationRequest} restControllerAIControllerStartCategoryGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryGenerationResponse>;
+    postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartBountyGenerationResponse>;
 
     /**
      * 
@@ -807,15 +758,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGenerationCleanupResponse>>;
+    postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGenerationCleanupResponse>;
+    postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {RestControllerAIControllerStartCategoryTreeGenerationRequest} restControllerAIControllerStartCategoryTreeGenerationRequest 
+     * @param {StartFullCatalogGenerationRequest} startFullCatalogGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -823,16 +774,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryTreeGenerationResponse>>;
+    postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartFullCatalogGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryTreeGenerationResponse>;
+    postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartFullCatalogGenerationResponse>;
 
     /**
      * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
+     * @param {StartCategoryGenerationRequest} startCategoryGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -840,27 +790,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>>;
+    postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCategoryGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartChatSimulationRequest} restControllerAIControllerStartChatSimulationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartChatSimulationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartChatSimulationResponse>;
+    postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCategoryGenerationResponse>;
 
     /**
      * 
@@ -873,15 +807,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationCleanupResponse>>;
+    postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationCleanupResponse>;
+    postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {RestControllerAIControllerStartCompanyBatchGenerationRequest} restControllerAIControllerStartCompanyBatchGenerationRequest 
+     * @param {StartCategoryTreeGenerationRequest} startCategoryTreeGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -889,44 +823,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCompanyBatchGenerationResponse>>;
+    postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCategoryTreeGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCompanyBatchGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartDemoFeedSeedingRequest} restControllerAIControllerStartDemoFeedSeedingRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartDemoFeedSeedingResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartDemoFeedSeedingResponse>;
+    postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCategoryTreeGenerationResponse>;
 
     /**
      * 
@@ -939,15 +840,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingCleanupResponse>>;
+    postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryTreeGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingCleanupResponse>;
+    postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryTreeGenerationCleanupResponse>;
 
     /**
      * 
-     * @param {RestControllerAIControllerStartMenuGenerationRequest} restControllerAIControllerStartMenuGenerationRequest 
+     * @param {StartChatSimulationRequest} startChatSimulationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -955,44 +856,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartMenuGenerationResponse>>;
+    postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartChatSimulationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartMenuGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {boolean} [force] 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartProductGenerationRequest} restControllerAIControllerStartProductGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartProductGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartProductGenerationResponse>;
+    postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartChatSimulationResponse>;
 
     /**
      * 
@@ -1005,15 +873,15 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGenerationCleanupResponse>>;
+    postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSimulationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGenerationCleanupResponse>;
+    postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSimulationCleanupResponse>;
 
     /**
      * 
-     * @param {AiStickersStickerCollectionGeneratorInput} aiStickersStickerCollectionGeneratorInput 
+     * @param {StartCompanyBatchGenerationRequest} startCompanyBatchGenerationRequest 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -1021,91 +889,11 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartStickerGenerationResponse>>;
+    postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCompanyBatchGenerationResponse>>;
 
     /**
      */
-    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartStickerGenerationResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartUserAvatarGenerationRequest} restControllerAIControllerStartUserAvatarGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserAvatarGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserAvatarGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartUserCoverGenerationRequest} restControllerAIControllerStartUserCoverGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserCoverGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserCoverGenerationResponse>;
-
-    /**
-     * 
-     * @param {string} jobId 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationCleanupResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationCleanupResponse>;
-
-    /**
-     * 
-     * @param {RestControllerAIControllerStartUserBatchGenerationRequest} restControllerAIControllerStartUserBatchGenerationRequest 
-     * @param {string} [xEdgeAgent] 
-     * @param {string} [xEdgeState] 
-     * @param {string} [xEdgeClientId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AiControllerApiInterface
-     */
-    postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserBatchGenerationResponse>>;
-
-    /**
-     */
-    postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserBatchGenerationResponse>;
+    postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCompanyBatchGenerationResponse>;
 
     /**
      * 
@@ -1118,11 +906,223 @@ export interface AiControllerApiInterface {
      * @throws {RequiredError}
      * @memberof AiControllerApiInterface
      */
-    postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationCleanupResponse>>;
+    postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyBatchGenerationCleanupResponse>>;
 
     /**
      */
-    postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationCleanupResponse>;
+    postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyBatchGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {StartDemoFeedSeedingRequest} startDemoFeedSeedingRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartDemoFeedSeedingResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartDemoFeedSeedingResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DemoFeedSeedingCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DemoFeedSeedingCleanupResponse>;
+
+    /**
+     * 
+     * @param {StartMenuGenerationRequest} startMenuGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartMenuGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartMenuGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MenuGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MenuGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {StartProductGenerationRequest} startProductGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartProductGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartProductGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {StickerCollectionGeneratorInput} stickerCollectionGeneratorInput 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse>;
+
+    /**
+     * 
+     * @param {StartUserAvatarGenerationRequest} startUserAvatarGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserAvatarGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserAvatarGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAvatarGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAvatarGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {StartUserCoverGenerationRequest} startUserCoverGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserCoverGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserCoverGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCoverGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCoverGenerationCleanupResponse>;
+
+    /**
+     * 
+     * @param {StartUserBatchGenerationRequest} startUserBatchGenerationRequest 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserBatchGenerationResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserBatchGenerationResponse>;
+
+    /**
+     * 
+     * @param {string} jobId 
+     * @param {boolean} [force] 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AiControllerApiInterface
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserBatchGenerationCleanupResponse>>;
+
+    /**
+     */
+    postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserBatchGenerationCleanupResponse>;
 
 }
 
@@ -1133,7 +1133,7 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
 
     /**
      */
-    async getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBadgeGeneratorStatus>> {
+    async getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgeGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1172,19 +1172,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBadgeGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBadgeGeneratorStatus> {
+    async getApiV1AiGenerateBadgeByCompanyid(requestParameters: GetApiV1AiGenerateBadgeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgeGeneratorStatus> {
         const response = await this.getApiV1AiGenerateBadgeByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationStatus>> {
+    async getApiV1AiGenerateBountyByJobidRaw(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1223,19 +1223,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBountyGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationStatus> {
+    async getApiV1AiGenerateBountyByJobid(requestParameters: GetApiV1AiGenerateBountyByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyGenerationStatus> {
         const response = await this.getApiV1AiGenerateBountyByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGeneratorStatus>> {
+    async getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1274,19 +1274,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGeneratorStatus> {
+    async getApiV1AiGenerateCategoriesByCompanyid(requestParameters: GetApiV1AiGenerateCategoriesByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryGeneratorStatus> {
         const response = await this.getApiV1AiGenerateCategoriesByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGeneratorStatus>> {
+    async getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryTreeGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1325,19 +1325,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryTreeGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryTreeGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGeneratorStatus> {
+    async getApiV1AiGenerateCategoryTreeByCompanyid(requestParameters: GetApiV1AiGenerateCategoryTreeByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryTreeGeneratorStatus> {
         const response = await this.getApiV1AiGenerateCategoryTreeByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationStatus>> {
+    async getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSimulationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1376,19 +1376,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerChatSimulationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatSimulationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationStatus> {
+    async getApiV1AiGenerateChatSimulateByJobid(requestParameters: GetApiV1AiGenerateChatSimulateByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSimulationStatus> {
         const response = await this.getApiV1AiGenerateChatSimulateByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationStatus>> {
+    async getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyBatchGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1427,19 +1427,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCompanyBatchGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyBatchGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationStatus> {
+    async getApiV1AiGenerateCompaniesBatchByJobid(requestParameters: GetApiV1AiGenerateCompaniesBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyBatchGenerationStatus> {
         const response = await this.getApiV1AiGenerateCompaniesBatchByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingStatus>> {
+    async getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DemoFeedSeedingStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1478,19 +1478,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerDemoFeedSeedingStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DemoFeedSeedingStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingStatus> {
+    async getApiV1AiGenerateDemoFeedByJobid(requestParameters: GetApiV1AiGenerateDemoFeedByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DemoFeedSeedingStatus> {
         const response = await this.getApiV1AiGenerateDemoFeedByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGeneratorStatus>> {
+    async getApiV1AiGenerateMenuByCompanyidRaw(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MenuGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1529,19 +1529,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerMenuGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MenuGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGeneratorStatus> {
+    async getApiV1AiGenerateMenuByCompanyid(requestParameters: GetApiV1AiGenerateMenuByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MenuGeneratorStatus> {
         const response = await this.getApiV1AiGenerateMenuByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGeneratorStatus>> {
+    async getApiV1AiGenerateProductsByCompanyidRaw(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductGeneratorStatus>> {
         if (requestParameters['companyId'] == null) {
             throw new runtime.RequiredError(
                 'companyId',
@@ -1580,19 +1580,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerProductGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGeneratorStatus> {
+    async getApiV1AiGenerateProductsByCompanyid(requestParameters: GetApiV1AiGenerateProductsByCompanyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductGeneratorStatus> {
         const response = await this.getApiV1AiGenerateProductsByCompanyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerAiGeneratedEntitiesStatus>> {
+    async getApiV1AiGenerateProvenanceByJobidRaw(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AiGeneratedEntitiesStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1631,19 +1631,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerAiGeneratedEntitiesStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AiGeneratedEntitiesStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerAiGeneratedEntitiesStatus> {
+    async getApiV1AiGenerateProvenanceByJobid(requestParameters: GetApiV1AiGenerateProvenanceByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AiGeneratedEntitiesStatus> {
         const response = await this.getApiV1AiGenerateProvenanceByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerCollectionGeneratorStatus>> {
+    async getApiV1AiGenerateStickersByBountyidRaw(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerCollectionGeneratorStatus>> {
         if (requestParameters['bountyId'] == null) {
             throw new runtime.RequiredError(
                 'bountyId',
@@ -1682,19 +1682,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStickerCollectionGeneratorStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StickerCollectionGeneratorStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerCollectionGeneratorStatus> {
+    async getApiV1AiGenerateStickersByBountyid(requestParameters: GetApiV1AiGenerateStickersByBountyidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerCollectionGeneratorStatus> {
         const response = await this.getApiV1AiGenerateStickersByBountyidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStickerGeneratorMeta>> {
+    async getApiV1AiGenerateStickersMetaRaw(requestParameters: GetApiV1AiGenerateStickersMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StickerGeneratorMeta>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1725,19 +1725,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStickerGeneratorMetaFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StickerGeneratorMetaFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStickerGeneratorMeta> {
+    async getApiV1AiGenerateStickersMeta(requestParameters: GetApiV1AiGenerateStickersMetaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StickerGeneratorMeta> {
         const response = await this.getApiV1AiGenerateStickersMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationStatus>> {
+    async getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAvatarGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1776,19 +1776,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserAvatarGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserAvatarGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationStatus> {
+    async getApiV1AiGenerateUserAvatarByJobid(requestParameters: GetApiV1AiGenerateUserAvatarByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAvatarGenerationStatus> {
         const response = await this.getApiV1AiGenerateUserAvatarByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationStatus>> {
+    async getApiV1AiGenerateUserCoverByJobidRaw(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCoverGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1827,19 +1827,19 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserCoverGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserCoverGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationStatus> {
+    async getApiV1AiGenerateUserCoverByJobid(requestParameters: GetApiV1AiGenerateUserCoverByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCoverGenerationStatus> {
         const response = await this.getApiV1AiGenerateUserCoverByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationStatus>> {
+    async getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserBatchGenerationStatus>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -1878,23 +1878,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserBatchGenerationStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserBatchGenerationStatusFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationStatus> {
+    async getApiV1AiGenerateUsersBatchByJobid(requestParameters: GetApiV1AiGenerateUsersBatchByJobidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserBatchGenerationStatus> {
         const response = await this.getApiV1AiGenerateUsersBatchByJobidRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBadgeGenerationResponse>> {
-        if (requestParameters['aiBadgeBadgeGeneratorInput'] == null) {
+    async postApiV1AiGenerateBadgeRaw(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartBadgeGenerationResponse>> {
+        if (requestParameters['badgeGeneratorInput'] == null) {
             throw new runtime.RequiredError(
-                'aiBadgeBadgeGeneratorInput',
-                'Required parameter "aiBadgeBadgeGeneratorInput" was null or undefined when calling postApiV1AiGenerateBadge().'
+                'badgeGeneratorInput',
+                'Required parameter "badgeGeneratorInput" was null or undefined when calling postApiV1AiGenerateBadge().'
             );
         }
 
@@ -1928,26 +1928,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AiBadgeBadgeGeneratorInputToJSON(requestParameters['aiBadgeBadgeGeneratorInput']),
+            body: BadgeGeneratorInputToJSON(requestParameters['badgeGeneratorInput']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartBadgeGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartBadgeGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBadgeGenerationResponse> {
+    async postApiV1AiGenerateBadge(requestParameters: PostApiV1AiGenerateBadgeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartBadgeGenerationResponse> {
         const response = await this.postApiV1AiGenerateBadgeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartBountyGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartBountyGenerationRequest'] == null) {
+    async postApiV1AiGenerateBountyRaw(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartBountyGenerationResponse>> {
+        if (requestParameters['startBountyGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartBountyGenerationRequest',
-                'Required parameter "restControllerAIControllerStartBountyGenerationRequest" was null or undefined when calling postApiV1AiGenerateBounty().'
+                'startBountyGenerationRequest',
+                'Required parameter "startBountyGenerationRequest" was null or undefined when calling postApiV1AiGenerateBounty().'
             );
         }
 
@@ -1981,22 +1981,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartBountyGenerationRequestToJSON(requestParameters['restControllerAIControllerStartBountyGenerationRequest']),
+            body: StartBountyGenerationRequestToJSON(requestParameters['startBountyGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartBountyGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartBountyGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartBountyGenerationResponse> {
+    async postApiV1AiGenerateBounty(requestParameters: PostApiV1AiGenerateBountyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartBountyGenerationResponse> {
         const response = await this.postApiV1AiGenerateBountyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerBountyGenerationCleanupResponse>> {
+    async postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BountyGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2039,23 +2039,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerBountyGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BountyGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerBountyGenerationCleanupResponse> {
+    async postApiV1AiGenerateBountyByJobidCleanup(requestParameters: PostApiV1AiGenerateBountyByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BountyGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateBountyByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartFullCatalogGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartFullCatalogGenerationRequest'] == null) {
+    async postApiV1AiGenerateCatalogRaw(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartFullCatalogGenerationResponse>> {
+        if (requestParameters['startFullCatalogGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartFullCatalogGenerationRequest',
-                'Required parameter "restControllerAIControllerStartFullCatalogGenerationRequest" was null or undefined when calling postApiV1AiGenerateCatalog().'
+                'startFullCatalogGenerationRequest',
+                'Required parameter "startFullCatalogGenerationRequest" was null or undefined when calling postApiV1AiGenerateCatalog().'
             );
         }
 
@@ -2089,26 +2089,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartFullCatalogGenerationRequestToJSON(requestParameters['restControllerAIControllerStartFullCatalogGenerationRequest']),
+            body: StartFullCatalogGenerationRequestToJSON(requestParameters['startFullCatalogGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartFullCatalogGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartFullCatalogGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartFullCatalogGenerationResponse> {
+    async postApiV1AiGenerateCatalog(requestParameters: PostApiV1AiGenerateCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartFullCatalogGenerationResponse> {
         const response = await this.postApiV1AiGenerateCatalogRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartCategoryGenerationRequest'] == null) {
+    async postApiV1AiGenerateCategoriesRaw(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCategoryGenerationResponse>> {
+        if (requestParameters['startCategoryGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartCategoryGenerationRequest',
-                'Required parameter "restControllerAIControllerStartCategoryGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategories().'
+                'startCategoryGenerationRequest',
+                'Required parameter "startCategoryGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategories().'
             );
         }
 
@@ -2142,22 +2142,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartCategoryGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCategoryGenerationRequest']),
+            body: StartCategoryGenerationRequestToJSON(requestParameters['startCategoryGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCategoryGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartCategoryGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryGenerationResponse> {
+    async postApiV1AiGenerateCategories(requestParameters: PostApiV1AiGenerateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCategoryGenerationResponse> {
         const response = await this.postApiV1AiGenerateCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2200,23 +2200,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryGenerationCleanupResponse> {
+    async postApiV1AiGenerateCategoriesByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoriesByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCategoriesByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCategoryTreeGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartCategoryTreeGenerationRequest'] == null) {
+    async postApiV1AiGenerateCategoryTreeRaw(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCategoryTreeGenerationResponse>> {
+        if (requestParameters['startCategoryTreeGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartCategoryTreeGenerationRequest',
-                'Required parameter "restControllerAIControllerStartCategoryTreeGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategoryTree().'
+                'startCategoryTreeGenerationRequest',
+                'Required parameter "startCategoryTreeGenerationRequest" was null or undefined when calling postApiV1AiGenerateCategoryTree().'
             );
         }
 
@@ -2250,22 +2250,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartCategoryTreeGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCategoryTreeGenerationRequest']),
+            body: StartCategoryTreeGenerationRequestToJSON(requestParameters['startCategoryTreeGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCategoryTreeGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartCategoryTreeGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCategoryTreeGenerationResponse> {
+    async postApiV1AiGenerateCategoryTree(requestParameters: PostApiV1AiGenerateCategoryTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCategoryTreeGenerationResponse> {
         const response = await this.postApiV1AiGenerateCategoryTreeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCategoryTreeGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryTreeGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2308,23 +2308,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCategoryTreeGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryTreeGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCategoryTreeGenerationCleanupResponse> {
+    async postApiV1AiGenerateCategoryTreeByJobidCleanup(requestParameters: PostApiV1AiGenerateCategoryTreeByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryTreeGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCategoryTreeByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartChatSimulationResponse>> {
-        if (requestParameters['restControllerAIControllerStartChatSimulationRequest'] == null) {
+    async postApiV1AiGenerateChatSimulateRaw(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartChatSimulationResponse>> {
+        if (requestParameters['startChatSimulationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartChatSimulationRequest',
-                'Required parameter "restControllerAIControllerStartChatSimulationRequest" was null or undefined when calling postApiV1AiGenerateChatSimulate().'
+                'startChatSimulationRequest',
+                'Required parameter "startChatSimulationRequest" was null or undefined when calling postApiV1AiGenerateChatSimulate().'
             );
         }
 
@@ -2358,22 +2358,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartChatSimulationRequestToJSON(requestParameters['restControllerAIControllerStartChatSimulationRequest']),
+            body: StartChatSimulationRequestToJSON(requestParameters['startChatSimulationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartChatSimulationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartChatSimulationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartChatSimulationResponse> {
+    async postApiV1AiGenerateChatSimulate(requestParameters: PostApiV1AiGenerateChatSimulateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartChatSimulationResponse> {
         const response = await this.postApiV1AiGenerateChatSimulateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerChatSimulationCleanupResponse>> {
+    async postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSimulationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2416,23 +2416,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerChatSimulationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatSimulationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerChatSimulationCleanupResponse> {
+    async postApiV1AiGenerateChatSimulateByJobidCleanup(requestParameters: PostApiV1AiGenerateChatSimulateByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSimulationCleanupResponse> {
         const response = await this.postApiV1AiGenerateChatSimulateByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartCompanyBatchGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartCompanyBatchGenerationRequest'] == null) {
+    async postApiV1AiGenerateCompaniesBatchRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartCompanyBatchGenerationResponse>> {
+        if (requestParameters['startCompanyBatchGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartCompanyBatchGenerationRequest',
-                'Required parameter "restControllerAIControllerStartCompanyBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateCompaniesBatch().'
+                'startCompanyBatchGenerationRequest',
+                'Required parameter "startCompanyBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateCompaniesBatch().'
             );
         }
 
@@ -2466,22 +2466,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartCompanyBatchGenerationRequestToJSON(requestParameters['restControllerAIControllerStartCompanyBatchGenerationRequest']),
+            body: StartCompanyBatchGenerationRequestToJSON(requestParameters['startCompanyBatchGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartCompanyBatchGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartCompanyBatchGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartCompanyBatchGenerationResponse> {
+    async postApiV1AiGenerateCompaniesBatch(requestParameters: PostApiV1AiGenerateCompaniesBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartCompanyBatchGenerationResponse> {
         const response = await this.postApiV1AiGenerateCompaniesBatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerCompanyBatchGenerationCleanupResponse>> {
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompanyBatchGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2524,23 +2524,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerCompanyBatchGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompanyBatchGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerCompanyBatchGenerationCleanupResponse> {
+    async postApiV1AiGenerateCompaniesBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateCompaniesBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompanyBatchGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateCompaniesBatchByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartDemoFeedSeedingResponse>> {
-        if (requestParameters['restControllerAIControllerStartDemoFeedSeedingRequest'] == null) {
+    async postApiV1AiGenerateDemoFeedRaw(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartDemoFeedSeedingResponse>> {
+        if (requestParameters['startDemoFeedSeedingRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartDemoFeedSeedingRequest',
-                'Required parameter "restControllerAIControllerStartDemoFeedSeedingRequest" was null or undefined when calling postApiV1AiGenerateDemoFeed().'
+                'startDemoFeedSeedingRequest',
+                'Required parameter "startDemoFeedSeedingRequest" was null or undefined when calling postApiV1AiGenerateDemoFeed().'
             );
         }
 
@@ -2574,22 +2574,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartDemoFeedSeedingRequestToJSON(requestParameters['restControllerAIControllerStartDemoFeedSeedingRequest']),
+            body: StartDemoFeedSeedingRequestToJSON(requestParameters['startDemoFeedSeedingRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartDemoFeedSeedingResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartDemoFeedSeedingResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartDemoFeedSeedingResponse> {
+    async postApiV1AiGenerateDemoFeed(requestParameters: PostApiV1AiGenerateDemoFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartDemoFeedSeedingResponse> {
         const response = await this.postApiV1AiGenerateDemoFeedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerDemoFeedSeedingCleanupResponse>> {
+    async postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DemoFeedSeedingCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2632,23 +2632,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerDemoFeedSeedingCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DemoFeedSeedingCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerDemoFeedSeedingCleanupResponse> {
+    async postApiV1AiGenerateDemoFeedByJobidCleanup(requestParameters: PostApiV1AiGenerateDemoFeedByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DemoFeedSeedingCleanupResponse> {
         const response = await this.postApiV1AiGenerateDemoFeedByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartMenuGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartMenuGenerationRequest'] == null) {
+    async postApiV1AiGenerateMenuRaw(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartMenuGenerationResponse>> {
+        if (requestParameters['startMenuGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartMenuGenerationRequest',
-                'Required parameter "restControllerAIControllerStartMenuGenerationRequest" was null or undefined when calling postApiV1AiGenerateMenu().'
+                'startMenuGenerationRequest',
+                'Required parameter "startMenuGenerationRequest" was null or undefined when calling postApiV1AiGenerateMenu().'
             );
         }
 
@@ -2682,22 +2682,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartMenuGenerationRequestToJSON(requestParameters['restControllerAIControllerStartMenuGenerationRequest']),
+            body: StartMenuGenerationRequestToJSON(requestParameters['startMenuGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartMenuGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartMenuGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartMenuGenerationResponse> {
+    async postApiV1AiGenerateMenu(requestParameters: PostApiV1AiGenerateMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartMenuGenerationResponse> {
         const response = await this.postApiV1AiGenerateMenuRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerMenuGenerationCleanupResponse>> {
+    async postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MenuGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2740,23 +2740,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerMenuGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MenuGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerMenuGenerationCleanupResponse> {
+    async postApiV1AiGenerateMenuByJobidCleanup(requestParameters: PostApiV1AiGenerateMenuByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MenuGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateMenuByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartProductGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartProductGenerationRequest'] == null) {
+    async postApiV1AiGenerateProductsRaw(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartProductGenerationResponse>> {
+        if (requestParameters['startProductGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartProductGenerationRequest',
-                'Required parameter "restControllerAIControllerStartProductGenerationRequest" was null or undefined when calling postApiV1AiGenerateProducts().'
+                'startProductGenerationRequest',
+                'Required parameter "startProductGenerationRequest" was null or undefined when calling postApiV1AiGenerateProducts().'
             );
         }
 
@@ -2790,22 +2790,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartProductGenerationRequestToJSON(requestParameters['restControllerAIControllerStartProductGenerationRequest']),
+            body: StartProductGenerationRequestToJSON(requestParameters['startProductGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartProductGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartProductGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartProductGenerationResponse> {
+    async postApiV1AiGenerateProducts(requestParameters: PostApiV1AiGenerateProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartProductGenerationResponse> {
         const response = await this.postApiV1AiGenerateProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerProductGenerationCleanupResponse>> {
+    async postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -2848,23 +2848,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerProductGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerProductGenerationCleanupResponse> {
+    async postApiV1AiGenerateProductsByJobidCleanup(requestParameters: PostApiV1AiGenerateProductsByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateProductsByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartStickerGenerationResponse>> {
-        if (requestParameters['aiStickersStickerCollectionGeneratorInput'] == null) {
+    async postApiV1AiGenerateStickersRaw(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartStickerGenerationResponse>> {
+        if (requestParameters['stickerCollectionGeneratorInput'] == null) {
             throw new runtime.RequiredError(
-                'aiStickersStickerCollectionGeneratorInput',
-                'Required parameter "aiStickersStickerCollectionGeneratorInput" was null or undefined when calling postApiV1AiGenerateStickers().'
+                'stickerCollectionGeneratorInput',
+                'Required parameter "stickerCollectionGeneratorInput" was null or undefined when calling postApiV1AiGenerateStickers().'
             );
         }
 
@@ -2898,26 +2898,26 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AiStickersStickerCollectionGeneratorInputToJSON(requestParameters['aiStickersStickerCollectionGeneratorInput']),
+            body: StickerCollectionGeneratorInputToJSON(requestParameters['stickerCollectionGeneratorInput']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartStickerGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartStickerGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartStickerGenerationResponse> {
+    async postApiV1AiGenerateStickers(requestParameters: PostApiV1AiGenerateStickersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartStickerGenerationResponse> {
         const response = await this.postApiV1AiGenerateStickersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserAvatarGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartUserAvatarGenerationRequest'] == null) {
+    async postApiV1AiGenerateUserAvatarRaw(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserAvatarGenerationResponse>> {
+        if (requestParameters['startUserAvatarGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartUserAvatarGenerationRequest',
-                'Required parameter "restControllerAIControllerStartUserAvatarGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserAvatar().'
+                'startUserAvatarGenerationRequest',
+                'Required parameter "startUserAvatarGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserAvatar().'
             );
         }
 
@@ -2951,22 +2951,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartUserAvatarGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserAvatarGenerationRequest']),
+            body: StartUserAvatarGenerationRequestToJSON(requestParameters['startUserAvatarGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserAvatarGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartUserAvatarGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserAvatarGenerationResponse> {
+    async postApiV1AiGenerateUserAvatar(requestParameters: PostApiV1AiGenerateUserAvatarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserAvatarGenerationResponse> {
         const response = await this.postApiV1AiGenerateUserAvatarRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserAvatarGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserAvatarGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3005,23 +3005,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserAvatarGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserAvatarGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserAvatarGenerationCleanupResponse> {
+    async postApiV1AiGenerateUserAvatarByJobidCleanup(requestParameters: PostApiV1AiGenerateUserAvatarByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserAvatarGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUserAvatarByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserCoverGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartUserCoverGenerationRequest'] == null) {
+    async postApiV1AiGenerateUserCoverRaw(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserCoverGenerationResponse>> {
+        if (requestParameters['startUserCoverGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartUserCoverGenerationRequest',
-                'Required parameter "restControllerAIControllerStartUserCoverGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserCover().'
+                'startUserCoverGenerationRequest',
+                'Required parameter "startUserCoverGenerationRequest" was null or undefined when calling postApiV1AiGenerateUserCover().'
             );
         }
 
@@ -3055,22 +3055,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartUserCoverGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserCoverGenerationRequest']),
+            body: StartUserCoverGenerationRequestToJSON(requestParameters['startUserCoverGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserCoverGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartUserCoverGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserCoverGenerationResponse> {
+    async postApiV1AiGenerateUserCover(requestParameters: PostApiV1AiGenerateUserCoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserCoverGenerationResponse> {
         const response = await this.postApiV1AiGenerateUserCoverRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserCoverGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCoverGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3109,23 +3109,23 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserCoverGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserCoverGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserCoverGenerationCleanupResponse> {
+    async postApiV1AiGenerateUserCoverByJobidCleanup(requestParameters: PostApiV1AiGenerateUserCoverByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCoverGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUserCoverByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerStartUserBatchGenerationResponse>> {
-        if (requestParameters['restControllerAIControllerStartUserBatchGenerationRequest'] == null) {
+    async postApiV1AiGenerateUsersBatchRaw(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartUserBatchGenerationResponse>> {
+        if (requestParameters['startUserBatchGenerationRequest'] == null) {
             throw new runtime.RequiredError(
-                'restControllerAIControllerStartUserBatchGenerationRequest',
-                'Required parameter "restControllerAIControllerStartUserBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateUsersBatch().'
+                'startUserBatchGenerationRequest',
+                'Required parameter "startUserBatchGenerationRequest" was null or undefined when calling postApiV1AiGenerateUsersBatch().'
             );
         }
 
@@ -3159,22 +3159,22 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RestControllerAIControllerStartUserBatchGenerationRequestToJSON(requestParameters['restControllerAIControllerStartUserBatchGenerationRequest']),
+            body: StartUserBatchGenerationRequestToJSON(requestParameters['startUserBatchGenerationRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerStartUserBatchGenerationResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StartUserBatchGenerationResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerStartUserBatchGenerationResponse> {
+    async postApiV1AiGenerateUsersBatch(requestParameters: PostApiV1AiGenerateUsersBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StartUserBatchGenerationResponse> {
         const response = await this.postApiV1AiGenerateUsersBatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestControllerAIControllerUserBatchGenerationCleanupResponse>> {
+    async postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserBatchGenerationCleanupResponse>> {
         if (requestParameters['jobId'] == null) {
             throw new runtime.RequiredError(
                 'jobId',
@@ -3217,12 +3217,12 @@ export class AiControllerApi extends runtime.BaseAPI implements AiControllerApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RestControllerAIControllerUserBatchGenerationCleanupResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserBatchGenerationCleanupResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RestControllerAIControllerUserBatchGenerationCleanupResponse> {
+    async postApiV1AiGenerateUsersBatchByJobidCleanup(requestParameters: PostApiV1AiGenerateUsersBatchByJobidCleanupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserBatchGenerationCleanupResponse> {
         const response = await this.postApiV1AiGenerateUsersBatchByJobidCleanupRaw(requestParameters, initOverrides);
         return await response.value();
     }

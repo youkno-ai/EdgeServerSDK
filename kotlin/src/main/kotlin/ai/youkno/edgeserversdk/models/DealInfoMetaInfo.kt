@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.DealInfoLiability
+import ai.youkno.edgeserversdk.models.Liability
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -49,7 +49,7 @@ data class DealInfoMetaInfo (
     val inviteeReward: kotlin.String? = null,
 
     @Json(name = "liabilities")
-    val liabilities: kotlin.collections.List<DealInfoLiability>? = null,
+    val liabilities: kotlin.collections.List<Liability>? = null,
 
     @Json(name = "promotionId")
     val promotionId: kotlin.String? = null,

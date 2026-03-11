@@ -15,8 +15,8 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyReservationInfoPhone
-import ai.youkno.edgeserversdk.models.BountyReservationInfoSpending
+import ai.youkno.edgeserversdk.models.Phone
+import ai.youkno.edgeserversdk.models.Spending
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -67,7 +67,7 @@ data class BountyReservationInfo (
     val email: kotlin.String? = null,
 
     @Json(name = "phone")
-    val phone: BountyReservationInfoPhone? = null,
+    val phone: Phone? = null,
 
     @Json(name = "reservationAttribute")
     val reservationAttribute: kotlin.String? = null,
@@ -100,7 +100,7 @@ data class BountyReservationInfo (
     val notes: kotlin.String? = null,
 
     @Json(name = "spending")
-    val spending: BountyReservationInfoSpending? = null,
+    val spending: Spending? = null,
 
     @Json(name = "validForReservation")
     val validForReservation: kotlin.Boolean? = null

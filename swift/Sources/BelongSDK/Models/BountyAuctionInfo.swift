@@ -21,11 +21,11 @@ public struct BountyAuctionInfo: Codable, JSONEncodable, Hashable {
     public var status: String?
     public var startingBid: Reward?
     public var maxBid: Reward?
-    public var currentBid: BountyAuctionInfoCurrentBid?
-    public var bidSteps: [String: BountyAuctionInfoBidStep]?
+    public var currentBid: CurrentBid?
+    public var bidSteps: [String: BidStep]?
     public var statusAsEnum: StatusAsEnum?
 
-    public init(status: String? = nil, startingBid: Reward? = nil, maxBid: Reward? = nil, currentBid: BountyAuctionInfoCurrentBid? = nil, bidSteps: [String: BountyAuctionInfoBidStep]? = nil, statusAsEnum: StatusAsEnum? = nil) {
+    public init(status: String? = nil, startingBid: Reward? = nil, maxBid: Reward? = nil, currentBid: CurrentBid? = nil, bidSteps: [String: BidStep]? = nil, statusAsEnum: StatusAsEnum? = nil) {
         self.status = status
         self.startingBid = startingBid
         self.maxBid = maxBid

@@ -15,17 +15,17 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.BountyOrderChargebackInfo
-import ai.youkno.edgeserversdk.models.BountyOrderCustomerInfo
-import ai.youkno.edgeserversdk.models.BountyOrderPaymentInfo
+import ai.youkno.edgeserversdk.models.CustomerInfo
 import ai.youkno.edgeserversdk.models.InvoiceInfo
 import ai.youkno.edgeserversdk.models.MailingAddress
+import ai.youkno.edgeserversdk.models.OrderChargebackInfo
+import ai.youkno.edgeserversdk.models.OrderPaymentInfo
+import ai.youkno.edgeserversdk.models.OrderSection
 import ai.youkno.edgeserversdk.models.PaymentMethodInfo
+import ai.youkno.edgeserversdk.models.ProductsInfo
+import ai.youkno.edgeserversdk.models.RedemptionInfo
 import ai.youkno.edgeserversdk.models.Reward
 import ai.youkno.edgeserversdk.models.ShippingInfo
-import ai.youkno.edgeserversdk.models.ShoppingCartOrderSummaryOrderSection
-import ai.youkno.edgeserversdk.models.ShoppingCartProductsInfo
-import ai.youkno.edgeserversdk.models.ShoppingCartRedemptionInfo
 import ai.youkno.edgeserversdk.models.User
 
 import com.squareup.moshi.Json
@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
- * @param statusAsEnum 
- * @param customerEmail 
- * @param merchant 
- * @param overallSection 
  * @param merchantId 
  * @param imageUrl 
- * @param paymentStatusAsEnum 
- * @param receiptStatusAsEnum 
+ * @param overallSection 
+ * @param merchant 
+ * @param statusAsEnum 
+ * @param customerEmail 
  * @param vouchersToRedeem 
+ * @param receiptStatusAsEnum 
+ * @param paymentStatusAsEnum 
  */
 
 
@@ -95,22 +95,22 @@ data class BountyOrder (
     val invoiceInfo: InvoiceInfo? = null,
 
     @Json(name = "productsInfo")
-    val productsInfo: ShoppingCartProductsInfo? = null,
+    val productsInfo: ProductsInfo? = null,
 
     @Json(name = "redemptionInfo")
-    val redemptionInfo: ShoppingCartRedemptionInfo? = null,
+    val redemptionInfo: RedemptionInfo? = null,
 
     @Json(name = "orderTotal")
     val orderTotal: Reward? = null,
 
     @Json(name = "customerInfo")
-    val customerInfo: BountyOrderCustomerInfo? = null,
+    val customerInfo: CustomerInfo? = null,
 
     @Json(name = "paymentInfo")
-    val paymentInfo: BountyOrderPaymentInfo? = null,
+    val paymentInfo: OrderPaymentInfo? = null,
 
     @Json(name = "chargebackInfo")
-    val chargebackInfo: BountyOrderChargebackInfo? = null,
+    val chargebackInfo: OrderChargebackInfo? = null,
 
     @Json(name = "orderedAt")
     val orderedAt: kotlin.Long? = null,
@@ -124,32 +124,32 @@ data class BountyOrder (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
-
-    @Json(name = "customerEmail")
-    val customerEmail: kotlin.String? = null,
-
-    @Json(name = "merchant")
-    val merchant: User? = null,
-
-    @Json(name = "overallSection")
-    val overallSection: ShoppingCartOrderSummaryOrderSection? = null,
-
     @Json(name = "merchantId")
     val merchantId: kotlin.String? = null,
 
     @Json(name = "imageUrl")
     val imageUrl: kotlin.String? = null,
 
-    @Json(name = "paymentStatusAsEnum")
-    val paymentStatusAsEnum: BountyOrder.PaymentStatusAsEnum? = null,
+    @Json(name = "overallSection")
+    val overallSection: OrderSection? = null,
+
+    @Json(name = "merchant")
+    val merchant: User? = null,
+
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
+
+    @Json(name = "customerEmail")
+    val customerEmail: kotlin.String? = null,
+
+    @Json(name = "vouchersToRedeem")
+    val vouchersToRedeem: Reward? = null,
 
     @Json(name = "receiptStatusAsEnum")
     val receiptStatusAsEnum: BountyOrder.ReceiptStatusAsEnum? = null,
 
-    @Json(name = "vouchersToRedeem")
-    val vouchersToRedeem: Reward? = null
+    @Json(name = "paymentStatusAsEnum")
+    val paymentStatusAsEnum: BountyOrder.PaymentStatusAsEnum? = null
 
 ) {
 
@@ -176,6 +176,16 @@ data class BountyOrder (
     /**
      * 
      *
+     * Values: CREATED,SCANNED
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "CREATED") CREATED("CREATED"),
+        @Json(name = "SCANNED") SCANNED("SCANNED");
+    }
+    /**
+     * 
+     *
      * Values: NONE,PENDING_PAYMENT,PROCESSING_PAYMENT,PENDING_CONFIRM,PAID,PAYMENT_FAILED,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
@@ -187,16 +197,6 @@ data class BountyOrder (
         @Json(name = "PAID") PAID("PAID"),
         @Json(name = "PAYMENT_FAILED") PAYMENT_FAILED("PAYMENT_FAILED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: CREATED,SCANNED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "CREATED") CREATED("CREATED"),
-        @Json(name = "SCANNED") SCANNED("SCANNED");
     }
 
 }

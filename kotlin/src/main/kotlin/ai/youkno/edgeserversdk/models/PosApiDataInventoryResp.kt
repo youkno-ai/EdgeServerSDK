@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.PosApiDataInventoryResp2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,94 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param itemId 
- * @param itemName 
- * @param locationId 
- * @param batchId 
- * @param batchName 
- * @param status 
- * @param brand 
- * @param barcodeId 
- * @param thc 
- * @param thcMg 
- * @param cbd 
- * @param cbdMg 
- * @param areaId 
- * @param areaName 
- * @param onHand 
- * @param available 
- * @param uom 
- * @param expireDate 
- * @param allOnHandPerLocation 
- * @param locationLowInventoryThresholdBatch 
- * @param areaPath 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class PosApiDataInventoryResp (
 
-    @Json(name = "itemId")
-    val itemId: kotlin.String? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "itemName")
-    val itemName: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "locationId")
-    val locationId: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "batchId")
-    val batchId: kotlin.String? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "batchName")
-    val batchName: kotlin.String? = null,
-
-    @Json(name = "status")
-    val status: kotlin.String? = null,
-
-    @Json(name = "brand")
-    val brand: kotlin.String? = null,
-
-    @Json(name = "barcodeId")
-    val barcodeId: kotlin.String? = null,
-
-    @Json(name = "thc")
-    val thc: kotlin.Int? = null,
-
-    @Json(name = "thcMg")
-    val thcMg: kotlin.Int? = null,
-
-    @Json(name = "cbd")
-    val cbd: kotlin.Int? = null,
-
-    @Json(name = "cbdMg")
-    val cbdMg: kotlin.Int? = null,
-
-    @Json(name = "areaId")
-    val areaId: kotlin.String? = null,
-
-    @Json(name = "areaName")
-    val areaName: kotlin.String? = null,
-
-    @Json(name = "onHand")
-    val onHand: kotlin.Double? = null,
-
-    @Json(name = "available")
-    val available: kotlin.Double? = null,
-
-    @Json(name = "uom")
-    val uom: kotlin.String? = null,
-
-    @Json(name = "expireDate")
-    val expireDate: kotlin.Long? = null,
-
-    @Json(name = "allOnHandPerLocation")
-    val allOnHandPerLocation: kotlin.Double? = null,
-
-    @Json(name = "locationLowInventoryThresholdBatch")
-    val locationLowInventoryThresholdBatch: kotlin.Double? = null,
-
-    @Json(name = "areaPath")
-    val areaPath: kotlin.String? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<PosApiDataInventoryResp2>? = null
 
 ) {
 

@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct WeekPeriod: Codable, JSONEncodable, Hashable {
 
-    public var dayPeriods: [String: WeekPeriodDayPeriod]?
+    public var dayPeriods: [String: DayPeriod]?
 
-    public init(dayPeriods: [String: WeekPeriodDayPeriod]? = nil) {
+    public init(dayPeriods: [String: DayPeriod]? = nil) {
         self.dayPeriods = dayPeriods
     }
 

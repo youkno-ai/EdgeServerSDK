@@ -20,13 +20,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
-import type { HasAccessKeysAccessKeys } from './HasAccessKeysAccessKeys';
+import type { HasAccessKeysAccessKeys2 } from './HasAccessKeysAccessKeys2';
 import {
-    HasAccessKeysAccessKeysFromJSON,
-    HasAccessKeysAccessKeysFromJSONTyped,
-    HasAccessKeysAccessKeysToJSON,
-    HasAccessKeysAccessKeysToJSONTyped,
-} from './HasAccessKeysAccessKeys';
+    HasAccessKeysAccessKeys2FromJSON,
+    HasAccessKeysAccessKeys2FromJSONTyped,
+    HasAccessKeysAccessKeys2ToJSON,
+    HasAccessKeysAccessKeys2ToJSONTyped,
+} from './HasAccessKeysAccessKeys2';
 
 /**
  * 
@@ -90,10 +90,10 @@ export interface Group {
     visibilityRoles?: string;
     /**
      * 
-     * @type {HasAccessKeysAccessKeys}
+     * @type {HasAccessKeysAccessKeys2}
      * @memberof Group
      */
-    accessKeys?: HasAccessKeysAccessKeys;
+    accessKeys?: HasAccessKeysAccessKeys2;
     /**
      * 
      * @type {number}
@@ -162,7 +162,7 @@ export function GroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Gro
         'streamKey': json['streamKey'] == null ? undefined : json['streamKey'],
         'inheritRoles': json['inheritRoles'] == null ? undefined : json['inheritRoles'],
         'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
-        'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeysFromJSON(json['accessKeys']),
+        'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeys2FromJSON(json['accessKeys']),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'accessKeyEnforcementAsEnum': json['accessKeyEnforcementAsEnum'] == null ? undefined : json['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': json['accessKeyCtaModeAsEnum'] == null ? undefined : json['accessKeyCtaModeAsEnum'],
@@ -189,7 +189,7 @@ export function GroupToJSONTyped(value?: Group | null, ignoreDiscriminator: bool
         'streamKey': value['streamKey'],
         'inheritRoles': value['inheritRoles'],
         'visibilityRoles': value['visibilityRoles'],
-        'accessKeys': HasAccessKeysAccessKeysToJSON(value['accessKeys']),
+        'accessKeys': HasAccessKeysAccessKeys2ToJSON(value['accessKeys']),
         'createdAt': value['createdAt'],
         'accessKeyEnforcementAsEnum': value['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': value['accessKeyCtaModeAsEnum'],

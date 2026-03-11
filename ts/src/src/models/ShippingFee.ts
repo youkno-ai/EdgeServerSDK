@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ShippingFeeFee } from './ShippingFeeFee';
+import type { Fee } from './Fee';
 import {
-    ShippingFeeFeeFromJSON,
-    ShippingFeeFeeFromJSONTyped,
-    ShippingFeeFeeToJSON,
-    ShippingFeeFeeToJSONTyped,
-} from './ShippingFeeFee';
+    FeeFromJSON,
+    FeeFromJSONTyped,
+    FeeToJSON,
+    FeeToJSONTyped,
+} from './Fee';
 
 /**
  * 
@@ -29,16 +29,16 @@ import {
 export interface ShippingFee {
     /**
      * 
-     * @type {{ [key: string]: ShippingFeeFee; }}
+     * @type {{ [key: string]: Fee; }}
      * @memberof ShippingFee
      */
-    domesticFees?: { [key: string]: ShippingFeeFee; };
+    domesticFees?: { [key: string]: Fee; };
     /**
      * 
-     * @type {ShippingFeeFee}
+     * @type {Fee}
      * @memberof ShippingFee
      */
-    internationalFee?: ShippingFeeFee;
+    internationalFee?: Fee;
 }
 
 /**
@@ -58,8 +58,8 @@ export function ShippingFeeFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'domesticFees': json['domesticFees'] == null ? undefined : (mapValues(json['domesticFees'], ShippingFeeFeeFromJSON)),
-        'internationalFee': json['internationalFee'] == null ? undefined : ShippingFeeFeeFromJSON(json['internationalFee']),
+        'domesticFees': json['domesticFees'] == null ? undefined : (mapValues(json['domesticFees'], FeeFromJSON)),
+        'internationalFee': json['internationalFee'] == null ? undefined : FeeFromJSON(json['internationalFee']),
     };
 }
 
@@ -74,8 +74,8 @@ export function ShippingFeeToJSONTyped(value?: ShippingFee | null, ignoreDiscrim
 
     return {
         
-        'domesticFees': value['domesticFees'] == null ? undefined : (mapValues(value['domesticFees'], ShippingFeeFeeToJSON)),
-        'internationalFee': ShippingFeeFeeToJSON(value['internationalFee']),
+        'domesticFees': value['domesticFees'] == null ? undefined : (mapValues(value['domesticFees'], FeeToJSON)),
+        'internationalFee': FeeToJSON(value['internationalFee']),
     };
 }
 

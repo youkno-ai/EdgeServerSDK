@@ -7,42 +7,42 @@ import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
 import ai.youkno.edgeserversdk.models.Account
-import ai.youkno.edgeserversdk.models.BaseSettingsAgreement
-import ai.youkno.edgeserversdk.models.BaseSettingsConfirmation
-import ai.youkno.edgeserversdk.models.BaseSettingsPolicy
+import ai.youkno.edgeserversdk.models.Agreement
+import ai.youkno.edgeserversdk.models.AnonAuthResp
+import ai.youkno.edgeserversdk.models.ApiSecret
+import ai.youkno.edgeserversdk.models.BadgesBadgeStash2
 import ai.youkno.edgeserversdk.models.Bounty
 import ai.youkno.edgeserversdk.models.BountyReservationInfo
-import ai.youkno.edgeserversdk.models.EdgeApiDataAnonAuthResp
-import ai.youkno.edgeserversdk.models.EdgeApiDataApiSecret
-import ai.youkno.edgeserversdk.models.EdgeApiDataCompanyPrivateData
-import ai.youkno.edgeserversdk.models.EdgeApiDataManageUserData
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageBadgesBadgeStash
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageGroupSearchResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageRestControllerUserControllerFrontEndData
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageServiceUserHandleFrontEndCount
-import ai.youkno.edgeserversdk.models.EdgeApiDataPaymentAccountResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataPointCurrencyStats
-import ai.youkno.edgeserversdk.models.EdgeApiDataTopupRewardReq
-import ai.youkno.edgeserversdk.models.EdgeApiDataUpdateNotificationRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataUpdateRolesRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataUpdateUserRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataUseUserTicketRequest
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserAllowedRoles
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserChatResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserListResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserMetaResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserProfileEx
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserTicketHistoryResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataUserTicketResult
-import ai.youkno.edgeserversdk.models.EdgeApiDataValidateUserTicketRequest
+import ai.youkno.edgeserversdk.models.CompanyPrivateData
+import ai.youkno.edgeserversdk.models.Confirmation
+import ai.youkno.edgeserversdk.models.ListResult
 import ai.youkno.edgeserversdk.models.MailingAddress
-import ai.youkno.edgeserversdk.models.QueueEventsUpdateUserEvent
-import ai.youkno.edgeserversdk.models.ServiceUserOpListResult
+import ai.youkno.edgeserversdk.models.ManageUserData
+import ai.youkno.edgeserversdk.models.ModelGroupSearchResult
+import ai.youkno.edgeserversdk.models.PaymentAccountResult
+import ai.youkno.edgeserversdk.models.PointCurrencyStats
+import ai.youkno.edgeserversdk.models.Policy
 import ai.youkno.edgeserversdk.models.SignInDecision
+import ai.youkno.edgeserversdk.models.TopupRewardReq
 import ai.youkno.edgeserversdk.models.Transaction
+import ai.youkno.edgeserversdk.models.UpdateNotificationRequest
+import ai.youkno.edgeserversdk.models.UpdateRolesRequest
+import ai.youkno.edgeserversdk.models.UpdateUserEvent
+import ai.youkno.edgeserversdk.models.UpdateUserRequest
 import ai.youkno.edgeserversdk.models.UpdateUserResult
+import ai.youkno.edgeserversdk.models.UseUserTicketRequest
+import ai.youkno.edgeserversdk.models.UserAllowedRoles
+import ai.youkno.edgeserversdk.models.UserChatResult
+import ai.youkno.edgeserversdk.models.UserControllerFrontEndData
 import ai.youkno.edgeserversdk.models.UserData
+import ai.youkno.edgeserversdk.models.UserHandleFrontEndCount
 import ai.youkno.edgeserversdk.models.UserInvite
+import ai.youkno.edgeserversdk.models.UserListResult
+import ai.youkno.edgeserversdk.models.UserMetaResult
+import ai.youkno.edgeserversdk.models.UserProfileEx
+import ai.youkno.edgeserversdk.models.UserTicketHistoryResult
+import ai.youkno.edgeserversdk.models.UserTicketResult
+import ai.youkno.edgeserversdk.models.ValidateUserTicketRequest
 
 interface UserControllerApi {
     /**
@@ -139,10 +139,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserListResult]>
+     * @return [Call]<[UserListResult]>
      */
     @GET("api/v1/users")
-    fun getApiV1Users(@Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("email") email: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("order") order: kotlin.String? = null, @Query("searchMode") searchMode: SearchModeGetApiV1Users? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("role") role: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserListResult>
+    fun getApiV1Users(@Query("query") query: kotlin.String? = null, @Query("searchFields") searchFields: @JvmSuppressWildcards kotlin.collections.Set<kotlin.String>? = null, @Query("companyId") companyId: kotlin.String? = null, @Query("email") email: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("country") country: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("referralCode") referralCode: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("pin") pin: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("provider") provider: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 50, @Query("order") order: kotlin.String? = null, @Query("searchMode") searchMode: SearchModeGetApiV1Users? = null, @Query("blacklisted") blacklisted: kotlin.Boolean? = null, @Query("role") role: @JvmSuppressWildcards kotlin.collections.List<kotlin.String>? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserListResult>
 
     /**
      * GET api/v1/users/{companyId}/front-ends-stats
@@ -156,10 +156,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageServiceUserHandleFrontEndCount]>
+     * @return [Call]<[UserHandleFrontEndCount]>
      */
     @GET("api/v1/users/{companyId}/front-ends-stats")
-    fun getApiV1UsersByCompanyidFrontEndsStats(@Path("companyId") companyId: kotlin.String, @Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageServiceUserHandleFrontEndCount>
+    fun getApiV1UsersByCompanyidFrontEndsStats(@Path("companyId") companyId: kotlin.String, @Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserHandleFrontEndCount>
 
     /**
      * GET api/v1/users/{merchantId}/merchant/orders
@@ -174,10 +174,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/users/{merchantId}/merchant/orders")
-    fun getApiV1UsersByMerchantidMerchantOrders(@Path("merchantId") merchantId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1UsersByMerchantidMerchantOrders(@Path("merchantId") merchantId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/users/{user_id}/profile
@@ -191,10 +191,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserProfileEx]>
+     * @return [Call]<[UserProfileEx]>
      */
     @GET("api/v1/users/{user_id}/profile")
-    fun getApiV1UsersByUserIdProfile(@Path("user_id") userId: kotlin.String, @Query("deleted") deleted: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserProfileEx>
+    fun getApiV1UsersByUserIdProfile(@Path("user_id") userId: kotlin.String, @Query("deleted") deleted: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserProfileEx>
 
     /**
      * GET api/v1/users/{userId}/account
@@ -256,10 +256,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataAnonAuthResp]>
+     * @return [Call]<[AnonAuthResp]>
      */
     @GET("api/v1/users/{userId}/anon/token")
-    fun getApiV1UsersByUseridAnonToken(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataAnonAuthResp>
+    fun getApiV1UsersByUseridAnonToken(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AnonAuthResp>
 
     /**
      * GET api/v1/users/{userId}/approvals
@@ -274,10 +274,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/users/{userId}/approvals")
-    fun getApiV1UsersByUseridApprovals(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1UsersByUseridApprovals(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 20, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/users/{userId}/badges
@@ -293,10 +293,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageBadgesBadgeStash]>
+     * @return [Call]<[BadgesBadgeStash2]>
      */
     @GET("api/v1/users/{userId}/badges")
-    fun getApiV1UsersByUseridBadges(@Path("userId") userId: kotlin.String, @Query("badgeDefType") badgeDefType: kotlin.String? = "badge", @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageBadgesBadgeStash>
+    fun getApiV1UsersByUseridBadges(@Path("userId") userId: kotlin.String, @Query("badgeDefType") badgeDefType: kotlin.String? = "badge", @Query("start") start: kotlin.Int? = 0, @Query("limit") limit: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BadgesBadgeStash2>
 
     /**
      * GET api/v1/users/{userId}/{state}/exist
@@ -329,10 +329,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserChatResult]>
+     * @return [Call]<[UserChatResult]>
      */
     @GET("api/v1/users/{userId}/chats")
-    fun getApiV1UsersByUseridChats(@Path("userId") userId: kotlin.String, @Query("type") type: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserChatResult>
+    fun getApiV1UsersByUseridChats(@Path("userId") userId: kotlin.String, @Query("type") type: kotlin.String? = null, @Query("state") state: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserChatResult>
 
     /**
      * GET api/v1/users/{userId}/currencies/statistics
@@ -345,10 +345,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[kotlin.collections.List<EdgeApiDataPointCurrencyStats>]>
+     * @return [Call]<[kotlin.collections.List<PointCurrencyStats>]>
      */
     @GET("api/v1/users/{userId}/currencies/statistics")
-    fun getApiV1UsersByUseridCurrenciesStatistics(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<EdgeApiDataPointCurrencyStats>>
+    fun getApiV1UsersByUseridCurrenciesStatistics(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.List<PointCurrencyStats>>
 
     /**
      * GET api/v1/users/{userId}/data
@@ -378,10 +378,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageRestControllerUserControllerFrontEndData]>
+     * @return [Call]<[UserControllerFrontEndData]>
      */
     @GET("api/v1/users/{userId}/front-ends")
-    fun getApiV1UsersByUseridFrontEnds(@Path("userId") userId: kotlin.String, @Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageRestControllerUserControllerFrontEndData>
+    fun getApiV1UsersByUseridFrontEnds(@Path("userId") userId: kotlin.String, @Query("latestOnly") latestOnly: kotlin.Boolean? = false, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserControllerFrontEndData>
 
     /**
      * GET api/v1/users/{userId}/groups
@@ -396,10 +396,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageGroupSearchResult]>
+     * @return [Call]<[ModelGroupSearchResult]>
      */
     @GET("api/v1/users/{userId}/groups")
-    fun getApiV1UsersByUseridGroups(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageGroupSearchResult>
+    fun getApiV1UsersByUseridGroups(@Path("userId") userId: kotlin.String, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 10, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ModelGroupSearchResult>
 
     /**
      * GET api/v1/users/{userId}/manage_data
@@ -412,10 +412,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataManageUserData]>
+     * @return [Call]<[ManageUserData]>
      */
     @GET("api/v1/users/{userId}/manage_data")
-    fun getApiV1UsersByUseridManageData(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataManageUserData>
+    fun getApiV1UsersByUseridManageData(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ManageUserData>
 
     /**
      * GET api/v1/users/{userId}/meta
@@ -428,10 +428,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserMetaResult]>
+     * @return [Call]<[UserMetaResult]>
      */
     @GET("api/v1/users/{userId}/meta")
-    fun getApiV1UsersByUseridMeta(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserMetaResult>
+    fun getApiV1UsersByUseridMeta(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserMetaResult>
 
     /**
      * GET api/v1/users/{userId}/orders
@@ -448,10 +448,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ServiceUserOpListResult]>
+     * @return [Call]<[ListResult]>
      */
     @GET("api/v1/users/{userId}/orders")
-    fun getApiV1UsersByUseridOrders(@Path("userId") userId: kotlin.String, @Query("orderId") orderId: kotlin.String? = null, @Query("includeSubOrders") includeSubOrders: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ServiceUserOpListResult>
+    fun getApiV1UsersByUseridOrders(@Path("userId") userId: kotlin.String, @Query("orderId") orderId: kotlin.String? = null, @Query("includeSubOrders") includeSubOrders: kotlin.Boolean? = null, @Query("start") start: kotlin.Int? = 0, @Query("length") length: kotlin.Int? = 50, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ListResult>
 
     /**
      * GET api/v1/users/{userId}/orders/{orderId}
@@ -497,10 +497,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataCompanyPrivateData]>
+     * @return [Call]<[CompanyPrivateData]>
      */
     @GET("api/v1/users/{userId}/private_data")
-    fun getApiV1UsersByUseridPrivateData(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataCompanyPrivateData>
+    fun getApiV1UsersByUseridPrivateData(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CompanyPrivateData>
 
     /**
      * GET api/v1/users/{userId}/roles/allowed
@@ -513,10 +513,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserAllowedRoles]>
+     * @return [Call]<[UserAllowedRoles]>
      */
     @GET("api/v1/users/{userId}/roles/allowed")
-    fun getApiV1UsersByUseridRolesAllowed(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserAllowedRoles>
+    fun getApiV1UsersByUseridRolesAllowed(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserAllowedRoles>
 
     /**
      * GET api/v1/users/{userId}/tickets
@@ -529,10 +529,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserTicketResult]>
+     * @return [Call]<[UserTicketResult]>
      */
     @GET("api/v1/users/{userId}/tickets")
-    fun getApiV1UsersByUseridTickets(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserTicketResult>
+    fun getApiV1UsersByUseridTickets(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserTicketResult>
 
     /**
      * GET api/v1/users/{userId}/tickets/history
@@ -546,10 +546,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataUserTicketHistoryResult]>
+     * @return [Call]<[UserTicketHistoryResult]>
      */
     @GET("api/v1/users/{userId}/tickets/history")
-    fun getApiV1UsersByUseridTicketsHistory(@Path("userId") userId: kotlin.String, @Query("ticket_id") ticketId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataUserTicketHistoryResult>
+    fun getApiV1UsersByUseridTicketsHistory(@Path("userId") userId: kotlin.String, @Query("ticket_id") ticketId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserTicketHistoryResult>
 
     /**
      * GET api/v1/users/{userId}/transactions
@@ -647,10 +647,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPaymentAccountResult]>
+     * @return [Call]<[PaymentAccountResult]>
      */
     @GET("api/v1/users/paymentAccount")
-    fun getApiV1UsersPaymentaccount(@Query("merchantId") merchantId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPaymentAccountResult>
+    fun getApiV1UsersPaymentaccount(@Query("merchantId") merchantId: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<PaymentAccountResult>
 
     /**
      * POST api/v1/users/{userId}/addresses
@@ -677,14 +677,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param baseSettingsAgreement 
+     * @param agreement 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Account]>
      */
     @POST("api/v1/users/{userId}/agreement")
-    fun postApiV1UsersByUseridAgreement(@Path("userId") userId: kotlin.String, @Body baseSettingsAgreement: BaseSettingsAgreement, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
+    fun postApiV1UsersByUseridAgreement(@Path("userId") userId: kotlin.String, @Body agreement: Agreement, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
 
     /**
      * POST api/v1/users/{userId}/api-secret
@@ -697,10 +697,10 @@ interface UserControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataApiSecret]>
+     * @return [Call]<[ApiSecret]>
      */
     @POST("api/v1/users/{userId}/api-secret")
-    fun postApiV1UsersByUseridApiSecret(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataApiSecret>
+    fun postApiV1UsersByUseridApiSecret(@Path("userId") userId: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ApiSecret>
 
     /**
      * POST api/v1/users/{userId}/blacklist
@@ -726,14 +726,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param baseSettingsConfirmation 
+     * @param confirmation 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Account]>
      */
     @POST("api/v1/users/{userId}/confirmation")
-    fun postApiV1UsersByUseridConfirmation(@Path("userId") userId: kotlin.String, @Body baseSettingsConfirmation: BaseSettingsConfirmation, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
+    fun postApiV1UsersByUseridConfirmation(@Path("userId") userId: kotlin.String, @Body confirmation: Confirmation, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
 
     /**
      * POST api/v1/users/{userId}/locale
@@ -760,14 +760,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataUpdateNotificationRequest 
+     * @param updateNotificationRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/users/{userId}/notification")
-    fun postApiV1UsersByUseridNotification(@Path("userId") userId: kotlin.String, @Body edgeApiDataUpdateNotificationRequest: EdgeApiDataUpdateNotificationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1UsersByUseridNotification(@Path("userId") userId: kotlin.String, @Body updateNotificationRequest: UpdateNotificationRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/users/{userId}/password_reset
@@ -811,14 +811,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param baseSettingsPolicy 
+     * @param policy 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[Account]>
      */
     @POST("api/v1/users/{userId}/policy")
-    fun postApiV1UsersByUseridPolicy(@Path("userId") userId: kotlin.String, @Body baseSettingsPolicy: BaseSettingsPolicy, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
+    fun postApiV1UsersByUseridPolicy(@Path("userId") userId: kotlin.String, @Body policy: Policy, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Account>
 
     /**
      * POST api/v1/users/{userId}/referral_code
@@ -845,14 +845,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataUpdateRolesRequest 
+     * @param updateRolesRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/users/{userId}/roles")
-    fun postApiV1UsersByUseridRoles(@Path("userId") userId: kotlin.String, @Body edgeApiDataUpdateRolesRequest: EdgeApiDataUpdateRolesRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1UsersByUseridRoles(@Path("userId") userId: kotlin.String, @Body updateRolesRequest: UpdateRolesRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
 
     /**
@@ -904,14 +904,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataUseUserTicketRequest 
+     * @param useUserTicketRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/users/{userId}/tickets/use")
-    fun postApiV1UsersByUseridTicketsUse(@Path("userId") userId: kotlin.String, @Body edgeApiDataUseUserTicketRequest: EdgeApiDataUseUserTicketRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1UsersByUseridTicketsUse(@Path("userId") userId: kotlin.String, @Body useUserTicketRequest: UseUserTicketRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/users/{userId}/tickets/validate
@@ -921,14 +921,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataValidateUserTicketRequest 
+     * @param validateUserTicketRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/users/{userId}/tickets/validate")
-    fun postApiV1UsersByUseridTicketsValidate(@Path("userId") userId: kotlin.String, @Body edgeApiDataValidateUserTicketRequest: EdgeApiDataValidateUserTicketRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1UsersByUseridTicketsValidate(@Path("userId") userId: kotlin.String, @Body validateUserTicketRequest: ValidateUserTicketRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/users/{userId}/topup
@@ -938,14 +938,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataTopupRewardReq 
+     * @param topupRewardReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
      */
     @POST("api/v1/users/{userId}/topup")
-    fun postApiV1UsersByUseridTopup(@Path("userId") userId: kotlin.String, @Body edgeApiDataTopupRewardReq: EdgeApiDataTopupRewardReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun postApiV1UsersByUseridTopup(@Path("userId") userId: kotlin.String, @Body topupRewardReq: TopupRewardReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/users/{userId}/unassign
@@ -1020,7 +1020,7 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param edgeApiDataUpdateUserRequest 
+     * @param updateUserRequest 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
@@ -1028,7 +1028,7 @@ interface UserControllerApi {
      */
     @Deprecated("This api was deprecated")
     @PUT("api/v1/users/{userId}/update")
-    fun putApiV1UsersByUseridUpdate(@Path("userId") userId: kotlin.String, @Body edgeApiDataUpdateUserRequest: EdgeApiDataUpdateUserRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
+    fun putApiV1UsersByUseridUpdate(@Path("userId") userId: kotlin.String, @Body updateUserRequest: UpdateUserRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * PUT api/v1/users/{userId}/update_user
@@ -1038,14 +1038,14 @@ interface UserControllerApi {
      *  - 200: OK
      *
      * @param userId 
-     * @param queueEventsUpdateUserEvent 
+     * @param updateUserEvent 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
      * @return [Call]<[UpdateUserResult]>
      */
     @PUT("api/v1/users/{userId}/update_user")
-    fun putApiV1UsersByUseridUpdateUser(@Path("userId") userId: kotlin.String, @Body queueEventsUpdateUserEvent: QueueEventsUpdateUserEvent, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UpdateUserResult>
+    fun putApiV1UsersByUseridUpdateUser(@Path("userId") userId: kotlin.String, @Body updateUserEvent: UpdateUserEvent, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UpdateUserResult>
 
     /**
      * PUT api/v1/users/inviteLinks/{inviteCode}

@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  ThirdpartiesFacebookDeleteUserCallbackResp,
+  DeleteUserCallbackResp,
 } from '../models/index';
 import {
-    ThirdpartiesFacebookDeleteUserCallbackRespFromJSON,
-    ThirdpartiesFacebookDeleteUserCallbackRespToJSON,
+    DeleteUserCallbackRespFromJSON,
+    DeleteUserCallbackRespToJSON,
 } from '../models/index';
 
 export interface GetApiV1FacebookStatusByStateRequest {
@@ -94,11 +94,11 @@ export interface FacebookControllerApiInterface {
      * @throws {RequiredError}
      * @memberof FacebookControllerApiInterface
      */
-    postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesFacebookDeleteUserCallbackResp>>;
+    postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>>;
 
     /**
      */
-    postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesFacebookDeleteUserCallbackResp>;
+    postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp>;
 
 }
 
@@ -219,7 +219,7 @@ export class FacebookControllerApi extends runtime.BaseAPI implements FacebookCo
 
     /**
      */
-    async postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ThirdpartiesFacebookDeleteUserCallbackResp>> {
+    async postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserCallbackResp>> {
         if (requestParameters['state'] == null) {
             throw new runtime.RequiredError(
                 'state',
@@ -258,12 +258,12 @@ export class FacebookControllerApi extends runtime.BaseAPI implements FacebookCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ThirdpartiesFacebookDeleteUserCallbackRespFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteUserCallbackRespFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ThirdpartiesFacebookDeleteUserCallbackResp> {
+    async postApiV1FacebookCallbacksUserDataDeletionByState(requestParameters: PostApiV1FacebookCallbacksUserDataDeletionByStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserCallbackResp> {
         const response = await this.postApiV1FacebookCallbacksUserDataDeletionByStateRaw(requestParameters, initOverrides);
         return await response.value();
     }

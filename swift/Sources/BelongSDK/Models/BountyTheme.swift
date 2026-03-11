@@ -18,10 +18,10 @@ public struct BountyTheme: Codable, JSONEncodable, Hashable {
         case unknown = "UNKNOWN"
     }
     public var type: String?
-    public var colorScheme: BountyColorScheme?
+    public var colorScheme: ColorScheme?
     public var themeTypeAsEnum: ThemeTypeAsEnum?
 
-    public init(type: String? = nil, colorScheme: BountyColorScheme? = nil, themeTypeAsEnum: ThemeTypeAsEnum? = nil) {
+    public init(type: String? = nil, colorScheme: ColorScheme? = nil, themeTypeAsEnum: ThemeTypeAsEnum? = nil) {
         self.type = type
         self.colorScheme = colorScheme
         self.themeTypeAsEnum = themeTypeAsEnum

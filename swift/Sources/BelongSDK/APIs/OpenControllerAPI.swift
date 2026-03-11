@@ -95,10 +95,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [EdgeApiDataAdvertsResultAdvert]
+     - returns: [Advert]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenAdvertsByTargetappByBannertype(targetApp: TargetApp_getApiV1OpenAdvertsByTargetappByBannertype, bannerType: BannerType_getApiV1OpenAdvertsByTargetappByBannertype, locationCompanyId: String? = nil, locationPin: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [EdgeApiDataAdvertsResultAdvert] {
+    open class func getApiV1OpenAdvertsByTargetappByBannertype(targetApp: TargetApp_getApiV1OpenAdvertsByTargetappByBannertype, bannerType: BannerType_getApiV1OpenAdvertsByTargetappByBannertype, locationCompanyId: String? = nil, locationPin: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [Advert] {
         return try await getApiV1OpenAdvertsByTargetappByBannertypeWithRequestBuilder(targetApp: targetApp, bannerType: bannerType, locationCompanyId: locationCompanyId, locationPin: locationPin, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -114,9 +114,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[EdgeApiDataAdvertsResultAdvert]> 
+     - returns: RequestBuilder<[Advert]> 
      */
-    open class func getApiV1OpenAdvertsByTargetappByBannertypeWithRequestBuilder(targetApp: TargetApp_getApiV1OpenAdvertsByTargetappByBannertype, bannerType: BannerType_getApiV1OpenAdvertsByTargetappByBannertype, locationCompanyId: String? = nil, locationPin: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[EdgeApiDataAdvertsResultAdvert]> {
+    open class func getApiV1OpenAdvertsByTargetappByBannertypeWithRequestBuilder(targetApp: TargetApp_getApiV1OpenAdvertsByTargetappByBannertype, bannerType: BannerType_getApiV1OpenAdvertsByTargetappByBannertype, locationCompanyId: String? = nil, locationPin: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[Advert]> {
         var localVariablePath = "/api/v1/open/adverts/{targetApp}/{bannerType}"
         let targetAppPreEscape = "\(targetApp.rawValue)"
         let targetAppPostEscape = targetAppPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -141,7 +141,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[EdgeApiDataAdvertsResultAdvert]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[Advert]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -154,10 +154,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: AttachmentsAttachment
+     - returns: Attachment
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(anchorType: String, anchorId: String, attachmentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AttachmentsAttachment {
+    open class func getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentid(anchorType: String, anchorId: String, attachmentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Attachment {
         return try await getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidWithRequestBuilder(anchorType: anchorType, anchorId: anchorId, attachmentId: attachmentId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -172,9 +172,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<AttachmentsAttachment> 
+     - returns: RequestBuilder<Attachment> 
      */
-    open class func getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidWithRequestBuilder(anchorType: String, anchorId: String, attachmentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AttachmentsAttachment> {
+    open class func getApiV1OpenAttachmentsByAnchortypeByAnchoridByAttachmentidWithRequestBuilder(anchorType: String, anchorId: String, attachmentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Attachment> {
         var localVariablePath = "/api/v1/open/attachments/{anchorType}/{anchorId}/{attachmentId}"
         let anchorTypePreEscape = "\(APIHelper.mapValueToPathItem(anchorType))"
         let anchorTypePostEscape = anchorTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -198,7 +198,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AttachmentsAttachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Attachment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -209,10 +209,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenBountiesByBountyIdActivitiesChain(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func getApiV1OpenBountiesByBountyIdActivitiesChain(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await getApiV1OpenBountiesByBountyIdActivitiesChainWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -225,9 +225,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func getApiV1OpenBountiesByBountyIdActivitiesChainWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func getApiV1OpenBountiesByBountyIdActivitiesChainWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         var localVariablePath = "/api/v1/open/bounties/{bounty_id}/activities/chain"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -245,7 +245,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -401,10 +401,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyInfoResult
+     - returns: BountyInfoResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenBountiesByBountyIdInfo(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyInfoResult {
+    open class func getApiV1OpenBountiesByBountyIdInfo(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyInfoResult {
         return try await getApiV1OpenBountiesByBountyIdInfoWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -417,9 +417,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyInfoResult> 
+     - returns: RequestBuilder<BountyInfoResult> 
      */
-    open class func getApiV1OpenBountiesByBountyIdInfoWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyInfoResult> {
+    open class func getApiV1OpenBountiesByBountyIdInfoWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyInfoResult> {
         var localVariablePath = "/api/v1/open/bounties/{bounty_id}/info"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -437,7 +437,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyInfoResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyInfoResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -449,10 +449,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageAccessBountyContentResult
+     - returns: ModelAccessBountyContentResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenBountiesByBountyidContentAccessStatus(bountyId: String, includSubbounties: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageAccessBountyContentResult {
+    open class func getApiV1OpenBountiesByBountyidContentAccessStatus(bountyId: String, includSubbounties: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelAccessBountyContentResult {
         return try await getApiV1OpenBountiesByBountyidContentAccessStatusWithRequestBuilder(bountyId: bountyId, includSubbounties: includSubbounties, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -466,9 +466,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageAccessBountyContentResult> 
+     - returns: RequestBuilder<ModelAccessBountyContentResult> 
      */
-    open class func getApiV1OpenBountiesByBountyidContentAccessStatusWithRequestBuilder(bountyId: String, includSubbounties: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageAccessBountyContentResult> {
+    open class func getApiV1OpenBountiesByBountyidContentAccessStatusWithRequestBuilder(bountyId: String, includSubbounties: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelAccessBountyContentResult> {
         var localVariablePath = "/api/v1/open/bounties/{bountyId}/content/access/status"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -489,7 +489,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageAccessBountyContentResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelAccessBountyContentResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -617,10 +617,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenByUserIdSubordersByParentOrderId(userId: String, parentOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func getApiV1OpenByUserIdSubordersByParentOrderId(userId: String, parentOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await getApiV1OpenByUserIdSubordersByParentOrderIdWithRequestBuilder(userId: userId, parentOrderId: parentOrderId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -634,9 +634,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func getApiV1OpenByUserIdSubordersByParentOrderIdWithRequestBuilder(userId: String, parentOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func getApiV1OpenByUserIdSubordersByParentOrderIdWithRequestBuilder(userId: String, parentOrderId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         var localVariablePath = "/api/v1/open/{user_id}/suborders/{parent_order_id}"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -657,7 +657,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -842,10 +842,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataClientGuessResult
+     - returns: ClientGuessResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenClientsGuess(url: String, clientId: String? = nil, kiosk: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataClientGuessResult {
+    open class func getApiV1OpenClientsGuess(url: String, clientId: String? = nil, kiosk: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ClientGuessResult {
         return try await getApiV1OpenClientsGuessWithRequestBuilder(url: url, clientId: clientId, kiosk: kiosk, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -860,9 +860,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataClientGuessResult> 
+     - returns: RequestBuilder<ClientGuessResult> 
      */
-    open class func getApiV1OpenClientsGuessWithRequestBuilder(url: String, clientId: String? = nil, kiosk: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataClientGuessResult> {
+    open class func getApiV1OpenClientsGuessWithRequestBuilder(url: String, clientId: String? = nil, kiosk: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ClientGuessResult> {
         let localVariablePath = "/api/v1/open/clients/guess"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -882,7 +882,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataClientGuessResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ClientGuessResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -893,10 +893,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCommentResp
+     - returns: CommentResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCommentsByCommentid(commentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCommentResp {
+    open class func getApiV1OpenCommentsByCommentid(commentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CommentResp {
         return try await getApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: commentId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -909,9 +909,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCommentResp> 
+     - returns: RequestBuilder<CommentResp> 
      */
-    open class func getApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCommentResp> {
+    open class func getApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CommentResp> {
         var localVariablePath = "/api/v1/open/comments/{commentId}"
         let commentIdPreEscape = "\(APIHelper.mapValueToPathItem(commentId))"
         let commentIdPostEscape = commentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -929,7 +929,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -943,10 +943,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageComment
+     - returns: ModelComment
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCommentsByEntitytypeByEntityid(entityId: String, entityType: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageComment {
+    open class func getApiV1OpenCommentsByEntitytypeByEntityid(entityId: String, entityType: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelComment {
         return try await getApiV1OpenCommentsByEntitytypeByEntityidWithRequestBuilder(entityId: entityId, entityType: entityType, start: start, limit: limit, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -962,9 +962,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageComment> 
+     - returns: RequestBuilder<ModelComment> 
      */
-    open class func getApiV1OpenCommentsByEntitytypeByEntityidWithRequestBuilder(entityId: String, entityType: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageComment> {
+    open class func getApiV1OpenCommentsByEntitytypeByEntityidWithRequestBuilder(entityId: String, entityType: String, start: Int? = nil, limit: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelComment> {
         var localVariablePath = "/api/v1/open/comments/{entityType}/{entityId}"
         let entityIdPreEscape = "\(APIHelper.mapValueToPathItem(entityId))"
         let entityIdPostEscape = entityIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -989,7 +989,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageComment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelComment>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1000,10 +1000,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageServiceUserHandleKioskInfo
+     - returns: UserHandleKioskInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCompaniesByCompanyidKiosks(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageServiceUserHandleKioskInfo {
+    open class func getApiV1OpenCompaniesByCompanyidKiosks(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserHandleKioskInfo {
         return try await getApiV1OpenCompaniesByCompanyidKiosksWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1016,9 +1016,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageServiceUserHandleKioskInfo> 
+     - returns: RequestBuilder<UserHandleKioskInfo> 
      */
-    open class func getApiV1OpenCompaniesByCompanyidKiosksWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageServiceUserHandleKioskInfo> {
+    open class func getApiV1OpenCompaniesByCompanyidKiosksWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserHandleKioskInfo> {
         var localVariablePath = "/api/v1/open/companies/{companyId}/kiosks"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1036,7 +1036,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageServiceUserHandleKioskInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserHandleKioskInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1047,10 +1047,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo
+     - returns: PointOfSaleInfoLocationInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCompaniesByCompanyidLocations(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo {
+    open class func getApiV1OpenCompaniesByCompanyidLocations(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> PointOfSaleInfoLocationInfo {
         return try await getApiV1OpenCompaniesByCompanyidLocationsWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1063,9 +1063,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo> 
+     - returns: RequestBuilder<PointOfSaleInfoLocationInfo> 
      */
-    open class func getApiV1OpenCompaniesByCompanyidLocationsWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo> {
+    open class func getApiV1OpenCompaniesByCompanyidLocationsWithRequestBuilder(companyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<PointOfSaleInfoLocationInfo> {
         var localVariablePath = "/api/v1/open/companies/{companyId}/locations"
         let companyIdPreEscape = "\(APIHelper.mapValueToPathItem(companyId))"
         let companyIdPostEscape = companyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1083,7 +1083,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPagePrivateCompanySettingsPointOfSaleInfoLocationInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PointOfSaleInfoLocationInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1094,10 +1094,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ThirdpartiesCompanyInfoAgentCompanyInfo
+     - returns: CompanyInfoAgentCompanyInfo
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCompanyInfo(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ThirdpartiesCompanyInfoAgentCompanyInfo {
+    open class func getApiV1OpenCompanyInfo(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CompanyInfoAgentCompanyInfo {
         return try await getApiV1OpenCompanyInfoWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1110,9 +1110,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ThirdpartiesCompanyInfoAgentCompanyInfo> 
+     - returns: RequestBuilder<CompanyInfoAgentCompanyInfo> 
      */
-    open class func getApiV1OpenCompanyInfoWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ThirdpartiesCompanyInfoAgentCompanyInfo> {
+    open class func getApiV1OpenCompanyInfoWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CompanyInfoAgentCompanyInfo> {
         let localVariablePath = "/api/v1/open/company/info"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1130,7 +1130,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ThirdpartiesCompanyInfoAgentCompanyInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CompanyInfoAgentCompanyInfo>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1140,10 +1140,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCurrenciesResponse
+     - returns: CurrenciesResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenCurrencies(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCurrenciesResponse {
+    open class func getApiV1OpenCurrencies(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CurrenciesResponse {
         return try await getApiV1OpenCurrenciesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1155,9 +1155,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCurrenciesResponse> 
+     - returns: RequestBuilder<CurrenciesResponse> 
      */
-    open class func getApiV1OpenCurrenciesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCurrenciesResponse> {
+    open class func getApiV1OpenCurrenciesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CurrenciesResponse> {
         let localVariablePath = "/api/v1/open/currencies"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1172,7 +1172,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCurrenciesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CurrenciesResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1282,10 +1282,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataGetFiltersResult
+     - returns: GetFiltersResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenFiltersByListId(listId: String, tag: [String]? = nil, category: [String]? = nil, zone: String? = nil, q: String? = nil, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataGetFiltersResult {
+    open class func getApiV1OpenFiltersByListId(listId: String, tag: [String]? = nil, category: [String]? = nil, zone: String? = nil, q: String? = nil, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> GetFiltersResult {
         return try await getApiV1OpenFiltersByListIdWithRequestBuilder(listId: listId, tag: tag, category: category, zone: zone, q: q, clientId: clientId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1303,9 +1303,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataGetFiltersResult> 
+     - returns: RequestBuilder<GetFiltersResult> 
      */
-    open class func getApiV1OpenFiltersByListIdWithRequestBuilder(listId: String, tag: [String]? = nil, category: [String]? = nil, zone: String? = nil, q: String? = nil, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataGetFiltersResult> {
+    open class func getApiV1OpenFiltersByListIdWithRequestBuilder(listId: String, tag: [String]? = nil, category: [String]? = nil, zone: String? = nil, q: String? = nil, clientId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<GetFiltersResult> {
         var localVariablePath = "/api/v1/open/filters/{list_id}"
         let listIdPreEscape = "\(APIHelper.mapValueToPathItem(listId))"
         let listIdPostEscape = listIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1330,7 +1330,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataGetFiltersResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GetFiltersResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1340,10 +1340,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataAllowedIntegrationsResponse
+     - returns: AllowedIntegrationsResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenIntegrations(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataAllowedIntegrationsResponse {
+    open class func getApiV1OpenIntegrations(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AllowedIntegrationsResponse {
         return try await getApiV1OpenIntegrationsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1355,9 +1355,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataAllowedIntegrationsResponse> 
+     - returns: RequestBuilder<AllowedIntegrationsResponse> 
      */
-    open class func getApiV1OpenIntegrationsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataAllowedIntegrationsResponse> {
+    open class func getApiV1OpenIntegrationsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AllowedIntegrationsResponse> {
         let localVariablePath = "/api/v1/open/integrations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1372,7 +1372,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataAllowedIntegrationsResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AllowedIntegrationsResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1383,10 +1383,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerOpenControllerInviteInfoResult
+     - returns: InviteInfoResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenInvitesByInviteidInfo(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerOpenControllerInviteInfoResult {
+    open class func getApiV1OpenInvitesByInviteidInfo(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> InviteInfoResult {
         return try await getApiV1OpenInvitesByInviteidInfoWithRequestBuilder(inviteId: inviteId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1399,9 +1399,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerOpenControllerInviteInfoResult> 
+     - returns: RequestBuilder<InviteInfoResult> 
      */
-    open class func getApiV1OpenInvitesByInviteidInfoWithRequestBuilder(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerOpenControllerInviteInfoResult> {
+    open class func getApiV1OpenInvitesByInviteidInfoWithRequestBuilder(inviteId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<InviteInfoResult> {
         var localVariablePath = "/api/v1/open/invites/{inviteId}/info"
         let inviteIdPreEscape = "\(APIHelper.mapValueToPathItem(inviteId))"
         let inviteIdPostEscape = inviteIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1419,7 +1419,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerOpenControllerInviteInfoResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InviteInfoResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1430,10 +1430,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataLocationsResult
+     - returns: LocationsResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenLocations(deliveryZipcode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataLocationsResult {
+    open class func getApiV1OpenLocations(deliveryZipcode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> LocationsResult {
         return try await getApiV1OpenLocationsWithRequestBuilder(deliveryZipcode: deliveryZipcode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1446,9 +1446,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataLocationsResult> 
+     - returns: RequestBuilder<LocationsResult> 
      */
-    open class func getApiV1OpenLocationsWithRequestBuilder(deliveryZipcode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataLocationsResult> {
+    open class func getApiV1OpenLocationsWithRequestBuilder(deliveryZipcode: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<LocationsResult> {
         let localVariablePath = "/api/v1/open/locations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1466,7 +1466,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataLocationsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LocationsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1476,10 +1476,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataLocationGuessResult
+     - returns: LocationGuessResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenLocationsGuess(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataLocationGuessResult {
+    open class func getApiV1OpenLocationsGuess(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> LocationGuessResult {
         return try await getApiV1OpenLocationsGuessWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1491,9 +1491,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataLocationGuessResult> 
+     - returns: RequestBuilder<LocationGuessResult> 
      */
-    open class func getApiV1OpenLocationsGuessWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataLocationGuessResult> {
+    open class func getApiV1OpenLocationsGuessWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<LocationGuessResult> {
         let localVariablePath = "/api/v1/open/locations/guess"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1508,7 +1508,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataLocationGuessResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LocationGuessResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1533,10 +1533,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataLookupResult
+     - returns: LookupResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenLookupsByLookupType(lookupType: String, q: String? = nil, limit: String? = nil, query: [String]? = nil, searchMode: SearchMode_getApiV1OpenLookupsByLookupType? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataLookupResult {
+    open class func getApiV1OpenLookupsByLookupType(lookupType: String, q: String? = nil, limit: String? = nil, query: [String]? = nil, searchMode: SearchMode_getApiV1OpenLookupsByLookupType? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> LookupResult {
         return try await getApiV1OpenLookupsByLookupTypeWithRequestBuilder(lookupType: lookupType, q: q, limit: limit, query: query, searchMode: searchMode, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1553,9 +1553,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataLookupResult> 
+     - returns: RequestBuilder<LookupResult> 
      */
-    open class func getApiV1OpenLookupsByLookupTypeWithRequestBuilder(lookupType: String, q: String? = nil, limit: String? = nil, query: [String]? = nil, searchMode: SearchMode_getApiV1OpenLookupsByLookupType? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataLookupResult> {
+    open class func getApiV1OpenLookupsByLookupTypeWithRequestBuilder(lookupType: String, q: String? = nil, limit: String? = nil, query: [String]? = nil, searchMode: SearchMode_getApiV1OpenLookupsByLookupType? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<LookupResult> {
         var localVariablePath = "/api/v1/open/lookups/{lookup_type}"
         let lookupTypePreEscape = "\(APIHelper.mapValueToPathItem(lookupType))"
         let lookupTypePostEscape = lookupTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1579,7 +1579,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataLookupResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LookupResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1591,10 +1591,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerOpenControllerStatesResult
+     - returns: StatesResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenLookupsCountriesByCountryStates(country: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerOpenControllerStatesResult {
+    open class func getApiV1OpenLookupsCountriesByCountryStates(country: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StatesResult {
         return try await getApiV1OpenLookupsCountriesByCountryStatesWithRequestBuilder(country: country, administrative: administrative, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1608,9 +1608,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerOpenControllerStatesResult> 
+     - returns: RequestBuilder<StatesResult> 
      */
-    open class func getApiV1OpenLookupsCountriesByCountryStatesWithRequestBuilder(country: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerOpenControllerStatesResult> {
+    open class func getApiV1OpenLookupsCountriesByCountryStatesWithRequestBuilder(country: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StatesResult> {
         var localVariablePath = "/api/v1/open/lookups/countries/{country}/states"
         let countryPreEscape = "\(APIHelper.mapValueToPathItem(country))"
         let countryPostEscape = countryPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1631,7 +1631,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerOpenControllerStatesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<StatesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1642,10 +1642,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataKioskEntryPointResult
+     - returns: KioskEntryPointResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenMetaTabletEntrypoint(test: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataKioskEntryPointResult {
+    open class func getApiV1OpenMetaTabletEntrypoint(test: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> KioskEntryPointResult {
         return try await getApiV1OpenMetaTabletEntrypointWithRequestBuilder(test: test, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1658,9 +1658,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataKioskEntryPointResult> 
+     - returns: RequestBuilder<KioskEntryPointResult> 
      */
-    open class func getApiV1OpenMetaTabletEntrypointWithRequestBuilder(test: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataKioskEntryPointResult> {
+    open class func getApiV1OpenMetaTabletEntrypointWithRequestBuilder(test: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<KioskEntryPointResult> {
         let localVariablePath = "/api/v1/open/meta/tablet/entrypoint"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1678,7 +1678,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataKioskEntryPointResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KioskEntryPointResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1743,10 +1743,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [EdgeApiDataPickupOrdersResult]
+     - returns: [PickupOrdersResult]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenPickupOrdersByClient(client: String, pickupDate: String, deliveryMethod: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [EdgeApiDataPickupOrdersResult] {
+    open class func getApiV1OpenPickupOrdersByClient(client: String, pickupDate: String, deliveryMethod: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [PickupOrdersResult] {
         return try await getApiV1OpenPickupOrdersByClientWithRequestBuilder(client: client, pickupDate: pickupDate, deliveryMethod: deliveryMethod, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1761,9 +1761,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[EdgeApiDataPickupOrdersResult]> 
+     - returns: RequestBuilder<[PickupOrdersResult]> 
      */
-    open class func getApiV1OpenPickupOrdersByClientWithRequestBuilder(client: String, pickupDate: String, deliveryMethod: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[EdgeApiDataPickupOrdersResult]> {
+    open class func getApiV1OpenPickupOrdersByClientWithRequestBuilder(client: String, pickupDate: String, deliveryMethod: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[PickupOrdersResult]> {
         var localVariablePath = "/api/v1/open/pickup_orders/{client}"
         let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
         let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1785,7 +1785,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[EdgeApiDataPickupOrdersResult]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[PickupOrdersResult]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1802,10 +1802,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenProducts(filter: Filter, category: [String]? = nil, tag: [String]? = nil, zone: String? = nil, q: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func getApiV1OpenProducts(filter: Filter, category: [String]? = nil, tag: [String]? = nil, zone: String? = nil, q: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await getApiV1OpenProductsWithRequestBuilder(filter: filter, category: category, tag: tag, zone: zone, q: q, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1824,9 +1824,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func getApiV1OpenProductsWithRequestBuilder(filter: Filter, category: [String]? = nil, tag: [String]? = nil, zone: String? = nil, q: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func getApiV1OpenProductsWithRequestBuilder(filter: Filter, category: [String]? = nil, tag: [String]? = nil, zone: String? = nil, q: String? = nil, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         let localVariablePath = "/api/v1/open/products"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1850,7 +1850,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1861,10 +1861,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataProductExtras
+     - returns: ProductExtras
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenProductsByProductidExtras(productId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataProductExtras {
+    open class func getApiV1OpenProductsByProductidExtras(productId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ProductExtras {
         return try await getApiV1OpenProductsByProductidExtrasWithRequestBuilder(productId: productId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1877,9 +1877,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataProductExtras> 
+     - returns: RequestBuilder<ProductExtras> 
      */
-    open class func getApiV1OpenProductsByProductidExtrasWithRequestBuilder(productId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataProductExtras> {
+    open class func getApiV1OpenProductsByProductidExtrasWithRequestBuilder(productId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ProductExtras> {
         var localVariablePath = "/api/v1/open/products/{productId}/extras"
         let productIdPreEscape = "\(APIHelper.mapValueToPathItem(productId))"
         let productIdPostEscape = productIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1897,7 +1897,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataProductExtras>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ProductExtras>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1913,10 +1913,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenProductsRecommendations(actionVerb: String? = nil, actionObjectType: String? = nil, actionObjectId: String? = nil, actionSearchQuery: String? = nil, actionRecommendationToken: String? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func getApiV1OpenProductsRecommendations(actionVerb: String? = nil, actionObjectType: String? = nil, actionObjectId: String? = nil, actionSearchQuery: String? = nil, actionRecommendationToken: String? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await getApiV1OpenProductsRecommendationsWithRequestBuilder(actionVerb: actionVerb, actionObjectType: actionObjectType, actionObjectId: actionObjectId, actionSearchQuery: actionSearchQuery, actionRecommendationToken: actionRecommendationToken, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -1934,9 +1934,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func getApiV1OpenProductsRecommendationsWithRequestBuilder(actionVerb: String? = nil, actionObjectType: String? = nil, actionObjectId: String? = nil, actionSearchQuery: String? = nil, actionRecommendationToken: String? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func getApiV1OpenProductsRecommendationsWithRequestBuilder(actionVerb: String? = nil, actionObjectType: String? = nil, actionObjectId: String? = nil, actionSearchQuery: String? = nil, actionRecommendationToken: String? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         let localVariablePath = "/api/v1/open/products/recommendations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1959,7 +1959,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2014,10 +2014,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenReservations(filter: Filter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func getApiV1OpenReservations(filter: Filter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await getApiV1OpenReservationsWithRequestBuilder(filter: filter, start: start, length: length, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2032,9 +2032,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func getApiV1OpenReservationsWithRequestBuilder(filter: Filter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func getApiV1OpenReservationsWithRequestBuilder(filter: Filter, start: Int? = nil, length: Int? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         let localVariablePath = "/api/v1/open/reservations"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2054,7 +2054,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2083,10 +2083,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ThirdpartiesOpentableConsumerAPIAPIAvailability
+     - returns: Availability
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenReservationsAvailability(date: Int64, partySize: Int, restaurantId: Int? = nil, forwardMinutes: Int? = nil, backwardMinutes: Int? = nil, includeCcResults: Bool? = nil, includeExperiences: Bool? = nil, reservationAttribute: [ReservationAttribute_getApiV1OpenReservationsAvailability]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ThirdpartiesOpentableConsumerAPIAPIAvailability {
+    open class func getApiV1OpenReservationsAvailability(date: Int64, partySize: Int, restaurantId: Int? = nil, forwardMinutes: Int? = nil, backwardMinutes: Int? = nil, includeCcResults: Bool? = nil, includeExperiences: Bool? = nil, reservationAttribute: [ReservationAttribute_getApiV1OpenReservationsAvailability]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> Availability {
         return try await getApiV1OpenReservationsAvailabilityWithRequestBuilder(date: date, partySize: partySize, restaurantId: restaurantId, forwardMinutes: forwardMinutes, backwardMinutes: backwardMinutes, includeCcResults: includeCcResults, includeExperiences: includeExperiences, reservationAttribute: reservationAttribute, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2106,9 +2106,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ThirdpartiesOpentableConsumerAPIAPIAvailability> 
+     - returns: RequestBuilder<Availability> 
      */
-    open class func getApiV1OpenReservationsAvailabilityWithRequestBuilder(date: Int64, partySize: Int, restaurantId: Int? = nil, forwardMinutes: Int? = nil, backwardMinutes: Int? = nil, includeCcResults: Bool? = nil, includeExperiences: Bool? = nil, reservationAttribute: [ReservationAttribute_getApiV1OpenReservationsAvailability]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ThirdpartiesOpentableConsumerAPIAPIAvailability> {
+    open class func getApiV1OpenReservationsAvailabilityWithRequestBuilder(date: Int64, partySize: Int, restaurantId: Int? = nil, forwardMinutes: Int? = nil, backwardMinutes: Int? = nil, includeCcResults: Bool? = nil, includeExperiences: Bool? = nil, reservationAttribute: [ReservationAttribute_getApiV1OpenReservationsAvailability]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Availability> {
         let localVariablePath = "/api/v1/open/reservations/availability"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2133,7 +2133,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ThirdpartiesOpentableConsumerAPIAPIAvailability>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Availability>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2143,10 +2143,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataLocationsResult
+     - returns: LocationsResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenRestaurants(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataLocationsResult {
+    open class func getApiV1OpenRestaurants(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> LocationsResult {
         return try await getApiV1OpenRestaurantsWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2158,9 +2158,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataLocationsResult> 
+     - returns: RequestBuilder<LocationsResult> 
      */
-    open class func getApiV1OpenRestaurantsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataLocationsResult> {
+    open class func getApiV1OpenRestaurantsWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<LocationsResult> {
         let localVariablePath = "/api/v1/open/restaurants"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2175,7 +2175,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataLocationsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LocationsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2186,10 +2186,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataExplainSelfLinkResp
+     - returns: ExplainSelfLinkResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenSelflinksExplain(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataExplainSelfLinkResp {
+    open class func getApiV1OpenSelflinksExplain(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ExplainSelfLinkResp {
         return try await getApiV1OpenSelflinksExplainWithRequestBuilder(url: url, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2202,9 +2202,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataExplainSelfLinkResp> 
+     - returns: RequestBuilder<ExplainSelfLinkResp> 
      */
-    open class func getApiV1OpenSelflinksExplainWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataExplainSelfLinkResp> {
+    open class func getApiV1OpenSelflinksExplainWithRequestBuilder(url: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ExplainSelfLinkResp> {
         let localVariablePath = "/api/v1/open/selfLinks/explain"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2222,7 +2222,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataExplainSelfLinkResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExplainSelfLinkResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2232,10 +2232,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBusinessTypesResp
+     - returns: BusinessTypesResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenSelfonboardingBusinesstypes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBusinessTypesResp {
+    open class func getApiV1OpenSelfonboardingBusinesstypes(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BusinessTypesResp {
         return try await getApiV1OpenSelfonboardingBusinesstypesWithRequestBuilder(xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2247,9 +2247,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBusinessTypesResp> 
+     - returns: RequestBuilder<BusinessTypesResp> 
      */
-    open class func getApiV1OpenSelfonboardingBusinesstypesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBusinessTypesResp> {
+    open class func getApiV1OpenSelfonboardingBusinesstypesWithRequestBuilder(xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BusinessTypesResp> {
         let localVariablePath = "/api/v1/open/selfonboarding/businessTypes"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2264,7 +2264,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBusinessTypesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BusinessTypesResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2275,10 +2275,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: BaseSettingsShopSettings
+     - returns: ShopSettings
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenSettingsShopsettings(companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BaseSettingsShopSettings {
+    open class func getApiV1OpenSettingsShopsettings(companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ShopSettings {
         return try await getApiV1OpenSettingsShopsettingsWithRequestBuilder(companyId: companyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2291,9 +2291,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<BaseSettingsShopSettings> 
+     - returns: RequestBuilder<ShopSettings> 
      */
-    open class func getApiV1OpenSettingsShopsettingsWithRequestBuilder(companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BaseSettingsShopSettings> {
+    open class func getApiV1OpenSettingsShopsettingsWithRequestBuilder(companyId: String? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ShopSettings> {
         let localVariablePath = "/api/v1/open/settings/shopSettings"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2311,7 +2311,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BaseSettingsShopSettings>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ShopSettings>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2323,10 +2323,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RestControllerOpenControllerStatesResult
+     - returns: StatesResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenStatesByClientId(clientId: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> RestControllerOpenControllerStatesResult {
+    open class func getApiV1OpenStatesByClientId(clientId: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> StatesResult {
         return try await getApiV1OpenStatesByClientIdWithRequestBuilder(clientId: clientId, administrative: administrative, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2340,9 +2340,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<RestControllerOpenControllerStatesResult> 
+     - returns: RequestBuilder<StatesResult> 
      */
-    open class func getApiV1OpenStatesByClientIdWithRequestBuilder(clientId: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<RestControllerOpenControllerStatesResult> {
+    open class func getApiV1OpenStatesByClientIdWithRequestBuilder(clientId: String, administrative: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<StatesResult> {
         var localVariablePath = "/api/v1/open/states/{client_id}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2363,7 +2363,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestControllerOpenControllerStatesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<StatesResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2374,10 +2374,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataSurveyBundleResp
+     - returns: SurveyBundleResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenSurveysByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataSurveyBundleResp {
+    open class func getApiV1OpenSurveysByBountyid(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SurveyBundleResp {
         return try await getApiV1OpenSurveysByBountyidWithRequestBuilder(bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2390,9 +2390,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataSurveyBundleResp> 
+     - returns: RequestBuilder<SurveyBundleResp> 
      */
-    open class func getApiV1OpenSurveysByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataSurveyBundleResp> {
+    open class func getApiV1OpenSurveysByBountyidWithRequestBuilder(bountyId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SurveyBundleResp> {
         var localVariablePath = "/api/v1/open/surveys/{bountyId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2410,7 +2410,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataSurveyBundleResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SurveyBundleResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2470,10 +2470,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataExchangeTokenResp
+     - returns: ExchangeTokenResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenTokensByCurrencyfromExchange(currencyFrom: String, amountFrom: Int64, currencyTo: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataExchangeTokenResp {
+    open class func getApiV1OpenTokensByCurrencyfromExchange(currencyFrom: String, amountFrom: Int64, currencyTo: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ExchangeTokenResp {
         return try await getApiV1OpenTokensByCurrencyfromExchangeWithRequestBuilder(currencyFrom: currencyFrom, amountFrom: amountFrom, currencyTo: currencyTo, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2488,9 +2488,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataExchangeTokenResp> 
+     - returns: RequestBuilder<ExchangeTokenResp> 
      */
-    open class func getApiV1OpenTokensByCurrencyfromExchangeWithRequestBuilder(currencyFrom: String, amountFrom: Int64, currencyTo: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataExchangeTokenResp> {
+    open class func getApiV1OpenTokensByCurrencyfromExchangeWithRequestBuilder(currencyFrom: String, amountFrom: Int64, currencyTo: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ExchangeTokenResp> {
         var localVariablePath = "/api/v1/open/tokens/{currencyFrom}/exchange"
         let currencyFromPreEscape = "\(APIHelper.mapValueToPathItem(currencyFrom))"
         let currencyFromPostEscape = currencyFromPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2512,7 +2512,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataExchangeTokenResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExchangeTokenResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2561,10 +2561,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataPageBounty
+     - returns: ModelBounty
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenUserStreamByListid(listId: String, userId: String? = nil, groupId: String? = nil, companyId: String? = nil, postedAt: Int64? = nil, searchDirection: SearchDirection_getApiV1OpenUserStreamByListid? = nil, searchMode: SearchMode_getApiV1OpenUserStreamByListid? = nil, strategy: Strategy_getApiV1OpenUserStreamByListid? = nil, order: String? = nil, displayScreen: String? = nil, start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataPageBounty {
+    open class func getApiV1OpenUserStreamByListid(listId: String, userId: String? = nil, groupId: String? = nil, companyId: String? = nil, postedAt: Int64? = nil, searchDirection: SearchDirection_getApiV1OpenUserStreamByListid? = nil, searchMode: SearchMode_getApiV1OpenUserStreamByListid? = nil, strategy: Strategy_getApiV1OpenUserStreamByListid? = nil, order: String? = nil, displayScreen: String? = nil, start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ModelBounty {
         return try await getApiV1OpenUserStreamByListidWithRequestBuilder(listId: listId, userId: userId, groupId: groupId, companyId: companyId, postedAt: postedAt, searchDirection: searchDirection, searchMode: searchMode, strategy: strategy, order: order, displayScreen: displayScreen, start: start, length: length, ignoreCache: ignoreCache, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2589,9 +2589,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataPageBounty> 
+     - returns: RequestBuilder<ModelBounty> 
      */
-    open class func getApiV1OpenUserStreamByListidWithRequestBuilder(listId: String, userId: String? = nil, groupId: String? = nil, companyId: String? = nil, postedAt: Int64? = nil, searchDirection: SearchDirection_getApiV1OpenUserStreamByListid? = nil, searchMode: SearchMode_getApiV1OpenUserStreamByListid? = nil, strategy: Strategy_getApiV1OpenUserStreamByListid? = nil, order: String? = nil, displayScreen: String? = nil, start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataPageBounty> {
+    open class func getApiV1OpenUserStreamByListidWithRequestBuilder(listId: String, userId: String? = nil, groupId: String? = nil, companyId: String? = nil, postedAt: Int64? = nil, searchDirection: SearchDirection_getApiV1OpenUserStreamByListid? = nil, searchMode: SearchMode_getApiV1OpenUserStreamByListid? = nil, strategy: Strategy_getApiV1OpenUserStreamByListid? = nil, order: String? = nil, displayScreen: String? = nil, start: Int? = nil, length: Int? = nil, ignoreCache: Bool? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ModelBounty> {
         var localVariablePath = "/api/v1/open/user/stream/{listId}"
         let listIdPreEscape = "\(APIHelper.mapValueToPathItem(listId))"
         let listIdPostEscape = listIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2623,7 +2623,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataPageBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelBounty>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2635,10 +2635,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataUserEarningsResult
+     - returns: UserEarningsResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenUsersByUserIdEarnings(userId: String, bountyId: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataUserEarningsResult {
+    open class func getApiV1OpenUsersByUserIdEarnings(userId: String, bountyId: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserEarningsResult {
         return try await getApiV1OpenUsersByUserIdEarningsWithRequestBuilder(userId: userId, bountyId: bountyId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2652,9 +2652,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataUserEarningsResult> 
+     - returns: RequestBuilder<UserEarningsResult> 
      */
-    open class func getApiV1OpenUsersByUserIdEarningsWithRequestBuilder(userId: String, bountyId: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataUserEarningsResult> {
+    open class func getApiV1OpenUsersByUserIdEarningsWithRequestBuilder(userId: String, bountyId: [String], xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserEarningsResult> {
         var localVariablePath = "/api/v1/open/users/{user_id}/earnings"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2675,7 +2675,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataUserEarningsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserEarningsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2686,10 +2686,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataUserProfileEx
+     - returns: UserProfileEx
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenUsersByUserIdProfile(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataUserProfileEx {
+    open class func getApiV1OpenUsersByUserIdProfile(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> UserProfileEx {
         return try await getApiV1OpenUsersByUserIdProfileWithRequestBuilder(userId: userId, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2702,9 +2702,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataUserProfileEx> 
+     - returns: RequestBuilder<UserProfileEx> 
      */
-    open class func getApiV1OpenUsersByUserIdProfileWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataUserProfileEx> {
+    open class func getApiV1OpenUsersByUserIdProfileWithRequestBuilder(userId: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<UserProfileEx> {
         var localVariablePath = "/api/v1/open/users/{user_id}/profile"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2722,7 +2722,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataUserProfileEx>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserProfileEx>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2746,10 +2746,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: [String: BaseSettingsPolicy]
+     - returns: [String: Policy]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func getApiV1OpenVendorByUseridPolicy(userId: String, policyType: [PolicyType_getApiV1OpenVendorByUseridPolicy]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: BaseSettingsPolicy] {
+    open class func getApiV1OpenVendorByUseridPolicy(userId: String, policyType: [PolicyType_getApiV1OpenVendorByUseridPolicy]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: Policy] {
         return try await getApiV1OpenVendorByUseridPolicyWithRequestBuilder(userId: userId, policyType: policyType, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -2763,9 +2763,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<[String: BaseSettingsPolicy]> 
+     - returns: RequestBuilder<[String: Policy]> 
      */
-    open class func getApiV1OpenVendorByUseridPolicyWithRequestBuilder(userId: String, policyType: [PolicyType_getApiV1OpenVendorByUseridPolicy]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: BaseSettingsPolicy]> {
+    open class func getApiV1OpenVendorByUseridPolicyWithRequestBuilder(userId: String, policyType: [PolicyType_getApiV1OpenVendorByUseridPolicy]? = nil, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: Policy]> {
         var localVariablePath = "/api/v1/open/vendor/{userId}/policy"
         let userIdPreEscape = "\(APIHelper.mapValueToPathItem(userId))"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2786,7 +2786,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: BaseSettingsPolicy]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: Policy]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2794,15 +2794,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter orderId: (path)  
-     - parameter edgeApiDataOrderUpdate: (body)  
+     - parameter orderUpdate: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataOrderResponse
+     - returns: OrderResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func patchApiV1OpenOrdersByOrderid(orderId: String, edgeApiDataOrderUpdate: EdgeApiDataOrderUpdate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataOrderResponse {
-        return try await patchApiV1OpenOrdersByOrderidWithRequestBuilder(orderId: orderId, edgeApiDataOrderUpdate: edgeApiDataOrderUpdate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func patchApiV1OpenOrdersByOrderid(orderId: String, orderUpdate: OrderUpdate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> OrderResponse {
+        return try await patchApiV1OpenOrdersByOrderidWithRequestBuilder(orderId: orderId, orderUpdate: orderUpdate, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2811,19 +2811,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter orderId: (path)  
-     - parameter edgeApiDataOrderUpdate: (body)  
+     - parameter orderUpdate: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataOrderResponse> 
+     - returns: RequestBuilder<OrderResponse> 
      */
-    open class func patchApiV1OpenOrdersByOrderidWithRequestBuilder(orderId: String, edgeApiDataOrderUpdate: EdgeApiDataOrderUpdate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataOrderResponse> {
+    open class func patchApiV1OpenOrdersByOrderidWithRequestBuilder(orderId: String, orderUpdate: OrderUpdate, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<OrderResponse> {
         var localVariablePath = "/api/v1/open/orders/{orderId}"
         let orderIdPreEscape = "\(APIHelper.mapValueToPathItem(orderId))"
         let orderIdPostEscape = orderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{orderId}", with: orderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataOrderUpdate)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderUpdate)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2836,7 +2836,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataOrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2844,15 +2844,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter edgeApiDataAccessBountyContentReq: (body)  
+     - parameter accessBountyContentReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: AccessBountyContentResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenBountiesByBountyidContentAccess(bountyId: String, edgeApiDataAccessBountyContentReq: EdgeApiDataAccessBountyContentReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessBountyContentResult {
-        return try await postApiV1OpenBountiesByBountyidContentAccessWithRequestBuilder(bountyId: bountyId, edgeApiDataAccessBountyContentReq: edgeApiDataAccessBountyContentReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenBountiesByBountyidContentAccess(bountyId: String, accessBountyContentReq: AccessBountyContentReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AccessBountyContentResult {
+        return try await postApiV1OpenBountiesByBountyidContentAccessWithRequestBuilder(bountyId: bountyId, accessBountyContentReq: accessBountyContentReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2861,19 +2861,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter edgeApiDataAccessBountyContentReq: (body)  
+     - parameter accessBountyContentReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<AccessBountyContentResult> 
      */
-    open class func postApiV1OpenBountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, edgeApiDataAccessBountyContentReq: EdgeApiDataAccessBountyContentReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessBountyContentResult> {
+    open class func postApiV1OpenBountiesByBountyidContentAccessWithRequestBuilder(bountyId: String, accessBountyContentReq: AccessBountyContentReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AccessBountyContentResult> {
         var localVariablePath = "/api/v1/open/bounties/{bountyId}/content/access"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataAccessBountyContentReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accessBountyContentReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2894,15 +2894,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter edgeApiDataPlaceBidReq: (body)  
+     - parameter placeBidReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyResponseResponse
+     - returns: BountyResponseResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenBountyByBountyidBid(bountyId: String, edgeApiDataPlaceBidReq: EdgeApiDataPlaceBidReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyResponseResponse {
-        return try await postApiV1OpenBountyByBountyidBidWithRequestBuilder(bountyId: bountyId, edgeApiDataPlaceBidReq: edgeApiDataPlaceBidReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenBountyByBountyidBid(bountyId: String, placeBidReq: PlaceBidReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyResponseResponse {
+        return try await postApiV1OpenBountyByBountyidBidWithRequestBuilder(bountyId: bountyId, placeBidReq: placeBidReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2911,19 +2911,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter edgeApiDataPlaceBidReq: (body)  
+     - parameter placeBidReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyResponseResponse> 
+     - returns: RequestBuilder<BountyResponseResponse> 
      */
-    open class func postApiV1OpenBountyByBountyidBidWithRequestBuilder(bountyId: String, edgeApiDataPlaceBidReq: EdgeApiDataPlaceBidReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyResponseResponse> {
+    open class func postApiV1OpenBountyByBountyidBidWithRequestBuilder(bountyId: String, placeBidReq: PlaceBidReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyResponseResponse> {
         var localVariablePath = "/api/v1/open/bounty/{bountyId}/bid"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataPlaceBidReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: placeBidReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2936,7 +2936,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2944,15 +2944,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter bountyId: (path)  
-     - parameter edgeApiDataBountyResponseRequest: (body)  
+     - parameter bountyResponseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyResponseResponse
+     - returns: BountyResponseResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenBountyByBountyidQuickClaim(bountyId: String, edgeApiDataBountyResponseRequest: EdgeApiDataBountyResponseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyResponseResponse {
-        return try await postApiV1OpenBountyByBountyidQuickClaimWithRequestBuilder(bountyId: bountyId, edgeApiDataBountyResponseRequest: edgeApiDataBountyResponseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenBountyByBountyidQuickClaim(bountyId: String, bountyResponseRequest: BountyResponseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyResponseResponse {
+        return try await postApiV1OpenBountyByBountyidQuickClaimWithRequestBuilder(bountyId: bountyId, bountyResponseRequest: bountyResponseRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -2961,19 +2961,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter bountyId: (path)  
-     - parameter edgeApiDataBountyResponseRequest: (body)  
+     - parameter bountyResponseRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyResponseResponse> 
+     - returns: RequestBuilder<BountyResponseResponse> 
      */
-    open class func postApiV1OpenBountyByBountyidQuickClaimWithRequestBuilder(bountyId: String, edgeApiDataBountyResponseRequest: EdgeApiDataBountyResponseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyResponseResponse> {
+    open class func postApiV1OpenBountyByBountyidQuickClaimWithRequestBuilder(bountyId: String, bountyResponseRequest: BountyResponseRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyResponseResponse> {
         var localVariablePath = "/api/v1/open/bounty/{bountyId}/quick_claim"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{bountyId}", with: bountyIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataBountyResponseRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bountyResponseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -2986,7 +2986,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2998,10 +2998,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyResponseResponse
+     - returns: BountyResponseResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenBountyByBountyidResponse(bountyId: String, bountyResponse: BountyResponse, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyResponseResponse {
+    open class func postApiV1OpenBountyByBountyidResponse(bountyId: String, bountyResponse: BountyResponse, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyResponseResponse {
         return try await postApiV1OpenBountyByBountyidResponseWithRequestBuilder(bountyId: bountyId, bountyResponse: bountyResponse, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3015,9 +3015,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyResponseResponse> 
+     - returns: RequestBuilder<BountyResponseResponse> 
      */
-    open class func postApiV1OpenBountyByBountyidResponseWithRequestBuilder(bountyId: String, bountyResponse: BountyResponse, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyResponseResponse> {
+    open class func postApiV1OpenBountyByBountyidResponseWithRequestBuilder(bountyId: String, bountyResponse: BountyResponse, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyResponseResponse> {
         var localVariablePath = "/api/v1/open/bounty/{bountyId}/response"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -3036,7 +3036,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3045,15 +3045,15 @@ open class OpenControllerAPI {
 
      - parameter entityType: (path)  
      - parameter entityId: (path)  
-     - parameter edgeApiDataLikeRequest: (body)  
+     - parameter likeRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: [String: String]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenByEntitytypeByEntityidLike(entityType: String, entityId: String, edgeApiDataLikeRequest: EdgeApiDataLikeRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
-        return try await postApiV1OpenByEntitytypeByEntityidLikeWithRequestBuilder(entityType: entityType, entityId: entityId, edgeApiDataLikeRequest: edgeApiDataLikeRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenByEntitytypeByEntityidLike(entityType: String, entityId: String, likeRequest: LikeRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1OpenByEntitytypeByEntityidLikeWithRequestBuilder(entityType: entityType, entityId: entityId, likeRequest: likeRequest, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -3063,13 +3063,13 @@ open class OpenControllerAPI {
        - name: JWT
      - parameter entityType: (path)  
      - parameter entityId: (path)  
-     - parameter edgeApiDataLikeRequest: (body)  
+     - parameter likeRequest: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<[String: String]> 
      */
-    open class func postApiV1OpenByEntitytypeByEntityidLikeWithRequestBuilder(entityType: String, entityId: String, edgeApiDataLikeRequest: EdgeApiDataLikeRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+    open class func postApiV1OpenByEntitytypeByEntityidLikeWithRequestBuilder(entityType: String, entityId: String, likeRequest: LikeRequest, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
         var localVariablePath = "/api/v1/open/{entityType}/{entityId}/like"
         let entityTypePreEscape = "\(APIHelper.mapValueToPathItem(entityType))"
         let entityTypePostEscape = entityTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -3078,7 +3078,7 @@ open class OpenControllerAPI {
         let entityIdPostEscape = entityIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{entityId}", with: entityIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataLikeRequest)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: likeRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -3102,10 +3102,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpListResult
+     - returns: ListResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenCampaigns(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpListResult {
+    open class func postApiV1OpenCampaigns(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ListResult {
         return try await postApiV1OpenCampaignsWithRequestBuilder(pageFilter: pageFilter, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3118,9 +3118,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpListResult> 
+     - returns: RequestBuilder<ListResult> 
      */
-    open class func postApiV1OpenCampaignsWithRequestBuilder(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpListResult> {
+    open class func postApiV1OpenCampaignsWithRequestBuilder(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ListResult> {
         let localVariablePath = "/api/v1/open/campaigns"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: pageFilter)
@@ -3136,7 +3136,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ListResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3147,10 +3147,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: ServiceUserOpSectionsResult
+     - returns: SectionsResult
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenCampaignsSections(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> ServiceUserOpSectionsResult {
+    open class func postApiV1OpenCampaignsSections(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> SectionsResult {
         return try await postApiV1OpenCampaignsSectionsWithRequestBuilder(pageFilter: pageFilter, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3163,9 +3163,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<ServiceUserOpSectionsResult> 
+     - returns: RequestBuilder<SectionsResult> 
      */
-    open class func postApiV1OpenCampaignsSectionsWithRequestBuilder(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<ServiceUserOpSectionsResult> {
+    open class func postApiV1OpenCampaignsSectionsWithRequestBuilder(pageFilter: PageFilter, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<SectionsResult> {
         let localVariablePath = "/api/v1/open/campaigns/sections"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: pageFilter)
@@ -3181,7 +3181,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceUserOpSectionsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SectionsResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3192,10 +3192,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCommentResp
+     - returns: CommentResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenComments(comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCommentResp {
+    open class func postApiV1OpenComments(comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CommentResp {
         return try await postApiV1OpenCommentsWithRequestBuilder(comment: comment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3208,9 +3208,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCommentResp> 
+     - returns: RequestBuilder<CommentResp> 
      */
-    open class func postApiV1OpenCommentsWithRequestBuilder(comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCommentResp> {
+    open class func postApiV1OpenCommentsWithRequestBuilder(comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CommentResp> {
         let localVariablePath = "/api/v1/open/comments"
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: comment)
@@ -3226,7 +3226,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3238,10 +3238,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCommentResp
+     - returns: CommentResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenCommentsByCommentidPromote(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCommentResp {
+    open class func postApiV1OpenCommentsByCommentidPromote(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CommentResp {
         return try await postApiV1OpenCommentsByCommentidPromoteWithRequestBuilder(commentId: commentId, comment: comment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3255,9 +3255,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCommentResp> 
+     - returns: RequestBuilder<CommentResp> 
      */
-    open class func postApiV1OpenCommentsByCommentidPromoteWithRequestBuilder(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCommentResp> {
+    open class func postApiV1OpenCommentsByCommentidPromoteWithRequestBuilder(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CommentResp> {
         var localVariablePath = "/api/v1/open/comments/{commentId}/promote"
         let commentIdPreEscape = "\(APIHelper.mapValueToPathItem(commentId))"
         let commentIdPostEscape = commentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -3276,7 +3276,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3284,15 +3284,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter orderId: (path)  
-     - parameter edgeApiDataPayOrderReq: (body)  
+     - parameter payOrderReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataOrderResponse
+     - returns: OrderResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenOrdersByOrderidPay(orderId: String, edgeApiDataPayOrderReq: EdgeApiDataPayOrderReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataOrderResponse {
-        return try await postApiV1OpenOrdersByOrderidPayWithRequestBuilder(orderId: orderId, edgeApiDataPayOrderReq: edgeApiDataPayOrderReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenOrdersByOrderidPay(orderId: String, payOrderReq: PayOrderReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> OrderResponse {
+        return try await postApiV1OpenOrdersByOrderidPayWithRequestBuilder(orderId: orderId, payOrderReq: payOrderReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -3301,19 +3301,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter orderId: (path)  
-     - parameter edgeApiDataPayOrderReq: (body)  
+     - parameter payOrderReq: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataOrderResponse> 
+     - returns: RequestBuilder<OrderResponse> 
      */
-    open class func postApiV1OpenOrdersByOrderidPayWithRequestBuilder(orderId: String, edgeApiDataPayOrderReq: EdgeApiDataPayOrderReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataOrderResponse> {
+    open class func postApiV1OpenOrdersByOrderidPayWithRequestBuilder(orderId: String, payOrderReq: PayOrderReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<OrderResponse> {
         var localVariablePath = "/api/v1/open/orders/{orderId}/pay"
         let orderIdPreEscape = "\(APIHelper.mapValueToPathItem(orderId))"
         let orderIdPostEscape = orderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{orderId}", with: orderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataPayOrderReq)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: payOrderReq)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -3326,7 +3326,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataOrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OrderResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3334,15 +3334,15 @@ open class OpenControllerAPI {
     /**
 
      - parameter orderId: (path)  
-     - parameter edgeApiDataOrderPaymentResult: (body)  
+     - parameter orderPaymentResult: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func postApiV1OpenOrdersByOrderidPaymentResult(orderId: String, edgeApiDataOrderPaymentResult: EdgeApiDataOrderPaymentResult, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
-        return try await postApiV1OpenOrdersByOrderidPaymentResultWithRequestBuilder(orderId: orderId, edgeApiDataOrderPaymentResult: edgeApiDataOrderPaymentResult, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    open class func postApiV1OpenOrdersByOrderidPaymentResult(orderId: String, orderPaymentResult: OrderPaymentResult, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws {
+        return try await postApiV1OpenOrdersByOrderidPaymentResultWithRequestBuilder(orderId: orderId, orderPaymentResult: orderPaymentResult, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
     /**
@@ -3351,19 +3351,19 @@ open class OpenControllerAPI {
        - type: apiKey Authorization (HEADER)
        - name: JWT
      - parameter orderId: (path)  
-     - parameter edgeApiDataOrderPaymentResult: (body)  
+     - parameter orderPaymentResult: (body)  
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
      - returns: RequestBuilder<Void> 
      */
-    open class func postApiV1OpenOrdersByOrderidPaymentResultWithRequestBuilder(orderId: String, edgeApiDataOrderPaymentResult: EdgeApiDataOrderPaymentResult, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
+    open class func postApiV1OpenOrdersByOrderidPaymentResultWithRequestBuilder(orderId: String, orderPaymentResult: OrderPaymentResult, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<Void> {
         var localVariablePath = "/api/v1/open/orders/{orderId}/payment/result"
         let orderIdPreEscape = "\(APIHelper.mapValueToPathItem(orderId))"
         let orderIdPostEscape = orderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{orderId}", with: orderIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: edgeApiDataOrderPaymentResult)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderPaymentResult)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -3491,10 +3491,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataBountyResponseResponse
+     - returns: BountyResponseResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1OpenBountyByBountyidResponseByResponseid(bountyId: String, responseId: String, responseChanges: ResponseChanges, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataBountyResponseResponse {
+    open class func putApiV1OpenBountyByBountyidResponseByResponseid(bountyId: String, responseId: String, responseChanges: ResponseChanges, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> BountyResponseResponse {
         return try await putApiV1OpenBountyByBountyidResponseByResponseidWithRequestBuilder(bountyId: bountyId, responseId: responseId, responseChanges: responseChanges, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3509,9 +3509,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataBountyResponseResponse> 
+     - returns: RequestBuilder<BountyResponseResponse> 
      */
-    open class func putApiV1OpenBountyByBountyidResponseByResponseidWithRequestBuilder(bountyId: String, responseId: String, responseChanges: ResponseChanges, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataBountyResponseResponse> {
+    open class func putApiV1OpenBountyByBountyidResponseByResponseidWithRequestBuilder(bountyId: String, responseId: String, responseChanges: ResponseChanges, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<BountyResponseResponse> {
         var localVariablePath = "/api/v1/open/bounty/{bountyId}/response/{responseId}"
         let bountyIdPreEscape = "\(APIHelper.mapValueToPathItem(bountyId))"
         let bountyIdPostEscape = bountyIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -3533,7 +3533,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataBountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BountyResponseResponse>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3545,10 +3545,10 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: EdgeApiDataCommentResp
+     - returns: CommentResp
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func putApiV1OpenCommentsByCommentid(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> EdgeApiDataCommentResp {
+    open class func putApiV1OpenCommentsByCommentid(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> CommentResp {
         return try await putApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: commentId, comment: comment, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
     }
 
@@ -3562,9 +3562,9 @@ open class OpenControllerAPI {
      - parameter xEdgeAgent: (header)  (optional)
      - parameter xEdgeState: (header)  (optional)
      - parameter xEdgeClientId: (header)  (optional)
-     - returns: RequestBuilder<EdgeApiDataCommentResp> 
+     - returns: RequestBuilder<CommentResp> 
      */
-    open class func putApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<EdgeApiDataCommentResp> {
+    open class func putApiV1OpenCommentsByCommentidWithRequestBuilder(commentId: String, comment: Comment, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<CommentResp> {
         var localVariablePath = "/api/v1/open/comments/{commentId}"
         let commentIdPreEscape = "\(APIHelper.mapValueToPathItem(commentId))"
         let commentIdPostEscape = commentIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -3583,7 +3583,7 @@ open class OpenControllerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EdgeApiDataCommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommentResp>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

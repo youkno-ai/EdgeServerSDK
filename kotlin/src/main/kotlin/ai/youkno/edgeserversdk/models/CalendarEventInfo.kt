@@ -16,8 +16,8 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.CalendarEventInfoMetaInfo
+import ai.youkno.edgeserversdk.models.MarkDoc
 import ai.youkno.edgeserversdk.models.StructuredDescription
-import ai.youkno.edgeserversdk.models.StructuredDescriptionMarkDoc
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -38,7 +38,7 @@ data class CalendarEventInfo (
     val structuredDescription: StructuredDescription? = null,
 
     @Json(name = "markDoc")
-    val markDoc: StructuredDescriptionMarkDoc? = null,
+    val markDoc: MarkDoc? = null,
 
     @Json(name = "meta")
     val meta: CalendarEventInfoMetaInfo? = null,

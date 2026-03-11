@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataUomResp2 } from './PosApiDataUomResp2';
+import {
+    PosApiDataUomResp2FromJSON,
+    PosApiDataUomResp2FromJSONTyped,
+    PosApiDataUomResp2ToJSON,
+    PosApiDataUomResp2ToJSONTyped,
+} from './PosApiDataUomResp2';
+
 /**
  * 
  * @export
@@ -21,16 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataUomResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataUomResp
      */
-    uomId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataUomResp
      */
-    uomName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataUomResp
+     */
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataUomResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataUomResp2>}
+     * @memberof PosApiDataUomResp
+     */
+    list?: Array<PosApiDataUomResp2>;
 }
 
 /**
@@ -50,8 +76,11 @@ export function PosApiDataUomRespFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'uomId': json['uomId'] == null ? undefined : json['uomId'],
-        'uomName': json['uomName'] == null ? undefined : json['uomName'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataUomResp2FromJSON)),
     };
 }
 
@@ -66,8 +95,11 @@ export function PosApiDataUomRespToJSONTyped(value?: PosApiDataUomResp | null, i
 
     return {
         
-        'uomId': value['uomId'],
-        'uomName': value['uomName'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataUomResp2ToJSON)),
     };
 }
 

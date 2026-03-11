@@ -12,49 +12,37 @@ import AnyCodable
 
 public struct PosApiDataCycleCountResp: Codable, JSONEncodable, Hashable {
 
-    public var cycleCountId: String?
-    public var locationName: String?
-    public var userName: String?
-    public var adjustReason: String?
-    public var adjustReasonNote: String?
-    public var startDate: Int64?
-    public var endDate: Int64?
-    public var items: [PosApiDataCycleCountRespCycleCountItem]?
+    public var totalCount: Int?
+    public var start: Int?
+    public var length: Int?
+    public var hasNextPage: Bool?
+    public var list: [PosApiDataCycleCountResp2]?
 
-    public init(cycleCountId: String? = nil, locationName: String? = nil, userName: String? = nil, adjustReason: String? = nil, adjustReasonNote: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, items: [PosApiDataCycleCountRespCycleCountItem]? = nil) {
-        self.cycleCountId = cycleCountId
-        self.locationName = locationName
-        self.userName = userName
-        self.adjustReason = adjustReason
-        self.adjustReasonNote = adjustReasonNote
-        self.startDate = startDate
-        self.endDate = endDate
-        self.items = items
+    public init(totalCount: Int? = nil, start: Int? = nil, length: Int? = nil, hasNextPage: Bool? = nil, list: [PosApiDataCycleCountResp2]? = nil) {
+        self.totalCount = totalCount
+        self.start = start
+        self.length = length
+        self.hasNextPage = hasNextPage
+        self.list = list
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case cycleCountId
-        case locationName
-        case userName
-        case adjustReason
-        case adjustReasonNote
-        case startDate
-        case endDate
-        case items
+        case totalCount
+        case start
+        case length
+        case hasNextPage
+        case list
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(cycleCountId, forKey: .cycleCountId)
-        try container.encodeIfPresent(locationName, forKey: .locationName)
-        try container.encodeIfPresent(userName, forKey: .userName)
-        try container.encodeIfPresent(adjustReason, forKey: .adjustReason)
-        try container.encodeIfPresent(adjustReasonNote, forKey: .adjustReasonNote)
-        try container.encodeIfPresent(startDate, forKey: .startDate)
-        try container.encodeIfPresent(endDate, forKey: .endDate)
-        try container.encodeIfPresent(items, forKey: .items)
+        try container.encodeIfPresent(totalCount, forKey: .totalCount)
+        try container.encodeIfPresent(start, forKey: .start)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(hasNextPage, forKey: .hasNextPage)
+        try container.encodeIfPresent(list, forKey: .list)
     }
 }
 

@@ -20,8 +20,8 @@ public struct ClientInfo: Codable, JSONEncodable, Hashable {
     public var logins: String?
     public var validateEmail: Bool?
     public var ssoInfo: String?
-    public var backend: ClientInfoBackend?
-    public var branding: ClientInfoBranding?
+    public var backend: Backend?
+    public var branding: Branding?
     public var status: String?
     public var createdAt: Int64?
     public var avatarUrl: String?
@@ -30,7 +30,7 @@ public struct ClientInfo: Codable, JSONEncodable, Hashable {
     public var parentSlug: String?
     public var parentName: String?
 
-    public init(id: String? = nil, slug: String? = nil, companyId: String? = nil, parentId: String? = nil, name: String? = nil, logins: String? = nil, validateEmail: Bool? = nil, ssoInfo: String? = nil, backend: ClientInfoBackend? = nil, branding: ClientInfoBranding? = nil, status: String? = nil, createdAt: Int64? = nil, avatarUrl: String? = nil, shopType: String? = nil, hasLocations: Bool? = nil, parentSlug: String? = nil, parentName: String? = nil) {
+    public init(id: String? = nil, slug: String? = nil, companyId: String? = nil, parentId: String? = nil, name: String? = nil, logins: String? = nil, validateEmail: Bool? = nil, ssoInfo: String? = nil, backend: Backend? = nil, branding: Branding? = nil, status: String? = nil, createdAt: Int64? = nil, avatarUrl: String? = nil, shopType: String? = nil, hasLocations: Bool? = nil, parentSlug: String? = nil, parentName: String? = nil) {
         self.id = id
         self.slug = slug
         self.companyId = companyId

@@ -6,8 +6,8 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
-import ai.youkno.edgeserversdk.models.EdgeApiDataBiletePage
-import ai.youkno.edgeserversdk.models.ThirdpartiesBileteRoTicketDetails
+import ai.youkno.edgeserversdk.models.BiletePage
+import ai.youkno.edgeserversdk.models.TicketDetails
 
 interface BileteControllerApi {
     /**
@@ -21,10 +21,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBiletePage]>
+     * @return [Call]<[BiletePage]>
      */
     @GET("api/v1/bilete")
-    fun getApiV1Bilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBiletePage>
+    fun getApiV1Bilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BiletePage>
 
     /**
      * GET api/v1/bilete/callbacks/buy
@@ -55,10 +55,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ThirdpartiesBileteRoTicketDetails]>
+     * @return [Call]<[TicketDetails]>
      */
     @GET("api/v1/bilete/details")
-    fun getApiV1BileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ThirdpartiesBileteRoTicketDetails>
+    fun getApiV1BileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TicketDetails>
 
     /**
      * GET api/v1/tmp/bilete
@@ -71,10 +71,10 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataBiletePage]>
+     * @return [Call]<[BiletePage]>
      */
     @GET("api/v1/tmp/bilete")
-    fun getApiV1TmpBilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataBiletePage>
+    fun getApiV1TmpBilete(@Query("email") email: kotlin.String? = null, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BiletePage>
 
     /**
      * GET api/v1/tmp/bilete/callbacks/buy
@@ -105,9 +105,9 @@ interface BileteControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[ThirdpartiesBileteRoTicketDetails]>
+     * @return [Call]<[TicketDetails]>
      */
     @GET("api/v1/tmp/bilete/details")
-    fun getApiV1TmpBileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<ThirdpartiesBileteRoTicketDetails>
+    fun getApiV1TmpBileteDetails(@Query("url") url: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<TicketDetails>
 
 }

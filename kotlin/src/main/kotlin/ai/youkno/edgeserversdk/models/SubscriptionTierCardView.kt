@@ -45,6 +45,8 @@ import com.squareup.moshi.JsonClass
  * @param currentTier 
  * @param selectable 
  * @param primaryAction 
+ * @param grantsAnyGatingKey 
+ * @param gatingKeysGranted 
  */
 
 
@@ -105,7 +107,13 @@ data class SubscriptionTierCardView (
     val selectable: kotlin.Boolean? = null,
 
     @Json(name = "primaryAction")
-    val primaryAction: SubscriptionPrimaryActionView? = null
+    val primaryAction: SubscriptionPrimaryActionView? = null,
+
+    @Json(name = "grantsAnyGatingKey")
+    val grantsAnyGatingKey: kotlin.Boolean? = null,
+
+    @Json(name = "gatingKeysGranted")
+    val gatingKeysGranted: kotlin.collections.List<kotlin.String>? = null
 
 ) {
 

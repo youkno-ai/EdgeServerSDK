@@ -13,223 +13,209 @@
  */
 
 import { mapValues } from '../runtime';
-import type { BountyChangesChangesBountyProduct } from './BountyChangesChangesBountyProduct';
+import type { ModelAttachments } from './ModelAttachments';
 import {
-    BountyChangesChangesBountyProductFromJSON,
-    BountyChangesChangesBountyProductFromJSONTyped,
-    BountyChangesChangesBountyProductToJSON,
-    BountyChangesChangesBountyProductToJSONTyped,
-} from './BountyChangesChangesBountyProduct';
-import type { BountyChangesChangesBountyChallengeInfo } from './BountyChangesChangesBountyChallengeInfo';
+    ModelAttachmentsFromJSON,
+    ModelAttachmentsFromJSONTyped,
+    ModelAttachmentsToJSON,
+    ModelAttachmentsToJSONTyped,
+} from './ModelAttachments';
+import type { BountyApprovalInfo2 } from './BountyApprovalInfo2';
 import {
-    BountyChangesChangesBountyChallengeInfoFromJSON,
-    BountyChangesChangesBountyChallengeInfoFromJSONTyped,
-    BountyChangesChangesBountyChallengeInfoToJSON,
-    BountyChangesChangesBountyChallengeInfoToJSONTyped,
-} from './BountyChangesChangesBountyChallengeInfo';
-import type { BountyChangesChangesBountyInteractions } from './BountyChangesChangesBountyInteractions';
+    BountyApprovalInfo2FromJSON,
+    BountyApprovalInfo2FromJSONTyped,
+    BountyApprovalInfo2ToJSON,
+    BountyApprovalInfo2ToJSONTyped,
+} from './BountyApprovalInfo2';
+import type { ModelIdentityMode } from './ModelIdentityMode';
 import {
-    BountyChangesChangesBountyInteractionsFromJSON,
-    BountyChangesChangesBountyInteractionsFromJSONTyped,
-    BountyChangesChangesBountyInteractionsToJSON,
-    BountyChangesChangesBountyInteractionsToJSONTyped,
-} from './BountyChangesChangesBountyInteractions';
-import type { BountyChangesChangesGeofences } from './BountyChangesChangesGeofences';
+    ModelIdentityModeFromJSON,
+    ModelIdentityModeFromJSONTyped,
+    ModelIdentityModeToJSON,
+    ModelIdentityModeToJSONTyped,
+} from './ModelIdentityMode';
+import type { BountyBudget2 } from './BountyBudget2';
 import {
-    BountyChangesChangesGeofencesFromJSON,
-    BountyChangesChangesGeofencesFromJSONTyped,
-    BountyChangesChangesGeofencesToJSON,
-    BountyChangesChangesGeofencesToJSONTyped,
-} from './BountyChangesChangesGeofences';
-import type { BountyChangesChangesTags } from './BountyChangesChangesTags';
+    BountyBudget2FromJSON,
+    BountyBudget2FromJSONTyped,
+    BountyBudget2ToJSON,
+    BountyBudget2ToJSONTyped,
+} from './BountyBudget2';
+import type { BountyDescription2 } from './BountyDescription2';
 import {
-    BountyChangesChangesTagsFromJSON,
-    BountyChangesChangesTagsFromJSONTyped,
-    BountyChangesChangesTagsToJSON,
-    BountyChangesChangesTagsToJSONTyped,
-} from './BountyChangesChangesTags';
-import type { BountyChangesChangesIdentityMode } from './BountyChangesChangesIdentityMode';
+    BountyDescription2FromJSON,
+    BountyDescription2FromJSONTyped,
+    BountyDescription2ToJSON,
+    BountyDescription2ToJSONTyped,
+} from './BountyDescription2';
+import type { BountyBanner2 } from './BountyBanner2';
 import {
-    BountyChangesChangesIdentityModeFromJSON,
-    BountyChangesChangesIdentityModeFromJSONTyped,
-    BountyChangesChangesIdentityModeToJSON,
-    BountyChangesChangesIdentityModeToJSONTyped,
-} from './BountyChangesChangesIdentityMode';
-import type { BountyChangesChangesSponsorship } from './BountyChangesChangesSponsorship';
+    BountyBanner2FromJSON,
+    BountyBanner2FromJSONTyped,
+    BountyBanner2ToJSON,
+    BountyBanner2ToJSONTyped,
+} from './BountyBanner2';
+import type { ModelVisibilityMode } from './ModelVisibilityMode';
 import {
-    BountyChangesChangesSponsorshipFromJSON,
-    BountyChangesChangesSponsorshipFromJSONTyped,
-    BountyChangesChangesSponsorshipToJSON,
-    BountyChangesChangesSponsorshipToJSONTyped,
-} from './BountyChangesChangesSponsorship';
-import type { BountyChangesBroadcastChanges } from './BountyChangesBroadcastChanges';
+    ModelVisibilityModeFromJSON,
+    ModelVisibilityModeFromJSONTyped,
+    ModelVisibilityModeToJSON,
+    ModelVisibilityModeToJSONTyped,
+} from './ModelVisibilityMode';
+import type { ModelReward } from './ModelReward';
 import {
-    BountyChangesBroadcastChangesFromJSON,
-    BountyChangesBroadcastChangesFromJSONTyped,
-    BountyChangesBroadcastChangesToJSON,
-    BountyChangesBroadcastChangesToJSONTyped,
-} from './BountyChangesBroadcastChanges';
-import type { BountyChangesChangesBountyQuickClaimInfo } from './BountyChangesChangesBountyQuickClaimInfo';
+    ModelRewardFromJSON,
+    ModelRewardFromJSONTyped,
+    ModelRewardToJSON,
+    ModelRewardToJSONTyped,
+} from './ModelReward';
+import type { BountyTerms2 } from './BountyTerms2';
 import {
-    BountyChangesChangesBountyQuickClaimInfoFromJSON,
-    BountyChangesChangesBountyQuickClaimInfoFromJSONTyped,
-    BountyChangesChangesBountyQuickClaimInfoToJSON,
-    BountyChangesChangesBountyQuickClaimInfoToJSONTyped,
-} from './BountyChangesChangesBountyQuickClaimInfo';
-import type { BountyChangesChangesBountyDistribution } from './BountyChangesChangesBountyDistribution';
+    BountyTerms2FromJSON,
+    BountyTerms2FromJSONTyped,
+    BountyTerms2ToJSON,
+    BountyTerms2ToJSONTyped,
+} from './BountyTerms2';
+import type { BountyNewsInfo2 } from './BountyNewsInfo2';
 import {
-    BountyChangesChangesBountyDistributionFromJSON,
-    BountyChangesChangesBountyDistributionFromJSONTyped,
-    BountyChangesChangesBountyDistributionToJSON,
-    BountyChangesChangesBountyDistributionToJSONTyped,
-} from './BountyChangesChangesBountyDistribution';
-import type { BountyChangesOrderChanges } from './BountyChangesOrderChanges';
+    BountyNewsInfo2FromJSON,
+    BountyNewsInfo2FromJSONTyped,
+    BountyNewsInfo2ToJSON,
+    BountyNewsInfo2ToJSONTyped,
+} from './BountyNewsInfo2';
+import type { OrderChanges } from './OrderChanges';
 import {
-    BountyChangesOrderChangesFromJSON,
-    BountyChangesOrderChangesFromJSONTyped,
-    BountyChangesOrderChangesToJSON,
-    BountyChangesOrderChangesToJSONTyped,
-} from './BountyChangesOrderChanges';
-import type { BountyChangesChangesMapStringBountyBountyCategory } from './BountyChangesChangesMapStringBountyBountyCategory';
+    OrderChangesFromJSON,
+    OrderChangesFromJSONTyped,
+    OrderChangesToJSON,
+    OrderChangesToJSONTyped,
+} from './OrderChanges';
+import type { BountyProduct2 } from './BountyProduct2';
 import {
-    BountyChangesChangesMapStringBountyBountyCategoryFromJSON,
-    BountyChangesChangesMapStringBountyBountyCategoryFromJSONTyped,
-    BountyChangesChangesMapStringBountyBountyCategoryToJSON,
-    BountyChangesChangesMapStringBountyBountyCategoryToJSONTyped,
-} from './BountyChangesChangesMapStringBountyBountyCategory';
-import type { BountyChangesChangesString } from './BountyChangesChangesString';
+    BountyProduct2FromJSON,
+    BountyProduct2FromJSONTyped,
+    BountyProduct2ToJSON,
+    BountyProduct2ToJSONTyped,
+} from './BountyProduct2';
+import type { ModelTags } from './ModelTags';
 import {
-    BountyChangesChangesStringFromJSON,
-    BountyChangesChangesStringFromJSONTyped,
-    BountyChangesChangesStringToJSON,
-    BountyChangesChangesStringToJSONTyped,
-} from './BountyChangesChangesString';
-import type { BountyChangesChangesBountyAuctionInfo } from './BountyChangesChangesBountyAuctionInfo';
+    ModelTagsFromJSON,
+    ModelTagsFromJSONTyped,
+    ModelTagsToJSON,
+    ModelTagsToJSONTyped,
+} from './ModelTags';
+import type { BountyMenuInfo2 } from './BountyMenuInfo2';
 import {
-    BountyChangesChangesBountyAuctionInfoFromJSON,
-    BountyChangesChangesBountyAuctionInfoFromJSONTyped,
-    BountyChangesChangesBountyAuctionInfoToJSON,
-    BountyChangesChangesBountyAuctionInfoToJSONTyped,
-} from './BountyChangesChangesBountyAuctionInfo';
-import type { BountyChangesChangesBountyContestInfo } from './BountyChangesChangesBountyContestInfo';
+    BountyMenuInfo2FromJSON,
+    BountyMenuInfo2FromJSONTyped,
+    BountyMenuInfo2ToJSON,
+    BountyMenuInfo2ToJSONTyped,
+} from './BountyMenuInfo2';
+import type { BountyBountyCategory2 } from './BountyBountyCategory2';
 import {
-    BountyChangesChangesBountyContestInfoFromJSON,
-    BountyChangesChangesBountyContestInfoFromJSONTyped,
-    BountyChangesChangesBountyContestInfoToJSON,
-    BountyChangesChangesBountyContestInfoToJSONTyped,
-} from './BountyChangesChangesBountyContestInfo';
-import type { BountyChangesChangesBountyBudget } from './BountyChangesChangesBountyBudget';
+    BountyBountyCategory2FromJSON,
+    BountyBountyCategory2FromJSONTyped,
+    BountyBountyCategory2ToJSON,
+    BountyBountyCategory2ToJSONTyped,
+} from './BountyBountyCategory2';
+import type { HasAccessKeysAccessKeys } from './HasAccessKeysAccessKeys';
 import {
-    BountyChangesChangesBountyBudgetFromJSON,
-    BountyChangesChangesBountyBudgetFromJSONTyped,
-    BountyChangesChangesBountyBudgetToJSON,
-    BountyChangesChangesBountyBudgetToJSONTyped,
-} from './BountyChangesChangesBountyBudget';
-import type { BountyChangesChangesVisibilityMode } from './BountyChangesChangesVisibilityMode';
+    HasAccessKeysAccessKeysFromJSON,
+    HasAccessKeysAccessKeysFromJSONTyped,
+    HasAccessKeysAccessKeysToJSON,
+    HasAccessKeysAccessKeysToJSONTyped,
+} from './HasAccessKeysAccessKeys';
+import type { ModelSponsorship } from './ModelSponsorship';
 import {
-    BountyChangesChangesVisibilityModeFromJSON,
-    BountyChangesChangesVisibilityModeFromJSONTyped,
-    BountyChangesChangesVisibilityModeToJSON,
-    BountyChangesChangesVisibilityModeToJSONTyped,
-} from './BountyChangesChangesVisibilityMode';
-import type { BountyChangesChangesBountyBanner } from './BountyChangesChangesBountyBanner';
+    ModelSponsorshipFromJSON,
+    ModelSponsorshipFromJSONTyped,
+    ModelSponsorshipToJSON,
+    ModelSponsorshipToJSONTyped,
+} from './ModelSponsorship';
+import type { BountyChallengeInfo2 } from './BountyChallengeInfo2';
 import {
-    BountyChangesChangesBountyBannerFromJSON,
-    BountyChangesChangesBountyBannerFromJSONTyped,
-    BountyChangesChangesBountyBannerToJSON,
-    BountyChangesChangesBountyBannerToJSONTyped,
-} from './BountyChangesChangesBountyBanner';
-import type { BountyChangesChangesBountyReservationInfo } from './BountyChangesChangesBountyReservationInfo';
+    BountyChallengeInfo2FromJSON,
+    BountyChallengeInfo2FromJSONTyped,
+    BountyChallengeInfo2ToJSON,
+    BountyChallengeInfo2ToJSONTyped,
+} from './BountyChallengeInfo2';
+import type { BountyQuickClaimInfo2 } from './BountyQuickClaimInfo2';
 import {
-    BountyChangesChangesBountyReservationInfoFromJSON,
-    BountyChangesChangesBountyReservationInfoFromJSONTyped,
-    BountyChangesChangesBountyReservationInfoToJSON,
-    BountyChangesChangesBountyReservationInfoToJSONTyped,
-} from './BountyChangesChangesBountyReservationInfo';
-import type { BountyChangesChangesBountyActivities } from './BountyChangesChangesBountyActivities';
+    BountyQuickClaimInfo2FromJSON,
+    BountyQuickClaimInfo2FromJSONTyped,
+    BountyQuickClaimInfo2ToJSON,
+    BountyQuickClaimInfo2ToJSONTyped,
+} from './BountyQuickClaimInfo2';
+import type { BountyAuctionInfo2 } from './BountyAuctionInfo2';
 import {
-    BountyChangesChangesBountyActivitiesFromJSON,
-    BountyChangesChangesBountyActivitiesFromJSONTyped,
-    BountyChangesChangesBountyActivitiesToJSON,
-    BountyChangesChangesBountyActivitiesToJSONTyped,
-} from './BountyChangesChangesBountyActivities';
-import type { BountyChangesChangesLong } from './BountyChangesChangesLong';
+    BountyAuctionInfo2FromJSON,
+    BountyAuctionInfo2FromJSONTyped,
+    BountyAuctionInfo2ToJSON,
+    BountyAuctionInfo2ToJSONTyped,
+} from './BountyAuctionInfo2';
+import type { BountyInteractions2 } from './BountyInteractions2';
 import {
-    BountyChangesChangesLongFromJSON,
-    BountyChangesChangesLongFromJSONTyped,
-    BountyChangesChangesLongToJSON,
-    BountyChangesChangesLongToJSONTyped,
-} from './BountyChangesChangesLong';
-import type { BountyChangesChangesBountyNewsInfo } from './BountyChangesChangesBountyNewsInfo';
+    BountyInteractions2FromJSON,
+    BountyInteractions2FromJSONTyped,
+    BountyInteractions2ToJSON,
+    BountyInteractions2ToJSONTyped,
+} from './BountyInteractions2';
+import type { BountyMatchInfo2 } from './BountyMatchInfo2';
 import {
-    BountyChangesChangesBountyNewsInfoFromJSON,
-    BountyChangesChangesBountyNewsInfoFromJSONTyped,
-    BountyChangesChangesBountyNewsInfoToJSON,
-    BountyChangesChangesBountyNewsInfoToJSONTyped,
-} from './BountyChangesChangesBountyNewsInfo';
-import type { BountyChangesChangesAttachments } from './BountyChangesChangesAttachments';
+    BountyMatchInfo2FromJSON,
+    BountyMatchInfo2FromJSONTyped,
+    BountyMatchInfo2ToJSON,
+    BountyMatchInfo2ToJSONTyped,
+} from './BountyMatchInfo2';
+import type { BountyActivities2 } from './BountyActivities2';
 import {
-    BountyChangesChangesAttachmentsFromJSON,
-    BountyChangesChangesAttachmentsFromJSONTyped,
-    BountyChangesChangesAttachmentsToJSON,
-    BountyChangesChangesAttachmentsToJSONTyped,
-} from './BountyChangesChangesAttachments';
-import type { BountyChangesChangesBountyApprovalInfo } from './BountyChangesChangesBountyApprovalInfo';
+    BountyActivities2FromJSON,
+    BountyActivities2FromJSONTyped,
+    BountyActivities2ToJSON,
+    BountyActivities2ToJSONTyped,
+} from './BountyActivities2';
+import type { BountyReservationInfo2 } from './BountyReservationInfo2';
 import {
-    BountyChangesChangesBountyApprovalInfoFromJSON,
-    BountyChangesChangesBountyApprovalInfoFromJSONTyped,
-    BountyChangesChangesBountyApprovalInfoToJSON,
-    BountyChangesChangesBountyApprovalInfoToJSONTyped,
-} from './BountyChangesChangesBountyApprovalInfo';
-import type { BountyChangesChangesBountyMatchInfo } from './BountyChangesChangesBountyMatchInfo';
+    BountyReservationInfo2FromJSON,
+    BountyReservationInfo2FromJSONTyped,
+    BountyReservationInfo2ToJSON,
+    BountyReservationInfo2ToJSONTyped,
+} from './BountyReservationInfo2';
+import type { BountyContestInfo2 } from './BountyContestInfo2';
 import {
-    BountyChangesChangesBountyMatchInfoFromJSON,
-    BountyChangesChangesBountyMatchInfoFromJSONTyped,
-    BountyChangesChangesBountyMatchInfoToJSON,
-    BountyChangesChangesBountyMatchInfoToJSONTyped,
-} from './BountyChangesChangesBountyMatchInfo';
-import type { BountyChangesChangesReward } from './BountyChangesChangesReward';
+    BountyContestInfo2FromJSON,
+    BountyContestInfo2FromJSONTyped,
+    BountyContestInfo2ToJSON,
+    BountyContestInfo2ToJSONTyped,
+} from './BountyContestInfo2';
+import type { BroadcastChanges } from './BroadcastChanges';
 import {
-    BountyChangesChangesRewardFromJSON,
-    BountyChangesChangesRewardFromJSONTyped,
-    BountyChangesChangesRewardToJSON,
-    BountyChangesChangesRewardToJSONTyped,
-} from './BountyChangesChangesReward';
-import type { BountyChangesChangesBountyMenuInfo } from './BountyChangesChangesBountyMenuInfo';
+    BroadcastChangesFromJSON,
+    BroadcastChangesFromJSONTyped,
+    BroadcastChangesToJSON,
+    BroadcastChangesToJSONTyped,
+} from './BroadcastChanges';
+import type { BountyDistribution2 } from './BountyDistribution2';
 import {
-    BountyChangesChangesBountyMenuInfoFromJSON,
-    BountyChangesChangesBountyMenuInfoFromJSONTyped,
-    BountyChangesChangesBountyMenuInfoToJSON,
-    BountyChangesChangesBountyMenuInfoToJSONTyped,
-} from './BountyChangesChangesBountyMenuInfo';
-import type { BountyChangesChangesHasAccessKeysAccessKeys } from './BountyChangesChangesHasAccessKeysAccessKeys';
+    BountyDistribution2FromJSON,
+    BountyDistribution2FromJSONTyped,
+    BountyDistribution2ToJSON,
+    BountyDistribution2ToJSONTyped,
+} from './BountyDistribution2';
+import type { ModelGeofences } from './ModelGeofences';
 import {
-    BountyChangesChangesHasAccessKeysAccessKeysFromJSON,
-    BountyChangesChangesHasAccessKeysAccessKeysFromJSONTyped,
-    BountyChangesChangesHasAccessKeysAccessKeysToJSON,
-    BountyChangesChangesHasAccessKeysAccessKeysToJSONTyped,
-} from './BountyChangesChangesHasAccessKeysAccessKeys';
-import type { BountyChangesChangesBountyDescription } from './BountyChangesChangesBountyDescription';
+    ModelGeofencesFromJSON,
+    ModelGeofencesFromJSONTyped,
+    ModelGeofencesToJSON,
+    ModelGeofencesToJSONTyped,
+} from './ModelGeofences';
+import type { BountyTheme2 } from './BountyTheme2';
 import {
-    BountyChangesChangesBountyDescriptionFromJSON,
-    BountyChangesChangesBountyDescriptionFromJSONTyped,
-    BountyChangesChangesBountyDescriptionToJSON,
-    BountyChangesChangesBountyDescriptionToJSONTyped,
-} from './BountyChangesChangesBountyDescription';
-import type { BountyChangesChangesBountyTerms } from './BountyChangesChangesBountyTerms';
-import {
-    BountyChangesChangesBountyTermsFromJSON,
-    BountyChangesChangesBountyTermsFromJSONTyped,
-    BountyChangesChangesBountyTermsToJSON,
-    BountyChangesChangesBountyTermsToJSONTyped,
-} from './BountyChangesChangesBountyTerms';
-import type { BountyChangesChangesBountyTheme } from './BountyChangesChangesBountyTheme';
-import {
-    BountyChangesChangesBountyThemeFromJSON,
-    BountyChangesChangesBountyThemeFromJSONTyped,
-    BountyChangesChangesBountyThemeToJSON,
-    BountyChangesChangesBountyThemeToJSONTyped,
-} from './BountyChangesChangesBountyTheme';
+    BountyTheme2FromJSON,
+    BountyTheme2FromJSONTyped,
+    BountyTheme2ToJSON,
+    BountyTheme2ToJSONTyped,
+} from './BountyTheme2';
 
 /**
  * 
@@ -239,244 +225,244 @@ import {
 export interface BountyChanges {
     /**
      * 
-     * @type {BountyChangesChangesBountyDescription}
+     * @type {BountyDescription2}
      * @memberof BountyChanges
      */
-    description?: BountyChangesChangesBountyDescription;
+    description?: BountyDescription2;
     /**
      * 
-     * @type {BountyChangesChangesReward}
+     * @type {ModelReward}
      * @memberof BountyChanges
      */
-    reward?: BountyChangesChangesReward;
+    reward?: ModelReward;
     /**
      * 
-     * @type {BountyChangesChangesBountyDistribution}
+     * @type {BountyDistribution2}
      * @memberof BountyChanges
      */
-    distribution?: BountyChangesChangesBountyDistribution;
+    distribution?: BountyDistribution2;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    listId?: BountyChangesChangesString;
+    listId?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    listCode?: BountyChangesChangesString;
+    listCode?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesBountyTerms}
+     * @type {BountyTerms2}
      * @memberof BountyChanges
      */
-    terms?: BountyChangesChangesBountyTerms;
+    terms?: BountyTerms2;
     /**
      * 
-     * @type {BountyChangesChangesBountyMatchInfo}
+     * @type {BountyMatchInfo2}
      * @memberof BountyChanges
      */
-    matchInfo?: BountyChangesChangesBountyMatchInfo;
+    matchInfo?: BountyMatchInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyReservationInfo}
+     * @type {BountyReservationInfo2}
      * @memberof BountyChanges
      */
-    reservationInfo?: BountyChangesChangesBountyReservationInfo;
+    reservationInfo?: BountyReservationInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyContestInfo}
+     * @type {BountyContestInfo2}
      * @memberof BountyChanges
      */
-    contestInfo?: BountyChangesChangesBountyContestInfo;
+    contestInfo?: BountyContestInfo2;
     /**
      * 
-     * @type {BountyChangesChangesAttachments}
+     * @type {ModelAttachments}
      * @memberof BountyChanges
      */
-    attachments?: BountyChangesChangesAttachments;
+    attachments?: ModelAttachments;
     /**
      * 
-     * @type {BountyChangesChangesBountyInteractions}
+     * @type {BountyInteractions2}
      * @memberof BountyChanges
      */
-    interactions?: BountyChangesChangesBountyInteractions;
+    interactions?: BountyInteractions2;
     /**
      * 
-     * @type {BountyChangesChangesIdentityMode}
+     * @type {ModelIdentityMode}
      * @memberof BountyChanges
      */
-    identityMode?: BountyChangesChangesIdentityMode;
+    identityMode?: ModelIdentityMode;
     /**
      * 
-     * @type {BountyChangesChangesVisibilityMode}
+     * @type {ModelVisibilityMode}
      * @memberof BountyChanges
      */
-    responseVisibilityMode?: BountyChangesChangesVisibilityMode;
+    responseVisibilityMode?: ModelVisibilityMode;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    visibility?: BountyChangesChangesString;
+    visibility?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesBountyProduct}
+     * @type {BountyProduct2}
      * @memberof BountyChanges
      */
-    product?: BountyChangesChangesBountyProduct;
+    product?: BountyProduct2;
     /**
      * 
-     * @type {BountyChangesChangesMapStringBountyBountyCategory}
+     * @type {BountyBountyCategory2}
      * @memberof BountyChanges
      */
-    bountyCategories?: BountyChangesChangesMapStringBountyBountyCategory;
+    bountyCategories?: BountyBountyCategory2;
     /**
      * 
-     * @type {BountyChangesOrderChanges}
+     * @type {OrderChanges}
      * @memberof BountyChanges
      */
-    order?: BountyChangesOrderChanges;
+    order?: OrderChanges;
     /**
      * 
-     * @type {BountyChangesBroadcastChanges}
+     * @type {BroadcastChanges}
      * @memberof BountyChanges
      */
-    broadcastInfo?: BountyChangesBroadcastChanges;
+    broadcastInfo?: BroadcastChanges;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof BountyChanges
      */
-    expiresAt?: BountyChangesChangesLong;
+    expiresAt?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof BountyChanges
      */
-    postedAt?: BountyChangesChangesLong;
+    postedAt?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof BountyChanges
      */
-    postAt?: BountyChangesChangesLong;
+    postAt?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesLong}
+     * @type {any}
      * @memberof BountyChanges
      */
-    timeLimit?: BountyChangesChangesLong;
+    timeLimit?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    title?: BountyChangesChangesString;
+    title?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    targetUrl?: BountyChangesChangesString;
+    targetUrl?: any | null;
     /**
      * 
-     * @type {BountyChangesChangesTags}
+     * @type {ModelTags}
      * @memberof BountyChanges
      */
-    tags?: BountyChangesChangesTags;
+    tags?: ModelTags;
     /**
      * 
-     * @type {BountyChangesChangesTags}
+     * @type {ModelTags}
      * @memberof BountyChanges
      */
-    trustedTags?: BountyChangesChangesTags;
+    trustedTags?: ModelTags;
     /**
      * 
-     * @type {BountyChangesChangesBountyTheme}
+     * @type {BountyTheme2}
      * @memberof BountyChanges
      */
-    theme?: BountyChangesChangesBountyTheme;
+    theme?: BountyTheme2;
     /**
      * 
-     * @type {BountyChangesChangesSponsorship}
+     * @type {ModelSponsorship}
      * @memberof BountyChanges
      */
-    sponsorship?: BountyChangesChangesSponsorship;
+    sponsorship?: ModelSponsorship;
     /**
      * 
-     * @type {BountyChangesChangesGeofences}
+     * @type {ModelGeofences}
      * @memberof BountyChanges
      */
-    geofences?: BountyChangesChangesGeofences;
+    geofences?: ModelGeofences;
     /**
      * 
-     * @type {BountyChangesChangesBountyBanner}
+     * @type {BountyBanner2}
      * @memberof BountyChanges
      */
-    banner?: BountyChangesChangesBountyBanner;
+    banner?: BountyBanner2;
     /**
      * 
-     * @type {BountyChangesChangesBountyChallengeInfo}
+     * @type {BountyChallengeInfo2}
      * @memberof BountyChanges
      */
-    challengeInfo?: BountyChangesChangesBountyChallengeInfo;
+    challengeInfo?: BountyChallengeInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyApprovalInfo}
+     * @type {BountyApprovalInfo2}
      * @memberof BountyChanges
      */
-    approvalInfo?: BountyChangesChangesBountyApprovalInfo;
+    approvalInfo?: BountyApprovalInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyActivities}
+     * @type {BountyActivities2}
      * @memberof BountyChanges
      */
-    activities?: BountyChangesChangesBountyActivities;
+    activities?: BountyActivities2;
     /**
      * 
-     * @type {BountyChangesChangesBountyQuickClaimInfo}
+     * @type {BountyQuickClaimInfo2}
      * @memberof BountyChanges
      */
-    quickClaimInfo?: BountyChangesChangesBountyQuickClaimInfo;
+    quickClaimInfo?: BountyQuickClaimInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyAuctionInfo}
+     * @type {BountyAuctionInfo2}
      * @memberof BountyChanges
      */
-    auctionInfo?: BountyChangesChangesBountyAuctionInfo;
+    auctionInfo?: BountyAuctionInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyNewsInfo}
+     * @type {BountyNewsInfo2}
      * @memberof BountyChanges
      */
-    newsInfo?: BountyChangesChangesBountyNewsInfo;
+    newsInfo?: BountyNewsInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyMenuInfo}
+     * @type {BountyMenuInfo2}
      * @memberof BountyChanges
      */
-    menuInfo?: BountyChangesChangesBountyMenuInfo;
+    menuInfo?: BountyMenuInfo2;
     /**
      * 
-     * @type {BountyChangesChangesBountyBudget}
+     * @type {BountyBudget2}
      * @memberof BountyChanges
      */
-    overallBudget?: BountyChangesChangesBountyBudget;
+    overallBudget?: BountyBudget2;
     /**
      * 
-     * @type {BountyChangesChangesHasAccessKeysAccessKeys}
+     * @type {HasAccessKeysAccessKeys}
      * @memberof BountyChanges
      */
-    accessKeys?: BountyChangesChangesHasAccessKeysAccessKeys;
+    accessKeys?: HasAccessKeysAccessKeys;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    orderInParentSortKey?: BountyChangesChangesString;
+    orderInParentSortKey?: any | null;
     /**
      * 
      * @type {boolean}
@@ -497,10 +483,10 @@ export interface BountyChanges {
     editedAt?: number;
     /**
      * 
-     * @type {BountyChangesChangesString}
+     * @type {any}
      * @memberof BountyChanges
      */
-    source?: BountyChangesChangesString;
+    source?: any | null;
     /**
      * 
      * @type {boolean}
@@ -526,50 +512,50 @@ export function BountyChangesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'description': json['description'] == null ? undefined : BountyChangesChangesBountyDescriptionFromJSON(json['description']),
-        'reward': json['reward'] == null ? undefined : BountyChangesChangesRewardFromJSON(json['reward']),
-        'distribution': json['distribution'] == null ? undefined : BountyChangesChangesBountyDistributionFromJSON(json['distribution']),
-        'listId': json['listId'] == null ? undefined : BountyChangesChangesStringFromJSON(json['listId']),
-        'listCode': json['listCode'] == null ? undefined : BountyChangesChangesStringFromJSON(json['listCode']),
-        'terms': json['terms'] == null ? undefined : BountyChangesChangesBountyTermsFromJSON(json['terms']),
-        'matchInfo': json['matchInfo'] == null ? undefined : BountyChangesChangesBountyMatchInfoFromJSON(json['matchInfo']),
-        'reservationInfo': json['reservationInfo'] == null ? undefined : BountyChangesChangesBountyReservationInfoFromJSON(json['reservationInfo']),
-        'contestInfo': json['contestInfo'] == null ? undefined : BountyChangesChangesBountyContestInfoFromJSON(json['contestInfo']),
-        'attachments': json['attachments'] == null ? undefined : BountyChangesChangesAttachmentsFromJSON(json['attachments']),
-        'interactions': json['interactions'] == null ? undefined : BountyChangesChangesBountyInteractionsFromJSON(json['interactions']),
-        'identityMode': json['identityMode'] == null ? undefined : BountyChangesChangesIdentityModeFromJSON(json['identityMode']),
-        'responseVisibilityMode': json['responseVisibilityMode'] == null ? undefined : BountyChangesChangesVisibilityModeFromJSON(json['responseVisibilityMode']),
-        'visibility': json['visibility'] == null ? undefined : BountyChangesChangesStringFromJSON(json['visibility']),
-        'product': json['product'] == null ? undefined : BountyChangesChangesBountyProductFromJSON(json['product']),
-        'bountyCategories': json['bountyCategories'] == null ? undefined : BountyChangesChangesMapStringBountyBountyCategoryFromJSON(json['bountyCategories']),
-        'order': json['order'] == null ? undefined : BountyChangesOrderChangesFromJSON(json['order']),
-        'broadcastInfo': json['broadcastInfo'] == null ? undefined : BountyChangesBroadcastChangesFromJSON(json['broadcastInfo']),
-        'expiresAt': json['expiresAt'] == null ? undefined : BountyChangesChangesLongFromJSON(json['expiresAt']),
-        'postedAt': json['postedAt'] == null ? undefined : BountyChangesChangesLongFromJSON(json['postedAt']),
-        'postAt': json['postAt'] == null ? undefined : BountyChangesChangesLongFromJSON(json['postAt']),
-        'timeLimit': json['timeLimit'] == null ? undefined : BountyChangesChangesLongFromJSON(json['timeLimit']),
-        'title': json['title'] == null ? undefined : BountyChangesChangesStringFromJSON(json['title']),
-        'targetUrl': json['targetUrl'] == null ? undefined : BountyChangesChangesStringFromJSON(json['targetUrl']),
-        'tags': json['tags'] == null ? undefined : BountyChangesChangesTagsFromJSON(json['tags']),
-        'trustedTags': json['trustedTags'] == null ? undefined : BountyChangesChangesTagsFromJSON(json['trustedTags']),
-        'theme': json['theme'] == null ? undefined : BountyChangesChangesBountyThemeFromJSON(json['theme']),
-        'sponsorship': json['sponsorship'] == null ? undefined : BountyChangesChangesSponsorshipFromJSON(json['sponsorship']),
-        'geofences': json['geofences'] == null ? undefined : BountyChangesChangesGeofencesFromJSON(json['geofences']),
-        'banner': json['banner'] == null ? undefined : BountyChangesChangesBountyBannerFromJSON(json['banner']),
-        'challengeInfo': json['challengeInfo'] == null ? undefined : BountyChangesChangesBountyChallengeInfoFromJSON(json['challengeInfo']),
-        'approvalInfo': json['approvalInfo'] == null ? undefined : BountyChangesChangesBountyApprovalInfoFromJSON(json['approvalInfo']),
-        'activities': json['activities'] == null ? undefined : BountyChangesChangesBountyActivitiesFromJSON(json['activities']),
-        'quickClaimInfo': json['quickClaimInfo'] == null ? undefined : BountyChangesChangesBountyQuickClaimInfoFromJSON(json['quickClaimInfo']),
-        'auctionInfo': json['auctionInfo'] == null ? undefined : BountyChangesChangesBountyAuctionInfoFromJSON(json['auctionInfo']),
-        'newsInfo': json['newsInfo'] == null ? undefined : BountyChangesChangesBountyNewsInfoFromJSON(json['newsInfo']),
-        'menuInfo': json['menuInfo'] == null ? undefined : BountyChangesChangesBountyMenuInfoFromJSON(json['menuInfo']),
-        'overallBudget': json['overallBudget'] == null ? undefined : BountyChangesChangesBountyBudgetFromJSON(json['overallBudget']),
-        'accessKeys': json['accessKeys'] == null ? undefined : BountyChangesChangesHasAccessKeysAccessKeysFromJSON(json['accessKeys']),
-        'orderInParentSortKey': json['orderInParentSortKey'] == null ? undefined : BountyChangesChangesStringFromJSON(json['orderInParentSortKey']),
+        'description': json['description'] == null ? undefined : BountyDescription2FromJSON(json['description']),
+        'reward': json['reward'] == null ? undefined : ModelRewardFromJSON(json['reward']),
+        'distribution': json['distribution'] == null ? undefined : BountyDistribution2FromJSON(json['distribution']),
+        'listId': json['listId'] == null ? undefined : json['listId'],
+        'listCode': json['listCode'] == null ? undefined : json['listCode'],
+        'terms': json['terms'] == null ? undefined : BountyTerms2FromJSON(json['terms']),
+        'matchInfo': json['matchInfo'] == null ? undefined : BountyMatchInfo2FromJSON(json['matchInfo']),
+        'reservationInfo': json['reservationInfo'] == null ? undefined : BountyReservationInfo2FromJSON(json['reservationInfo']),
+        'contestInfo': json['contestInfo'] == null ? undefined : BountyContestInfo2FromJSON(json['contestInfo']),
+        'attachments': json['attachments'] == null ? undefined : ModelAttachmentsFromJSON(json['attachments']),
+        'interactions': json['interactions'] == null ? undefined : BountyInteractions2FromJSON(json['interactions']),
+        'identityMode': json['identityMode'] == null ? undefined : ModelIdentityModeFromJSON(json['identityMode']),
+        'responseVisibilityMode': json['responseVisibilityMode'] == null ? undefined : ModelVisibilityModeFromJSON(json['responseVisibilityMode']),
+        'visibility': json['visibility'] == null ? undefined : json['visibility'],
+        'product': json['product'] == null ? undefined : BountyProduct2FromJSON(json['product']),
+        'bountyCategories': json['bountyCategories'] == null ? undefined : BountyBountyCategory2FromJSON(json['bountyCategories']),
+        'order': json['order'] == null ? undefined : OrderChangesFromJSON(json['order']),
+        'broadcastInfo': json['broadcastInfo'] == null ? undefined : BroadcastChangesFromJSON(json['broadcastInfo']),
+        'expiresAt': json['expiresAt'] == null ? undefined : json['expiresAt'],
+        'postedAt': json['postedAt'] == null ? undefined : json['postedAt'],
+        'postAt': json['postAt'] == null ? undefined : json['postAt'],
+        'timeLimit': json['timeLimit'] == null ? undefined : json['timeLimit'],
+        'title': json['title'] == null ? undefined : json['title'],
+        'targetUrl': json['targetUrl'] == null ? undefined : json['targetUrl'],
+        'tags': json['tags'] == null ? undefined : ModelTagsFromJSON(json['tags']),
+        'trustedTags': json['trustedTags'] == null ? undefined : ModelTagsFromJSON(json['trustedTags']),
+        'theme': json['theme'] == null ? undefined : BountyTheme2FromJSON(json['theme']),
+        'sponsorship': json['sponsorship'] == null ? undefined : ModelSponsorshipFromJSON(json['sponsorship']),
+        'geofences': json['geofences'] == null ? undefined : ModelGeofencesFromJSON(json['geofences']),
+        'banner': json['banner'] == null ? undefined : BountyBanner2FromJSON(json['banner']),
+        'challengeInfo': json['challengeInfo'] == null ? undefined : BountyChallengeInfo2FromJSON(json['challengeInfo']),
+        'approvalInfo': json['approvalInfo'] == null ? undefined : BountyApprovalInfo2FromJSON(json['approvalInfo']),
+        'activities': json['activities'] == null ? undefined : BountyActivities2FromJSON(json['activities']),
+        'quickClaimInfo': json['quickClaimInfo'] == null ? undefined : BountyQuickClaimInfo2FromJSON(json['quickClaimInfo']),
+        'auctionInfo': json['auctionInfo'] == null ? undefined : BountyAuctionInfo2FromJSON(json['auctionInfo']),
+        'newsInfo': json['newsInfo'] == null ? undefined : BountyNewsInfo2FromJSON(json['newsInfo']),
+        'menuInfo': json['menuInfo'] == null ? undefined : BountyMenuInfo2FromJSON(json['menuInfo']),
+        'overallBudget': json['overallBudget'] == null ? undefined : BountyBudget2FromJSON(json['overallBudget']),
+        'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeysFromJSON(json['accessKeys']),
+        'orderInParentSortKey': json['orderInParentSortKey'] == null ? undefined : json['orderInParentSortKey'],
         'updateSortKeys': json['updateSortKeys'] == null ? undefined : json['updateSortKeys'],
         'updateCompanyId': json['updateCompanyId'] == null ? undefined : json['updateCompanyId'],
         'editedAt': json['editedAt'] == null ? undefined : json['editedAt'],
-        'source': json['source'] == null ? undefined : BountyChangesChangesStringFromJSON(json['source']),
+        'source': json['source'] == null ? undefined : json['source'],
         'notify': json['notify'] == null ? undefined : json['notify'],
     };
 }
@@ -585,50 +571,50 @@ export function BountyChangesToJSONTyped(value?: BountyChanges | null, ignoreDis
 
     return {
         
-        'description': BountyChangesChangesBountyDescriptionToJSON(value['description']),
-        'reward': BountyChangesChangesRewardToJSON(value['reward']),
-        'distribution': BountyChangesChangesBountyDistributionToJSON(value['distribution']),
-        'listId': BountyChangesChangesStringToJSON(value['listId']),
-        'listCode': BountyChangesChangesStringToJSON(value['listCode']),
-        'terms': BountyChangesChangesBountyTermsToJSON(value['terms']),
-        'matchInfo': BountyChangesChangesBountyMatchInfoToJSON(value['matchInfo']),
-        'reservationInfo': BountyChangesChangesBountyReservationInfoToJSON(value['reservationInfo']),
-        'contestInfo': BountyChangesChangesBountyContestInfoToJSON(value['contestInfo']),
-        'attachments': BountyChangesChangesAttachmentsToJSON(value['attachments']),
-        'interactions': BountyChangesChangesBountyInteractionsToJSON(value['interactions']),
-        'identityMode': BountyChangesChangesIdentityModeToJSON(value['identityMode']),
-        'responseVisibilityMode': BountyChangesChangesVisibilityModeToJSON(value['responseVisibilityMode']),
-        'visibility': BountyChangesChangesStringToJSON(value['visibility']),
-        'product': BountyChangesChangesBountyProductToJSON(value['product']),
-        'bountyCategories': BountyChangesChangesMapStringBountyBountyCategoryToJSON(value['bountyCategories']),
-        'order': BountyChangesOrderChangesToJSON(value['order']),
-        'broadcastInfo': BountyChangesBroadcastChangesToJSON(value['broadcastInfo']),
-        'expiresAt': BountyChangesChangesLongToJSON(value['expiresAt']),
-        'postedAt': BountyChangesChangesLongToJSON(value['postedAt']),
-        'postAt': BountyChangesChangesLongToJSON(value['postAt']),
-        'timeLimit': BountyChangesChangesLongToJSON(value['timeLimit']),
-        'title': BountyChangesChangesStringToJSON(value['title']),
-        'targetUrl': BountyChangesChangesStringToJSON(value['targetUrl']),
-        'tags': BountyChangesChangesTagsToJSON(value['tags']),
-        'trustedTags': BountyChangesChangesTagsToJSON(value['trustedTags']),
-        'theme': BountyChangesChangesBountyThemeToJSON(value['theme']),
-        'sponsorship': BountyChangesChangesSponsorshipToJSON(value['sponsorship']),
-        'geofences': BountyChangesChangesGeofencesToJSON(value['geofences']),
-        'banner': BountyChangesChangesBountyBannerToJSON(value['banner']),
-        'challengeInfo': BountyChangesChangesBountyChallengeInfoToJSON(value['challengeInfo']),
-        'approvalInfo': BountyChangesChangesBountyApprovalInfoToJSON(value['approvalInfo']),
-        'activities': BountyChangesChangesBountyActivitiesToJSON(value['activities']),
-        'quickClaimInfo': BountyChangesChangesBountyQuickClaimInfoToJSON(value['quickClaimInfo']),
-        'auctionInfo': BountyChangesChangesBountyAuctionInfoToJSON(value['auctionInfo']),
-        'newsInfo': BountyChangesChangesBountyNewsInfoToJSON(value['newsInfo']),
-        'menuInfo': BountyChangesChangesBountyMenuInfoToJSON(value['menuInfo']),
-        'overallBudget': BountyChangesChangesBountyBudgetToJSON(value['overallBudget']),
-        'accessKeys': BountyChangesChangesHasAccessKeysAccessKeysToJSON(value['accessKeys']),
-        'orderInParentSortKey': BountyChangesChangesStringToJSON(value['orderInParentSortKey']),
+        'description': BountyDescription2ToJSON(value['description']),
+        'reward': ModelRewardToJSON(value['reward']),
+        'distribution': BountyDistribution2ToJSON(value['distribution']),
+        'listId': value['listId'],
+        'listCode': value['listCode'],
+        'terms': BountyTerms2ToJSON(value['terms']),
+        'matchInfo': BountyMatchInfo2ToJSON(value['matchInfo']),
+        'reservationInfo': BountyReservationInfo2ToJSON(value['reservationInfo']),
+        'contestInfo': BountyContestInfo2ToJSON(value['contestInfo']),
+        'attachments': ModelAttachmentsToJSON(value['attachments']),
+        'interactions': BountyInteractions2ToJSON(value['interactions']),
+        'identityMode': ModelIdentityModeToJSON(value['identityMode']),
+        'responseVisibilityMode': ModelVisibilityModeToJSON(value['responseVisibilityMode']),
+        'visibility': value['visibility'],
+        'product': BountyProduct2ToJSON(value['product']),
+        'bountyCategories': BountyBountyCategory2ToJSON(value['bountyCategories']),
+        'order': OrderChangesToJSON(value['order']),
+        'broadcastInfo': BroadcastChangesToJSON(value['broadcastInfo']),
+        'expiresAt': value['expiresAt'],
+        'postedAt': value['postedAt'],
+        'postAt': value['postAt'],
+        'timeLimit': value['timeLimit'],
+        'title': value['title'],
+        'targetUrl': value['targetUrl'],
+        'tags': ModelTagsToJSON(value['tags']),
+        'trustedTags': ModelTagsToJSON(value['trustedTags']),
+        'theme': BountyTheme2ToJSON(value['theme']),
+        'sponsorship': ModelSponsorshipToJSON(value['sponsorship']),
+        'geofences': ModelGeofencesToJSON(value['geofences']),
+        'banner': BountyBanner2ToJSON(value['banner']),
+        'challengeInfo': BountyChallengeInfo2ToJSON(value['challengeInfo']),
+        'approvalInfo': BountyApprovalInfo2ToJSON(value['approvalInfo']),
+        'activities': BountyActivities2ToJSON(value['activities']),
+        'quickClaimInfo': BountyQuickClaimInfo2ToJSON(value['quickClaimInfo']),
+        'auctionInfo': BountyAuctionInfo2ToJSON(value['auctionInfo']),
+        'newsInfo': BountyNewsInfo2ToJSON(value['newsInfo']),
+        'menuInfo': BountyMenuInfo2ToJSON(value['menuInfo']),
+        'overallBudget': BountyBudget2ToJSON(value['overallBudget']),
+        'accessKeys': HasAccessKeysAccessKeysToJSON(value['accessKeys']),
+        'orderInParentSortKey': value['orderInParentSortKey'],
         'updateSortKeys': value['updateSortKeys'],
         'updateCompanyId': value['updateCompanyId'],
         'editedAt': value['editedAt'],
-        'source': BountyChangesChangesStringToJSON(value['source']),
+        'source': value['source'],
         'notify': value['notify'],
     };
 }

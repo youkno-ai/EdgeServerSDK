@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataBrandResp2 } from './PosApiDataBrandResp2';
+import {
+    PosApiDataBrandResp2FromJSON,
+    PosApiDataBrandResp2FromJSONTyped,
+    PosApiDataBrandResp2ToJSON,
+    PosApiDataBrandResp2ToJSONTyped,
+} from './PosApiDataBrandResp2';
+
 /**
  * 
  * @export
@@ -21,22 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataBrandResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataBrandResp
      */
-    brandId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataBrandResp
      */
-    brandName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataBrandResp
+     */
+    length?: number;
     /**
      * 
      * @type {boolean}
      * @memberof PosApiDataBrandResp
      */
-    deleted?: boolean;
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataBrandResp2>}
+     * @memberof PosApiDataBrandResp
+     */
+    list?: Array<PosApiDataBrandResp2>;
 }
 
 /**
@@ -56,9 +76,11 @@ export function PosApiDataBrandRespFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'brandId': json['brandId'] == null ? undefined : json['brandId'],
-        'brandName': json['brandName'] == null ? undefined : json['brandName'],
-        'deleted': json['deleted'] == null ? undefined : json['deleted'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataBrandResp2FromJSON)),
     };
 }
 
@@ -73,9 +95,11 @@ export function PosApiDataBrandRespToJSONTyped(value?: PosApiDataBrandResp | nul
 
     return {
         
-        'brandId': value['brandId'],
-        'brandName': value['brandName'],
-        'deleted': value['deleted'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataBrandResp2ToJSON)),
     };
 }
 

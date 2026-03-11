@@ -15,6 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
+import ai.youkno.edgeserversdk.models.WebhooksWebhookEndpointSummaryDto2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,38 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param description 
- * @param targetUrl 
- * @param enabled 
- * @param eventTypes 
- * @param createdAt 
- * @param updatedAt 
+ * @param totalCount 
+ * @param start 
+ * @param length 
+ * @param hasNextPage 
+ * @param list 
  */
 
 
 data class WebhooksWebhookEndpointSummaryDto (
 
-    @Json(name = "id")
-    val id: java.util.UUID? = null,
+    @Json(name = "totalCount")
+    val totalCount: kotlin.Int? = null,
 
-    @Json(name = "description")
-    val description: kotlin.String? = null,
+    @Json(name = "start")
+    val start: kotlin.Int? = null,
 
-    @Json(name = "targetUrl")
-    val targetUrl: kotlin.String? = null,
+    @Json(name = "length")
+    val length: kotlin.Int? = null,
 
-    @Json(name = "enabled")
-    val enabled: kotlin.Boolean? = null,
+    @Json(name = "hasNextPage")
+    val hasNextPage: kotlin.Boolean? = null,
 
-    @Json(name = "eventTypes")
-    val eventTypes: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "createdAt")
-    val createdAt: java.time.OffsetDateTime? = null,
-
-    @Json(name = "updatedAt")
-    val updatedAt: java.time.OffsetDateTime? = null
+    @Json(name = "list")
+    val list: kotlin.collections.List<WebhooksWebhookEndpointSummaryDto2>? = null
 
 ) {
 

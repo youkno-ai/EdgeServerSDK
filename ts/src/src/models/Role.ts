@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { RolePermission } from './RolePermission';
+import type { RolePermission2 } from './RolePermission2';
 import {
-    RolePermissionFromJSON,
-    RolePermissionFromJSONTyped,
-    RolePermissionToJSON,
-    RolePermissionToJSONTyped,
-} from './RolePermission';
+    RolePermission2FromJSON,
+    RolePermission2FromJSONTyped,
+    RolePermission2ToJSON,
+    RolePermission2ToJSONTyped,
+} from './RolePermission2';
 
 /**
  * 
@@ -47,16 +47,16 @@ export interface Role {
     description?: string;
     /**
      * 
-     * @type {Array<RolePermission>}
+     * @type {Array<RolePermission2>}
      * @memberof Role
      */
-    allowedPermissions?: Array<RolePermission>;
+    allowedPermissions?: Array<RolePermission2>;
     /**
      * 
-     * @type {Array<RolePermission>}
+     * @type {Array<RolePermission2>}
      * @memberof Role
      */
-    deniedPermissions?: Array<RolePermission>;
+    deniedPermissions?: Array<RolePermission2>;
 }
 
 /**
@@ -79,8 +79,8 @@ export function RoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Role
         'name': json['name'] == null ? undefined : json['name'],
         'scopeName': json['scopeName'] == null ? undefined : json['scopeName'],
         'description': json['description'] == null ? undefined : json['description'],
-        'allowedPermissions': json['allowedPermissions'] == null ? undefined : ((json['allowedPermissions'] as Array<any>).map(RolePermissionFromJSON)),
-        'deniedPermissions': json['deniedPermissions'] == null ? undefined : ((json['deniedPermissions'] as Array<any>).map(RolePermissionFromJSON)),
+        'allowedPermissions': json['allowedPermissions'] == null ? undefined : ((json['allowedPermissions'] as Array<any>).map(RolePermission2FromJSON)),
+        'deniedPermissions': json['deniedPermissions'] == null ? undefined : ((json['deniedPermissions'] as Array<any>).map(RolePermission2FromJSON)),
     };
 }
 
@@ -98,8 +98,8 @@ export function RoleToJSONTyped(value?: Role | null, ignoreDiscriminator: boolea
         'name': value['name'],
         'scopeName': value['scopeName'],
         'description': value['description'],
-        'allowedPermissions': value['allowedPermissions'] == null ? undefined : ((value['allowedPermissions'] as Array<any>).map(RolePermissionToJSON)),
-        'deniedPermissions': value['deniedPermissions'] == null ? undefined : ((value['deniedPermissions'] as Array<any>).map(RolePermissionToJSON)),
+        'allowedPermissions': value['allowedPermissions'] == null ? undefined : ((value['allowedPermissions'] as Array<any>).map(RolePermission2ToJSON)),
+        'deniedPermissions': value['deniedPermissions'] == null ? undefined : ((value['deniedPermissions'] as Array<any>).map(RolePermission2ToJSON)),
     };
 }
 

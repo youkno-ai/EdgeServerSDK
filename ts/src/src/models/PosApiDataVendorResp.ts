@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PosApiDataVendorResp2 } from './PosApiDataVendorResp2';
+import {
+    PosApiDataVendorResp2FromJSON,
+    PosApiDataVendorResp2FromJSONTyped,
+    PosApiDataVendorResp2ToJSON,
+    PosApiDataVendorResp2ToJSONTyped,
+} from './PosApiDataVendorResp2';
+
 /**
  * 
  * @export
@@ -21,16 +29,34 @@ import { mapValues } from '../runtime';
 export interface PosApiDataVendorResp {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataVendorResp
      */
-    vendorId?: string;
+    totalCount?: number;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof PosApiDataVendorResp
      */
-    vendorName?: string;
+    start?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PosApiDataVendorResp
+     */
+    length?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PosApiDataVendorResp
+     */
+    hasNextPage?: boolean;
+    /**
+     * 
+     * @type {Array<PosApiDataVendorResp2>}
+     * @memberof PosApiDataVendorResp
+     */
+    list?: Array<PosApiDataVendorResp2>;
 }
 
 /**
@@ -50,8 +76,11 @@ export function PosApiDataVendorRespFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'vendorId': json['vendorId'] == null ? undefined : json['vendorId'],
-        'vendorName': json['vendorName'] == null ? undefined : json['vendorName'],
+        'totalCount': json['totalCount'] == null ? undefined : json['totalCount'],
+        'start': json['start'] == null ? undefined : json['start'],
+        'length': json['length'] == null ? undefined : json['length'],
+        'hasNextPage': json['hasNextPage'] == null ? undefined : json['hasNextPage'],
+        'list': json['list'] == null ? undefined : ((json['list'] as Array<any>).map(PosApiDataVendorResp2FromJSON)),
     };
 }
 
@@ -66,8 +95,11 @@ export function PosApiDataVendorRespToJSONTyped(value?: PosApiDataVendorResp | n
 
     return {
         
-        'vendorId': value['vendorId'],
-        'vendorName': value['vendorName'],
+        'totalCount': value['totalCount'],
+        'start': value['start'],
+        'length': value['length'],
+        'hasNextPage': value['hasNextPage'],
+        'list': value['list'] == null ? undefined : ((value['list'] as Array<any>).map(PosApiDataVendorResp2ToJSON)),
     };
 }
 

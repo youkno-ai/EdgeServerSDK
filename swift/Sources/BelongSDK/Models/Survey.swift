@@ -13,7 +13,7 @@ import AnyCodable
 public struct Survey: Codable, JSONEncodable, Hashable {
 
     public var structuredDescription: StructuredDescription?
-    public var markDoc: StructuredDescriptionMarkDoc?
+    public var markDoc: MarkDoc?
     public var meta: AnyCodable?
     public var metaError: String?
     public var type: String?
@@ -23,7 +23,7 @@ public struct Survey: Codable, JSONEncodable, Hashable {
     public var timeLimit: Int64?
     public var options: [SurveyOption]?
 
-    public init(structuredDescription: StructuredDescription? = nil, markDoc: StructuredDescriptionMarkDoc? = nil, meta: AnyCodable? = nil, metaError: String? = nil, type: String? = nil, choiceType: String? = nil, rewardType: String? = nil, question: String? = nil, timeLimit: Int64? = nil, options: [SurveyOption]? = nil) {
+    public init(structuredDescription: StructuredDescription? = nil, markDoc: MarkDoc? = nil, meta: AnyCodable? = nil, metaError: String? = nil, type: String? = nil, choiceType: String? = nil, rewardType: String? = nil, question: String? = nil, timeLimit: Int64? = nil, options: [SurveyOption]? = nil) {
         self.structuredDescription = structuredDescription
         self.markDoc = markDoc
         self.meta = meta

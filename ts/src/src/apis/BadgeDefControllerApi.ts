@@ -15,20 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
+  AssignBadgeReq,
+  Badge,
   BadgeDef,
-  BadgesBadge,
-  EdgeApiDataAssignBadgeReq,
-  EdgeApiDataPageBadgeDef,
+  ModelBadgeDef,
 } from '../models/index';
 import {
+    AssignBadgeReqFromJSON,
+    AssignBadgeReqToJSON,
+    BadgeFromJSON,
+    BadgeToJSON,
     BadgeDefFromJSON,
     BadgeDefToJSON,
-    BadgesBadgeFromJSON,
-    BadgesBadgeToJSON,
-    EdgeApiDataAssignBadgeReqFromJSON,
-    EdgeApiDataAssignBadgeReqToJSON,
-    EdgeApiDataPageBadgeDefFromJSON,
-    EdgeApiDataPageBadgeDefToJSON,
+    ModelBadgeDefFromJSON,
+    ModelBadgeDefToJSON,
 } from '../models/index';
 
 export interface DeleteApiV1BadgesByBadgecodeByHolderidRequest {
@@ -69,7 +69,7 @@ export interface PostApiV1BadgesDefsRequest {
 
 export interface PostApiV1BadgesDefsByBadgecodeAssignRequest {
     badgeCode: string;
-    edgeApiDataAssignBadgeReq: EdgeApiDataAssignBadgeReq;
+    assignBadgeReq: AssignBadgeReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -125,11 +125,11 @@ export interface BadgeDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgeDefControllerApiInterface
      */
-    getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBadgeDef>>;
+    getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelBadgeDef>>;
 
     /**
      */
-    getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBadgeDef>;
+    getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelBadgeDef>;
 
     /**
      * 
@@ -166,7 +166,7 @@ export interface BadgeDefControllerApiInterface {
     /**
      * 
      * @param {string} badgeCode 
-     * @param {EdgeApiDataAssignBadgeReq} edgeApiDataAssignBadgeReq 
+     * @param {AssignBadgeReq} assignBadgeReq 
      * @param {string} [xEdgeAgent] 
      * @param {string} [xEdgeState] 
      * @param {string} [xEdgeClientId] 
@@ -174,11 +174,11 @@ export interface BadgeDefControllerApiInterface {
      * @throws {RequiredError}
      * @memberof BadgeDefControllerApiInterface
      */
-    postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgesBadge>>;
+    postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>>;
 
     /**
      */
-    postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgesBadge>;
+    postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge>;
 
 }
 
@@ -299,7 +299,7 @@ export class BadgeDefControllerApi extends runtime.BaseAPI implements BadgeDefCo
 
     /**
      */
-    async getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EdgeApiDataPageBadgeDef>> {
+    async getApiV1BadgesDefsRaw(requestParameters: GetApiV1BadgesDefsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelBadgeDef>> {
         const queryParameters: any = {};
 
         if (requestParameters['badgeDefType'] != null) {
@@ -334,12 +334,12 @@ export class BadgeDefControllerApi extends runtime.BaseAPI implements BadgeDefCo
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => EdgeApiDataPageBadgeDefFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelBadgeDefFromJSON(jsonValue));
     }
 
     /**
      */
-    async getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EdgeApiDataPageBadgeDef> {
+    async getApiV1BadgesDefs(requestParameters: GetApiV1BadgesDefsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelBadgeDef> {
         const response = await this.getApiV1BadgesDefsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -450,7 +450,7 @@ export class BadgeDefControllerApi extends runtime.BaseAPI implements BadgeDefCo
 
     /**
      */
-    async postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BadgesBadge>> {
+    async postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Badge>> {
         if (requestParameters['badgeCode'] == null) {
             throw new runtime.RequiredError(
                 'badgeCode',
@@ -458,10 +458,10 @@ export class BadgeDefControllerApi extends runtime.BaseAPI implements BadgeDefCo
             );
         }
 
-        if (requestParameters['edgeApiDataAssignBadgeReq'] == null) {
+        if (requestParameters['assignBadgeReq'] == null) {
             throw new runtime.RequiredError(
-                'edgeApiDataAssignBadgeReq',
-                'Required parameter "edgeApiDataAssignBadgeReq" was null or undefined when calling postApiV1BadgesDefsByBadgecodeAssign().'
+                'assignBadgeReq',
+                'Required parameter "assignBadgeReq" was null or undefined when calling postApiV1BadgesDefsByBadgecodeAssign().'
             );
         }
 
@@ -496,15 +496,15 @@ export class BadgeDefControllerApi extends runtime.BaseAPI implements BadgeDefCo
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EdgeApiDataAssignBadgeReqToJSON(requestParameters['edgeApiDataAssignBadgeReq']),
+            body: AssignBadgeReqToJSON(requestParameters['assignBadgeReq']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BadgesBadgeFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BadgeFromJSON(jsonValue));
     }
 
     /**
      */
-    async postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BadgesBadge> {
+    async postApiV1BadgesDefsByBadgecodeAssign(requestParameters: PostApiV1BadgesDefsByBadgecodeAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Badge> {
         const response = await this.postApiV1BadgesDefsByBadgecodeAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }

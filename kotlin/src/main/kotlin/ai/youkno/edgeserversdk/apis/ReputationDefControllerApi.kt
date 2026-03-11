@@ -6,10 +6,10 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
+import ai.youkno.edgeserversdk.models.AssignReputationReq
 import ai.youkno.edgeserversdk.models.BaseSettingsReputationDef
-import ai.youkno.edgeserversdk.models.EdgeApiDataAssignReputationReq
-import ai.youkno.edgeserversdk.models.EdgeApiDataPageBaseSettingsReputationDef
-import ai.youkno.edgeserversdk.models.UserReputation
+import ai.youkno.edgeserversdk.models.BaseSettingsReputationDef2
+import ai.youkno.edgeserversdk.models.Reputation
 
 interface ReputationDefControllerApi {
     /**
@@ -55,10 +55,10 @@ interface ReputationDefControllerApi {
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[EdgeApiDataPageBaseSettingsReputationDef]>
+     * @return [Call]<[BaseSettingsReputationDef2]>
      */
     @GET("api/v1/reputations/defs")
-    fun getApiV1ReputationsDefs(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<EdgeApiDataPageBaseSettingsReputationDef>
+    fun getApiV1ReputationsDefs(@Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<BaseSettingsReputationDef2>
 
     /**
      * GET api/v1/reputations/defs/{reputationCode}
@@ -100,14 +100,14 @@ interface ReputationDefControllerApi {
      *  - 200: OK
      *
      * @param reputationCode 
-     * @param edgeApiDataAssignReputationReq 
+     * @param assignReputationReq 
      * @param xEdgeAgent  (optional)
      * @param xEdgeState  (optional)
      * @param xEdgeClientId  (optional)
-     * @return [Call]<[UserReputation]>
+     * @return [Call]<[Reputation]>
      */
     @POST("api/v1/reputations/defs/{reputationCode}/assign")
-    fun postApiV1ReputationsDefsByReputationcodeAssign(@Path("reputationCode") reputationCode: kotlin.String, @Body edgeApiDataAssignReputationReq: EdgeApiDataAssignReputationReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UserReputation>
+    fun postApiV1ReputationsDefsByReputationcodeAssign(@Path("reputationCode") reputationCode: kotlin.String, @Body assignReputationReq: AssignReputationReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<Reputation>
 
     /**
      * PUT api/v1/reputations/defs

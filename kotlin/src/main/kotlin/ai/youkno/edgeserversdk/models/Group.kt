@@ -15,7 +15,7 @@
 
 package ai.youkno.edgeserversdk.models
 
-import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys
+import ai.youkno.edgeserversdk.models.HasAccessKeysAccessKeys2
 import ai.youkno.edgeserversdk.models.User
 
 import com.squareup.moshi.Json
@@ -70,7 +70,7 @@ data class Group (
     val visibilityRoles: kotlin.String? = null,
 
     @Json(name = "accessKeys")
-    val accessKeys: HasAccessKeysAccessKeys? = null,
+    val accessKeys: HasAccessKeysAccessKeys2? = null,
 
     @Json(name = "createdAt")
     val createdAt: kotlin.Long? = null,
