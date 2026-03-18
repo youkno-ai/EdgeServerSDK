@@ -52,6 +52,7 @@ import com.squareup.moshi.JsonClass
  * @param lowQuantityThreshold 
  * @param anonUsers 
  * @param locationBranding 
+ * @param soldByLabel 
  * @param landingPage 
  * @param shopType 
  * @param backgrounds 
@@ -101,22 +102,23 @@ import com.squareup.moshi.JsonClass
  * @param loginsAsEnum 
  * @param anonUsersAsEnum 
  * @param shopTypeAsEnum 
- * @param syncProductStrategyAsEnum 
- * @param flwrInferenceStrategyAsEnum 
- * @param merchandiseTypeAsEnum 
- * @param effectiveStockMessageConfig 
- * @param inventoryAreaIds 
- * @param settingsTypeAsEnum 
- * @param locationBrandingAsEnum 
+ * @param settingsWriteModeAsEnum 
+ * @param shopStatusAsEnum 
+ * @param soldByLabelAsEnum 
+ * @param settingsStrategyAsEnum 
+ * @param embeddedShopUrlAsURI 
  * @param landingPageAsEnum 
  * @param medicalIdPromptAsEnum 
  * @param productBalanceAsEnum 
  * @param paymentMethodsAsEnums 
  * @param deliveryMethodsAsEnum 
- * @param settingsStrategyAsEnum 
- * @param settingsWriteModeAsEnum 
- * @param shopStatusAsEnum 
- * @param embeddedShopUrlAsURI 
+ * @param merchandiseTypeAsEnum 
+ * @param effectiveStockMessageConfig 
+ * @param inventoryAreaIds 
+ * @param syncProductStrategyAsEnum 
+ * @param flwrInferenceStrategyAsEnum 
+ * @param settingsTypeAsEnum 
+ * @param locationBrandingAsEnum 
  */
 
 
@@ -151,6 +153,9 @@ data class ShopSettings (
 
     @Json(name = "locationBranding")
     val locationBranding: kotlin.String? = null,
+
+    @Json(name = "soldByLabel")
+    val soldByLabel: kotlin.String? = null,
 
     @Json(name = "landingPage")
     val landingPage: kotlin.String? = null,
@@ -299,26 +304,20 @@ data class ShopSettings (
     @Json(name = "shopTypeAsEnum")
     val shopTypeAsEnum: ShopSettings.ShopTypeAsEnum? = null,
 
-    @Json(name = "syncProductStrategyAsEnum")
-    val syncProductStrategyAsEnum: ShopSettings.SyncProductStrategyAsEnum? = null,
+    @Json(name = "settingsWriteModeAsEnum")
+    val settingsWriteModeAsEnum: ShopSettings.SettingsWriteModeAsEnum? = null,
 
-    @Json(name = "flwrInferenceStrategyAsEnum")
-    val flwrInferenceStrategyAsEnum: ShopSettings.FlwrInferenceStrategyAsEnum? = null,
+    @Json(name = "shopStatusAsEnum")
+    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null,
 
-    @Json(name = "merchandiseTypeAsEnum")
-    val merchandiseTypeAsEnum: ShopSettings.MerchandiseTypeAsEnum? = null,
+    @Json(name = "soldByLabelAsEnum")
+    val soldByLabelAsEnum: ShopSettings.SoldByLabelAsEnum? = null,
 
-    @Json(name = "effectiveStockMessageConfig")
-    val effectiveStockMessageConfig: StockMessageConfig? = null,
+    @Json(name = "settingsStrategyAsEnum")
+    val settingsStrategyAsEnum: ShopSettings.SettingsStrategyAsEnum? = null,
 
-    @Json(name = "inventoryAreaIds")
-    val inventoryAreaIds: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "settingsTypeAsEnum")
-    val settingsTypeAsEnum: ShopSettings.SettingsTypeAsEnum? = null,
-
-    @Json(name = "locationBrandingAsEnum")
-    val locationBrandingAsEnum: ShopSettings.LocationBrandingAsEnum? = null,
+    @Json(name = "embeddedShopUrlAsURI")
+    val embeddedShopUrlAsURI: java.net.URI? = null,
 
     @Json(name = "landingPageAsEnum")
     val landingPageAsEnum: ShopSettings.LandingPageAsEnum? = null,
@@ -335,17 +334,26 @@ data class ShopSettings (
     @Json(name = "deliveryMethodsAsEnum")
     val deliveryMethodsAsEnum: kotlin.collections.List<ShopSettings.DeliveryMethodsAsEnum>? = null,
 
-    @Json(name = "settingsStrategyAsEnum")
-    val settingsStrategyAsEnum: ShopSettings.SettingsStrategyAsEnum? = null,
+    @Json(name = "merchandiseTypeAsEnum")
+    val merchandiseTypeAsEnum: ShopSettings.MerchandiseTypeAsEnum? = null,
 
-    @Json(name = "settingsWriteModeAsEnum")
-    val settingsWriteModeAsEnum: ShopSettings.SettingsWriteModeAsEnum? = null,
+    @Json(name = "effectiveStockMessageConfig")
+    val effectiveStockMessageConfig: StockMessageConfig? = null,
 
-    @Json(name = "shopStatusAsEnum")
-    val shopStatusAsEnum: ShopSettings.ShopStatusAsEnum? = null,
+    @Json(name = "inventoryAreaIds")
+    val inventoryAreaIds: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "embeddedShopUrlAsURI")
-    val embeddedShopUrlAsURI: java.net.URI? = null
+    @Json(name = "syncProductStrategyAsEnum")
+    val syncProductStrategyAsEnum: ShopSettings.SyncProductStrategyAsEnum? = null,
+
+    @Json(name = "flwrInferenceStrategyAsEnum")
+    val flwrInferenceStrategyAsEnum: ShopSettings.FlwrInferenceStrategyAsEnum? = null,
+
+    @Json(name = "settingsTypeAsEnum")
+    val settingsTypeAsEnum: ShopSettings.SettingsTypeAsEnum? = null,
+
+    @Json(name = "locationBrandingAsEnum")
+    val locationBrandingAsEnum: ShopSettings.LocationBrandingAsEnum? = null
 
 ) {
 
@@ -414,55 +422,46 @@ data class ShopSettings (
     /**
      * 
      *
-     * Values: NO_VARIANTS,WITH_VARIANTS
+     * Values: LOCATION,CORPORATE,SYSTEM
      */
     @JsonClass(generateAdapter = false)
-    enum class SyncProductStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "NO_VARIANTS") NO_VARIANTS("NO_VARIANTS"),
-        @Json(name = "WITH_VARIANTS") WITH_VARIANTS("WITH_VARIANTS");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,INFER,SKIP
-     */
-    @JsonClass(generateAdapter = false)
-    enum class FlwrInferenceStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "INFER") INFER("INFER"),
-        @Json(name = "SKIP") SKIP("SKIP");
-    }
-    /**
-     * 
-     *
-     * Values: DEFAULT,CANNABIS
-     */
-    @JsonClass(generateAdapter = false)
-    enum class MerchandiseTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
-        @Json(name = "CANNABIS") CANNABIS("CANNABIS");
-    }
-    /**
-     * 
-     *
-     * Values: NONE,CORP,LOCATION,UNKNOWN
-     */
-    @JsonClass(generateAdapter = false)
-    enum class SettingsTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "CORP") CORP("CORP"),
+    enum class SettingsWriteModeAsEnum(val value: kotlin.String) {
         @Json(name = "LOCATION") LOCATION("LOCATION"),
+        @Json(name = "CORPORATE") CORPORATE("CORPORATE"),
+        @Json(name = "SYSTEM") SYSTEM("SYSTEM");
+    }
+    /**
+     * 
+     *
+     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShopStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "AUTO") AUTO("AUTO"),
+        @Json(name = "ENABLED") ENABLED("ENABLED"),
+        @Json(name = "DISABLED") DISABLED("DISABLED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
      *
-     * Values: DISABLED,ENABLED
+     * Values: SHOW,HIDE
      */
     @JsonClass(generateAdapter = false)
-    enum class LocationBrandingAsEnum(val value: kotlin.String) {
-        @Json(name = "DISABLED") DISABLED("DISABLED"),
-        @Json(name = "ENABLED") ENABLED("ENABLED");
+    enum class SoldByLabelAsEnum(val value: kotlin.String) {
+        @Json(name = "SHOW") SHOW("SHOW"),
+        @Json(name = "HIDE") HIDE("HIDE");
+    }
+    /**
+     * 
+     *
+     * Values: CORP_ONLY,LOCATION_ONLY,INHERIT
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SettingsStrategyAsEnum(val value: kotlin.String) {
+        @Json(name = "CORP_ONLY") CORP_ONLY("CORP_ONLY"),
+        @Json(name = "LOCATION_ONLY") LOCATION_ONLY("LOCATION_ONLY"),
+        @Json(name = "INHERIT") INHERIT("INHERIT");
     }
     /**
      * 
@@ -523,36 +522,55 @@ data class ShopSettings (
     /**
      * 
      *
-     * Values: CORP_ONLY,LOCATION_ONLY,INHERIT
+     * Values: DEFAULT,CANNABIS
      */
     @JsonClass(generateAdapter = false)
-    enum class SettingsStrategyAsEnum(val value: kotlin.String) {
-        @Json(name = "CORP_ONLY") CORP_ONLY("CORP_ONLY"),
-        @Json(name = "LOCATION_ONLY") LOCATION_ONLY("LOCATION_ONLY"),
-        @Json(name = "INHERIT") INHERIT("INHERIT");
+    enum class MerchandiseTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "DEFAULT") DEFAULT("DEFAULT"),
+        @Json(name = "CANNABIS") CANNABIS("CANNABIS");
     }
     /**
      * 
      *
-     * Values: LOCATION,CORPORATE,SYSTEM
+     * Values: NO_VARIANTS,WITH_VARIANTS
      */
     @JsonClass(generateAdapter = false)
-    enum class SettingsWriteModeAsEnum(val value: kotlin.String) {
+    enum class SyncProductStrategyAsEnum(val value: kotlin.String) {
+        @Json(name = "NO_VARIANTS") NO_VARIANTS("NO_VARIANTS"),
+        @Json(name = "WITH_VARIANTS") WITH_VARIANTS("WITH_VARIANTS");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,INFER,SKIP
+     */
+    @JsonClass(generateAdapter = false)
+    enum class FlwrInferenceStrategyAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "INFER") INFER("INFER"),
+        @Json(name = "SKIP") SKIP("SKIP");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,CORP,LOCATION,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SettingsTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "CORP") CORP("CORP"),
         @Json(name = "LOCATION") LOCATION("LOCATION"),
-        @Json(name = "CORPORATE") CORPORATE("CORPORATE"),
-        @Json(name = "SYSTEM") SYSTEM("SYSTEM");
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
      * 
      *
-     * Values: AUTO,ENABLED,DISABLED,UNKNOWN
+     * Values: DISABLED,ENABLED
      */
     @JsonClass(generateAdapter = false)
-    enum class ShopStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "AUTO") AUTO("AUTO"),
-        @Json(name = "ENABLED") ENABLED("ENABLED"),
+    enum class LocationBrandingAsEnum(val value: kotlin.String) {
         @Json(name = "DISABLED") DISABLED("DISABLED"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+        @Json(name = "ENABLED") ENABLED("ENABLED");
     }
 
 }

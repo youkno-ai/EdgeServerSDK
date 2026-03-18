@@ -30,8 +30,8 @@ import com.squareup.moshi.JsonClass
  * @param allowedOps 
  * @param forbiddenOps 
  * @param empty 
- * @param opsMap 
  * @param bountyTypes 
+ * @param opsMap 
  */
 
 
@@ -58,11 +58,11 @@ data class CustomRoleDef (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "opsMap")
-    val opsMap: CustomRoleDef.OpsMap? = null,
-
     @Json(name = "bountyTypes")
-    val bountyTypes: kotlin.collections.List<CustomRoleDef.BountyTypes>? = null
+    val bountyTypes: kotlin.collections.List<CustomRoleDef.BountyTypes>? = null,
+
+    @Json(name = "opsMap")
+    val opsMap: CustomRoleDef.OpsMap? = null
 
 ) {
 
@@ -747,18 +747,6 @@ data class CustomRoleDef (
     /**
      * 
      *
-     * Values: ALWAYS,NEVER,MAY,SHOULD
-     */
-    @JsonClass(generateAdapter = false)
-    enum class OpsMap(val value: kotlin.String) {
-        @Json(name = "ALWAYS") ALWAYS("ALWAYS"),
-        @Json(name = "NEVER") NEVER("NEVER"),
-        @Json(name = "MAY") MAY("MAY"),
-        @Json(name = "SHOULD") SHOULD("SHOULD");
-    }
-    /**
-     * 
-     *
      * Values: NONE,QUESTION,THREAD,TALENT_SEARCH,TALENT_RECOMMENDATION,TMOB_CHALLENGE,TMOB_COACHING,ORDER,REALESTATE_CUSTOMER,REALESTATE_RECOMMENDATION,SURVEY,CLASSIFIED,PRODUCT,MENU,BUNDLE,STORY,SCORE,SERIES,CHECKLIST,SUPPORT,AI_BOT,DEAL,PROMOTION,AUTOSUGGESTION,APPROVAL,MCQ,FUNDING,AUCTION,ROLEPLAY,PRIVATE_LISTING,QUEST,LIVE_STREAM,ALBUM,NEWS,BANNER,MATCH,CONTEST,TRIVIA,LOTTERY,BADGE_COLLECTION,RAFFLE,CALENDAR_EVENT,CURRENCY,RESERVATION,QUICK_CLAIM,CAMPAIGN,EXPRESS_CAMPAIGN,GEO_LOCATION,FEEDBACK,SUBSCRIPTION,SUBSCRIPTION_TIER,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
@@ -815,6 +803,18 @@ data class CustomRoleDef (
         @Json(name = "SUBSCRIPTION") SUBSCRIPTION("SUBSCRIPTION"),
         @Json(name = "SUBSCRIPTION_TIER") SUBSCRIPTION_TIER("SUBSCRIPTION_TIER"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: ALWAYS,NEVER,MAY,SHOULD
+     */
+    @JsonClass(generateAdapter = false)
+    enum class OpsMap(val value: kotlin.String) {
+        @Json(name = "ALWAYS") ALWAYS("ALWAYS"),
+        @Json(name = "NEVER") NEVER("NEVER"),
+        @Json(name = "MAY") MAY("MAY"),
+        @Json(name = "SHOULD") SHOULD("SHOULD");
     }
 
 }

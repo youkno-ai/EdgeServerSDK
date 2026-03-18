@@ -33,8 +33,8 @@ import com.squareup.moshi.JsonClass
  * @param uom 
  * @param categoryInfo 
  * @param kindAsEnum 
- * @param viewModeAsEnum 
  * @param effectiveName 
+ * @param viewModeAsEnum 
  */
 
 
@@ -70,11 +70,11 @@ data class ChemicalInfoDisplayConfigChemicalInfo (
     @Json(name = "kindAsEnum")
     val kindAsEnum: ChemicalInfoDisplayConfigChemicalInfo.KindAsEnum? = null,
 
-    @Json(name = "viewModeAsEnum")
-    val viewModeAsEnum: ChemicalInfoDisplayConfigChemicalInfo.ViewModeAsEnum? = null,
-
     @Json(name = "effectiveName")
-    val effectiveName: kotlin.String? = null
+    val effectiveName: kotlin.String? = null,
+
+    @Json(name = "viewModeAsEnum")
+    val viewModeAsEnum: ChemicalInfoDisplayConfigChemicalInfo.ViewModeAsEnum? = null
 
 ) {
 

@@ -285,6 +285,21 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         case userInternal = "USER_INTERNAL"
         case byLink = "BY_LINK"
     }
+    public enum LoyaltyType: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case perItem = "PER_ITEM"
+        case percentage = "PERCENTAGE"
+        case unknown = "UNKNOWN"
+    }
+    public enum LoyaltyVerificationTimeUnit: String, Codable, CaseIterable {
+        case nanoseconds = "NANOSECONDS"
+        case microseconds = "MICROSECONDS"
+        case milliseconds = "MILLISECONDS"
+        case seconds = "SECONDS"
+        case minutes = "MINUTES"
+        case hours = "HOURS"
+        case days = "DAYS"
+    }
     public var businessName: String?
     public var businessType: BusinessType?
     public var businessSubType: BusinessSubType?
@@ -293,6 +308,11 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
     public var businessWebsiteUrl: String?
     public var businessCurrency: BusinessCurrency?
     public var useOwnCategories: Bool?
+    public var pointCurrencyName: String?
+    public var pointCurrencyCode: String?
+    public var pointCurrencyExchangeFromAmount: Int?
+    public var pointCurrencyExchangeToAmount: Double?
+    public var pointCurrencyExchangeToCurrency: String?
     public var voucherCode: String?
     public var voucherDiscountType: VoucherDiscountType?
     public var voucherTitle: String?
@@ -300,6 +320,7 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
     public var voucherDescription: String?
     public var voucherFlatDiscount: Reward?
     public var voucherPercentageDiscount: Double?
+    public var voucherPercentageMaxDiscountAmount: Double?
     public var voucherMaxQty: Int?
     public var voucherImageUrl: String?
     public var voucherExpiresAt: Int64?
@@ -309,14 +330,26 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
     public var bountyAttachmentType: BountyAttachmentType?
     public var bountyVisibility: BountyVisibility?
     public var bountyMaxRecipientsQty: Int?
+    public var loyaltyType: LoyaltyType?
+    public var loyaltyItemName: String?
+    public var loyaltyRewardPerItem: Reward?
+    public var loyaltyPercentageOfPurchaise: Double?
+    public var loyaltyMaxRewardPerTransaction: Reward?
+    public var loyaltyVerificationPointsThreshold: Reward?
+    public var loyaltyVerificationTimeWindow: Int?
+    public var loyaltyVerificationTimeUnit: LoyaltyVerificationTimeUnit?
+    public var productName: String?
+    public var productImageUrl: String?
+    public var productPrice: Reward?
     public var companyId: String?
     public var voucherDefId: String?
     public var bountyId: String?
+    public var pointCurrencyBountyId: String?
+    public var productBountyId: String?
     public var completedAt: Int64?
-    public var valid: Bool?
     public var completed: Bool?
 
-    public init(businessName: String? = nil, businessType: BusinessType? = nil, businessSubType: BusinessSubType? = nil, businessLogoUrl: String? = nil, businessBio: String? = nil, businessWebsiteUrl: String? = nil, businessCurrency: BusinessCurrency? = nil, useOwnCategories: Bool? = nil, voucherCode: String? = nil, voucherDiscountType: VoucherDiscountType? = nil, voucherTitle: String? = nil, voucherPosDiscountCode: String? = nil, voucherDescription: String? = nil, voucherFlatDiscount: Reward? = nil, voucherPercentageDiscount: Double? = nil, voucherMaxQty: Int? = nil, voucherImageUrl: String? = nil, voucherExpiresAt: Int64? = nil, voucherLifespanMs: Int64? = nil, bountyType: BountyType? = nil, bountyImageUrl: String? = nil, bountyAttachmentType: BountyAttachmentType? = nil, bountyVisibility: BountyVisibility? = nil, bountyMaxRecipientsQty: Int? = nil, companyId: String? = nil, voucherDefId: String? = nil, bountyId: String? = nil, completedAt: Int64? = nil, valid: Bool? = nil, completed: Bool? = nil) {
+    public init(businessName: String? = nil, businessType: BusinessType? = nil, businessSubType: BusinessSubType? = nil, businessLogoUrl: String? = nil, businessBio: String? = nil, businessWebsiteUrl: String? = nil, businessCurrency: BusinessCurrency? = nil, useOwnCategories: Bool? = nil, pointCurrencyName: String? = nil, pointCurrencyCode: String? = nil, pointCurrencyExchangeFromAmount: Int? = nil, pointCurrencyExchangeToAmount: Double? = nil, pointCurrencyExchangeToCurrency: String? = nil, voucherCode: String? = nil, voucherDiscountType: VoucherDiscountType? = nil, voucherTitle: String? = nil, voucherPosDiscountCode: String? = nil, voucherDescription: String? = nil, voucherFlatDiscount: Reward? = nil, voucherPercentageDiscount: Double? = nil, voucherPercentageMaxDiscountAmount: Double? = nil, voucherMaxQty: Int? = nil, voucherImageUrl: String? = nil, voucherExpiresAt: Int64? = nil, voucherLifespanMs: Int64? = nil, bountyType: BountyType? = nil, bountyImageUrl: String? = nil, bountyAttachmentType: BountyAttachmentType? = nil, bountyVisibility: BountyVisibility? = nil, bountyMaxRecipientsQty: Int? = nil, loyaltyType: LoyaltyType? = nil, loyaltyItemName: String? = nil, loyaltyRewardPerItem: Reward? = nil, loyaltyPercentageOfPurchaise: Double? = nil, loyaltyMaxRewardPerTransaction: Reward? = nil, loyaltyVerificationPointsThreshold: Reward? = nil, loyaltyVerificationTimeWindow: Int? = nil, loyaltyVerificationTimeUnit: LoyaltyVerificationTimeUnit? = nil, productName: String? = nil, productImageUrl: String? = nil, productPrice: Reward? = nil, companyId: String? = nil, voucherDefId: String? = nil, bountyId: String? = nil, pointCurrencyBountyId: String? = nil, productBountyId: String? = nil, completedAt: Int64? = nil, completed: Bool? = nil) {
         self.businessName = businessName
         self.businessType = businessType
         self.businessSubType = businessSubType
@@ -325,6 +358,11 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         self.businessWebsiteUrl = businessWebsiteUrl
         self.businessCurrency = businessCurrency
         self.useOwnCategories = useOwnCategories
+        self.pointCurrencyName = pointCurrencyName
+        self.pointCurrencyCode = pointCurrencyCode
+        self.pointCurrencyExchangeFromAmount = pointCurrencyExchangeFromAmount
+        self.pointCurrencyExchangeToAmount = pointCurrencyExchangeToAmount
+        self.pointCurrencyExchangeToCurrency = pointCurrencyExchangeToCurrency
         self.voucherCode = voucherCode
         self.voucherDiscountType = voucherDiscountType
         self.voucherTitle = voucherTitle
@@ -332,6 +370,7 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         self.voucherDescription = voucherDescription
         self.voucherFlatDiscount = voucherFlatDiscount
         self.voucherPercentageDiscount = voucherPercentageDiscount
+        self.voucherPercentageMaxDiscountAmount = voucherPercentageMaxDiscountAmount
         self.voucherMaxQty = voucherMaxQty
         self.voucherImageUrl = voucherImageUrl
         self.voucherExpiresAt = voucherExpiresAt
@@ -341,11 +380,23 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         self.bountyAttachmentType = bountyAttachmentType
         self.bountyVisibility = bountyVisibility
         self.bountyMaxRecipientsQty = bountyMaxRecipientsQty
+        self.loyaltyType = loyaltyType
+        self.loyaltyItemName = loyaltyItemName
+        self.loyaltyRewardPerItem = loyaltyRewardPerItem
+        self.loyaltyPercentageOfPurchaise = loyaltyPercentageOfPurchaise
+        self.loyaltyMaxRewardPerTransaction = loyaltyMaxRewardPerTransaction
+        self.loyaltyVerificationPointsThreshold = loyaltyVerificationPointsThreshold
+        self.loyaltyVerificationTimeWindow = loyaltyVerificationTimeWindow
+        self.loyaltyVerificationTimeUnit = loyaltyVerificationTimeUnit
+        self.productName = productName
+        self.productImageUrl = productImageUrl
+        self.productPrice = productPrice
         self.companyId = companyId
         self.voucherDefId = voucherDefId
         self.bountyId = bountyId
+        self.pointCurrencyBountyId = pointCurrencyBountyId
+        self.productBountyId = productBountyId
         self.completedAt = completedAt
-        self.valid = valid
         self.completed = completed
     }
 
@@ -358,6 +409,11 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         case businessWebsiteUrl
         case businessCurrency
         case useOwnCategories
+        case pointCurrencyName
+        case pointCurrencyCode
+        case pointCurrencyExchangeFromAmount
+        case pointCurrencyExchangeToAmount
+        case pointCurrencyExchangeToCurrency
         case voucherCode
         case voucherDiscountType
         case voucherTitle
@@ -365,6 +421,7 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         case voucherDescription
         case voucherFlatDiscount
         case voucherPercentageDiscount
+        case voucherPercentageMaxDiscountAmount
         case voucherMaxQty
         case voucherImageUrl
         case voucherExpiresAt
@@ -374,11 +431,23 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         case bountyAttachmentType
         case bountyVisibility
         case bountyMaxRecipientsQty
+        case loyaltyType
+        case loyaltyItemName
+        case loyaltyRewardPerItem
+        case loyaltyPercentageOfPurchaise
+        case loyaltyMaxRewardPerTransaction
+        case loyaltyVerificationPointsThreshold
+        case loyaltyVerificationTimeWindow
+        case loyaltyVerificationTimeUnit
+        case productName
+        case productImageUrl
+        case productPrice
         case companyId
         case voucherDefId
         case bountyId
+        case pointCurrencyBountyId
+        case productBountyId
         case completedAt
-        case valid
         case completed
     }
 
@@ -394,6 +463,11 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(businessWebsiteUrl, forKey: .businessWebsiteUrl)
         try container.encodeIfPresent(businessCurrency, forKey: .businessCurrency)
         try container.encodeIfPresent(useOwnCategories, forKey: .useOwnCategories)
+        try container.encodeIfPresent(pointCurrencyName, forKey: .pointCurrencyName)
+        try container.encodeIfPresent(pointCurrencyCode, forKey: .pointCurrencyCode)
+        try container.encodeIfPresent(pointCurrencyExchangeFromAmount, forKey: .pointCurrencyExchangeFromAmount)
+        try container.encodeIfPresent(pointCurrencyExchangeToAmount, forKey: .pointCurrencyExchangeToAmount)
+        try container.encodeIfPresent(pointCurrencyExchangeToCurrency, forKey: .pointCurrencyExchangeToCurrency)
         try container.encodeIfPresent(voucherCode, forKey: .voucherCode)
         try container.encodeIfPresent(voucherDiscountType, forKey: .voucherDiscountType)
         try container.encodeIfPresent(voucherTitle, forKey: .voucherTitle)
@@ -401,6 +475,7 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(voucherDescription, forKey: .voucherDescription)
         try container.encodeIfPresent(voucherFlatDiscount, forKey: .voucherFlatDiscount)
         try container.encodeIfPresent(voucherPercentageDiscount, forKey: .voucherPercentageDiscount)
+        try container.encodeIfPresent(voucherPercentageMaxDiscountAmount, forKey: .voucherPercentageMaxDiscountAmount)
         try container.encodeIfPresent(voucherMaxQty, forKey: .voucherMaxQty)
         try container.encodeIfPresent(voucherImageUrl, forKey: .voucherImageUrl)
         try container.encodeIfPresent(voucherExpiresAt, forKey: .voucherExpiresAt)
@@ -410,11 +485,23 @@ public struct SelfOnboardingInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bountyAttachmentType, forKey: .bountyAttachmentType)
         try container.encodeIfPresent(bountyVisibility, forKey: .bountyVisibility)
         try container.encodeIfPresent(bountyMaxRecipientsQty, forKey: .bountyMaxRecipientsQty)
+        try container.encodeIfPresent(loyaltyType, forKey: .loyaltyType)
+        try container.encodeIfPresent(loyaltyItemName, forKey: .loyaltyItemName)
+        try container.encodeIfPresent(loyaltyRewardPerItem, forKey: .loyaltyRewardPerItem)
+        try container.encodeIfPresent(loyaltyPercentageOfPurchaise, forKey: .loyaltyPercentageOfPurchaise)
+        try container.encodeIfPresent(loyaltyMaxRewardPerTransaction, forKey: .loyaltyMaxRewardPerTransaction)
+        try container.encodeIfPresent(loyaltyVerificationPointsThreshold, forKey: .loyaltyVerificationPointsThreshold)
+        try container.encodeIfPresent(loyaltyVerificationTimeWindow, forKey: .loyaltyVerificationTimeWindow)
+        try container.encodeIfPresent(loyaltyVerificationTimeUnit, forKey: .loyaltyVerificationTimeUnit)
+        try container.encodeIfPresent(productName, forKey: .productName)
+        try container.encodeIfPresent(productImageUrl, forKey: .productImageUrl)
+        try container.encodeIfPresent(productPrice, forKey: .productPrice)
         try container.encodeIfPresent(companyId, forKey: .companyId)
         try container.encodeIfPresent(voucherDefId, forKey: .voucherDefId)
         try container.encodeIfPresent(bountyId, forKey: .bountyId)
+        try container.encodeIfPresent(pointCurrencyBountyId, forKey: .pointCurrencyBountyId)
+        try container.encodeIfPresent(productBountyId, forKey: .productBountyId)
         try container.encodeIfPresent(completedAt, forKey: .completedAt)
-        try container.encodeIfPresent(valid, forKey: .valid)
         try container.encodeIfPresent(completed, forKey: .completed)
     }
 }

@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param reward 
  * @param weight 
  * @param valid 
- * @param typeAsEnum 
  * @param stateAsEnum 
+ * @param typeAsEnum 
  */
 
 
@@ -57,24 +57,14 @@ data class SurveyOption (
     @Json(name = "valid")
     val valid: kotlin.Boolean? = null,
 
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: SurveyOption.TypeAsEnum? = null,
-
     @Json(name = "stateAsEnum")
-    val stateAsEnum: SurveyOption.StateAsEnum? = null
+    val stateAsEnum: SurveyOption.StateAsEnum? = null,
+
+    @Json(name = "typeAsEnum")
+    val typeAsEnum: SurveyOption.TypeAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: CHOICE,TEXT
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "CHOICE") CHOICE("CHOICE"),
-        @Json(name = "TEXT") TEXT("TEXT");
-    }
     /**
      * 
      *
@@ -84,6 +74,16 @@ data class SurveyOption (
     enum class StateAsEnum(val value: kotlin.String) {
         @Json(name = "ACTIVE") ACTIVE("ACTIVE"),
         @Json(name = "INACTIVE") INACTIVE("INACTIVE");
+    }
+    /**
+     * 
+     *
+     * Values: CHOICE,TEXT
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TypeAsEnum(val value: kotlin.String) {
+        @Json(name = "CHOICE") CHOICE("CHOICE"),
+        @Json(name = "TEXT") TEXT("TEXT");
     }
 
 }

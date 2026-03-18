@@ -25,6 +25,7 @@ export const EntitySource = {
     BIO_TRACK: 'BIO_TRACK',
     SHOPIFY: 'SHOPIFY',
     CSV: 'CSV',
+    I_SPORTS: 'I_SPORTS',
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type EntitySource = typeof EntitySource[keyof typeof EntitySource];

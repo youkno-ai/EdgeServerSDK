@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: NONE,SYSTEM,ALLEAVES,MJ_FREEWAY,BIO_TRACK,SHOPIFY,CSV,UNKNOWN
+ * Values: NONE,SYSTEM,ALLEAVES,MJ_FREEWAY,BIO_TRACK,SHOPIFY,CSV,I_SPORTS,UNKNOWN
  */
 
 @JsonClass(generateAdapter = false)
@@ -48,6 +48,9 @@ enum class EntitySource(val value: kotlin.String) {
 
     @Json(name = "CSV")
     CSV("CSV"),
+
+    @Json(name = "I_SPORTS")
+    I_SPORTS("I_SPORTS"),
 
     @Json(name = "UNKNOWN")
     UNKNOWN("UNKNOWN");

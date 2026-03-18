@@ -51,6 +51,8 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
     public var paymentMethod: String?
     public var vouchersEnabled: Bool?
     public var sentimentAnalysisType: String?
+    public var aiImageGenProvider: String?
+    public var aiVideoGenProvider: String?
     public var lookAndFeel: LookAndFeelDef?
     public var deviceAccessPolicy: String?
     public var rewards: [String: Reward]?
@@ -94,9 +96,10 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
     public var deletionStrategies: [String: String]?
     public var allowedCurrencies: [String: BaseSettingsCurrencyInfo]?
     public var paymentLiabilities: [String: PaymentLiability]?
+    public var pointCurrencyLoyaltyInfo: PointCurrencyLoyaltyInfo?
     public var attachments: Attachments?
 
-    public init(sysInfo: SysInfo? = nil, currency: String? = nil, locale: String? = nil, timeZone: String? = nil, identityMode: IdentityMode? = nil, groups: User? = nil, deeplinkImageFromServer: Bool? = nil, bountyTypes: [String: BountyTypeSettings]? = nil, allowedOrgTypes: [String: OrganizationTypeInfo]? = nil, customLists: Lists? = nil, listInfos: [String: ListInfo]? = nil, roles: [String: CustomRoleDef]? = nil, actionBar: CustomActionBar? = nil, bountyAttachments: Attachments? = nil, searchInfo: SearchInfo? = nil, paymentMethod: String? = nil, vouchersEnabled: Bool? = nil, sentimentAnalysisType: String? = nil, lookAndFeel: LookAndFeelDef? = nil, deviceAccessPolicy: String? = nil, rewards: [String: Reward]? = nil, badgeDefs: [String: BadgeDef]? = nil, reputationDefs: [String: BaseSettingsReputationDef]? = nil, drawerItemDefs: [String: DrawerItemDef]? = nil, navItemDefs: [String: NavItemDef]? = nil, navModeInfo: NavModeInfo? = nil, maxNotificationPriority: Int? = nil, marketInfos: [String: MarketInfo]? = nil, organizationType: String? = nil, addresses: [String: MailingAddress]? = nil, bileteEmail: AltEmail? = nil, altEmails: [String: AltEmail]? = nil, apiSecret: String? = nil, allowedMarketTags: Tags? = nil, leaderboardReportCron: String? = nil, maxMoneyAmount: Int? = nil, maxFundraisingAmount: Int? = nil, companyVisibility: String? = nil, inviteMode: InviteMode? = nil, bannerInfos: [String: BannerInfo]? = nil, paymentOptions: PaymentOptions? = nil, defaultLoginMethods: String? = nil, translateMode: TranslateMode? = nil, joinType: JoinType? = nil, notificationInfos: [String: NotificationInfo]? = nil, sportInfos: [String: SportInfo]? = nil, sportTeamReplacements: [String: SportTeamReplacement]? = nil, emailSettings: [String: BaseSettingsEmailSettings]? = nil, shopSettings: ShopSettings? = nil, bountyAlertMode: BountyAlertMode? = nil, agreements: [String: Agreement]? = nil, confirmations: [String: Confirmation]? = nil, sections: [String: BaseSettingsSection]? = nil, merchantMode: String? = nil, livePaymentMode: Bool? = nil, approvalInfos: [String: BaseSettingsApprovalInfo]? = nil, merchantSettings: MerchantSettings? = nil, deletionStrategies: [String: String]? = nil, allowedCurrencies: [String: BaseSettingsCurrencyInfo]? = nil, paymentLiabilities: [String: PaymentLiability]? = nil, attachments: Attachments? = nil) {
+    public init(sysInfo: SysInfo? = nil, currency: String? = nil, locale: String? = nil, timeZone: String? = nil, identityMode: IdentityMode? = nil, groups: User? = nil, deeplinkImageFromServer: Bool? = nil, bountyTypes: [String: BountyTypeSettings]? = nil, allowedOrgTypes: [String: OrganizationTypeInfo]? = nil, customLists: Lists? = nil, listInfos: [String: ListInfo]? = nil, roles: [String: CustomRoleDef]? = nil, actionBar: CustomActionBar? = nil, bountyAttachments: Attachments? = nil, searchInfo: SearchInfo? = nil, paymentMethod: String? = nil, vouchersEnabled: Bool? = nil, sentimentAnalysisType: String? = nil, aiImageGenProvider: String? = nil, aiVideoGenProvider: String? = nil, lookAndFeel: LookAndFeelDef? = nil, deviceAccessPolicy: String? = nil, rewards: [String: Reward]? = nil, badgeDefs: [String: BadgeDef]? = nil, reputationDefs: [String: BaseSettingsReputationDef]? = nil, drawerItemDefs: [String: DrawerItemDef]? = nil, navItemDefs: [String: NavItemDef]? = nil, navModeInfo: NavModeInfo? = nil, maxNotificationPriority: Int? = nil, marketInfos: [String: MarketInfo]? = nil, organizationType: String? = nil, addresses: [String: MailingAddress]? = nil, bileteEmail: AltEmail? = nil, altEmails: [String: AltEmail]? = nil, apiSecret: String? = nil, allowedMarketTags: Tags? = nil, leaderboardReportCron: String? = nil, maxMoneyAmount: Int? = nil, maxFundraisingAmount: Int? = nil, companyVisibility: String? = nil, inviteMode: InviteMode? = nil, bannerInfos: [String: BannerInfo]? = nil, paymentOptions: PaymentOptions? = nil, defaultLoginMethods: String? = nil, translateMode: TranslateMode? = nil, joinType: JoinType? = nil, notificationInfos: [String: NotificationInfo]? = nil, sportInfos: [String: SportInfo]? = nil, sportTeamReplacements: [String: SportTeamReplacement]? = nil, emailSettings: [String: BaseSettingsEmailSettings]? = nil, shopSettings: ShopSettings? = nil, bountyAlertMode: BountyAlertMode? = nil, agreements: [String: Agreement]? = nil, confirmations: [String: Confirmation]? = nil, sections: [String: BaseSettingsSection]? = nil, merchantMode: String? = nil, livePaymentMode: Bool? = nil, approvalInfos: [String: BaseSettingsApprovalInfo]? = nil, merchantSettings: MerchantSettings? = nil, deletionStrategies: [String: String]? = nil, allowedCurrencies: [String: BaseSettingsCurrencyInfo]? = nil, paymentLiabilities: [String: PaymentLiability]? = nil, pointCurrencyLoyaltyInfo: PointCurrencyLoyaltyInfo? = nil, attachments: Attachments? = nil) {
         self.sysInfo = sysInfo
         self.currency = currency
         self.locale = locale
@@ -115,6 +118,8 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         self.paymentMethod = paymentMethod
         self.vouchersEnabled = vouchersEnabled
         self.sentimentAnalysisType = sentimentAnalysisType
+        self.aiImageGenProvider = aiImageGenProvider
+        self.aiVideoGenProvider = aiVideoGenProvider
         self.lookAndFeel = lookAndFeel
         self.deviceAccessPolicy = deviceAccessPolicy
         self.rewards = rewards
@@ -157,6 +162,7 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         self.deletionStrategies = deletionStrategies
         self.allowedCurrencies = allowedCurrencies
         self.paymentLiabilities = paymentLiabilities
+        self.pointCurrencyLoyaltyInfo = pointCurrencyLoyaltyInfo
         self.attachments = attachments
     }
 
@@ -179,6 +185,8 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         case paymentMethod
         case vouchersEnabled
         case sentimentAnalysisType
+        case aiImageGenProvider
+        case aiVideoGenProvider
         case lookAndFeel
         case deviceAccessPolicy
         case rewards
@@ -221,6 +229,7 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         case deletionStrategies
         case allowedCurrencies
         case paymentLiabilities
+        case pointCurrencyLoyaltyInfo
         case attachments
     }
 
@@ -246,6 +255,8 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(paymentMethod, forKey: .paymentMethod)
         try container.encodeIfPresent(vouchersEnabled, forKey: .vouchersEnabled)
         try container.encodeIfPresent(sentimentAnalysisType, forKey: .sentimentAnalysisType)
+        try container.encodeIfPresent(aiImageGenProvider, forKey: .aiImageGenProvider)
+        try container.encodeIfPresent(aiVideoGenProvider, forKey: .aiVideoGenProvider)
         try container.encodeIfPresent(lookAndFeel, forKey: .lookAndFeel)
         try container.encodeIfPresent(deviceAccessPolicy, forKey: .deviceAccessPolicy)
         try container.encodeIfPresent(rewards, forKey: .rewards)
@@ -288,6 +299,7 @@ public struct UserSettings: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(deletionStrategies, forKey: .deletionStrategies)
         try container.encodeIfPresent(allowedCurrencies, forKey: .allowedCurrencies)
         try container.encodeIfPresent(paymentLiabilities, forKey: .paymentLiabilities)
+        try container.encodeIfPresent(pointCurrencyLoyaltyInfo, forKey: .pointCurrencyLoyaltyInfo)
         try container.encodeIfPresent(attachments, forKey: .attachments)
     }
 }

@@ -123,16 +123,16 @@ export interface BountyTerms {
     receiverAsEnum?: BountyTermsReceiverAsEnumEnum;
     /**
      * 
-     * @type {Reward}
-     * @memberof BountyTerms
-     */
-    distributionReward?: Reward;
-    /**
-     * 
      * @type {string}
      * @memberof BountyTerms
      */
     admissionStrategyAsEnum?: BountyTermsAdmissionStrategyAsEnumEnum;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof BountyTerms
+     */
+    distributionReward?: Reward;
 }
 
 
@@ -185,8 +185,8 @@ export function BountyTermsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'autoClose': json['autoClose'] == null ? undefined : json['autoClose'],
         'promises': json['promises'] == null ? undefined : (mapValues(json['promises'], PromiseFromJSON)),
         'receiverAsEnum': json['receiverAsEnum'] == null ? undefined : json['receiverAsEnum'],
-        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
         'admissionStrategyAsEnum': json['admissionStrategyAsEnum'] == null ? undefined : json['admissionStrategyAsEnum'],
+        'distributionReward': json['distributionReward'] == null ? undefined : RewardFromJSON(json['distributionReward']),
     };
 }
 
@@ -212,8 +212,8 @@ export function BountyTermsToJSONTyped(value?: BountyTerms | null, ignoreDiscrim
         'autoClose': value['autoClose'],
         'promises': value['promises'] == null ? undefined : (mapValues(value['promises'], PromiseToJSON)),
         'receiverAsEnum': value['receiverAsEnum'],
-        'distributionReward': RewardToJSON(value['distributionReward']),
         'admissionStrategyAsEnum': value['admissionStrategyAsEnum'],
+        'distributionReward': RewardToJSON(value['distributionReward']),
     };
 }
 

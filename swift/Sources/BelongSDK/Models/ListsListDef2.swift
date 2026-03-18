@@ -12,21 +12,6 @@ import AnyCodable
 
 public struct ListsListDef2: Codable, JSONEncodable, Hashable {
 
-    public enum TypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case stream = "STREAM"
-        case edgeCoachings = "EDGE_COACHINGS"
-        case edgeInFocus = "EDGE_IN_FOCUS"
-        case edgeChallenges = "EDGE_CHALLENGES"
-        case buySell = "BUY_SELL"
-        case market = "MARKET"
-        case supplyMarket = "SUPPLY_MARKET"
-        case autosuggestions = "AUTOSUGGESTIONS"
-        case news = "NEWS"
-        case webview = "WEBVIEW"
-        case custom = "CUSTOM"
-        case favorites = "FAVORITES"
-    }
     public enum KindAsEnum: String, Codable, CaseIterable {
         case inbox = "INBOX"
         case refs = "REFS"
@@ -42,6 +27,11 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
         case hub = "HUB"
         case listStream = "LIST_STREAM"
         case union = "UNION"
+        case unknown = "UNKNOWN"
+    }
+    public enum ShownInAsEnum: String, Codable, CaseIterable {
+        case home = "HOME"
+        case explicit = "EXPLICIT"
         case unknown = "UNKNOWN"
     }
     public enum EffectiveOp: String, Codable, CaseIterable {
@@ -264,10 +254,20 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
         case bountyCreateSubscription = "BOUNTY_CREATE_SUBSCRIPTION"
         case bountyCreateSubscriptionTier = "BOUNTY_CREATE_SUBSCRIPTION_TIER"
     }
-    public enum ShownInAsEnum: String, Codable, CaseIterable {
-        case home = "HOME"
-        case explicit = "EXPLICIT"
-        case unknown = "UNKNOWN"
+    public enum TypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case stream = "STREAM"
+        case edgeCoachings = "EDGE_COACHINGS"
+        case edgeInFocus = "EDGE_IN_FOCUS"
+        case edgeChallenges = "EDGE_CHALLENGES"
+        case buySell = "BUY_SELL"
+        case market = "MARKET"
+        case supplyMarket = "SUPPLY_MARKET"
+        case autosuggestions = "AUTOSUGGESTIONS"
+        case news = "NEWS"
+        case webview = "WEBVIEW"
+        case custom = "CUSTOM"
+        case favorites = "FAVORITES"
     }
     public enum VisibilityTypeAsEnum: String, Codable, CaseIterable {
         case _default = "DEFAULT"
@@ -502,20 +502,20 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
     public var notificationMode: String?
     public var tags: String?
     public var accessKeys: HasAccessKeysAccessKeys2?
-    public var typeAsEnum: TypeAsEnum?
     public var kindAsEnum: KindAsEnum?
     public var multi: Bool?
+    public var shownInAsEnum: ShownInAsEnum?
+    public var effectiveOp: EffectiveOp?
+    public var filterable: Bool?
+    public var webview: Bool?
+    public var stream: Bool?
     public var special: Bool?
+    public var typeAsEnum: TypeAsEnum?
+    public var effectiveUrl: String?
     public var effectiveCode: String?
     public var viewable: Bool?
     public var postable: Bool?
     public var favorites: Bool?
-    public var stream: Bool?
-    public var webview: Bool?
-    public var effectiveOp: EffectiveOp?
-    public var shownInAsEnum: ShownInAsEnum?
-    public var filterable: Bool?
-    public var effectiveUrl: String?
     public var visibilityRoles: [String]?
     public var effectiveUserSpecial: String?
     public var effectiveCompanySpecial: String?
@@ -532,7 +532,7 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
     public var accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum?
     public var accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum?
 
-    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, accessKeys: HasAccessKeysAccessKeys2? = nil, typeAsEnum: TypeAsEnum? = nil, kindAsEnum: KindAsEnum? = nil, multi: Bool? = nil, special: Bool? = nil, effectiveCode: String? = nil, viewable: Bool? = nil, postable: Bool? = nil, favorites: Bool? = nil, stream: Bool? = nil, webview: Bool? = nil, effectiveOp: EffectiveOp? = nil, shownInAsEnum: ShownInAsEnum? = nil, filterable: Bool? = nil, effectiveUrl: String? = nil, visibilityRoles: [String]? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
+    public init(id: String? = nil, code: String? = nil, kind: String? = nil, rank: Int? = nil, name: String? = nil, emptyListMsg: String? = nil, bountyTypes: String? = nil, userSpecial: String? = nil, companySpecial: String? = nil, url: String? = nil, op: String? = nil, visibilityInfo: VisibilityInfo? = nil, postabilityInfo: PostabilityInfo? = nil, permissionType: String? = nil, shownIn: String? = nil, intent: String? = nil, sublists: [String: SublistInfo]? = nil, filterInfo: FilterInfo? = nil, displayMode: String? = nil, notificationMode: String? = nil, tags: String? = nil, accessKeys: HasAccessKeysAccessKeys2? = nil, kindAsEnum: KindAsEnum? = nil, multi: Bool? = nil, shownInAsEnum: ShownInAsEnum? = nil, effectiveOp: EffectiveOp? = nil, filterable: Bool? = nil, webview: Bool? = nil, stream: Bool? = nil, special: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, effectiveUrl: String? = nil, effectiveCode: String? = nil, viewable: Bool? = nil, postable: Bool? = nil, favorites: Bool? = nil, visibilityRoles: [String]? = nil, effectiveUserSpecial: String? = nil, effectiveCompanySpecial: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, permissionTypeAsEnum: PermissionTypeAsEnum? = nil, bountyTypesAsEnum: [BountyTypesAsEnum]? = nil, sortingModeAsEnum: SortingModeAsEnum? = nil, effectiveFilterModeAsEnum: EffectiveFilterModeAsEnum? = nil, effectiveFilterByType: Bool? = nil, effectiveMainBountyType: EffectiveMainBountyType? = nil, filterBountyTypeAsEnum: FilterBountyTypeAsEnum? = nil, effectiveDisplayModeAsEnum: EffectiveDisplayModeAsEnum? = nil, notificationModeAsEnum: NotificationModeAsEnum? = nil, accessKeyEnforcementAsEnum: AccessKeyEnforcementAsEnum? = nil, accessKeyCtaModeAsEnum: AccessKeyCtaModeAsEnum? = nil) {
         self.id = id
         self.code = code
         self.kind = kind
@@ -555,20 +555,20 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
         self.notificationMode = notificationMode
         self.tags = tags
         self.accessKeys = accessKeys
-        self.typeAsEnum = typeAsEnum
         self.kindAsEnum = kindAsEnum
         self.multi = multi
+        self.shownInAsEnum = shownInAsEnum
+        self.effectiveOp = effectiveOp
+        self.filterable = filterable
+        self.webview = webview
+        self.stream = stream
         self.special = special
+        self.typeAsEnum = typeAsEnum
+        self.effectiveUrl = effectiveUrl
         self.effectiveCode = effectiveCode
         self.viewable = viewable
         self.postable = postable
         self.favorites = favorites
-        self.stream = stream
-        self.webview = webview
-        self.effectiveOp = effectiveOp
-        self.shownInAsEnum = shownInAsEnum
-        self.filterable = filterable
-        self.effectiveUrl = effectiveUrl
         self.visibilityRoles = visibilityRoles
         self.effectiveUserSpecial = effectiveUserSpecial
         self.effectiveCompanySpecial = effectiveCompanySpecial
@@ -609,20 +609,20 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
         case notificationMode
         case tags
         case accessKeys
-        case typeAsEnum
         case kindAsEnum
         case multi
+        case shownInAsEnum
+        case effectiveOp
+        case filterable
+        case webview
+        case stream
         case special
+        case typeAsEnum
+        case effectiveUrl
         case effectiveCode
         case viewable
         case postable
         case favorites
-        case stream
-        case webview
-        case effectiveOp
-        case shownInAsEnum
-        case filterable
-        case effectiveUrl
         case visibilityRoles
         case effectiveUserSpecial
         case effectiveCompanySpecial
@@ -666,20 +666,20 @@ public struct ListsListDef2: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(notificationMode, forKey: .notificationMode)
         try container.encodeIfPresent(tags, forKey: .tags)
         try container.encodeIfPresent(accessKeys, forKey: .accessKeys)
-        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
         try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
         try container.encodeIfPresent(multi, forKey: .multi)
+        try container.encodeIfPresent(shownInAsEnum, forKey: .shownInAsEnum)
+        try container.encodeIfPresent(effectiveOp, forKey: .effectiveOp)
+        try container.encodeIfPresent(filterable, forKey: .filterable)
+        try container.encodeIfPresent(webview, forKey: .webview)
+        try container.encodeIfPresent(stream, forKey: .stream)
         try container.encodeIfPresent(special, forKey: .special)
+        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
+        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
         try container.encodeIfPresent(effectiveCode, forKey: .effectiveCode)
         try container.encodeIfPresent(viewable, forKey: .viewable)
         try container.encodeIfPresent(postable, forKey: .postable)
         try container.encodeIfPresent(favorites, forKey: .favorites)
-        try container.encodeIfPresent(stream, forKey: .stream)
-        try container.encodeIfPresent(webview, forKey: .webview)
-        try container.encodeIfPresent(effectiveOp, forKey: .effectiveOp)
-        try container.encodeIfPresent(shownInAsEnum, forKey: .shownInAsEnum)
-        try container.encodeIfPresent(filterable, forKey: .filterable)
-        try container.encodeIfPresent(effectiveUrl, forKey: .effectiveUrl)
         try container.encodeIfPresent(visibilityRoles, forKey: .visibilityRoles)
         try container.encodeIfPresent(effectiveUserSpecial, forKey: .effectiveUserSpecial)
         try container.encodeIfPresent(effectiveCompanySpecial, forKey: .effectiveCompanySpecial)

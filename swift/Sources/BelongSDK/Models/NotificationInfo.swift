@@ -12,32 +12,32 @@ import AnyCodable
 
 public struct NotificationInfo: Codable, JSONEncodable, Hashable {
 
+    public enum StateAsEnum: String, Codable, CaseIterable {
+        case enable = "ENABLE"
+        case disable = "DISABLE"
+    }
     public enum TypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case football = "FOOTBALL"
         case unknown = "UNKNOWN"
     }
-    public enum StateAsEnum: String, Codable, CaseIterable {
-        case enable = "ENABLE"
-        case disable = "DISABLE"
-    }
     public var type: String?
     public var state: String?
-    public var typeAsEnum: TypeAsEnum?
     public var stateAsEnum: StateAsEnum?
+    public var typeAsEnum: TypeAsEnum?
 
-    public init(type: String? = nil, state: String? = nil, typeAsEnum: TypeAsEnum? = nil, stateAsEnum: StateAsEnum? = nil) {
+    public init(type: String? = nil, state: String? = nil, stateAsEnum: StateAsEnum? = nil, typeAsEnum: TypeAsEnum? = nil) {
         self.type = type
         self.state = state
-        self.typeAsEnum = typeAsEnum
         self.stateAsEnum = stateAsEnum
+        self.typeAsEnum = typeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
         case state
-        case typeAsEnum
         case stateAsEnum
+        case typeAsEnum
     }
 
     // Encodable protocol methods
@@ -46,8 +46,8 @@ public struct NotificationInfo: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(type, forKey: .type)
         try container.encodeIfPresent(state, forKey: .state)
-        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
         try container.encodeIfPresent(stateAsEnum, forKey: .stateAsEnum)
+        try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
     }
 }
 

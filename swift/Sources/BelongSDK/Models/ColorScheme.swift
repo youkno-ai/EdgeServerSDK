@@ -12,6 +12,12 @@ import AnyCodable
 
 public struct ColorScheme: Codable, JSONEncodable, Hashable {
 
+    public enum DisplayModeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case random = "RANDOM"
+        case ordered = "ORDERED"
+        case unknown = "UNKNOWN"
+    }
     public enum PatternTypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case chessboard = "CHESSBOARD"
@@ -22,26 +28,20 @@ public struct ColorScheme: Codable, JSONEncodable, Hashable {
         case downwardArrows = "DOWNWARD_ARROWS"
         case unknown = "UNKNOWN"
     }
-    public enum DisplayModeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case random = "RANDOM"
-        case ordered = "ORDERED"
-        case unknown = "UNKNOWN"
-    }
     public var scheme: String?
     public var colors: [Color]?
     public var displayMode: String?
     public var patternType: String?
-    public var patternTypeAsEnum: PatternTypeAsEnum?
     public var displayModeAsEnum: DisplayModeAsEnum?
+    public var patternTypeAsEnum: PatternTypeAsEnum?
 
-    public init(scheme: String? = nil, colors: [Color]? = nil, displayMode: String? = nil, patternType: String? = nil, patternTypeAsEnum: PatternTypeAsEnum? = nil, displayModeAsEnum: DisplayModeAsEnum? = nil) {
+    public init(scheme: String? = nil, colors: [Color]? = nil, displayMode: String? = nil, patternType: String? = nil, displayModeAsEnum: DisplayModeAsEnum? = nil, patternTypeAsEnum: PatternTypeAsEnum? = nil) {
         self.scheme = scheme
         self.colors = colors
         self.displayMode = displayMode
         self.patternType = patternType
-        self.patternTypeAsEnum = patternTypeAsEnum
         self.displayModeAsEnum = displayModeAsEnum
+        self.patternTypeAsEnum = patternTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,8 +49,8 @@ public struct ColorScheme: Codable, JSONEncodable, Hashable {
         case colors
         case displayMode
         case patternType
-        case patternTypeAsEnum
         case displayModeAsEnum
+        case patternTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -61,8 +61,8 @@ public struct ColorScheme: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(colors, forKey: .colors)
         try container.encodeIfPresent(displayMode, forKey: .displayMode)
         try container.encodeIfPresent(patternType, forKey: .patternType)
-        try container.encodeIfPresent(patternTypeAsEnum, forKey: .patternTypeAsEnum)
         try container.encodeIfPresent(displayModeAsEnum, forKey: .displayModeAsEnum)
+        try container.encodeIfPresent(patternTypeAsEnum, forKey: .patternTypeAsEnum)
     }
 }
 

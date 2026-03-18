@@ -207,10 +207,28 @@ export interface BountyProduct {
     chemicalCompositions?: { [key: string]: ProductSpecificInfoChemicalInfo; };
     /**
      * 
+     * @type {string}
+     * @memberof BountyProduct
+     */
+    soldByLabel?: string;
+    /**
+     * 
      * @type {boolean}
      * @memberof BountyProduct
      */
     valid?: boolean;
+    /**
+     * 
+     * @type {ProductSpecificInfo}
+     * @memberof BountyProduct
+     */
+    topLevelVariant?: ProductSpecificInfo;
+    /**
+     * 
+     * @type {string}
+     * @memberof BountyProduct
+     */
+    kindAsEnum?: BountyProductKindAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -222,13 +240,13 @@ export interface BountyProduct {
      * @type {string}
      * @memberof BountyProduct
      */
-    kindAsEnum?: BountyProductKindAsEnumEnum;
+    zoneAsEnum?: BountyProductZoneAsEnumEnum;
     /**
      * 
-     * @type {ProductSpecificInfo}
+     * @type {boolean}
      * @memberof BountyProduct
      */
-    topLevelVariant?: ProductSpecificInfo;
+    fastDelivery?: boolean;
     /**
      * 
      * @type {number}
@@ -246,25 +264,13 @@ export interface BountyProduct {
      * @type {string}
      * @memberof BountyProduct
      */
-    zoneAsEnum?: BountyProductZoneAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BountyProduct
-     */
-    fastDelivery?: boolean;
+    effectiveZoneAsEnum?: BountyProductEffectiveZoneAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BountyProduct
      */
     deliveryTypeAsEnum?: BountyProductDeliveryTypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyProduct
-     */
-    effectiveZoneAsEnum?: BountyProductEffectiveZoneAsEnumEnum;
 }
 
 
@@ -295,6 +301,16 @@ export type BountyProductZoneAsEnumEnum = typeof BountyProductZoneAsEnumEnum[key
 /**
  * @export
  */
+export const BountyProductEffectiveZoneAsEnumEnum = {
+    SHOP: 'SHOP',
+    FNB: 'FNB',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type BountyProductEffectiveZoneAsEnumEnum = typeof BountyProductEffectiveZoneAsEnumEnum[keyof typeof BountyProductEffectiveZoneAsEnumEnum];
+
+/**
+ * @export
+ */
 export const BountyProductDeliveryTypeAsEnumEnum = {
     STANDARD: 'STANDARD',
     DRIVER: 'DRIVER',
@@ -302,16 +318,6 @@ export const BountyProductDeliveryTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyProductDeliveryTypeAsEnumEnum = typeof BountyProductDeliveryTypeAsEnumEnum[keyof typeof BountyProductDeliveryTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const BountyProductEffectiveZoneAsEnumEnum = {
-    SHOP: 'SHOP',
-    FNB: 'FNB',
-    UNKNOWN: 'UNKNOWN'
-} as const;
-export type BountyProductEffectiveZoneAsEnumEnum = typeof BountyProductEffectiveZoneAsEnumEnum[keyof typeof BountyProductEffectiveZoneAsEnumEnum];
 
 
 /**
@@ -356,16 +362,17 @@ export function BountyProductFromJSONTyped(json: any, ignoreDiscriminator: boole
         'promotionId': json['promotionId'] == null ? undefined : json['promotionId'],
         'categoryOrder': json['categoryOrder'] == null ? undefined : json['categoryOrder'],
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ProductSpecificInfoChemicalInfoFromJSON)),
+        'soldByLabel': json['soldByLabel'] == null ? undefined : json['soldByLabel'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'effectiveZone': json['effectiveZone'] == null ? undefined : json['effectiveZone'],
-        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
         'topLevelVariant': json['topLevelVariant'] == null ? undefined : ProductSpecificInfoFromJSON(json['topLevelVariant']),
-        'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
-        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
+        'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
+        'effectiveZone': json['effectiveZone'] == null ? undefined : json['effectiveZone'],
         'zoneAsEnum': json['zoneAsEnum'] == null ? undefined : json['zoneAsEnum'],
         'fastDelivery': json['fastDelivery'] == null ? undefined : json['fastDelivery'],
-        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
+        'optionCount': json['optionCount'] == null ? undefined : json['optionCount'],
+        'totalQuantity': json['totalQuantity'] == null ? undefined : json['totalQuantity'],
         'effectiveZoneAsEnum': json['effectiveZoneAsEnum'] == null ? undefined : json['effectiveZoneAsEnum'],
+        'deliveryTypeAsEnum': json['deliveryTypeAsEnum'] == null ? undefined : json['deliveryTypeAsEnum'],
     };
 }
 
@@ -405,16 +412,17 @@ export function BountyProductToJSONTyped(value?: BountyProduct | null, ignoreDis
         'promotionId': value['promotionId'],
         'categoryOrder': value['categoryOrder'],
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ProductSpecificInfoChemicalInfoToJSON)),
+        'soldByLabel': value['soldByLabel'],
         'valid': value['valid'],
-        'effectiveZone': value['effectiveZone'],
-        'kindAsEnum': value['kindAsEnum'],
         'topLevelVariant': ProductSpecificInfoToJSON(value['topLevelVariant']),
-        'optionCount': value['optionCount'],
-        'totalQuantity': value['totalQuantity'],
+        'kindAsEnum': value['kindAsEnum'],
+        'effectiveZone': value['effectiveZone'],
         'zoneAsEnum': value['zoneAsEnum'],
         'fastDelivery': value['fastDelivery'],
-        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
+        'optionCount': value['optionCount'],
+        'totalQuantity': value['totalQuantity'],
         'effectiveZoneAsEnum': value['effectiveZoneAsEnum'],
+        'deliveryTypeAsEnum': value['deliveryTypeAsEnum'],
     };
 }
 

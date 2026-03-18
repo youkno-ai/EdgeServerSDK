@@ -44,8 +44,10 @@ public struct UserAvatarGeneratorInput: Codable, JSONEncodable, Hashable {
     public var palette: Palette?
     public var deterministic: Bool?
     public var seed: Int64?
+    public var imageGenProvider: String?
+    public var videoGenProvider: String?
 
-    public init(userId: String? = nil, description: String? = nil, language: String? = nil, style: Style? = nil, palette: Palette? = nil, deterministic: Bool? = nil, seed: Int64? = nil) {
+    public init(userId: String? = nil, description: String? = nil, language: String? = nil, style: Style? = nil, palette: Palette? = nil, deterministic: Bool? = nil, seed: Int64? = nil, imageGenProvider: String? = nil, videoGenProvider: String? = nil) {
         self.userId = userId
         self.description = description
         self.language = language
@@ -53,6 +55,8 @@ public struct UserAvatarGeneratorInput: Codable, JSONEncodable, Hashable {
         self.palette = palette
         self.deterministic = deterministic
         self.seed = seed
+        self.imageGenProvider = imageGenProvider
+        self.videoGenProvider = videoGenProvider
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -63,6 +67,8 @@ public struct UserAvatarGeneratorInput: Codable, JSONEncodable, Hashable {
         case palette
         case deterministic
         case seed
+        case imageGenProvider
+        case videoGenProvider
     }
 
     // Encodable protocol methods
@@ -76,6 +82,8 @@ public struct UserAvatarGeneratorInput: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(palette, forKey: .palette)
         try container.encodeIfPresent(deterministic, forKey: .deterministic)
         try container.encodeIfPresent(seed, forKey: .seed)
+        try container.encodeIfPresent(imageGenProvider, forKey: .imageGenProvider)
+        try container.encodeIfPresent(videoGenProvider, forKey: .videoGenProvider)
     }
 }
 

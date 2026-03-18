@@ -34,11 +34,11 @@ public struct Work: Codable, JSONEncodable, Hashable {
     public var workCompletedAt: Int64?
     public var droppedOffAt: Int64?
     public var progressUpdatedAt: Int64?
+    public var statusAsEnum: StatusAsEnum?
     public var workedOn: Bool?
     public var surveyCompleted: Int64?
-    public var statusAsEnum: StatusAsEnum?
 
-    public init(status: String? = nil, progress: Float? = nil, ticketInfo: TicketInfo? = nil, appliedAt: Int64? = nil, acceptedAt: Int64? = nil, rejectedAt: Int64? = nil, workStartedAt: Int64? = nil, workPausedAt: Int64? = nil, workCompletedAt: Int64? = nil, droppedOffAt: Int64? = nil, progressUpdatedAt: Int64? = nil, workedOn: Bool? = nil, surveyCompleted: Int64? = nil, statusAsEnum: StatusAsEnum? = nil) {
+    public init(status: String? = nil, progress: Float? = nil, ticketInfo: TicketInfo? = nil, appliedAt: Int64? = nil, acceptedAt: Int64? = nil, rejectedAt: Int64? = nil, workStartedAt: Int64? = nil, workPausedAt: Int64? = nil, workCompletedAt: Int64? = nil, droppedOffAt: Int64? = nil, progressUpdatedAt: Int64? = nil, statusAsEnum: StatusAsEnum? = nil, workedOn: Bool? = nil, surveyCompleted: Int64? = nil) {
         self.status = status
         self.progress = progress
         self.ticketInfo = ticketInfo
@@ -50,9 +50,9 @@ public struct Work: Codable, JSONEncodable, Hashable {
         self.workCompletedAt = workCompletedAt
         self.droppedOffAt = droppedOffAt
         self.progressUpdatedAt = progressUpdatedAt
+        self.statusAsEnum = statusAsEnum
         self.workedOn = workedOn
         self.surveyCompleted = surveyCompleted
-        self.statusAsEnum = statusAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -67,9 +67,9 @@ public struct Work: Codable, JSONEncodable, Hashable {
         case workCompletedAt
         case droppedOffAt
         case progressUpdatedAt
+        case statusAsEnum
         case workedOn
         case surveyCompleted
-        case statusAsEnum
     }
 
     // Encodable protocol methods
@@ -87,9 +87,9 @@ public struct Work: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(workCompletedAt, forKey: .workCompletedAt)
         try container.encodeIfPresent(droppedOffAt, forKey: .droppedOffAt)
         try container.encodeIfPresent(progressUpdatedAt, forKey: .progressUpdatedAt)
+        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
         try container.encodeIfPresent(workedOn, forKey: .workedOn)
         try container.encodeIfPresent(surveyCompleted, forKey: .surveyCompleted)
-        try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
     }
 }
 

@@ -12,11 +12,6 @@ import AnyCodable
 
 public struct BountyContestInfo: Codable, JSONEncodable, Hashable {
 
-    public enum DrawTypeAsEnum: String, Codable, CaseIterable {
-        case onClose = "ON_CLOSE"
-        case scheduled = "SCHEDULED"
-        case manual = "MANUAL"
-    }
     public enum StateAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case _open = "OPEN"
@@ -24,20 +19,25 @@ public struct BountyContestInfo: Codable, JSONEncodable, Hashable {
         case drawn = "DRAWN"
         case unknown = "UNKNOWN"
     }
+    public enum DrawTypeAsEnum: String, Codable, CaseIterable {
+        case onClose = "ON_CLOSE"
+        case scheduled = "SCHEDULED"
+        case manual = "MANUAL"
+    }
     public var state: String?
     public var drawType: String?
     public var winnerAnnouncementAt: Int64?
     public var winner: User?
-    public var drawTypeAsEnum: DrawTypeAsEnum?
     public var stateAsEnum: StateAsEnum?
+    public var drawTypeAsEnum: DrawTypeAsEnum?
 
-    public init(state: String? = nil, drawType: String? = nil, winnerAnnouncementAt: Int64? = nil, winner: User? = nil, drawTypeAsEnum: DrawTypeAsEnum? = nil, stateAsEnum: StateAsEnum? = nil) {
+    public init(state: String? = nil, drawType: String? = nil, winnerAnnouncementAt: Int64? = nil, winner: User? = nil, stateAsEnum: StateAsEnum? = nil, drawTypeAsEnum: DrawTypeAsEnum? = nil) {
         self.state = state
         self.drawType = drawType
         self.winnerAnnouncementAt = winnerAnnouncementAt
         self.winner = winner
-        self.drawTypeAsEnum = drawTypeAsEnum
         self.stateAsEnum = stateAsEnum
+        self.drawTypeAsEnum = drawTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -45,8 +45,8 @@ public struct BountyContestInfo: Codable, JSONEncodable, Hashable {
         case drawType
         case winnerAnnouncementAt
         case winner
-        case drawTypeAsEnum
         case stateAsEnum
+        case drawTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -57,8 +57,8 @@ public struct BountyContestInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(drawType, forKey: .drawType)
         try container.encodeIfPresent(winnerAnnouncementAt, forKey: .winnerAnnouncementAt)
         try container.encodeIfPresent(winner, forKey: .winner)
-        try container.encodeIfPresent(drawTypeAsEnum, forKey: .drawTypeAsEnum)
         try container.encodeIfPresent(stateAsEnum, forKey: .stateAsEnum)
+        try container.encodeIfPresent(drawTypeAsEnum, forKey: .drawTypeAsEnum)
     }
 }
 

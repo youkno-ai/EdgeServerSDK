@@ -40,8 +40,8 @@ import com.squareup.moshi.JsonClass
  * @param medicalUse 
  * @param isMetrc 
  * @param onlineShop 
- * @param shopOnline 
  * @param deliveryMethods 
+ * @param shopOnline 
  * @param onlinePresenceJustified 
  */
 
@@ -99,11 +99,11 @@ data class PointOfSaleInfoLocationInfo2 (
     @Json(name = "onlineShop")
     val onlineShop: kotlin.String? = null,
 
-    @Json(name = "shopOnline")
-    val shopOnline: kotlin.Boolean? = null,
-
     @Json(name = "deliveryMethods")
     val deliveryMethods: kotlin.collections.Set<PointOfSaleInfoLocationInfo2.DeliveryMethods>? = null,
+
+    @Json(name = "shopOnline")
+    val shopOnline: kotlin.Boolean? = null,
 
     @Json(name = "onlinePresenceJustified")
     val onlinePresenceJustified: kotlin.Boolean? = null

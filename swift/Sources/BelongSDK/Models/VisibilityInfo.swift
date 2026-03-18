@@ -20,21 +20,21 @@ public struct VisibilityInfo: Codable, JSONEncodable, Hashable {
     }
     public var visibilityType: String?
     public var visibilityRoles: String?
-    public var visibilityTypeAsEnum: VisibilityTypeAsEnum?
     public var visibilityRolesList: [String]?
+    public var visibilityTypeAsEnum: VisibilityTypeAsEnum?
 
-    public init(visibilityType: String? = nil, visibilityRoles: String? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil, visibilityRolesList: [String]? = nil) {
+    public init(visibilityType: String? = nil, visibilityRoles: String? = nil, visibilityRolesList: [String]? = nil, visibilityTypeAsEnum: VisibilityTypeAsEnum? = nil) {
         self.visibilityType = visibilityType
         self.visibilityRoles = visibilityRoles
-        self.visibilityTypeAsEnum = visibilityTypeAsEnum
         self.visibilityRolesList = visibilityRolesList
+        self.visibilityTypeAsEnum = visibilityTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case visibilityType
         case visibilityRoles
-        case visibilityTypeAsEnum
         case visibilityRolesList
+        case visibilityTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -43,8 +43,8 @@ public struct VisibilityInfo: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(visibilityType, forKey: .visibilityType)
         try container.encodeIfPresent(visibilityRoles, forKey: .visibilityRoles)
-        try container.encodeIfPresent(visibilityTypeAsEnum, forKey: .visibilityTypeAsEnum)
         try container.encodeIfPresent(visibilityRolesList, forKey: .visibilityRolesList)
+        try container.encodeIfPresent(visibilityTypeAsEnum, forKey: .visibilityTypeAsEnum)
     }
 }
 

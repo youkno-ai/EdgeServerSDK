@@ -192,12 +192,6 @@ export interface ListsListDef2 {
      * @type {string}
      * @memberof ListsListDef2
      */
-    typeAsEnum?: ListsListDef2TypeAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef2
-     */
     kindAsEnum?: ListsListDef2KindAsEnumEnum;
     /**
      * 
@@ -207,10 +201,52 @@ export interface ListsListDef2 {
     multi?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof ListsListDef2
+     */
+    shownInAsEnum?: ListsListDef2ShownInAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef2
+     */
+    effectiveOp?: ListsListDef2EffectiveOpEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef2
+     */
+    filterable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef2
+     */
+    webview?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListsListDef2
+     */
+    stream?: boolean;
+    /**
+     * 
      * @type {boolean}
      * @memberof ListsListDef2
      */
     special?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef2
+     */
+    typeAsEnum?: ListsListDef2TypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListsListDef2
+     */
+    effectiveUrl?: string;
     /**
      * 
      * @type {string}
@@ -235,42 +271,6 @@ export interface ListsListDef2 {
      * @memberof ListsListDef2
      */
     favorites?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef2
-     */
-    stream?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef2
-     */
-    webview?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef2
-     */
-    effectiveOp?: ListsListDef2EffectiveOpEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef2
-     */
-    shownInAsEnum?: ListsListDef2ShownInAsEnumEnum;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListsListDef2
-     */
-    filterable?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ListsListDef2
-     */
-    effectiveUrl?: string;
     /**
      * 
      * @type {Array<string>}
@@ -367,26 +367,6 @@ export interface ListsListDef2 {
 /**
  * @export
  */
-export const ListsListDef2TypeAsEnumEnum = {
-    NONE: 'NONE',
-    STREAM: 'STREAM',
-    EDGE_COACHINGS: 'EDGE_COACHINGS',
-    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
-    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
-    BUY_SELL: 'BUY_SELL',
-    MARKET: 'MARKET',
-    SUPPLY_MARKET: 'SUPPLY_MARKET',
-    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
-    NEWS: 'NEWS',
-    WEBVIEW: 'WEBVIEW',
-    CUSTOM: 'CUSTOM',
-    FAVORITES: 'FAVORITES'
-} as const;
-export type ListsListDef2TypeAsEnumEnum = typeof ListsListDef2TypeAsEnumEnum[keyof typeof ListsListDef2TypeAsEnumEnum];
-
-/**
- * @export
- */
 export const ListsListDef2KindAsEnumEnum = {
     INBOX: 'INBOX',
     REFS: 'REFS',
@@ -405,6 +385,16 @@ export const ListsListDef2KindAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type ListsListDef2KindAsEnumEnum = typeof ListsListDef2KindAsEnumEnum[keyof typeof ListsListDef2KindAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ListsListDef2ShownInAsEnumEnum = {
+    HOME: 'HOME',
+    EXPLICIT: 'EXPLICIT',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type ListsListDef2ShownInAsEnumEnum = typeof ListsListDef2ShownInAsEnumEnum[keyof typeof ListsListDef2ShownInAsEnumEnum];
 
 /**
  * @export
@@ -634,12 +624,22 @@ export type ListsListDef2EffectiveOpEnum = typeof ListsListDef2EffectiveOpEnum[k
 /**
  * @export
  */
-export const ListsListDef2ShownInAsEnumEnum = {
-    HOME: 'HOME',
-    EXPLICIT: 'EXPLICIT',
-    UNKNOWN: 'UNKNOWN'
+export const ListsListDef2TypeAsEnumEnum = {
+    NONE: 'NONE',
+    STREAM: 'STREAM',
+    EDGE_COACHINGS: 'EDGE_COACHINGS',
+    EDGE_IN_FOCUS: 'EDGE_IN_FOCUS',
+    EDGE_CHALLENGES: 'EDGE_CHALLENGES',
+    BUY_SELL: 'BUY_SELL',
+    MARKET: 'MARKET',
+    SUPPLY_MARKET: 'SUPPLY_MARKET',
+    AUTOSUGGESTIONS: 'AUTOSUGGESTIONS',
+    NEWS: 'NEWS',
+    WEBVIEW: 'WEBVIEW',
+    CUSTOM: 'CUSTOM',
+    FAVORITES: 'FAVORITES'
 } as const;
-export type ListsListDef2ShownInAsEnumEnum = typeof ListsListDef2ShownInAsEnumEnum[keyof typeof ListsListDef2ShownInAsEnumEnum];
+export type ListsListDef2TypeAsEnumEnum = typeof ListsListDef2TypeAsEnumEnum[keyof typeof ListsListDef2TypeAsEnumEnum];
 
 /**
  * @export
@@ -947,20 +947,20 @@ export function ListsListDef2FromJSONTyped(json: any, ignoreDiscriminator: boole
         'notificationMode': json['notificationMode'] == null ? undefined : json['notificationMode'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'accessKeys': json['accessKeys'] == null ? undefined : HasAccessKeysAccessKeys2FromJSON(json['accessKeys']),
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
         'multi': json['multi'] == null ? undefined : json['multi'],
+        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
+        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
+        'filterable': json['filterable'] == null ? undefined : json['filterable'],
+        'webview': json['webview'] == null ? undefined : json['webview'],
+        'stream': json['stream'] == null ? undefined : json['stream'],
         'special': json['special'] == null ? undefined : json['special'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
         'effectiveCode': json['effectiveCode'] == null ? undefined : json['effectiveCode'],
         'viewable': json['viewable'] == null ? undefined : json['viewable'],
         'postable': json['postable'] == null ? undefined : json['postable'],
         'favorites': json['favorites'] == null ? undefined : json['favorites'],
-        'stream': json['stream'] == null ? undefined : json['stream'],
-        'webview': json['webview'] == null ? undefined : json['webview'],
-        'effectiveOp': json['effectiveOp'] == null ? undefined : json['effectiveOp'],
-        'shownInAsEnum': json['shownInAsEnum'] == null ? undefined : json['shownInAsEnum'],
-        'filterable': json['filterable'] == null ? undefined : json['filterable'],
-        'effectiveUrl': json['effectiveUrl'] == null ? undefined : json['effectiveUrl'],
         'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
         'effectiveUserSpecial': json['effectiveUserSpecial'] == null ? undefined : json['effectiveUserSpecial'],
         'effectiveCompanySpecial': json['effectiveCompanySpecial'] == null ? undefined : json['effectiveCompanySpecial'],
@@ -1012,20 +1012,20 @@ export function ListsListDef2ToJSONTyped(value?: ListsListDef2 | null, ignoreDis
         'notificationMode': value['notificationMode'],
         'tags': value['tags'],
         'accessKeys': HasAccessKeysAccessKeys2ToJSON(value['accessKeys']),
-        'typeAsEnum': value['typeAsEnum'],
         'kindAsEnum': value['kindAsEnum'],
         'multi': value['multi'],
+        'shownInAsEnum': value['shownInAsEnum'],
+        'effectiveOp': value['effectiveOp'],
+        'filterable': value['filterable'],
+        'webview': value['webview'],
+        'stream': value['stream'],
         'special': value['special'],
+        'typeAsEnum': value['typeAsEnum'],
+        'effectiveUrl': value['effectiveUrl'],
         'effectiveCode': value['effectiveCode'],
         'viewable': value['viewable'],
         'postable': value['postable'],
         'favorites': value['favorites'],
-        'stream': value['stream'],
-        'webview': value['webview'],
-        'effectiveOp': value['effectiveOp'],
-        'shownInAsEnum': value['shownInAsEnum'],
-        'filterable': value['filterable'],
-        'effectiveUrl': value['effectiveUrl'],
         'visibilityRoles': value['visibilityRoles'],
         'effectiveUserSpecial': value['effectiveUserSpecial'],
         'effectiveCompanySpecial': value['effectiveCompanySpecial'],

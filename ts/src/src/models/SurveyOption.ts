@@ -66,24 +66,15 @@ export interface SurveyOption {
      * @type {string}
      * @memberof SurveyOption
      */
-    typeAsEnum?: SurveyOptionTypeAsEnumEnum;
+    stateAsEnum?: SurveyOptionStateAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof SurveyOption
      */
-    stateAsEnum?: SurveyOptionStateAsEnumEnum;
+    typeAsEnum?: SurveyOptionTypeAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const SurveyOptionTypeAsEnumEnum = {
-    CHOICE: 'CHOICE',
-    TEXT: 'TEXT'
-} as const;
-export type SurveyOptionTypeAsEnumEnum = typeof SurveyOptionTypeAsEnumEnum[keyof typeof SurveyOptionTypeAsEnumEnum];
 
 /**
  * @export
@@ -93,6 +84,15 @@ export const SurveyOptionStateAsEnumEnum = {
     INACTIVE: 'INACTIVE'
 } as const;
 export type SurveyOptionStateAsEnumEnum = typeof SurveyOptionStateAsEnumEnum[keyof typeof SurveyOptionStateAsEnumEnum];
+
+/**
+ * @export
+ */
+export const SurveyOptionTypeAsEnumEnum = {
+    CHOICE: 'CHOICE',
+    TEXT: 'TEXT'
+} as const;
+export type SurveyOptionTypeAsEnumEnum = typeof SurveyOptionTypeAsEnumEnum[keyof typeof SurveyOptionTypeAsEnumEnum];
 
 
 /**
@@ -119,8 +119,8 @@ export function SurveyOptionFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'reward': json['reward'] == null ? undefined : json['reward'],
         'weight': json['weight'] == null ? undefined : json['weight'],
         'valid': json['valid'] == null ? undefined : json['valid'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
         'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -142,8 +142,8 @@ export function SurveyOptionToJSONTyped(value?: SurveyOption | null, ignoreDiscr
         'reward': value['reward'],
         'weight': value['weight'],
         'valid': value['valid'],
-        'typeAsEnum': value['typeAsEnum'],
         'stateAsEnum': value['stateAsEnum'],
+        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

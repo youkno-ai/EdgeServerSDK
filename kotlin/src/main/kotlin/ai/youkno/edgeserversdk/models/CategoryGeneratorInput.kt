@@ -33,6 +33,8 @@ import com.squareup.moshi.JsonClass
  * @param deterministic 
  * @param seed 
  * @param generateImages 
+ * @param imageGenProvider 
+ * @param videoGenProvider 
  */
 
 
@@ -69,7 +71,13 @@ data class CategoryGeneratorInput (
     val seed: kotlin.Long? = null,
 
     @Json(name = "generateImages")
-    val generateImages: kotlin.Boolean? = null
+    val generateImages: kotlin.Boolean? = null,
+
+    @Json(name = "imageGenProvider")
+    val imageGenProvider: kotlin.String? = null,
+
+    @Json(name = "videoGenProvider")
+    val videoGenProvider: kotlin.String? = null
 
 ) {
 

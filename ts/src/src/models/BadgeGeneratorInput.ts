@@ -70,6 +70,18 @@ export interface BadgeGeneratorInput {
      * @memberof BadgeGeneratorInput
      */
     animation?: AnimationSpec;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadgeGeneratorInput
+     */
+    imageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadgeGeneratorInput
+     */
+    videoGenProvider?: string;
 }
 
 
@@ -143,6 +155,8 @@ export function BadgeGeneratorInputFromJSONTyped(json: any, ignoreDiscriminator:
         'palette': json['palette'] == null ? undefined : json['palette'],
         'format': json['format'] == null ? undefined : json['format'],
         'animation': json['animation'] == null ? undefined : AnimationSpecFromJSON(json['animation']),
+        'imageGenProvider': json['imageGenProvider'] == null ? undefined : json['imageGenProvider'],
+        'videoGenProvider': json['videoGenProvider'] == null ? undefined : json['videoGenProvider'],
     };
 }
 
@@ -163,6 +177,8 @@ export function BadgeGeneratorInputToJSONTyped(value?: BadgeGeneratorInput | nul
         'palette': value['palette'],
         'format': value['format'],
         'animation': AnimationSpecToJSON(value['animation']),
+        'imageGenProvider': value['imageGenProvider'],
+        'videoGenProvider': value['videoGenProvider'],
     };
 }
 

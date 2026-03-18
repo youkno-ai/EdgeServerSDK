@@ -67,6 +67,12 @@ export interface ProductsInfo {
     merchantIds?: Set<string>;
     /**
      * 
+     * @type {User}
+     * @memberof ProductsInfo
+     */
+    merchant?: User;
+    /**
+     * 
      * @type {string}
      * @memberof ProductsInfo
      */
@@ -95,12 +101,6 @@ export interface ProductsInfo {
      * @memberof ProductsInfo
      */
     freeShipping?: boolean;
-    /**
-     * 
-     * @type {User}
-     * @memberof ProductsInfo
-     */
-    merchant?: User;
 }
 
 /**
@@ -124,12 +124,12 @@ export function ProductsInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'useType': json['useType'] == null ? undefined : json['useType'],
         'empty': json['empty'] == null ? undefined : json['empty'],
         'merchantIds': json['merchantIds'] == null ? undefined : new Set(json['merchantIds']),
+        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'totalPrice': json['totalPrice'] == null ? undefined : RewardsFromJSON(json['totalPrice']),
         'onlineProducts': json['onlineProducts'] == null ? undefined : json['onlineProducts'],
         'noDelivery': json['noDelivery'] == null ? undefined : json['noDelivery'],
         'freeShipping': json['freeShipping'] == null ? undefined : json['freeShipping'],
-        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
     };
 }
 
@@ -148,12 +148,12 @@ export function ProductsInfoToJSONTyped(value?: ProductsInfo | null, ignoreDiscr
         'useType': value['useType'],
         'empty': value['empty'],
         'merchantIds': value['merchantIds'] == null ? undefined : Array.from(value['merchantIds'] as Set<any>),
+        'merchant': UserToJSON(value['merchant']),
         'merchantId': value['merchantId'],
         'totalPrice': RewardsToJSON(value['totalPrice']),
         'onlineProducts': value['onlineProducts'],
         'noDelivery': value['noDelivery'],
         'freeShipping': value['freeShipping'],
-        'merchant': UserToJSON(value['merchant']),
     };
 }
 

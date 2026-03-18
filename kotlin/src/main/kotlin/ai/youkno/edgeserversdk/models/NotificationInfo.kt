@@ -24,8 +24,8 @@ import com.squareup.moshi.JsonClass
  *
  * @param type 
  * @param state 
- * @param typeAsEnum 
  * @param stateAsEnum 
+ * @param typeAsEnum 
  */
 
 
@@ -37,14 +37,24 @@ data class NotificationInfo (
     @Json(name = "state")
     val state: kotlin.String? = null,
 
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: NotificationInfo.TypeAsEnum? = null,
-
     @Json(name = "stateAsEnum")
-    val stateAsEnum: NotificationInfo.StateAsEnum? = null
+    val stateAsEnum: NotificationInfo.StateAsEnum? = null,
+
+    @Json(name = "typeAsEnum")
+    val typeAsEnum: NotificationInfo.TypeAsEnum? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: ENABLE,DISABLE
+     */
+    @JsonClass(generateAdapter = false)
+    enum class StateAsEnum(val value: kotlin.String) {
+        @Json(name = "ENABLE") ENABLE("ENABLE"),
+        @Json(name = "DISABLE") DISABLE("DISABLE");
+    }
     /**
      * 
      *
@@ -55,16 +65,6 @@ data class NotificationInfo (
         @Json(name = "NONE") NONE("NONE"),
         @Json(name = "FOOTBALL") FOOTBALL("FOOTBALL"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
-    }
-    /**
-     * 
-     *
-     * Values: ENABLE,DISABLE
-     */
-    @JsonClass(generateAdapter = false)
-    enum class StateAsEnum(val value: kotlin.String) {
-        @Json(name = "ENABLE") ENABLE("ENABLE"),
-        @Json(name = "DISABLE") DISABLE("DISABLE");
     }
 
 }

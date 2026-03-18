@@ -64,11 +64,11 @@ import com.squareup.moshi.JsonClass
  * @param certificateOfAuthenticityUrl 
  * @param chemicalCompositions 
  * @param effectivePrice 
+ * @param primaryAttachmentId 
  * @param extraDeliveryFeeReward 
  * @param effectiveOriginalPrice 
  * @param inventoryPolicyAsEnum 
  * @param weightUnitAsEnum 
- * @param primaryAttachmentId 
  */
 
 
@@ -179,6 +179,9 @@ data class ProductSpecificInfo (
     @Json(name = "effectivePrice")
     val effectivePrice: Price? = null,
 
+    @Json(name = "primaryAttachmentId")
+    val primaryAttachmentId: kotlin.String? = null,
+
     @Json(name = "extraDeliveryFeeReward")
     val extraDeliveryFeeReward: Reward? = null,
 
@@ -189,10 +192,7 @@ data class ProductSpecificInfo (
     val inventoryPolicyAsEnum: ProductSpecificInfo.InventoryPolicyAsEnum? = null,
 
     @Json(name = "weightUnitAsEnum")
-    val weightUnitAsEnum: ProductSpecificInfo.WeightUnitAsEnum? = null,
-
-    @Json(name = "primaryAttachmentId")
-    val primaryAttachmentId: kotlin.String? = null
+    val weightUnitAsEnum: ProductSpecificInfo.WeightUnitAsEnum? = null
 
 ) {
 

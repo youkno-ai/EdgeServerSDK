@@ -33,16 +33,16 @@ export interface VisibilityInfo {
     visibilityRoles?: string;
     /**
      * 
-     * @type {string}
-     * @memberof VisibilityInfo
-     */
-    visibilityTypeAsEnum?: VisibilityInfoVisibilityTypeAsEnumEnum;
-    /**
-     * 
      * @type {Array<string>}
      * @memberof VisibilityInfo
      */
     visibilityRolesList?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof VisibilityInfo
+     */
+    visibilityTypeAsEnum?: VisibilityInfoVisibilityTypeAsEnumEnum;
 }
 
 
@@ -77,8 +77,8 @@ export function VisibilityInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'visibilityType': json['visibilityType'] == null ? undefined : json['visibilityType'],
         'visibilityRoles': json['visibilityRoles'] == null ? undefined : json['visibilityRoles'],
-        'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
         'visibilityRolesList': json['visibilityRolesList'] == null ? undefined : json['visibilityRolesList'],
+        'visibilityTypeAsEnum': json['visibilityTypeAsEnum'] == null ? undefined : json['visibilityTypeAsEnum'],
     };
 }
 
@@ -95,8 +95,8 @@ export function VisibilityInfoToJSONTyped(value?: VisibilityInfo | null, ignoreD
         
         'visibilityType': value['visibilityType'],
         'visibilityRoles': value['visibilityRoles'],
-        'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
         'visibilityRolesList': value['visibilityRolesList'],
+        'visibilityTypeAsEnum': value['visibilityTypeAsEnum'],
     };
 }
 

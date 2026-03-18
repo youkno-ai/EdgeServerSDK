@@ -53,15 +53,15 @@ import com.squareup.moshi.JsonClass
  * @param receiptUrl 
  * @param posUrl 
  * @param merchantOrderUrl 
+ * @param statusAsEnum 
+ * @param merchant 
  * @param merchantId 
  * @param imageUrl 
- * @param overallSection 
- * @param merchant 
- * @param statusAsEnum 
  * @param customerEmail 
- * @param vouchersToRedeem 
- * @param receiptStatusAsEnum 
+ * @param overallSection 
  * @param paymentStatusAsEnum 
+ * @param receiptStatusAsEnum 
+ * @param vouchersToRedeem 
  */
 
 
@@ -124,32 +124,32 @@ data class BountyOrder (
     @Json(name = "merchantOrderUrl")
     val merchantOrderUrl: kotlin.String? = null,
 
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
+
+    @Json(name = "merchant")
+    val merchant: User? = null,
+
     @Json(name = "merchantId")
     val merchantId: kotlin.String? = null,
 
     @Json(name = "imageUrl")
     val imageUrl: kotlin.String? = null,
 
-    @Json(name = "overallSection")
-    val overallSection: OrderSection? = null,
-
-    @Json(name = "merchant")
-    val merchant: User? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: BountyOrder.StatusAsEnum? = null,
-
     @Json(name = "customerEmail")
     val customerEmail: kotlin.String? = null,
 
-    @Json(name = "vouchersToRedeem")
-    val vouchersToRedeem: Reward? = null,
+    @Json(name = "overallSection")
+    val overallSection: OrderSection? = null,
+
+    @Json(name = "paymentStatusAsEnum")
+    val paymentStatusAsEnum: BountyOrder.PaymentStatusAsEnum? = null,
 
     @Json(name = "receiptStatusAsEnum")
     val receiptStatusAsEnum: BountyOrder.ReceiptStatusAsEnum? = null,
 
-    @Json(name = "paymentStatusAsEnum")
-    val paymentStatusAsEnum: BountyOrder.PaymentStatusAsEnum? = null
+    @Json(name = "vouchersToRedeem")
+    val vouchersToRedeem: Reward? = null
 
 ) {
 
@@ -176,16 +176,6 @@ data class BountyOrder (
     /**
      * 
      *
-     * Values: CREATED,SCANNED
-     */
-    @JsonClass(generateAdapter = false)
-    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
-        @Json(name = "CREATED") CREATED("CREATED"),
-        @Json(name = "SCANNED") SCANNED("SCANNED");
-    }
-    /**
-     * 
-     *
      * Values: NONE,PENDING_PAYMENT,PROCESSING_PAYMENT,PENDING_CONFIRM,PAID,PAYMENT_FAILED,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
@@ -197,6 +187,16 @@ data class BountyOrder (
         @Json(name = "PAID") PAID("PAID"),
         @Json(name = "PAYMENT_FAILED") PAYMENT_FAILED("PAYMENT_FAILED"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: CREATED,SCANNED
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ReceiptStatusAsEnum(val value: kotlin.String) {
+        @Json(name = "CREATED") CREATED("CREATED"),
+        @Json(name = "SCANNED") SCANNED("SCANNED");
     }
 
 }

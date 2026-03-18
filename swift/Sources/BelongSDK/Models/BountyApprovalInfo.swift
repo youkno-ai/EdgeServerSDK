@@ -12,13 +12,6 @@ import AnyCodable
 
 public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
 
-    public enum ApprovalStateAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case pending = "PENDING"
-        case approved = "APPROVED"
-        case declined = "DECLINED"
-        case unknown = "UNKNOWN"
-    }
     public enum EntityTypeAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case unknown = "UNKNOWN"
@@ -39,6 +32,13 @@ public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
         case subscription = "SUBSCRIPTION"
         case system = "SYSTEM"
     }
+    public enum ApprovalStateAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case pending = "PENDING"
+        case approved = "APPROVED"
+        case declined = "DECLINED"
+        case unknown = "UNKNOWN"
+    }
     public var bountyId: String?
     public var creatorId: String?
     public var entityId: String?
@@ -49,10 +49,10 @@ public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
     public var comment: Comment?
     public var description: String?
     public var moderationReason: String?
-    public var approvalStateAsEnum: ApprovalStateAsEnum?
     public var entityTypeAsEnum: EntityTypeAsEnum?
+    public var approvalStateAsEnum: ApprovalStateAsEnum?
 
-    public init(bountyId: String? = nil, creatorId: String? = nil, entityId: String? = nil, entityType: String? = nil, approvalState: String? = nil, bounty: Bounty? = nil, bountyResponse: BountyResponse? = nil, comment: Comment? = nil, description: String? = nil, moderationReason: String? = nil, approvalStateAsEnum: ApprovalStateAsEnum? = nil, entityTypeAsEnum: EntityTypeAsEnum? = nil) {
+    public init(bountyId: String? = nil, creatorId: String? = nil, entityId: String? = nil, entityType: String? = nil, approvalState: String? = nil, bounty: Bounty? = nil, bountyResponse: BountyResponse? = nil, comment: Comment? = nil, description: String? = nil, moderationReason: String? = nil, entityTypeAsEnum: EntityTypeAsEnum? = nil, approvalStateAsEnum: ApprovalStateAsEnum? = nil) {
         self.bountyId = bountyId
         self.creatorId = creatorId
         self.entityId = entityId
@@ -63,8 +63,8 @@ public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
         self.comment = comment
         self.description = description
         self.moderationReason = moderationReason
-        self.approvalStateAsEnum = approvalStateAsEnum
         self.entityTypeAsEnum = entityTypeAsEnum
+        self.approvalStateAsEnum = approvalStateAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -78,8 +78,8 @@ public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
         case comment
         case description
         case moderationReason
-        case approvalStateAsEnum
         case entityTypeAsEnum
+        case approvalStateAsEnum
     }
 
     // Encodable protocol methods
@@ -96,8 +96,8 @@ public struct BountyApprovalInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(comment, forKey: .comment)
         try container.encodeIfPresent(description, forKey: .description)
         try container.encodeIfPresent(moderationReason, forKey: .moderationReason)
-        try container.encodeIfPresent(approvalStateAsEnum, forKey: .approvalStateAsEnum)
         try container.encodeIfPresent(entityTypeAsEnum, forKey: .entityTypeAsEnum)
+        try container.encodeIfPresent(approvalStateAsEnum, forKey: .approvalStateAsEnum)
     }
 }
 

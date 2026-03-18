@@ -25,19 +25,19 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
     public var text: String?
     public var iconName: String?
     public var color: String?
+    public var standardType: Bool?
     public var _none: Bool?
     public var iconic: Bool?
-    public var standardType: Bool?
 
-    public init(type: ModelType? = nil, code: String? = nil, text: String? = nil, iconName: String? = nil, color: String? = nil, _none: Bool? = nil, iconic: Bool? = nil, standardType: Bool? = nil) {
+    public init(type: ModelType? = nil, code: String? = nil, text: String? = nil, iconName: String? = nil, color: String? = nil, standardType: Bool? = nil, _none: Bool? = nil, iconic: Bool? = nil) {
         self.type = type
         self.code = code
         self.text = text
         self.iconName = iconName
         self.color = color
+        self.standardType = standardType
         self._none = _none
         self.iconic = iconic
-        self.standardType = standardType
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -46,9 +46,9 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
         case text
         case iconName
         case color
+        case standardType
         case _none = "none"
         case iconic
-        case standardType
     }
 
     // Encodable protocol methods
@@ -60,9 +60,9 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(text, forKey: .text)
         try container.encodeIfPresent(iconName, forKey: .iconName)
         try container.encodeIfPresent(color, forKey: .color)
+        try container.encodeIfPresent(standardType, forKey: .standardType)
         try container.encodeIfPresent(_none, forKey: ._none)
         try container.encodeIfPresent(iconic, forKey: .iconic)
-        try container.encodeIfPresent(standardType, forKey: .standardType)
     }
 }
 

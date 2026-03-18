@@ -17,24 +17,24 @@ public struct ProductsInfo: Codable, JSONEncodable, Hashable {
     public var useType: String?
     public var empty: Bool?
     public var merchantIds: Set<String>?
+    public var merchant: User?
     public var merchantId: String?
     public var totalPrice: Rewards?
     public var onlineProducts: Bool?
     public var noDelivery: Bool?
     public var freeShipping: Bool?
-    public var merchant: User?
 
-    public init(products: [String: ShoppingCartProductInfo]? = nil, useType: String? = nil, empty: Bool? = nil, merchantIds: Set<String>? = nil, merchantId: String? = nil, totalPrice: Rewards? = nil, onlineProducts: Bool? = nil, noDelivery: Bool? = nil, freeShipping: Bool? = nil, merchant: User? = nil) {
+    public init(products: [String: ShoppingCartProductInfo]? = nil, useType: String? = nil, empty: Bool? = nil, merchantIds: Set<String>? = nil, merchant: User? = nil, merchantId: String? = nil, totalPrice: Rewards? = nil, onlineProducts: Bool? = nil, noDelivery: Bool? = nil, freeShipping: Bool? = nil) {
         self.products = products
         self.useType = useType
         self.empty = empty
         self.merchantIds = merchantIds
+        self.merchant = merchant
         self.merchantId = merchantId
         self.totalPrice = totalPrice
         self.onlineProducts = onlineProducts
         self.noDelivery = noDelivery
         self.freeShipping = freeShipping
-        self.merchant = merchant
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -42,12 +42,12 @@ public struct ProductsInfo: Codable, JSONEncodable, Hashable {
         case useType
         case empty
         case merchantIds
+        case merchant
         case merchantId
         case totalPrice
         case onlineProducts
         case noDelivery
         case freeShipping
-        case merchant
     }
 
     // Encodable protocol methods
@@ -58,12 +58,12 @@ public struct ProductsInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(useType, forKey: .useType)
         try container.encodeIfPresent(empty, forKey: .empty)
         try container.encodeIfPresent(merchantIds, forKey: .merchantIds)
+        try container.encodeIfPresent(merchant, forKey: .merchant)
         try container.encodeIfPresent(merchantId, forKey: .merchantId)
         try container.encodeIfPresent(totalPrice, forKey: .totalPrice)
         try container.encodeIfPresent(onlineProducts, forKey: .onlineProducts)
         try container.encodeIfPresent(noDelivery, forKey: .noDelivery)
         try container.encodeIfPresent(freeShipping, forKey: .freeShipping)
-        try container.encodeIfPresent(merchant, forKey: .merchant)
     }
 }
 

@@ -59,9 +59,9 @@ import com.squareup.moshi.JsonClass
  * @param totalAmount 
  * @param transId 
  * @param extDataAsObj 
+ * @param paymentStatusAsEnum 
  * @param completedByWalletBmb 
  * @param reimburseApplicable 
- * @param paymentStatusAsEnum 
  * @param amountPaid 
  * @param cardType 
  * @param invoiceNo 
@@ -184,14 +184,14 @@ data class DejavooTransactionData (
     @Json(name = "extDataAsObj")
     val extDataAsObj: ExtData? = null,
 
+    @Json(name = "paymentStatusAsEnum")
+    val paymentStatusAsEnum: DejavooTransactionData.PaymentStatusAsEnum? = null,
+
     @Json(name = "completedByWalletBmb")
     val completedByWalletBmb: kotlin.Boolean? = null,
 
     @Json(name = "reimburseApplicable")
     val reimburseApplicable: kotlin.Boolean? = null,
-
-    @Json(name = "paymentStatusAsEnum")
-    val paymentStatusAsEnum: DejavooTransactionData.PaymentStatusAsEnum? = null,
 
     @Json(name = "amount_paid")
     val amountPaid: kotlin.String? = null,

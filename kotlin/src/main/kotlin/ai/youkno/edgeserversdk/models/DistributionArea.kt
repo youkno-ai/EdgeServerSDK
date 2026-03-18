@@ -28,8 +28,8 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param count 
  * @param empty 
- * @param global 
  * @param typeAsEnum 
+ * @param global 
  */
 
 
@@ -53,11 +53,11 @@ data class DistributionArea (
     @Json(name = "empty")
     val empty: kotlin.Boolean? = null,
 
-    @Json(name = "global")
-    val global: kotlin.Boolean? = null,
-
     @Json(name = "typeAsEnum")
-    val typeAsEnum: DistributionArea.TypeAsEnum? = null
+    val typeAsEnum: DistributionArea.TypeAsEnum? = null,
+
+    @Json(name = "global")
+    val global: kotlin.Boolean? = null
 
 ) {
 

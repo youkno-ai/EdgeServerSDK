@@ -15,17 +15,26 @@ public struct CompleteSelfOnboardingResponse: Codable, JSONEncodable, Hashable {
     public var company: User?
     public var voucherDef: VoucherDef?
     public var bounty: Bounty?
+    public var productBounty: Bounty?
+    public var pointCurrency: PointCurrency?
+    public var loyaltyInfo: PointCurrencyLoyaltyInfo?
 
-    public init(company: User? = nil, voucherDef: VoucherDef? = nil, bounty: Bounty? = nil) {
+    public init(company: User? = nil, voucherDef: VoucherDef? = nil, bounty: Bounty? = nil, productBounty: Bounty? = nil, pointCurrency: PointCurrency? = nil, loyaltyInfo: PointCurrencyLoyaltyInfo? = nil) {
         self.company = company
         self.voucherDef = voucherDef
         self.bounty = bounty
+        self.productBounty = productBounty
+        self.pointCurrency = pointCurrency
+        self.loyaltyInfo = loyaltyInfo
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case company
         case voucherDef
         case bounty
+        case productBounty
+        case pointCurrency
+        case loyaltyInfo
     }
 
     // Encodable protocol methods
@@ -35,6 +44,9 @@ public struct CompleteSelfOnboardingResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(company, forKey: .company)
         try container.encodeIfPresent(voucherDef, forKey: .voucherDef)
         try container.encodeIfPresent(bounty, forKey: .bounty)
+        try container.encodeIfPresent(productBounty, forKey: .productBounty)
+        try container.encodeIfPresent(pointCurrency, forKey: .pointCurrency)
+        try container.encodeIfPresent(loyaltyInfo, forKey: .loyaltyInfo)
     }
 }
 

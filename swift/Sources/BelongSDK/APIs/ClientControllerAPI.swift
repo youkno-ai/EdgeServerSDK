@@ -272,6 +272,53 @@ open class ClientControllerAPI {
     /**
 
      - parameter client: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: AiProvidersReq
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func getApiV1ClientsByClientAi(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> AiProvidersReq {
+        return try await getApiV1ClientsByClientAiWithRequestBuilder(client: client, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - GET /api/v1/clients/{client}/ai
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter client: (path)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<AiProvidersReq> 
+     */
+    open class func getApiV1ClientsByClientAiWithRequestBuilder(client: String, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<AiProvidersReq> {
+        var localVariablePath = "/api/v1/clients/{client}/ai"
+        let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
+        let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client}", with: clientPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AiProvidersReq>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter client: (path)  
      - parameter filter: (query)  
      - parameter start: (query)  (optional, default to 0)
      - parameter length: (query)  (optional, default to 20)
@@ -1400,6 +1447,56 @@ open class ClientControllerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<CreateClientResult>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter client: (path)  
+     - parameter aiProvidersReq: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: [String: String]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func postApiV1ClientsByClientAi(client: String, aiProvidersReq: AiProvidersReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) async throws -> [String: String] {
+        return try await postApiV1ClientsByClientAiWithRequestBuilder(client: client, aiProvidersReq: aiProvidersReq, xEdgeAgent: xEdgeAgent, xEdgeState: xEdgeState, xEdgeClientId: xEdgeClientId).execute().body
+    }
+
+    /**
+     - POST /api/v1/clients/{client}/ai
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: JWT
+     - parameter client: (path)  
+     - parameter aiProvidersReq: (body)  
+     - parameter xEdgeAgent: (header)  (optional)
+     - parameter xEdgeState: (header)  (optional)
+     - parameter xEdgeClientId: (header)  (optional)
+     - returns: RequestBuilder<[String: String]> 
+     */
+    open class func postApiV1ClientsByClientAiWithRequestBuilder(client: String, aiProvidersReq: AiProvidersReq, xEdgeAgent: String? = nil, xEdgeState: String? = nil, xEdgeClientId: String? = nil) -> RequestBuilder<[String: String]> {
+        var localVariablePath = "/api/v1/clients/{client}/ai"
+        let clientPreEscape = "\(APIHelper.mapValueToPathItem(client))"
+        let clientPostEscape = clientPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client}", with: clientPostEscape, options: .literal, range: nil)
+        let localVariableURLString = BelongSDKAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: aiProvidersReq)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+            "X-edge-agent": xEdgeAgent?.encodeToJSON(),
+            "X-edge-state": xEdgeState?.encodeToJSON(),
+            "X-edge-client-id": xEdgeClientId?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = BelongSDKAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

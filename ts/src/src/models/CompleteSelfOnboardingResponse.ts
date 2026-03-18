@@ -34,6 +34,20 @@ import {
     BountyToJSON,
     BountyToJSONTyped,
 } from './Bounty';
+import type { PointCurrencyLoyaltyInfo } from './PointCurrencyLoyaltyInfo';
+import {
+    PointCurrencyLoyaltyInfoFromJSON,
+    PointCurrencyLoyaltyInfoFromJSONTyped,
+    PointCurrencyLoyaltyInfoToJSON,
+    PointCurrencyLoyaltyInfoToJSONTyped,
+} from './PointCurrencyLoyaltyInfo';
+import type { PointCurrency } from './PointCurrency';
+import {
+    PointCurrencyFromJSON,
+    PointCurrencyFromJSONTyped,
+    PointCurrencyToJSON,
+    PointCurrencyToJSONTyped,
+} from './PointCurrency';
 
 /**
  * 
@@ -59,6 +73,24 @@ export interface CompleteSelfOnboardingResponse {
      * @memberof CompleteSelfOnboardingResponse
      */
     bounty?: Bounty;
+    /**
+     * 
+     * @type {Bounty}
+     * @memberof CompleteSelfOnboardingResponse
+     */
+    productBounty?: Bounty;
+    /**
+     * 
+     * @type {PointCurrency}
+     * @memberof CompleteSelfOnboardingResponse
+     */
+    pointCurrency?: PointCurrency;
+    /**
+     * 
+     * @type {PointCurrencyLoyaltyInfo}
+     * @memberof CompleteSelfOnboardingResponse
+     */
+    loyaltyInfo?: PointCurrencyLoyaltyInfo;
 }
 
 /**
@@ -81,6 +113,9 @@ export function CompleteSelfOnboardingResponseFromJSONTyped(json: any, ignoreDis
         'company': json['company'] == null ? undefined : UserFromJSON(json['company']),
         'voucherDef': json['voucherDef'] == null ? undefined : VoucherDefFromJSON(json['voucherDef']),
         'bounty': json['bounty'] == null ? undefined : BountyFromJSON(json['bounty']),
+        'productBounty': json['productBounty'] == null ? undefined : BountyFromJSON(json['productBounty']),
+        'pointCurrency': json['pointCurrency'] == null ? undefined : PointCurrencyFromJSON(json['pointCurrency']),
+        'loyaltyInfo': json['loyaltyInfo'] == null ? undefined : PointCurrencyLoyaltyInfoFromJSON(json['loyaltyInfo']),
     };
 }
 
@@ -98,6 +133,9 @@ export function CompleteSelfOnboardingResponseToJSONTyped(value?: CompleteSelfOn
         'company': UserToJSON(value['company']),
         'voucherDef': VoucherDefToJSON(value['voucherDef']),
         'bounty': BountyToJSON(value['bounty']),
+        'productBounty': BountyToJSON(value['productBounty']),
+        'pointCurrency': PointCurrencyToJSON(value['pointCurrency']),
+        'loyaltyInfo': PointCurrencyLoyaltyInfoToJSON(value['loyaltyInfo']),
     };
 }
 

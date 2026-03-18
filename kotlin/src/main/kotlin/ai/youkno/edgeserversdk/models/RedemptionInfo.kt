@@ -27,8 +27,8 @@ import com.squareup.moshi.JsonClass
  * @param redemptionDataByMerchantId 
  * @param empty 
  * @param exchangedReward 
- * @param redemptionReward 
  * @param redemptionCurrencies 
+ * @param redemptionReward 
  */
 
 
@@ -43,11 +43,11 @@ data class RedemptionInfo (
     @Json(name = "exchangedReward")
     val exchangedReward: Reward? = null,
 
-    @Json(name = "redemptionReward")
-    val redemptionReward: Reward? = null,
-
     @Json(name = "redemptionCurrencies")
-    val redemptionCurrencies: kotlin.collections.List<kotlin.String>? = null
+    val redemptionCurrencies: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "redemptionReward")
+    val redemptionReward: Reward? = null
 
 ) {
 

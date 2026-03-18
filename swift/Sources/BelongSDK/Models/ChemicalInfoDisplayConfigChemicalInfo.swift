@@ -35,10 +35,10 @@ public struct ChemicalInfoDisplayConfigChemicalInfo: Codable, JSONEncodable, Has
     public var uom: String?
     public var categoryInfo: [String: CategoryChemicalInfo]?
     public var kindAsEnum: KindAsEnum?
-    public var viewModeAsEnum: ViewModeAsEnum?
     public var effectiveName: String?
+    public var viewModeAsEnum: ViewModeAsEnum?
 
-    public init(name: String? = nil, kind: String? = nil, viewMode: String? = nil, displayName: String? = nil, iconName: String? = nil, usageCount: Int? = nil, value: Double? = nil, uom: String? = nil, categoryInfo: [String: CategoryChemicalInfo]? = nil, kindAsEnum: KindAsEnum? = nil, viewModeAsEnum: ViewModeAsEnum? = nil, effectiveName: String? = nil) {
+    public init(name: String? = nil, kind: String? = nil, viewMode: String? = nil, displayName: String? = nil, iconName: String? = nil, usageCount: Int? = nil, value: Double? = nil, uom: String? = nil, categoryInfo: [String: CategoryChemicalInfo]? = nil, kindAsEnum: KindAsEnum? = nil, effectiveName: String? = nil, viewModeAsEnum: ViewModeAsEnum? = nil) {
         self.name = name
         self.kind = kind
         self.viewMode = viewMode
@@ -49,8 +49,8 @@ public struct ChemicalInfoDisplayConfigChemicalInfo: Codable, JSONEncodable, Has
         self.uom = uom
         self.categoryInfo = categoryInfo
         self.kindAsEnum = kindAsEnum
-        self.viewModeAsEnum = viewModeAsEnum
         self.effectiveName = effectiveName
+        self.viewModeAsEnum = viewModeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -64,8 +64,8 @@ public struct ChemicalInfoDisplayConfigChemicalInfo: Codable, JSONEncodable, Has
         case uom
         case categoryInfo
         case kindAsEnum
-        case viewModeAsEnum
         case effectiveName
+        case viewModeAsEnum
     }
 
     // Encodable protocol methods
@@ -82,8 +82,8 @@ public struct ChemicalInfoDisplayConfigChemicalInfo: Codable, JSONEncodable, Has
         try container.encodeIfPresent(uom, forKey: .uom)
         try container.encodeIfPresent(categoryInfo, forKey: .categoryInfo)
         try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
-        try container.encodeIfPresent(viewModeAsEnum, forKey: .viewModeAsEnum)
         try container.encodeIfPresent(effectiveName, forKey: .effectiveName)
+        try container.encodeIfPresent(viewModeAsEnum, forKey: .viewModeAsEnum)
     }
 }
 

@@ -32,8 +32,8 @@ import com.squareup.moshi.JsonClass
  * @param paymentsRecv 
  * @param review 
  * @param reject 
- * @param lastChatSnippet 
  * @param paymentReceived 
+ * @param lastChatSnippet 
  * @param firstPaymentRecv 
  */
 
@@ -55,11 +55,11 @@ data class BountySnippets (
     @Json(name = "reject")
     val reject: BountyRejectSnippet? = null,
 
-    @Json(name = "lastChatSnippet")
-    val lastChatSnippet: ChatSnippet? = null,
-
     @Json(name = "paymentReceived")
     val paymentReceived: kotlin.Boolean? = null,
+
+    @Json(name = "lastChatSnippet")
+    val lastChatSnippet: ChatSnippet? = null,
 
     @Json(name = "firstPaymentRecv")
     val firstPaymentRecv: BountyPaymentRecvSnippet? = null

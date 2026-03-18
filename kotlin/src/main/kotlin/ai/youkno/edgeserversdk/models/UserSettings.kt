@@ -43,6 +43,7 @@ import ai.youkno.edgeserversdk.models.NotificationInfo
 import ai.youkno.edgeserversdk.models.OrganizationTypeInfo
 import ai.youkno.edgeserversdk.models.PaymentLiability
 import ai.youkno.edgeserversdk.models.PaymentOptions
+import ai.youkno.edgeserversdk.models.PointCurrencyLoyaltyInfo
 import ai.youkno.edgeserversdk.models.Reward
 import ai.youkno.edgeserversdk.models.SearchInfo
 import ai.youkno.edgeserversdk.models.ShopSettings
@@ -76,6 +77,8 @@ import com.squareup.moshi.JsonClass
  * @param paymentMethod 
  * @param vouchersEnabled 
  * @param sentimentAnalysisType 
+ * @param aiImageGenProvider 
+ * @param aiVideoGenProvider 
  * @param lookAndFeel 
  * @param deviceAccessPolicy 
  * @param rewards 
@@ -118,6 +121,7 @@ import com.squareup.moshi.JsonClass
  * @param deletionStrategies 
  * @param allowedCurrencies 
  * @param paymentLiabilities 
+ * @param pointCurrencyLoyaltyInfo 
  * @param attachments 
  */
 
@@ -177,6 +181,12 @@ data class UserSettings (
 
     @Json(name = "sentimentAnalysisType")
     val sentimentAnalysisType: kotlin.String? = null,
+
+    @Json(name = "aiImageGenProvider")
+    val aiImageGenProvider: kotlin.String? = null,
+
+    @Json(name = "aiVideoGenProvider")
+    val aiVideoGenProvider: kotlin.String? = null,
 
     @Json(name = "lookAndFeel")
     val lookAndFeel: LookAndFeelDef? = null,
@@ -304,6 +314,9 @@ data class UserSettings (
 
     @Json(name = "paymentLiabilities")
     val paymentLiabilities: kotlin.collections.Map<kotlin.String, PaymentLiability>? = null,
+
+    @Json(name = "pointCurrencyLoyaltyInfo")
+    val pointCurrencyLoyaltyInfo: PointCurrencyLoyaltyInfo? = null,
 
     @Json(name = "attachments")
     val attachments: Attachments? = null

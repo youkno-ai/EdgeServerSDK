@@ -26,15 +26,15 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         case fnb = "FNB"
         case unknown = "UNKNOWN"
     }
+    public enum EffectiveZoneAsEnum: String, Codable, CaseIterable {
+        case shop = "SHOP"
+        case fnb = "FNB"
+        case unknown = "UNKNOWN"
+    }
     public enum DeliveryTypeAsEnum: String, Codable, CaseIterable {
         case standard = "STANDARD"
         case driver = "DRIVER"
         case noDelivery = "NO_DELIVERY"
-        case unknown = "UNKNOWN"
-    }
-    public enum EffectiveZoneAsEnum: String, Codable, CaseIterable {
-        case shop = "SHOP"
-        case fnb = "FNB"
         case unknown = "UNKNOWN"
     }
     public var merchant: User?
@@ -62,18 +62,19 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
     public var promotionId: String?
     public var categoryOrder: Int?
     public var chemicalCompositions: [String: ProductSpecificInfoChemicalInfo]?
+    public var soldByLabel: String?
     public var valid: Bool?
-    public var effectiveZone: String?
-    public var kindAsEnum: KindAsEnum?
     public var topLevelVariant: ProductSpecificInfo?
-    public var optionCount: Int?
-    public var totalQuantity: Double?
+    public var kindAsEnum: KindAsEnum?
+    public var effectiveZone: String?
     public var zoneAsEnum: ZoneAsEnum?
     public var fastDelivery: Bool?
-    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
+    public var optionCount: Int?
+    public var totalQuantity: Double?
     public var effectiveZoneAsEnum: EffectiveZoneAsEnum?
+    public var deliveryTypeAsEnum: DeliveryTypeAsEnum?
 
-    public init(merchant: User? = nil, zone: String? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ProductSpecificInfoChemicalInfo]? = nil, valid: Bool? = nil, effectiveZone: String? = nil, kindAsEnum: KindAsEnum? = nil, topLevelVariant: ProductSpecificInfo? = nil, optionCount: Int? = nil, totalQuantity: Double? = nil, zoneAsEnum: ZoneAsEnum? = nil, fastDelivery: Bool? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil, effectiveZoneAsEnum: EffectiveZoneAsEnum? = nil) {
+    public init(merchant: User? = nil, zone: String? = nil, merchantId: String? = nil, merchantSku: String? = nil, shopifyId: String? = nil, shopifyStoreName: String? = nil, privateListingInfo: PrivateListingInfo? = nil, handle: String? = nil, kind: String? = nil, type: String? = nil, name: String? = nil, description: String? = nil, additionalInfo: String? = nil, published: Bool? = nil, options: Options? = nil, attachmentIds: String? = nil, imageAltText: String? = nil, seoTitle: String? = nil, seoDescription: String? = nil, deliveryType: String? = nil, variants: [String: ProductSpecificInfo]? = nil, googleMetafields: AnyCodable? = nil, promotionId: String? = nil, categoryOrder: Int? = nil, chemicalCompositions: [String: ProductSpecificInfoChemicalInfo]? = nil, soldByLabel: String? = nil, valid: Bool? = nil, topLevelVariant: ProductSpecificInfo? = nil, kindAsEnum: KindAsEnum? = nil, effectiveZone: String? = nil, zoneAsEnum: ZoneAsEnum? = nil, fastDelivery: Bool? = nil, optionCount: Int? = nil, totalQuantity: Double? = nil, effectiveZoneAsEnum: EffectiveZoneAsEnum? = nil, deliveryTypeAsEnum: DeliveryTypeAsEnum? = nil) {
         self.merchant = merchant
         self.zone = zone
         self.merchantId = merchantId
@@ -99,16 +100,17 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         self.promotionId = promotionId
         self.categoryOrder = categoryOrder
         self.chemicalCompositions = chemicalCompositions
+        self.soldByLabel = soldByLabel
         self.valid = valid
-        self.effectiveZone = effectiveZone
-        self.kindAsEnum = kindAsEnum
         self.topLevelVariant = topLevelVariant
-        self.optionCount = optionCount
-        self.totalQuantity = totalQuantity
+        self.kindAsEnum = kindAsEnum
+        self.effectiveZone = effectiveZone
         self.zoneAsEnum = zoneAsEnum
         self.fastDelivery = fastDelivery
-        self.deliveryTypeAsEnum = deliveryTypeAsEnum
+        self.optionCount = optionCount
+        self.totalQuantity = totalQuantity
         self.effectiveZoneAsEnum = effectiveZoneAsEnum
+        self.deliveryTypeAsEnum = deliveryTypeAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -137,16 +139,17 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         case promotionId
         case categoryOrder
         case chemicalCompositions
+        case soldByLabel
         case valid
-        case effectiveZone
-        case kindAsEnum
         case topLevelVariant
-        case optionCount
-        case totalQuantity
+        case kindAsEnum
+        case effectiveZone
         case zoneAsEnum
         case fastDelivery
-        case deliveryTypeAsEnum
+        case optionCount
+        case totalQuantity
         case effectiveZoneAsEnum
+        case deliveryTypeAsEnum
     }
 
     // Encodable protocol methods
@@ -178,16 +181,17 @@ public struct BountyProduct: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(promotionId, forKey: .promotionId)
         try container.encodeIfPresent(categoryOrder, forKey: .categoryOrder)
         try container.encodeIfPresent(chemicalCompositions, forKey: .chemicalCompositions)
+        try container.encodeIfPresent(soldByLabel, forKey: .soldByLabel)
         try container.encodeIfPresent(valid, forKey: .valid)
-        try container.encodeIfPresent(effectiveZone, forKey: .effectiveZone)
-        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
         try container.encodeIfPresent(topLevelVariant, forKey: .topLevelVariant)
-        try container.encodeIfPresent(optionCount, forKey: .optionCount)
-        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
+        try container.encodeIfPresent(kindAsEnum, forKey: .kindAsEnum)
+        try container.encodeIfPresent(effectiveZone, forKey: .effectiveZone)
         try container.encodeIfPresent(zoneAsEnum, forKey: .zoneAsEnum)
         try container.encodeIfPresent(fastDelivery, forKey: .fastDelivery)
-        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
+        try container.encodeIfPresent(optionCount, forKey: .optionCount)
+        try container.encodeIfPresent(totalQuantity, forKey: .totalQuantity)
         try container.encodeIfPresent(effectiveZoneAsEnum, forKey: .effectiveZoneAsEnum)
+        try container.encodeIfPresent(deliveryTypeAsEnum, forKey: .deliveryTypeAsEnum)
     }
 }
 

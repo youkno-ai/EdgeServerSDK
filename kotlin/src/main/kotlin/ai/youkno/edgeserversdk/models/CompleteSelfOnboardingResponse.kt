@@ -16,6 +16,8 @@
 package ai.youkno.edgeserversdk.models
 
 import ai.youkno.edgeserversdk.models.Bounty
+import ai.youkno.edgeserversdk.models.PointCurrency
+import ai.youkno.edgeserversdk.models.PointCurrencyLoyaltyInfo
 import ai.youkno.edgeserversdk.models.User
 import ai.youkno.edgeserversdk.models.VoucherDef
 
@@ -28,6 +30,9 @@ import com.squareup.moshi.JsonClass
  * @param company 
  * @param voucherDef 
  * @param bounty 
+ * @param productBounty 
+ * @param pointCurrency 
+ * @param loyaltyInfo 
  */
 
 
@@ -40,7 +45,16 @@ data class CompleteSelfOnboardingResponse (
     val voucherDef: VoucherDef? = null,
 
     @Json(name = "bounty")
-    val bounty: Bounty? = null
+    val bounty: Bounty? = null,
+
+    @Json(name = "productBounty")
+    val productBounty: Bounty? = null,
+
+    @Json(name = "pointCurrency")
+    val pointCurrency: PointCurrency? = null,
+
+    @Json(name = "loyaltyInfo")
+    val loyaltyInfo: PointCurrencyLoyaltyInfo? = null
 
 ) {
 

@@ -33,10 +33,10 @@ public struct BountyTerms: Codable, JSONEncodable, Hashable {
     public var autoClose: Bool?
     public var promises: [String: Promise]?
     public var receiverAsEnum: ReceiverAsEnum?
-    public var distributionReward: Reward?
     public var admissionStrategyAsEnum: AdmissionStrategyAsEnum?
+    public var distributionReward: Reward?
 
-    public init(receiver: String? = nil, admissionRule: AdmissionRule? = nil, contentAccessRule: ContentAccessRule? = nil, allowedResponseCount: Int? = nil, participantResponseCount: Int? = nil, budget: BountyBudget? = nil, minReward: Reward? = nil, goalReward: Reward? = nil, autoClose: Bool? = nil, promises: [String: Promise]? = nil, receiverAsEnum: ReceiverAsEnum? = nil, distributionReward: Reward? = nil, admissionStrategyAsEnum: AdmissionStrategyAsEnum? = nil) {
+    public init(receiver: String? = nil, admissionRule: AdmissionRule? = nil, contentAccessRule: ContentAccessRule? = nil, allowedResponseCount: Int? = nil, participantResponseCount: Int? = nil, budget: BountyBudget? = nil, minReward: Reward? = nil, goalReward: Reward? = nil, autoClose: Bool? = nil, promises: [String: Promise]? = nil, receiverAsEnum: ReceiverAsEnum? = nil, admissionStrategyAsEnum: AdmissionStrategyAsEnum? = nil, distributionReward: Reward? = nil) {
         self.receiver = receiver
         self.admissionRule = admissionRule
         self.contentAccessRule = contentAccessRule
@@ -48,8 +48,8 @@ public struct BountyTerms: Codable, JSONEncodable, Hashable {
         self.autoClose = autoClose
         self.promises = promises
         self.receiverAsEnum = receiverAsEnum
-        self.distributionReward = distributionReward
         self.admissionStrategyAsEnum = admissionStrategyAsEnum
+        self.distributionReward = distributionReward
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -64,8 +64,8 @@ public struct BountyTerms: Codable, JSONEncodable, Hashable {
         case autoClose
         case promises
         case receiverAsEnum
-        case distributionReward
         case admissionStrategyAsEnum
+        case distributionReward
     }
 
     // Encodable protocol methods
@@ -83,8 +83,8 @@ public struct BountyTerms: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(autoClose, forKey: .autoClose)
         try container.encodeIfPresent(promises, forKey: .promises)
         try container.encodeIfPresent(receiverAsEnum, forKey: .receiverAsEnum)
-        try container.encodeIfPresent(distributionReward, forKey: .distributionReward)
         try container.encodeIfPresent(admissionStrategyAsEnum, forKey: .admissionStrategyAsEnum)
+        try container.encodeIfPresent(distributionReward, forKey: .distributionReward)
     }
 }
 

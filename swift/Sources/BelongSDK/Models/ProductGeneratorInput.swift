@@ -112,8 +112,10 @@ public struct ProductGeneratorInput: Codable, JSONEncodable, Hashable {
     public var deterministic: Bool?
     public var seed: Int64?
     public var generateImages: Bool?
+    public var imageGenProvider: String?
+    public var videoGenProvider: String?
 
-    public init(description: String? = nil, language: String? = nil, bountyType: BountyType? = nil, zone: Zone? = nil, size: Size? = nil, maxProducts: Int? = nil, style: Style? = nil, palette: Palette? = nil, deterministic: Bool? = nil, seed: Int64? = nil, generateImages: Bool? = nil) {
+    public init(description: String? = nil, language: String? = nil, bountyType: BountyType? = nil, zone: Zone? = nil, size: Size? = nil, maxProducts: Int? = nil, style: Style? = nil, palette: Palette? = nil, deterministic: Bool? = nil, seed: Int64? = nil, generateImages: Bool? = nil, imageGenProvider: String? = nil, videoGenProvider: String? = nil) {
         self.description = description
         self.language = language
         self.bountyType = bountyType
@@ -125,6 +127,8 @@ public struct ProductGeneratorInput: Codable, JSONEncodable, Hashable {
         self.deterministic = deterministic
         self.seed = seed
         self.generateImages = generateImages
+        self.imageGenProvider = imageGenProvider
+        self.videoGenProvider = videoGenProvider
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -139,6 +143,8 @@ public struct ProductGeneratorInput: Codable, JSONEncodable, Hashable {
         case deterministic
         case seed
         case generateImages
+        case imageGenProvider
+        case videoGenProvider
     }
 
     // Encodable protocol methods
@@ -156,6 +162,8 @@ public struct ProductGeneratorInput: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(deterministic, forKey: .deterministic)
         try container.encodeIfPresent(seed, forKey: .seed)
         try container.encodeIfPresent(generateImages, forKey: .generateImages)
+        try container.encodeIfPresent(imageGenProvider, forKey: .imageGenProvider)
+        try container.encodeIfPresent(videoGenProvider, forKey: .videoGenProvider)
     }
 }
 

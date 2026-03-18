@@ -29,6 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param palette 
  * @param deterministic 
  * @param seed 
+ * @param imageGenProvider 
+ * @param videoGenProvider 
  */
 
 
@@ -53,7 +55,13 @@ data class UserCoverGeneratorInput (
     val deterministic: kotlin.Boolean? = null,
 
     @Json(name = "seed")
-    val seed: kotlin.Long? = null
+    val seed: kotlin.Long? = null,
+
+    @Json(name = "imageGenProvider")
+    val imageGenProvider: kotlin.String? = null,
+
+    @Json(name = "videoGenProvider")
+    val videoGenProvider: kotlin.String? = null
 
 ) {
 

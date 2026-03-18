@@ -60,14 +60,14 @@ import com.squareup.moshi.JsonClass
  * @param attUrl 
  * @param valid 
  * @param typeAsEnum 
+ * @param meaningAsEnum 
  * @param fileNameFromUrl 
  * @param youTubeVideoId 
- * @param meaningAsEnum 
+ * @param effectiveActionUrl 
  * @param storageTypeAsEnum 
  * @param displayStyleAsEnum 
  * @param visibilityAsEnum 
  * @param youTubeCoverImage 
- * @param effectiveActionUrl 
  * @param accessKeyEnforcementAsEnum 
  * @param accessKeyCtaModeAsEnum 
  */
@@ -168,14 +168,17 @@ data class Attachment (
     @Json(name = "typeAsEnum")
     val typeAsEnum: Attachment.TypeAsEnum? = null,
 
+    @Json(name = "meaningAsEnum")
+    val meaningAsEnum: Attachment.MeaningAsEnum? = null,
+
     @Json(name = "fileNameFromUrl")
     val fileNameFromUrl: kotlin.String? = null,
 
     @Json(name = "youTubeVideoId")
     val youTubeVideoId: kotlin.String? = null,
 
-    @Json(name = "meaningAsEnum")
-    val meaningAsEnum: Attachment.MeaningAsEnum? = null,
+    @Json(name = "effectiveActionUrl")
+    val effectiveActionUrl: kotlin.String? = null,
 
     @Json(name = "storageTypeAsEnum")
     val storageTypeAsEnum: Attachment.StorageTypeAsEnum? = null,
@@ -188,9 +191,6 @@ data class Attachment (
 
     @Json(name = "youTubeCoverImage")
     val youTubeCoverImage: kotlin.String? = null,
-
-    @Json(name = "effectiveActionUrl")
-    val effectiveActionUrl: kotlin.String? = null,
 
     @Json(name = "accessKeyEnforcementAsEnum")
     val accessKeyEnforcementAsEnum: Attachment.AccessKeyEnforcementAsEnum? = null,

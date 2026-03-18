@@ -57,16 +57,16 @@ export interface DistributionArea {
     empty?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof DistributionArea
-     */
-    global?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof DistributionArea
      */
     typeAsEnum?: DistributionAreaTypeAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DistributionArea
+     */
+    global?: boolean;
 }
 
 
@@ -108,8 +108,8 @@ export function DistributionAreaFromJSONTyped(json: any, ignoreDiscriminator: bo
         'code': json['code'] == null ? undefined : json['code'],
         'count': json['count'] == null ? undefined : json['count'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'global': json['global'] == null ? undefined : json['global'],
         'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'global': json['global'] == null ? undefined : json['global'],
     };
 }
 
@@ -130,8 +130,8 @@ export function DistributionAreaToJSONTyped(value?: DistributionArea | null, ign
         'code': value['code'],
         'count': value['count'],
         'empty': value['empty'],
-        'global': value['global'],
         'typeAsEnum': value['typeAsEnum'],
+        'global': value['global'],
     };
 }
 

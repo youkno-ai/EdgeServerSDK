@@ -20,6 +20,7 @@ public struct Category: Codable, JSONEncodable, Hashable {
         case bioTrack = "BIO_TRACK"
         case shopify = "SHOPIFY"
         case csv = "CSV"
+        case iSports = "I_SPORTS"
         case unknown = "UNKNOWN"
     }
     public enum Visibility: String, Codable, CaseIterable {

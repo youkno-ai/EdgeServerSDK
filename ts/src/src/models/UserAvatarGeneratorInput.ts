@@ -61,6 +61,18 @@ export interface UserAvatarGeneratorInput {
      * @memberof UserAvatarGeneratorInput
      */
     seed?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserAvatarGeneratorInput
+     */
+    imageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserAvatarGeneratorInput
+     */
+    videoGenProvider?: string;
 }
 
 
@@ -124,6 +136,8 @@ export function UserAvatarGeneratorInputFromJSONTyped(json: any, ignoreDiscrimin
         'palette': json['palette'] == null ? undefined : json['palette'],
         'deterministic': json['deterministic'] == null ? undefined : json['deterministic'],
         'seed': json['seed'] == null ? undefined : json['seed'],
+        'imageGenProvider': json['imageGenProvider'] == null ? undefined : json['imageGenProvider'],
+        'videoGenProvider': json['videoGenProvider'] == null ? undefined : json['videoGenProvider'],
     };
 }
 
@@ -145,6 +159,8 @@ export function UserAvatarGeneratorInputToJSONTyped(value?: UserAvatarGeneratorI
         'palette': value['palette'],
         'deterministic': value['deterministic'],
         'seed': value['seed'],
+        'imageGenProvider': value['imageGenProvider'],
+        'videoGenProvider': value['videoGenProvider'],
     };
 }
 

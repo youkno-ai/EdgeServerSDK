@@ -66,16 +66,16 @@ export interface ClaimSnippet {
     status?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof ClaimSnippet
-     */
-    rejected?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof ClaimSnippet
      */
     statusAsEnum?: ClaimSnippetStatusAsEnumEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ClaimSnippet
+     */
+    rejected?: boolean;
 }
 
 
@@ -112,8 +112,8 @@ export function ClaimSnippetFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'rejection': json['rejection'] == null ? undefined : RejectionFromJSON(json['rejection']),
         'claimedAt': json['claimedAt'] == null ? undefined : json['claimedAt'],
         'status': json['status'] == null ? undefined : json['status'],
-        'rejected': json['rejected'] == null ? undefined : json['rejected'],
         'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
+        'rejected': json['rejected'] == null ? undefined : json['rejected'],
     };
 }
 
@@ -133,8 +133,8 @@ export function ClaimSnippetToJSONTyped(value?: ClaimSnippet | null, ignoreDiscr
         'rejection': RejectionToJSON(value['rejection']),
         'claimedAt': value['claimedAt'],
         'status': value['status'],
-        'rejected': value['rejected'],
         'statusAsEnum': value['statusAsEnum'],
+        'rejected': value['rejected'],
     };
 }
 

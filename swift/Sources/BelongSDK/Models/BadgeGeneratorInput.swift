@@ -49,14 +49,18 @@ public struct BadgeGeneratorInput: Codable, JSONEncodable, Hashable {
     public var palette: Palette?
     public var format: Format?
     public var animation: AnimationSpec?
+    public var imageGenProvider: String?
+    public var videoGenProvider: String?
 
-    public init(description: String? = nil, reward: Reward? = nil, style: Style? = nil, palette: Palette? = nil, format: Format? = nil, animation: AnimationSpec? = nil) {
+    public init(description: String? = nil, reward: Reward? = nil, style: Style? = nil, palette: Palette? = nil, format: Format? = nil, animation: AnimationSpec? = nil, imageGenProvider: String? = nil, videoGenProvider: String? = nil) {
         self.description = description
         self.reward = reward
         self.style = style
         self.palette = palette
         self.format = format
         self.animation = animation
+        self.imageGenProvider = imageGenProvider
+        self.videoGenProvider = videoGenProvider
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -66,6 +70,8 @@ public struct BadgeGeneratorInput: Codable, JSONEncodable, Hashable {
         case palette
         case format
         case animation
+        case imageGenProvider
+        case videoGenProvider
     }
 
     // Encodable protocol methods
@@ -78,6 +84,8 @@ public struct BadgeGeneratorInput: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(palette, forKey: .palette)
         try container.encodeIfPresent(format, forKey: .format)
         try container.encodeIfPresent(animation, forKey: .animation)
+        try container.encodeIfPresent(imageGenProvider, forKey: .imageGenProvider)
+        try container.encodeIfPresent(videoGenProvider, forKey: .videoGenProvider)
     }
 }
 

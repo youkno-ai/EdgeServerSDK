@@ -56,25 +56,15 @@ export interface BountyContestInfo {
      * @type {string}
      * @memberof BountyContestInfo
      */
-    drawTypeAsEnum?: BountyContestInfoDrawTypeAsEnumEnum;
+    stateAsEnum?: BountyContestInfoStateAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof BountyContestInfo
      */
-    stateAsEnum?: BountyContestInfoStateAsEnumEnum;
+    drawTypeAsEnum?: BountyContestInfoDrawTypeAsEnumEnum;
 }
 
-
-/**
- * @export
- */
-export const BountyContestInfoDrawTypeAsEnumEnum = {
-    ON_CLOSE: 'ON_CLOSE',
-    SCHEDULED: 'SCHEDULED',
-    MANUAL: 'MANUAL'
-} as const;
-export type BountyContestInfoDrawTypeAsEnumEnum = typeof BountyContestInfoDrawTypeAsEnumEnum[keyof typeof BountyContestInfoDrawTypeAsEnumEnum];
 
 /**
  * @export
@@ -87,6 +77,16 @@ export const BountyContestInfoStateAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyContestInfoStateAsEnumEnum = typeof BountyContestInfoStateAsEnumEnum[keyof typeof BountyContestInfoStateAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BountyContestInfoDrawTypeAsEnumEnum = {
+    ON_CLOSE: 'ON_CLOSE',
+    SCHEDULED: 'SCHEDULED',
+    MANUAL: 'MANUAL'
+} as const;
+export type BountyContestInfoDrawTypeAsEnumEnum = typeof BountyContestInfoDrawTypeAsEnumEnum[keyof typeof BountyContestInfoDrawTypeAsEnumEnum];
 
 
 /**
@@ -110,8 +110,8 @@ export function BountyContestInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'drawType': json['drawType'] == null ? undefined : json['drawType'],
         'winnerAnnouncementAt': json['winnerAnnouncementAt'] == null ? undefined : json['winnerAnnouncementAt'],
         'winner': json['winner'] == null ? undefined : UserFromJSON(json['winner']),
-        'drawTypeAsEnum': json['drawTypeAsEnum'] == null ? undefined : json['drawTypeAsEnum'],
         'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
+        'drawTypeAsEnum': json['drawTypeAsEnum'] == null ? undefined : json['drawTypeAsEnum'],
     };
 }
 
@@ -130,8 +130,8 @@ export function BountyContestInfoToJSONTyped(value?: BountyContestInfo | null, i
         'drawType': value['drawType'],
         'winnerAnnouncementAt': value['winnerAnnouncementAt'],
         'winner': UserToJSON(value['winner']),
-        'drawTypeAsEnum': value['drawTypeAsEnum'],
         'stateAsEnum': value['stateAsEnum'],
+        'drawTypeAsEnum': value['drawTypeAsEnum'],
     };
 }
 

@@ -6,6 +6,7 @@ import retrofit2.Call
 import okhttp3.RequestBody
 import com.squareup.moshi.Json
 
+import ai.youkno.edgeserversdk.models.AiProvidersReq
 import ai.youkno.edgeserversdk.models.AssignClientRequest
 import ai.youkno.edgeserversdk.models.AssignClientResponse
 import ai.youkno.edgeserversdk.models.AuditLogResult
@@ -157,6 +158,22 @@ interface ClientControllerApi {
      */
     @GET("api/v1/clients/{client}")
     fun getApiV1ClientsByClient(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<UpdateClientRequest>
+
+    /**
+     * GET api/v1/clients/{client}/ai
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[AiProvidersReq]>
+     */
+    @GET("api/v1/clients/{client}/ai")
+    fun getApiV1ClientsByClientAi(@Path("client") client: kotlin.String, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<AiProvidersReq>
 
     /**
      * GET api/v1/clients/{client}/approvals
@@ -834,6 +851,23 @@ interface ClientControllerApi {
      */
     @POST("api/v1/clients")
     fun postApiV1Clients(@Body createClientRequest: CreateClientRequest, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<CreateClientResult>
+
+    /**
+     * POST api/v1/clients/{client}/ai
+     * 
+     * 
+     * Responses:
+     *  - 200: OK
+     *
+     * @param client 
+     * @param aiProvidersReq 
+     * @param xEdgeAgent  (optional)
+     * @param xEdgeState  (optional)
+     * @param xEdgeClientId  (optional)
+     * @return [Call]<[kotlin.collections.Map<kotlin.String, kotlin.String>]>
+     */
+    @POST("api/v1/clients/{client}/ai")
+    fun postApiV1ClientsByClientAi(@Path("client") client: kotlin.String, @Body aiProvidersReq: AiProvidersReq, @Header("X-edge-agent") xEdgeAgent: kotlin.String? = null, @Header("X-edge-state") xEdgeState: kotlin.String? = null, @Header("X-edge-client-id") xEdgeClientId: kotlin.String? = null): Call<kotlin.collections.Map<kotlin.String, kotlin.String>>
 
     /**
      * POST api/v1/clients/{client}/campaign/pn

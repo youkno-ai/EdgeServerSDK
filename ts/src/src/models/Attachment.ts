@@ -260,6 +260,12 @@ export interface Attachment {
      * @type {string}
      * @memberof Attachment
      */
+    meaningAsEnum?: AttachmentMeaningAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof Attachment
+     */
     fileNameFromUrl?: string;
     /**
      * 
@@ -272,7 +278,7 @@ export interface Attachment {
      * @type {string}
      * @memberof Attachment
      */
-    meaningAsEnum?: AttachmentMeaningAsEnumEnum;
+    effectiveActionUrl?: string;
     /**
      * 
      * @type {string}
@@ -297,12 +303,6 @@ export interface Attachment {
      * @memberof Attachment
      */
     youTubeCoverImage?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Attachment
-     */
-    effectiveActionUrl?: string;
     /**
      * 
      * @type {string}
@@ -465,14 +465,14 @@ export function AttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'attUrl': json['attUrl'] == null ? undefined : json['attUrl'],
         'valid': json['valid'] == null ? undefined : json['valid'],
         'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
+        'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
         'fileNameFromUrl': json['fileNameFromUrl'] == null ? undefined : json['fileNameFromUrl'],
         'youTubeVideoId': json['youTubeVideoId'] == null ? undefined : json['youTubeVideoId'],
-        'meaningAsEnum': json['meaningAsEnum'] == null ? undefined : json['meaningAsEnum'],
+        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
         'storageTypeAsEnum': json['storageTypeAsEnum'] == null ? undefined : json['storageTypeAsEnum'],
         'displayStyleAsEnum': json['displayStyleAsEnum'] == null ? undefined : json['displayStyleAsEnum'],
         'visibilityAsEnum': json['visibilityAsEnum'] == null ? undefined : json['visibilityAsEnum'],
         'youTubeCoverImage': json['youTubeCoverImage'] == null ? undefined : json['youTubeCoverImage'],
-        'effectiveActionUrl': json['effectiveActionUrl'] == null ? undefined : json['effectiveActionUrl'],
         'accessKeyEnforcementAsEnum': json['accessKeyEnforcementAsEnum'] == null ? undefined : json['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': json['accessKeyCtaModeAsEnum'] == null ? undefined : json['accessKeyCtaModeAsEnum'],
     };
@@ -520,14 +520,14 @@ export function AttachmentToJSONTyped(value?: Attachment | null, ignoreDiscrimin
         'attUrl': value['attUrl'],
         'valid': value['valid'],
         'typeAsEnum': value['typeAsEnum'],
+        'meaningAsEnum': value['meaningAsEnum'],
         'fileNameFromUrl': value['fileNameFromUrl'],
         'youTubeVideoId': value['youTubeVideoId'],
-        'meaningAsEnum': value['meaningAsEnum'],
+        'effectiveActionUrl': value['effectiveActionUrl'],
         'storageTypeAsEnum': value['storageTypeAsEnum'],
         'displayStyleAsEnum': value['displayStyleAsEnum'],
         'visibilityAsEnum': value['visibilityAsEnum'],
         'youTubeCoverImage': value['youTubeCoverImage'],
-        'effectiveActionUrl': value['effectiveActionUrl'],
         'accessKeyEnforcementAsEnum': value['accessKeyEnforcementAsEnum'],
         'accessKeyCtaModeAsEnum': value['accessKeyCtaModeAsEnum'],
     };

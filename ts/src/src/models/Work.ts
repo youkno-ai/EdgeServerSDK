@@ -95,6 +95,12 @@ export interface Work {
     progressUpdatedAt?: number;
     /**
      * 
+     * @type {string}
+     * @memberof Work
+     */
+    statusAsEnum?: WorkStatusAsEnumEnum;
+    /**
+     * 
      * @type {boolean}
      * @memberof Work
      */
@@ -105,12 +111,6 @@ export interface Work {
      * @memberof Work
      */
     surveyCompleted?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Work
-     */
-    statusAsEnum?: WorkStatusAsEnumEnum;
 }
 
 
@@ -159,9 +159,9 @@ export function WorkFromJSONTyped(json: any, ignoreDiscriminator: boolean): Work
         'workCompletedAt': json['workCompletedAt'] == null ? undefined : json['workCompletedAt'],
         'droppedOffAt': json['droppedOffAt'] == null ? undefined : json['droppedOffAt'],
         'progressUpdatedAt': json['progressUpdatedAt'] == null ? undefined : json['progressUpdatedAt'],
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'workedOn': json['workedOn'] == null ? undefined : json['workedOn'],
         'surveyCompleted': json['surveyCompleted'] == null ? undefined : json['surveyCompleted'],
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
     };
 }
 
@@ -187,9 +187,9 @@ export function WorkToJSONTyped(value?: Work | null, ignoreDiscriminator: boolea
         'workCompletedAt': value['workCompletedAt'],
         'droppedOffAt': value['droppedOffAt'],
         'progressUpdatedAt': value['progressUpdatedAt'],
+        'statusAsEnum': value['statusAsEnum'],
         'workedOn': value['workedOn'],
         'surveyCompleted': value['surveyCompleted'],
-        'statusAsEnum': value['statusAsEnum'],
     };
 }
 

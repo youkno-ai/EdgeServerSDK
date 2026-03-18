@@ -38,8 +38,8 @@ import com.squareup.moshi.JsonClass
  * @param autoClose 
  * @param promises 
  * @param receiverAsEnum 
- * @param distributionReward 
  * @param admissionStrategyAsEnum 
+ * @param distributionReward 
  */
 
 
@@ -78,11 +78,11 @@ data class BountyTerms (
     @Json(name = "receiverAsEnum")
     val receiverAsEnum: BountyTerms.ReceiverAsEnum? = null,
 
-    @Json(name = "distributionReward")
-    val distributionReward: Reward? = null,
-
     @Json(name = "admissionStrategyAsEnum")
-    val admissionStrategyAsEnum: BountyTerms.AdmissionStrategyAsEnum? = null
+    val admissionStrategyAsEnum: BountyTerms.AdmissionStrategyAsEnum? = null,
+
+    @Json(name = "distributionReward")
+    val distributionReward: Reward? = null
 
 ) {
 

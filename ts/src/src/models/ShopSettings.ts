@@ -225,6 +225,12 @@ export interface ShopSettings {
      * @type {string}
      * @memberof ShopSettings
      */
+    soldByLabel?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ShopSettings
+     */
     landingPage?: string;
     /**
      * 
@@ -519,43 +525,31 @@ export interface ShopSettings {
      * @type {string}
      * @memberof ShopSettings
      */
-    syncProductStrategyAsEnum?: ShopSettingsSyncProductStrategyAsEnumEnum;
+    settingsWriteModeAsEnum?: ShopSettingsSettingsWriteModeAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    flwrInferenceStrategyAsEnum?: ShopSettingsFlwrInferenceStrategyAsEnumEnum;
+    shopStatusAsEnum?: ShopSettingsShopStatusAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    merchandiseTypeAsEnum?: ShopSettingsMerchandiseTypeAsEnumEnum;
-    /**
-     * 
-     * @type {StockMessageConfig}
-     * @memberof ShopSettings
-     */
-    effectiveStockMessageConfig?: StockMessageConfig;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ShopSettings
-     */
-    inventoryAreaIds?: Array<string>;
+    soldByLabelAsEnum?: ShopSettingsSoldByLabelAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    settingsTypeAsEnum?: ShopSettingsSettingsTypeAsEnumEnum;
+    settingsStrategyAsEnum?: ShopSettingsSettingsStrategyAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    locationBrandingAsEnum?: ShopSettingsLocationBrandingAsEnumEnum;
+    embeddedShopUrlAsURI?: string;
     /**
      * 
      * @type {string}
@@ -591,25 +585,43 @@ export interface ShopSettings {
      * @type {string}
      * @memberof ShopSettings
      */
-    settingsStrategyAsEnum?: ShopSettingsSettingsStrategyAsEnumEnum;
+    merchandiseTypeAsEnum?: ShopSettingsMerchandiseTypeAsEnumEnum;
+    /**
+     * 
+     * @type {StockMessageConfig}
+     * @memberof ShopSettings
+     */
+    effectiveStockMessageConfig?: StockMessageConfig;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ShopSettings
+     */
+    inventoryAreaIds?: Array<string>;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    settingsWriteModeAsEnum?: ShopSettingsSettingsWriteModeAsEnumEnum;
+    syncProductStrategyAsEnum?: ShopSettingsSyncProductStrategyAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    shopStatusAsEnum?: ShopSettingsShopStatusAsEnumEnum;
+    flwrInferenceStrategyAsEnum?: ShopSettingsFlwrInferenceStrategyAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof ShopSettings
      */
-    embeddedShopUrlAsURI?: string;
+    settingsTypeAsEnum?: ShopSettingsSettingsTypeAsEnumEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ShopSettings
+     */
+    locationBrandingAsEnum?: ShopSettingsLocationBrandingAsEnumEnum;
 }
 
 
@@ -673,50 +685,42 @@ export type ShopSettingsShopTypeAsEnumEnum = typeof ShopSettingsShopTypeAsEnumEn
 /**
  * @export
  */
-export const ShopSettingsSyncProductStrategyAsEnumEnum = {
-    NO_VARIANTS: 'NO_VARIANTS',
-    WITH_VARIANTS: 'WITH_VARIANTS'
-} as const;
-export type ShopSettingsSyncProductStrategyAsEnumEnum = typeof ShopSettingsSyncProductStrategyAsEnumEnum[keyof typeof ShopSettingsSyncProductStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsFlwrInferenceStrategyAsEnumEnum = {
-    NONE: 'NONE',
-    INFER: 'INFER',
-    SKIP: 'SKIP'
-} as const;
-export type ShopSettingsFlwrInferenceStrategyAsEnumEnum = typeof ShopSettingsFlwrInferenceStrategyAsEnumEnum[keyof typeof ShopSettingsFlwrInferenceStrategyAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsMerchandiseTypeAsEnumEnum = {
-    DEFAULT: 'DEFAULT',
-    CANNABIS: 'CANNABIS'
-} as const;
-export type ShopSettingsMerchandiseTypeAsEnumEnum = typeof ShopSettingsMerchandiseTypeAsEnumEnum[keyof typeof ShopSettingsMerchandiseTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsSettingsTypeAsEnumEnum = {
-    NONE: 'NONE',
-    CORP: 'CORP',
+export const ShopSettingsSettingsWriteModeAsEnumEnum = {
     LOCATION: 'LOCATION',
+    CORPORATE: 'CORPORATE',
+    SYSTEM: 'SYSTEM'
+} as const;
+export type ShopSettingsSettingsWriteModeAsEnumEnum = typeof ShopSettingsSettingsWriteModeAsEnumEnum[keyof typeof ShopSettingsSettingsWriteModeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsShopStatusAsEnumEnum = {
+    AUTO: 'AUTO',
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type ShopSettingsSettingsTypeAsEnumEnum = typeof ShopSettingsSettingsTypeAsEnumEnum[keyof typeof ShopSettingsSettingsTypeAsEnumEnum];
+export type ShopSettingsShopStatusAsEnumEnum = typeof ShopSettingsShopStatusAsEnumEnum[keyof typeof ShopSettingsShopStatusAsEnumEnum];
 
 /**
  * @export
  */
-export const ShopSettingsLocationBrandingAsEnumEnum = {
-    DISABLED: 'DISABLED',
-    ENABLED: 'ENABLED'
+export const ShopSettingsSoldByLabelAsEnumEnum = {
+    SHOW: 'SHOW',
+    HIDE: 'HIDE'
 } as const;
-export type ShopSettingsLocationBrandingAsEnumEnum = typeof ShopSettingsLocationBrandingAsEnumEnum[keyof typeof ShopSettingsLocationBrandingAsEnumEnum];
+export type ShopSettingsSoldByLabelAsEnumEnum = typeof ShopSettingsSoldByLabelAsEnumEnum[keyof typeof ShopSettingsSoldByLabelAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsSettingsStrategyAsEnumEnum = {
+    CORP_ONLY: 'CORP_ONLY',
+    LOCATION_ONLY: 'LOCATION_ONLY',
+    INHERIT: 'INHERIT'
+} as const;
+export type ShopSettingsSettingsStrategyAsEnumEnum = typeof ShopSettingsSettingsStrategyAsEnumEnum[keyof typeof ShopSettingsSettingsStrategyAsEnumEnum];
 
 /**
  * @export
@@ -772,33 +776,50 @@ export type ShopSettingsDeliveryMethodsAsEnumEnum = typeof ShopSettingsDeliveryM
 /**
  * @export
  */
-export const ShopSettingsSettingsStrategyAsEnumEnum = {
-    CORP_ONLY: 'CORP_ONLY',
-    LOCATION_ONLY: 'LOCATION_ONLY',
-    INHERIT: 'INHERIT'
+export const ShopSettingsMerchandiseTypeAsEnumEnum = {
+    DEFAULT: 'DEFAULT',
+    CANNABIS: 'CANNABIS'
 } as const;
-export type ShopSettingsSettingsStrategyAsEnumEnum = typeof ShopSettingsSettingsStrategyAsEnumEnum[keyof typeof ShopSettingsSettingsStrategyAsEnumEnum];
+export type ShopSettingsMerchandiseTypeAsEnumEnum = typeof ShopSettingsMerchandiseTypeAsEnumEnum[keyof typeof ShopSettingsMerchandiseTypeAsEnumEnum];
 
 /**
  * @export
  */
-export const ShopSettingsSettingsWriteModeAsEnumEnum = {
+export const ShopSettingsSyncProductStrategyAsEnumEnum = {
+    NO_VARIANTS: 'NO_VARIANTS',
+    WITH_VARIANTS: 'WITH_VARIANTS'
+} as const;
+export type ShopSettingsSyncProductStrategyAsEnumEnum = typeof ShopSettingsSyncProductStrategyAsEnumEnum[keyof typeof ShopSettingsSyncProductStrategyAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsFlwrInferenceStrategyAsEnumEnum = {
+    NONE: 'NONE',
+    INFER: 'INFER',
+    SKIP: 'SKIP'
+} as const;
+export type ShopSettingsFlwrInferenceStrategyAsEnumEnum = typeof ShopSettingsFlwrInferenceStrategyAsEnumEnum[keyof typeof ShopSettingsFlwrInferenceStrategyAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsSettingsTypeAsEnumEnum = {
+    NONE: 'NONE',
+    CORP: 'CORP',
     LOCATION: 'LOCATION',
-    CORPORATE: 'CORPORATE',
-    SYSTEM: 'SYSTEM'
-} as const;
-export type ShopSettingsSettingsWriteModeAsEnumEnum = typeof ShopSettingsSettingsWriteModeAsEnumEnum[keyof typeof ShopSettingsSettingsWriteModeAsEnumEnum];
-
-/**
- * @export
- */
-export const ShopSettingsShopStatusAsEnumEnum = {
-    AUTO: 'AUTO',
-    ENABLED: 'ENABLED',
-    DISABLED: 'DISABLED',
     UNKNOWN: 'UNKNOWN'
 } as const;
-export type ShopSettingsShopStatusAsEnumEnum = typeof ShopSettingsShopStatusAsEnumEnum[keyof typeof ShopSettingsShopStatusAsEnumEnum];
+export type ShopSettingsSettingsTypeAsEnumEnum = typeof ShopSettingsSettingsTypeAsEnumEnum[keyof typeof ShopSettingsSettingsTypeAsEnumEnum];
+
+/**
+ * @export
+ */
+export const ShopSettingsLocationBrandingAsEnumEnum = {
+    DISABLED: 'DISABLED',
+    ENABLED: 'ENABLED'
+} as const;
+export type ShopSettingsLocationBrandingAsEnumEnum = typeof ShopSettingsLocationBrandingAsEnumEnum[keyof typeof ShopSettingsLocationBrandingAsEnumEnum];
 
 
 /**
@@ -828,6 +849,7 @@ export function ShopSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'lowQuantityThreshold': json['lowQuantityThreshold'] == null ? undefined : json['lowQuantityThreshold'],
         'anonUsers': json['anonUsers'] == null ? undefined : json['anonUsers'],
         'locationBranding': json['locationBranding'] == null ? undefined : json['locationBranding'],
+        'soldByLabel': json['soldByLabel'] == null ? undefined : json['soldByLabel'],
         'landingPage': json['landingPage'] == null ? undefined : json['landingPage'],
         'shopType': json['shopType'] == null ? undefined : json['shopType'],
         'backgrounds': json['backgrounds'] == null ? undefined : (mapValues(json['backgrounds'], ShopSettingsBackgroundFromJSON)),
@@ -877,22 +899,23 @@ export function ShopSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'loginsAsEnum': json['loginsAsEnum'] == null ? undefined : json['loginsAsEnum'],
         'anonUsersAsEnum': json['anonUsersAsEnum'] == null ? undefined : json['anonUsersAsEnum'],
         'shopTypeAsEnum': json['shopTypeAsEnum'] == null ? undefined : json['shopTypeAsEnum'],
-        'syncProductStrategyAsEnum': json['syncProductStrategyAsEnum'] == null ? undefined : json['syncProductStrategyAsEnum'],
-        'flwrInferenceStrategyAsEnum': json['flwrInferenceStrategyAsEnum'] == null ? undefined : json['flwrInferenceStrategyAsEnum'],
-        'merchandiseTypeAsEnum': json['merchandiseTypeAsEnum'] == null ? undefined : json['merchandiseTypeAsEnum'],
-        'effectiveStockMessageConfig': json['effectiveStockMessageConfig'] == null ? undefined : StockMessageConfigFromJSON(json['effectiveStockMessageConfig']),
-        'inventoryAreaIds': json['inventoryAreaIds'] == null ? undefined : json['inventoryAreaIds'],
-        'settingsTypeAsEnum': json['settingsTypeAsEnum'] == null ? undefined : json['settingsTypeAsEnum'],
-        'locationBrandingAsEnum': json['locationBrandingAsEnum'] == null ? undefined : json['locationBrandingAsEnum'],
+        'settingsWriteModeAsEnum': json['settingsWriteModeAsEnum'] == null ? undefined : json['settingsWriteModeAsEnum'],
+        'shopStatusAsEnum': json['shopStatusAsEnum'] == null ? undefined : json['shopStatusAsEnum'],
+        'soldByLabelAsEnum': json['soldByLabelAsEnum'] == null ? undefined : json['soldByLabelAsEnum'],
+        'settingsStrategyAsEnum': json['settingsStrategyAsEnum'] == null ? undefined : json['settingsStrategyAsEnum'],
+        'embeddedShopUrlAsURI': json['embeddedShopUrlAsURI'] == null ? undefined : json['embeddedShopUrlAsURI'],
         'landingPageAsEnum': json['landingPageAsEnum'] == null ? undefined : json['landingPageAsEnum'],
         'medicalIdPromptAsEnum': json['medicalIdPromptAsEnum'] == null ? undefined : json['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': json['productBalanceAsEnum'] == null ? undefined : json['productBalanceAsEnum'],
         'paymentMethodsAsEnums': json['paymentMethodsAsEnums'] == null ? undefined : new Set(json['paymentMethodsAsEnums']),
         'deliveryMethodsAsEnum': json['deliveryMethodsAsEnum'] == null ? undefined : json['deliveryMethodsAsEnum'],
-        'settingsStrategyAsEnum': json['settingsStrategyAsEnum'] == null ? undefined : json['settingsStrategyAsEnum'],
-        'settingsWriteModeAsEnum': json['settingsWriteModeAsEnum'] == null ? undefined : json['settingsWriteModeAsEnum'],
-        'shopStatusAsEnum': json['shopStatusAsEnum'] == null ? undefined : json['shopStatusAsEnum'],
-        'embeddedShopUrlAsURI': json['embeddedShopUrlAsURI'] == null ? undefined : json['embeddedShopUrlAsURI'],
+        'merchandiseTypeAsEnum': json['merchandiseTypeAsEnum'] == null ? undefined : json['merchandiseTypeAsEnum'],
+        'effectiveStockMessageConfig': json['effectiveStockMessageConfig'] == null ? undefined : StockMessageConfigFromJSON(json['effectiveStockMessageConfig']),
+        'inventoryAreaIds': json['inventoryAreaIds'] == null ? undefined : json['inventoryAreaIds'],
+        'syncProductStrategyAsEnum': json['syncProductStrategyAsEnum'] == null ? undefined : json['syncProductStrategyAsEnum'],
+        'flwrInferenceStrategyAsEnum': json['flwrInferenceStrategyAsEnum'] == null ? undefined : json['flwrInferenceStrategyAsEnum'],
+        'settingsTypeAsEnum': json['settingsTypeAsEnum'] == null ? undefined : json['settingsTypeAsEnum'],
+        'locationBrandingAsEnum': json['locationBrandingAsEnum'] == null ? undefined : json['locationBrandingAsEnum'],
     };
 }
 
@@ -917,6 +940,7 @@ export function ShopSettingsToJSONTyped(value?: ShopSettings | null, ignoreDiscr
         'lowQuantityThreshold': value['lowQuantityThreshold'],
         'anonUsers': value['anonUsers'],
         'locationBranding': value['locationBranding'],
+        'soldByLabel': value['soldByLabel'],
         'landingPage': value['landingPage'],
         'shopType': value['shopType'],
         'backgrounds': value['backgrounds'] == null ? undefined : (mapValues(value['backgrounds'], ShopSettingsBackgroundToJSON)),
@@ -966,22 +990,23 @@ export function ShopSettingsToJSONTyped(value?: ShopSettings | null, ignoreDiscr
         'loginsAsEnum': value['loginsAsEnum'],
         'anonUsersAsEnum': value['anonUsersAsEnum'],
         'shopTypeAsEnum': value['shopTypeAsEnum'],
-        'syncProductStrategyAsEnum': value['syncProductStrategyAsEnum'],
-        'flwrInferenceStrategyAsEnum': value['flwrInferenceStrategyAsEnum'],
-        'merchandiseTypeAsEnum': value['merchandiseTypeAsEnum'],
-        'effectiveStockMessageConfig': StockMessageConfigToJSON(value['effectiveStockMessageConfig']),
-        'inventoryAreaIds': value['inventoryAreaIds'],
-        'settingsTypeAsEnum': value['settingsTypeAsEnum'],
-        'locationBrandingAsEnum': value['locationBrandingAsEnum'],
+        'settingsWriteModeAsEnum': value['settingsWriteModeAsEnum'],
+        'shopStatusAsEnum': value['shopStatusAsEnum'],
+        'soldByLabelAsEnum': value['soldByLabelAsEnum'],
+        'settingsStrategyAsEnum': value['settingsStrategyAsEnum'],
+        'embeddedShopUrlAsURI': value['embeddedShopUrlAsURI'],
         'landingPageAsEnum': value['landingPageAsEnum'],
         'medicalIdPromptAsEnum': value['medicalIdPromptAsEnum'],
         'productBalanceAsEnum': value['productBalanceAsEnum'],
         'paymentMethodsAsEnums': value['paymentMethodsAsEnums'] == null ? undefined : Array.from(value['paymentMethodsAsEnums'] as Set<any>),
         'deliveryMethodsAsEnum': value['deliveryMethodsAsEnum'],
-        'settingsStrategyAsEnum': value['settingsStrategyAsEnum'],
-        'settingsWriteModeAsEnum': value['settingsWriteModeAsEnum'],
-        'shopStatusAsEnum': value['shopStatusAsEnum'],
-        'embeddedShopUrlAsURI': value['embeddedShopUrlAsURI'],
+        'merchandiseTypeAsEnum': value['merchandiseTypeAsEnum'],
+        'effectiveStockMessageConfig': StockMessageConfigToJSON(value['effectiveStockMessageConfig']),
+        'inventoryAreaIds': value['inventoryAreaIds'],
+        'syncProductStrategyAsEnum': value['syncProductStrategyAsEnum'],
+        'flwrInferenceStrategyAsEnum': value['flwrInferenceStrategyAsEnum'],
+        'settingsTypeAsEnum': value['settingsTypeAsEnum'],
+        'locationBrandingAsEnum': value['locationBrandingAsEnum'],
     };
 }
 

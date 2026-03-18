@@ -54,16 +54,16 @@ export interface RedemptionInfo {
     exchangedReward?: Reward;
     /**
      * 
-     * @type {Reward}
-     * @memberof RedemptionInfo
-     */
-    redemptionReward?: Reward;
-    /**
-     * 
      * @type {Array<string>}
      * @memberof RedemptionInfo
      */
     redemptionCurrencies?: Array<string>;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof RedemptionInfo
+     */
+    redemptionReward?: Reward;
 }
 
 /**
@@ -86,8 +86,8 @@ export function RedemptionInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'redemptionDataByMerchantId': json['redemptionDataByMerchantId'] == null ? undefined : (mapValues(json['redemptionDataByMerchantId'], RedemptionInfoRedemptionDataFromJSON)),
         'empty': json['empty'] == null ? undefined : json['empty'],
         'exchangedReward': json['exchangedReward'] == null ? undefined : RewardFromJSON(json['exchangedReward']),
-        'redemptionReward': json['redemptionReward'] == null ? undefined : RewardFromJSON(json['redemptionReward']),
         'redemptionCurrencies': json['redemptionCurrencies'] == null ? undefined : json['redemptionCurrencies'],
+        'redemptionReward': json['redemptionReward'] == null ? undefined : RewardFromJSON(json['redemptionReward']),
     };
 }
 
@@ -105,8 +105,8 @@ export function RedemptionInfoToJSONTyped(value?: RedemptionInfo | null, ignoreD
         'redemptionDataByMerchantId': value['redemptionDataByMerchantId'] == null ? undefined : (mapValues(value['redemptionDataByMerchantId'], RedemptionInfoRedemptionDataToJSON)),
         'empty': value['empty'],
         'exchangedReward': RewardToJSON(value['exchangedReward']),
-        'redemptionReward': RewardToJSON(value['redemptionReward']),
         'redemptionCurrencies': value['redemptionCurrencies'],
+        'redemptionReward': RewardToJSON(value['redemptionReward']),
     };
 }
 

@@ -80,6 +80,36 @@ export interface SelfOnboardingInfo {
      * @type {string}
      * @memberof SelfOnboardingInfo
      */
+    pointCurrencyName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    pointCurrencyCode?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SelfOnboardingInfo
+     */
+    pointCurrencyExchangeFromAmount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SelfOnboardingInfo
+     */
+    pointCurrencyExchangeToAmount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    pointCurrencyExchangeToCurrency?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
     voucherCode?: string;
     /**
      * 
@@ -117,6 +147,12 @@ export interface SelfOnboardingInfo {
      * @memberof SelfOnboardingInfo
      */
     voucherPercentageDiscount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SelfOnboardingInfo
+     */
+    voucherPercentageMaxDiscountAmount?: number;
     /**
      * 
      * @type {number}
@@ -176,6 +212,72 @@ export interface SelfOnboardingInfo {
      * @type {string}
      * @memberof SelfOnboardingInfo
      */
+    loyaltyType?: SelfOnboardingInfoLoyaltyTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyItemName?: string;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyRewardPerItem?: Reward;
+    /**
+     * 
+     * @type {number}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyPercentageOfPurchaise?: number;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyMaxRewardPerTransaction?: Reward;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyVerificationPointsThreshold?: Reward;
+    /**
+     * 
+     * @type {number}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyVerificationTimeWindow?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    loyaltyVerificationTimeUnit?: SelfOnboardingInfoLoyaltyVerificationTimeUnitEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    productName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    productImageUrl?: string;
+    /**
+     * 
+     * @type {Reward}
+     * @memberof SelfOnboardingInfo
+     */
+    productPrice?: Reward;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
     companyId?: string;
     /**
      * 
@@ -191,16 +293,22 @@ export interface SelfOnboardingInfo {
     bountyId?: string;
     /**
      * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    pointCurrencyBountyId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SelfOnboardingInfo
+     */
+    productBountyId?: string;
+    /**
+     * 
      * @type {number}
      * @memberof SelfOnboardingInfo
      */
     completedAt?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SelfOnboardingInfo
-     */
-    valid?: boolean;
     /**
      * 
      * @type {boolean}
@@ -518,6 +626,31 @@ export const SelfOnboardingInfoBountyVisibilityEnum = {
 } as const;
 export type SelfOnboardingInfoBountyVisibilityEnum = typeof SelfOnboardingInfoBountyVisibilityEnum[keyof typeof SelfOnboardingInfoBountyVisibilityEnum];
 
+/**
+ * @export
+ */
+export const SelfOnboardingInfoLoyaltyTypeEnum = {
+    NONE: 'NONE',
+    PER_ITEM: 'PER_ITEM',
+    PERCENTAGE: 'PERCENTAGE',
+    UNKNOWN: 'UNKNOWN'
+} as const;
+export type SelfOnboardingInfoLoyaltyTypeEnum = typeof SelfOnboardingInfoLoyaltyTypeEnum[keyof typeof SelfOnboardingInfoLoyaltyTypeEnum];
+
+/**
+ * @export
+ */
+export const SelfOnboardingInfoLoyaltyVerificationTimeUnitEnum = {
+    NANOSECONDS: 'NANOSECONDS',
+    MICROSECONDS: 'MICROSECONDS',
+    MILLISECONDS: 'MILLISECONDS',
+    SECONDS: 'SECONDS',
+    MINUTES: 'MINUTES',
+    HOURS: 'HOURS',
+    DAYS: 'DAYS'
+} as const;
+export type SelfOnboardingInfoLoyaltyVerificationTimeUnitEnum = typeof SelfOnboardingInfoLoyaltyVerificationTimeUnitEnum[keyof typeof SelfOnboardingInfoLoyaltyVerificationTimeUnitEnum];
+
 
 /**
  * Check if a given object implements the SelfOnboardingInfo interface.
@@ -544,6 +677,11 @@ export function SelfOnboardingInfoFromJSONTyped(json: any, ignoreDiscriminator: 
         'businessWebsiteUrl': json['businessWebsiteUrl'] == null ? undefined : json['businessWebsiteUrl'],
         'businessCurrency': json['businessCurrency'] == null ? undefined : json['businessCurrency'],
         'useOwnCategories': json['useOwnCategories'] == null ? undefined : json['useOwnCategories'],
+        'pointCurrencyName': json['pointCurrencyName'] == null ? undefined : json['pointCurrencyName'],
+        'pointCurrencyCode': json['pointCurrencyCode'] == null ? undefined : json['pointCurrencyCode'],
+        'pointCurrencyExchangeFromAmount': json['pointCurrencyExchangeFromAmount'] == null ? undefined : json['pointCurrencyExchangeFromAmount'],
+        'pointCurrencyExchangeToAmount': json['pointCurrencyExchangeToAmount'] == null ? undefined : json['pointCurrencyExchangeToAmount'],
+        'pointCurrencyExchangeToCurrency': json['pointCurrencyExchangeToCurrency'] == null ? undefined : json['pointCurrencyExchangeToCurrency'],
         'voucherCode': json['voucherCode'] == null ? undefined : json['voucherCode'],
         'voucherDiscountType': json['voucherDiscountType'] == null ? undefined : json['voucherDiscountType'],
         'voucherTitle': json['voucherTitle'] == null ? undefined : json['voucherTitle'],
@@ -551,6 +689,7 @@ export function SelfOnboardingInfoFromJSONTyped(json: any, ignoreDiscriminator: 
         'voucherDescription': json['voucherDescription'] == null ? undefined : json['voucherDescription'],
         'voucherFlatDiscount': json['voucherFlatDiscount'] == null ? undefined : RewardFromJSON(json['voucherFlatDiscount']),
         'voucherPercentageDiscount': json['voucherPercentageDiscount'] == null ? undefined : json['voucherPercentageDiscount'],
+        'voucherPercentageMaxDiscountAmount': json['voucherPercentageMaxDiscountAmount'] == null ? undefined : json['voucherPercentageMaxDiscountAmount'],
         'voucherMaxQty': json['voucherMaxQty'] == null ? undefined : json['voucherMaxQty'],
         'voucherImageUrl': json['voucherImageUrl'] == null ? undefined : json['voucherImageUrl'],
         'voucherExpiresAt': json['voucherExpiresAt'] == null ? undefined : json['voucherExpiresAt'],
@@ -560,11 +699,23 @@ export function SelfOnboardingInfoFromJSONTyped(json: any, ignoreDiscriminator: 
         'bountyAttachmentType': json['bountyAttachmentType'] == null ? undefined : json['bountyAttachmentType'],
         'bountyVisibility': json['bountyVisibility'] == null ? undefined : json['bountyVisibility'],
         'bountyMaxRecipientsQty': json['bountyMaxRecipientsQty'] == null ? undefined : json['bountyMaxRecipientsQty'],
+        'loyaltyType': json['loyaltyType'] == null ? undefined : json['loyaltyType'],
+        'loyaltyItemName': json['loyaltyItemName'] == null ? undefined : json['loyaltyItemName'],
+        'loyaltyRewardPerItem': json['loyaltyRewardPerItem'] == null ? undefined : RewardFromJSON(json['loyaltyRewardPerItem']),
+        'loyaltyPercentageOfPurchaise': json['loyaltyPercentageOfPurchaise'] == null ? undefined : json['loyaltyPercentageOfPurchaise'],
+        'loyaltyMaxRewardPerTransaction': json['loyaltyMaxRewardPerTransaction'] == null ? undefined : RewardFromJSON(json['loyaltyMaxRewardPerTransaction']),
+        'loyaltyVerificationPointsThreshold': json['loyaltyVerificationPointsThreshold'] == null ? undefined : RewardFromJSON(json['loyaltyVerificationPointsThreshold']),
+        'loyaltyVerificationTimeWindow': json['loyaltyVerificationTimeWindow'] == null ? undefined : json['loyaltyVerificationTimeWindow'],
+        'loyaltyVerificationTimeUnit': json['loyaltyVerificationTimeUnit'] == null ? undefined : json['loyaltyVerificationTimeUnit'],
+        'productName': json['productName'] == null ? undefined : json['productName'],
+        'productImageUrl': json['productImageUrl'] == null ? undefined : json['productImageUrl'],
+        'productPrice': json['productPrice'] == null ? undefined : RewardFromJSON(json['productPrice']),
         'companyId': json['companyId'] == null ? undefined : json['companyId'],
         'voucherDefId': json['voucherDefId'] == null ? undefined : json['voucherDefId'],
         'bountyId': json['bountyId'] == null ? undefined : json['bountyId'],
+        'pointCurrencyBountyId': json['pointCurrencyBountyId'] == null ? undefined : json['pointCurrencyBountyId'],
+        'productBountyId': json['productBountyId'] == null ? undefined : json['productBountyId'],
         'completedAt': json['completedAt'] == null ? undefined : json['completedAt'],
-        'valid': json['valid'] == null ? undefined : json['valid'],
         'completed': json['completed'] == null ? undefined : json['completed'],
     };
 }
@@ -588,6 +739,11 @@ export function SelfOnboardingInfoToJSONTyped(value?: SelfOnboardingInfo | null,
         'businessWebsiteUrl': value['businessWebsiteUrl'],
         'businessCurrency': value['businessCurrency'],
         'useOwnCategories': value['useOwnCategories'],
+        'pointCurrencyName': value['pointCurrencyName'],
+        'pointCurrencyCode': value['pointCurrencyCode'],
+        'pointCurrencyExchangeFromAmount': value['pointCurrencyExchangeFromAmount'],
+        'pointCurrencyExchangeToAmount': value['pointCurrencyExchangeToAmount'],
+        'pointCurrencyExchangeToCurrency': value['pointCurrencyExchangeToCurrency'],
         'voucherCode': value['voucherCode'],
         'voucherDiscountType': value['voucherDiscountType'],
         'voucherTitle': value['voucherTitle'],
@@ -595,6 +751,7 @@ export function SelfOnboardingInfoToJSONTyped(value?: SelfOnboardingInfo | null,
         'voucherDescription': value['voucherDescription'],
         'voucherFlatDiscount': RewardToJSON(value['voucherFlatDiscount']),
         'voucherPercentageDiscount': value['voucherPercentageDiscount'],
+        'voucherPercentageMaxDiscountAmount': value['voucherPercentageMaxDiscountAmount'],
         'voucherMaxQty': value['voucherMaxQty'],
         'voucherImageUrl': value['voucherImageUrl'],
         'voucherExpiresAt': value['voucherExpiresAt'],
@@ -604,11 +761,23 @@ export function SelfOnboardingInfoToJSONTyped(value?: SelfOnboardingInfo | null,
         'bountyAttachmentType': value['bountyAttachmentType'],
         'bountyVisibility': value['bountyVisibility'],
         'bountyMaxRecipientsQty': value['bountyMaxRecipientsQty'],
+        'loyaltyType': value['loyaltyType'],
+        'loyaltyItemName': value['loyaltyItemName'],
+        'loyaltyRewardPerItem': RewardToJSON(value['loyaltyRewardPerItem']),
+        'loyaltyPercentageOfPurchaise': value['loyaltyPercentageOfPurchaise'],
+        'loyaltyMaxRewardPerTransaction': RewardToJSON(value['loyaltyMaxRewardPerTransaction']),
+        'loyaltyVerificationPointsThreshold': RewardToJSON(value['loyaltyVerificationPointsThreshold']),
+        'loyaltyVerificationTimeWindow': value['loyaltyVerificationTimeWindow'],
+        'loyaltyVerificationTimeUnit': value['loyaltyVerificationTimeUnit'],
+        'productName': value['productName'],
+        'productImageUrl': value['productImageUrl'],
+        'productPrice': RewardToJSON(value['productPrice']),
         'companyId': value['companyId'],
         'voucherDefId': value['voucherDefId'],
         'bountyId': value['bountyId'],
+        'pointCurrencyBountyId': value['pointCurrencyBountyId'],
+        'productBountyId': value['productBountyId'],
         'completedAt': value['completedAt'],
-        'valid': value['valid'],
         'completed': value['completed'],
     };
 }

@@ -135,6 +135,7 @@ export const CategorySourceEnum = {
     BIO_TRACK: 'BIO_TRACK',
     SHOPIFY: 'SHOPIFY',
     CSV: 'CSV',
+    I_SPORTS: 'I_SPORTS',
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type CategorySourceEnum = typeof CategorySourceEnum[keyof typeof CategorySourceEnum];

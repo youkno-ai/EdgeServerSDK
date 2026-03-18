@@ -18,5 +18,6 @@ public enum EntitySource: String, Codable, CaseIterable {
     case bioTrack = "BIO_TRACK"
     case shopify = "SHOPIFY"
     case csv = "CSV"
+    case iSports = "I_SPORTS"
     case unknown = "UNKNOWN"
 }

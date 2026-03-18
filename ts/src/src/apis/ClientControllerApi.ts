@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AiProvidersReq,
   AssignClientRequest,
   AssignClientResponse,
   AuditLogResult,
@@ -49,6 +50,8 @@ import type {
   Zone,
 } from '../models/index';
 import {
+    AiProvidersReqFromJSON,
+    AiProvidersReqToJSON,
     AssignClientRequestFromJSON,
     AssignClientRequestToJSON,
     AssignClientResponseFromJSON,
@@ -146,6 +149,13 @@ export interface GetApiV1ClientsRequest {
 }
 
 export interface GetApiV1ClientsByClientRequest {
+    client: string;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface GetApiV1ClientsByClientAiRequest {
     client: string;
     xEdgeAgent?: string;
     xEdgeState?: string;
@@ -324,6 +334,14 @@ export interface PatchApiV1ClientsByClientSettingsShopsettingsRequest {
 
 export interface PostApiV1ClientsRequest {
     createClientRequest: CreateClientRequest;
+    xEdgeAgent?: string;
+    xEdgeState?: string;
+    xEdgeClientId?: string;
+}
+
+export interface PostApiV1ClientsByClientAiRequest {
+    client: string;
+    aiProvidersReq: AiProvidersReq;
     xEdgeAgent?: string;
     xEdgeState?: string;
     xEdgeClientId?: string;
@@ -543,6 +561,22 @@ export interface ClientControllerApiInterface {
     /**
      */
     getApiV1ClientsByClient(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    getApiV1ClientsByClientAiRaw(requestParameters: GetApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AiProvidersReq>>;
+
+    /**
+     */
+    getApiV1ClientsByClientAi(requestParameters: GetApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AiProvidersReq>;
 
     /**
      * 
@@ -918,6 +952,23 @@ export interface ClientControllerApiInterface {
     /**
      */
     postApiV1Clients(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult>;
+
+    /**
+     * 
+     * @param {string} client 
+     * @param {AiProvidersReq} aiProvidersReq 
+     * @param {string} [xEdgeAgent] 
+     * @param {string} [xEdgeState] 
+     * @param {string} [xEdgeClientId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClientControllerApiInterface
+     */
+    postApiV1ClientsByClientAiRaw(requestParameters: PostApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>>;
+
+    /**
+     */
+    postApiV1ClientsByClientAi(requestParameters: PostApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }>;
 
     /**
      * 
@@ -1461,6 +1512,57 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
      */
     async getApiV1ClientsByClient(requestParameters: GetApiV1ClientsByClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateClientRequest> {
         const response = await this.getApiV1ClientsByClientRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientAiRaw(requestParameters: GetApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AiProvidersReq>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling getApiV1ClientsByClientAi().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/ai`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AiProvidersReqFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getApiV1ClientsByClientAi(requestParameters: GetApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AiProvidersReq> {
+        const response = await this.getApiV1ClientsByClientAiRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2729,6 +2831,67 @@ export class ClientControllerApi extends runtime.BaseAPI implements ClientContro
      */
     async postApiV1Clients(requestParameters: PostApiV1ClientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateClientResult> {
         const response = await this.postApiV1ClientsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientAiRaw(requestParameters: PostApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: string; }>> {
+        if (requestParameters['client'] == null) {
+            throw new runtime.RequiredError(
+                'client',
+                'Required parameter "client" was null or undefined when calling postApiV1ClientsByClientAi().'
+            );
+        }
+
+        if (requestParameters['aiProvidersReq'] == null) {
+            throw new runtime.RequiredError(
+                'aiProvidersReq',
+                'Required parameter "aiProvidersReq" was null or undefined when calling postApiV1ClientsByClientAi().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (requestParameters['xEdgeAgent'] != null) {
+            headerParameters['X-edge-agent'] = String(requestParameters['xEdgeAgent']);
+        }
+
+        if (requestParameters['xEdgeState'] != null) {
+            headerParameters['X-edge-state'] = String(requestParameters['xEdgeState']);
+        }
+
+        if (requestParameters['xEdgeClientId'] != null) {
+            headerParameters['X-edge-client-id'] = String(requestParameters['xEdgeClientId']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // JWT authentication
+        }
+
+
+        let urlPath = `/api/v1/clients/{client}/ai`;
+        urlPath = urlPath.replace(`{${"client"}}`, encodeURIComponent(String(requestParameters['client'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AiProvidersReqToJSON(requestParameters['aiProvidersReq']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     */
+    async postApiV1ClientsByClientAi(requestParameters: PostApiV1ClientsByClientAiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: string; }> {
+        const response = await this.postApiV1ClientsByClientAiRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

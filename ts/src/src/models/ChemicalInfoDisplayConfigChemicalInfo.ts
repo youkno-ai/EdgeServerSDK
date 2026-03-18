@@ -92,13 +92,13 @@ export interface ChemicalInfoDisplayConfigChemicalInfo {
      * @type {string}
      * @memberof ChemicalInfoDisplayConfigChemicalInfo
      */
-    viewModeAsEnum?: ChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum;
+    effectiveName?: string;
     /**
      * 
      * @type {string}
      * @memberof ChemicalInfoDisplayConfigChemicalInfo
      */
-    effectiveName?: string;
+    viewModeAsEnum?: ChemicalInfoDisplayConfigChemicalInfoViewModeAsEnumEnum;
 }
 
 
@@ -153,8 +153,8 @@ export function ChemicalInfoDisplayConfigChemicalInfoFromJSONTyped(json: any, ig
         'uom': json['uom'] == null ? undefined : json['uom'],
         'categoryInfo': json['categoryInfo'] == null ? undefined : (mapValues(json['categoryInfo'], CategoryChemicalInfoFromJSON)),
         'kindAsEnum': json['kindAsEnum'] == null ? undefined : json['kindAsEnum'],
-        'viewModeAsEnum': json['viewModeAsEnum'] == null ? undefined : json['viewModeAsEnum'],
         'effectiveName': json['effectiveName'] == null ? undefined : json['effectiveName'],
+        'viewModeAsEnum': json['viewModeAsEnum'] == null ? undefined : json['viewModeAsEnum'],
     };
 }
 
@@ -179,8 +179,8 @@ export function ChemicalInfoDisplayConfigChemicalInfoToJSONTyped(value?: Chemica
         'uom': value['uom'],
         'categoryInfo': value['categoryInfo'] == null ? undefined : (mapValues(value['categoryInfo'], CategoryChemicalInfoToJSON)),
         'kindAsEnum': value['kindAsEnum'],
-        'viewModeAsEnum': value['viewModeAsEnum'],
         'effectiveName': value['effectiveName'],
+        'viewModeAsEnum': value['viewModeAsEnum'],
     };
 }
 

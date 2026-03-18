@@ -223,19 +223,7 @@ export interface BountyOrder {
      * @type {string}
      * @memberof BountyOrder
      */
-    merchantId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BountyOrder
-     */
-    imageUrl?: string;
-    /**
-     * 
-     * @type {OrderSection}
-     * @memberof BountyOrder
-     */
-    overallSection?: OrderSection;
+    statusAsEnum?: BountyOrderStatusAsEnumEnum;
     /**
      * 
      * @type {User}
@@ -247,7 +235,13 @@ export interface BountyOrder {
      * @type {string}
      * @memberof BountyOrder
      */
-    statusAsEnum?: BountyOrderStatusAsEnumEnum;
+    merchantId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BountyOrder
+     */
+    imageUrl?: string;
     /**
      * 
      * @type {string}
@@ -256,10 +250,16 @@ export interface BountyOrder {
     customerEmail?: string;
     /**
      * 
-     * @type {Reward}
+     * @type {OrderSection}
      * @memberof BountyOrder
      */
-    vouchersToRedeem?: Reward;
+    overallSection?: OrderSection;
+    /**
+     * 
+     * @type {string}
+     * @memberof BountyOrder
+     */
+    paymentStatusAsEnum?: BountyOrderPaymentStatusAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -268,10 +268,10 @@ export interface BountyOrder {
     receiptStatusAsEnum?: BountyOrderReceiptStatusAsEnumEnum;
     /**
      * 
-     * @type {string}
+     * @type {Reward}
      * @memberof BountyOrder
      */
-    paymentStatusAsEnum?: BountyOrderPaymentStatusAsEnumEnum;
+    vouchersToRedeem?: Reward;
 }
 
 
@@ -297,15 +297,6 @@ export type BountyOrderStatusAsEnumEnum = typeof BountyOrderStatusAsEnumEnum[key
 /**
  * @export
  */
-export const BountyOrderReceiptStatusAsEnumEnum = {
-    CREATED: 'CREATED',
-    SCANNED: 'SCANNED'
-} as const;
-export type BountyOrderReceiptStatusAsEnumEnum = typeof BountyOrderReceiptStatusAsEnumEnum[keyof typeof BountyOrderReceiptStatusAsEnumEnum];
-
-/**
- * @export
- */
 export const BountyOrderPaymentStatusAsEnumEnum = {
     NONE: 'NONE',
     PENDING_PAYMENT: 'PENDING_PAYMENT',
@@ -316,6 +307,15 @@ export const BountyOrderPaymentStatusAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type BountyOrderPaymentStatusAsEnumEnum = typeof BountyOrderPaymentStatusAsEnumEnum[keyof typeof BountyOrderPaymentStatusAsEnumEnum];
+
+/**
+ * @export
+ */
+export const BountyOrderReceiptStatusAsEnumEnum = {
+    CREATED: 'CREATED',
+    SCANNED: 'SCANNED'
+} as const;
+export type BountyOrderReceiptStatusAsEnumEnum = typeof BountyOrderReceiptStatusAsEnumEnum[keyof typeof BountyOrderReceiptStatusAsEnumEnum];
 
 
 /**
@@ -354,15 +354,15 @@ export function BountyOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'receiptUrl': json['receiptUrl'] == null ? undefined : json['receiptUrl'],
         'posUrl': json['posUrl'] == null ? undefined : json['posUrl'],
         'merchantOrderUrl': json['merchantOrderUrl'] == null ? undefined : json['merchantOrderUrl'],
+        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
+        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
-        'merchant': json['merchant'] == null ? undefined : UserFromJSON(json['merchant']),
-        'statusAsEnum': json['statusAsEnum'] == null ? undefined : json['statusAsEnum'],
         'customerEmail': json['customerEmail'] == null ? undefined : json['customerEmail'],
-        'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
-        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'overallSection': json['overallSection'] == null ? undefined : OrderSectionFromJSON(json['overallSection']),
         'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
+        'receiptStatusAsEnum': json['receiptStatusAsEnum'] == null ? undefined : json['receiptStatusAsEnum'],
+        'vouchersToRedeem': json['vouchersToRedeem'] == null ? undefined : RewardFromJSON(json['vouchersToRedeem']),
     };
 }
 
@@ -396,15 +396,15 @@ export function BountyOrderToJSONTyped(value?: BountyOrder | null, ignoreDiscrim
         'receiptUrl': value['receiptUrl'],
         'posUrl': value['posUrl'],
         'merchantOrderUrl': value['merchantOrderUrl'],
+        'statusAsEnum': value['statusAsEnum'],
+        'merchant': UserToJSON(value['merchant']),
         'merchantId': value['merchantId'],
         'imageUrl': value['imageUrl'],
-        'overallSection': OrderSectionToJSON(value['overallSection']),
-        'merchant': UserToJSON(value['merchant']),
-        'statusAsEnum': value['statusAsEnum'],
         'customerEmail': value['customerEmail'],
-        'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
-        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'overallSection': OrderSectionToJSON(value['overallSection']),
         'paymentStatusAsEnum': value['paymentStatusAsEnum'],
+        'receiptStatusAsEnum': value['receiptStatusAsEnum'],
+        'vouchersToRedeem': RewardToJSON(value['vouchersToRedeem']),
     };
 }
 

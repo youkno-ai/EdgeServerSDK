@@ -22,17 +22,17 @@ public struct ClaimSnippet: Codable, JSONEncodable, Hashable {
     public var rejection: Rejection?
     public var claimedAt: Int64?
     public var status: String?
-    public var rejected: Bool?
     public var statusAsEnum: StatusAsEnum?
+    public var rejected: Bool?
 
-    public init(from: User? = nil, claimId: String? = nil, rejection: Rejection? = nil, claimedAt: Int64? = nil, status: String? = nil, rejected: Bool? = nil, statusAsEnum: StatusAsEnum? = nil) {
+    public init(from: User? = nil, claimId: String? = nil, rejection: Rejection? = nil, claimedAt: Int64? = nil, status: String? = nil, statusAsEnum: StatusAsEnum? = nil, rejected: Bool? = nil) {
         self.from = from
         self.claimId = claimId
         self.rejection = rejection
         self.claimedAt = claimedAt
         self.status = status
-        self.rejected = rejected
         self.statusAsEnum = statusAsEnum
+        self.rejected = rejected
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,8 +41,8 @@ public struct ClaimSnippet: Codable, JSONEncodable, Hashable {
         case rejection
         case claimedAt
         case status
-        case rejected
         case statusAsEnum
+        case rejected
     }
 
     // Encodable protocol methods
@@ -54,8 +54,8 @@ public struct ClaimSnippet: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(rejection, forKey: .rejection)
         try container.encodeIfPresent(claimedAt, forKey: .claimedAt)
         try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(rejected, forKey: .rejected)
         try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
+        try container.encodeIfPresent(rejected, forKey: .rejected)
     }
 }
 

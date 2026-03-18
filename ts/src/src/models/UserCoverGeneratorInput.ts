@@ -61,6 +61,18 @@ export interface UserCoverGeneratorInput {
      * @memberof UserCoverGeneratorInput
      */
     seed?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserCoverGeneratorInput
+     */
+    imageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserCoverGeneratorInput
+     */
+    videoGenProvider?: string;
 }
 
 
@@ -124,6 +136,8 @@ export function UserCoverGeneratorInputFromJSONTyped(json: any, ignoreDiscrimina
         'palette': json['palette'] == null ? undefined : json['palette'],
         'deterministic': json['deterministic'] == null ? undefined : json['deterministic'],
         'seed': json['seed'] == null ? undefined : json['seed'],
+        'imageGenProvider': json['imageGenProvider'] == null ? undefined : json['imageGenProvider'],
+        'videoGenProvider': json['videoGenProvider'] == null ? undefined : json['videoGenProvider'],
     };
 }
 
@@ -145,6 +159,8 @@ export function UserCoverGeneratorInputToJSONTyped(value?: UserCoverGeneratorInp
         'palette': value['palette'],
         'deterministic': value['deterministic'],
         'seed': value['seed'],
+        'imageGenProvider': value['imageGenProvider'],
+        'videoGenProvider': value['videoGenProvider'],
     };
 }
 

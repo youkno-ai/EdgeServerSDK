@@ -16,16 +16,16 @@ public struct BountyQuickClaimInfo: Codable, JSONEncodable, Hashable {
     public var claimIntervalMs: Int64?
     public var claimPeriod: WeekPeriod?
     public var autoClaim: Bool?
-    public var effectiveClaimInterval: Int64?
     public var effectiveClaimerResponseCount: Int?
+    public var effectiveClaimInterval: Int64?
 
-    public init(claimerResponseCount: Int? = nil, claimIntervalMs: Int64? = nil, claimPeriod: WeekPeriod? = nil, autoClaim: Bool? = nil, effectiveClaimInterval: Int64? = nil, effectiveClaimerResponseCount: Int? = nil) {
+    public init(claimerResponseCount: Int? = nil, claimIntervalMs: Int64? = nil, claimPeriod: WeekPeriod? = nil, autoClaim: Bool? = nil, effectiveClaimerResponseCount: Int? = nil, effectiveClaimInterval: Int64? = nil) {
         self.claimerResponseCount = claimerResponseCount
         self.claimIntervalMs = claimIntervalMs
         self.claimPeriod = claimPeriod
         self.autoClaim = autoClaim
-        self.effectiveClaimInterval = effectiveClaimInterval
         self.effectiveClaimerResponseCount = effectiveClaimerResponseCount
+        self.effectiveClaimInterval = effectiveClaimInterval
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,8 +33,8 @@ public struct BountyQuickClaimInfo: Codable, JSONEncodable, Hashable {
         case claimIntervalMs
         case claimPeriod
         case autoClaim
-        case effectiveClaimInterval
         case effectiveClaimerResponseCount
+        case effectiveClaimInterval
     }
 
     // Encodable protocol methods
@@ -45,8 +45,8 @@ public struct BountyQuickClaimInfo: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(claimIntervalMs, forKey: .claimIntervalMs)
         try container.encodeIfPresent(claimPeriod, forKey: .claimPeriod)
         try container.encodeIfPresent(autoClaim, forKey: .autoClaim)
-        try container.encodeIfPresent(effectiveClaimInterval, forKey: .effectiveClaimInterval)
         try container.encodeIfPresent(effectiveClaimerResponseCount, forKey: .effectiveClaimerResponseCount)
+        try container.encodeIfPresent(effectiveClaimInterval, forKey: .effectiveClaimInterval)
     }
 }
 

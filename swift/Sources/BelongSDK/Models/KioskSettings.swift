@@ -18,6 +18,12 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
         case disabled = "DISABLED"
         case unknown = "UNKNOWN"
     }
+    public enum PrintReceiptAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case yes = "YES"
+        case no = "NO"
+        case unknown = "UNKNOWN"
+    }
     public enum TerminalPositionAsEnum: String, Codable, CaseIterable {
         case _none = "NONE"
         case upLeft = "UP_LEFT"
@@ -32,12 +38,6 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
         case builtIn = "BUILT_IN"
         case unknown = "UNKNOWN"
     }
-    public enum PrintReceiptAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case yes = "YES"
-        case no = "NO"
-        case unknown = "UNKNOWN"
-    }
     public var kioskId: String?
     public var alleavesRegisterId: String?
     public var registerId: String?
@@ -47,10 +47,10 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
     public var status: String?
     public var valid: Bool?
     public var statusAsEnum: StatusAsEnum?
-    public var terminalPositionAsEnum: TerminalPositionAsEnum?
     public var printReceiptAsEnum: PrintReceiptAsEnum?
+    public var terminalPositionAsEnum: TerminalPositionAsEnum?
 
-    public init(kioskId: String? = nil, alleavesRegisterId: String? = nil, registerId: String? = nil, authKey: String? = nil, terminalPosition: String? = nil, printReceipt: String? = nil, status: String? = nil, valid: Bool? = nil, statusAsEnum: StatusAsEnum? = nil, terminalPositionAsEnum: TerminalPositionAsEnum? = nil, printReceiptAsEnum: PrintReceiptAsEnum? = nil) {
+    public init(kioskId: String? = nil, alleavesRegisterId: String? = nil, registerId: String? = nil, authKey: String? = nil, terminalPosition: String? = nil, printReceipt: String? = nil, status: String? = nil, valid: Bool? = nil, statusAsEnum: StatusAsEnum? = nil, printReceiptAsEnum: PrintReceiptAsEnum? = nil, terminalPositionAsEnum: TerminalPositionAsEnum? = nil) {
         self.kioskId = kioskId
         self.alleavesRegisterId = alleavesRegisterId
         self.registerId = registerId
@@ -60,8 +60,8 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
         self.status = status
         self.valid = valid
         self.statusAsEnum = statusAsEnum
-        self.terminalPositionAsEnum = terminalPositionAsEnum
         self.printReceiptAsEnum = printReceiptAsEnum
+        self.terminalPositionAsEnum = terminalPositionAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -74,8 +74,8 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
         case status
         case valid
         case statusAsEnum
-        case terminalPositionAsEnum
         case printReceiptAsEnum
+        case terminalPositionAsEnum
     }
 
     // Encodable protocol methods
@@ -91,8 +91,8 @@ public struct KioskSettings: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(valid, forKey: .valid)
         try container.encodeIfPresent(statusAsEnum, forKey: .statusAsEnum)
-        try container.encodeIfPresent(terminalPositionAsEnum, forKey: .terminalPositionAsEnum)
         try container.encodeIfPresent(printReceiptAsEnum, forKey: .printReceiptAsEnum)
+        try container.encodeIfPresent(terminalPositionAsEnum, forKey: .terminalPositionAsEnum)
     }
 }
 

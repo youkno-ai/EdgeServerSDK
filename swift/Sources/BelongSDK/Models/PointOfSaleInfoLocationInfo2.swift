@@ -38,11 +38,11 @@ public struct PointOfSaleInfoLocationInfo2: Codable, JSONEncodable, Hashable {
     public var medicalUse: Bool?
     public var isMetrc: Bool?
     public var onlineShop: String?
-    public var shopOnline: Bool?
     public var deliveryMethods: Set<DeliveryMethods>?
+    public var shopOnline: Bool?
     public var onlinePresenceJustified: Bool?
 
-    public init(id: String? = nil, locationId: String? = nil, companyPin: String? = nil, companyId: String? = nil, name: String? = nil, address: MailingAddress? = nil, timezone: String? = nil, retail: Bool? = nil, pickup: Bool? = nil, delivery: Bool? = nil, curbside: Bool? = nil, expressDelivery: Bool? = nil, deliveryZipcodes: String? = nil, adultUse: Bool? = nil, medicalUse: Bool? = nil, isMetrc: Bool? = nil, onlineShop: String? = nil, shopOnline: Bool? = nil, deliveryMethods: Set<DeliveryMethods>? = nil, onlinePresenceJustified: Bool? = nil) {
+    public init(id: String? = nil, locationId: String? = nil, companyPin: String? = nil, companyId: String? = nil, name: String? = nil, address: MailingAddress? = nil, timezone: String? = nil, retail: Bool? = nil, pickup: Bool? = nil, delivery: Bool? = nil, curbside: Bool? = nil, expressDelivery: Bool? = nil, deliveryZipcodes: String? = nil, adultUse: Bool? = nil, medicalUse: Bool? = nil, isMetrc: Bool? = nil, onlineShop: String? = nil, deliveryMethods: Set<DeliveryMethods>? = nil, shopOnline: Bool? = nil, onlinePresenceJustified: Bool? = nil) {
         self.id = id
         self.locationId = locationId
         self.companyPin = companyPin
@@ -60,8 +60,8 @@ public struct PointOfSaleInfoLocationInfo2: Codable, JSONEncodable, Hashable {
         self.medicalUse = medicalUse
         self.isMetrc = isMetrc
         self.onlineShop = onlineShop
-        self.shopOnline = shopOnline
         self.deliveryMethods = deliveryMethods
+        self.shopOnline = shopOnline
         self.onlinePresenceJustified = onlinePresenceJustified
     }
 
@@ -83,8 +83,8 @@ public struct PointOfSaleInfoLocationInfo2: Codable, JSONEncodable, Hashable {
         case medicalUse
         case isMetrc
         case onlineShop
-        case shopOnline
         case deliveryMethods
+        case shopOnline
         case onlinePresenceJustified
     }
 
@@ -109,8 +109,8 @@ public struct PointOfSaleInfoLocationInfo2: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(medicalUse, forKey: .medicalUse)
         try container.encodeIfPresent(isMetrc, forKey: .isMetrc)
         try container.encodeIfPresent(onlineShop, forKey: .onlineShop)
-        try container.encodeIfPresent(shopOnline, forKey: .shopOnline)
         try container.encodeIfPresent(deliveryMethods, forKey: .deliveryMethods)
+        try container.encodeIfPresent(shopOnline, forKey: .shopOnline)
         try container.encodeIfPresent(onlinePresenceJustified, forKey: .onlinePresenceJustified)
     }
 }

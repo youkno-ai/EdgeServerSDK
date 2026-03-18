@@ -44,28 +44,25 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         case shop = "SHOP"
         case market = "MARKET"
     }
-    public enum SyncProductStrategyAsEnum: String, Codable, CaseIterable {
-        case noVariants = "NO_VARIANTS"
-        case withVariants = "WITH_VARIANTS"
-    }
-    public enum FlwrInferenceStrategyAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case infer = "INFER"
-        case skip = "SKIP"
-    }
-    public enum MerchandiseTypeAsEnum: String, Codable, CaseIterable {
-        case _default = "DEFAULT"
-        case cannabis = "CANNABIS"
-    }
-    public enum SettingsTypeAsEnum: String, Codable, CaseIterable {
-        case _none = "NONE"
-        case corp = "CORP"
+    public enum SettingsWriteModeAsEnum: String, Codable, CaseIterable {
         case location = "LOCATION"
+        case corporate = "CORPORATE"
+        case system = "SYSTEM"
+    }
+    public enum ShopStatusAsEnum: String, Codable, CaseIterable {
+        case auto = "AUTO"
+        case enabled = "ENABLED"
+        case disabled = "DISABLED"
         case unknown = "UNKNOWN"
     }
-    public enum LocationBrandingAsEnum: String, Codable, CaseIterable {
-        case disabled = "DISABLED"
-        case enabled = "ENABLED"
+    public enum SoldByLabelAsEnum: String, Codable, CaseIterable {
+        case show = "SHOW"
+        case hide = "HIDE"
+    }
+    public enum SettingsStrategyAsEnum: String, Codable, CaseIterable {
+        case corpOnly = "CORP_ONLY"
+        case locationOnly = "LOCATION_ONLY"
+        case inherit = "INHERIT"
     }
     public enum LandingPageAsEnum: String, Codable, CaseIterable {
         case _default = "DEFAULT"
@@ -93,21 +90,28 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         case curbside = "CURBSIDE"
         case unknown = "UNKNOWN"
     }
-    public enum SettingsStrategyAsEnum: String, Codable, CaseIterable {
-        case corpOnly = "CORP_ONLY"
-        case locationOnly = "LOCATION_ONLY"
-        case inherit = "INHERIT"
+    public enum MerchandiseTypeAsEnum: String, Codable, CaseIterable {
+        case _default = "DEFAULT"
+        case cannabis = "CANNABIS"
     }
-    public enum SettingsWriteModeAsEnum: String, Codable, CaseIterable {
+    public enum SyncProductStrategyAsEnum: String, Codable, CaseIterable {
+        case noVariants = "NO_VARIANTS"
+        case withVariants = "WITH_VARIANTS"
+    }
+    public enum FlwrInferenceStrategyAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case infer = "INFER"
+        case skip = "SKIP"
+    }
+    public enum SettingsTypeAsEnum: String, Codable, CaseIterable {
+        case _none = "NONE"
+        case corp = "CORP"
         case location = "LOCATION"
-        case corporate = "CORPORATE"
-        case system = "SYSTEM"
-    }
-    public enum ShopStatusAsEnum: String, Codable, CaseIterable {
-        case auto = "AUTO"
-        case enabled = "ENABLED"
-        case disabled = "DISABLED"
         case unknown = "UNKNOWN"
+    }
+    public enum LocationBrandingAsEnum: String, Codable, CaseIterable {
+        case disabled = "DISABLED"
+        case enabled = "ENABLED"
     }
     public static let paymentMethodsAsEnumsRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
     public var settingsType: String?
@@ -120,6 +124,7 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
     public var lowQuantityThreshold: Int?
     public var anonUsers: String?
     public var locationBranding: String?
+    public var soldByLabel: String?
     public var landingPage: String?
     public var shopType: String?
     public var backgrounds: [String: ShopSettingsBackground]?
@@ -169,24 +174,25 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
     public var loginsAsEnum: [LoginsAsEnum]?
     public var anonUsersAsEnum: AnonUsersAsEnum?
     public var shopTypeAsEnum: ShopTypeAsEnum?
-    public var syncProductStrategyAsEnum: SyncProductStrategyAsEnum?
-    public var flwrInferenceStrategyAsEnum: FlwrInferenceStrategyAsEnum?
-    public var merchandiseTypeAsEnum: MerchandiseTypeAsEnum?
-    public var effectiveStockMessageConfig: StockMessageConfig?
-    public var inventoryAreaIds: [String]?
-    public var settingsTypeAsEnum: SettingsTypeAsEnum?
-    public var locationBrandingAsEnum: LocationBrandingAsEnum?
+    public var settingsWriteModeAsEnum: SettingsWriteModeAsEnum?
+    public var shopStatusAsEnum: ShopStatusAsEnum?
+    public var soldByLabelAsEnum: SoldByLabelAsEnum?
+    public var settingsStrategyAsEnum: SettingsStrategyAsEnum?
+    public var embeddedShopUrlAsURI: String?
     public var landingPageAsEnum: LandingPageAsEnum?
     public var medicalIdPromptAsEnum: MedicalIdPromptAsEnum?
     public var productBalanceAsEnum: ProductBalanceAsEnum?
     public var paymentMethodsAsEnums: Set<PaymentMethodsAsEnums>?
     public var deliveryMethodsAsEnum: [DeliveryMethodsAsEnum]?
-    public var settingsStrategyAsEnum: SettingsStrategyAsEnum?
-    public var settingsWriteModeAsEnum: SettingsWriteModeAsEnum?
-    public var shopStatusAsEnum: ShopStatusAsEnum?
-    public var embeddedShopUrlAsURI: String?
+    public var merchandiseTypeAsEnum: MerchandiseTypeAsEnum?
+    public var effectiveStockMessageConfig: StockMessageConfig?
+    public var inventoryAreaIds: [String]?
+    public var syncProductStrategyAsEnum: SyncProductStrategyAsEnum?
+    public var flwrInferenceStrategyAsEnum: FlwrInferenceStrategyAsEnum?
+    public var settingsTypeAsEnum: SettingsTypeAsEnum?
+    public var locationBrandingAsEnum: LocationBrandingAsEnum?
 
-    public init(settingsType: String? = nil, merchandiseType: String? = nil, embeddedShopUrl: String? = nil, shopStatus: String? = nil, writeMode: String? = nil, settingsStrategy: String? = nil, filterByAge: Int? = nil, lowQuantityThreshold: Int? = nil, anonUsers: String? = nil, locationBranding: String? = nil, landingPage: String? = nil, shopType: String? = nil, backgrounds: [String: ShopSettingsBackground]? = nil, medicalIdPrompt: String? = nil, shopDescription: String? = nil, shippingFee: ShippingFee? = nil, paymentMethods: [String: ShopSettingsPaymentMethodInfo]? = nil, deliveryMethodInfos: [String: DeliveryMethodInfo]? = nil, vendorPolicies: [String: Policy]? = nil, paymentConfirmationTime: Int? = nil, productBalance: String? = nil, supportPhoneNumber: String? = nil, supportEmail: String? = nil, inventoryAreas: String? = nil, orderDisclaimerMessage: String? = nil, orderWarningMessage: String? = nil, consentMessage: String? = nil, showBuyNow: Bool? = nil, shopOperation: ShopOperation? = nil, logins: String? = nil, kioskAddToQueue: Bool? = nil, checkoutFields: [String: String]? = nil, kioskSettings: [String: KioskSettings]? = nil, viewConfigs: [String: ViewConfig]? = nil, sortConfigs: [String: SortConfig]? = nil, deliveryConfigs: [String: DeliveryConfig]? = nil, addressAutocomplete: String? = nil, tribalIdMode: String? = nil, chemicalInfoDisplayConfig: ChemicalInfoDisplayConfig? = nil, categoryConfigs: [String: CategoryConfig]? = nil, shopChatSupportState: ShopChatSupportState? = nil, seo: [String: SeoData]? = nil, stockMessageConfig: StockMessageConfig? = nil, bannerStatuses: [String: String]? = nil, productRecommendationsStatus: String? = nil, footerConfig: FooterConfig? = nil, syncProductConfig: SyncProductConfig? = nil, deliveryMethods: String? = nil, alleavesEnv: String? = nil, pointOfSaleCredentials: Credentials? = nil, posType: PosType? = nil, effectiveShopOperation: ShopOperation? = nil, analyticsInfo: Analytics? = nil, billMyBankInfo: BillMyBankInfo? = nil, chargeeInfo: ChargeeInfo? = nil, empty: Bool? = nil, loginsAsEnum: [LoginsAsEnum]? = nil, anonUsersAsEnum: AnonUsersAsEnum? = nil, shopTypeAsEnum: ShopTypeAsEnum? = nil, syncProductStrategyAsEnum: SyncProductStrategyAsEnum? = nil, flwrInferenceStrategyAsEnum: FlwrInferenceStrategyAsEnum? = nil, merchandiseTypeAsEnum: MerchandiseTypeAsEnum? = nil, effectiveStockMessageConfig: StockMessageConfig? = nil, inventoryAreaIds: [String]? = nil, settingsTypeAsEnum: SettingsTypeAsEnum? = nil, locationBrandingAsEnum: LocationBrandingAsEnum? = nil, landingPageAsEnum: LandingPageAsEnum? = nil, medicalIdPromptAsEnum: MedicalIdPromptAsEnum? = nil, productBalanceAsEnum: ProductBalanceAsEnum? = nil, paymentMethodsAsEnums: Set<PaymentMethodsAsEnums>? = nil, deliveryMethodsAsEnum: [DeliveryMethodsAsEnum]? = nil, settingsStrategyAsEnum: SettingsStrategyAsEnum? = nil, settingsWriteModeAsEnum: SettingsWriteModeAsEnum? = nil, shopStatusAsEnum: ShopStatusAsEnum? = nil, embeddedShopUrlAsURI: String? = nil) {
+    public init(settingsType: String? = nil, merchandiseType: String? = nil, embeddedShopUrl: String? = nil, shopStatus: String? = nil, writeMode: String? = nil, settingsStrategy: String? = nil, filterByAge: Int? = nil, lowQuantityThreshold: Int? = nil, anonUsers: String? = nil, locationBranding: String? = nil, soldByLabel: String? = nil, landingPage: String? = nil, shopType: String? = nil, backgrounds: [String: ShopSettingsBackground]? = nil, medicalIdPrompt: String? = nil, shopDescription: String? = nil, shippingFee: ShippingFee? = nil, paymentMethods: [String: ShopSettingsPaymentMethodInfo]? = nil, deliveryMethodInfos: [String: DeliveryMethodInfo]? = nil, vendorPolicies: [String: Policy]? = nil, paymentConfirmationTime: Int? = nil, productBalance: String? = nil, supportPhoneNumber: String? = nil, supportEmail: String? = nil, inventoryAreas: String? = nil, orderDisclaimerMessage: String? = nil, orderWarningMessage: String? = nil, consentMessage: String? = nil, showBuyNow: Bool? = nil, shopOperation: ShopOperation? = nil, logins: String? = nil, kioskAddToQueue: Bool? = nil, checkoutFields: [String: String]? = nil, kioskSettings: [String: KioskSettings]? = nil, viewConfigs: [String: ViewConfig]? = nil, sortConfigs: [String: SortConfig]? = nil, deliveryConfigs: [String: DeliveryConfig]? = nil, addressAutocomplete: String? = nil, tribalIdMode: String? = nil, chemicalInfoDisplayConfig: ChemicalInfoDisplayConfig? = nil, categoryConfigs: [String: CategoryConfig]? = nil, shopChatSupportState: ShopChatSupportState? = nil, seo: [String: SeoData]? = nil, stockMessageConfig: StockMessageConfig? = nil, bannerStatuses: [String: String]? = nil, productRecommendationsStatus: String? = nil, footerConfig: FooterConfig? = nil, syncProductConfig: SyncProductConfig? = nil, deliveryMethods: String? = nil, alleavesEnv: String? = nil, pointOfSaleCredentials: Credentials? = nil, posType: PosType? = nil, effectiveShopOperation: ShopOperation? = nil, analyticsInfo: Analytics? = nil, billMyBankInfo: BillMyBankInfo? = nil, chargeeInfo: ChargeeInfo? = nil, empty: Bool? = nil, loginsAsEnum: [LoginsAsEnum]? = nil, anonUsersAsEnum: AnonUsersAsEnum? = nil, shopTypeAsEnum: ShopTypeAsEnum? = nil, settingsWriteModeAsEnum: SettingsWriteModeAsEnum? = nil, shopStatusAsEnum: ShopStatusAsEnum? = nil, soldByLabelAsEnum: SoldByLabelAsEnum? = nil, settingsStrategyAsEnum: SettingsStrategyAsEnum? = nil, embeddedShopUrlAsURI: String? = nil, landingPageAsEnum: LandingPageAsEnum? = nil, medicalIdPromptAsEnum: MedicalIdPromptAsEnum? = nil, productBalanceAsEnum: ProductBalanceAsEnum? = nil, paymentMethodsAsEnums: Set<PaymentMethodsAsEnums>? = nil, deliveryMethodsAsEnum: [DeliveryMethodsAsEnum]? = nil, merchandiseTypeAsEnum: MerchandiseTypeAsEnum? = nil, effectiveStockMessageConfig: StockMessageConfig? = nil, inventoryAreaIds: [String]? = nil, syncProductStrategyAsEnum: SyncProductStrategyAsEnum? = nil, flwrInferenceStrategyAsEnum: FlwrInferenceStrategyAsEnum? = nil, settingsTypeAsEnum: SettingsTypeAsEnum? = nil, locationBrandingAsEnum: LocationBrandingAsEnum? = nil) {
         self.settingsType = settingsType
         self.merchandiseType = merchandiseType
         self.embeddedShopUrl = embeddedShopUrl
@@ -197,6 +203,7 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         self.lowQuantityThreshold = lowQuantityThreshold
         self.anonUsers = anonUsers
         self.locationBranding = locationBranding
+        self.soldByLabel = soldByLabel
         self.landingPage = landingPage
         self.shopType = shopType
         self.backgrounds = backgrounds
@@ -246,22 +253,23 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         self.loginsAsEnum = loginsAsEnum
         self.anonUsersAsEnum = anonUsersAsEnum
         self.shopTypeAsEnum = shopTypeAsEnum
-        self.syncProductStrategyAsEnum = syncProductStrategyAsEnum
-        self.flwrInferenceStrategyAsEnum = flwrInferenceStrategyAsEnum
-        self.merchandiseTypeAsEnum = merchandiseTypeAsEnum
-        self.effectiveStockMessageConfig = effectiveStockMessageConfig
-        self.inventoryAreaIds = inventoryAreaIds
-        self.settingsTypeAsEnum = settingsTypeAsEnum
-        self.locationBrandingAsEnum = locationBrandingAsEnum
+        self.settingsWriteModeAsEnum = settingsWriteModeAsEnum
+        self.shopStatusAsEnum = shopStatusAsEnum
+        self.soldByLabelAsEnum = soldByLabelAsEnum
+        self.settingsStrategyAsEnum = settingsStrategyAsEnum
+        self.embeddedShopUrlAsURI = embeddedShopUrlAsURI
         self.landingPageAsEnum = landingPageAsEnum
         self.medicalIdPromptAsEnum = medicalIdPromptAsEnum
         self.productBalanceAsEnum = productBalanceAsEnum
         self.paymentMethodsAsEnums = paymentMethodsAsEnums
         self.deliveryMethodsAsEnum = deliveryMethodsAsEnum
-        self.settingsStrategyAsEnum = settingsStrategyAsEnum
-        self.settingsWriteModeAsEnum = settingsWriteModeAsEnum
-        self.shopStatusAsEnum = shopStatusAsEnum
-        self.embeddedShopUrlAsURI = embeddedShopUrlAsURI
+        self.merchandiseTypeAsEnum = merchandiseTypeAsEnum
+        self.effectiveStockMessageConfig = effectiveStockMessageConfig
+        self.inventoryAreaIds = inventoryAreaIds
+        self.syncProductStrategyAsEnum = syncProductStrategyAsEnum
+        self.flwrInferenceStrategyAsEnum = flwrInferenceStrategyAsEnum
+        self.settingsTypeAsEnum = settingsTypeAsEnum
+        self.locationBrandingAsEnum = locationBrandingAsEnum
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -275,6 +283,7 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         case lowQuantityThreshold
         case anonUsers
         case locationBranding
+        case soldByLabel
         case landingPage
         case shopType
         case backgrounds
@@ -324,22 +333,23 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         case loginsAsEnum
         case anonUsersAsEnum
         case shopTypeAsEnum
-        case syncProductStrategyAsEnum
-        case flwrInferenceStrategyAsEnum
-        case merchandiseTypeAsEnum
-        case effectiveStockMessageConfig
-        case inventoryAreaIds
-        case settingsTypeAsEnum
-        case locationBrandingAsEnum
+        case settingsWriteModeAsEnum
+        case shopStatusAsEnum
+        case soldByLabelAsEnum
+        case settingsStrategyAsEnum
+        case embeddedShopUrlAsURI
         case landingPageAsEnum
         case medicalIdPromptAsEnum
         case productBalanceAsEnum
         case paymentMethodsAsEnums
         case deliveryMethodsAsEnum
-        case settingsStrategyAsEnum
-        case settingsWriteModeAsEnum
-        case shopStatusAsEnum
-        case embeddedShopUrlAsURI
+        case merchandiseTypeAsEnum
+        case effectiveStockMessageConfig
+        case inventoryAreaIds
+        case syncProductStrategyAsEnum
+        case flwrInferenceStrategyAsEnum
+        case settingsTypeAsEnum
+        case locationBrandingAsEnum
     }
 
     // Encodable protocol methods
@@ -356,6 +366,7 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(lowQuantityThreshold, forKey: .lowQuantityThreshold)
         try container.encodeIfPresent(anonUsers, forKey: .anonUsers)
         try container.encodeIfPresent(locationBranding, forKey: .locationBranding)
+        try container.encodeIfPresent(soldByLabel, forKey: .soldByLabel)
         try container.encodeIfPresent(landingPage, forKey: .landingPage)
         try container.encodeIfPresent(shopType, forKey: .shopType)
         try container.encodeIfPresent(backgrounds, forKey: .backgrounds)
@@ -405,22 +416,23 @@ public struct ShopSettings: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(loginsAsEnum, forKey: .loginsAsEnum)
         try container.encodeIfPresent(anonUsersAsEnum, forKey: .anonUsersAsEnum)
         try container.encodeIfPresent(shopTypeAsEnum, forKey: .shopTypeAsEnum)
-        try container.encodeIfPresent(syncProductStrategyAsEnum, forKey: .syncProductStrategyAsEnum)
-        try container.encodeIfPresent(flwrInferenceStrategyAsEnum, forKey: .flwrInferenceStrategyAsEnum)
-        try container.encodeIfPresent(merchandiseTypeAsEnum, forKey: .merchandiseTypeAsEnum)
-        try container.encodeIfPresent(effectiveStockMessageConfig, forKey: .effectiveStockMessageConfig)
-        try container.encodeIfPresent(inventoryAreaIds, forKey: .inventoryAreaIds)
-        try container.encodeIfPresent(settingsTypeAsEnum, forKey: .settingsTypeAsEnum)
-        try container.encodeIfPresent(locationBrandingAsEnum, forKey: .locationBrandingAsEnum)
+        try container.encodeIfPresent(settingsWriteModeAsEnum, forKey: .settingsWriteModeAsEnum)
+        try container.encodeIfPresent(shopStatusAsEnum, forKey: .shopStatusAsEnum)
+        try container.encodeIfPresent(soldByLabelAsEnum, forKey: .soldByLabelAsEnum)
+        try container.encodeIfPresent(settingsStrategyAsEnum, forKey: .settingsStrategyAsEnum)
+        try container.encodeIfPresent(embeddedShopUrlAsURI, forKey: .embeddedShopUrlAsURI)
         try container.encodeIfPresent(landingPageAsEnum, forKey: .landingPageAsEnum)
         try container.encodeIfPresent(medicalIdPromptAsEnum, forKey: .medicalIdPromptAsEnum)
         try container.encodeIfPresent(productBalanceAsEnum, forKey: .productBalanceAsEnum)
         try container.encodeIfPresent(paymentMethodsAsEnums, forKey: .paymentMethodsAsEnums)
         try container.encodeIfPresent(deliveryMethodsAsEnum, forKey: .deliveryMethodsAsEnum)
-        try container.encodeIfPresent(settingsStrategyAsEnum, forKey: .settingsStrategyAsEnum)
-        try container.encodeIfPresent(settingsWriteModeAsEnum, forKey: .settingsWriteModeAsEnum)
-        try container.encodeIfPresent(shopStatusAsEnum, forKey: .shopStatusAsEnum)
-        try container.encodeIfPresent(embeddedShopUrlAsURI, forKey: .embeddedShopUrlAsURI)
+        try container.encodeIfPresent(merchandiseTypeAsEnum, forKey: .merchandiseTypeAsEnum)
+        try container.encodeIfPresent(effectiveStockMessageConfig, forKey: .effectiveStockMessageConfig)
+        try container.encodeIfPresent(inventoryAreaIds, forKey: .inventoryAreaIds)
+        try container.encodeIfPresent(syncProductStrategyAsEnum, forKey: .syncProductStrategyAsEnum)
+        try container.encodeIfPresent(flwrInferenceStrategyAsEnum, forKey: .flwrInferenceStrategyAsEnum)
+        try container.encodeIfPresent(settingsTypeAsEnum, forKey: .settingsTypeAsEnum)
+        try container.encodeIfPresent(locationBrandingAsEnum, forKey: .locationBrandingAsEnum)
     }
 }
 

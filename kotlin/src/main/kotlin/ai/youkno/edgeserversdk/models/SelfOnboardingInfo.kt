@@ -31,6 +31,11 @@ import com.squareup.moshi.JsonClass
  * @param businessWebsiteUrl 
  * @param businessCurrency 
  * @param useOwnCategories 
+ * @param pointCurrencyName 
+ * @param pointCurrencyCode 
+ * @param pointCurrencyExchangeFromAmount 
+ * @param pointCurrencyExchangeToAmount 
+ * @param pointCurrencyExchangeToCurrency 
  * @param voucherCode 
  * @param voucherDiscountType 
  * @param voucherTitle 
@@ -38,6 +43,7 @@ import com.squareup.moshi.JsonClass
  * @param voucherDescription 
  * @param voucherFlatDiscount 
  * @param voucherPercentageDiscount 
+ * @param voucherPercentageMaxDiscountAmount 
  * @param voucherMaxQty 
  * @param voucherImageUrl 
  * @param voucherExpiresAt 
@@ -47,11 +53,23 @@ import com.squareup.moshi.JsonClass
  * @param bountyAttachmentType 
  * @param bountyVisibility 
  * @param bountyMaxRecipientsQty 
+ * @param loyaltyType 
+ * @param loyaltyItemName 
+ * @param loyaltyRewardPerItem 
+ * @param loyaltyPercentageOfPurchaise 
+ * @param loyaltyMaxRewardPerTransaction 
+ * @param loyaltyVerificationPointsThreshold 
+ * @param loyaltyVerificationTimeWindow 
+ * @param loyaltyVerificationTimeUnit 
+ * @param productName 
+ * @param productImageUrl 
+ * @param productPrice 
  * @param companyId 
  * @param voucherDefId 
  * @param bountyId 
+ * @param pointCurrencyBountyId 
+ * @param productBountyId 
  * @param completedAt 
- * @param valid 
  * @param completed 
  */
 
@@ -82,6 +100,21 @@ data class SelfOnboardingInfo (
     @Json(name = "useOwnCategories")
     val useOwnCategories: kotlin.Boolean? = null,
 
+    @Json(name = "pointCurrencyName")
+    val pointCurrencyName: kotlin.String? = null,
+
+    @Json(name = "pointCurrencyCode")
+    val pointCurrencyCode: kotlin.String? = null,
+
+    @Json(name = "pointCurrencyExchangeFromAmount")
+    val pointCurrencyExchangeFromAmount: kotlin.Int? = null,
+
+    @Json(name = "pointCurrencyExchangeToAmount")
+    val pointCurrencyExchangeToAmount: kotlin.Double? = null,
+
+    @Json(name = "pointCurrencyExchangeToCurrency")
+    val pointCurrencyExchangeToCurrency: kotlin.String? = null,
+
     @Json(name = "voucherCode")
     val voucherCode: kotlin.String? = null,
 
@@ -102,6 +135,9 @@ data class SelfOnboardingInfo (
 
     @Json(name = "voucherPercentageDiscount")
     val voucherPercentageDiscount: kotlin.Double? = null,
+
+    @Json(name = "voucherPercentageMaxDiscountAmount")
+    val voucherPercentageMaxDiscountAmount: kotlin.Double? = null,
 
     @Json(name = "voucherMaxQty")
     val voucherMaxQty: kotlin.Int? = null,
@@ -130,6 +166,39 @@ data class SelfOnboardingInfo (
     @Json(name = "bountyMaxRecipientsQty")
     val bountyMaxRecipientsQty: kotlin.Int? = null,
 
+    @Json(name = "loyaltyType")
+    val loyaltyType: SelfOnboardingInfo.LoyaltyType? = null,
+
+    @Json(name = "loyaltyItemName")
+    val loyaltyItemName: kotlin.String? = null,
+
+    @Json(name = "loyaltyRewardPerItem")
+    val loyaltyRewardPerItem: Reward? = null,
+
+    @Json(name = "loyaltyPercentageOfPurchaise")
+    val loyaltyPercentageOfPurchaise: kotlin.Double? = null,
+
+    @Json(name = "loyaltyMaxRewardPerTransaction")
+    val loyaltyMaxRewardPerTransaction: Reward? = null,
+
+    @Json(name = "loyaltyVerificationPointsThreshold")
+    val loyaltyVerificationPointsThreshold: Reward? = null,
+
+    @Json(name = "loyaltyVerificationTimeWindow")
+    val loyaltyVerificationTimeWindow: kotlin.Int? = null,
+
+    @Json(name = "loyaltyVerificationTimeUnit")
+    val loyaltyVerificationTimeUnit: SelfOnboardingInfo.LoyaltyVerificationTimeUnit? = null,
+
+    @Json(name = "productName")
+    val productName: kotlin.String? = null,
+
+    @Json(name = "productImageUrl")
+    val productImageUrl: kotlin.String? = null,
+
+    @Json(name = "productPrice")
+    val productPrice: Reward? = null,
+
     @Json(name = "companyId")
     val companyId: kotlin.String? = null,
 
@@ -139,11 +208,14 @@ data class SelfOnboardingInfo (
     @Json(name = "bountyId")
     val bountyId: kotlin.String? = null,
 
+    @Json(name = "pointCurrencyBountyId")
+    val pointCurrencyBountyId: kotlin.String? = null,
+
+    @Json(name = "productBountyId")
+    val productBountyId: kotlin.String? = null,
+
     @Json(name = "completedAt")
     val completedAt: kotlin.Long? = null,
-
-    @Json(name = "valid")
-    val valid: kotlin.Boolean? = null,
 
     @Json(name = "completed")
     val completed: kotlin.Boolean? = null
@@ -464,6 +536,33 @@ data class SelfOnboardingInfo (
         @Json(name = "INTERNAL") INTERNAL("INTERNAL"),
         @Json(name = "USER_INTERNAL") USER_INTERNAL("USER_INTERNAL"),
         @Json(name = "BY_LINK") BY_LINK("BY_LINK");
+    }
+    /**
+     * 
+     *
+     * Values: NONE,PER_ITEM,PERCENTAGE,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class LoyaltyType(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "PER_ITEM") PER_ITEM("PER_ITEM"),
+        @Json(name = "PERCENTAGE") PERCENTAGE("PERCENTAGE"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: NANOSECONDS,MICROSECONDS,MILLISECONDS,SECONDS,MINUTES,HOURS,DAYS
+     */
+    @JsonClass(generateAdapter = false)
+    enum class LoyaltyVerificationTimeUnit(val value: kotlin.String) {
+        @Json(name = "NANOSECONDS") NANOSECONDS("NANOSECONDS"),
+        @Json(name = "MICROSECONDS") MICROSECONDS("MICROSECONDS"),
+        @Json(name = "MILLISECONDS") MILLISECONDS("MILLISECONDS"),
+        @Json(name = "SECONDS") SECONDS("SECONDS"),
+        @Json(name = "MINUTES") MINUTES("MINUTES"),
+        @Json(name = "HOURS") HOURS("HOURS"),
+        @Json(name = "DAYS") DAYS("DAYS");
     }
 
 }

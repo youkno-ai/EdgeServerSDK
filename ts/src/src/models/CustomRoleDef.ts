@@ -71,16 +71,16 @@ export interface CustomRoleDef {
     empty?: boolean;
     /**
      * 
-     * @type {{ [key: string]: string; }}
-     * @memberof CustomRoleDef
-     */
-    opsMap?: { [key: string]: string; };
-    /**
-     * 
      * @type {Array<string>}
      * @memberof CustomRoleDef
      */
     bountyTypes?: Array<CustomRoleDefBountyTypesEnum>;
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof CustomRoleDef
+     */
+    opsMap?: { [key: string]: string; };
 }
 
 
@@ -762,17 +762,6 @@ export type CustomRoleDefForbiddenOpsEnum = typeof CustomRoleDefForbiddenOpsEnum
 /**
  * @export
  */
-export const CustomRoleDefOpsMapEnum = {
-    ALWAYS: 'ALWAYS',
-    NEVER: 'NEVER',
-    MAY: 'MAY',
-    SHOULD: 'SHOULD'
-} as const;
-export type CustomRoleDefOpsMapEnum = typeof CustomRoleDefOpsMapEnum[keyof typeof CustomRoleDefOpsMapEnum];
-
-/**
- * @export
- */
 export const CustomRoleDefBountyTypesEnum = {
     NONE: 'NONE',
     QUESTION: 'QUESTION',
@@ -829,6 +818,17 @@ export const CustomRoleDefBountyTypesEnum = {
 } as const;
 export type CustomRoleDefBountyTypesEnum = typeof CustomRoleDefBountyTypesEnum[keyof typeof CustomRoleDefBountyTypesEnum];
 
+/**
+ * @export
+ */
+export const CustomRoleDefOpsMapEnum = {
+    ALWAYS: 'ALWAYS',
+    NEVER: 'NEVER',
+    MAY: 'MAY',
+    SHOULD: 'SHOULD'
+} as const;
+export type CustomRoleDefOpsMapEnum = typeof CustomRoleDefOpsMapEnum[keyof typeof CustomRoleDefOpsMapEnum];
+
 
 /**
  * Check if a given object implements the CustomRoleDef interface.
@@ -854,8 +854,8 @@ export function CustomRoleDefFromJSONTyped(json: any, ignoreDiscriminator: boole
         'allowedOps': json['allowedOps'] == null ? undefined : json['allowedOps'],
         'forbiddenOps': json['forbiddenOps'] == null ? undefined : json['forbiddenOps'],
         'empty': json['empty'] == null ? undefined : json['empty'],
-        'opsMap': json['opsMap'] == null ? undefined : json['opsMap'],
         'bountyTypes': json['bountyTypes'] == null ? undefined : json['bountyTypes'],
+        'opsMap': json['opsMap'] == null ? undefined : json['opsMap'],
     };
 }
 
@@ -877,8 +877,8 @@ export function CustomRoleDefToJSONTyped(value?: CustomRoleDef | null, ignoreDis
         'allowedOps': value['allowedOps'],
         'forbiddenOps': value['forbiddenOps'],
         'empty': value['empty'],
-        'opsMap': value['opsMap'],
         'bountyTypes': value['bountyTypes'],
+        'opsMap': value['opsMap'],
     };
 }
 

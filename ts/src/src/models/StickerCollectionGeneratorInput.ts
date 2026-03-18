@@ -82,6 +82,18 @@ export interface StickerCollectionGeneratorInput {
      * @memberof StickerCollectionGeneratorInput
      */
     animation?: AnimationSpec;
+    /**
+     * 
+     * @type {string}
+     * @memberof StickerCollectionGeneratorInput
+     */
+    imageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StickerCollectionGeneratorInput
+     */
+    videoGenProvider?: string;
 }
 
 
@@ -157,6 +169,8 @@ export function StickerCollectionGeneratorInputFromJSONTyped(json: any, ignoreDi
         'palette': json['palette'] == null ? undefined : json['palette'],
         'format': json['format'] == null ? undefined : json['format'],
         'animation': json['animation'] == null ? undefined : AnimationSpecFromJSON(json['animation']),
+        'imageGenProvider': json['imageGenProvider'] == null ? undefined : json['imageGenProvider'],
+        'videoGenProvider': json['videoGenProvider'] == null ? undefined : json['videoGenProvider'],
     };
 }
 
@@ -179,6 +193,8 @@ export function StickerCollectionGeneratorInputToJSONTyped(value?: StickerCollec
         'palette': value['palette'],
         'format': value['format'],
         'animation': AnimationSpecToJSON(value['animation']),
+        'imageGenProvider': value['imageGenProvider'],
+        'videoGenProvider': value['videoGenProvider'],
     };
 }
 

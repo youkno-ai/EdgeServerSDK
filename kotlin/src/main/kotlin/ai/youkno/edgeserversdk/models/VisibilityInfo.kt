@@ -24,8 +24,8 @@ import com.squareup.moshi.JsonClass
  *
  * @param visibilityType 
  * @param visibilityRoles 
- * @param visibilityTypeAsEnum 
  * @param visibilityRolesList 
+ * @param visibilityTypeAsEnum 
  */
 
 
@@ -37,11 +37,11 @@ data class VisibilityInfo (
     @Json(name = "visibilityRoles")
     val visibilityRoles: kotlin.String? = null,
 
-    @Json(name = "visibilityTypeAsEnum")
-    val visibilityTypeAsEnum: VisibilityInfo.VisibilityTypeAsEnum? = null,
-
     @Json(name = "visibilityRolesList")
-    val visibilityRolesList: kotlin.collections.List<kotlin.String>? = null
+    val visibilityRolesList: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "visibilityTypeAsEnum")
+    val visibilityTypeAsEnum: VisibilityInfo.VisibilityTypeAsEnum? = null
 
 ) {
 

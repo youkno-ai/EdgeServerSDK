@@ -27,18 +27,18 @@ public struct DistributionArea: Codable, JSONEncodable, Hashable {
     public var code: String?
     public var count: Int?
     public var empty: Bool?
-    public var global: Bool?
     public var typeAsEnum: TypeAsEnum?
+    public var global: Bool?
 
-    public init(type: String? = nil, exclude: Bool? = nil, text: String? = nil, code: String? = nil, count: Int? = nil, empty: Bool? = nil, global: Bool? = nil, typeAsEnum: TypeAsEnum? = nil) {
+    public init(type: String? = nil, exclude: Bool? = nil, text: String? = nil, code: String? = nil, count: Int? = nil, empty: Bool? = nil, typeAsEnum: TypeAsEnum? = nil, global: Bool? = nil) {
         self.type = type
         self.exclude = exclude
         self.text = text
         self.code = code
         self.count = count
         self.empty = empty
-        self.global = global
         self.typeAsEnum = typeAsEnum
+        self.global = global
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -48,8 +48,8 @@ public struct DistributionArea: Codable, JSONEncodable, Hashable {
         case code
         case count
         case empty
-        case global
         case typeAsEnum
+        case global
     }
 
     // Encodable protocol methods
@@ -62,8 +62,8 @@ public struct DistributionArea: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(count, forKey: .count)
         try container.encodeIfPresent(empty, forKey: .empty)
-        try container.encodeIfPresent(global, forKey: .global)
         try container.encodeIfPresent(typeAsEnum, forKey: .typeAsEnum)
+        try container.encodeIfPresent(global, forKey: .global)
     }
 }
 

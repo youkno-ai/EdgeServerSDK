@@ -100,7 +100,7 @@ data class Category (
     /**
      * 
      *
-     * Values: NONE,SYSTEM,ALLEAVES,MJ_FREEWAY,BIO_TRACK,SHOPIFY,CSV,UNKNOWN
+     * Values: NONE,SYSTEM,ALLEAVES,MJ_FREEWAY,BIO_TRACK,SHOPIFY,CSV,I_SPORTS,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
     enum class Source(val value: kotlin.String) {
@@ -111,6 +111,7 @@ data class Category (
         @Json(name = "BIO_TRACK") BIO_TRACK("BIO_TRACK"),
         @Json(name = "SHOPIFY") SHOPIFY("SHOPIFY"),
         @Json(name = "CSV") CSV("CSV"),
+        @Json(name = "I_SPORTS") I_SPORTS("I_SPORTS"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**

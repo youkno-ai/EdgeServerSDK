@@ -49,20 +49,20 @@ import com.squareup.moshi.JsonClass
  * @param notificationMode 
  * @param tags 
  * @param accessKeys 
- * @param typeAsEnum 
  * @param kindAsEnum 
  * @param multi 
+ * @param shownInAsEnum 
+ * @param effectiveOp 
+ * @param filterable 
+ * @param webview 
+ * @param stream 
  * @param special 
+ * @param typeAsEnum 
+ * @param effectiveUrl 
  * @param effectiveCode 
  * @param viewable 
  * @param postable 
  * @param favorites 
- * @param stream 
- * @param webview 
- * @param effectiveOp 
- * @param shownInAsEnum 
- * @param filterable 
- * @param effectiveUrl 
  * @param visibilityRoles 
  * @param effectiveUserSpecial 
  * @param effectiveCompanySpecial 
@@ -149,17 +149,35 @@ data class ListsListDef2 (
     @Json(name = "accessKeys")
     val accessKeys: HasAccessKeysAccessKeys2? = null,
 
-    @Json(name = "typeAsEnum")
-    val typeAsEnum: ListsListDef2.TypeAsEnum? = null,
-
     @Json(name = "kindAsEnum")
     val kindAsEnum: ListsListDef2.KindAsEnum? = null,
 
     @Json(name = "multi")
     val multi: kotlin.Boolean? = null,
 
+    @Json(name = "shownInAsEnum")
+    val shownInAsEnum: ListsListDef2.ShownInAsEnum? = null,
+
+    @Json(name = "effectiveOp")
+    val effectiveOp: ListsListDef2.EffectiveOp? = null,
+
+    @Json(name = "filterable")
+    val filterable: kotlin.Boolean? = null,
+
+    @Json(name = "webview")
+    val webview: kotlin.Boolean? = null,
+
+    @Json(name = "stream")
+    val stream: kotlin.Boolean? = null,
+
     @Json(name = "special")
     val special: kotlin.Boolean? = null,
+
+    @Json(name = "typeAsEnum")
+    val typeAsEnum: ListsListDef2.TypeAsEnum? = null,
+
+    @Json(name = "effectiveUrl")
+    val effectiveUrl: kotlin.String? = null,
 
     @Json(name = "effectiveCode")
     val effectiveCode: kotlin.String? = null,
@@ -172,24 +190,6 @@ data class ListsListDef2 (
 
     @Json(name = "favorites")
     val favorites: kotlin.Boolean? = null,
-
-    @Json(name = "stream")
-    val stream: kotlin.Boolean? = null,
-
-    @Json(name = "webview")
-    val webview: kotlin.Boolean? = null,
-
-    @Json(name = "effectiveOp")
-    val effectiveOp: ListsListDef2.EffectiveOp? = null,
-
-    @Json(name = "shownInAsEnum")
-    val shownInAsEnum: ListsListDef2.ShownInAsEnum? = null,
-
-    @Json(name = "filterable")
-    val filterable: kotlin.Boolean? = null,
-
-    @Json(name = "effectiveUrl")
-    val effectiveUrl: kotlin.String? = null,
 
     @Json(name = "visibilityRoles")
     val visibilityRoles: kotlin.collections.List<kotlin.String>? = null,
@@ -241,27 +241,6 @@ data class ListsListDef2 (
     /**
      * 
      *
-     * Values: NONE,STREAM,EDGE_COACHINGS,EDGE_IN_FOCUS,EDGE_CHALLENGES,BUY_SELL,MARKET,SUPPLY_MARKET,AUTOSUGGESTIONS,NEWS,WEBVIEW,CUSTOM,FAVORITES
-     */
-    @JsonClass(generateAdapter = false)
-    enum class TypeAsEnum(val value: kotlin.String) {
-        @Json(name = "NONE") NONE("NONE"),
-        @Json(name = "STREAM") STREAM("STREAM"),
-        @Json(name = "EDGE_COACHINGS") EDGE_COACHINGS("EDGE_COACHINGS"),
-        @Json(name = "EDGE_IN_FOCUS") EDGE_IN_FOCUS("EDGE_IN_FOCUS"),
-        @Json(name = "EDGE_CHALLENGES") EDGE_CHALLENGES("EDGE_CHALLENGES"),
-        @Json(name = "BUY_SELL") BUY_SELL("BUY_SELL"),
-        @Json(name = "MARKET") MARKET("MARKET"),
-        @Json(name = "SUPPLY_MARKET") SUPPLY_MARKET("SUPPLY_MARKET"),
-        @Json(name = "AUTOSUGGESTIONS") AUTOSUGGESTIONS("AUTOSUGGESTIONS"),
-        @Json(name = "NEWS") NEWS("NEWS"),
-        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
-        @Json(name = "CUSTOM") CUSTOM("CUSTOM"),
-        @Json(name = "FAVORITES") FAVORITES("FAVORITES");
-    }
-    /**
-     * 
-     *
      * Values: INBOX,REFS,BUCKET,FILTER_BY_BOUNTY_TYPE,REST_CALL,SPECIAL,WEBVIEW,TARGET,MULTI,STATS,NEWS,HUB,LIST_STREAM,UNION,UNKNOWN
      */
     @JsonClass(generateAdapter = false)
@@ -280,6 +259,17 @@ data class ListsListDef2 (
         @Json(name = "HUB") HUB("HUB"),
         @Json(name = "LIST_STREAM") LIST_STREAM("LIST_STREAM"),
         @Json(name = "UNION") UNION("UNION"),
+        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: HOME,EXPLICIT,UNKNOWN
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShownInAsEnum(val value: kotlin.String) {
+        @Json(name = "HOME") HOME("HOME"),
+        @Json(name = "EXPLICIT") EXPLICIT("EXPLICIT"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
     }
     /**
@@ -511,13 +501,23 @@ data class ListsListDef2 (
     /**
      * 
      *
-     * Values: HOME,EXPLICIT,UNKNOWN
+     * Values: NONE,STREAM,EDGE_COACHINGS,EDGE_IN_FOCUS,EDGE_CHALLENGES,BUY_SELL,MARKET,SUPPLY_MARKET,AUTOSUGGESTIONS,NEWS,WEBVIEW,CUSTOM,FAVORITES
      */
     @JsonClass(generateAdapter = false)
-    enum class ShownInAsEnum(val value: kotlin.String) {
-        @Json(name = "HOME") HOME("HOME"),
-        @Json(name = "EXPLICIT") EXPLICIT("EXPLICIT"),
-        @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    enum class TypeAsEnum(val value: kotlin.String) {
+        @Json(name = "NONE") NONE("NONE"),
+        @Json(name = "STREAM") STREAM("STREAM"),
+        @Json(name = "EDGE_COACHINGS") EDGE_COACHINGS("EDGE_COACHINGS"),
+        @Json(name = "EDGE_IN_FOCUS") EDGE_IN_FOCUS("EDGE_IN_FOCUS"),
+        @Json(name = "EDGE_CHALLENGES") EDGE_CHALLENGES("EDGE_CHALLENGES"),
+        @Json(name = "BUY_SELL") BUY_SELL("BUY_SELL"),
+        @Json(name = "MARKET") MARKET("MARKET"),
+        @Json(name = "SUPPLY_MARKET") SUPPLY_MARKET("SUPPLY_MARKET"),
+        @Json(name = "AUTOSUGGESTIONS") AUTOSUGGESTIONS("AUTOSUGGESTIONS"),
+        @Json(name = "NEWS") NEWS("NEWS"),
+        @Json(name = "WEBVIEW") WEBVIEW("WEBVIEW"),
+        @Json(name = "CUSTOM") CUSTOM("CUSTOM"),
+        @Json(name = "FAVORITES") FAVORITES("FAVORITES");
     }
     /**
      * 

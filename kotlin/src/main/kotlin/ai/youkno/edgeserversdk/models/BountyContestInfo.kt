@@ -27,8 +27,8 @@ import com.squareup.moshi.JsonClass
  * @param drawType 
  * @param winnerAnnouncementAt 
  * @param winner 
- * @param drawTypeAsEnum 
  * @param stateAsEnum 
+ * @param drawTypeAsEnum 
  */
 
 
@@ -46,25 +46,14 @@ data class BountyContestInfo (
     @Json(name = "winner")
     val winner: User? = null,
 
-    @Json(name = "drawTypeAsEnum")
-    val drawTypeAsEnum: BountyContestInfo.DrawTypeAsEnum? = null,
-
     @Json(name = "stateAsEnum")
-    val stateAsEnum: BountyContestInfo.StateAsEnum? = null
+    val stateAsEnum: BountyContestInfo.StateAsEnum? = null,
+
+    @Json(name = "drawTypeAsEnum")
+    val drawTypeAsEnum: BountyContestInfo.DrawTypeAsEnum? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: ON_CLOSE,SCHEDULED,MANUAL
-     */
-    @JsonClass(generateAdapter = false)
-    enum class DrawTypeAsEnum(val value: kotlin.String) {
-        @Json(name = "ON_CLOSE") ON_CLOSE("ON_CLOSE"),
-        @Json(name = "SCHEDULED") SCHEDULED("SCHEDULED"),
-        @Json(name = "MANUAL") MANUAL("MANUAL");
-    }
     /**
      * 
      *
@@ -77,6 +66,17 @@ data class BountyContestInfo (
         @Json(name = "CLOSED") CLOSED("CLOSED"),
         @Json(name = "DRAWN") DRAWN("DRAWN"),
         @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN");
+    }
+    /**
+     * 
+     *
+     * Values: ON_CLOSE,SCHEDULED,MANUAL
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DrawTypeAsEnum(val value: kotlin.String) {
+        @Json(name = "ON_CLOSE") ON_CLOSE("ON_CLOSE"),
+        @Json(name = "SCHEDULED") SCHEDULED("SCHEDULED"),
+        @Json(name = "MANUAL") MANUAL("MANUAL");
     }
 
 }

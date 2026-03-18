@@ -237,6 +237,13 @@ import {
     SportInfoToJSON,
     SportInfoToJSONTyped,
 } from './SportInfo';
+import type { PointCurrencyLoyaltyInfo } from './PointCurrencyLoyaltyInfo';
+import {
+    PointCurrencyLoyaltyInfoFromJSON,
+    PointCurrencyLoyaltyInfoFromJSONTyped,
+    PointCurrencyLoyaltyInfoToJSON,
+    PointCurrencyLoyaltyInfoToJSONTyped,
+} from './PointCurrencyLoyaltyInfo';
 import type { CustomActionBar } from './CustomActionBar';
 import {
     CustomActionBarFromJSON,
@@ -380,6 +387,18 @@ export interface UserSettings {
      * @memberof UserSettings
      */
     sentimentAnalysisType?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserSettings
+     */
+    aiImageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserSettings
+     */
+    aiVideoGenProvider?: string;
     /**
      * 
      * @type {LookAndFeelDef}
@@ -635,6 +654,12 @@ export interface UserSettings {
     paymentLiabilities?: { [key: string]: PaymentLiability; };
     /**
      * 
+     * @type {PointCurrencyLoyaltyInfo}
+     * @memberof UserSettings
+     */
+    pointCurrencyLoyaltyInfo?: PointCurrencyLoyaltyInfo;
+    /**
+     * 
      * @type {Attachments}
      * @memberof UserSettings
      */
@@ -719,6 +744,8 @@ export function UserSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'paymentMethod': json['paymentMethod'] == null ? undefined : json['paymentMethod'],
         'vouchersEnabled': json['vouchersEnabled'] == null ? undefined : json['vouchersEnabled'],
         'sentimentAnalysisType': json['sentimentAnalysisType'] == null ? undefined : json['sentimentAnalysisType'],
+        'aiImageGenProvider': json['aiImageGenProvider'] == null ? undefined : json['aiImageGenProvider'],
+        'aiVideoGenProvider': json['aiVideoGenProvider'] == null ? undefined : json['aiVideoGenProvider'],
         'lookAndFeel': json['lookAndFeel'] == null ? undefined : LookAndFeelDefFromJSON(json['lookAndFeel']),
         'deviceAccessPolicy': json['deviceAccessPolicy'] == null ? undefined : json['deviceAccessPolicy'],
         'rewards': json['rewards'] == null ? undefined : (mapValues(json['rewards'], RewardFromJSON)),
@@ -761,6 +788,7 @@ export function UserSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'deletionStrategies': json['deletionStrategies'] == null ? undefined : json['deletionStrategies'],
         'allowedCurrencies': json['allowedCurrencies'] == null ? undefined : (mapValues(json['allowedCurrencies'], BaseSettingsCurrencyInfoFromJSON)),
         'paymentLiabilities': json['paymentLiabilities'] == null ? undefined : (mapValues(json['paymentLiabilities'], PaymentLiabilityFromJSON)),
+        'pointCurrencyLoyaltyInfo': json['pointCurrencyLoyaltyInfo'] == null ? undefined : PointCurrencyLoyaltyInfoFromJSON(json['pointCurrencyLoyaltyInfo']),
         'attachments': json['attachments'] == null ? undefined : AttachmentsFromJSON(json['attachments']),
     };
 }
@@ -794,6 +822,8 @@ export function UserSettingsToJSONTyped(value?: UserSettings | null, ignoreDiscr
         'paymentMethod': value['paymentMethod'],
         'vouchersEnabled': value['vouchersEnabled'],
         'sentimentAnalysisType': value['sentimentAnalysisType'],
+        'aiImageGenProvider': value['aiImageGenProvider'],
+        'aiVideoGenProvider': value['aiVideoGenProvider'],
         'lookAndFeel': LookAndFeelDefToJSON(value['lookAndFeel']),
         'deviceAccessPolicy': value['deviceAccessPolicy'],
         'rewards': value['rewards'] == null ? undefined : (mapValues(value['rewards'], RewardToJSON)),
@@ -836,6 +866,7 @@ export function UserSettingsToJSONTyped(value?: UserSettings | null, ignoreDiscr
         'deletionStrategies': value['deletionStrategies'],
         'allowedCurrencies': value['allowedCurrencies'] == null ? undefined : (mapValues(value['allowedCurrencies'], BaseSettingsCurrencyInfoToJSON)),
         'paymentLiabilities': value['paymentLiabilities'] == null ? undefined : (mapValues(value['paymentLiabilities'], PaymentLiabilityToJSON)),
+        'pointCurrencyLoyaltyInfo': PointCurrencyLoyaltyInfoToJSON(value['pointCurrencyLoyaltyInfo']),
         'attachments': AttachmentsToJSON(value['attachments']),
     };
 }

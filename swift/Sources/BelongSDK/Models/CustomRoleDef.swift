@@ -672,12 +672,6 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
         case bountyCreateSubscription = "BOUNTY_CREATE_SUBSCRIPTION"
         case bountyCreateSubscriptionTier = "BOUNTY_CREATE_SUBSCRIPTION_TIER"
     }
-    public enum OpsMap: String, Codable, CaseIterable {
-        case always = "ALWAYS"
-        case never = "NEVER"
-        case may = "MAY"
-        case should = "SHOULD"
-    }
     public enum BountyTypes: String, Codable, CaseIterable {
         case _none = "NONE"
         case question = "QUESTION"
@@ -732,6 +726,12 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
         case subscriptionTier = "SUBSCRIPTION_TIER"
         case unknown = "UNKNOWN"
     }
+    public enum OpsMap: String, Codable, CaseIterable {
+        case always = "ALWAYS"
+        case never = "NEVER"
+        case may = "MAY"
+        case should = "SHOULD"
+    }
     public var description: String?
     public var ops: [String: RoleAuth]?
     public var declaredOps: [DeclaredOps]?
@@ -739,10 +739,10 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
     public var allowedOps: [AllowedOps]?
     public var forbiddenOps: [ForbiddenOps]?
     public var empty: Bool?
-    public var opsMap: [String: String]?
     public var bountyTypes: [BountyTypes]?
+    public var opsMap: [String: String]?
 
-    public init(description: String? = nil, ops: [String: RoleAuth]? = nil, declaredOps: [DeclaredOps]? = nil, standard: Bool? = nil, allowedOps: [AllowedOps]? = nil, forbiddenOps: [ForbiddenOps]? = nil, empty: Bool? = nil, opsMap: [String: String]? = nil, bountyTypes: [BountyTypes]? = nil) {
+    public init(description: String? = nil, ops: [String: RoleAuth]? = nil, declaredOps: [DeclaredOps]? = nil, standard: Bool? = nil, allowedOps: [AllowedOps]? = nil, forbiddenOps: [ForbiddenOps]? = nil, empty: Bool? = nil, bountyTypes: [BountyTypes]? = nil, opsMap: [String: String]? = nil) {
         self.description = description
         self.ops = ops
         self.declaredOps = declaredOps
@@ -750,8 +750,8 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
         self.allowedOps = allowedOps
         self.forbiddenOps = forbiddenOps
         self.empty = empty
-        self.opsMap = opsMap
         self.bountyTypes = bountyTypes
+        self.opsMap = opsMap
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -762,8 +762,8 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
         case allowedOps
         case forbiddenOps
         case empty
-        case opsMap
         case bountyTypes
+        case opsMap
     }
 
     // Encodable protocol methods
@@ -777,8 +777,8 @@ public struct CustomRoleDef: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(allowedOps, forKey: .allowedOps)
         try container.encodeIfPresent(forbiddenOps, forKey: .forbiddenOps)
         try container.encodeIfPresent(empty, forKey: .empty)
-        try container.encodeIfPresent(opsMap, forKey: .opsMap)
         try container.encodeIfPresent(bountyTypes, forKey: .bountyTypes)
+        try container.encodeIfPresent(opsMap, forKey: .opsMap)
     }
 }
 

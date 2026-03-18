@@ -87,16 +87,16 @@ export interface BountySnippets {
     reject?: BountyRejectSnippet;
     /**
      * 
-     * @type {ChatSnippet}
-     * @memberof BountySnippets
-     */
-    lastChatSnippet?: ChatSnippet;
-    /**
-     * 
      * @type {boolean}
      * @memberof BountySnippets
      */
     paymentReceived?: boolean;
+    /**
+     * 
+     * @type {ChatSnippet}
+     * @memberof BountySnippets
+     */
+    lastChatSnippet?: ChatSnippet;
     /**
      * 
      * @type {BountyPaymentRecvSnippet}
@@ -127,8 +127,8 @@ export function BountySnippetsFromJSONTyped(json: any, ignoreDiscriminator: bool
         'paymentsRecv': json['paymentsRecv'] == null ? undefined : (mapValues(json['paymentsRecv'], BountyPaymentRecvSnippetFromJSON)),
         'review': json['review'] == null ? undefined : BountyReviewSnippetFromJSON(json['review']),
         'reject': json['reject'] == null ? undefined : BountyRejectSnippetFromJSON(json['reject']),
-        'lastChatSnippet': json['lastChatSnippet'] == null ? undefined : ChatSnippetFromJSON(json['lastChatSnippet']),
         'paymentReceived': json['paymentReceived'] == null ? undefined : json['paymentReceived'],
+        'lastChatSnippet': json['lastChatSnippet'] == null ? undefined : ChatSnippetFromJSON(json['lastChatSnippet']),
         'firstPaymentRecv': json['firstPaymentRecv'] == null ? undefined : BountyPaymentRecvSnippetFromJSON(json['firstPaymentRecv']),
     };
 }
@@ -149,8 +149,8 @@ export function BountySnippetsToJSONTyped(value?: BountySnippets | null, ignoreD
         'paymentsRecv': value['paymentsRecv'] == null ? undefined : (mapValues(value['paymentsRecv'], BountyPaymentRecvSnippetToJSON)),
         'review': BountyReviewSnippetToJSON(value['review']),
         'reject': BountyRejectSnippetToJSON(value['reject']),
-        'lastChatSnippet': ChatSnippetToJSON(value['lastChatSnippet']),
         'paymentReceived': value['paymentReceived'],
+        'lastChatSnippet': ChatSnippetToJSON(value['lastChatSnippet']),
         'firstPaymentRecv': BountyPaymentRecvSnippetToJSON(value['firstPaymentRecv']),
     };
 }

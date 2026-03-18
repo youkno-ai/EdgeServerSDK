@@ -34,9 +34,9 @@ import com.squareup.moshi.JsonClass
  * @param workCompletedAt 
  * @param droppedOffAt 
  * @param progressUpdatedAt 
+ * @param statusAsEnum 
  * @param workedOn 
  * @param surveyCompleted 
- * @param statusAsEnum 
  */
 
 
@@ -75,14 +75,14 @@ data class Work (
     @Json(name = "progressUpdatedAt")
     val progressUpdatedAt: kotlin.Long? = null,
 
+    @Json(name = "statusAsEnum")
+    val statusAsEnum: Work.StatusAsEnum? = null,
+
     @Json(name = "workedOn")
     val workedOn: kotlin.Boolean? = null,
 
     @Json(name = "surveyCompleted")
-    val surveyCompleted: kotlin.Long? = null,
-
-    @Json(name = "statusAsEnum")
-    val statusAsEnum: Work.StatusAsEnum? = null
+    val surveyCompleted: kotlin.Long? = null
 
 ) {
 

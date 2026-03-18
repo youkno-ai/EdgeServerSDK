@@ -245,6 +245,12 @@ export interface DejavooTransactionData {
     extDataAsObj?: ExtData;
     /**
      * 
+     * @type {string}
+     * @memberof DejavooTransactionData
+     */
+    paymentStatusAsEnum?: DejavooTransactionDataPaymentStatusAsEnumEnum;
+    /**
+     * 
      * @type {boolean}
      * @memberof DejavooTransactionData
      */
@@ -255,12 +261,6 @@ export interface DejavooTransactionData {
      * @memberof DejavooTransactionData
      */
     reimburseApplicable?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DejavooTransactionData
-     */
-    paymentStatusAsEnum?: DejavooTransactionDataPaymentStatusAsEnumEnum;
     /**
      * 
      * @type {string}
@@ -382,9 +382,9 @@ export function DejavooTransactionDataFromJSONTyped(json: any, ignoreDiscriminat
         'totalAmount': json['totalAmount'] == null ? undefined : json['totalAmount'],
         'transId': json['transId'] == null ? undefined : json['transId'],
         'extDataAsObj': json['extDataAsObj'] == null ? undefined : ExtDataFromJSON(json['extDataAsObj']),
+        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'completedByWalletBmb': json['completedByWalletBmb'] == null ? undefined : json['completedByWalletBmb'],
         'reimburseApplicable': json['reimburseApplicable'] == null ? undefined : json['reimburseApplicable'],
-        'paymentStatusAsEnum': json['paymentStatusAsEnum'] == null ? undefined : json['paymentStatusAsEnum'],
         'amount_paid': json['amount_paid'] == null ? undefined : json['amount_paid'],
         'card_type': json['card_type'] == null ? undefined : json['card_type'],
         'invoice_no': json['invoice_no'] == null ? undefined : json['invoice_no'],
@@ -444,9 +444,9 @@ export function DejavooTransactionDataToJSONTyped(value?: DejavooTransactionData
         'totalAmount': value['totalAmount'],
         'transId': value['transId'],
         'extDataAsObj': ExtDataToJSON(value['extDataAsObj']),
+        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'completedByWalletBmb': value['completedByWalletBmb'],
         'reimburseApplicable': value['reimburseApplicable'],
-        'paymentStatusAsEnum': value['paymentStatusAsEnum'],
         'amount_paid': value['amount_paid'],
         'card_type': value['card_type'],
         'invoice_no': value['invoice_no'],

@@ -281,6 +281,12 @@ export interface ProductSpecificInfo {
     effectivePrice?: Price;
     /**
      * 
+     * @type {string}
+     * @memberof ProductSpecificInfo
+     */
+    primaryAttachmentId?: string;
+    /**
+     * 
      * @type {Reward}
      * @memberof ProductSpecificInfo
      */
@@ -303,12 +309,6 @@ export interface ProductSpecificInfo {
      * @memberof ProductSpecificInfo
      */
     weightUnitAsEnum?: ProductSpecificInfoWeightUnitAsEnumEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductSpecificInfo
-     */
-    primaryAttachmentId?: string;
 }
 
 
@@ -390,11 +390,11 @@ export function ProductSpecificInfoFromJSONTyped(json: any, ignoreDiscriminator:
         'certificateOfAuthenticityUrl': json['certificateOfAuthenticityUrl'] == null ? undefined : json['certificateOfAuthenticityUrl'],
         'chemicalCompositions': json['chemicalCompositions'] == null ? undefined : (mapValues(json['chemicalCompositions'], ProductSpecificInfoChemicalInfoFromJSON)),
         'effectivePrice': json['effectivePrice'] == null ? undefined : PriceFromJSON(json['effectivePrice']),
+        'primaryAttachmentId': json['primaryAttachmentId'] == null ? undefined : json['primaryAttachmentId'],
         'extraDeliveryFeeReward': json['extraDeliveryFeeReward'] == null ? undefined : RewardFromJSON(json['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': json['effectiveOriginalPrice'] == null ? undefined : PriceFromJSON(json['effectiveOriginalPrice']),
         'inventoryPolicyAsEnum': json['inventoryPolicyAsEnum'] == null ? undefined : json['inventoryPolicyAsEnum'],
         'weightUnitAsEnum': json['weightUnitAsEnum'] == null ? undefined : json['weightUnitAsEnum'],
-        'primaryAttachmentId': json['primaryAttachmentId'] == null ? undefined : json['primaryAttachmentId'],
     };
 }
 
@@ -444,11 +444,11 @@ export function ProductSpecificInfoToJSONTyped(value?: ProductSpecificInfo | nul
         'certificateOfAuthenticityUrl': value['certificateOfAuthenticityUrl'],
         'chemicalCompositions': value['chemicalCompositions'] == null ? undefined : (mapValues(value['chemicalCompositions'], ProductSpecificInfoChemicalInfoToJSON)),
         'effectivePrice': PriceToJSON(value['effectivePrice']),
+        'primaryAttachmentId': value['primaryAttachmentId'],
         'extraDeliveryFeeReward': RewardToJSON(value['extraDeliveryFeeReward']),
         'effectiveOriginalPrice': PriceToJSON(value['effectiveOriginalPrice']),
         'inventoryPolicyAsEnum': value['inventoryPolicyAsEnum'],
         'weightUnitAsEnum': value['weightUnitAsEnum'],
-        'primaryAttachmentId': value['primaryAttachmentId'],
     };
 }
 

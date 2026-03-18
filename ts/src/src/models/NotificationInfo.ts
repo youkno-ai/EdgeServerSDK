@@ -36,15 +36,24 @@ export interface NotificationInfo {
      * @type {string}
      * @memberof NotificationInfo
      */
-    typeAsEnum?: NotificationInfoTypeAsEnumEnum;
+    stateAsEnum?: NotificationInfoStateAsEnumEnum;
     /**
      * 
      * @type {string}
      * @memberof NotificationInfo
      */
-    stateAsEnum?: NotificationInfoStateAsEnumEnum;
+    typeAsEnum?: NotificationInfoTypeAsEnumEnum;
 }
 
+
+/**
+ * @export
+ */
+export const NotificationInfoStateAsEnumEnum = {
+    ENABLE: 'ENABLE',
+    DISABLE: 'DISABLE'
+} as const;
+export type NotificationInfoStateAsEnumEnum = typeof NotificationInfoStateAsEnumEnum[keyof typeof NotificationInfoStateAsEnumEnum];
 
 /**
  * @export
@@ -55,15 +64,6 @@ export const NotificationInfoTypeAsEnumEnum = {
     UNKNOWN: 'UNKNOWN'
 } as const;
 export type NotificationInfoTypeAsEnumEnum = typeof NotificationInfoTypeAsEnumEnum[keyof typeof NotificationInfoTypeAsEnumEnum];
-
-/**
- * @export
- */
-export const NotificationInfoStateAsEnumEnum = {
-    ENABLE: 'ENABLE',
-    DISABLE: 'DISABLE'
-} as const;
-export type NotificationInfoStateAsEnumEnum = typeof NotificationInfoStateAsEnumEnum[keyof typeof NotificationInfoStateAsEnumEnum];
 
 
 /**
@@ -85,8 +85,8 @@ export function NotificationInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'type': json['type'] == null ? undefined : json['type'],
         'state': json['state'] == null ? undefined : json['state'],
-        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
         'stateAsEnum': json['stateAsEnum'] == null ? undefined : json['stateAsEnum'],
+        'typeAsEnum': json['typeAsEnum'] == null ? undefined : json['typeAsEnum'],
     };
 }
 
@@ -103,8 +103,8 @@ export function NotificationInfoToJSONTyped(value?: NotificationInfo | null, ign
         
         'type': value['type'],
         'state': value['state'],
-        'typeAsEnum': value['typeAsEnum'],
         'stateAsEnum': value['stateAsEnum'],
+        'typeAsEnum': value['typeAsEnum'],
     };
 }
 

@@ -85,6 +85,18 @@ export interface ProductGeneratorInput {
      * @memberof ProductGeneratorInput
      */
     generateImages?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ProductGeneratorInput
+     */
+    imageGenProvider?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ProductGeneratorInput
+     */
+    videoGenProvider?: string;
 }
 
 
@@ -231,6 +243,8 @@ export function ProductGeneratorInputFromJSONTyped(json: any, ignoreDiscriminato
         'deterministic': json['deterministic'] == null ? undefined : json['deterministic'],
         'seed': json['seed'] == null ? undefined : json['seed'],
         'generateImages': json['generateImages'] == null ? undefined : json['generateImages'],
+        'imageGenProvider': json['imageGenProvider'] == null ? undefined : json['imageGenProvider'],
+        'videoGenProvider': json['videoGenProvider'] == null ? undefined : json['videoGenProvider'],
     };
 }
 
@@ -256,6 +270,8 @@ export function ProductGeneratorInputToJSONTyped(value?: ProductGeneratorInput |
         'deterministic': value['deterministic'],
         'seed': value['seed'],
         'generateImages': value['generateImages'],
+        'imageGenProvider': value['imageGenProvider'],
+        'videoGenProvider': value['videoGenProvider'],
     };
 }
 

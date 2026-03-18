@@ -32,6 +32,8 @@ import com.squareup.moshi.JsonClass
  * @param palette 
  * @param format 
  * @param animation 
+ * @param imageGenProvider 
+ * @param videoGenProvider 
  */
 
 
@@ -59,7 +61,13 @@ data class StickerCollectionGeneratorInput (
     val format: StickerCollectionGeneratorInput.Format? = null,
 
     @Json(name = "animation")
-    val animation: AnimationSpec? = null
+    val animation: AnimationSpec? = null,
+
+    @Json(name = "imageGenProvider")
+    val imageGenProvider: kotlin.String? = null,
+
+    @Json(name = "videoGenProvider")
+    val videoGenProvider: kotlin.String? = null
 
 ) {
 
