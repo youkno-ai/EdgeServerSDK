@@ -7,11 +7,11 @@
     "declaration": true,
     "declarationMap": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "src/src",
     "esModuleInterop": true,
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/src/**/*.ts"
   ]
 }
